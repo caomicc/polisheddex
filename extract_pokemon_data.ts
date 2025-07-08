@@ -60,7 +60,12 @@ function extractMoveDescriptions() {
   for (let i = 0; i < moveNames.length; i++) {
     const label = descLabels[i];
     if (label && moveNames[i]) {
-      moveDescByName[moveNames[i].toUpperCase().replace(/[^A-Z0-9_]/g, '_')] = descMap[label];
+      const moveKey = moveNames[i].toUpperCase().replace(/[^A-Z0-9_]/g, '_');
+      if (descMap[label]) {
+        moveDescByName[moveKey] = descMap[label];
+      } else {
+        console.warn(`Warning: No description found for move: ${moveKey}`);
+      }
     }
   }
   fs.writeFileSync(moveDescriptionsOutputPath, JSON.stringify(moveDescByName, null, 2));
