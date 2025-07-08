@@ -8,12 +8,12 @@ export default function PokemonList({ searchParams }: { searchParams?: { sort?: 
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
   // Determine sort type from query param
-  const sortType = searchParams?.sort === 'localdex' || searchParams?.sort === 'nationaldex' ? searchParams.sort : 'alphabetical';
+  const sortType = searchParams?.sort === 'nationaldex' ? searchParams.sort : 'alphabetical';
 
   // Prepare an array of Pokémon with their names and dex numbers
+  // eslint-disable-next-line
   const pokemonList = Object.entries(data).map(([name, info]: [string, any]) => ({
     name,
-    localdex: info.localDex ?? Infinity,
     nationaldex: info.nationalDex ?? Infinity,
   }));
 
@@ -29,8 +29,17 @@ export default function PokemonList({ searchParams }: { searchParams?: { sort?: 
   });
 
   return (
-    <div className="max-w-2xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Pokémon List</h1>
+    <div className="max-w-xl mx-auto p-4">
+      <nav className="mb-4 text-sm">
+        <ol className="list-reset flex text-gray-600">
+          <li>
+            <Link href="/" className="hover:underline text-blue-700">Home</Link>
+            <span className="mx-2">/</span>
+          </li>
+          <li className="text-gray-900 font-semibold">Pokemon</li>
+        </ol>
+      </nav>
+      <h1 className="text-2xl font-bold mb-4">Pokémon List</h1>
       <div className="mb-4 flex gap-4">
         <SortLink label="Alphabetical" sort="alphabetical" current={sortType} />
         {/* <SortLink label="Local Dex" sort="localdex" current={sortType} /> */}
@@ -38,12 +47,14 @@ export default function PokemonList({ searchParams }: { searchParams?: { sort?: 
       </div>
       <ul className="grid gap-2">
         {sortedPokemon.map((p) => (
-          <li key={p.name}>
-            <Link href={`/pokemon/${encodeURIComponent(p.name)}`} className="text-blue-600 hover:underline">
-              {p.name}
-            </Link>
+          <li key={p.name} className="border rounded p-2 flex items-center justify-between">
+            <div>
+              <Link href={`/pokemon/${encodeURIComponent(p.name)}`} className="text-blue-600 hover:underline font-semibold">
+                {p.name}
+              </Link>
+            </div>
             <span className="ml-2 text-xs text-gray-500">
-              (Local: {p.localdex !== Infinity ? p.localdex : '—'}, National: {p.nationaldex !== Infinity ? p.nationaldex : '—'})
+              National: {p.nationaldex !== Infinity ? p.nationaldex : '—'}
             </span>
           </li>
         ))}

@@ -9,10 +9,12 @@ const __dirname = path.dirname(__filename);
 function extractMoveDescriptions() {
   const moveNamesPath = path.join(__dirname, 'data/moves/names.asm');
   const moveDescriptionsPath = path.join(__dirname, 'data/moves/descriptions.asm');
+  const moveStatsPath = path.join(__dirname, 'data/moves/moves.asm');
   const moveDescriptionsOutputPath = path.join(__dirname, 'move_descriptions.json');
 
   const namesData = fs.readFileSync(moveNamesPath, 'utf8');
   const descData = fs.readFileSync(moveDescriptionsPath, 'utf8');
+  const statsData = fs.readFileSync(moveStatsPath, 'utf8');
 
   // Parse move names (order matters)
   const nameLines = namesData.split(/\r?\n/).filter(l => l.trim().startsWith('li '));
@@ -47,15 +49,46 @@ function extractMoveDescriptions() {
     descMap[currentLabel] = buffer.join(' ');
   }
 
+  // Parse move stats
+  const typeEnumToName: Record<string, string> = {
+    'NORMAL': 'Normal', 'FIGHTING': 'Fighting', 'FLYING': 'Flying', 'POISON': 'Poison', 'GROUND': 'Ground',
+    'ROCK': 'Rock', 'BUG': 'Bug', 'GHOST': 'Ghost', 'STEEL': 'Steel', 'FIRE': 'Fire', 'WATER': 'Water',
+    'GRASS': 'Grass', 'ELECTRIC': 'Electric', 'PSYCHIC': 'Psychic', 'ICE': 'Ice', 'DRAGON': 'Dragon',
+    'DARK': 'Dark', 'FAIRY': 'Fairy', 'SHADOW': 'Shadow', 'NONE': 'None', 'UNKNOWN_T': 'Unknown'
+  };
+  const categoryEnumToName: Record<string, string> = {
+    'PHYSICAL': 'Physical', 'SPECIAL': 'Special', 'STATUS': 'Status'
+  };
+  const statsLines = statsData.split(/\r?\n/);
+  const moveStats: Record<string, { type: string; pp: number; power: number; category: string }> = {};
+  for (const line of statsLines) {
+    const match = line.match(/^\s*move\s+([A-Z0-9_]+),\s*[A-Z0-9_]+,\s*(-?\d+),\s*([A-Z_]+),\s*-?\d+,\s*(\d+),\s*\d+,\s*([A-Z_]+)/);
+    if (match) {
+      const move = match[1];
+      const power = parseInt(match[2], 10);
+      const type = typeEnumToName[match[3]] || 'None';
+      const pp = parseInt(match[4], 10);
+      const category = categoryEnumToName[match[5]] || 'Unknown';
+      moveStats[move] = { type, pp, power, category };
+    }
+  }
+
   // Map move names to their description (by order)
-  const moveDescByName: Record<string, string> = {};
+  const moveDescByName: Record<string, { description: string; type: string; pp: number; power: number; category: string }> = {};
   const descLabels = Object.keys(descMap);
   for (let i = 0; i < moveNames.length; i++) {
     const label = descLabels[i];
     if (label && moveNames[i]) {
       const moveKey = moveNames[i].toUpperCase().replace(/[^A-Z0-9_]/g, '_');
+      const stats = moveStats[moveKey] || { type: 'None', pp: 0, power: 0, category: 'Unknown' };
       if (descMap[label]) {
-        moveDescByName[moveKey] = descMap[label];
+        moveDescByName[moveKey] = {
+          description: descMap[label],
+          type: stats.type,
+          pp: stats.pp,
+          power: stats.power,
+          category: stats.category
+        };
       } else {
         console.warn(`Warning: No description found for move: ${moveKey}`);
       }
@@ -217,7 +250,31 @@ function parseDexEntries(file: string): string[] {
 
 const nationalDexOrder = parseDexEntries(path.join(__dirname, 'data/pokemon/dex_entries.asm'));
 
-const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null }> = {};
+// --- Type Extraction ---
+const baseStatsDir = path.join(__dirname, 'data/pokemon/base_stats');
+const typeMap: Record<string, string[]> = {};
+const typeEnumToName: Record<string, string> = {
+  'NORMAL': 'Normal', 'FIGHTING': 'Fighting', 'FLYING': 'Flying', 'POISON': 'Poison', 'GROUND': 'Ground',
+  'ROCK': 'Rock', 'BUG': 'Bug', 'GHOST': 'Ghost', 'STEEL': 'Steel', 'FIRE': 'Fire', 'WATER': 'Water',
+  'GRASS': 'Grass', 'ELECTRIC': 'Electric', 'PSYCHIC': 'Psychic', 'ICE': 'Ice', 'DRAGON': 'Dragon',
+  'DARK': 'Dark', 'FAIRY': 'Fairy', 'SHADOW': 'Shadow', 'NONE': 'None'
+};
+const baseStatsFiles = fs.readdirSync(baseStatsDir).filter(f => f.endsWith('.asm'));
+for (const file of baseStatsFiles) {
+  const monName = toTitleCase(file.replace('.asm', ''));
+  const content = fs.readFileSync(path.join(baseStatsDir, file), 'utf8');
+  const typeLine = content.split(/\r?\n/).find(l => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
+  if (typeLine) {
+    const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+    if (match) {
+      const t1 = typeEnumToName[match[1]] || 'None';
+      const t2 = typeEnumToName[match[2]] || 'None';
+      typeMap[monName] = [t1, t2];
+    }
+  }
+}
+
+const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, types: string | string[] }> = {};
 for (const mon of Object.keys(result)) {
   const moves = result[mon].moves;
   let evolution: Evolution | null = null;
@@ -233,8 +290,53 @@ for (const mon of Object.keys(result)) {
   }
   // Dex numbers (1-based, null if not found)
   const nationalDex = nationalDexOrder.indexOf(mon) >= 0 ? nationalDexOrder.indexOf(mon) + 1 : null;
-  finalResult[mon] = { evolution, moves, nationalDex };
+  // Types
+  let types: string | string[] = typeMap[mon] || ['None', 'None'];
+  // Remove duplicates and handle 'None'
+  types = Array.from(new Set(types));
+  if (types.length === 1 || types[1] === 'None') {
+    types = types[0];
+  }
+  finalResult[mon] = { evolution, moves, nationalDex, types };
 }
 
 fs.writeFileSync(outputPath, JSON.stringify(finalResult, null, 2));
 console.log('Pokémon evolution and moves data extracted to', outputPath);
+
+// --- Egg Moves Extraction ---
+function extractEggMoves() {
+  const eggMovesPath = path.join(__dirname, 'data/pokemon/egg_moves.asm');
+  const outputEggMovesPath = path.join(__dirname, 'pokemon_egg_moves.json');
+  const data = fs.readFileSync(eggMovesPath, 'utf8');
+  const lines = data.split(/\r?\n/);
+  const eggMoves: Record<string, string[]> = {};
+  let currentMon: string | null = null;
+  for (const line of lines) {
+    const speciesMatch = line.match(/^([A-Za-z0-9_]+)EggSpeciesMoves:/);
+    if (speciesMatch) {
+      currentMon = null; // reset
+      continue;
+    }
+    const dpMatch = line.match(/^\s*dp ([A-Z0-9_]+)(?:, ([A-Z0-9_]+))?/);
+    if (dpMatch) {
+      // Use only the species name for the key, ignore form for now
+      currentMon = toTitleCase(dpMatch[1]);
+      eggMoves[currentMon] = [];
+      continue;
+    }
+    if (currentMon && line.match(/^\s*db ([A-Z0-9_]+)/)) {
+      const moveMatch = line.match(/^\s*db ([A-Z0-9_]+)/);
+      if (moveMatch && moveMatch[1] !== '$ff') {
+        eggMoves[currentMon].push(toTitleCase(moveMatch[1]));
+      }
+    }
+    // End of moves for this species
+    if (currentMon && line.includes('$ff')) {
+      currentMon = null;
+    }
+  }
+  fs.writeFileSync(outputEggMovesPath, JSON.stringify(eggMoves, null, 2));
+  console.log('Egg moves extracted to', outputEggMovesPath);
+}
+
+extractEggMoves();

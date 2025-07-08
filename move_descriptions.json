@@ -1,187 +1,1297 @@
 {
-  "ACROBATICS": "\t?",
-  "KARATE_CHOP": "\tDeals more damage \tto heavier foes.",
-  "DOUBLESLAP": "\tHas a high criti- \tcal hit ratio.",
-  "AERIAL_ACE": "\tAn attack that \tnever misses.",
-  "DRAGON_CLAW": "\tSteals 1/2 of the \tdamage inflicted.",
-  "PAY_DAY": "\tSteals 3/4 of the \tdamage inflicted.",
-  "FIRE_PUNCH": "\tRepeatedly slaps \t2-5 times.",
-  "ICE_PUNCH": "\tScratches or jabs \t2-5 times.",
-  "THUNDERPUNCH": "\tFires pins that \tstrike 2-5 times.",
-  "SCRATCH": "\tFires icicles to \thit 2-5 times.",
-  "X_SCISSOR": "\tHurls boulders to \thit 2-5 times.",
-  "NIGHT_SLASH": "\tA tackle that also \thurts the user.",
-  "AIR_SLASH": "\tA charge that also \thurts the user.",
-  "SWORDS_DANCE": "\tAn attack that may \tcause flinching.",
-  "CUT": "\tAn attack that may \tpoison the foe.",
-  "GUST": "\tAn attack that may \tinflict a burn.",
-  "WING_ATTACK": "\tAn attack that may \tcause paralysis.",
-  "SUCKER_PUNCH": "\tAn attack that \talways paralyzes.",
-  "FLY": "\tAn attack that may \tfreeze the foe.",
-  "DAZZLINGLEAM": "\tAn attack that may \tconfuse the foe.",
-  "VOLT_SWITCH": "\tAn attack that \tconfuses the foe.",
-  "VINE_WHIP": "\tAn attack that may \tup user's Attack.",
-  "STOMP": "\tAn attack that may \tup user's Defense.",
-  "DOUBLE_KICK": "\tAn attack that may \tup user's Speed.",
-  "FLARE_BLITZ": "\tAn attack that may \traise all stats.",
-  "STONE_EDGE": "\tLowers the user's \tDef and Sp.Def.",
-  "FOCUS_BLAST": "\tAn attack that may \tlower Attack.",
-  "TOXIC_SPIKES": "\tRemoves Reflect \tand Light Screen.",
-  "HEADBUTT": "\tAn attack that may \tlower Defense.",
-  "HORN_ATTACK": "\tAn attack that may \tlower Speed.",
-  "TRICK": "\tA Ground attack \tthat lowers Speed.",
-  "HEX": "\tAn icy attack that \tlowers Speed.",
-  "TACKLE": "\tAn attack that may \tlower Sp.Atk.",
-  "BODY_SLAM": "\tAn attack that may \tlower Sp.Def.",
-  "WRAP": "\tAn attack that \tlowers accuracy.",
-  "TAKE_DOWN": "\tAn attack that may \tlower accuracy.",
-  "THRASH": "\tAlways inflicts \t20HP damage.",
-  "DOUBLE_EDGE": "\tAlways inflicts \t40HP damage.",
-  "HAIL": "\tDamage equals the \tuser's level.",
-  "POISON_STING": "\tA move that may \tpoison the foe.",
-  "U_TURN": "\tA move that may \tburn the foe.",
-  "PIN_MISSILE": "\tparalyzes the foe.@",
-  "LEER": "\tA move that may \tparalyze the foe.",
-  "BITE": "\tMay cause the foe \tto fall asleep.",
-  "GROWL": "\tA move that puts \tthe foe to sleep.",
-  "ROAR": "\tA Poison move with \tincreasing damage.",
-  "SING": "\tA move that may \tconfuse the foe.",
-  "SUPERSONIC": "\tRaises the user's \tDefense.",
-  "SONIC_BOOM": "\tRaises the user's \tevasiveness.",
-  "DISABLE": "\tRaises the criti- \tcal hit ratio.",
-  "ACID": "\tSharply raises the \tuser's Attack.",
-  "EMBER": "\tSharply raises the \tuser's Defense.",
-  "FLAMETHROWER": "\tSharply raises the \tuser's Speed.",
-  "CALM_MIND": "\tSharply raises the \tuser's Sp.Atk.",
-  "WATER_GUN": "\tSharply raises the \tuser's Sp.Def.",
-  "HYDRO_PUMP": "\tSharply raises the \tuser's evasiveness.",
-  "SURF": "\tRaises the user's \tAtk and Sp.Atk.",
-  "ICE_BEAM": "\tRaises the user's \tAtk and Def.",
-  "BLIZZARD": "\tRaises the user's \tSp.Atk and Sp.Def.",
-  "PSYBEAM": "\tRaises the user's \tAttack and Speed.",
-  "BUBBLE_BEAM": "\tRaises the user's \tAtk and accuracy.",
-  "AURORA_BEAM": "\tA move that lowers \tthe foe's Attack.",
-  "HYPER_BEAM": "\tA move that lowers \tthe foe's Defense.",
-  "PECK": "\tA move that lowers \tthe foe's Speed.",
-  "DRILL_PECK": "\tA move that lowers \tthe foe's accuracy.",
-  "CLOSE_COMBAT": "\tSharply lowers the \tfoe's Attack.",
-  "LOW_KICK": "\tSharply lowers the \tfoe's Defense.",
-  "COUNTER": "\tSharply lowers the \tfoe's Speed.",
-  "SEISMIC_TOSS": "\tEliminates all \tstat changes.",
-  "STRENGTH": "\tPrevents all \tstatus problems.",
-  "ABSORB": "\tRaises Defense \twith a barrier.",
-  "MEGA_DRAIN": "\tRaises Sp.Def with \ta wall of light.",
-  "LEECH_SEED": "\tRestores HP by 1/2 \tthe max HP.",
-  "GROWTH": "\tRestores HP by 1/2 \tthe user's max HP.",
-  "RAZOR_LEAF": "\tLands to restore \t1/2 the max HP.",
-  "SOLAR_BEAM": "\tWorks 2-3 turns \tand confuses user.",
-  "POISONPOWDER": "\tTraps the foe for \t2-5 turns.",
-  "STUN_SPORE": "\tSlow #mon move \tfirst for 5 turns.",
-  "SLEEP_POWDER": "\tVery powerful but \tmakes user faint.",
-  "PETAL_DANCE": "\tEndures any hit \twith at least 1HP.",
-  "STRING_SHOT": "\tLeaves the foe \twith at least 1HP.",
-  "DRAGON_RAGE": "\t1st turn: Prepare \t2nd turn: Attack",
-  "FIRE_SPIN": "\t1st turn: Fly \t2nd turn: Attack",
-  "THUNDERSHOCK": "\t1st turn: Attack \t2nd turn: Rest",
-  "THUNDERBOLT": "\t1st turn: Burrow \t2nd turn: Attack",
-  "THUNDER_WAVE": "\tDamage doubles if \tuser has no item.",
-  "THUNDER": "\tDamage doubles if \tfoe has status.",
-  "ROCK_THROW": "\tDamage doubles if \tuser is hit first.",
-  "EARTHQUAKE": "\tDamage doubles if \tfoe is poisoned.",
-  "AVALANCHE": "\tBoosts Water-type \tmoves for 5 turns.",
-  "DIG": "\tBoosts Fire-type \tmoves for 5 turns.",
-  "TOXIC": "\tInflicts damage \tevery turn.",
-  "CONFUSION": "\tSwitches out after \tmaking its attack.",
-  "PSYCHIC": "\tA fiery punch. May \tcause a burn.",
-  "HYPNOSIS": "\tAn icy punch. May \tcause freezing.",
-  "HONE_CLAWS": "\tAn electric punch. \tIt may paralyze.",
-  "AGILITY": "\tReturns a physical \tattack double.",
-  "QUICK_ATTACK": "\tReturns a special \tattack double.",
-  "RAGE": "\tHurts foes when \tthey switch in.",
-  "TELEPORT": "\tPoisons foes when \tthey switch in.",
-  "NIGHT_SHADE": "\tLets the user get \tin the first hit.",
-  "DRAGON_PULSE": "\tA speedy lunge. \tAlways goes first.",
-  "SCREECH": "\tHurls icy shards. \tAlways goes first.",
-  "DOUBLE_TEAM": "\tA fast punch that \talways goes first.",
-  "RECOVER": "\tA tough punch that \talways goes first.",
-  "ROCK_BLAST": "\tA powerful first- \tstrike attack.",
-  "MINIMIZE": "\tScratches with \tsharp claws.",
-  "SMOKESCREEN": "\tJabs the foe with \ta beak, etc.",
-  "CONFUSE_RAY": "\tWhips the foe with \tslender vines.",
-  "AQUA_TAIL": "\tSlashes the foe \twith sharp claws.",
-  "DEFENSE_CURL": "\tCuts using claws, \tscythes, etc.",
-  "BARRIER": "\tSlashes foe with \tscythes or claws.",
-  "LIGHT_SCREEN": "\tWhips up a strong \tgust of wind.",
-  "HAZE": "\tStrikes the foe \twith wings.",
-  "REFLECT": "\tA full-body charge \tattack.",
-  "FOCUS_ENERGY": "\tAn attack using a \thorn to jab.",
-  "FLASH_CANNON": "\tA double kicking \tattack.",
-  "METRONOME": "\tThrows coins. Gets \tthem back later.",
-  "SCALD": "\tAttacks before the \tfoe does.",
-  "TRICK_ROOM": "\tDazzles with a \tpowerful flash.",
-  "SKILL_SWAP": "\tScares wild foes \tto end battle.",
-  "LICK": "\tDisables the foe's \tmost recent move.",
-  "GUNK_SHOT": "\tSquirts water to \tattack.",
-  "VENOSHOCK": "\tA strong Water- \ttype attack.",
-  "EARTH_POWER": "\tA powerful Water- \ttype attack.",
-  "FIRE_BLAST": "\tA strong, spin- \tning-peck attack.",
-  "WATERFALL": "\tA powerful physi- \tcal attack.",
-  "ICICLE_CRASH": "\tSteals HP from the \tfoe on every turn.",
-  "SWIFT": "\tDrops rocks on the \tenemy.",
-  "IRON_HEAD": "\tTough but useless \tvs. flying foes.",
-  "ICICLE_SPEAR": "\tRaises Attack if \tthe user is hit.",
-  "BULLDOZE": "\tA move for fleeing \tfrom battle.",
-  "AMNESIA": "\tAttacks foe with \ta shock wave.",
-  "ROOST": "\tSwings tail like a \twave in a storm.",
-  "FRESH_SNACK": "\tRandomly uses any \t#mon move.",
-  "HI_JUMP_KICK": "\tSwaps abilities \twith the foe.",
-  "GLARE": "\tMay miss and hurt \tthe user.",
-  "DREAM_EATER": "\tSteals HP from a \tsleeping victim.",
-  "POISON_JAB": "\tThe user assumes \tthe foe's guise.",
-  "BULLET_PUNCH": "\tHas no effect \twhatsoever.",
-  "LEECH_LIFE": "\tAn attack that \tstrikes twice.",
-  "DRAININGKISS": "\tSleep for 2 turns \tto fully recover.",
-  "BRAVE_BIRD": "\tChange user's type \tto a move's type.",
-  "TRANSFORM": "\tFires three kinds \tof beams at once.",
-  "WATER_PULSE": "\tCuts the foe's HP \tby 1/2.",
-  "DIZZY_PUNCH": "\tMakes a decoy with \t1/4 user's max HP.",
-  "SPORE": "\tUsed only if all \tPP are exhausted.",
-  "FLASH": "\tCopies the foe's \tmove permanently.",
-  "EXTRASENSORY": "\tAn attack that may \tsteal a held item.",
-  "SPLASH": "\tDouble damage with \tPsn, Brn, or Prz.",
-  "DRAGON_DANCE": "\tAttack the foe \twith sound waves.",
-  "CRABHAMMER": "\tWorks differently \tfor Ghost-types.",
-  "EXPLOSION": "\tStronger if the \tuser's HP is low.",
-  "FURY_STRIKES": "\tSlams a barrage of \tseeds at the foe.",
-  "BONEMERANG": "\tFoils attack that \tturn. It may fail.",
-  "REST": "\tSacrifices HP to \tmaximize Attack.",
-  "ROCK_SLIDE": "\tNegates foe's eva- \tsion and immunity.",
-  "HYPER_FANG": "\tThe foe faints if \tthe user does.",
-  "BULK_UP": "\tBoth user and foe \tfaint in 3 turns.",
-  "CONVERSION": "\tAttacks with a ray \tof gem-like light.",
-  "TRI_ATTACK": "\tAttacks 5 turns \twith rising power.",
-  "SUPER_FANG": "\tCauses confusion \tbut raises Attack.",
-  "SLASH": "\tLowers defenses, \traises offenses.",
-  "SUBSTITUTE": "\tBites the foe and \teats a held Berry.",
-  "GIGA_IMPACT": "\tPrevents fleeing \tor switching.",
-  "SKETCH": "\tMakes the opposite \tgender infatuated.",
-  "DRAIN_PUNCH": "\tRandomly attacks \twhile asleep.",
-  "THIEF": "\tEliminates all \tstatus problems.",
-  "WILL_O_WISP": "\tAn attack that is \tbased on loyalty.",
-  "ZEN_HEADBUTT": "\tA wave that does \tphysical damage.",
-  "FACADE": "\tAdds user & foe's \tHPs. Shares total.",
-  "FLAME_CHARGE": "\tA Ground attack \twith random power.",
-  "HYPER_VOICE": "\tA powerful charge \tattack.",
-  "CURSE": "\tA violent lash \tattack.",
-  "GYRO_BALL": "\tA strong breath \tattack.",
-  "ENERGY_BALL": "\tSwitches while \tkeeping effects.",
-  "AEROBLAST": "\tMakes the foe re- \tpeat 2-6 times.",
-  "SEED_BOMB": "\tHeavily strikes \tswitching #mon.",
-  "REVERSAL": "\tA high-speed \tspinning attack.",
-  "ASTONISH": "\tRestores HP based \ton weather.",
-  "ICE_SHARD": "\tSlaps down the \tfoe's held item.",
-  "PROTECT": "\tThe type varies \twith the #mon.",
-  "MACH_PUNCH": "\tAn attack that \thits on 3rd turn.",
-  "SCARY_FACE": "\tDoes more damage \tat lower speed.",
-  "FEINT_ATTACK": "\tSwaps held items \twith the foe."
+  "ACROBATICS": {
+    "description": "\t?",
+    "type": "Flying",
+    "pp": 15,
+    "power": 55,
+    "category": "Physical"
+  },
+  "KARATE_CHOP": {
+    "description": "\tDeals more damage \tto heavier foes.",
+    "type": "Fighting",
+    "pp": 25,
+    "power": 50,
+    "category": "Physical"
+  },
+  "DOUBLESLAP": {
+    "description": "\tHas a high criti- \tcal hit ratio.",
+    "type": "None",
+    "pp": 0,
+    "power": 0,
+    "category": "Unknown"
+  },
+  "AERIAL_ACE": {
+    "description": "\tAn attack that \tnever misses.",
+    "type": "Flying",
+    "pp": 20,
+    "power": 60,
+    "category": "Physical"
+  },
+  "DRAGON_CLAW": {
+    "description": "\tSteals 1/2 of the \tdamage inflicted.",
+    "type": "Dragon",
+    "pp": 15,
+    "power": 80,
+    "category": "Physical"
+  },
+  "PAY_DAY": {
+    "description": "\tSteals 3/4 of the \tdamage inflicted.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 40,
+    "category": "Physical"
+  },
+  "FIRE_PUNCH": {
+    "description": "\tRepeatedly slaps \t2-5 times.",
+    "type": "Fire",
+    "pp": 15,
+    "power": 75,
+    "category": "Physical"
+  },
+  "ICE_PUNCH": {
+    "description": "\tScratches or jabs \t2-5 times.",
+    "type": "Ice",
+    "pp": 15,
+    "power": 75,
+    "category": "Physical"
+  },
+  "THUNDERPUNCH": {
+    "description": "\tFires pins that \tstrike 2-5 times.",
+    "type": "Electric",
+    "pp": 15,
+    "power": 75,
+    "category": "Physical"
+  },
+  "SCRATCH": {
+    "description": "\tFires icicles to \thit 2-5 times.",
+    "type": "Normal",
+    "pp": 35,
+    "power": 40,
+    "category": "Physical"
+  },
+  "X_SCISSOR": {
+    "description": "\tHurls boulders to \thit 2-5 times.",
+    "type": "Bug",
+    "pp": 15,
+    "power": 80,
+    "category": "Physical"
+  },
+  "NIGHT_SLASH": {
+    "description": "\tA tackle that also \thurts the user.",
+    "type": "Dark",
+    "pp": 15,
+    "power": 70,
+    "category": "Physical"
+  },
+  "AIR_SLASH": {
+    "description": "\tA charge that also \thurts the user.",
+    "type": "Flying",
+    "pp": 15,
+    "power": 75,
+    "category": "Special"
+  },
+  "SWORDS_DANCE": {
+    "description": "\tAn attack that may \tcause flinching.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "CUT": {
+    "description": "\tAn attack that may \tpoison the foe.",
+    "type": "Steel",
+    "pp": 30,
+    "power": 60,
+    "category": "Physical"
+  },
+  "GUST": {
+    "description": "\tAn attack that may \tinflict a burn.",
+    "type": "Flying",
+    "pp": 35,
+    "power": 40,
+    "category": "Special"
+  },
+  "WING_ATTACK": {
+    "description": "\tAn attack that may \tcause paralysis.",
+    "type": "Flying",
+    "pp": 35,
+    "power": 60,
+    "category": "Physical"
+  },
+  "SUCKER_PUNCH": {
+    "description": "\tAn attack that \talways paralyzes.",
+    "type": "Dark",
+    "pp": 5,
+    "power": 70,
+    "category": "Physical"
+  },
+  "FLY": {
+    "description": "\tAn attack that may \tfreeze the foe.",
+    "type": "Flying",
+    "pp": 15,
+    "power": 90,
+    "category": "Physical"
+  },
+  "DAZZLINGLEAM": {
+    "description": "\tAn attack that may \tconfuse the foe.",
+    "type": "Fairy",
+    "pp": 10,
+    "power": 80,
+    "category": "Special"
+  },
+  "VOLT_SWITCH": {
+    "description": "\tAn attack that \tconfuses the foe.",
+    "type": "Electric",
+    "pp": 20,
+    "power": 70,
+    "category": "Special"
+  },
+  "VINE_WHIP": {
+    "description": "\tAn attack that may \tup user's Attack.",
+    "type": "Grass",
+    "pp": 25,
+    "power": 45,
+    "category": "Physical"
+  },
+  "STOMP": {
+    "description": "\tAn attack that may \tup user's Defense.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 65,
+    "category": "Physical"
+  },
+  "DOUBLE_KICK": {
+    "description": "\tAn attack that may \tup user's Speed.",
+    "type": "Fighting",
+    "pp": 30,
+    "power": 30,
+    "category": "Physical"
+  },
+  "FLARE_BLITZ": {
+    "description": "\tAn attack that may \traise all stats.",
+    "type": "Fire",
+    "pp": 15,
+    "power": 120,
+    "category": "Physical"
+  },
+  "STONE_EDGE": {
+    "description": "\tLowers the user's \tDef and Sp.Def.",
+    "type": "Rock",
+    "pp": 5,
+    "power": 100,
+    "category": "Physical"
+  },
+  "FOCUS_BLAST": {
+    "description": "\tAn attack that may \tlower Attack.",
+    "type": "Fighting",
+    "pp": 5,
+    "power": 120,
+    "category": "Special"
+  },
+  "TOXIC_SPIKES": {
+    "description": "\tRemoves Reflect \tand Light Screen.",
+    "type": "Poison",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "HEADBUTT": {
+    "description": "\tAn attack that may \tlower Defense.",
+    "type": "Normal",
+    "pp": 15,
+    "power": 70,
+    "category": "Physical"
+  },
+  "HORN_ATTACK": {
+    "description": "\tAn attack that may \tlower Speed.",
+    "type": "Normal",
+    "pp": 25,
+    "power": 65,
+    "category": "Physical"
+  },
+  "TRICK": {
+    "description": "\tA Ground attack \tthat lowers Speed.",
+    "type": "Psychic",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "HEX": {
+    "description": "\tAn icy attack that \tlowers Speed.",
+    "type": "Ghost",
+    "pp": 10,
+    "power": 65,
+    "category": "Special"
+  },
+  "TACKLE": {
+    "description": "\tAn attack that may \tlower Sp.Atk.",
+    "type": "Normal",
+    "pp": 35,
+    "power": 40,
+    "category": "Physical"
+  },
+  "BODY_SLAM": {
+    "description": "\tAn attack that may \tlower Sp.Def.",
+    "type": "Normal",
+    "pp": 15,
+    "power": 85,
+    "category": "Physical"
+  },
+  "WRAP": {
+    "description": "\tAn attack that \tlowers accuracy.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 15,
+    "category": "Physical"
+  },
+  "TAKE_DOWN": {
+    "description": "\tAn attack that may \tlower accuracy.",
+    "type": "Normal",
+    "pp": 15,
+    "power": 90,
+    "category": "Physical"
+  },
+  "THRASH": {
+    "description": "\tAlways inflicts \t20HP damage.",
+    "type": "Normal",
+    "pp": 10,
+    "power": 120,
+    "category": "Physical"
+  },
+  "DOUBLE_EDGE": {
+    "description": "\tAlways inflicts \t40HP damage.",
+    "type": "Normal",
+    "pp": 15,
+    "power": 120,
+    "category": "Physical"
+  },
+  "HAIL": {
+    "description": "\tDamage equals the \tuser's level.",
+    "type": "Ice",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "POISON_STING": {
+    "description": "\tA move that may \tpoison the foe.",
+    "type": "Poison",
+    "pp": 35,
+    "power": 15,
+    "category": "Physical"
+  },
+  "U_TURN": {
+    "description": "\tA move that may \tburn the foe.",
+    "type": "Bug",
+    "pp": 20,
+    "power": 70,
+    "category": "Physical"
+  },
+  "PIN_MISSILE": {
+    "description": "\tparalyzes the foe.@",
+    "type": "Bug",
+    "pp": 20,
+    "power": 25,
+    "category": "Physical"
+  },
+  "LEER": {
+    "description": "\tA move that may \tparalyze the foe.",
+    "type": "Normal",
+    "pp": 30,
+    "power": 0,
+    "category": "Status"
+  },
+  "BITE": {
+    "description": "\tMay cause the foe \tto fall asleep.",
+    "type": "Dark",
+    "pp": 25,
+    "power": 60,
+    "category": "Physical"
+  },
+  "GROWL": {
+    "description": "\tA move that puts \tthe foe to sleep.",
+    "type": "Normal",
+    "pp": 40,
+    "power": 0,
+    "category": "Status"
+  },
+  "ROAR": {
+    "description": "\tA Poison move with \tincreasing damage.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "SING": {
+    "description": "\tA move that may \tconfuse the foe.",
+    "type": "Normal",
+    "pp": 15,
+    "power": 0,
+    "category": "Status"
+  },
+  "SUPERSONIC": {
+    "description": "\tRaises the user's \tDefense.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "SONIC_BOOM": {
+    "description": "\tRaises the user's \tevasiveness.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 20,
+    "category": "Special"
+  },
+  "DISABLE": {
+    "description": "\tRaises the criti- \tcal hit ratio.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "ACID": {
+    "description": "\tSharply raises the \tuser's Attack.",
+    "type": "Poison",
+    "pp": 30,
+    "power": 40,
+    "category": "Special"
+  },
+  "EMBER": {
+    "description": "\tSharply raises the \tuser's Defense.",
+    "type": "Fire",
+    "pp": 25,
+    "power": 40,
+    "category": "Special"
+  },
+  "FLAMETHROWER": {
+    "description": "\tSharply raises the \tuser's Speed.",
+    "type": "Fire",
+    "pp": 15,
+    "power": 90,
+    "category": "Special"
+  },
+  "CALM_MIND": {
+    "description": "\tSharply raises the \tuser's Sp.Atk.",
+    "type": "Psychic",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "WATER_GUN": {
+    "description": "\tSharply raises the \tuser's Sp.Def.",
+    "type": "Water",
+    "pp": 25,
+    "power": 40,
+    "category": "Special"
+  },
+  "HYDRO_PUMP": {
+    "description": "\tSharply raises the \tuser's evasiveness.",
+    "type": "Water",
+    "pp": 5,
+    "power": 110,
+    "category": "Special"
+  },
+  "SURF": {
+    "description": "\tRaises the user's \tAtk and Sp.Atk.",
+    "type": "Water",
+    "pp": 15,
+    "power": 90,
+    "category": "Special"
+  },
+  "ICE_BEAM": {
+    "description": "\tRaises the user's \tAtk and Def.",
+    "type": "Ice",
+    "pp": 10,
+    "power": 90,
+    "category": "Special"
+  },
+  "BLIZZARD": {
+    "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
+    "type": "Ice",
+    "pp": 5,
+    "power": 110,
+    "category": "Special"
+  },
+  "PSYBEAM": {
+    "description": "\tRaises the user's \tAttack and Speed.",
+    "type": "Psychic",
+    "pp": 20,
+    "power": 65,
+    "category": "Special"
+  },
+  "BUBBLE_BEAM": {
+    "description": "\tRaises the user's \tAtk and accuracy.",
+    "type": "Water",
+    "pp": 20,
+    "power": 65,
+    "category": "Special"
+  },
+  "AURORA_BEAM": {
+    "description": "\tA move that lowers \tthe foe's Attack.",
+    "type": "Ice",
+    "pp": 20,
+    "power": 65,
+    "category": "Special"
+  },
+  "HYPER_BEAM": {
+    "description": "\tA move that lowers \tthe foe's Defense.",
+    "type": "Normal",
+    "pp": 5,
+    "power": 150,
+    "category": "Special"
+  },
+  "PECK": {
+    "description": "\tA move that lowers \tthe foe's Speed.",
+    "type": "Flying",
+    "pp": 35,
+    "power": 35,
+    "category": "Physical"
+  },
+  "DRILL_PECK": {
+    "description": "\tA move that lowers \tthe foe's accuracy.",
+    "type": "Flying",
+    "pp": 20,
+    "power": 80,
+    "category": "Physical"
+  },
+  "CLOSE_COMBAT": {
+    "description": "\tSharply lowers the \tfoe's Attack.",
+    "type": "Fighting",
+    "pp": 5,
+    "power": 120,
+    "category": "Physical"
+  },
+  "LOW_KICK": {
+    "description": "\tSharply lowers the \tfoe's Defense.",
+    "type": "Fighting",
+    "pp": 20,
+    "power": 1,
+    "category": "Physical"
+  },
+  "COUNTER": {
+    "description": "\tSharply lowers the \tfoe's Speed.",
+    "type": "Fighting",
+    "pp": 20,
+    "power": 1,
+    "category": "Physical"
+  },
+  "SEISMIC_TOSS": {
+    "description": "\tEliminates all \tstat changes.",
+    "type": "Fighting",
+    "pp": 20,
+    "power": 1,
+    "category": "Physical"
+  },
+  "STRENGTH": {
+    "description": "\tPrevents all \tstatus problems.",
+    "type": "Fighting",
+    "pp": 15,
+    "power": 80,
+    "category": "Physical"
+  },
+  "ABSORB": {
+    "description": "\tRaises Defense \twith a barrier.",
+    "type": "Grass",
+    "pp": 25,
+    "power": 20,
+    "category": "Special"
+  },
+  "MEGA_DRAIN": {
+    "description": "\tRaises Sp.Def with \ta wall of light.",
+    "type": "Grass",
+    "pp": 15,
+    "power": 40,
+    "category": "Special"
+  },
+  "LEECH_SEED": {
+    "description": "\tRestores HP by 1/2 \tthe max HP.",
+    "type": "Grass",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "GROWTH": {
+    "description": "\tRestores HP by 1/2 \tthe user's max HP.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "RAZOR_LEAF": {
+    "description": "\tLands to restore \t1/2 the max HP.",
+    "type": "Grass",
+    "pp": 25,
+    "power": 55,
+    "category": "Physical"
+  },
+  "SOLAR_BEAM": {
+    "description": "\tWorks 2-3 turns \tand confuses user.",
+    "type": "Grass",
+    "pp": 10,
+    "power": 120,
+    "category": "Special"
+  },
+  "POISONPOWDER": {
+    "description": "\tTraps the foe for \t2-5 turns.",
+    "type": "Poison",
+    "pp": 35,
+    "power": 0,
+    "category": "Status"
+  },
+  "STUN_SPORE": {
+    "description": "\tSlow #mon move \tfirst for 5 turns.",
+    "type": "Grass",
+    "pp": 30,
+    "power": 0,
+    "category": "Status"
+  },
+  "SLEEP_POWDER": {
+    "description": "\tVery powerful but \tmakes user faint.",
+    "type": "Grass",
+    "pp": 15,
+    "power": 0,
+    "category": "Status"
+  },
+  "PETAL_DANCE": {
+    "description": "\tEndures any hit \twith at least 1HP.",
+    "type": "Grass",
+    "pp": 10,
+    "power": 120,
+    "category": "Special"
+  },
+  "STRING_SHOT": {
+    "description": "\tLeaves the foe \twith at least 1HP.",
+    "type": "Bug",
+    "pp": 40,
+    "power": 0,
+    "category": "Status"
+  },
+  "DRAGON_RAGE": {
+    "description": "\t1st turn: Prepare \t2nd turn: Attack",
+    "type": "Dragon",
+    "pp": 10,
+    "power": 40,
+    "category": "Special"
+  },
+  "FIRE_SPIN": {
+    "description": "\t1st turn: Fly \t2nd turn: Attack",
+    "type": "Fire",
+    "pp": 15,
+    "power": 40,
+    "category": "Special"
+  },
+  "THUNDERSHOCK": {
+    "description": "\t1st turn: Attack \t2nd turn: Rest",
+    "type": "Electric",
+    "pp": 30,
+    "power": 40,
+    "category": "Special"
+  },
+  "THUNDERBOLT": {
+    "description": "\t1st turn: Burrow \t2nd turn: Attack",
+    "type": "Electric",
+    "pp": 15,
+    "power": 90,
+    "category": "Special"
+  },
+  "THUNDER_WAVE": {
+    "description": "\tDamage doubles if \tuser has no item.",
+    "type": "Electric",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "THUNDER": {
+    "description": "\tDamage doubles if \tfoe has status.",
+    "type": "Electric",
+    "pp": 10,
+    "power": 110,
+    "category": "Special"
+  },
+  "ROCK_THROW": {
+    "description": "\tDamage doubles if \tuser is hit first.",
+    "type": "Rock",
+    "pp": 15,
+    "power": 50,
+    "category": "Physical"
+  },
+  "EARTHQUAKE": {
+    "description": "\tDamage doubles if \tfoe is poisoned.",
+    "type": "Ground",
+    "pp": 10,
+    "power": 100,
+    "category": "Physical"
+  },
+  "AVALANCHE": {
+    "description": "\tBoosts Water-type \tmoves for 5 turns.",
+    "type": "Ice",
+    "pp": 10,
+    "power": 60,
+    "category": "Physical"
+  },
+  "DIG": {
+    "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+    "type": "Ground",
+    "pp": 10,
+    "power": 90,
+    "category": "Physical"
+  },
+  "TOXIC": {
+    "description": "\tInflicts damage \tevery turn.",
+    "type": "Poison",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "CONFUSION": {
+    "description": "\tSwitches out after \tmaking its attack.",
+    "type": "Psychic",
+    "pp": 25,
+    "power": 50,
+    "category": "Special"
+  },
+  "PSYCHIC": {
+    "description": "\tA fiery punch. May \tcause a burn.",
+    "type": "None",
+    "pp": 0,
+    "power": 0,
+    "category": "Unknown"
+  },
+  "HYPNOSIS": {
+    "description": "\tAn icy punch. May \tcause freezing.",
+    "type": "Psychic",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "HONE_CLAWS": {
+    "description": "\tAn electric punch. \tIt may paralyze.",
+    "type": "Dark",
+    "pp": 40,
+    "power": 0,
+    "category": "Status"
+  },
+  "AGILITY": {
+    "description": "\tReturns a physical \tattack double.",
+    "type": "Psychic",
+    "pp": 30,
+    "power": 0,
+    "category": "Status"
+  },
+  "QUICK_ATTACK": {
+    "description": "\tReturns a special \tattack double.",
+    "type": "Normal",
+    "pp": 30,
+    "power": 40,
+    "category": "Physical"
+  },
+  "RAGE": {
+    "description": "\tHurts foes when \tthey switch in.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 20,
+    "category": "Physical"
+  },
+  "TELEPORT": {
+    "description": "\tPoisons foes when \tthey switch in.",
+    "type": "Psychic",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "NIGHT_SHADE": {
+    "description": "\tLets the user get \tin the first hit.",
+    "type": "Ghost",
+    "pp": 15,
+    "power": 1,
+    "category": "Special"
+  },
+  "DRAGON_PULSE": {
+    "description": "\tA speedy lunge. \tAlways goes first.",
+    "type": "Dragon",
+    "pp": 10,
+    "power": 85,
+    "category": "Special"
+  },
+  "SCREECH": {
+    "description": "\tHurls icy shards. \tAlways goes first.",
+    "type": "Normal",
+    "pp": 40,
+    "power": 0,
+    "category": "Status"
+  },
+  "DOUBLE_TEAM": {
+    "description": "\tA fast punch that \talways goes first.",
+    "type": "Normal",
+    "pp": 15,
+    "power": 0,
+    "category": "Status"
+  },
+  "RECOVER": {
+    "description": "\tA tough punch that \talways goes first.",
+    "type": "Normal",
+    "pp": 5,
+    "power": 0,
+    "category": "Status"
+  },
+  "ROCK_BLAST": {
+    "description": "\tA powerful first- \tstrike attack.",
+    "type": "Rock",
+    "pp": 25,
+    "power": 25,
+    "category": "Physical"
+  },
+  "MINIMIZE": {
+    "description": "\tScratches with \tsharp claws.",
+    "type": "Normal",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "SMOKESCREEN": {
+    "description": "\tJabs the foe with \ta beak, etc.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "CONFUSE_RAY": {
+    "description": "\tWhips the foe with \tslender vines.",
+    "type": "Ghost",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "AQUA_TAIL": {
+    "description": "\tSlashes the foe \twith sharp claws.",
+    "type": "Water",
+    "pp": 10,
+    "power": 90,
+    "category": "Physical"
+  },
+  "DEFENSE_CURL": {
+    "description": "\tCuts using claws, \tscythes, etc.",
+    "type": "Normal",
+    "pp": 40,
+    "power": 0,
+    "category": "Status"
+  },
+  "BARRIER": {
+    "description": "\tSlashes foe with \tscythes or claws.",
+    "type": "Psychic",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "LIGHT_SCREEN": {
+    "description": "\tWhips up a strong \tgust of wind.",
+    "type": "Psychic",
+    "pp": 30,
+    "power": 0,
+    "category": "Status"
+  },
+  "HAZE": {
+    "description": "\tStrikes the foe \twith wings.",
+    "type": "Ice",
+    "pp": 30,
+    "power": 0,
+    "category": "Status"
+  },
+  "REFLECT": {
+    "description": "\tA full-body charge \tattack.",
+    "type": "Psychic",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "FOCUS_ENERGY": {
+    "description": "\tAn attack using a \thorn to jab.",
+    "type": "Normal",
+    "pp": 30,
+    "power": 0,
+    "category": "Status"
+  },
+  "FLASH_CANNON": {
+    "description": "\tA double kicking \tattack.",
+    "type": "Steel",
+    "pp": 10,
+    "power": 80,
+    "category": "Special"
+  },
+  "METRONOME": {
+    "description": "\tThrows coins. Gets \tthem back later.",
+    "type": "Unknown",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "SCALD": {
+    "description": "\tAttacks before the \tfoe does.",
+    "type": "Water",
+    "pp": 15,
+    "power": 70,
+    "category": "Special"
+  },
+  "TRICK_ROOM": {
+    "description": "\tDazzles with a \tpowerful flash.",
+    "type": "Psychic",
+    "pp": 5,
+    "power": 0,
+    "category": "Status"
+  },
+  "SKILL_SWAP": {
+    "description": "\tScares wild foes \tto end battle.",
+    "type": "Psychic",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "LICK": {
+    "description": "\tDisables the foe's \tmost recent move.",
+    "type": "Ghost",
+    "pp": 30,
+    "power": 30,
+    "category": "Physical"
+  },
+  "GUNK_SHOT": {
+    "description": "\tSquirts water to \tattack.",
+    "type": "Poison",
+    "pp": 5,
+    "power": 120,
+    "category": "Physical"
+  },
+  "VENOSHOCK": {
+    "description": "\tA strong Water- \ttype attack.",
+    "type": "Poison",
+    "pp": 10,
+    "power": 65,
+    "category": "Special"
+  },
+  "EARTH_POWER": {
+    "description": "\tA powerful Water- \ttype attack.",
+    "type": "Ground",
+    "pp": 10,
+    "power": 90,
+    "category": "Special"
+  },
+  "FIRE_BLAST": {
+    "description": "\tA strong, spin- \tning-peck attack.",
+    "type": "Fire",
+    "pp": 5,
+    "power": 110,
+    "category": "Special"
+  },
+  "WATERFALL": {
+    "description": "\tA powerful physi- \tcal attack.",
+    "type": "Water",
+    "pp": 15,
+    "power": 80,
+    "category": "Physical"
+  },
+  "ICICLE_CRASH": {
+    "description": "\tSteals HP from the \tfoe on every turn.",
+    "type": "Ice",
+    "pp": 10,
+    "power": 85,
+    "category": "Physical"
+  },
+  "SWIFT": {
+    "description": "\tDrops rocks on the \tenemy.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 60,
+    "category": "Special"
+  },
+  "IRON_HEAD": {
+    "description": "\tTough but useless \tvs. flying foes.",
+    "type": "Steel",
+    "pp": 15,
+    "power": 80,
+    "category": "Physical"
+  },
+  "ICICLE_SPEAR": {
+    "description": "\tRaises Attack if \tthe user is hit.",
+    "type": "Ice",
+    "pp": 30,
+    "power": 25,
+    "category": "Physical"
+  },
+  "BULLDOZE": {
+    "description": "\tA move for fleeing \tfrom battle.",
+    "type": "Ground",
+    "pp": 20,
+    "power": 60,
+    "category": "Physical"
+  },
+  "AMNESIA": {
+    "description": "\tAttacks foe with \ta shock wave.",
+    "type": "Psychic",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "ROOST": {
+    "description": "\tSwings tail like a \twave in a storm.",
+    "type": "Flying",
+    "pp": 5,
+    "power": 0,
+    "category": "Status"
+  },
+  "FRESH_SNACK": {
+    "description": "\tRandomly uses any \t#mon move.",
+    "type": "Normal",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "HI_JUMP_KICK": {
+    "description": "\tSwaps abilities \twith the foe.",
+    "type": "Fighting",
+    "pp": 10,
+    "power": 130,
+    "category": "Physical"
+  },
+  "GLARE": {
+    "description": "\tMay miss and hurt \tthe user.",
+    "type": "Normal",
+    "pp": 30,
+    "power": 0,
+    "category": "Status"
+  },
+  "DREAM_EATER": {
+    "description": "\tSteals HP from a \tsleeping victim.",
+    "type": "Psychic",
+    "pp": 15,
+    "power": 100,
+    "category": "Special"
+  },
+  "POISON_JAB": {
+    "description": "\tThe user assumes \tthe foe's guise.",
+    "type": "Poison",
+    "pp": 20,
+    "power": 80,
+    "category": "Physical"
+  },
+  "BULLET_PUNCH": {
+    "description": "\tHas no effect \twhatsoever.",
+    "type": "Steel",
+    "pp": 30,
+    "power": 40,
+    "category": "Physical"
+  },
+  "LEECH_LIFE": {
+    "description": "\tAn attack that \tstrikes twice.",
+    "type": "Bug",
+    "pp": 10,
+    "power": 80,
+    "category": "Physical"
+  },
+  "DRAININGKISS": {
+    "description": "\tSleep for 2 turns \tto fully recover.",
+    "type": "None",
+    "pp": 0,
+    "power": 0,
+    "category": "Unknown"
+  },
+  "BRAVE_BIRD": {
+    "description": "\tChange user's type \tto a move's type.",
+    "type": "Flying",
+    "pp": 15,
+    "power": 120,
+    "category": "Physical"
+  },
+  "TRANSFORM": {
+    "description": "\tFires three kinds \tof beams at once.",
+    "type": "Normal",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "WATER_PULSE": {
+    "description": "\tCuts the foe's HP \tby 1/2.",
+    "type": "Water",
+    "pp": 20,
+    "power": 60,
+    "category": "Special"
+  },
+  "DIZZY_PUNCH": {
+    "description": "\tMakes a decoy with \t1/4 user's max HP.",
+    "type": "Normal",
+    "pp": 10,
+    "power": 70,
+    "category": "Physical"
+  },
+  "SPORE": {
+    "description": "\tUsed only if all \tPP are exhausted.",
+    "type": "Grass",
+    "pp": 15,
+    "power": 0,
+    "category": "Status"
+  },
+  "FLASH": {
+    "description": "\tCopies the foe's \tmove permanently.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "EXTRASENSORY": {
+    "description": "\tAn attack that may \tsteal a held item.",
+    "type": "Psychic",
+    "pp": 20,
+    "power": 80,
+    "category": "Special"
+  },
+  "SPLASH": {
+    "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+    "type": "Normal",
+    "pp": 40,
+    "power": 0,
+    "category": "Status"
+  },
+  "DRAGON_DANCE": {
+    "description": "\tAttack the foe \twith sound waves.",
+    "type": "Dragon",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "CRABHAMMER": {
+    "description": "\tWorks differently \tfor Ghost-types.",
+    "type": "Water",
+    "pp": 10,
+    "power": 100,
+    "category": "Physical"
+  },
+  "EXPLOSION": {
+    "description": "\tStronger if the \tuser's HP is low.",
+    "type": "Normal",
+    "pp": 5,
+    "power": 250,
+    "category": "Physical"
+  },
+  "FURY_STRIKES": {
+    "description": "\tSlams a barrage of \tseeds at the foe.",
+    "type": "Normal",
+    "pp": 15,
+    "power": 20,
+    "category": "Physical"
+  },
+  "BONEMERANG": {
+    "description": "\tFoils attack that \tturn. It may fail.",
+    "type": "Ground",
+    "pp": 10,
+    "power": 50,
+    "category": "Physical"
+  },
+  "REST": {
+    "description": "\tSacrifices HP to \tmaximize Attack.",
+    "type": "Psychic",
+    "pp": 5,
+    "power": 0,
+    "category": "Status"
+  },
+  "ROCK_SLIDE": {
+    "description": "\tNegates foe's eva- \tsion and immunity.",
+    "type": "Rock",
+    "pp": 10,
+    "power": 75,
+    "category": "Physical"
+  },
+  "HYPER_FANG": {
+    "description": "\tThe foe faints if \tthe user does.",
+    "type": "Normal",
+    "pp": 15,
+    "power": 80,
+    "category": "Physical"
+  },
+  "BULK_UP": {
+    "description": "\tBoth user and foe \tfaint in 3 turns.",
+    "type": "Fighting",
+    "pp": 20,
+    "power": 0,
+    "category": "Status"
+  },
+  "CONVERSION": {
+    "description": "\tAttacks with a ray \tof gem-like light.",
+    "type": "Normal",
+    "pp": 30,
+    "power": 0,
+    "category": "Status"
+  },
+  "TRI_ATTACK": {
+    "description": "\tAttacks 5 turns \twith rising power.",
+    "type": "Normal",
+    "pp": 10,
+    "power": 80,
+    "category": "Special"
+  },
+  "SUPER_FANG": {
+    "description": "\tCauses confusion \tbut raises Attack.",
+    "type": "Normal",
+    "pp": 10,
+    "power": 1,
+    "category": "Physical"
+  },
+  "SLASH": {
+    "description": "\tLowers defenses, \traises offenses.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 70,
+    "category": "Physical"
+  },
+  "SUBSTITUTE": {
+    "description": "\tBites the foe and \teats a held Berry.",
+    "type": "Normal",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "GIGA_IMPACT": {
+    "description": "\tPrevents fleeing \tor switching.",
+    "type": "Normal",
+    "pp": 5,
+    "power": 150,
+    "category": "Physical"
+  },
+  "SKETCH": {
+    "description": "\tMakes the opposite \tgender infatuated.",
+    "type": "Normal",
+    "pp": 1,
+    "power": 0,
+    "category": "Status"
+  },
+  "DRAIN_PUNCH": {
+    "description": "\tRandomly attacks \twhile asleep.",
+    "type": "Fighting",
+    "pp": 10,
+    "power": 75,
+    "category": "Physical"
+  },
+  "THIEF": {
+    "description": "\tEliminates all \tstatus problems.",
+    "type": "Dark",
+    "pp": 25,
+    "power": 60,
+    "category": "Physical"
+  },
+  "WILL_O_WISP": {
+    "description": "\tAn attack that is \tbased on loyalty.",
+    "type": "Fire",
+    "pp": 15,
+    "power": 0,
+    "category": "Status"
+  },
+  "ZEN_HEADBUTT": {
+    "description": "\tA wave that does \tphysical damage.",
+    "type": "Psychic",
+    "pp": 15,
+    "power": 80,
+    "category": "Physical"
+  },
+  "FACADE": {
+    "description": "\tAdds user & foe's \tHPs. Shares total.",
+    "type": "Normal",
+    "pp": 20,
+    "power": 70,
+    "category": "Physical"
+  },
+  "FLAME_CHARGE": {
+    "description": "\tA Ground attack \twith random power.",
+    "type": "Fire",
+    "pp": 20,
+    "power": 50,
+    "category": "Physical"
+  },
+  "HYPER_VOICE": {
+    "description": "\tA powerful charge \tattack.",
+    "type": "Normal",
+    "pp": 10,
+    "power": 90,
+    "category": "Special"
+  },
+  "CURSE": {
+    "description": "\tA violent lash \tattack.",
+    "type": "Ghost",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "GYRO_BALL": {
+    "description": "\tA strong breath \tattack.",
+    "type": "Steel",
+    "pp": 5,
+    "power": 1,
+    "category": "Physical"
+  },
+  "ENERGY_BALL": {
+    "description": "\tSwitches while \tkeeping effects.",
+    "type": "Grass",
+    "pp": 10,
+    "power": 90,
+    "category": "Special"
+  },
+  "AEROBLAST": {
+    "description": "\tMakes the foe re- \tpeat 2-6 times.",
+    "type": "Flying",
+    "pp": 5,
+    "power": 100,
+    "category": "Special"
+  },
+  "SEED_BOMB": {
+    "description": "\tHeavily strikes \tswitching #mon.",
+    "type": "Grass",
+    "pp": 15,
+    "power": 80,
+    "category": "Physical"
+  },
+  "REVERSAL": {
+    "description": "\tA high-speed \tspinning attack.",
+    "type": "Fighting",
+    "pp": 15,
+    "power": 1,
+    "category": "Physical"
+  },
+  "ASTONISH": {
+    "description": "\tRestores HP based \ton weather.",
+    "type": "Ghost",
+    "pp": 15,
+    "power": 30,
+    "category": "Physical"
+  },
+  "ICE_SHARD": {
+    "description": "\tSlaps down the \tfoe's held item.",
+    "type": "Ice",
+    "pp": 30,
+    "power": 40,
+    "category": "Physical"
+  },
+  "PROTECT": {
+    "description": "\tThe type varies \twith the #mon.",
+    "type": "Normal",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "MACH_PUNCH": {
+    "description": "\tAn attack that \thits on 3rd turn.",
+    "type": "Fighting",
+    "pp": 30,
+    "power": 40,
+    "category": "Physical"
+  },
+  "SCARY_FACE": {
+    "description": "\tDoes more damage \tat lower speed.",
+    "type": "Normal",
+    "pp": 10,
+    "power": 0,
+    "category": "Status"
+  },
+  "FEINT_ATTACK": {
+    "description": "\tSwaps held items \twith the foe.",
+    "type": "Dark",
+    "pp": 20,
+    "power": 60,
+    "category": "Physical"
+  }
 }
