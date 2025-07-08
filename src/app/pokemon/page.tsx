@@ -2,24 +2,67 @@ import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
 
-export default function PokemonList() {
+export default function PokemonList({ searchParams }: { searchParams?: { sort?: string } }) {
   // Read the JSON file at build time
   const filePath = path.join(process.cwd(), 'pokemon_evo_moves.json');
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const pokemonNames = Object.keys(data).sort();
+
+  // Determine sort type from query param
+  const sortType = searchParams?.sort === 'localdex' || searchParams?.sort === 'nationaldex' ? searchParams.sort : 'alphabetical';
+
+  // Prepare an array of Pokémon with their names and dex numbers
+  const pokemonList = Object.entries(data).map(([name, info]: [string, any]) => ({
+    name,
+    localdex: info.localDex ?? Infinity,
+    nationaldex: info.nationalDex ?? Infinity,
+  }));
+
+  // Sort based on selected sort type
+  const sortedPokemon = [...pokemonList].sort((a, b) => {
+    if (sortType === 'alphabetical') {
+      return a.name.localeCompare(b.name);
+    }
+    if (sortType === 'nationaldex') {
+      return a.nationaldex - b.nationaldex || a.name.localeCompare(b.name);
+    }
+    return 0;
+  });
 
   return (
     <div className="max-w-2xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6">Pokémon List</h1>
+      <div className="mb-4 flex gap-4">
+        <SortLink label="Alphabetical" sort="alphabetical" current={sortType} />
+        {/* <SortLink label="Local Dex" sort="localdex" current={sortType} /> */}
+        <SortLink label="National Dex" sort="nationaldex" current={sortType} />
+      </div>
       <ul className="grid gap-2">
-        {pokemonNames.map((name) => (
-          <li key={name}>
-            <Link href={`/pokemon/${encodeURIComponent(name)}`} className="text-blue-600 hover:underline">
-              {name}
+        {sortedPokemon.map((p) => (
+          <li key={p.name}>
+            <Link href={`/pokemon/${encodeURIComponent(p.name)}`} className="text-blue-600 hover:underline">
+              {p.name}
             </Link>
+            <span className="ml-2 text-xs text-gray-500">
+              (Local: {p.localdex !== Infinity ? p.localdex : '—'}, National: {p.nationaldex !== Infinity ? p.nationaldex : '—'})
+            </span>
           </li>
         ))}
       </ul>
     </div>
+  );
+}
+
+function SortLink({ label, sort, current }: { label: string; sort: string; current: string }) {
+  return (
+    <Link
+      href={`?sort=${sort}`}
+      className={
+        'px-2 py-1 rounded ' +
+        (current === sort ? 'bg-blue-600 text-white' : 'bg-gray-100 text-blue-700 hover:bg-blue-200')
+      }
+      aria-current={current === sort ? 'page' : undefined}
+    >
+      {label}
+    </Link>
   );
 }

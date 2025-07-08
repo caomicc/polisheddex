@@ -1,6 +1,19 @@
 {
   "Bulbasaur": {
-    "evolution_level": 16,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Ivysaur"
+        }
+      ],
+      "chain": [
+        "Bulbasaur",
+        "Ivysaur",
+        "Venusaur"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -62,10 +75,24 @@
         "level": 43,
         "move": "SLUDGE_BOMB"
       }
-    ]
+    ],
+    "nationalDex": 1
   },
   "Ivysaur": {
-    "evolution_level": 32,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Venusaur"
+        }
+      ],
+      "chain": [
+        "Bulbasaur",
+        "Ivysaur",
+        "Venusaur"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -127,10 +154,18 @@
         "level": 50,
         "move": "SLUDGE_BOMB"
       }
-    ]
+    ],
+    "nationalDex": 2
   },
   "Venusaur": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Bulbasaur",
+        "Ivysaur",
+        "Venusaur"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -204,10 +239,24 @@
         "level": 60,
         "move": "SOLAR_BEAM"
       }
-    ]
+    ],
+    "nationalDex": 3
   },
   "Charmander": {
-    "evolution_level": 16,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Charmeleon"
+        }
+      ],
+      "chain": [
+        "Charmander",
+        "Charmeleon",
+        "Charizard"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -261,10 +310,24 @@
         "level": 52,
         "move": "FLARE_BLITZ"
       }
-    ]
+    ],
+    "nationalDex": 4
   },
   "Charmeleon": {
-    "evolution_level": 36,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Charizard"
+        }
+      ],
+      "chain": [
+        "Charmander",
+        "Charmeleon",
+        "Charizard"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -318,10 +381,18 @@
         "level": 61,
         "move": "FLARE_BLITZ"
       }
-    ]
+    ],
+    "nationalDex": 5
   },
   "Charizard": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Charmander",
+        "Charmeleon",
+        "Charizard"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -407,10 +478,24 @@
         "level": 77,
         "move": "HURRICANE"
       }
-    ]
+    ],
+    "nationalDex": 6
   },
   "Squirtle": {
-    "evolution_level": 16,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Wartortle"
+        }
+      ],
+      "chain": [
+        "Squirtle",
+        "Wartortle",
+        "Blastoise"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -472,10 +557,24 @@
         "level": 43,
         "move": "SHELL_SMASH"
       }
-    ]
+    ],
+    "nationalDex": 7
   },
   "Wartortle": {
-    "evolution_level": 36,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Blastoise"
+        }
+      ],
+      "chain": [
+        "Squirtle",
+        "Wartortle",
+        "Blastoise"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -537,10 +636,18 @@
         "level": 52,
         "move": "SHELL_SMASH"
       }
-    ]
+    ],
+    "nationalDex": 8
   },
   "Blastoise": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Squirtle",
+        "Wartortle",
+        "Blastoise"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -622,10 +729,24 @@
         "level": 75,
         "move": "IRON_HEAD"
       }
-    ]
+    ],
+    "nationalDex": 9
   },
   "Caterpie": {
-    "evolution_level": 7,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Metapod"
+        }
+      ],
+      "chain": [
+        "Caterpie",
+        "Metapod",
+        "Butterfree"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -639,10 +760,24 @@
         "level": 9,
         "move": "BUG_BITE"
       }
-    ]
+    ],
+    "nationalDex": 10
   },
   "Metapod": {
-    "evolution_level": 10,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Butterfree"
+        }
+      ],
+      "chain": [
+        "Caterpie",
+        "Metapod",
+        "Butterfree"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -656,10 +791,18 @@
         "level": 1,
         "move": "DEFENSE_CURL"
       }
-    ]
+    ],
+    "nationalDex": 11
   },
   "Butterfree": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Caterpie",
+        "Metapod",
+        "Butterfree"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -729,10 +872,24 @@
         "level": 47,
         "move": "PSYCHIC_M"
       }
-    ]
+    ],
+    "nationalDex": 12
   },
   "Weedle": {
-    "evolution_level": 7,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ],
+      "chain": [
+        "Weedle",
+        "Kakuna",
+        "Beedrill"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -746,10 +903,24 @@
         "level": 9,
         "move": "BUG_BITE"
       }
-    ]
+    ],
+    "nationalDex": 13
   },
   "Kakuna": {
-    "evolution_level": 10,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "chain": [
+        "Weedle",
+        "Kakuna",
+        "Beedrill"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -763,10 +934,18 @@
         "level": 1,
         "move": "DEFENSE_CURL"
       }
-    ]
+    ],
+    "nationalDex": 14
   },
   "Beedrill": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Weedle",
+        "Kakuna",
+        "Beedrill"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -828,10 +1007,24 @@
         "level": 44,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 15
   },
   "Pidgey": {
-    "evolution_level": 18,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Pidgeotto"
+        }
+      ],
+      "chain": [
+        "Pidgey",
+        "Pidgeotto",
+        "Pidgeot"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -889,10 +1082,24 @@
         "level": 53,
         "move": "HURRICANE"
       }
-    ]
+    ],
+    "nationalDex": 16
   },
   "Pidgeotto": {
-    "evolution_level": 36,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Pidgeot"
+        }
+      ],
+      "chain": [
+        "Pidgey",
+        "Pidgeotto",
+        "Pidgeot"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -950,10 +1157,18 @@
         "level": 62,
         "move": "HURRICANE"
       }
-    ]
+    ],
+    "nationalDex": 17
   },
   "Pidgeot": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Pidgey",
+        "Pidgeotto",
+        "Pidgeot"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1011,10 +1226,24 @@
         "level": 68,
         "move": "HURRICANE"
       }
-    ]
+    ],
+    "nationalDex": 18
   },
-  "RattataPlain": {
-    "evolution_level": 20,
+  "Rattataplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Raticate"
+        }
+      ],
+      "chain": [
+        "Rattataplain",
+        "Rattataalolan",
+        "Raticate"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1068,10 +1297,25 @@
         "level": 34,
         "move": "COUNTER"
       }
-    ]
+    ],
+    "nationalDex": 19
   },
-  "RattataAlolan": {
-    "evolution_level": 20,
+  "Rattataalolan": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Raticate",
+          "form": "AlolanForm"
+        }
+      ],
+      "chain": [
+        "Rattataalolan",
+        "Rattataplain",
+        "Raticate"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1125,10 +1369,11 @@
         "level": 34,
         "move": "COUNTER"
       }
-    ]
+    ],
+    "nationalDex": 292
   },
-  "RaticatePlain": {
-    "evolution_level": null,
+  "Raticateplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -1190,10 +1435,23 @@
         "level": 44,
         "move": "COUNTER"
       }
-    ]
+    ],
+    "nationalDex": 20
   },
   "Spearow": {
-    "evolution_level": 20,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Fearow"
+        }
+      ],
+      "chain": [
+        "Spearow",
+        "Fearow"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1243,10 +1501,17 @@
         "level": 36,
         "move": "DRILL_PECK"
       }
-    ]
+    ],
+    "nationalDex": 21
   },
   "Fearow": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Spearow",
+        "Fearow"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1304,10 +1569,24 @@
         "level": 45,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 22
   },
   "Ekans": {
-    "evolution_level": 22,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Arbok",
+          "form": "NoForm"
+        }
+      ],
+      "chain": [
+        "Ekans",
+        "Arbok"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1369,10 +1648,17 @@
         "level": 49,
         "move": "GUNK_SHOT"
       }
-    ]
+    ],
+    "nationalDex": 23
   },
   "Arbok": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Ekans",
+        "Arbok"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1438,10 +1724,31 @@
         "level": 63,
         "move": "GUNK_SHOT"
       }
-    ]
+    ],
+    "nationalDex": 24
   },
   "Pikachu": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Raichu",
+          "form": "PlainForm"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Raichu",
+          "form": "AlolanForm"
+        }
+      ],
+      "chain": [
+        "Pichu",
+        "Pikachu",
+        "Raichu"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1515,10 +1822,11 @@
         "level": 58,
         "move": "THUNDER"
       }
-    ]
+    ],
+    "nationalDex": 25
   },
-  "RaichuPlain": {
-    "evolution_level": null,
+  "Raichuplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -1540,10 +1848,11 @@
         "level": 1,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 26
   },
-  "RaichuAlolan": {
-    "evolution_level": null,
+  "Raichualolan": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -1569,10 +1878,25 @@
         "level": 1,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 294
   },
-  "SandshrewPlain": {
-    "evolution_level": 22,
+  "Sandshrewplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Sandslash",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Sandshrewplain",
+        "Sandshrewalolan",
+        "Sandslash"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1642,10 +1966,25 @@
         "level": 46,
         "move": "EARTHQUAKE"
       }
-    ]
+    ],
+    "nationalDex": 27
   },
-  "SandshrewAlolan": {
-    "evolution_level": null,
+  "Sandshrewalolan": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Sandslash",
+          "form": "AlolanForm"
+        }
+      ],
+      "chain": [
+        "Sandshrewalolan",
+        "Sandshrewplain",
+        "Sandslash"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1715,10 +2054,11 @@
         "level": 46,
         "move": "BLIZZARD"
       }
-    ]
+    ],
+    "nationalDex": 295
   },
-  "SandslashPlain": {
-    "evolution_level": null,
+  "Sandslashplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -1792,10 +2132,11 @@
         "level": 53,
         "move": "EARTHQUAKE"
       }
-    ]
+    ],
+    "nationalDex": 28
   },
-  "SandslashAlolan": {
-    "evolution_level": null,
+  "Sandslashalolan": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -1837,10 +2178,24 @@
         "level": 53,
         "move": "BLIZZARD"
       }
-    ]
+    ],
+    "nationalDex": 296
   },
-  "NidoranF": {
-    "evolution_level": 16,
+  "Nidoranf": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorina"
+        }
+      ],
+      "chain": [
+        "Nidoranf",
+        "Nidorina",
+        "Nidoqueen"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1894,10 +2249,24 @@
         "level": 45,
         "move": "POISON_JAB"
       }
-    ]
+    ],
+    "nationalDex": 29
   },
   "Nidorina": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoqueen"
+        }
+      ],
+      "chain": [
+        "Nidoranf",
+        "Nidorina",
+        "Nidoqueen"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1951,10 +2320,18 @@
         "level": 58,
         "move": "POISON_JAB"
       }
-    ]
+    ],
+    "nationalDex": 30
   },
   "Nidoqueen": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Nidoranf",
+        "Nidorina",
+        "Nidoqueen"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -1992,10 +2369,24 @@
         "level": 58,
         "move": "CLOSE_COMBAT"
       }
-    ]
+    ],
+    "nationalDex": 31
   },
-  "NidoranM": {
-    "evolution_level": 16,
+  "Nidoranm": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorino"
+        }
+      ],
+      "chain": [
+        "Nidoranm",
+        "Nidorino",
+        "Nidoking"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2049,10 +2440,24 @@
         "level": 45,
         "move": "MEGAHORN"
       }
-    ]
+    ],
+    "nationalDex": 32
   },
   "Nidorino": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoking"
+        }
+      ],
+      "chain": [
+        "Nidoranm",
+        "Nidorino",
+        "Nidoking"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2106,10 +2511,18 @@
         "level": 58,
         "move": "MEGAHORN"
       }
-    ]
+    ],
+    "nationalDex": 33
   },
   "Nidoking": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Nidoranm",
+        "Nidorino",
+        "Nidoking"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2147,10 +2560,24 @@
         "level": 58,
         "move": "MEGAHORN"
       }
-    ]
+    ],
+    "nationalDex": 34
   },
   "Clefairy": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Clefable"
+        }
+      ],
+      "chain": [
+        "Cleffa",
+        "Clefairy",
+        "Clefable"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2236,10 +2663,18 @@
         "level": 55,
         "move": "HEAL_BELL"
       }
-    ]
+    ],
+    "nationalDex": 35
   },
   "Clefable": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Cleffa",
+        "Clefairy",
+        "Clefable"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2269,10 +2704,25 @@
         "level": 1,
         "move": "DOUBLE_SLAP"
       }
-    ]
+    ],
+    "nationalDex": 36
   },
-  "VulpixPlain": {
-    "evolution_level": null,
+  "Vulpixplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Ninetales",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Vulpixplain",
+        "Vulpixalolan",
+        "Ninetales"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2358,10 +2808,25 @@
         "level": 53,
         "move": "HEALINGLIGHT"
       }
-    ]
+    ],
+    "nationalDex": 37
   },
-  "VulpixAlolan": {
-    "evolution_level": null,
+  "Vulpixalolan": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Ninetales",
+          "form": "AlolanForm"
+        }
+      ],
+      "chain": [
+        "Vulpixalolan",
+        "Vulpixplain",
+        "Ninetales"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2447,10 +2912,11 @@
         "level": 53,
         "move": "HEALINGLIGHT"
       }
-    ]
+    ],
+    "nationalDex": 297
   },
-  "NinetalesPlain": {
-    "evolution_level": null,
+  "Ninetalesplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -2472,10 +2938,11 @@
         "level": 1,
         "move": "SAFEGUARD"
       }
-    ]
+    ],
+    "nationalDex": 38
   },
-  "NinetalesAlolan": {
-    "evolution_level": null,
+  "Ninetalesalolan": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -2501,10 +2968,24 @@
         "level": 1,
         "move": "SAFEGUARD"
       }
-    ]
+    ],
+    "nationalDex": 298
   },
   "Jigglypuff": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Wigglytuff"
+        }
+      ],
+      "chain": [
+        "Igglybuff",
+        "Jigglypuff",
+        "Wigglytuff"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2574,10 +3055,18 @@
         "level": 45,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 39
   },
   "Wigglytuff": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Igglybuff",
+        "Jigglypuff",
+        "Wigglytuff"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2611,10 +3100,24 @@
         "level": 1,
         "move": "DOUBLE_SLAP"
       }
-    ]
+    ],
+    "nationalDex": 40
   },
   "Zubat": {
-    "evolution_level": 22,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Golbat"
+        }
+      ],
+      "chain": [
+        "Zubat",
+        "Golbat",
+        "Crobat"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2676,10 +3179,24 @@
         "level": 43,
         "move": "PURSUIT"
       }
-    ]
+    ],
+    "nationalDex": 41
   },
   "Golbat": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Crobat"
+        }
+      ],
+      "chain": [
+        "Zubat",
+        "Golbat",
+        "Crobat"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2749,10 +3266,25 @@
         "level": 51,
         "move": "PURSUIT"
       }
-    ]
+    ],
+    "nationalDex": 42
   },
   "Oddish": {
-    "evolution_level": 21,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Gloom"
+        }
+      ],
+      "chain": [
+        "Oddish",
+        "Gloom",
+        "Vileplume",
+        "Bellossom"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2818,10 +3350,30 @@
         "level": 51,
         "move": "PETAL_DANCE"
       }
-    ]
+    ],
+    "nationalDex": 43
   },
   "Gloom": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Vileplume"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Bellossom"
+        }
+      ],
+      "chain": [
+        "Oddish",
+        "Gloom",
+        "Vileplume",
+        "Bellossom"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2883,10 +3435,19 @@
         "level": 59,
         "move": "PETAL_DANCE"
       }
-    ]
+    ],
+    "nationalDex": 44
   },
   "Vileplume": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Oddish",
+        "Gloom",
+        "Bellossom",
+        "Vileplume"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2920,10 +3481,23 @@
         "level": 69,
         "move": "SOLAR_BEAM"
       }
-    ]
+    ],
+    "nationalDex": 45
   },
   "Paras": {
-    "evolution_level": 24,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 24,
+          "target": "Parasect"
+        }
+      ],
+      "chain": [
+        "Paras",
+        "Parasect"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -2977,10 +3551,17 @@
         "level": 54,
         "move": "X_SCISSOR"
       }
-    ]
+    ],
+    "nationalDex": 46
   },
   "Parasect": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Paras",
+        "Parasect"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -3038,10 +3619,23 @@
         "level": 66,
         "move": "X_SCISSOR"
       }
-    ]
+    ],
+    "nationalDex": 47
   },
   "Venonat": {
-    "evolution_level": 31,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 31,
+          "target": "Venomoth"
+        }
+      ],
+      "chain": [
+        "Venonat",
+        "Venomoth"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -3099,10 +3693,17 @@
         "level": 47,
         "move": "PSYCHIC_M"
       }
-    ]
+    ],
+    "nationalDex": 48
   },
   "Venomoth": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Venonat",
+        "Venomoth"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -3172,10 +3773,25 @@
         "level": 59,
         "move": "BUG_BUZZ"
       }
-    ]
+    ],
+    "nationalDex": 49
   },
-  "DiglettPlain": {
-    "evolution_level": 26,
+  "Diglettplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 26,
+          "target": "Dugtrio",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Diglettplain",
+        "Diglettalolan",
+        "Dugtrio"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -3237,10 +3853,25 @@
         "level": 43,
         "move": "NIGHT_SLASH"
       }
-    ]
+    ],
+    "nationalDex": 50
   },
-  "DiglettAlolan": {
-    "evolution_level": 26,
+  "Diglettalolan": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 26,
+          "target": "Dugtrio",
+          "form": "AlolanForm"
+        }
+      ],
+      "chain": [
+        "Diglettalolan",
+        "Diglettplain",
+        "Dugtrio"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -3302,10 +3933,11 @@
         "level": 43,
         "move": "NIGHT_SLASH"
       }
-    ]
+    ],
+    "nationalDex": 299
   },
-  "DugtrioPlain": {
-    "evolution_level": null,
+  "Dugtrioplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -3375,10 +4007,11 @@
         "level": 53,
         "move": "NIGHT_SLASH"
       }
-    ]
+    ],
+    "nationalDex": 51
   },
-  "DugtrioAlolan": {
-    "evolution_level": null,
+  "Dugtrioalolan": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -3448,10 +4081,25 @@
         "level": 53,
         "move": "NIGHT_SLASH"
       }
-    ]
+    ],
+    "nationalDex": 300
   },
-  "MeowthPlain": {
-    "evolution_level": 28,
+  "Meowthplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Persian",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Meowthplain",
+        "Meowthalolan",
+        "Persian"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -3509,10 +4157,25 @@
         "level": 49,
         "move": "NIGHT_SLASH"
       }
-    ]
+    ],
+    "nationalDex": 52
   },
-  "MeowthAlolan": {
-    "evolution_level": 28,
+  "Meowthalolan": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Persian",
+          "form": "AlolanForm"
+        }
+      ],
+      "chain": [
+        "Meowthalolan",
+        "Meowthplain",
+        "Persian"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -3574,10 +4237,24 @@
         "level": 55,
         "move": "DARK_PULSE"
       }
-    ]
+    ],
+    "nationalDex": 301
   },
-  "MeowthGalarian": {
-    "evolution_level": 28,
+  "Meowthgalarian": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Perrserker",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Meowthgalarian",
+        "Perrserker"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -3631,10 +4308,11 @@
         "level": 44,
         "move": "THRASH"
       }
-    ]
+    ],
+    "nationalDex": 306
   },
-  "PersianPlain": {
-    "evolution_level": null,
+  "Persianplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -3704,10 +4382,11 @@
         "level": 61,
         "move": "NIGHT_SLASH"
       }
-    ]
+    ],
+    "nationalDex": 53
   },
-  "PersianAlolan": {
-    "evolution_level": null,
+  "Persianalolan": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -3781,10 +4460,23 @@
         "level": 65,
         "move": "DARK_PULSE"
       }
-    ]
+    ],
+    "nationalDex": 307
   },
   "Psyduck": {
-    "evolution_level": 33,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Golduck"
+        }
+      ],
+      "chain": [
+        "Psyduck",
+        "Golduck"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -3850,10 +4542,17 @@
         "level": 46,
         "move": "PSYCHIC_M"
       }
-    ]
+    ],
+    "nationalDex": 54
   },
   "Golduck": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Psyduck",
+        "Golduck"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -3923,10 +4622,24 @@
         "level": 56,
         "move": "PSYCHIC_M"
       }
-    ]
+    ],
+    "nationalDex": 55
   },
   "Mankey": {
-    "evolution_level": 28,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Primeape"
+        }
+      ],
+      "chain": [
+        "Mankey",
+        "Primeape",
+        "Annihilape"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -3996,10 +4709,24 @@
         "level": 47,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 56
   },
   "Primeape": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "OUTRAGE",
+          "target": "Annihilape"
+        }
+      ],
+      "chain": [
+        "Mankey",
+        "Primeape",
+        "Annihilape"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4077,10 +4804,24 @@
         "level": 53,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 57
   },
-  "GrowlithePlain": {
-    "evolution_level": null,
+  "Growlitheplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Arcanine"
+        }
+      ],
+      "chain": [
+        "Growlitheplain",
+        "Growlithehisuian",
+        "Arcanine"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4162,10 +4903,11 @@
         "level": 49,
         "move": "FLARE_BLITZ"
       }
-    ]
+    ],
+    "nationalDex": null
   },
-  "ArcaninePlain": {
-    "evolution_level": null,
+  "Arcanineplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -4195,10 +4937,25 @@
         "level": 1,
         "move": "EXTREMESPEED"
       }
-    ]
+    ],
+    "nationalDex": null
   },
-  "GrowlitheHisuian": {
-    "evolution_level": null,
+  "Growlithehisuian": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Arcanine",
+          "form": "HisuianForm"
+        }
+      ],
+      "chain": [
+        "Growlithehisuian",
+        "Growlitheplain",
+        "Arcanine"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4280,10 +5037,11 @@
         "level": 49,
         "move": "FLARE_BLITZ"
       }
-    ]
+    ],
+    "nationalDex": 323
   },
-  "ArcanineHisuian": {
-    "evolution_level": null,
+  "Arcaninehisuian": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -4313,10 +5071,25 @@
         "level": 1,
         "move": "EXTREMESPEED"
       }
-    ]
+    ],
+    "nationalDex": 324
   },
   "Poliwag": {
-    "evolution_level": 25,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Poliwhirl"
+        }
+      ],
+      "chain": [
+        "Poliwag",
+        "Poliwhirl",
+        "Politoed",
+        "Poliwrath"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4374,10 +5147,30 @@
         "level": 41,
         "move": "EARTH_POWER"
       }
-    ]
+    ],
+    "nationalDex": 60
   },
   "Poliwhirl": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Politoed"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Poliwrath"
+        }
+      ],
+      "chain": [
+        "Poliwag",
+        "Poliwhirl",
+        "Politoed",
+        "Poliwrath"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4435,10 +5228,19 @@
         "level": 53,
         "move": "EARTH_POWER"
       }
-    ]
+    ],
+    "nationalDex": 61
   },
   "Poliwrath": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Poliwag",
+        "Poliwhirl",
+        "Politoed",
+        "Poliwrath"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4468,19 +5270,47 @@
         "level": 53,
         "move": "CROSS_CHOP"
       }
-    ]
+    ],
+    "nationalDex": 62
   },
   "Abra": {
-    "evolution_level": 16,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Kadabra"
+        }
+      ],
+      "chain": [
+        "Abra",
+        "Kadabra",
+        "Alakazam"
+      ]
+    },
     "moves": [
       {
         "level": 1,
         "move": "TELEPORT"
       }
-    ]
+    ],
+    "nationalDex": 63
   },
   "Kadabra": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Alakazam"
+        }
+      ],
+      "chain": [
+        "Abra",
+        "Kadabra",
+        "Alakazam"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4542,10 +5372,18 @@
         "level": 46,
         "move": "FUTURE_SIGHT"
       }
-    ]
+    ],
+    "nationalDex": 64
   },
   "Alakazam": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Abra",
+        "Kadabra",
+        "Alakazam"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4611,10 +5449,24 @@
         "level": 46,
         "move": "FUTURE_SIGHT"
       }
-    ]
+    ],
+    "nationalDex": 65
   },
   "Machop": {
-    "evolution_level": 28,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Machoke"
+        }
+      ],
+      "chain": [
+        "Machop",
+        "Machoke",
+        "Machamp"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4684,10 +5536,24 @@
         "level": 45,
         "move": "DYNAMICPUNCH"
       }
-    ]
+    ],
+    "nationalDex": 66
   },
   "Machoke": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Machamp"
+        }
+      ],
+      "chain": [
+        "Machop",
+        "Machoke",
+        "Machamp"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4757,10 +5623,18 @@
         "level": 57,
         "move": "DYNAMICPUNCH"
       }
-    ]
+    ],
+    "nationalDex": 67
   },
   "Machamp": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Machop",
+        "Machoke",
+        "Machamp"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4838,10 +5712,24 @@
         "level": 57,
         "move": "DYNAMICPUNCH"
       }
-    ]
+    ],
+    "nationalDex": 68
   },
   "Bellsprout": {
-    "evolution_level": 21,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Weepinbell"
+        }
+      ],
+      "chain": [
+        "Bellsprout",
+        "Weepinbell",
+        "Victreebel"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4899,10 +5787,24 @@
         "level": 50,
         "move": "SWORDS_DANCE"
       }
-    ]
+    ],
+    "nationalDex": 69
   },
   "Weepinbell": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Victreebel"
+        }
+      ],
+      "chain": [
+        "Bellsprout",
+        "Weepinbell",
+        "Victreebel"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4960,10 +5862,18 @@
         "level": 58,
         "move": "SWORDS_DANCE"
       }
-    ]
+    ],
+    "nationalDex": 70
   },
   "Victreebel": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Bellsprout",
+        "Weepinbell",
+        "Victreebel"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -4989,10 +5899,23 @@
         "level": 44,
         "move": "SWORDS_DANCE"
       }
-    ]
+    ],
+    "nationalDex": 71
   },
   "Tentacool": {
-    "evolution_level": 30,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Tentacruel"
+        }
+      ],
+      "chain": [
+        "Tentacool",
+        "Tentacruel"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -5058,10 +5981,17 @@
         "level": 46,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 72
   },
   "Tentacruel": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Tentacool",
+        "Tentacruel"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -5131,10 +6061,25 @@
         "level": 52,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 73
   },
-  "GeodudePlain": {
-    "evolution_level": 25,
+  "Geodudeplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Geodudeplain",
+        "Geodudealolan",
+        "Graveler"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -5200,10 +6145,25 @@
         "level": 42,
         "move": "STONE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 74
   },
-  "GravelerPlain": {
-    "evolution_level": null,
+  "Gravelerplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Gravelerplain",
+        "Graveleralolan",
+        "Golem"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -5269,10 +6229,11 @@
         "level": 54,
         "move": "STONE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 75
   },
-  "GolemPlain": {
-    "evolution_level": null,
+  "Golemplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -5342,10 +6303,25 @@
         "level": 60,
         "move": "GYRO_BALL"
       }
-    ]
+    ],
+    "nationalDex": 76
   },
-  "GeodudeAlolan": {
-    "evolution_level": 25,
+  "Geodudealolan": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "AlolanForm"
+        }
+      ],
+      "chain": [
+        "Geodudealolan",
+        "Geodudeplain",
+        "Graveler"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -5411,10 +6387,25 @@
         "level": 42,
         "move": "STONE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 308
   },
-  "GravelerAlolan": {
-    "evolution_level": null,
+  "Graveleralolan": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "AlolanForm"
+        }
+      ],
+      "chain": [
+        "Graveleralolan",
+        "Gravelerplain",
+        "Golem"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -5480,10 +6471,11 @@
         "level": 54,
         "move": "STONE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 309
   },
-  "GolemAlolan": {
-    "evolution_level": null,
+  "Golemalolan": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -5553,10 +6545,25 @@
         "level": 60,
         "move": "GYRO_BALL"
       }
-    ]
+    ],
+    "nationalDex": 310
   },
-  "PonytaPlain": {
-    "evolution_level": 40,
+  "Ponytaplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Rapidash",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Ponytaplain",
+        "Ponytagalarian",
+        "Rapidash"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -5614,10 +6621,25 @@
         "level": 49,
         "move": "FLARE_BLITZ"
       }
-    ]
+    ],
+    "nationalDex": 77
   },
-  "PonytaGalarian": {
-    "evolution_level": 40,
+  "Ponytagalarian": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Rapidash",
+          "form": "GalarianForm"
+        }
+      ],
+      "chain": [
+        "Ponytagalarian",
+        "Ponytaplain",
+        "Rapidash"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -5675,10 +6697,11 @@
         "level": 49,
         "move": "MOONBLAST"
       }
-    ]
+    ],
+    "nationalDex": 311
   },
-  "RapidashPlain": {
-    "evolution_level": null,
+  "Rapidashplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -5748,10 +6771,11 @@
         "level": 49,
         "move": "FLARE_BLITZ"
       }
-    ]
+    ],
+    "nationalDex": 78
   },
-  "RapidashGalarian": {
-    "evolution_level": null,
+  "Rapidashgalarian": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -5817,10 +6841,32 @@
         "level": 49,
         "move": "MOONBLAST"
       }
-    ]
+    ],
+    "nationalDex": 312
   },
-  "SlowpokePlain": {
-    "evolution_level": 37,
+  "Slowpokeplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "PlainForm"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Slowpokeplain",
+        "Slowpokegalarian",
+        "Slowbro",
+        "Slowking"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -5882,10 +6928,32 @@
         "level": 58,
         "move": "RECOVER"
       }
-    ]
+    ],
+    "nationalDex": 79
   },
-  "SlowpokeGalarian": {
-    "evolution_level": 37,
+  "Slowpokegalarian": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "GalarianForm"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "GalarianForm"
+        }
+      ],
+      "chain": [
+        "Slowpokegalarian",
+        "Slowpokeplain",
+        "Slowbro",
+        "Slowking"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -5947,10 +7015,11 @@
         "level": 58,
         "move": "RECOVER"
       }
-    ]
+    ],
+    "nationalDex": 313
   },
-  "SlowbroPlain": {
-    "evolution_level": null,
+  "Slowbroplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -6016,10 +7085,11 @@
         "level": 68,
         "move": "RECOVER"
       }
-    ]
+    ],
+    "nationalDex": 80
   },
-  "SlowbroGalarian": {
-    "evolution_level": null,
+  "Slowbrogalarian": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -6085,10 +7155,24 @@
         "level": 68,
         "move": "RECOVER"
       }
-    ]
+    ],
+    "nationalDex": 314
   },
   "Magnemite": {
-    "evolution_level": 30,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ],
+      "chain": [
+        "Magnemite",
+        "Magneton",
+        "Magnezone"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -6162,10 +7246,34 @@
         "level": 49,
         "move": "ZAP_CANNON"
       }
-    ]
+    ],
+    "nationalDex": 81
   },
   "Magneton": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "chain": [
+        "Magnemite",
+        "Magneton",
+        "Magnezone"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -6243,10 +7351,11 @@
         "level": 63,
         "move": "ZAP_CANNON"
       }
-    ]
+    ],
+    "nationalDex": 82
   },
-  "FarfetchDPlain": {
-    "evolution_level": null,
+  "Farfetchdplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -6324,10 +7433,24 @@
         "level": 55,
         "move": "BRAVE_BIRD"
       }
-    ]
+    ],
+    "nationalDex": 83
   },
-  "FarfetchDGalarian": {
-    "evolution_level": null,
+  "Farfetchdgalarian": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_CRIT",
+          "parameter": "TR_ANYTIME",
+          "target": "SirfetchD",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Farfetchdgalarian",
+        "Sirfetchd"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -6397,10 +7520,23 @@
         "level": 65,
         "move": "BRAVE_BIRD"
       }
-    ]
+    ],
+    "nationalDex": 315
   },
   "Doduo": {
-    "evolution_level": 31,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 31,
+          "target": "Dodrio"
+        }
+      ],
+      "chain": [
+        "Doduo",
+        "Dodrio"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -6466,10 +7602,17 @@
         "level": 50,
         "move": "THRASH"
       }
-    ]
+    ],
+    "nationalDex": 84
   },
   "Dodrio": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Doduo",
+        "Dodrio"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -6539,10 +7682,23 @@
         "level": 56,
         "move": "THRASH"
       }
-    ]
+    ],
+    "nationalDex": 85
   },
   "Seel": {
-    "evolution_level": 34,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 34,
+          "target": "Dewgong"
+        }
+      ],
+      "chain": [
+        "Seel",
+        "Dewgong"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -6612,10 +7768,17 @@
         "level": 53,
         "move": "HAIL"
       }
-    ]
+    ],
+    "nationalDex": 86
   },
   "Dewgong": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Seel",
+        "Dewgong"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -6693,10 +7856,25 @@
         "level": 69,
         "move": "MEGAHORN"
       }
-    ]
+    ],
+    "nationalDex": 87
   },
-  "GrimerPlain": {
-    "evolution_level": 38,
+  "Grimerplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Muk",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Grimerplain",
+        "Grimeralolan",
+        "Muk"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -6758,10 +7936,25 @@
         "level": 46,
         "move": "TOXIC_SPIKES"
       }
-    ]
+    ],
+    "nationalDex": 88
   },
-  "GrimerAlolan": {
-    "evolution_level": 38,
+  "Grimeralolan": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Muk",
+          "form": "AlolanForm"
+        }
+      ],
+      "chain": [
+        "Grimeralolan",
+        "Grimerplain",
+        "Muk"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -6823,10 +8016,11 @@
         "level": 46,
         "move": "TOXIC_SPIKES"
       }
-    ]
+    ],
+    "nationalDex": 302
   },
-  "MukPlain": {
-    "evolution_level": null,
+  "Mukplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -6892,10 +8086,11 @@
         "level": 52,
         "move": "TOXIC_SPIKES"
       }
-    ]
+    ],
+    "nationalDex": 89
   },
-  "MukAlolan": {
-    "evolution_level": null,
+  "Mukalolan": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -6961,10 +8156,23 @@
         "level": 52,
         "move": "TOXIC_SPIKES"
       }
-    ]
+    ],
+    "nationalDex": 303
   },
   "Shellder": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Cloyster"
+        }
+      ],
+      "chain": [
+        "Shellder",
+        "Cloyster"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7030,10 +8238,17 @@
         "level": 61,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 90
   },
   "Cloyster": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Shellder",
+        "Cloyster"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7087,10 +8302,24 @@
         "level": 50,
         "move": "ICICLE_CRASH"
       }
-    ]
+    ],
+    "nationalDex": 91
   },
   "Gastly": {
-    "evolution_level": 25,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Haunter"
+        }
+      ],
+      "chain": [
+        "Gastly",
+        "Haunter",
+        "Gengar"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7152,10 +8381,24 @@
         "level": 47,
         "move": "PERISH_SONG"
       }
-    ]
+    ],
+    "nationalDex": 92
   },
   "Haunter": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Gengar"
+        }
+      ],
+      "chain": [
+        "Gastly",
+        "Haunter",
+        "Gengar"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7221,10 +8464,18 @@
         "level": 61,
         "move": "PERISH_SONG"
       }
-    ]
+    ],
+    "nationalDex": 93
   },
   "Gengar": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Gastly",
+        "Haunter",
+        "Gengar"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7290,10 +8541,23 @@
         "level": 61,
         "move": "PERISH_SONG"
       }
-    ]
+    ],
+    "nationalDex": 94
   },
   "Onix": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Steelix"
+        }
+      ],
+      "chain": [
+        "Onix",
+        "Steelix"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7375,10 +8639,23 @@
         "level": 52,
         "move": "EARTHQUAKE"
       }
-    ]
+    ],
+    "nationalDex": 95
   },
   "Drowzee": {
-    "evolution_level": 26,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 26,
+          "target": "Hypno"
+        }
+      ],
+      "chain": [
+        "Drowzee",
+        "Hypno"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7448,10 +8725,17 @@
         "level": 61,
         "move": "FUTURE_SIGHT"
       }
-    ]
+    ],
+    "nationalDex": 96
   },
   "Hypno": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Drowzee",
+        "Hypno"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7521,10 +8805,23 @@
         "level": 61,
         "move": "FUTURE_SIGHT"
       }
-    ]
+    ],
+    "nationalDex": 97
   },
   "Krabby": {
-    "evolution_level": 28,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Kingler"
+        }
+      ],
+      "chain": [
+        "Krabby",
+        "Kingler"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7582,10 +8879,17 @@
         "level": 45,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 98
   },
   "Kingler": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Krabby",
+        "Kingler"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7643,10 +8947,24 @@
         "level": 63,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 99
   },
-  "VoltorbPlain": {
-    "evolution_level": 30,
+  "Voltorbplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electrode"
+        }
+      ],
+      "chain": [
+        "Voltorbplain",
+        "Voltorbhisuian",
+        "Electrode"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7716,10 +9034,11 @@
         "level": 48,
         "move": "MIRROR_COAT"
       }
-    ]
+    ],
+    "nationalDex": null
   },
-  "ElectrodePlain": {
-    "evolution_level": null,
+  "Electrodeplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -7789,10 +9108,25 @@
         "level": 58,
         "move": "MIRROR_COAT"
       }
-    ]
+    ],
+    "nationalDex": null
   },
-  "VoltorbHisuian": {
-    "evolution_level": null,
+  "Voltorbhisuian": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Electrode",
+          "form": "HisuianForm"
+        }
+      ],
+      "chain": [
+        "Voltorbhisuian",
+        "Voltorbplain",
+        "Electrode"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -7866,10 +9200,11 @@
         "level": 48,
         "move": "MIRROR_COAT"
       }
-    ]
+    ],
+    "nationalDex": 325
   },
-  "ElectrodeHisuian": {
-    "evolution_level": null,
+  "Electrodehisuian": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -7943,10 +9278,30 @@
         "level": 58,
         "move": "MIRROR_COAT"
       }
-    ]
+    ],
+    "nationalDex": 326
   },
   "Exeggcute": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Exeggutor",
+          "form": "PlainForm"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Exeggutor",
+          "form": "AlolanForm"
+        }
+      ],
+      "chain": [
+        "Exeggcute",
+        "Exeggutor"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -8008,10 +9363,11 @@
         "level": 50,
         "move": "PSYCHIC_M"
       }
-    ]
+    ],
+    "nationalDex": 102
   },
-  "ExeggutorPlain": {
-    "evolution_level": null,
+  "Exeggutorplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -8045,10 +9401,11 @@
         "level": 47,
         "move": "PETAL_DANCE"
       }
-    ]
+    ],
+    "nationalDex": 103
   },
-  "ExeggutorAlolan": {
-    "evolution_level": null,
+  "Exeggutoralolan": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -8082,10 +9439,30 @@
         "level": 47,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 304
   },
   "Cubone": {
-    "evolution_level": 28,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Marowak",
+          "form": "PlainForm"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Marowak",
+          "form": "AlolanForm"
+        }
+      ],
+      "chain": [
+        "Cubone",
+        "Marowak"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -8151,10 +9528,11 @@
         "level": 51,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 104
   },
-  "MarowakPlain": {
-    "evolution_level": null,
+  "Marowakplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -8224,10 +9602,11 @@
         "level": 65,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 105
   },
-  "MarowakAlolan": {
-    "evolution_level": null,
+  "Marowakalolan": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -8297,10 +9676,11 @@
         "level": 65,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 305
   },
   "Hitmonlee": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -8374,10 +9754,11 @@
         "level": 61,
         "move": "COUNTER"
       }
-    ]
+    ],
+    "nationalDex": 106
   },
   "Hitmonchan": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -8451,10 +9832,23 @@
         "level": 66,
         "move": "CLOSE_COMBAT"
       }
-    ]
+    ],
+    "nationalDex": 107
   },
   "Lickitung": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ROLLOUT",
+          "target": "Lickilicky"
+        }
+      ],
+      "chain": [
+        "Lickitung",
+        "Lickilicky"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -8516,10 +9910,30 @@
         "level": 57,
         "move": "BELLY_DRUM"
       }
-    ]
+    ],
+    "nationalDex": 108
   },
   "Koffing": {
-    "evolution_level": 35,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "CHARCOAL",
+          "target": "Weezing",
+          "form": "GalarianForm"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 35,
+          "target": "Weezing",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Koffing",
+        "Weezing"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -8577,10 +9991,11 @@
         "level": 45,
         "move": "FIRE_BLAST"
       }
-    ]
+    ],
+    "nationalDex": 109
   },
-  "WeezingPlain": {
-    "evolution_level": null,
+  "Weezingplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -8638,10 +10053,11 @@
         "level": 57,
         "move": "FIRE_BLAST"
       }
-    ]
+    ],
+    "nationalDex": 110
   },
-  "WeezingGalarian": {
-    "evolution_level": null,
+  "Weezinggalarian": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -8703,10 +10119,24 @@
         "level": 57,
         "move": "MOONBLAST"
       }
-    ]
+    ],
+    "nationalDex": 316
   },
   "Rhyhorn": {
-    "evolution_level": 42,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "Rhydon"
+        }
+      ],
+      "chain": [
+        "Rhyhorn",
+        "Rhydon",
+        "Rhyperior"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -8776,10 +10206,24 @@
         "level": 53,
         "move": "MEGAHORN"
       }
-    ]
+    ],
+    "nationalDex": 111
   },
   "Rhydon": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "PROTECTOR",
+          "target": "Rhyperior"
+        }
+      ],
+      "chain": [
+        "Rhyhorn",
+        "Rhydon",
+        "Rhyperior"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -8853,10 +10297,23 @@
         "level": 62,
         "move": "MEGAHORN"
       }
-    ]
+    ],
+    "nationalDex": 112
   },
   "Chansey": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Blissey"
+        }
+      ],
+      "chain": [
+        "Chansey",
+        "Blissey"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -8926,10 +10383,23 @@
         "level": 65,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 113
   },
   "Tangela": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Tangrowth"
+        }
+      ],
+      "chain": [
+        "Tangela",
+        "Tangrowth"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -9003,10 +10473,11 @@
         "level": 50,
         "move": "POWER_WHIP"
       }
-    ]
+    ],
+    "nationalDex": 114
   },
   "Kangaskhan": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -9068,10 +10539,24 @@
         "level": 50,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 115
   },
   "Horsea": {
-    "evolution_level": 32,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Seadra"
+        }
+      ],
+      "chain": [
+        "Horsea",
+        "Seadra",
+        "Kingdra"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -9121,10 +10606,24 @@
         "level": 52,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 116
   },
   "Seadra": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DRAGON_SCALE",
+          "target": "Kingdra"
+        }
+      ],
+      "chain": [
+        "Horsea",
+        "Seadra",
+        "Kingdra"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -9174,10 +10673,23 @@
         "level": 60,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 117
   },
   "Goldeen": {
-    "evolution_level": 33,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Seaking"
+        }
+      ],
+      "chain": [
+        "Goldeen",
+        "Seaking"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -9235,10 +10747,17 @@
         "level": 45,
         "move": "MEGAHORN"
       }
-    ]
+    ],
+    "nationalDex": 118
   },
   "Seaking": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Goldeen",
+        "Seaking"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -9300,10 +10819,23 @@
         "level": 54,
         "move": "MEGAHORN"
       }
-    ]
+    ],
+    "nationalDex": 119
   },
   "Staryu": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Starmie"
+        }
+      ],
+      "chain": [
+        "Staryu",
+        "Starmie"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -9377,10 +10909,17 @@
         "level": 49,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 120
   },
   "Starmie": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Staryu",
+        "Starmie"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -9410,10 +10949,11 @@
         "level": 60,
         "move": "TRI_ATTACK"
       }
-    ]
+    ],
+    "nationalDex": 121
   },
-  "MrMimePlain": {
-    "evolution_level": null,
+  "Mrmimeplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -9487,10 +11027,30 @@
         "level": 50,
         "move": "SAFEGUARD"
       }
-    ]
+    ],
+    "nationalDex": 122
   },
   "Scyther": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Scizor"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "HARD_STONE",
+          "target": "TrAnytime",
+          "form": "Kleavor"
+        }
+      ],
+      "chain": [
+        "Scyther",
+        "Scizor",
+        "Tranytime"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -9556,10 +11116,17 @@
         "level": 57,
         "move": "SWORDS_DANCE"
       }
-    ]
+    ],
+    "nationalDex": 123
   },
   "Jynx": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Smoochum",
+        "Jynx"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -9637,10 +11204,24 @@
         "level": 60,
         "move": "BLIZZARD"
       }
-    ]
+    ],
+    "nationalDex": 124
   },
   "Electabuzz": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "ELECTIRIZER",
+          "target": "Electivire"
+        }
+      ],
+      "chain": [
+        "Elekid",
+        "Electabuzz",
+        "Electivire"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -9698,10 +11279,24 @@
         "level": 55,
         "move": "THUNDER"
       }
-    ]
+    ],
+    "nationalDex": 125
   },
   "Magmar": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "MAGMARIZER",
+          "target": "Magmortar"
+        }
+      ],
+      "chain": [
+        "Magby",
+        "Magmar",
+        "Magmortar"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -9759,10 +11354,11 @@
         "level": 55,
         "move": "FIRE_BLAST"
       }
-    ]
+    ],
+    "nationalDex": 126
   },
   "Pinsir": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -9824,10 +11420,11 @@
         "level": 50,
         "move": "MEGAHORN"
       }
-    ]
+    ],
+    "nationalDex": 127
   },
-  "TaurosPlain": {
-    "evolution_level": null,
+  "Taurosplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -9893,10 +11490,11 @@
         "level": 80,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 128
   },
-  "TaurosPaldean": {
-    "evolution_level": null,
+  "Taurospaldean": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -9962,10 +11560,11 @@
         "level": 80,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 331
   },
-  "TaurosPaldeanFire": {
-    "evolution_level": null,
+  "Taurospaldeanfire": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -10031,10 +11630,11 @@
         "level": 80,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 332
   },
-  "TaurosPaldeanWater": {
-    "evolution_level": null,
+  "Taurospaldeanwater": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -10100,10 +11700,24 @@
         "level": 80,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 333
   },
   "Magikarp": {
-    "evolution_level": 20,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Gyarados",
+          "form": "NoForm"
+        }
+      ],
+      "chain": [
+        "Magikarp",
+        "Gyarados"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -10117,10 +11731,17 @@
         "level": 30,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 129
   },
   "Gyarados": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Magikarp",
+        "Gyarados"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -10194,10 +11815,11 @@
         "level": 57,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": null
   },
   "Lapras": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -10275,19 +11897,95 @@
         "level": 54,
         "move": "MEGAHORN"
       }
-    ]
+    ],
+    "nationalDex": 131
   },
   "Ditto": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
         "move": "TRANSFORM"
       }
-    ]
+    ],
+    "nationalDex": 132
   },
   "Eevee": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "chain": [
+        "Eevee",
+        "Jolteon",
+        "Vaporeon",
+        "Flareon",
+        "Espeon",
+        "Umbreon",
+        "Leafeon",
+        "Glaceon",
+        "Sylveon"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -10353,10 +12051,24 @@
         "level": 45,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 133
   },
   "Vaporeon": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Eevee",
+        "Jolteon",
+        "Flareon",
+        "Espeon",
+        "Umbreon",
+        "Leafeon",
+        "Glaceon",
+        "Sylveon",
+        "Vaporeon"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -10418,10 +12130,24 @@
         "level": 45,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 134
   },
   "Jolteon": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Eevee",
+        "Vaporeon",
+        "Flareon",
+        "Espeon",
+        "Umbreon",
+        "Leafeon",
+        "Glaceon",
+        "Sylveon",
+        "Jolteon"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -10483,10 +12209,24 @@
         "level": 45,
         "move": "THUNDER"
       }
-    ]
+    ],
+    "nationalDex": 135
   },
   "Flareon": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Eevee",
+        "Jolteon",
+        "Vaporeon",
+        "Espeon",
+        "Umbreon",
+        "Leafeon",
+        "Glaceon",
+        "Sylveon",
+        "Flareon"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -10548,10 +12288,24 @@
         "level": 45,
         "move": "FLARE_BLITZ"
       }
-    ]
+    ],
+    "nationalDex": 136
   },
   "Porygon": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "UPGRADE",
+          "target": "Porygon2"
+        }
+      ],
+      "chain": [
+        "Porygon",
+        "Porygon2",
+        "Porygonz"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -10609,10 +12363,23 @@
         "level": 62,
         "move": "ZAP_CANNON"
       }
-    ]
+    ],
+    "nationalDex": 137
   },
   "Omanyte": {
-    "evolution_level": 40,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Omastar"
+        }
+      ],
+      "chain": [
+        "Omanyte",
+        "Omastar"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -10674,10 +12441,17 @@
         "level": 61,
         "move": "POWER_GEM"
       }
-    ]
+    ],
+    "nationalDex": 138
   },
   "Omastar": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Omanyte",
+        "Omastar"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -10743,10 +12517,23 @@
         "level": 86,
         "move": "POWER_GEM"
       }
-    ]
+    ],
+    "nationalDex": 139
   },
   "Kabuto": {
-    "evolution_level": 40,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Kabutops"
+        }
+      ],
+      "chain": [
+        "Kabuto",
+        "Kabutops"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -10804,10 +12591,17 @@
         "level": 61,
         "move": "SHELL_SMASH"
       }
-    ]
+    ],
+    "nationalDex": 140
   },
   "Kabutops": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Kabuto",
+        "Kabutops"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -10873,10 +12667,11 @@
         "level": 81,
         "move": "SHELL_SMASH"
       }
-    ]
+    ],
+    "nationalDex": 141
   },
   "Aerodactyl": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -10946,10 +12741,17 @@
         "level": 81,
         "move": "GIGA_IMPACT"
       }
-    ]
+    ],
+    "nationalDex": 142
   },
   "Snorlax": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Munchlax",
+        "Snorlax"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -11011,10 +12813,11 @@
         "level": 57,
         "move": "GIGA_IMPACT"
       }
-    ]
+    ],
+    "nationalDex": 143
   },
-  "ArticunoPlain": {
-    "evolution_level": null,
+  "Articunoplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -11084,10 +12887,11 @@
         "level": 99,
         "move": "AEROBLAST"
       }
-    ]
+    ],
+    "nationalDex": 144
   },
-  "ArticunoGalarian": {
-    "evolution_level": null,
+  "Articunogalarian": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -11157,10 +12961,11 @@
         "level": 99,
         "move": "AEROBLAST"
       }
-    ]
+    ],
+    "nationalDex": 318
   },
-  "ZapdosPlain": {
-    "evolution_level": null,
+  "Zapdosplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -11230,10 +13035,11 @@
         "level": 99,
         "move": "ZAP_CANNON"
       }
-    ]
+    ],
+    "nationalDex": 145
   },
-  "ZapdosGalarian": {
-    "evolution_level": null,
+  "Zapdosgalarian": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -11303,10 +13109,11 @@
         "level": 99,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 319
   },
-  "MoltresPlain": {
-    "evolution_level": null,
+  "Moltresplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -11376,10 +13183,11 @@
         "level": 99,
         "move": "SOLAR_BEAM"
       }
-    ]
+    ],
+    "nationalDex": 146
   },
-  "MoltresGalarian": {
-    "evolution_level": null,
+  "Moltresgalarian": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -11449,10 +13257,24 @@
         "level": 99,
         "move": "NIGHT_SLASH"
       }
-    ]
+    ],
+    "nationalDex": 320
   },
   "Dratini": {
-    "evolution_level": 30,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Dragonair"
+        }
+      ],
+      "chain": [
+        "Dratini",
+        "Dragonair",
+        "Dragonite"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -11510,10 +13332,24 @@
         "level": 61,
         "move": "HYPER_BEAM"
       }
-    ]
+    ],
+    "nationalDex": 147
   },
   "Dragonair": {
-    "evolution_level": 55,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Dragonite"
+        }
+      ],
+      "chain": [
+        "Dratini",
+        "Dragonair",
+        "Dragonite"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -11571,10 +13407,18 @@
         "level": 75,
         "move": "HYPER_BEAM"
       }
-    ]
+    ],
+    "nationalDex": 148
   },
   "Dragonite": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Dratini",
+        "Dragonair",
+        "Dragonite"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -11664,10 +13508,11 @@
         "level": 81,
         "move": "HURRICANE"
       }
-    ]
+    ],
+    "nationalDex": 149
   },
   "Mewtwo": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -11733,10 +13578,11 @@
         "level": 100,
         "move": "PSYSTRIKE"
       }
-    ]
+    ],
+    "nationalDex": null
   },
   "Mew": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -11798,10 +13644,24 @@
         "level": 100,
         "move": "AURA_SPHERE"
       }
-    ]
+    ],
+    "nationalDex": 151
   },
   "Chikorita": {
-    "evolution_level": 16,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Bayleef"
+        }
+      ],
+      "chain": [
+        "Chikorita",
+        "Bayleef",
+        "Meganium"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -11875,10 +13735,24 @@
         "level": 56,
         "move": "MOONBLAST"
       }
-    ]
+    ],
+    "nationalDex": 152
   },
   "Bayleef": {
-    "evolution_level": 32,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Meganium"
+        }
+      ],
+      "chain": [
+        "Chikorita",
+        "Bayleef",
+        "Meganium"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -11952,10 +13826,18 @@
         "level": 64,
         "move": "MOONBLAST"
       }
-    ]
+    ],
+    "nationalDex": 153
   },
   "Meganium": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Chikorita",
+        "Bayleef",
+        "Meganium"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12033,10 +13915,24 @@
         "level": 80,
         "move": "MOONBLAST"
       }
-    ]
+    ],
+    "nationalDex": 154
   },
   "Cyndaquil": {
-    "evolution_level": 14,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 14,
+          "target": "Quilava"
+        }
+      ],
+      "chain": [
+        "Cyndaquil",
+        "Quilava",
+        "Typhlosion"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12102,10 +13998,24 @@
         "level": 64,
         "move": "FLARE_BLITZ"
       }
-    ]
+    ],
+    "nationalDex": 155
   },
   "Quilava": {
-    "evolution_level": 36,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Typhlosion"
+        }
+      ],
+      "chain": [
+        "Cyndaquil",
+        "Quilava",
+        "Typhlosion"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12171,10 +14081,11 @@
         "level": 75,
         "move": "FLARE_BLITZ"
       }
-    ]
+    ],
+    "nationalDex": 156
   },
-  "TyphlosionPlain": {
-    "evolution_level": null,
+  "Typhlosionplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -12244,10 +14155,11 @@
         "level": 81,
         "move": "FLARE_BLITZ"
       }
-    ]
+    ],
+    "nationalDex": 157
   },
-  "TyphlosionHisuian": {
-    "evolution_level": null,
+  "Typhlosionhisuian": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -12321,10 +14233,24 @@
         "level": 81,
         "move": "FLARE_BLITZ"
       }
-    ]
+    ],
+    "nationalDex": 327
   },
   "Totodile": {
-    "evolution_level": 18,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Croconaw"
+        }
+      ],
+      "chain": [
+        "Totodile",
+        "Croconaw",
+        "Feraligatr"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12394,10 +14320,24 @@
         "level": 56,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 158
   },
   "Croconaw": {
-    "evolution_level": 30,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Feraligatr"
+        }
+      ],
+      "chain": [
+        "Totodile",
+        "Croconaw",
+        "Feraligatr"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12467,10 +14407,18 @@
         "level": 66,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 159
   },
   "Feraligatr": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Totodile",
+        "Croconaw",
+        "Feraligatr"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12548,10 +14496,23 @@
         "level": 84,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 160
   },
   "Sentret": {
-    "evolution_level": 15,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Furret"
+        }
+      ],
+      "chain": [
+        "Sentret",
+        "Furret"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12609,10 +14570,17 @@
         "level": 47,
         "move": "HYPER_VOICE"
       }
-    ]
+    ],
+    "nationalDex": 161
   },
   "Furret": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Sentret",
+        "Furret"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12674,10 +14642,23 @@
         "level": 56,
         "move": "HYPER_VOICE"
       }
-    ]
+    ],
+    "nationalDex": 162
   },
   "Hoothoot": {
-    "evolution_level": 20,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Noctowl"
+        }
+      ],
+      "chain": [
+        "Hoothoot",
+        "Noctowl"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12751,10 +14732,17 @@
         "level": 46,
         "move": "DREAM_EATER"
       }
-    ]
+    ],
+    "nationalDex": 163
   },
   "Noctowl": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Hoothoot",
+        "Noctowl"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12832,10 +14820,23 @@
         "level": 55,
         "move": "DREAM_EATER"
       }
-    ]
+    ],
+    "nationalDex": 164
   },
   "Ledyba": {
-    "evolution_level": 18,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Ledian"
+        }
+      ],
+      "chain": [
+        "Ledyba",
+        "Ledian"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12893,10 +14894,17 @@
         "level": 40,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 165
   },
   "Ledian": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Ledyba",
+        "Ledian"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -12958,10 +14966,23 @@
         "level": 47,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 166
   },
   "Spinarak": {
-    "evolution_level": 22,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Ariados"
+        }
+      ],
+      "chain": [
+        "Spinarak",
+        "Ariados"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13031,10 +15052,17 @@
         "level": 50,
         "move": "FEINT_ATTACK"
       }
-    ]
+    ],
+    "nationalDex": 167
   },
   "Ariados": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Spinarak",
+        "Ariados"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13112,10 +15140,18 @@
         "level": 58,
         "move": "FEINT_ATTACK"
       }
-    ]
+    ],
+    "nationalDex": 168
   },
   "Crobat": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Zubat",
+        "Golbat",
+        "Crobat"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13189,10 +15225,23 @@
         "level": 51,
         "move": "CRUNCH"
       }
-    ]
+    ],
+    "nationalDex": 169
   },
   "Chinchou": {
-    "evolution_level": 27,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 27,
+          "target": "Lanturn"
+        }
+      ],
+      "chain": [
+        "Chinchou",
+        "Lanturn"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13258,10 +15307,17 @@
         "level": 50,
         "move": "LIGHT_SCREEN"
       }
-    ]
+    ],
+    "nationalDex": 170
   },
   "Lanturn": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Chinchou",
+        "Lanturn"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13327,10 +15383,24 @@
         "level": 58,
         "move": "LIGHT_SCREEN"
       }
-    ]
+    ],
+    "nationalDex": 171
   },
   "Pichu": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Pikachu"
+        }
+      ],
+      "chain": [
+        "Pichu",
+        "Pikachu",
+        "Raichu"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13368,10 +15438,24 @@
         "level": 38,
         "move": "PETAL_DANCE"
       }
-    ]
+    ],
+    "nationalDex": 172
   },
   "Cleffa": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Clefairy"
+        }
+      ],
+      "chain": [
+        "Cleffa",
+        "Clefairy",
+        "Clefable"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13405,10 +15489,24 @@
         "level": 20,
         "move": "CHARM"
       }
-    ]
+    ],
+    "nationalDex": 173
   },
   "Igglybuff": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Jigglypuff"
+        }
+      ],
+      "chain": [
+        "Igglybuff",
+        "Jigglypuff",
+        "Wigglytuff"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13442,10 +15540,24 @@
         "level": 20,
         "move": "CHARM"
       }
-    ]
+    ],
+    "nationalDex": 174
   },
   "Togepi": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Togetic"
+        }
+      ],
+      "chain": [
+        "Togepi",
+        "Togetic",
+        "Togekiss"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13507,10 +15619,24 @@
         "level": 53,
         "move": "PLAY_ROUGH"
       }
-    ]
+    ],
+    "nationalDex": 175
   },
   "Togetic": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Togekiss"
+        }
+      ],
+      "chain": [
+        "Togepi",
+        "Togetic",
+        "Togekiss"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13576,10 +15702,23 @@
         "level": 53,
         "move": "PLAY_ROUGH"
       }
-    ]
+    ],
+    "nationalDex": 176
   },
   "Natu": {
-    "evolution_level": 25,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Xatu"
+        }
+      ],
+      "chain": [
+        "Natu",
+        "Xatu"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13641,10 +15780,17 @@
         "level": 50,
         "move": "SUCKER_PUNCH"
       }
-    ]
+    ],
+    "nationalDex": 177
   },
   "Xatu": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Natu",
+        "Xatu"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13710,10 +15856,24 @@
         "level": 57,
         "move": "SUCKER_PUNCH"
       }
-    ]
+    ],
+    "nationalDex": 178
   },
   "Mareep": {
-    "evolution_level": 15,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Flaaffy"
+        }
+      ],
+      "chain": [
+        "Mareep",
+        "Flaaffy",
+        "Ampharos"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13775,10 +15935,29 @@
         "level": 46,
         "move": "THUNDER"
       }
-    ]
+    ],
+    "nationalDex": 179
   },
   "Flaaffy": {
-    "evolution_level": 36,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ampharos"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Ampharos"
+        }
+      ],
+      "chain": [
+        "Mareep",
+        "Flaaffy",
+        "Ampharos"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13840,10 +16019,18 @@
         "level": 56,
         "move": "THUNDER"
       }
-    ]
+    ],
+    "nationalDex": 180
   },
   "Ampharos": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Mareep",
+        "Flaaffy",
+        "Ampharos"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13925,10 +16112,19 @@
         "level": 71,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 181
   },
   "Bellossom": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Oddish",
+        "Gloom",
+        "Vileplume",
+        "Bellossom"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -13962,10 +16158,24 @@
         "level": 69,
         "move": "PLAY_ROUGH"
       }
-    ]
+    ],
+    "nationalDex": 182
   },
   "Marill": {
-    "evolution_level": 18,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Azumarill"
+        }
+      ],
+      "chain": [
+        "Azurill",
+        "Marill",
+        "Azumarill"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14027,10 +16237,18 @@
         "level": 47,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 183
   },
   "Azumarill": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Azurill",
+        "Marill",
+        "Azumarill"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14092,10 +16310,17 @@
         "level": 55,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 184
   },
   "Sudowoodo": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Bonsly",
+        "Sudowoodo"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14157,10 +16382,19 @@
         "level": 50,
         "move": "IRON_HEAD"
       }
-    ]
+    ],
+    "nationalDex": 185
   },
   "Politoed": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Poliwag",
+        "Poliwhirl",
+        "Poliwrath",
+        "Politoed"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14190,10 +16424,24 @@
         "level": 48,
         "move": "HYPER_VOICE"
       }
-    ]
+    ],
+    "nationalDex": 186
   },
   "Hoppip": {
-    "evolution_level": 18,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Skiploom"
+        }
+      ],
+      "chain": [
+        "Hoppip",
+        "Skiploom",
+        "Jumpluff"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14275,10 +16523,24 @@
         "level": 49,
         "move": "ENERGY_BALL"
       }
-    ]
+    ],
+    "nationalDex": 187
   },
   "Skiploom": {
-    "evolution_level": 27,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 27,
+          "target": "Jumpluff"
+        }
+      ],
+      "chain": [
+        "Hoppip",
+        "Skiploom",
+        "Jumpluff"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14360,10 +16622,18 @@
         "level": 60,
         "move": "ENERGY_BALL"
       }
-    ]
+    ],
+    "nationalDex": 188
   },
   "Jumpluff": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Hoppip",
+        "Skiploom",
+        "Jumpluff"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14445,10 +16715,23 @@
         "level": 69,
         "move": "ENERGY_BALL"
       }
-    ]
+    ],
+    "nationalDex": 189
   },
   "Aipom": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "DOUBLE_SLAP",
+          "target": "Ambipom"
+        }
+      ],
+      "chain": [
+        "Aipom",
+        "Ambipom"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14506,10 +16789,23 @@
         "level": 43,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 190
   },
   "Sunkern": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Sunflora"
+        }
+      ],
+      "chain": [
+        "Sunkern",
+        "Sunflora"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14575,10 +16871,17 @@
         "level": 43,
         "move": "SEED_BOMB"
       }
-    ]
+    ],
+    "nationalDex": 191
   },
   "Sunflora": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Sunkern",
+        "Sunflora"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14660,10 +16963,23 @@
         "level": 50,
         "move": "FIRE_BLAST"
       }
-    ]
+    ],
+    "nationalDex": 192
   },
   "Yanma": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Yanmega"
+        }
+      ],
+      "chain": [
+        "Yanma",
+        "Yanmega"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14741,10 +17057,23 @@
         "level": 62,
         "move": "DREAM_EATER"
       }
-    ]
+    ],
+    "nationalDex": 193
   },
-  "WooperPlain": {
-    "evolution_level": 20,
+  "Wooperplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Quagsire"
+        }
+      ],
+      "chain": [
+        "Wooperplain",
+        "Quagsire"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14794,10 +17123,23 @@
         "level": 47,
         "move": "AQUA_TAIL"
       }
-    ]
+    ],
+    "nationalDex": 194
   },
-  "WooperPaldean": {
-    "evolution_level": 20,
+  "Wooperpaldean": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Clodsire"
+        }
+      ],
+      "chain": [
+        "Wooperpaldean",
+        "Clodsire"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14847,10 +17189,17 @@
         "level": 47,
         "move": "GUNK_SHOT"
       }
-    ]
+    ],
+    "nationalDex": 330
   },
   "Quagsire": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Wooperplain",
+        "Quagsire"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14904,10 +17253,24 @@
         "level": 53,
         "move": "AQUA_TAIL"
       }
-    ]
+    ],
+    "nationalDex": 195
   },
   "Espeon": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Eevee",
+        "Jolteon",
+        "Vaporeon",
+        "Flareon",
+        "Umbreon",
+        "Leafeon",
+        "Glaceon",
+        "Sylveon",
+        "Espeon"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -14969,10 +17332,24 @@
         "level": 45,
         "move": "POWER_GEM"
       }
-    ]
+    ],
+    "nationalDex": 196
   },
   "Umbreon": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Eevee",
+        "Jolteon",
+        "Vaporeon",
+        "Flareon",
+        "Espeon",
+        "Leafeon",
+        "Glaceon",
+        "Sylveon",
+        "Umbreon"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -15034,10 +17411,23 @@
         "level": 45,
         "move": "MEAN_LOOK"
       }
-    ]
+    ],
+    "nationalDex": 197
   },
   "Murkrow": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "DUSK_STONE",
+          "target": "Honchkrow"
+        }
+      ],
+      "chain": [
+        "Murkrow",
+        "Honchkrow"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -15099,10 +17489,11 @@
         "level": 65,
         "move": "BRAVE_BIRD"
       }
-    ]
+    ],
+    "nationalDex": 198
   },
-  "SlowkingPlain": {
-    "evolution_level": null,
+  "Slowkingplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -15172,10 +17563,11 @@
         "level": 58,
         "move": "RECOVER"
       }
-    ]
+    ],
+    "nationalDex": 199
   },
-  "SlowkingGalarian": {
-    "evolution_level": null,
+  "Slowkinggalarian": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -15249,10 +17641,23 @@
         "level": 58,
         "move": "RECOVER"
       }
-    ]
+    ],
+    "nationalDex": 321
   },
   "Misdreavus": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "DUSK_STONE",
+          "target": "Mismagius"
+        }
+      ],
+      "chain": [
+        "Misdreavus",
+        "Mismagius"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -15318,19 +17723,27 @@
         "level": 62,
         "move": "NASTY_PLOT"
       }
-    ]
+    ],
+    "nationalDex": 200
   },
   "Unown": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
         "move": "HIDDEN_POWER"
       }
-    ]
+    ],
+    "nationalDex": 201
   },
   "Wobbuffet": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Wynaut",
+        "Wobbuffet"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -15368,10 +17781,23 @@
         "level": 1,
         "move": "DESTINY_BOND"
       }
-    ]
+    ],
+    "nationalDex": 202
   },
   "Girafarig": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ZEN_HEADBUTT",
+          "target": "Farigiraf"
+        }
+      ],
+      "chain": [
+        "Girafarig",
+        "Farigiraf"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -15437,10 +17863,23 @@
         "level": 55,
         "move": "DARK_PULSE"
       }
-    ]
+    ],
+    "nationalDex": 203
   },
   "Pineco": {
-    "evolution_level": 31,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 31,
+          "target": "Forretress"
+        }
+      ],
+      "chain": [
+        "Pineco",
+        "Forretress"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -15498,10 +17937,17 @@
         "level": 45,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 204
   },
   "Forretress": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Pineco",
+        "Forretress"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -15579,10 +18025,24 @@
         "level": 60,
         "move": "IRON_HEAD"
       }
-    ]
+    ],
+    "nationalDex": 205
   },
   "Dunsparce": {
-    "evolution_level": 32,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Dudunsparce",
+          "form": "NoForm"
+        }
+      ],
+      "chain": [
+        "Dunsparce",
+        "Dudunsparce"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -15676,10 +18136,24 @@
         "level": 53,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 206
   },
   "Gligar": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_FANG",
+          "target": "TrEvenite",
+          "form": "Gliscor"
+        }
+      ],
+      "chain": [
+        "Gligar",
+        "Trevenite"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -15741,10 +18215,11 @@
         "level": 55,
         "move": "NIGHT_SLASH"
       }
-    ]
+    ],
+    "nationalDex": 207
   },
   "Gliscor": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -15806,10 +18281,17 @@
         "level": 55,
         "move": "NIGHT_SLASH"
       }
-    ]
+    ],
+    "nationalDex": 273
   },
   "Steelix": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Onix",
+        "Steelix"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -15895,10 +18377,23 @@
         "level": 52,
         "move": "EARTHQUAKE"
       }
-    ]
+    ],
+    "nationalDex": 208
   },
   "Snubbull": {
-    "evolution_level": 23,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 23,
+          "target": "Granbull"
+        }
+      ],
+      "chain": [
+        "Snubbull",
+        "Granbull"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -15948,10 +18443,17 @@
         "level": 49,
         "move": "CRUNCH"
       }
-    ]
+    ],
+    "nationalDex": 209
   },
   "Granbull": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Snubbull",
+        "Granbull"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -16005,10 +18507,11 @@
         "level": 67,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 210
   },
-  "QwilfishPlain": {
-    "evolution_level": null,
+  "Qwilfishplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -16086,10 +18589,23 @@
         "level": 60,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": null
   },
-  "QwilfishHisuian": {
-    "evolution_level": 33,
+  "Qwilfishhisuian": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Overqwil"
+        }
+      ],
+      "chain": [
+        "Qwilfishhisuian",
+        "Overqwil"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -16167,10 +18683,18 @@
         "level": 60,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 328
   },
   "Scizor": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Scyther",
+        "Tranytime",
+        "Scizor"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -16244,10 +18768,11 @@
         "level": 57,
         "move": "SWORDS_DANCE"
       }
-    ]
+    ],
+    "nationalDex": 212
   },
   "Shuckle": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -16317,10 +18842,11 @@
         "level": 53,
         "move": "STONE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 213
   },
   "Heracross": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -16386,10 +18912,24 @@
         "level": 46,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 214
   },
-  "SneaselPlain": {
-    "evolution_level": null,
+  "Sneaselplain": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "TrEvenite",
+          "form": "Weavile"
+        }
+      ],
+      "chain": [
+        "Sneaselplain",
+        "Trevenite"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -16455,10 +18995,24 @@
         "level": 47,
         "move": "CRUNCH"
       }
-    ]
+    ],
+    "nationalDex": null
   },
-  "SneaselHisuian": {
-    "evolution_level": null,
+  "Sneaselhisuian": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "TrMornday",
+          "form": "Sneasler"
+        }
+      ],
+      "chain": [
+        "Sneaselhisuian",
+        "Trmornday"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -16528,10 +19082,24 @@
         "level": 50,
         "move": "GUNK_SHOT"
       }
-    ]
+    ],
+    "nationalDex": 329
   },
   "Teddiursa": {
-    "evolution_level": 30,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ursaring"
+        }
+      ],
+      "chain": [
+        "Teddiursa",
+        "Ursaring",
+        "Ursaluna"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -16597,10 +19165,34 @@
         "level": 64,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 216
   },
   "Ursaring": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SINJOH_RUINS",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MYSTRI_STAGE",
+          "target": "Ursaluna"
+        }
+      ],
+      "chain": [
+        "Teddiursa",
+        "Ursaring",
+        "Ursaluna"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -16670,10 +19262,23 @@
         "level": 76,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 217
   },
   "Slugma": {
-    "evolution_level": 38,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Magcargo"
+        }
+      ],
+      "chain": [
+        "Slugma",
+        "Magcargo"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -16735,10 +19340,17 @@
         "level": 50,
         "move": "EARTH_POWER"
       }
-    ]
+    ],
+    "nationalDex": 218
   },
   "Magcargo": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Slugma",
+        "Magcargo"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -16804,10 +19416,24 @@
         "level": 58,
         "move": "EARTH_POWER"
       }
-    ]
+    ],
+    "nationalDex": 219
   },
   "Swinub": {
-    "evolution_level": 33,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Piloswine"
+        }
+      ],
+      "chain": [
+        "Swinub",
+        "Piloswine",
+        "Mamoswine"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -16869,10 +19495,24 @@
         "level": 48,
         "move": "AMNESIA"
       }
-    ]
+    ],
+    "nationalDex": 220
   },
   "Piloswine": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Mamoswine"
+        }
+      ],
+      "chain": [
+        "Swinub",
+        "Piloswine",
+        "Mamoswine"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -16942,10 +19582,11 @@
         "level": 58,
         "move": "AMNESIA"
       }
-    ]
+    ],
+    "nationalDex": 221
   },
-  "CorsolaPlain": {
-    "evolution_level": null,
+  "Corsolaplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -17019,10 +19660,24 @@
         "level": 50,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 222
   },
-  "CorsolaGalarian": {
-    "evolution_level": 38,
+  "Corsolagalarian": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Cursola",
+          "form": "PlainForm"
+        }
+      ],
+      "chain": [
+        "Corsolagalarian",
+        "Cursola"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17076,10 +19731,23 @@
         "level": 55,
         "move": "MIRROR_COAT"
       }
-    ]
+    ],
+    "nationalDex": 322
   },
   "Remoraid": {
-    "evolution_level": 25,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Octillery"
+        }
+      ],
+      "chain": [
+        "Remoraid",
+        "Octillery"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17141,10 +19809,17 @@
         "level": 54,
         "move": "HYPER_BEAM"
       }
-    ]
+    ],
+    "nationalDex": 223
   },
   "Octillery": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Remoraid",
+        "Octillery"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17222,10 +19897,11 @@
         "level": 70,
         "move": "HYPER_BEAM"
       }
-    ]
+    ],
+    "nationalDex": 224
   },
   "Delibird": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -17287,10 +19963,17 @@
         "level": 57,
         "move": "BLIZZARD"
       }
-    ]
+    ],
+    "nationalDex": 225
   },
   "Mantine": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Mantyke",
+        "Mantine"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17356,10 +20039,11 @@
         "level": 49,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 226
   },
   "Skarmory": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -17425,10 +20109,23 @@
         "level": 53,
         "move": "NIGHT_SLASH"
       }
-    ]
+    ],
+    "nationalDex": 227
   },
   "Houndour": {
-    "evolution_level": 24,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 24,
+          "target": "Houndoom"
+        }
+      ],
+      "chain": [
+        "Houndour",
+        "Houndoom"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17494,10 +20191,17 @@
         "level": 56,
         "move": "DARK_PULSE"
       }
-    ]
+    ],
+    "nationalDex": 228
   },
   "Houndoom": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Houndour",
+        "Houndoom"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17563,10 +20267,18 @@
         "level": 65,
         "move": "DARK_PULSE"
       }
-    ]
+    ],
+    "nationalDex": 229
   },
   "Kingdra": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Horsea",
+        "Seadra",
+        "Kingdra"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17620,10 +20332,23 @@
         "level": 60,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 230
   },
   "Phanpy": {
-    "evolution_level": 25,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Donphan"
+        }
+      ],
+      "chain": [
+        "Phanpy",
+        "Donphan"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17677,10 +20402,17 @@
         "level": 42,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 231
   },
   "Donphan": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Phanpy",
+        "Donphan"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17742,10 +20474,24 @@
         "level": 50,
         "move": "GIGA_IMPACT"
       }
-    ]
+    ],
+    "nationalDex": 232
   },
   "Porygon2": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DUBIOUS_DISC",
+          "target": "PorygonZ"
+        }
+      ],
+      "chain": [
+        "Porygon",
+        "Porygon2",
+        "Porygonz"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17807,10 +20553,38 @@
         "level": 67,
         "move": "HYPER_BEAM"
       }
-    ]
+    ],
+    "nationalDex": 233
   },
   "Stantler": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "RUGGED_ROAD",
+          "target": "Wyrdeer"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SNOWTOP_MOUNTAIN",
+          "target": "Wyrdeer"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SINJOH_RUINS",
+          "target": "Wyrdeer"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MYSTRI_STAGE",
+          "target": "Wyrdeer"
+        }
+      ],
+      "chain": [
+        "Stantler",
+        "Wyrdeer"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17876,10 +20650,11 @@
         "level": 60,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 234
   },
   "Smeargle": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -17921,10 +20696,38 @@
         "level": 91,
         "move": "SKETCH"
       }
-    ]
+    ],
+    "nationalDex": 235
   },
   "Tyrogue": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "AtkLtDef",
+          "form": "Hitmonchan"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "AtkGtDef",
+          "form": "Hitmonlee"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "AtkEqDef",
+          "form": "Hitmontop"
+        }
+      ],
+      "chain": [
+        "Tyrogue",
+        "Atkltdef",
+        "Atkgtdef",
+        "Atkeqdef"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -17938,10 +20741,11 @@
         "level": 1,
         "move": "FORESIGHT"
       }
-    ]
+    ],
+    "nationalDex": 236
   },
   "Hitmontop": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -18003,10 +20807,23 @@
         "level": 60,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 237
   },
   "Smoochum": {
-    "evolution_level": 30,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Jynx"
+        }
+      ],
+      "chain": [
+        "Smoochum",
+        "Jynx"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -18064,10 +20881,24 @@
         "level": 48,
         "move": "BLIZZARD"
       }
-    ]
+    ],
+    "nationalDex": 238
   },
   "Elekid": {
-    "evolution_level": 30,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electabuzz"
+        }
+      ],
+      "chain": [
+        "Elekid",
+        "Electabuzz",
+        "Electivire"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -18125,10 +20956,24 @@
         "level": 43,
         "move": "THUNDER"
       }
-    ]
+    ],
+    "nationalDex": 239
   },
   "Magby": {
-    "evolution_level": 30,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magmar"
+        }
+      ],
+      "chain": [
+        "Magby",
+        "Magmar",
+        "Magmortar"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -18186,10 +21031,11 @@
         "level": 43,
         "move": "FIRE_BLAST"
       }
-    ]
+    ],
+    "nationalDex": 240
   },
   "Miltank": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -18243,10 +21089,17 @@
         "level": 50,
         "move": "REVERSAL"
       }
-    ]
+    ],
+    "nationalDex": 241
   },
   "Blissey": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Chansey",
+        "Blissey"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -18316,10 +21169,11 @@
         "level": 65,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 242
   },
   "Raikou": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -18385,10 +21239,11 @@
         "level": 99,
         "move": "HIDDEN_POWER"
       }
-    ]
+    ],
+    "nationalDex": 243
   },
   "Entei": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -18454,10 +21309,11 @@
         "level": 99,
         "move": "HIDDEN_POWER"
       }
-    ]
+    ],
+    "nationalDex": 244
   },
   "Suicune": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -18523,10 +21379,24 @@
         "level": 99,
         "move": "HIDDEN_POWER"
       }
-    ]
+    ],
+    "nationalDex": 245
   },
   "Larvitar": {
-    "evolution_level": 30,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Pupitar"
+        }
+      ],
+      "chain": [
+        "Larvitar",
+        "Pupitar",
+        "Tyranitar"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -18596,10 +21466,24 @@
         "level": 68,
         "move": "CLOSE_COMBAT"
       }
-    ]
+    ],
+    "nationalDex": 246
   },
   "Pupitar": {
-    "evolution_level": 55,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Tyranitar"
+        }
+      ],
+      "chain": [
+        "Larvitar",
+        "Pupitar",
+        "Tyranitar"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -18673,10 +21557,18 @@
         "level": 84,
         "move": "CLOSE_COMBAT"
       }
-    ]
+    ],
+    "nationalDex": 247
   },
   "Tyranitar": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Larvitar",
+        "Pupitar",
+        "Tyranitar"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -18758,10 +21650,11 @@
         "level": 92,
         "move": "CLOSE_COMBAT"
       }
-    ]
+    ],
+    "nationalDex": 248
   },
   "Lugia": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -18823,10 +21716,11 @@
         "level": 99,
         "move": "HURRICANE"
       }
-    ]
+    ],
+    "nationalDex": 249
   },
-  "HoOh": {
-    "evolution_level": null,
+  "Hooh": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -18888,10 +21782,11 @@
         "level": 99,
         "move": "BRAVE_BIRD"
       }
-    ]
+    ],
+    "nationalDex": 250
   },
   "Celebi": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -18953,10 +21848,24 @@
         "level": 100,
         "move": "AURA_SPHERE"
       }
-    ]
+    ],
+    "nationalDex": 251
   },
   "Azurill": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Marill"
+        }
+      ],
+      "chain": [
+        "Azurill",
+        "Marill",
+        "Azumarill"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -18998,10 +21907,23 @@
         "level": 23,
         "move": "BODY_SLAM"
       }
-    ]
+    ],
+    "nationalDex": 252
   },
   "Wynaut": {
-    "evolution_level": 15,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Wobbuffet"
+        }
+      ],
+      "chain": [
+        "Wynaut",
+        "Wobbuffet"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19035,10 +21957,17 @@
         "level": 1,
         "move": "DESTINY_BOND"
       }
-    ]
+    ],
+    "nationalDex": 253
   },
   "Ambipom": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Aipom",
+        "Ambipom"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19100,10 +22029,17 @@
         "level": 43,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 254
   },
   "Mismagius": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Misdreavus",
+        "Mismagius"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19141,10 +22077,17 @@
         "level": 1,
         "move": "ASTONISH"
       }
-    ]
+    ],
+    "nationalDex": 255
   },
   "Honchkrow": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Murkrow",
+        "Honchkrow"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19190,10 +22133,23 @@
         "level": 75,
         "move": "DARK_PULSE"
       }
-    ]
+    ],
+    "nationalDex": 256
   },
   "Bonsly": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ROCK_THROW",
+          "target": "Sudowoodo"
+        }
+      ],
+      "chain": [
+        "Bonsly",
+        "Sudowoodo"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19247,10 +22203,36 @@
         "level": 40,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 257
   },
-  "MimeJr": {
-    "evolution_level": 30,
+  "Mimejr": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "MrMime",
+          "form": "GalarianForm"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "MrMime",
+          "form": "PlainForm"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "MrMime",
+          "form": "GalarianForm"
+        }
+      ],
+      "chain": [
+        "Mimejr",
+        "Mrmime"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19328,10 +22310,24 @@
         "level": 50,
         "move": "SAFEGUARD"
       }
-    ]
+    ],
+    "nationalDex": 258
   },
   "Happiny": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "OVAL_STONE",
+          "target": "TrMornday",
+          "form": "Chansey"
+        }
+      ],
+      "chain": [
+        "Happiny",
+        "Trmornday"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19365,10 +22361,23 @@
         "level": 20,
         "move": "CHARM"
       }
-    ]
+    ],
+    "nationalDex": 259
   },
   "Munchlax": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Snorlax"
+        }
+      ],
+      "chain": [
+        "Munchlax",
+        "Snorlax"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19438,10 +22447,23 @@
         "level": 57,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 260
   },
   "Mantyke": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_PARTY",
+          "parameter": "REMORAID",
+          "target": "Mantine"
+        }
+      ],
+      "chain": [
+        "Mantyke",
+        "Mantine"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19507,10 +22529,11 @@
         "level": 49,
         "move": "HYDRO_PUMP"
       }
-    ]
+    ],
+    "nationalDex": 261
   },
   "Weavile": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -19576,10 +22599,18 @@
         "level": 47,
         "move": "CRUNCH"
       }
-    ]
+    ],
+    "nationalDex": 262
   },
   "Magnezone": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Magnemite",
+        "Magneton",
+        "Magnezone"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19665,10 +22696,17 @@
         "level": 63,
         "move": "ZAP_CANNON"
       }
-    ]
+    ],
+    "nationalDex": 263
   },
   "Lickilicky": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Lickitung",
+        "Lickilicky"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19734,10 +22772,18 @@
         "level": 61,
         "move": "GYRO_BALL"
       }
-    ]
+    ],
+    "nationalDex": 264
   },
   "Rhyperior": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Rhyhorn",
+        "Rhydon",
+        "Rhyperior"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19819,10 +22865,17 @@
         "level": 69,
         "move": "ROCK_SLIDE"
       }
-    ]
+    ],
+    "nationalDex": 265
   },
   "Tangrowth": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Tangela",
+        "Tangrowth"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19896,10 +22949,18 @@
         "level": 53,
         "move": "POWER_WHIP"
       }
-    ]
+    ],
+    "nationalDex": 266
   },
   "Electivire": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Elekid",
+        "Electabuzz",
+        "Electivire"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -19969,10 +23030,18 @@
         "level": 62,
         "move": "GIGA_IMPACT"
       }
-    ]
+    ],
+    "nationalDex": 267
   },
   "Magmortar": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Magby",
+        "Magmar",
+        "Magmortar"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -20042,10 +23111,18 @@
         "level": 62,
         "move": "HYPER_BEAM"
       }
-    ]
+    ],
+    "nationalDex": 268
   },
   "Togekiss": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Togepi",
+        "Togetic",
+        "Togekiss"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -20075,10 +23152,17 @@
         "level": 1,
         "move": "FUTURE_SIGHT"
       }
-    ]
+    ],
+    "nationalDex": 269
   },
   "Yanmega": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Yanma",
+        "Yanmega"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -20164,10 +23248,24 @@
         "level": 62,
         "move": "FLY"
       }
-    ]
+    ],
+    "nationalDex": 270
   },
   "Leafeon": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Eevee",
+        "Jolteon",
+        "Vaporeon",
+        "Flareon",
+        "Espeon",
+        "Umbreon",
+        "Glaceon",
+        "Sylveon",
+        "Leafeon"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -20229,10 +23327,24 @@
         "level": 45,
         "move": "SUNNY_DAY"
       }
-    ]
+    ],
+    "nationalDex": 271
   },
   "Glaceon": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Eevee",
+        "Jolteon",
+        "Vaporeon",
+        "Flareon",
+        "Espeon",
+        "Umbreon",
+        "Leafeon",
+        "Sylveon",
+        "Glaceon"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -20294,10 +23406,18 @@
         "level": 45,
         "move": "BLIZZARD"
       }
-    ]
+    ],
+    "nationalDex": 272
   },
   "Mamoswine": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Swinub",
+        "Piloswine",
+        "Mamoswine"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -20367,10 +23487,11 @@
         "level": 58,
         "move": "SCARY_FACE"
       }
-    ]
+    ],
+    "nationalDex": 274
   },
-  "PorygonZ": {
-    "evolution_level": null,
+  "Porygonz": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -20436,10 +23557,24 @@
         "level": 67,
         "move": "HYPER_BEAM"
       }
-    ]
+    ],
+    "nationalDex": 275
   },
   "Sylveon": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Eevee",
+        "Jolteon",
+        "Vaporeon",
+        "Flareon",
+        "Espeon",
+        "Umbreon",
+        "Leafeon",
+        "Glaceon",
+        "Sylveon"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -20501,10 +23636,17 @@
         "level": 45,
         "move": "PLAY_ROUGH"
       }
-    ]
+    ],
+    "nationalDex": 276
   },
   "Perrserker": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Meowthgalarian",
+        "Perrserker"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -20574,10 +23716,17 @@
         "level": 60,
         "move": "CLOSE_COMBAT"
       }
-    ]
+    ],
+    "nationalDex": 277
   },
   "Cursola": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Corsolagalarian",
+        "Cursola"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -20635,10 +23784,11 @@
         "level": 55,
         "move": "MIRROR_COAT"
       }
-    ]
+    ],
+    "nationalDex": 278
   },
-  "SirfetchD": {
-    "evolution_level": null,
+  "Sirfetchd": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -20720,10 +23870,23 @@
         "level": 70,
         "move": "GIGA_IMPACT"
       }
-    ]
+    ],
+    "nationalDex": 279
   },
-  "MrMimeGalarian": {
-    "evolution_level": 42,
+  "Mrmimegalarian": {
+    "evolution": {
+      "methods": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "MrRime"
+        }
+      ],
+      "chain": [
+        "Mrmimegalarian",
+        "Mrrime"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -20813,10 +23976,17 @@
         "level": 52,
         "move": "CONFUSE_RAY"
       }
-    ]
+    ],
+    "nationalDex": 317
   },
   "Wyrdeer": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Stantler",
+        "Wyrdeer"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -20886,10 +24056,11 @@
         "level": 65,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 281
   },
   "Kleavor": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -20959,10 +24130,11 @@
         "level": 57,
         "move": "SWORDS_DANCE"
       }
-    ]
+    ],
+    "nationalDex": 282
   },
-  "UrsalunaPlain": {
-    "evolution_level": null,
+  "Ursalunaplain": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -21040,10 +24212,11 @@
         "level": 85,
         "move": "GUNK_SHOT"
       }
-    ]
+    ],
+    "nationalDex": null
   },
-  "UrsalunaBloodmoon": {
-    "evolution_level": null,
+  "Ursalunabloodmoon": {
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -21121,10 +24294,11 @@
         "level": 85,
         "move": "GUNK_SHOT"
       }
-    ]
+    ],
+    "nationalDex": 334
   },
   "Sneasler": {
-    "evolution_level": null,
+    "evolution": null,
     "moves": [
       {
         "level": 1,
@@ -21194,10 +24368,17 @@
         "level": 50,
         "move": "GUNK_SHOT"
       }
-    ]
+    ],
+    "nationalDex": 284
   },
   "Overqwil": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Qwilfishhisuian",
+        "Overqwil"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -21275,10 +24456,17 @@
         "level": 60,
         "move": "DOUBLE_EDGE"
       }
-    ]
+    ],
+    "nationalDex": 285
   },
   "Dudunsparce": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Dunsparce",
+        "Dudunsparce"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -21380,10 +24568,17 @@
         "level": 58,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 286
   },
   "Clodsire": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Wooperpaldean",
+        "Clodsire"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -21437,10 +24632,18 @@
         "level": 53,
         "move": "GUNK_SHOT"
       }
-    ]
+    ],
+    "nationalDex": 288
   },
   "Annihilape": {
-    "evolution_level": null,
+    "evolution": {
+      "methods": [],
+      "chain": [
+        "Mankey",
+        "Primeape",
+        "Annihilape"
+      ]
+    },
     "moves": [
       {
         "level": 1,
@@ -21522,6 +24725,7 @@
         "level": 53,
         "move": "OUTRAGE"
       }
-    ]
+    ],
+    "nationalDex": 289
   }
 }
