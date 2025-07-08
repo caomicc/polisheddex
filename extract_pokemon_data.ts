@@ -6,6 +6,14 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Helper to convert move names to Capital Case with spaces
+function toCapitalCaseWithSpaces(str: string) {
+  return str
+    .toLowerCase()
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase());
+}
+
 function extractMoveDescriptions() {
   const moveNamesPath = path.join(__dirname, 'data/moves/names.asm');
   const moveDescriptionsPath = path.join(__dirname, 'data/moves/descriptions.asm');
@@ -20,18 +28,19 @@ function extractMoveDescriptions() {
   const nameLines = namesData.split(/\r?\n/).filter(l => l.trim().startsWith('li '));
   const moveNames = nameLines.map(l => l.match(/li "(.+?)"/)?.[1] || '').filter(Boolean);
 
-  // Parse descriptions
+  // Parse descriptions by label name
   const descLines = descData.split(/\r?\n/);
   const descMap: Record<string, string> = {};
   let currentLabel = '';
   let collecting = false;
   let buffer: string[] = [];
   for (const line of descLines) {
-    if (line.endsWith('Description:')) {
+    const labelMatch = line.match(/^([A-Za-z0-9_]+)Description:/);
+    if (labelMatch) {
       if (currentLabel && buffer.length) {
         descMap[currentLabel] = buffer.join(' ');
       }
-      currentLabel = line.replace(':', '');
+      currentLabel = labelMatch[1].toUpperCase();
       buffer = [];
       collecting = false;
     } else if (line.trim().startsWith('text ')) {
@@ -73,25 +82,30 @@ function extractMoveDescriptions() {
     }
   }
 
-  // Map move names to their description (by order)
+  // Map move names to their description by label name
   const moveDescByName: Record<string, { description: string; type: string; pp: number; power: number; category: string }> = {};
-  const descLabels = Object.keys(descMap);
   for (let i = 0; i < moveNames.length; i++) {
-    const label = descLabels[i];
-    if (label && moveNames[i]) {
-      const moveKey = moveNames[i].toUpperCase().replace(/[^A-Z0-9_]/g, '_');
-      const stats = moveStats[moveKey] || { type: 'None', pp: 0, power: 0, category: 'Unknown' };
-      if (descMap[label]) {
-        moveDescByName[moveKey] = {
-          description: descMap[label],
-          type: stats.type,
-          pp: stats.pp,
-          power: stats.power,
-          category: stats.category
-        };
-      } else {
-        console.warn(`Warning: No description found for move: ${moveKey}`);
-      }
+    const moveKey = moveNames[i].toUpperCase().replace(/[^A-Z0-9_]/g, '_');
+    const desc = descMap[moveKey] || '';
+    const stats = moveStats[moveKey] || { type: 'None', pp: 0, power: 0, category: 'Unknown' };
+    const prettyName = toCapitalCaseWithSpaces(moveKey);
+    if (desc) {
+      moveDescByName[prettyName] = {
+        description: desc,
+        type: stats.type,
+        pp: stats.pp,
+        power: stats.power,
+        category: stats.category
+      };
+    } else {
+      // Still output stats, but with empty description
+      moveDescByName[prettyName] = {
+        description: '',
+        type: stats.type,
+        pp: stats.pp,
+        power: stats.power,
+        category: stats.category
+      };
     }
   }
   fs.writeFileSync(moveDescriptionsOutputPath, JSON.stringify(moveDescByName, null, 2));
@@ -276,7 +290,11 @@ for (const file of baseStatsFiles) {
 
 const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, types: string | string[] }> = {};
 for (const mon of Object.keys(result)) {
-  const moves = result[mon].moves;
+  // Normalize move names in evolution moves
+  const moves = result[mon].moves.map(m => ({
+    level: m.level,
+    move: toCapitalCaseWithSpaces(m.move)
+  }));
   let evolution: Evolution | null = null;
   if (evoMap[mon] || preEvoMap[mon]) {
     const methods = evoMap[mon] ? evoMap[mon].map(e => ({
@@ -306,35 +324,52 @@ console.log('Pokémon evolution and moves data extracted to', outputPath);
 // --- Egg Moves Extraction ---
 function extractEggMoves() {
   const eggMovesPath = path.join(__dirname, 'data/pokemon/egg_moves.asm');
+  const eggMovePointersPath = path.join(__dirname, 'data/pokemon/egg_move_pointers.asm');
   const outputEggMovesPath = path.join(__dirname, 'pokemon_egg_moves.json');
-  const data = fs.readFileSync(eggMovesPath, 'utf8');
-  const lines = data.split(/\r?\n/);
-  const eggMoves: Record<string, string[]> = {};
-  let currentMon: string | null = null;
-  for (const line of lines) {
-    const speciesMatch = line.match(/^([A-Za-z0-9_]+)EggSpeciesMoves:/);
-    if (speciesMatch) {
-      currentMon = null; // reset
-      continue;
-    }
-    const dpMatch = line.match(/^\s*dp ([A-Z0-9_]+)(?:, ([A-Z0-9_]+))?/);
-    if (dpMatch) {
-      // Use only the species name for the key, ignore form for now
-      currentMon = toTitleCase(dpMatch[1]);
-      eggMoves[currentMon] = [];
-      continue;
-    }
-    if (currentMon && line.match(/^\s*db ([A-Z0-9_]+)/)) {
-      const moveMatch = line.match(/^\s*db ([A-Z0-9_]+)/);
-      if (moveMatch && moveMatch[1] !== '$ff') {
-        eggMoves[currentMon].push(toTitleCase(moveMatch[1]));
-      }
-    }
-    // End of moves for this species
-    if (currentMon && line.includes('$ff')) {
-      currentMon = null;
+
+  // Parse pointers: species => EggSpeciesMoves label
+  const pointerData = fs.readFileSync(eggMovePointersPath, 'utf8');
+  const pointerLines = pointerData.split(/\r?\n/);
+  const speciesToPointer: Record<string, string> = {};
+  for (const line of pointerLines) {
+    const match = line.match(/^\s*dw ([A-Za-z0-9_]+)\s*;\s*(.+)$/);
+    if (match) {
+      const pointer = match[1];
+      // Use only the first word before any parenthesis or extra info as the species name
+      const species = match[2].split('(')[0].split(';')[0].trim().replace(/\s+\(.+\)/, '').replace(/\s+$/, '');
+      speciesToPointer[species] = pointer;
     }
   }
+
+  // Parse moves: pointer label => moves array
+  const data = fs.readFileSync(eggMovesPath, 'utf8');
+  const lines = data.split(/\r?\n/);
+  const pointerToMoves: Record<string, string[]> = {};
+  let currentPointer: string | null = null;
+  for (const line of lines) {
+    const labelMatch = line.match(/^([A-Za-z0-9_]+)EggSpeciesMoves:/);
+    if (labelMatch) {
+      currentPointer = labelMatch[1] + 'EggSpeciesMoves';
+      pointerToMoves[currentPointer] = [];
+      continue;
+    }
+    if (currentPointer && line.match(/^\s*db ([A-Z0-9_]+)/)) {
+      const moveMatch = line.match(/^\s*db ([A-Z0-9_]+)/);
+      if (moveMatch && moveMatch[1] !== '$ff') {
+        pointerToMoves[currentPointer].push(toCapitalCaseWithSpaces(moveMatch[1]));
+      }
+    }
+    if (currentPointer && line.includes('$ff')) {
+      currentPointer = null;
+    }
+  }
+
+  // Assign moves to each species using the pointer mapping
+  const eggMoves: Record<string, string[]> = {};
+  for (const [species, pointer] of Object.entries(speciesToPointer)) {
+    eggMoves[toTitleCase(species)] = pointerToMoves[pointer] || [];
+  }
+
   fs.writeFileSync(outputEggMovesPath, JSON.stringify(eggMoves, null, 2));
   console.log('Egg moves extracted to', outputEggMovesPath);
 }

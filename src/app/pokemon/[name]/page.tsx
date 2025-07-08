@@ -3,10 +3,19 @@ import path from 'path';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import React from 'react';
+import { MoveCard } from '@/components/pokemon';
 
 interface Move {
   level: number;
   move: string;
+}
+
+interface MoveDetail {
+  description: string;
+  type: string;
+  pp: number;
+  power: number;
+  category: string;
 }
 
 interface EvolutionMethod {
@@ -22,6 +31,7 @@ interface Evolution {
 interface PokemonData {
   evolution: Evolution | null;
   moves: Move[];
+  types: string[] | string;
 }
 
 export default function PokemonDetail({ params }: { params: { name: string } }) {
@@ -29,7 +39,7 @@ export default function PokemonDetail({ params }: { params: { name: string } }) 
   const descFile = path.join(process.cwd(), 'move_descriptions.json');
   const eggMovesFile = path.join(process.cwd(), 'pokemon_egg_moves.json');
   const evoData: Record<string, PokemonData> = JSON.parse(fs.readFileSync(evoFile, 'utf8'));
-  const moveDescs: Record<string, string> = JSON.parse(fs.readFileSync(descFile, 'utf8'));
+  const moveDescs: Record<string, MoveDetail> = JSON.parse(fs.readFileSync(descFile, 'utf8'));
   const eggMovesData: Record<string, string[]> = JSON.parse(fs.readFileSync(eggMovesFile, 'utf8'));
 
   const mon = evoData[params.name];
@@ -51,7 +61,21 @@ export default function PokemonDetail({ params }: { params: { name: string } }) 
         </ol>
       </nav>
       <h1 className="text-2xl font-bold mb-4">{params.name}</h1>
+
       {/* Evolution Info */}
+      <div className="mb-4">
+        <h2 className="text-xl font-semibold mb-1">Type{Array.isArray(mon.types) && mon.types.length > 1 ? 's' : ''}</h2>
+        <div className="flex gap-2">
+          {Array.isArray(mon.types)
+        ? mon.types.map((type: string) => (
+            <span key={type} className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-mono text-sm">{type}</span>
+          ))
+        : (
+            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-mono text-sm">{mon.types}</span>
+          )
+          }
+        </div>
+      </div>
       <div className="mb-4">
         <h2 className="text-xl font-semibold mb-1">Evolution Chain</h2>
         {mon.evolution ? (
@@ -93,20 +117,24 @@ export default function PokemonDetail({ params }: { params: { name: string } }) 
       {/* Moves List */}
       <h2 className="text-xl font-semibold mb-2">Moves</h2>
       <ul className="grid gap-3">
-        {mon.moves.map(({ level, move }) => (
-          <li key={move + level} className="border rounded p-2">
-            <div className="font-bold">{move} <span className="text-gray-500">(Lv. {level})</span></div>
-            <div className="text-sm text-gray-700 mt-1">{moveDescs[move] || <span className="text-red-500">No description found.</span>}</div>
-          </li>
-        ))}
+        {mon.moves.map(({ level, move }) => {
+          const moveInfo = moveDescs[move] || null;
+          return (
+            <MoveCard key={move + level} name={move} level={level} info={moveInfo} />
+          );
+        })}
       </ul>
 
       <h2 className="text-xl font-semibold mt-6 mb-2">Egg Moves</h2>
       {eggMovesData[params.name] && eggMovesData[params.name].length > 0 ? (
-        <ul className="flex flex-wrap gap-2 mb-6">
-          {eggMovesData[params.name].map((move) => (
-            <li key={move} className="bg-gray-100 px-2 py-1 rounded font-mono text-xs">{move}</li>
-          ))}
+        <ul className="grid gap-3">
+          {eggMovesData[params.name].map((move) => {
+            const moveInfo = moveDescs[move] || null;
+            const level = 1; // Default to 1 if no level info
+            return (
+              <MoveCard key={move + level} name={move} level={level} info={moveInfo} />
+            );
+          })}
         </ul>
       ) : (
         <div className="text-gray-400 text-sm mb-6">No egg moves</div>
