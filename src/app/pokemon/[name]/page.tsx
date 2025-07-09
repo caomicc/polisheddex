@@ -71,7 +71,7 @@ export async function generateStaticParams() {
   }
 }
 
-export default async function PokemonDetail({ params }: { params: { name: string } }) {
+export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
   const { name } = await params;
   const pokemonName = name;
 

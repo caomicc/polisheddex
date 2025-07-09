@@ -64,15 +64,15 @@ export async function generateStaticParams() {
   return Object.keys(locations).map(name => ({ name }));
 }
 
-export default async function LocationDetailPage({ params }: { params: { name: string } }) {
-  const { name } = params;
+export default async function LocationDetailPage({ params }: { params: Promise<{ name: string }> }) {
+  const { name } = await params;
   const locationName = decodeURIComponent(name);
-  
+
   const locationData = await loadLocationData();
   const locationInfo = locationData[locationName];
-  
+
   if (!locationInfo) return notFound();
-  
+
   // Process Pokémon encounters by method and time
   type GroupedPokemon = {
     [method: string]: {
@@ -85,20 +85,20 @@ export default async function LocationDetailPage({ params }: { params: { name: s
       };
     };
   };
-  
+
   const groupedByMethodAndTime: GroupedPokemon = {};
-  
+
   Object.entries(locationInfo.pokemon).forEach(([pokemonName, pokemonData]) => {
     Object.entries(pokemonData.methods).forEach(([method, methodData]) => {
       if (!groupedByMethodAndTime[method]) {
         groupedByMethodAndTime[method] = {};
       }
-      
+
       Object.entries(methodData.times).forEach(([time, encounters]) => {
         if (!groupedByMethodAndTime[method][time]) {
           groupedByMethodAndTime[method][time] = { pokemon: [] };
         }
-        
+
         encounters.forEach(encounter => {
           groupedByMethodAndTime[method][time].pokemon.push({
             name: pokemonName,
@@ -109,7 +109,7 @@ export default async function LocationDetailPage({ params }: { params: { name: s
       });
     });
   });
-  
+
   // Sort Pokémon by encounter rate (highest first)
   Object.values(groupedByMethodAndTime).forEach(methodData => {
     Object.values(methodData).forEach(timeData => {
@@ -132,15 +132,15 @@ export default async function LocationDetailPage({ params }: { params: { name: s
           <li className="text-gray-900 font-semibold">{locationName}</li>
         </ol>
       </nav>
-      
+
       <h1 className="text-3xl font-bold mb-6">{locationName}</h1>
-      
+
       {Object.entries(groupedByMethodAndTime).map(([method, methodData]) => (
         <div key={method} className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">
             {formatMethod(method)} Encounters
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {Object.entries(methodData).map(([time, timeData]) => (
               <div key={time} className="border rounded-lg overflow-hidden">
@@ -150,7 +150,7 @@ export default async function LocationDetailPage({ params }: { params: { name: s
                 <div className="divide-y">
                   {timeData.pokemon.map((pokemon, idx) => (
                     <div key={`${pokemon.name}-${idx}`} className="px-4 py-3 flex justify-between items-center">
-                      <Link 
+                      <Link
                         href={`/pokemon/${pokemon.name}`}
                         className="text-blue-700 hover:underline font-medium"
                       >

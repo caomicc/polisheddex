@@ -2,13 +2,15 @@ import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
 
-export default function PokemonList({ searchParams }: { searchParams?: { sort?: string } }) {
+export default async function PokemonList({ params }: { params: Promise<{ sort: string }> }) {
   // Read the JSON file at build time
   const filePath = path.join(process.cwd(), 'pokemon_evo_moves.json');
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
+  const { sort } = await params;
+
   // Determine sort type from query param
-  const sortType = searchParams?.sort === 'nationaldex' ? searchParams.sort : 'alphabetical';
+  const sortType = sort === 'nationaldex' ? sort : 'alphabetical';
 
   // Prepare an array of Pokémon with their names and dex numbers
   // eslint-disable-next-line
