@@ -9,8 +9,7 @@
     ],
     "chain": [
       "Bulbasaur",
-      "Ivysaur",
-      "Venusaur"
+      "Ivysaur"
     ]
   },
   "Ivysaur": {
@@ -45,8 +44,7 @@
     ],
     "chain": [
       "Charmander",
-      "Charmeleon",
-      "Charizard"
+      "Charmeleon"
     ]
   },
   "Charmeleon": {
@@ -81,8 +79,7 @@
     ],
     "chain": [
       "Squirtle",
-      "Wartortle",
-      "Blastoise"
+      "Wartortle"
     ]
   },
   "Wartortle": {
@@ -117,8 +114,7 @@
     ],
     "chain": [
       "Caterpie",
-      "Metapod",
-      "Butterfree"
+      "Metapod"
     ]
   },
   "Metapod": {
@@ -153,8 +149,7 @@
     ],
     "chain": [
       "Weedle",
-      "Kakuna",
-      "Beedrill"
+      "Kakuna"
     ]
   },
   "Kakuna": {
@@ -189,8 +184,7 @@
     ],
     "chain": [
       "Pidgey",
-      "Pidgeotto",
-      "Pidgeot"
+      "Pidgeotto"
     ]
   },
   "Pidgeotto": {
@@ -216,17 +210,9 @@
     ]
   },
   "Rattata": {
-    "methods": [
-      {
-        "method": "EVOLVE_LEVEL",
-        "parameter": 20,
-        "target": "Raticate"
-      }
-    ],
+    "methods": [],
     "chain": [
-      "Rattataplain",
-      "Rattataalolan",
-      "Raticate"
+      "Rattata"
     ]
   },
   "Spearow": {
@@ -291,23 +277,27 @@
       "Raichu"
     ]
   },
-  "Raichu": null,
-  "Sandshrew": {
-    "methods": [
-      {
-        "method": "EVOLVE_LEVEL",
-        "parameter": 22,
-        "target": "Sandslash",
-        "form": "PlainForm"
-      }
-    ],
+  "Raichu": {
+    "methods": [],
     "chain": [
-      "Sandshrewplain",
-      "Sandshrewalolan",
+      "Pichu",
+      "Pikachu",
+      "Raichu"
+    ]
+  },
+  "Sandshrew": {
+    "methods": [],
+    "chain": [
+      "Sandshrew"
+    ]
+  },
+  "Sandslash": {
+    "methods": [],
+    "chain": [
+      "Sandshrew",
       "Sandslash"
     ]
   },
-  "Sandslash": null,
   "Nidoranf": {
     "methods": [
       {
@@ -318,8 +308,7 @@
     ],
     "chain": [
       "Nidoranf",
-      "Nidorina",
-      "Nidoqueen"
+      "Nidorina"
     ]
   },
   "Nidorina": {
@@ -354,8 +343,7 @@
     ],
     "chain": [
       "Nidoranm",
-      "Nidorino",
-      "Nidoking"
+      "Nidorino"
     ]
   },
   "Nidorino": {
@@ -403,21 +391,18 @@
     ]
   },
   "Vulpix": {
-    "methods": [
-      {
-        "method": "EVOLVE_ITEM",
-        "parameter": "FIRE_STONE",
-        "target": "Ninetales",
-        "form": "PlainForm"
-      }
-    ],
+    "methods": [],
     "chain": [
-      "Vulpixplain",
-      "Vulpixalolan",
+      "Vulpix"
+    ]
+  },
+  "Ninetales": {
+    "methods": [],
+    "chain": [
+      "Vulpix",
       "Ninetales"
     ]
   },
-  "Ninetales": null,
   "Jigglypuff": {
     "methods": [
       {
@@ -450,8 +435,7 @@
     ],
     "chain": [
       "Zubat",
-      "Golbat",
-      "Crobat"
+      "Golbat"
     ]
   },
   "Golbat": {
@@ -478,9 +462,7 @@
     ],
     "chain": [
       "Oddish",
-      "Gloom",
-      "Vileplume",
-      "Bellossom"
+      "Gloom"
     ]
   },
   "Gloom": {
@@ -508,8 +490,8 @@
     "chain": [
       "Oddish",
       "Gloom",
-      "Bellossom",
-      "Vileplume"
+      "Vileplume",
+      "Bellossom"
     ]
   },
   "Paras": {
@@ -553,37 +535,31 @@
     ]
   },
   "Diglett": {
-    "methods": [
-      {
-        "method": "EVOLVE_LEVEL",
-        "parameter": 26,
-        "target": "Dugtrio",
-        "form": "PlainForm"
-      }
-    ],
+    "methods": [],
     "chain": [
-      "Diglettplain",
-      "Diglettalolan",
+      "Diglett"
+    ]
+  },
+  "Dugtrio": {
+    "methods": [],
+    "chain": [
+      "Diglett",
       "Dugtrio"
     ]
   },
-  "Dugtrio": null,
   "Meowth": {
-    "methods": [
-      {
-        "method": "EVOLVE_LEVEL",
-        "parameter": 28,
-        "target": "Persian",
-        "form": "PlainForm"
-      }
-    ],
+    "methods": [],
     "chain": [
-      "Meowthplain",
-      "Meowthalolan",
+      "Meowth"
+    ]
+  },
+  "Persian": {
+    "methods": [],
+    "chain": [
+      "Meowth",
       "Persian"
     ]
   },
-  "Persian": null,
   "Psyduck": {
     "methods": [
       {
@@ -614,8 +590,7 @@
     ],
     "chain": [
       "Mankey",
-      "Primeape",
-      "Annihilape"
+      "Primeape"
     ]
   },
   "Primeape": {
@@ -633,20 +608,18 @@
     ]
   },
   "Growlithe": {
-    "methods": [
-      {
-        "method": "EVOLVE_ITEM",
-        "parameter": "FIRE_STONE",
-        "target": "Arcanine"
-      }
-    ],
+    "methods": [],
     "chain": [
-      "Growlitheplain",
-      "Growlithehisuian",
+      "Growlithe"
+    ]
+  },
+  "Arcanine": {
+    "methods": [],
+    "chain": [
+      "Growlithe",
       "Arcanine"
     ]
   },
-  "Arcanine": null,
   "Poliwag": {
     "methods": [
       {
@@ -657,9 +630,7 @@
     ],
     "chain": [
       "Poliwag",
-      "Poliwhirl",
-      "Politoed",
-      "Poliwrath"
+      "Poliwhirl"
     ]
   },
   "Poliwhirl": {
@@ -701,8 +672,7 @@
     ],
     "chain": [
       "Abra",
-      "Kadabra",
-      "Alakazam"
+      "Kadabra"
     ]
   },
   "Kadabra": {
@@ -737,8 +707,7 @@
     ],
     "chain": [
       "Machop",
-      "Machoke",
-      "Machamp"
+      "Machoke"
     ]
   },
   "Machoke": {
@@ -773,8 +742,7 @@
     ],
     "chain": [
       "Bellsprout",
-      "Weepinbell",
-      "Victreebel"
+      "Weepinbell"
     ]
   },
   "Weepinbell": {
@@ -820,75 +788,52 @@
     ]
   },
   "Geodude": {
-    "methods": [
-      {
-        "method": "EVOLVE_LEVEL",
-        "parameter": 25,
-        "target": "Graveler",
-        "form": "PlainForm"
-      }
-    ],
+    "methods": [],
     "chain": [
-      "Geodudeplain",
-      "Geodudealolan",
-      "Graveler"
+      "Geodude"
     ]
   },
   "Graveler": {
-    "methods": [
-      {
-        "method": "EVOLVE_TRADE",
-        "parameter": "LINKING_CORD",
-        "target": "Golem",
-        "form": "PlainForm"
-      }
-    ],
+    "methods": [],
     "chain": [
-      "Gravelerplain",
-      "Graveleralolan",
+      "Geodude",
+      "Graveler"
+    ]
+  },
+  "Golem": {
+    "methods": [],
+    "chain": [
+      "Geodude",
+      "Graveler",
       "Golem"
     ]
   },
-  "Golem": null,
   "Ponyta": {
-    "methods": [
-      {
-        "method": "EVOLVE_LEVEL",
-        "parameter": 40,
-        "target": "Rapidash",
-        "form": "PlainForm"
-      }
-    ],
+    "methods": [],
     "chain": [
-      "Ponytaplain",
-      "Ponytagalarian",
+      "Ponyta"
+    ]
+  },
+  "Rapidash": {
+    "methods": [],
+    "chain": [
+      "Ponyta",
       "Rapidash"
     ]
   },
-  "Rapidash": null,
   "Slowpoke": {
-    "methods": [
-      {
-        "method": "EVOLVE_TRADE",
-        "parameter": "KINGS_ROCK",
-        "target": "Slowking",
-        "form": "PlainForm"
-      },
-      {
-        "method": "EVOLVE_LEVEL",
-        "parameter": 37,
-        "target": "Slowbro",
-        "form": "PlainForm"
-      }
-    ],
+    "methods": [],
     "chain": [
-      "Slowpokeplain",
-      "Slowpokegalarian",
-      "Slowbro",
-      "Slowking"
+      "Slowpoke"
     ]
   },
-  "Slowbro": null,
+  "Slowbro": {
+    "methods": [],
+    "chain": [
+      "Slowpoke",
+      "Slowbro"
+    ]
+  },
   "Magnemite": {
     "methods": [
       {
@@ -899,8 +844,7 @@
     ],
     "chain": [
       "Magnemite",
-      "Magneton",
-      "Magnezone"
+      "Magneton"
     ]
   },
   "Magneton": {
@@ -927,7 +871,12 @@
       "Magnezone"
     ]
   },
-  "Farfetchd": null,
+  "Farfetchd": {
+    "methods": [],
+    "chain": [
+      "Farfetchd"
+    ]
+  },
   "Doduo": {
     "methods": [
       {
@@ -969,21 +918,18 @@
     ]
   },
   "Grimer": {
-    "methods": [
-      {
-        "method": "EVOLVE_LEVEL",
-        "parameter": 38,
-        "target": "Muk",
-        "form": "PlainForm"
-      }
-    ],
+    "methods": [],
     "chain": [
-      "Grimerplain",
-      "Grimeralolan",
+      "Grimer"
+    ]
+  },
+  "Muk": {
+    "methods": [],
+    "chain": [
+      "Grimer",
       "Muk"
     ]
   },
-  "Muk": null,
   "Shellder": {
     "methods": [
       {
@@ -1014,8 +960,7 @@
     ],
     "chain": [
       "Gastly",
-      "Haunter",
-      "Gengar"
+      "Haunter"
     ]
   },
   "Haunter": {
@@ -1094,20 +1039,18 @@
     ]
   },
   "Voltorb": {
-    "methods": [
-      {
-        "method": "EVOLVE_LEVEL",
-        "parameter": 30,
-        "target": "Electrode"
-      }
-    ],
+    "methods": [],
     "chain": [
-      "Voltorbplain",
-      "Voltorbhisuian",
+      "Voltorb"
+    ]
+  },
+  "Electrode": {
+    "methods": [],
+    "chain": [
+      "Voltorb",
       "Electrode"
     ]
   },
-  "Electrode": null,
   "Exeggcute": {
     "methods": [
       {
@@ -1128,7 +1071,13 @@
       "Exeggutor"
     ]
   },
-  "Exeggutor": null,
+  "Exeggutor": {
+    "methods": [],
+    "chain": [
+      "Exeggcute",
+      "Exeggutor"
+    ]
+  },
   "Cubone": {
     "methods": [
       {
@@ -1149,9 +1098,25 @@
       "Marowak"
     ]
   },
-  "Marowak": null,
-  "Hitmonlee": null,
-  "Hitmonchan": null,
+  "Marowak": {
+    "methods": [],
+    "chain": [
+      "Cubone",
+      "Marowak"
+    ]
+  },
+  "Hitmonlee": {
+    "methods": [],
+    "chain": [
+      "Hitmonlee"
+    ]
+  },
+  "Hitmonchan": {
+    "methods": [],
+    "chain": [
+      "Hitmonchan"
+    ]
+  },
   "Lickitung": {
     "methods": [
       {
@@ -1185,7 +1150,13 @@
       "Weezing"
     ]
   },
-  "Weezing": null,
+  "Weezing": {
+    "methods": [],
+    "chain": [
+      "Koffing",
+      "Weezing"
+    ]
+  },
   "Rhyhorn": {
     "methods": [
       {
@@ -1196,8 +1167,7 @@
     ],
     "chain": [
       "Rhyhorn",
-      "Rhydon",
-      "Rhyperior"
+      "Rhydon"
     ]
   },
   "Rhydon": {
@@ -1240,7 +1210,12 @@
       "Tangrowth"
     ]
   },
-  "Kangaskhan": null,
+  "Kangaskhan": {
+    "methods": [],
+    "chain": [
+      "Kangaskhan"
+    ]
+  },
   "Horsea": {
     "methods": [
       {
@@ -1251,8 +1226,7 @@
     ],
     "chain": [
       "Horsea",
-      "Seadra",
-      "Kingdra"
+      "Seadra"
     ]
   },
   "Seadra": {
@@ -1319,7 +1293,7 @@
       {
         "method": "EVOLVE_HOLDING",
         "parameter": "HARD_STONE",
-        "target": "TrAnytime",
+        "target": "Tranytime",
         "form": "Kleavor"
       }
     ],
@@ -1364,10 +1338,30 @@
       "Magmortar"
     ]
   },
-  "Pinsir": null,
-  "Taurospaldean": null,
-  "Taurospaldeanfire": null,
-  "Taurospaldeanwater": null,
+  "Pinsir": {
+    "methods": [],
+    "chain": [
+      "Pinsir"
+    ]
+  },
+  "Taurospaldean": {
+    "methods": [],
+    "chain": [
+      "Taurospaldean"
+    ]
+  },
+  "Taurospaldeanfire": {
+    "methods": [],
+    "chain": [
+      "Taurospaldeanfire"
+    ]
+  },
+  "Taurospaldeanwater": {
+    "methods": [],
+    "chain": [
+      "Taurospaldeanwater"
+    ]
+  },
   "Magikarp": {
     "methods": [
       {
@@ -1389,8 +1383,18 @@
       "Gyarados"
     ]
   },
-  "Lapras": null,
-  "Ditto": null,
+  "Lapras": {
+    "methods": [],
+    "chain": [
+      "Lapras"
+    ]
+  },
+  "Ditto": {
+    "methods": [],
+    "chain": [
+      "Ditto"
+    ]
+  },
   "Eevee": {
     "methods": [
       {
@@ -1471,27 +1475,27 @@
     "chain": [
       "Eevee",
       "Jolteon",
-      "Flareon",
-      "Espeon",
-      "Umbreon",
-      "Leafeon",
-      "Glaceon",
-      "Sylveon",
-      "Vaporeon"
-    ]
-  },
-  "Jolteon": {
-    "methods": [],
-    "chain": [
-      "Eevee",
       "Vaporeon",
       "Flareon",
       "Espeon",
       "Umbreon",
       "Leafeon",
       "Glaceon",
-      "Sylveon",
-      "Jolteon"
+      "Sylveon"
+    ]
+  },
+  "Jolteon": {
+    "methods": [],
+    "chain": [
+      "Eevee",
+      "Jolteon",
+      "Vaporeon",
+      "Flareon",
+      "Espeon",
+      "Umbreon",
+      "Leafeon",
+      "Glaceon",
+      "Sylveon"
     ]
   },
   "Flareon": {
@@ -1500,12 +1504,12 @@
       "Eevee",
       "Jolteon",
       "Vaporeon",
+      "Flareon",
       "Espeon",
       "Umbreon",
       "Leafeon",
       "Glaceon",
-      "Sylveon",
-      "Flareon"
+      "Sylveon"
     ]
   },
   "Porygon": {
@@ -1518,8 +1522,7 @@
     ],
     "chain": [
       "Porygon",
-      "Porygon2",
-      "Porygonz"
+      "Porygon2"
     ]
   },
   "Omanyte": {
@@ -1562,7 +1565,12 @@
       "Kabutops"
     ]
   },
-  "Aerodactyl": null,
+  "Aerodactyl": {
+    "methods": [],
+    "chain": [
+      "Aerodactyl"
+    ]
+  },
   "Snorlax": {
     "methods": [],
     "chain": [
@@ -1570,9 +1578,24 @@
       "Snorlax"
     ]
   },
-  "Articuno": null,
-  "Zapdos": null,
-  "Moltres": null,
+  "Articuno": {
+    "methods": [],
+    "chain": [
+      "Articuno"
+    ]
+  },
+  "Zapdos": {
+    "methods": [],
+    "chain": [
+      "Zapdos"
+    ]
+  },
+  "Moltres": {
+    "methods": [],
+    "chain": [
+      "Moltres"
+    ]
+  },
   "Dratini": {
     "methods": [
       {
@@ -1583,8 +1606,7 @@
     ],
     "chain": [
       "Dratini",
-      "Dragonair",
-      "Dragonite"
+      "Dragonair"
     ]
   },
   "Dragonair": {
@@ -1609,8 +1631,18 @@
       "Dragonite"
     ]
   },
-  "Mewtwo": null,
-  "Mew": null,
+  "Mewtwo": {
+    "methods": [],
+    "chain": [
+      "Mewtwo"
+    ]
+  },
+  "Mew": {
+    "methods": [],
+    "chain": [
+      "Mew"
+    ]
+  },
   "Chikorita": {
     "methods": [
       {
@@ -1621,8 +1653,7 @@
     ],
     "chain": [
       "Chikorita",
-      "Bayleef",
-      "Meganium"
+      "Bayleef"
     ]
   },
   "Bayleef": {
@@ -1657,8 +1688,7 @@
     ],
     "chain": [
       "Cyndaquil",
-      "Quilava",
-      "Typhlosion"
+      "Quilava"
     ]
   },
   "Quilava": {
@@ -1675,7 +1705,14 @@
       "Typhlosion"
     ]
   },
-  "Typhlosion": null,
+  "Typhlosion": {
+    "methods": [],
+    "chain": [
+      "Cyndaquil",
+      "Quilava",
+      "Typhlosion"
+    ]
+  },
   "Totodile": {
     "methods": [
       {
@@ -1686,8 +1723,7 @@
     ],
     "chain": [
       "Totodile",
-      "Croconaw",
-      "Feraligatr"
+      "Croconaw"
     ]
   },
   "Croconaw": {
@@ -1830,8 +1866,7 @@
     ],
     "chain": [
       "Pichu",
-      "Pikachu",
-      "Raichu"
+      "Pikachu"
     ]
   },
   "Cleffa": {
@@ -1844,8 +1879,7 @@
     ],
     "chain": [
       "Cleffa",
-      "Clefairy",
-      "Clefable"
+      "Clefairy"
     ]
   },
   "Igglybuff": {
@@ -1858,8 +1892,7 @@
     ],
     "chain": [
       "Igglybuff",
-      "Jigglypuff",
-      "Wigglytuff"
+      "Jigglypuff"
     ]
   },
   "Togepi": {
@@ -1872,8 +1905,7 @@
     ],
     "chain": [
       "Togepi",
-      "Togetic",
-      "Togekiss"
+      "Togetic"
     ]
   },
   "Togetic": {
@@ -1920,8 +1952,7 @@
     ],
     "chain": [
       "Mareep",
-      "Flaaffy",
-      "Ampharos"
+      "Flaaffy"
     ]
   },
   "Flaaffy": {
@@ -1994,8 +2025,8 @@
     "chain": [
       "Poliwag",
       "Poliwhirl",
-      "Poliwrath",
-      "Politoed"
+      "Politoed",
+      "Poliwrath"
     ]
   },
   "Hoppip": {
@@ -2008,8 +2039,7 @@
     ],
     "chain": [
       "Hoppip",
-      "Skiploom",
-      "Jumpluff"
+      "Skiploom"
     ]
   },
   "Skiploom": {
@@ -2096,7 +2126,7 @@
   "Quagsire": {
     "methods": [],
     "chain": [
-      "Wooperplain",
+      "Wooper",
       "Quagsire"
     ]
   },
@@ -2107,11 +2137,11 @@
       "Jolteon",
       "Vaporeon",
       "Flareon",
+      "Espeon",
       "Umbreon",
       "Leafeon",
       "Glaceon",
-      "Sylveon",
-      "Espeon"
+      "Sylveon"
     ]
   },
   "Umbreon": {
@@ -2122,10 +2152,10 @@
       "Vaporeon",
       "Flareon",
       "Espeon",
+      "Umbreon",
       "Leafeon",
       "Glaceon",
-      "Sylveon",
-      "Umbreon"
+      "Sylveon"
     ]
   },
   "Murkrow": {
@@ -2141,7 +2171,13 @@
       "Honchkrow"
     ]
   },
-  "Slowking": null,
+  "Slowking": {
+    "methods": [],
+    "chain": [
+      "Slowpoke",
+      "Slowking"
+    ]
+  },
   "Misdreavus": {
     "methods": [
       {
@@ -2155,7 +2191,12 @@
       "Mismagius"
     ]
   },
-  "Unown": null,
+  "Unown": {
+    "methods": [],
+    "chain": [
+      "Unown"
+    ]
+  },
   "Wobbuffet": {
     "methods": [],
     "chain": [
@@ -2215,7 +2256,7 @@
       {
         "method": "EVOLVE_HOLDING",
         "parameter": "RAZOR_FANG",
-        "target": "TrEvenite",
+        "target": "Trevenite",
         "form": "Gliscor"
       }
     ],
@@ -2224,7 +2265,12 @@
       "Trevenite"
     ]
   },
-  "Gliscor": null,
+  "Gliscor": {
+    "methods": [],
+    "chain": [
+      "Gliscor"
+    ]
+  },
   "Steelix": {
     "methods": [],
     "chain": [
@@ -2252,29 +2298,36 @@
       "Granbull"
     ]
   },
-  "Qwilfish": null,
+  "Qwilfish": {
+    "methods": [],
+    "chain": [
+      "Qwilfish"
+    ]
+  },
   "Scizor": {
     "methods": [],
     "chain": [
       "Scyther",
-      "Tranytime",
-      "Scizor"
+      "Scizor",
+      "Tranytime"
     ]
   },
-  "Shuckle": null,
-  "Heracross": null,
-  "Sneasel": {
-    "methods": [
-      {
-        "method": "EVOLVE_HOLDING",
-        "parameter": "RAZOR_CLAW",
-        "target": "TrEvenite",
-        "form": "Weavile"
-      }
-    ],
+  "Shuckle": {
+    "methods": [],
     "chain": [
-      "Sneaselplain",
-      "Trevenite"
+      "Shuckle"
+    ]
+  },
+  "Heracross": {
+    "methods": [],
+    "chain": [
+      "Heracross"
+    ]
+  },
+  "Sneasel": {
+    "methods": [],
+    "chain": [
+      "Sneasel"
     ]
   },
   "Teddiursa": {
@@ -2287,8 +2340,7 @@
     ],
     "chain": [
       "Teddiursa",
-      "Ursaring",
-      "Ursaluna"
+      "Ursaring"
     ]
   },
   "Ursaring": {
@@ -2345,8 +2397,7 @@
     ],
     "chain": [
       "Swinub",
-      "Piloswine",
-      "Mamoswine"
+      "Piloswine"
     ]
   },
   "Piloswine": {
@@ -2363,7 +2414,12 @@
       "Mamoswine"
     ]
   },
-  "Corsola": null,
+  "Corsola": {
+    "methods": [],
+    "chain": [
+      "Corsola"
+    ]
+  },
   "Remoraid": {
     "methods": [
       {
@@ -2384,7 +2440,12 @@
       "Octillery"
     ]
   },
-  "Delibird": null,
+  "Delibird": {
+    "methods": [],
+    "chain": [
+      "Delibird"
+    ]
+  },
   "Mantine": {
     "methods": [],
     "chain": [
@@ -2392,7 +2453,12 @@
       "Mantine"
     ]
   },
-  "Skarmory": null,
+  "Skarmory": {
+    "methods": [],
+    "chain": [
+      "Skarmory"
+    ]
+  },
   "Houndour": {
     "methods": [
       {
@@ -2446,7 +2512,7 @@
       {
         "method": "EVOLVE_TRADE",
         "parameter": "DUBIOUS_DISC",
-        "target": "PorygonZ"
+        "target": "Porygonz"
       }
     ],
     "chain": [
@@ -2483,25 +2549,30 @@
       "Wyrdeer"
     ]
   },
-  "Smeargle": null,
+  "Smeargle": {
+    "methods": [],
+    "chain": [
+      "Smeargle"
+    ]
+  },
   "Tyrogue": {
     "methods": [
       {
         "method": "EVOLVE_STAT",
         "parameter": "20",
-        "target": "AtkLtDef",
+        "target": "Atkltdef",
         "form": "Hitmonchan"
       },
       {
         "method": "EVOLVE_STAT",
         "parameter": "20",
-        "target": "AtkGtDef",
+        "target": "Atkgtdef",
         "form": "Hitmonlee"
       },
       {
         "method": "EVOLVE_STAT",
         "parameter": "20",
-        "target": "AtkEqDef",
+        "target": "Atkeqdef",
         "form": "Hitmontop"
       }
     ],
@@ -2512,7 +2583,12 @@
       "Atkeqdef"
     ]
   },
-  "Hitmontop": null,
+  "Hitmontop": {
+    "methods": [],
+    "chain": [
+      "Hitmontop"
+    ]
+  },
   "Smoochum": {
     "methods": [
       {
@@ -2536,8 +2612,7 @@
     ],
     "chain": [
       "Elekid",
-      "Electabuzz",
-      "Electivire"
+      "Electabuzz"
     ]
   },
   "Magby": {
@@ -2550,11 +2625,15 @@
     ],
     "chain": [
       "Magby",
-      "Magmar",
-      "Magmortar"
+      "Magmar"
     ]
   },
-  "Miltank": null,
+  "Miltank": {
+    "methods": [],
+    "chain": [
+      "Miltank"
+    ]
+  },
   "Blissey": {
     "methods": [],
     "chain": [
@@ -2562,9 +2641,24 @@
       "Blissey"
     ]
   },
-  "Raikou": null,
-  "Entei": null,
-  "Suicune": null,
+  "Raikou": {
+    "methods": [],
+    "chain": [
+      "Raikou"
+    ]
+  },
+  "Entei": {
+    "methods": [],
+    "chain": [
+      "Entei"
+    ]
+  },
+  "Suicune": {
+    "methods": [],
+    "chain": [
+      "Suicune"
+    ]
+  },
   "Larvitar": {
     "methods": [
       {
@@ -2575,8 +2669,7 @@
     ],
     "chain": [
       "Larvitar",
-      "Pupitar",
-      "Tyranitar"
+      "Pupitar"
     ]
   },
   "Pupitar": {
@@ -2601,9 +2694,24 @@
       "Tyranitar"
     ]
   },
-  "Lugia": null,
-  "Hooh": null,
-  "Celebi": null,
+  "Lugia": {
+    "methods": [],
+    "chain": [
+      "Lugia"
+    ]
+  },
+  "Hooh": {
+    "methods": [],
+    "chain": [
+      "Hooh"
+    ]
+  },
+  "Celebi": {
+    "methods": [],
+    "chain": [
+      "Celebi"
+    ]
+  },
   "Azurill": {
     "methods": [
       {
@@ -2614,8 +2722,7 @@
     ],
     "chain": [
       "Azurill",
-      "Marill",
-      "Azumarill"
+      "Marill"
     ]
   },
   "Wynaut": {
@@ -2670,19 +2777,19 @@
       {
         "method": "EVOLVE_LOCATION",
         "parameter": "ICE_PATH",
-        "target": "MrMime",
+        "target": "Mrmime",
         "form": "GalarianForm"
       },
       {
         "method": "EVOLVE_LEVEL",
         "parameter": 30,
-        "target": "MrMime",
+        "target": "Mrmime",
         "form": "PlainForm"
       },
       {
         "method": "EVOLVE_ITEM",
         "parameter": "ICE_STONE",
-        "target": "MrMime",
+        "target": "Mrmime",
         "form": "GalarianForm"
       }
     ],
@@ -2696,7 +2803,7 @@
       {
         "method": "EVOLVE_HOLDING",
         "parameter": "OVAL_STONE",
-        "target": "TrMornday",
+        "target": "Trmornday",
         "form": "Chansey"
       }
     ],
@@ -2731,7 +2838,12 @@
       "Mantine"
     ]
   },
-  "Weavile": null,
+  "Weavile": {
+    "methods": [],
+    "chain": [
+      "Weavile"
+    ]
+  },
   "Magnezone": {
     "methods": [],
     "chain": [
@@ -2802,9 +2914,9 @@
       "Flareon",
       "Espeon",
       "Umbreon",
+      "Leafeon",
       "Glaceon",
-      "Sylveon",
-      "Leafeon"
+      "Sylveon"
     ]
   },
   "Glaceon": {
@@ -2817,8 +2929,8 @@
       "Espeon",
       "Umbreon",
       "Leafeon",
-      "Sylveon",
-      "Glaceon"
+      "Glaceon",
+      "Sylveon"
     ]
   },
   "Mamoswine": {
@@ -2829,7 +2941,12 @@
       "Mamoswine"
     ]
   },
-  "Porygonz": null,
+  "Porygonz": {
+    "methods": [],
+    "chain": [
+      "Porygonz"
+    ]
+  },
   "Sylveon": {
     "methods": [],
     "chain": [
@@ -2847,19 +2964,29 @@
   "Perrserker": {
     "methods": [],
     "chain": [
-      "Meowthgalarian",
+      "Meowth",
       "Perrserker"
     ]
   },
   "Cursola": {
     "methods": [],
     "chain": [
-      "Corsolagalarian",
+      "Corsola",
       "Cursola"
     ]
   },
-  "Sirfetchd": null,
-  "Mrmime": null,
+  "Sirfetchd": {
+    "methods": [],
+    "chain": [
+      "Sirfetchd"
+    ]
+  },
+  "Mrmime": {
+    "methods": [],
+    "chain": [
+      "Mrmime"
+    ]
+  },
   "Wyrdeer": {
     "methods": [],
     "chain": [
@@ -2867,13 +2994,28 @@
       "Wyrdeer"
     ]
   },
-  "Kleavor": null,
-  "Ursalunabloodmoon": null,
-  "Sneasler": null,
+  "Kleavor": {
+    "methods": [],
+    "chain": [
+      "Kleavor"
+    ]
+  },
+  "Ursalunabloodmoon": {
+    "methods": [],
+    "chain": [
+      "Ursalunabloodmoon"
+    ]
+  },
+  "Sneasler": {
+    "methods": [],
+    "chain": [
+      "Sneasler"
+    ]
+  },
   "Overqwil": {
     "methods": [],
     "chain": [
-      "Qwilfishhisuian",
+      "Qwilfish",
       "Overqwil"
     ]
   },
@@ -2899,20 +3041,31 @@
       "Annihilape"
     ]
   },
-  "Raticate": null,
-  "Tauros": null,
-  "Wooper": {
-    "methods": [
-      {
-        "method": "EVOLVE_LEVEL",
-        "parameter": 20,
-        "target": "Quagsire"
-      }
-    ],
+  "Raticate": {
+    "methods": [],
     "chain": [
-      "Wooperplain",
-      "Quagsire"
+      "Rattata",
+      "Raticate"
     ]
   },
-  "Ursaluna": null
+  "Tauros": {
+    "methods": [],
+    "chain": [
+      "Tauros"
+    ]
+  },
+  "Wooper": {
+    "methods": [],
+    "chain": [
+      "Wooper"
+    ]
+  },
+  "Ursaluna": {
+    "methods": [],
+    "chain": [
+      "Teddiursa",
+      "Ursaring",
+      "Ursaluna"
+    ]
+  }
 }

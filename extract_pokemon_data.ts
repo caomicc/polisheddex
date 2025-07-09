@@ -356,21 +356,67 @@ if (currentMonV2) {
   }
 }
 
+// Helper to standardize Pokemon key names across the codebase
+function standardizePokemonKey(name: string): string {
+  // Remove any form suffixes (like "Plain", "Alolan", etc.)
+  const baseName = name.replace(/Plain$|Alolan$|Galarian$|Hisuian$/i, '');
+
+  // Convert to title case and remove any case inconsistencies
+  return toTitleCase(baseName.toLowerCase());
+}
+
 function getEvolutionChain(mon: string, visited = new Set<string>()): string[] {
-  mon = toTitleCase(mon);
-  if (visited.has(mon)) return [];
-  visited.add(mon);
-  // Go backwards
-  const chain = preEvoMap[mon]?.flatMap(pre => getEvolutionChain(pre, visited)) || [];
-  const withSelf = [...chain, mon];
-  // Go forwards
-  let fullChain = withSelf;
-  if (evoMap[mon]) {
-    for (const evo of evoMap[mon]) {
-      fullChain = fullChain.concat(getEvolutionChain(evo.target, visited));
+  // Standardize the input Pokemon name
+  mon = standardizePokemonKey(mon);
+
+  // Use normalizeMonName to handle forms and get baseName
+  const { baseName } = normalizeMonName(mon, null);
+
+  // Create a consistent key for the Pokemon, regardless of form notation
+  const monKey = baseName; // We'll handle the evolution chain at the base Pokemon level
+
+  if (visited.has(monKey)) return [];
+  visited.add(monKey);
+
+  // Go backwards through pre-evolutions
+  const chain = preEvoMap[monKey]?.flatMap(pre => {
+    const preMon = standardizePokemonKey(pre);
+    return getEvolutionChain(preMon, visited);
+  }) || [];
+
+  const withSelf = [...chain, monKey];
+
+  // Go forwards through evolutions
+  const fullChain = [...withSelf]; // Create a new array to modify
+
+  if (evoMap[monKey]) {
+    for (const evo of evoMap[monKey]) {
+      // Standardize target name
+      const { target } = evo;
+      const targetMon = standardizePokemonKey(target);
+      const { baseName: evoBaseName } = normalizeMonName(targetMon, null);
+
+      // Add this evolution to the chain even if we've seen it before
+      if (!fullChain.includes(evoBaseName)) {
+        fullChain.push(evoBaseName);
+      }
+
+      // Continue with this evolution's chain if we haven't visited it yet
+      if (!visited.has(evoBaseName)) {
+        const nextVisited = new Set(visited);
+        nextVisited.add(evoBaseName);
+        const evoChain = getEvolutionChain(evoBaseName, nextVisited);
+
+        for (const item of evoChain) {
+          if (!fullChain.includes(item)) {
+            fullChain.push(item);
+          }
+        }
+      }
     }
   }
-  // Remove duplicates, preserve order
+
+  // Remove duplicates while preserving order
   return [...new Set(fullChain)];
 }
 
@@ -424,18 +470,25 @@ for (const mon of Object.keys(result)) {
   const moves = result[mon].moves.map(m => ({
     level: m.level,
     move: toCapitalCaseWithSpaces(m.move)
-  }));
-  let evolution: Evolution | null = null;
-  if (evoMap[mon] || preEvoMap[mon]) {
-    const methods = evoMap[mon] ? evoMap[mon].map(e => ({
-      method: e.method,
-      parameter: e.parameter,
-      target: e.target,
-      ...(e.form ? { form: e.form } : {})
-    })) : [];
-    const chain = getEvolutionChain(mon);
-    evolution = { methods, chain };
-  }
+  }));  // Standardize the Pokemon name to ensure consistent keys
+  const standardMon = standardizePokemonKey(mon);
+
+  // Every Pokémon should have an evolution object, even if it's a final evolution
+  // with no further evolutions. This ensures we have a chain for all Pokémon.
+  const methods = evoMap[standardMon] ? evoMap[standardMon].map(e => ({
+    method: e.method,
+    parameter: e.parameter,
+    target: standardizePokemonKey(e.target),
+    ...(e.form ? { form: e.form } : {})
+  })) : [];
+
+  // Get the evolution chain - this will work even for final evolutions
+  // as it will include all pre-evolutions
+  const chain = getEvolutionChain(standardMon);
+
+  // If the chain contains only the current Pokémon and there are no methods,
+  // it could be a basic Pokémon with no evolutions
+  const evolution: Evolution = { methods, chain };
   // Dex numbers (1-based, null if not found)
   const nationalDex = nationalDexOrder.indexOf(mon) >= 0 ? nationalDexOrder.indexOf(mon) + 1 : null;
   // Types
@@ -494,10 +547,10 @@ function normalizeMonName(name: string, formStr: string | null): { baseName: str
     }
   }
 
-  // Debug: Log when processing Diglett or if we're in Diglett's Cave
-  if (name === 'DIGLETT' || name === 'DUGTRIO') {
-    console.log(`Processing: ${name} form: ${formStr || 'null'} -> ${baseName} (form: ${formName})`);
-  }
+  // // Debug: Log when processing Diglett or if we're in Diglett's Cave
+  // if (name === 'DIGLETT' || name === 'DUGTRIO') {
+  //   console.log(`Processing: ${name} form: ${formStr || 'null'} -> ${baseName} (form: ${formName})`);
+  // }
 
   return { baseName, formName };
 }
@@ -514,7 +567,7 @@ const locationsByMon: { [mon: string]: LocationEntry[] } = {};
 
 console.log('Starting to process wild Pokémon locations...');
 for (const file of wildFiles) {
-  console.log(`Processing wild file: ${file}`);
+  // console.log(`Processing wild file: ${file}`);
   const filePath = path.join(wildDir, file);
   const content = fs.readFileSync(filePath, 'utf8');
   const lines = content.split(/\r?\n/);
