@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-interface LocationEntryProps {
+export interface LocationEntryProps {
   area: string | null;
   method: string | null;
   time: string | null;

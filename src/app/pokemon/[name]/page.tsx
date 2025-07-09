@@ -2,8 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import React from 'react';
-import { MoveCard, LocationListItem } from '@/components/pokemon';
+import PokemonFormClient from './PokemonFormClient';
 
 interface Move {
   level: number;
@@ -30,9 +29,21 @@ interface Evolution {
   chain: string[];
 }
 
+// --- Updated types for new structure ---
 interface BaseData {
   nationalDex: number | null;
   types: string[] | string;
+  forms?: Record<string, { types: string[] | string }>;
+}
+
+interface LevelMovesData {
+  moves: Move[];
+  forms?: Record<string, { moves: Move[] }>;
+}
+
+interface LocationsData {
+  locations: LocationEntry[];
+  forms?: Record<string, { locations: LocationEntry[] }>;
 }
 
 interface LocationEntry {
@@ -96,8 +107,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     cachedBaseStatsData || loadJsonData<Record<string, BaseData>>(baseStatsFile),
     loadJsonData<Record<string, MoveDetail>>(moveDescFile),
     loadJsonData<Record<string, string[]>>(eggMovesFile),
-    loadJsonData<Record<string, Move[]>>(levelMovesFile),
-    loadJsonData<Record<string, LocationEntry[]>>(locationsFile),
+    loadJsonData<Record<string, LevelMovesData>>(levelMovesFile),
+    loadJsonData<Record<string, LocationsData>>(locationsFile),
     loadJsonData<Record<string, Evolution | null>>(evolutionDataFile)
   ]);
 
@@ -106,21 +117,42 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     cachedBaseStatsData = baseStatsData;
   }
 
-  // Combine data for this Pokémon
+  // Get the main data for this Pokémon
   const baseStats = baseStatsData[pokemonName];
-  const evolution = evolutionData[pokemonName];
-  const moves = levelMovesData[pokemonName] || [];
-
   if (!baseStats) return notFound();
 
-  // Combined Pokemon data
-  const mon = {
+  // --- Handle forms ---
+  // If forms exist, get the list of form keys (excluding 'default')
+  const forms = baseStats.forms ? Object.keys(baseStats.forms) : [];
+  // Default form is the base data
+  const defaultForm = {
     types: baseStats.types,
-    evolution,
-    moves,
-    nationalDex: baseStats.nationalDex
+    moves: (levelMovesData[pokemonName]?.moves) || [],
+    locations: (locationsData[pokemonName]?.locations) || [],
+    eggMoves: eggMovesData[pokemonName] || [],
+    evolution: evolutionData[pokemonName],
+    nationalDex: baseStats.nationalDex,
   };
 
+  // Prepare all form data for the client component
+  const allFormData: Record<string, typeof defaultForm> = {
+    default: defaultForm,
+    ...Object.fromEntries(
+      forms.map(formKey => [
+        formKey,
+        {
+          types: baseStats.forms?.[formKey]?.types || baseStats.types,
+          moves: (levelMovesData[pokemonName]?.forms?.[formKey]?.moves) || defaultForm.moves,
+          locations: (locationsData[pokemonName]?.forms?.[formKey]?.locations) || defaultForm.locations,
+          eggMoves: eggMovesData[pokemonName] || [],
+          evolution: evolutionData[pokemonName],
+          nationalDex: baseStats.nationalDex,
+        }
+      ])
+    )
+  };
+
+  // Render the main page
   return (
     <div className="max-w-xl mx-auto p-4">
       <nav className="mb-4 text-sm">
@@ -137,110 +169,12 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         </ol>
       </nav>
       <h1 className="text-2xl font-bold mb-4">{pokemonName}</h1>
-
-      {/* Evolution Info */}
-      <div className="mb-4">
-        <h2 className="text-xl font-semibold mb-1">Type{Array.isArray(mon.types) && mon.types.length > 1 ? 's' : ''}</h2>
-        <div className="flex gap-2">
-          {Array.isArray(mon.types)
-        ? mon.types.map((type: string) => (
-            <span key={type} className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-mono text-sm">{type}</span>
-          ))
-        : (
-            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-mono text-sm">{mon.types}</span>
-          )
-          }
-        </div>
-      </div>
-      <div className="mb-4">
-        <h2 className="text-xl font-semibold mb-1">Evolution Chain</h2>
-        {mon.evolution ? (
-          <div className="mb-2 flex flex-wrap gap-2 items-center">
-            {mon.evolution.chain.map((name: string, i: number) => (
-              <React.Fragment key={name}>
-              <span className="px-2 py-1 rounded bg-gray-100 font-mono">
-                <Link href={`/pokemon/${name}`} className="hover:underline text-blue-700">{name}</Link>
-              </span>
-              {i < (mon.evolution?.chain.length ?? 0) - 1 && <span className="mx-1">→</span>}
-              </React.Fragment>
-            ))}
-          </div>
-        ) : (
-          <div className="text-gray-500">No evolution data.</div>
-        )}
-        {mon.evolution && mon.evolution.methods.length > 0 && (
-          <div className="mt-2">
-            <h3 className="font-semibold">Evolution Methods:</h3>
-            <ul className="list-disc ml-6">
-              {mon.evolution.methods.map((m: EvolutionMethod, idx: number) => (
-                <li key={idx}>
-                  <span className="font-mono">{m.method.replace('EVOLVE_', '').toLowerCase()}</span>
-                  {m.parameter !== null && (
-                    <>: <span className="font-mono">{String(m.parameter)}</span></>
-                  )}
-                  {m.form && (
-                    <> (form: <span className="font-mono">{m.form}</span>)</>
-                  )}
-                  {m.target && (
-                    <> → <span className="font-mono">{m.target}</span></>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-      {/* Moves List */}
-      <h2 className="text-xl font-semibold mb-2">Moves</h2>
-      <ul className="grid gap-3">
-        {mon.moves.map((moveData: Move) => {
-          const moveInfo = moveDescData[moveData.move] || null;
-          return (
-            <MoveCard
-              key={moveData.move + moveData.level}
-              name={moveData.move}
-              level={moveData.level}
-              info={moveInfo}
-            />
-          );
-        })}
-      </ul>
-
-      <h2 className="text-xl font-semibold mt-6 mb-2">Egg Moves</h2>
-      {eggMovesData[pokemonName] && eggMovesData[pokemonName].length > 0 ? (
-        <ul className="grid gap-3">
-          {eggMovesData[pokemonName].map((move: string) => {
-            const moveInfo = moveDescData[move] || null;
-            const level = 1; // Default to 1 if no level info
-            return (
-              <MoveCard key={move + level} name={move} level={level} info={moveInfo} />
-            );
-          })}
-        </ul>
-      ) : (
-        <div className="text-gray-400 text-sm mb-6">No egg moves</div>
-      )}
-
-      <h2 className="text-xl font-semibold mt-6 mb-2">Locations</h2>
-      {locationsData[pokemonName] && locationsData[pokemonName].length > 0 ? (
-        <div className="mb-6">
-          <ul className="divide-y divide-gray-200">
-            {locationsData[pokemonName].map((loc: LocationEntry, idx: number) => (
-              <LocationListItem
-                key={idx}
-                area={loc.area}
-                method={loc.method}
-                time={loc.time}
-                level={loc.level}
-                chance={loc.chance}
-                rareItem={loc.rareItem}
-              />
-            ))}
-          </ul>
-        </div>
-      ) : (
-        <div className="text-gray-400 text-sm mb-6">No location data</div>
-      )}
+      <PokemonFormClient
+        forms={forms}
+        allFormData={allFormData}
+        moveDescData={moveDescData}
+        pokemonName={pokemonName}
+      />
     </div>
   );
 }

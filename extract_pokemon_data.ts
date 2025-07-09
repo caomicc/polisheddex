@@ -250,6 +250,21 @@ type Evolution = {
 };
 type PokemonDataV2 = { evolution: Evolution | null; moves: Move[] };
 
+// Define a type for Pokemon forms
+type PokemonForm = {
+  formName: string;
+  types?: string | string[];
+  moves?: Move[];
+  locations?: LocationEntry[];
+};
+
+type PokemonDataV3 = PokemonDataV2 & {
+  nationalDex: number | null,
+  types: string | string[],
+  locations: LocationEntry[],
+  forms?: Record<string, PokemonForm>
+};
+
 interface EvoRaw {
   method: string;
   parameter: string | number | null;
@@ -441,6 +456,7 @@ type LocationEntry = {
   level: string;
   chance: number; // Percentage chance of encounter
   rareItem?: string; // For hidden grottoes
+  formName?: string | null; // Form name (alolan, galarian, etc)
 };
 
 const wildDir = path.join(__dirname, 'data/wild');
@@ -458,33 +474,39 @@ function parseWildmonLine(line: string): { level: string; species: string; form:
   };
 }
 
-// Helper to normalize Pokémon name (TitleCase)
-function normalizeMonName(name: string, form: string | null): string {
-  let n = toTitleCase(name);
+// Helper to normalize Pokémon name and form
+function normalizeMonName(name: string, formStr: string | null): { baseName: string; formName: string | null } {
+  const baseName = toTitleCase(name);
 
-  // Special handling for form names to match expected output format
-  if (form) {
+  // Return normalized form name
+  let formName: string | null = null;
+
+  if (formStr) {
     // Convert ALOLAN_FORM to just "alolan" to match expected keys
-    if (form === 'ALOLAN_FORM') {
-      n += 'alolan';
-    } else if (form === 'PLAIN_FORM' || form.includes('PLAIN')) {
-      // Skip adding 'plain' suffix for the base form
-      // Don't append anything for plain forms
+    if (formStr === 'ALOLAN_FORM') {
+      formName = 'alolan';
+    } else if (formStr === 'PLAIN_FORM' || formStr.includes('PLAIN')) {
+      // Skip adding form for plain forms
+      formName = null;
     } else {
-      // For other forms, just append the TitleCase version
-      n += toTitleCase(form);
+      // For other forms, use the TitleCase version
+      formName = toTitleCase(formStr);
     }
-  } else {
-    // If no form specified, default to regular form
-    n += '';
   }
 
   // Debug: Log when processing Diglett or if we're in Diglett's Cave
   if (name === 'DIGLETT' || name === 'DUGTRIO') {
-    console.log(`Processing: ${name} form: ${form || 'null'} -> ${n}`);
+    console.log(`Processing: ${name} form: ${formStr || 'null'} -> ${baseName} (form: ${formName})`);
   }
 
-  return n;
+  return { baseName, formName };
+}
+
+// Legacy function for compatibility with existing code
+// Will be gradually phased out as we convert the code to use the new structure
+function getFullPokemonName(name: string, form: string | null): string {
+  const { baseName, formName } = normalizeMonName(name, form);
+  return formName ? `${baseName}${formName}` : baseName;
 }
 
 // Aggregate locations by Pokémon
@@ -571,8 +593,10 @@ for (const file of wildFiles) {
     if (inBlock && line.startsWith('wildmon')) {
       const parsed = parseWildmonLine(line);
       if (parsed) {
-        const mon = normalizeMonName(parsed.species, parsed.form);
-        if (!locationsByMon[mon]) locationsByMon[mon] = [];
+        const { formName } = normalizeMonName(parsed.species, parsed.form); // Extract form name
+        const key = getFullPokemonName(parsed.species, parsed.form); // Use legacy function for now
+
+        if (!locationsByMon[key]) locationsByMon[key] = [];
 
         // Determine the encounter rate based on time of day
         let encounterRate = 0;
@@ -582,12 +606,13 @@ for (const file of wildFiles) {
         else if (time === 'eve' && encounterRates.eve !== undefined) encounterRate = encounterRates.eve;
         else encounterRate = encounterRates.day; // Default to day rate if time is unknown
 
-        locationsByMon[mon].push({
+        locationsByMon[key].push({
           area,
           method,
           time,
           level: parsed.level,
-          chance: encounterRate // Use the actual encounter rate
+          chance: encounterRate, // Use the actual encounter rate
+          formName // Add the form name
         });
       }
       continue;
@@ -595,7 +620,7 @@ for (const file of wildFiles) {
   }
 }
 
-type PokemonDataV3 = PokemonDataV2 & { nationalDex: number | null, types: string | string[], locations: LocationEntry[] };
+// Using the previously defined PokemonDataV3 type
 const finalResultV3: Record<string, PokemonDataV3> = {};
 for (const mon of Object.keys(finalResult)) {
   finalResultV3[mon] = {
@@ -604,29 +629,143 @@ for (const mon of Object.keys(finalResult)) {
   };
 }
 
+// Create a grouped data structure combining forms
+function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): Record<string, PokemonDataV3> {
+  const groupedData: Record<string, PokemonDataV3> = {};
+  const formsByBase: Record<string, Record<string, PokemonDataV3>> = {};
+
+  // Skip entries with 'plain' in the name - we'll merge these later
+  const pokemonWithoutPlain: Record<string, PokemonDataV3> = {};
+  const plainForms: Record<string, PokemonDataV3> = {};
+
+  // Pre-process to identify plain forms
+  for (const [name, data] of Object.entries(pokemonData)) {
+    if (name.toLowerCase().endsWith('plain')) {
+      // Store plain forms separately
+      const baseName = name.substring(0, name.length - 5); // Remove 'plain' suffix
+      plainForms[baseName] = data;
+    } else {
+      // Keep non-plain forms
+      pokemonWithoutPlain[name] = data;
+    }
+  }
+
+  // First pass: Group by base name and identify forms
+  for (const [name, data] of Object.entries(pokemonWithoutPlain)) {
+    const baseName = extractBasePokemonName(name);
+
+    // Initialize baseName entry if it doesn't exist
+    if (!formsByBase[baseName]) {
+      formsByBase[baseName] = {};
+
+      // If we have a plain form for this base name, use it as the default
+      if (plainForms[baseName]) {
+        formsByBase[baseName]['default'] = plainForms[baseName];
+      }
+    }
+
+    // Determine form name
+    let formName: string | null = null;
+    if (name !== baseName) {
+      formName = name.substring(baseName.length);
+    }
+
+    // Add to the forms collection
+    const formKey = formName || 'default';
+    formsByBase[baseName][formKey] = data;
+  }
+
+  // Add any plain forms that don't have a corresponding base form
+  for (const [baseName, data] of Object.entries(plainForms)) {
+    if (!formsByBase[baseName]) {
+      formsByBase[baseName] = { 'default': data };
+    }
+  }
+
+  // Second pass: Combine data for each base Pokémon
+  for (const [baseName, forms] of Object.entries(formsByBase)) {
+    // Start with the default form as the base (plain form or first form)
+    const baseForm = forms['default'] || Object.values(forms)[0];
+
+    // Create the entry for this Pokémon
+    groupedData[baseName] = {
+      ...baseForm,
+      forms: {}
+    };
+
+    // Add all forms (including the default one)
+    for (const [formName, formData] of Object.entries(forms)) {
+      if (formName !== 'default') {
+        groupedData[baseName].forms![formName] = {
+          formName,
+          types: formData.types,
+          moves: formData.moves,
+          locations: formData.locations
+        };
+      }
+    }
+
+    // If there are no non-default forms, clean up the empty forms object
+    if (Object.keys(groupedData[baseName].forms!).length === 0) {
+      delete groupedData[baseName].forms;
+    }
+  }
+
+  return groupedData;
+}
+
+// Group all Pokemon data
+const groupedPokemonData = groupPokemonForms(finalResultV3);
+
 // Extract and save base data (dex number, types)
-const baseData: Record<string, { nationalDex: number | null, types: string | string[] }> = {};
-for (const [mon, data] of Object.entries(finalResultV3)) {
+const baseData: Record<string, { nationalDex: number | null, types: string | string[], forms?: Record<string, { types: string | string[] }> }> = {};
+for (const [mon, data] of Object.entries(groupedPokemonData)) {
   baseData[mon] = {
     nationalDex: data.nationalDex,
     types: data.types
   };
+
+  // Add form-specific type data if available
+  if (data.forms && Object.keys(data.forms).length > 0) {
+    baseData[mon].forms = {};
+    for (const [formName, formData] of Object.entries(data.forms)) {
+      if (formData.types) {
+        if (!baseData[mon].forms) baseData[mon].forms = {};
+        baseData[mon].forms[formName] = {
+          types: formData.types
+        };
+      }
+    }
+  }
 }
 fs.writeFileSync(BASE_DATA_OUTPUT, JSON.stringify(baseData, null, 2));
 console.log('Pokémon base data extracted to', BASE_DATA_OUTPUT);
 
 // Extract and save evolution data
 const evolutionData: Record<string, Evolution | null> = {};
-for (const [mon, data] of Object.entries(finalResultV3)) {
+for (const [mon, data] of Object.entries(groupedPokemonData)) {
   evolutionData[mon] = data.evolution;
 }
 fs.writeFileSync(EVOLUTION_OUTPUT, JSON.stringify(evolutionData, null, 2));
 console.log('Pokémon evolution data extracted to', EVOLUTION_OUTPUT);
 
 // Extract and save level-up moves
-const levelMoves: Record<string, Move[]> = {};
-for (const [mon, data] of Object.entries(finalResultV3)) {
-  levelMoves[mon] = data.moves;
+const levelMoves: Record<string, { moves: Move[], forms?: Record<string, { moves: Move[] }> }> = {};
+for (const [mon, data] of Object.entries(groupedPokemonData)) {
+  levelMoves[mon] = { moves: data.moves };
+
+  // Add form-specific moves if available
+  if (data.forms && Object.keys(data.forms).length > 0) {
+    levelMoves[mon].forms = {};
+    for (const [formName, formData] of Object.entries(data.forms)) {
+      if (formData.moves && formData.moves.length > 0) {
+        if (!levelMoves[mon].forms) levelMoves[mon].forms = {};
+        levelMoves[mon].forms[formName] = {
+          moves: formData.moves
+        };
+      }
+    }
+  }
 }
 fs.writeFileSync(LEVEL_MOVES_OUTPUT, JSON.stringify(levelMoves, null, 2));
 console.log('Pokémon level-up moves extracted to', LEVEL_MOVES_OUTPUT);
@@ -740,23 +879,23 @@ function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
         const formName = pokemonMatch[2] || null;
 
         // Get the formatted Pokémon name using our normalizeMonName function
-        const formattedName = normalizeMonName(pokemonName, null);
-        const formattedFullName = normalizeMonName(pokemonName, formName);
+        const { baseName: baseFormattedName } = normalizeMonName(pokemonName, null);
+        const { formName: normalizedFormName } = normalizeMonName(pokemonName, formName); // Extract form name
+        const fullName = getFullPokemonName(pokemonName, formName); // Legacy full name for indexing
 
         // Determine which slot this is and set rarity
         let rarity: string;
         if (common1 === null) {
-          common1 = formattedName;
+          common1 = baseFormattedName;
           rarity = 'common';
         } else if (common2 === null) {
-          common2 = formattedName;
+          common2 = baseFormattedName;
           rarity = 'common';
         } else if (uncommon === null) {
-          const formattedUncommon = normalizeMonName(pokemonName, formName);
-          uncommon = formattedUncommon; // Store the formatted name
+          uncommon = baseFormattedName;
           rarity = 'uncommon';
         } else if (rare === null) {
-          rare = formattedName;
+          rare = baseFormattedName;
           rarity = 'rare';
 
           // Reset for next grotto
@@ -769,17 +908,18 @@ function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
         }
 
         // Add this location to the Pokémon's entry
-        if (!grottoLocations[formattedFullName]) {
-          grottoLocations[formattedFullName] = [];
+        if (!grottoLocations[fullName]) {
+          grottoLocations[fullName] = [];
         }
 
-        grottoLocations[formattedFullName].push({
+        grottoLocations[fullName].push({
           area: currentLocation,
           method: 'hidden_grotto',
           time: rarity,
           level: String(level), // Convert to string regardless of type
           chance: rarity === 'rare' ? 5 : rarity === 'uncommon' ? 15 : 40,
-          rareItem: rareItem
+          rareItem: rareItem,
+          formName: normalizedFormName // Add form information
         });
       }
     }
@@ -791,42 +931,138 @@ function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
 // Extract and save location data (including hidden grottoes)
 const locationData: Record<string, LocationEntry[]> = {};
 
-// First, add wild encounter locations
-for (const [mon, data] of Object.entries(finalResultV3)) {
-  // Skip entries with 'plain' in the name, as we don't want to add the plain suffix anymore
-  if (mon.includes('plain')) {
-    // Extract the base name without 'plain' suffix
-    const baseName = mon.replace('plain', '');
-    // If the base name entry doesn't exist yet, create it with this data
-    if (!locationData[baseName]) {
-      locationData[baseName] = data.locations;
+// Helper to extract the base name from a combined name with form
+function extractBasePokemonName(fullName: string): string {
+  // Handle known form suffixes
+  const knownForms = ['alolan', 'galarian', 'hisuian', 'galar', 'hisui', 'plain'];
+  let baseName = fullName;
+
+  for (const form of knownForms) {
+    if (fullName.toLowerCase().endsWith(form)) {
+      baseName = fullName.substring(0, fullName.length - form.length);
+      break;
     }
-    // Skip creating the entry with 'plain' in the name
-    continue;
   }
-  locationData[mon] = data.locations;
+
+  return baseName;
 }
 
-// Then extract and add hidden grotto locations
+// Group pokemon by their base form
+const formsByBaseName: Record<string, Record<string, LocationEntry[]>> = {};
+
+// First, process wild encounter locations
+for (const [mon, data] of Object.entries(finalResultV3)) {
+  const baseName = extractBasePokemonName(mon);
+
+  // Initialize the base Pokemon if needed
+  if (!formsByBaseName[baseName]) {
+    formsByBaseName[baseName] = {};
+  }
+
+  // Extract form name from the full name
+  let formName = null;
+  if (mon !== baseName) {
+    formName = mon.substring(baseName.length);
+  }
+
+  // Add the locations to the appropriate form
+  const formKey = formName || 'default';
+  if (!formsByBaseName[baseName][formKey]) {
+    formsByBaseName[baseName][formKey] = [];
+  }
+
+  // Add form name to each location entry
+  const locationsWithForms = data.locations.map(loc => ({
+    ...loc,
+    formName: formName
+  }));
+
+  formsByBaseName[baseName][formKey].push(...locationsWithForms);
+}
+
+// Then process hidden grotto locations
 const grottoLocations = extractHiddenGrottoes();
 for (const [pokemonName, locations] of Object.entries(grottoLocations)) {
-  // Skip entries with 'plain' in the name
-  if (pokemonName.includes('plain')) {
-    const baseName = pokemonName.replace('plain', '');
-    if (!locationData[baseName]) {
-      locationData[baseName] = [];
-    }
-    locationData[baseName].push(...locations);
-    continue;
+  const baseName = extractBasePokemonName(pokemonName);
+
+  // Initialize the base Pokemon if needed
+  if (!formsByBaseName[baseName]) {
+    formsByBaseName[baseName] = {};
   }
 
-  if (!locationData[pokemonName]) {
-    locationData[pokemonName] = [];
+  // Extract form name from the full name
+  let formName = null;
+  if (pokemonName !== baseName) {
+    formName = pokemonName.substring(baseName.length);
   }
-  locationData[pokemonName].push(...locations);
+
+  // Add the locations to the appropriate form
+  const formKey = formName || 'default';
+  if (!formsByBaseName[baseName][formKey]) {
+    formsByBaseName[baseName][formKey] = [];
+  }
+
+  formsByBaseName[baseName][formKey].push(...locations);
 }
 
-fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(locationData, null, 2));
+// Now convert the grouped data back to the format expected by the rest of the code
+for (const [baseName, forms] of Object.entries(formsByBaseName)) {
+  locationData[baseName] = [];
+
+  // Start with the default form
+  if (forms['default']) {
+    locationData[baseName].push(...forms['default']);
+  }
+
+  // Add all other forms
+  for (const [formName, locations] of Object.entries(forms)) {
+    if (formName !== 'default') {
+      // Add all form locations to the base Pokemon
+      locationData[baseName].push(...locations);
+    }
+  }
+}
+
+// Process location data to group by forms
+const groupedLocationData: Record<string, { locations: LocationEntry[], forms?: Record<string, { locations: LocationEntry[] }> }> = {};
+
+for (const [mon, locations] of Object.entries(locationData)) {
+  // Initialize if needed
+  if (!groupedLocationData[mon]) {
+    groupedLocationData[mon] = { locations: [] };
+  }
+
+  // Group locations by form
+  const locationsByForm: Record<string, LocationEntry[]> = { default: [] };
+
+  for (const loc of locations) {
+    const formKey = loc.formName || 'default';
+    if (!locationsByForm[formKey]) {
+      locationsByForm[formKey] = [];
+    }
+    locationsByForm[formKey].push(loc);
+  }
+
+  // Add default locations
+  groupedLocationData[mon].locations = locationsByForm.default;
+
+  // Add form-specific locations
+  for (const [formName, formLocations] of Object.entries(locationsByForm)) {
+    if (formName !== 'default') {
+      if (!groupedLocationData[mon].forms) {
+        groupedLocationData[mon].forms = {};
+      }
+      groupedLocationData[mon].forms[formName] = { locations: formLocations };
+    }
+  }
+
+  // Clean up empty forms object
+  if (groupedLocationData[mon].forms && Object.keys(groupedLocationData[mon].forms).length === 0) {
+    delete groupedLocationData[mon].forms;
+  }
+}
+
+fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(groupedLocationData, null, 2));
 console.log('Pokémon location data extracted to', LOCATIONS_OUTPUT);
 
 // --- Egg Moves Extraction ---
