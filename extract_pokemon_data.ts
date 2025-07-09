@@ -6,6 +6,15 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Output file paths
+const MOVE_DESCRIPTIONS_OUTPUT = path.join(__dirname, 'pokemon_move_descriptions.json');
+const EVO_MOVES_OUTPUT = path.join(__dirname, 'pokemon_evo_moves.json');
+const EGG_MOVES_OUTPUT = path.join(__dirname, 'pokemon_egg_moves.json');
+const BASE_DATA_OUTPUT = path.join(__dirname, 'pokemon_base_data.json');
+const EVOLUTION_OUTPUT = path.join(__dirname, 'pokemon_evolution_data.json');
+const LEVEL_MOVES_OUTPUT = path.join(__dirname, 'pokemon_level_moves.json');
+const LOCATIONS_OUTPUT = path.join(__dirname, 'pokemon_locations.json');
+
 // Helper to convert move names to Capital Case with spaces
 function toCapitalCaseWithSpaces(str: string) {
   return str
@@ -27,7 +36,6 @@ function extractMoveDescriptions() {
   const moveNamesPath = path.join(__dirname, 'data/moves/names.asm');
   const moveDescriptionsPath = path.join(__dirname, 'data/moves/descriptions.asm');
   const moveStatsPath = path.join(__dirname, 'data/moves/moves.asm');
-  const moveDescriptionsOutputPath = path.join(__dirname, 'move_descriptions.json');
 
   const namesData = fs.readFileSync(moveNamesPath, 'utf8');
   const descData = fs.readFileSync(moveDescriptionsPath, 'utf8');
@@ -216,15 +224,14 @@ function extractMoveDescriptions() {
       }
     }
   }
-  fs.writeFileSync(moveDescriptionsOutputPath, JSON.stringify(moveDescByName, null, 2));
-  console.log('Move descriptions extracted to', moveDescriptionsOutputPath);
+  fs.writeFileSync(MOVE_DESCRIPTIONS_OUTPUT, JSON.stringify(moveDescByName, null, 2));
+  console.log('Move descriptions extracted to', MOVE_DESCRIPTIONS_OUTPUT);
 }
 
 // --- New code for extracting move descriptions ---
 extractMoveDescriptions();
 
 const filePath = path.join(__dirname, 'data/pokemon/evos_attacks.asm');
-const outputPath = path.join(__dirname, 'pokemon_evo_moves.json');
 
 const data = fs.readFileSync(filePath, 'utf8');
 const lines = data.split(/\r?\n/);
@@ -426,14 +433,144 @@ for (const mon of Object.keys(result)) {
   finalResult[mon] = { evolution, moves, nationalDex, types };
 }
 
-fs.writeFileSync(outputPath, JSON.stringify(finalResult, null, 2));
-console.log('Pokémon evolution and moves data extracted to', outputPath);
+// --- Wild Pokémon Location Extraction ---
+type LocationEntry = {
+  area: string | null;
+  method: string | null;
+  time: string | null;
+  level: string;
+};
+
+const wildDir = path.join(__dirname, 'data/wild');
+const wildFiles = fs.readdirSync(wildDir).filter(f => f.endsWith('.asm'));
+
+// Helper to parse wildmon lines
+function parseWildmonLine(line: string): { level: string; species: string; form: string | null } | null {
+  // Handles: wildmon LEVEL, SPECIES [, FORM]
+  const match = line.match(/wildmon ([^,]+), ([A-Z0-9_]+)(?:, ([A-Z0-9_]+))?/);
+  if (!match) return null;
+  return {
+    level: match[1].trim(),
+    species: match[2].trim(),
+    form: match[3] ? match[3].trim() : null
+  };
+}
+
+// Helper to normalize Pokémon name (TitleCase)
+function normalizeMonName(name: string, form: string | null): string {
+  let n = toTitleCase(name);
+  if (form) n += toTitleCase(form);
+  return n;
+}
+
+// Aggregate locations by Pokémon
+const locationsByMon: { [mon: string]: LocationEntry[] } = {};
+
+for (const file of wildFiles) {
+  const filePath = path.join(wildDir, file);
+  const content = fs.readFileSync(filePath, 'utf8');
+  const lines = content.split(/\r?\n/);
+  let area: string | null = null;
+  let method: string | null = null;
+  let time: string | null = null;
+  let inBlock = false;
+  let blockType: string | null = null;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    // Area block start
+    const areaMatch = line.match(/^def_(grass|water)_wildmons ([A-Z0-9_]+)/);
+    if (areaMatch) {
+      area = areaMatch[2];
+      method = areaMatch[1];
+      inBlock = true;
+      blockType = method;
+      time = null;
+      continue;
+    }
+    if (inBlock && line.startsWith('end_' + blockType + '_wildmons')) {
+      inBlock = false;
+      area = null;
+      method = null;
+      time = null;
+      continue;
+    }
+    if (inBlock && line.startsWith(';')) {
+      // Time of day section
+      const t = line.replace(';', '').trim().toLowerCase();
+      if (["morn", "day", "nite", "eve"].includes(t)) {
+        time = t;
+      }
+      continue;
+    }
+    if (inBlock && line.startsWith('wildmon')) {
+      const parsed = parseWildmonLine(line);
+      if (parsed) {
+        const mon = normalizeMonName(parsed.species, parsed.form);
+        if (!locationsByMon[mon]) locationsByMon[mon] = [];
+        locationsByMon[mon].push({
+          area,
+          method,
+          time,
+          level: parsed.level
+        });
+      }
+      continue;
+    }
+  }
+}
+
+type PokemonDataV3 = PokemonDataV2 & { nationalDex: number | null, types: string | string[], locations: LocationEntry[] };
+const finalResultV3: Record<string, PokemonDataV3> = {};
+for (const mon of Object.keys(finalResult)) {
+  finalResultV3[mon] = {
+    ...finalResult[mon],
+    locations: locationsByMon[mon] || []
+  };
+}
+
+// Extract and save base data (dex number, types)
+const baseData: Record<string, { nationalDex: number | null, types: string | string[] }> = {};
+for (const [mon, data] of Object.entries(finalResultV3)) {
+  baseData[mon] = {
+    nationalDex: data.nationalDex,
+    types: data.types
+  };
+}
+fs.writeFileSync(BASE_DATA_OUTPUT, JSON.stringify(baseData, null, 2));
+console.log('Pokémon base data extracted to', BASE_DATA_OUTPUT);
+
+// Extract and save evolution data
+const evolutionData: Record<string, Evolution | null> = {};
+for (const [mon, data] of Object.entries(finalResultV3)) {
+  evolutionData[mon] = data.evolution;
+}
+fs.writeFileSync(EVOLUTION_OUTPUT, JSON.stringify(evolutionData, null, 2));
+console.log('Pokémon evolution data extracted to', EVOLUTION_OUTPUT);
+
+// Extract and save level-up moves
+const levelMoves: Record<string, Move[]> = {};
+for (const [mon, data] of Object.entries(finalResultV3)) {
+  levelMoves[mon] = data.moves;
+}
+fs.writeFileSync(LEVEL_MOVES_OUTPUT, JSON.stringify(levelMoves, null, 2));
+console.log('Pokémon level-up moves extracted to', LEVEL_MOVES_OUTPUT);
+
+// Extract and save location data
+const locationData: Record<string, LocationEntry[]> = {};
+for (const [mon, data] of Object.entries(finalResultV3)) {
+  locationData[mon] = data.locations;
+}
+fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(locationData, null, 2));
+console.log('Pokémon location data extracted to', LOCATIONS_OUTPUT);
+
+// Save the combined data for backward compatibility
+fs.writeFileSync(EVO_MOVES_OUTPUT, JSON.stringify(finalResultV3, null, 2));
+console.log('Full Pokémon data extracted to', EVO_MOVES_OUTPUT);
 
 // --- Egg Moves Extraction ---
 function extractEggMoves() {
   const eggMovesPath = path.join(__dirname, 'data/pokemon/egg_moves.asm');
   const eggMovePointersPath = path.join(__dirname, 'data/pokemon/egg_move_pointers.asm');
-  const outputEggMovesPath = path.join(__dirname, 'pokemon_egg_moves.json');
 
   // Parse pointers: species => EggSpeciesMoves label
   const pointerData = fs.readFileSync(eggMovePointersPath, 'utf8');
@@ -478,8 +615,8 @@ function extractEggMoves() {
     eggMoves[toTitleCase(species)] = pointerToMoves[pointer] || [];
   }
 
-  fs.writeFileSync(outputEggMovesPath, JSON.stringify(eggMoves, null, 2));
-  console.log('Egg moves extracted to', outputEggMovesPath);
+  fs.writeFileSync(EGG_MOVES_OUTPUT, JSON.stringify(eggMoves, null, 2));
+  console.log('Egg moves extracted to', EGG_MOVES_OUTPUT);
 }
 
 extractEggMoves();
