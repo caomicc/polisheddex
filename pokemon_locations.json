@@ -1098,9 +1098,48 @@
       "chance": 10
     }
   ],
-  "Rattataplain": [],
-  "Rattataalolan": [],
-  "Raticateplain": [],
+  "Rattata": [],
+  "Rattataalolan": [
+    {
+      "area": "ROUTE_34",
+      "method": "grass",
+      "time": "morn",
+      "level": "12",
+      "chance": 10
+    },
+    {
+      "area": "ROUTE_34",
+      "method": "grass",
+      "time": "day",
+      "level": "12",
+      "chance": 10
+    },
+    {
+      "area": "ROUTE_34",
+      "method": "grass",
+      "time": "nite",
+      "level": "12",
+      "chance": 10
+    },
+    {
+      "area": "Violet Outskirts",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Level from badges - 0",
+      "chance": 40,
+      "rareItem": "Dusk Stone"
+    }
+  ],
+  "Raticate": [
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "Level from badges + 3",
+      "chance": 15,
+      "rareItem": "Water Stone"
+    }
+  ],
   "Spearow": [
     {
       "area": "ROUTE_33",
@@ -1503,12 +1542,107 @@
       "rareItem": "THUNDERSTONE"
     }
   ],
-  "Raichuplain": [],
+  "Raichu": [],
   "Raichualolan": [],
-  "Sandshrewplain": [],
-  "Sandshrewalolan": [],
-  "Sandslashplain": [],
-  "Sandslashalolan": [],
+  "Sandshrew": [
+    {
+      "area": "Ruins of Alph",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "25",
+      "chance": 40,
+      "rareItem": "Moon Stone"
+    }
+  ],
+  "Sandshrewalolan": [
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "58",
+      "chance": 4
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "58",
+      "chance": 4
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "58",
+      "chance": 4
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "58",
+      "chance": 4
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "58",
+      "chance": 4
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "58",
+      "chance": 4
+    }
+  ],
+  "Sandslash": [],
+  "Sandslashalolan": [
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "62",
+      "chance": 4
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "62",
+      "chance": 4
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "62",
+      "chance": 4
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 4
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 4
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "59",
+      "chance": 4
+    }
+  ],
   "Nidoranf": [],
   "Nidorina": [
     {
@@ -2006,9 +2140,153 @@
       "chance": 10
     }
   ],
-  "Vulpixplain": [],
-  "Vulpixalolan": [],
-  "Ninetalesplain": [],
+  "Vulpix": [
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "16",
+      "chance": 15,
+      "rareItem": "Fire Stone"
+    }
+  ],
+  "Vulpixalolan": [
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "32",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "32",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "33",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "33",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 2
+    },
+    {
+      "area": "ICE_PATH_B3F",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 2
+    },
+    {
+      "area": "Sinjoh Ruins",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Level from badges + 5",
+      "chance": 40,
+      "rareItem": "Ice Stone"
+    }
+  ],
+  "Ninetales": [],
   "Ninetalesalolan": [],
   "Jigglypuff": [
     {
@@ -5817,15 +6095,119 @@
       "rareItem": "Water Stone"
     }
   ],
-  "Diglettplain": [],
-  "Diglettalolan": [],
-  "Dugtrioplain": [],
-  "Dugtrioalolan": [],
-  "Meowthplain": [],
-  "Meowthalolan": [],
+  "Diglett": [],
+  "Diglettalolan": [
+    {
+      "area": "CINNABAR_VOLCANO_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "60",
+      "chance": 4
+    },
+    {
+      "area": "CINNABAR_VOLCANO_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "60",
+      "chance": 4
+    },
+    {
+      "area": "CINNABAR_VOLCANO_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "61",
+      "chance": 4
+    },
+    {
+      "area": "CINNABAR_VOLCANO_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "61",
+      "chance": 4
+    },
+    {
+      "area": "CINNABAR_VOLCANO_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "61",
+      "chance": 4
+    },
+    {
+      "area": "CINNABAR_VOLCANO_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "62",
+      "chance": 4
+    }
+  ],
+  "Dugtrio": [],
+  "Dugtrioalolan": [
+    {
+      "area": "CINNABAR_VOLCANO_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "63",
+      "chance": 4
+    },
+    {
+      "area": "CINNABAR_VOLCANO_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "63",
+      "chance": 4
+    },
+    {
+      "area": "CINNABAR_VOLCANO_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "61",
+      "chance": 4
+    }
+  ],
+  "Meowth": [
+    {
+      "area": "Yellow Forest",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "Level from badges + 0",
+      "chance": 15,
+      "rareItem": "THUNDERSTONE"
+    }
+  ],
+  "Meowthalolan": [
+    {
+      "area": "LUCKY_ISLAND",
+      "method": "grass",
+      "time": "nite",
+      "level": "LEVEL_FROM_BADGES - 3",
+      "chance": 10
+    },
+    {
+      "area": "LUCKY_ISLAND",
+      "method": "grass",
+      "time": "nite",
+      "level": "LEVEL_FROM_BADGES - 2",
+      "chance": 10
+    },
+    {
+      "area": "LUCKY_ISLAND",
+      "method": "grass",
+      "time": "nite",
+      "level": "LEVEL_FROM_BADGES - 1",
+      "chance": 10
+    }
+  ],
   "Meowthgalarian": [],
-  "Persianplain": [],
-  "Persianalolan": [],
+  "Persian": [],
+  "Persianalolan": [
+    {
+      "area": "LUCKY_ISLAND",
+      "method": "grass",
+      "time": "nite",
+      "level": "LEVEL_FROM_BADGES + 0",
+      "chance": 10
+    }
+  ],
   "Psyduck": [
     {
       "area": "NATIONAL_PARK",
@@ -6396,8 +6778,17 @@
       "chance": 6
     }
   ],
-  "Growlitheplain": [],
-  "Arcanineplain": [],
+  "Growlithe": [
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "16",
+      "chance": 40,
+      "rareItem": "Fire Stone"
+    }
+  ],
+  "Arcanine": [],
   "Growlithehisuian": [],
   "Arcaninehisuian": [],
   "Poliwag": [
@@ -8426,19 +8817,243 @@
       "chance": 6
     }
   ],
-  "Geodudeplain": [],
-  "Gravelerplain": [],
-  "Golemplain": [],
-  "Geodudealolan": [],
-  "Graveleralolan": [],
+  "Geodude": [],
+  "Graveler": [
+    {
+      "area": "Rugged Road North",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Level from badges + 1",
+      "chance": 40,
+      "rareItem": "Fire Stone"
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "25",
+      "chance": 5,
+      "rareItem": "Dusk Stone"
+    }
+  ],
+  "Golem": [],
+  "Geodudealolan": [
+    {
+      "area": "MAGNET_TUNNEL_INSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "LEVEL_FROM_BADGES - 2",
+      "chance": 4
+    },
+    {
+      "area": "MAGNET_TUNNEL_INSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "LEVEL_FROM_BADGES - 2",
+      "chance": 4
+    },
+    {
+      "area": "MAGNET_TUNNEL_INSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "LEVEL_FROM_BADGES - 2",
+      "chance": 4
+    }
+  ],
+  "Graveleralolan": [
+    {
+      "area": "DIM_CAVE_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "49",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "51",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "49",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "51",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "50",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "50",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_2F",
+      "method": "grass",
+      "time": "day",
+      "level": "50",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_2F",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "50",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "52",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "56",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_3F",
+      "method": "grass",
+      "time": "day",
+      "level": "52",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_3F",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "54",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_4F",
+      "method": "grass",
+      "time": "morn",
+      "level": "50",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_4F",
+      "method": "grass",
+      "time": "morn",
+      "level": "51",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_4F",
+      "method": "grass",
+      "time": "day",
+      "level": "50",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_4F",
+      "method": "grass",
+      "time": "day",
+      "level": "51",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_4F",
+      "method": "grass",
+      "time": "nite",
+      "level": "52",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_5F",
+      "method": "grass",
+      "time": "morn",
+      "level": "49",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_5F",
+      "method": "grass",
+      "time": "morn",
+      "level": "54",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_5F",
+      "method": "grass",
+      "time": "day",
+      "level": "49",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_5F",
+      "method": "grass",
+      "time": "day",
+      "level": "54",
+      "chance": 4
+    },
+    {
+      "area": "DIM_CAVE_5F",
+      "method": "grass",
+      "time": "nite",
+      "level": "50",
+      "chance": 4
+    }
+  ],
   "Golemalolan": [],
-  "Ponytaplain": [],
+  "Ponyta": [],
   "Ponytagalarian": [],
-  "Rapidashplain": [],
+  "Rapidash": [
+    {
+      "area": "Silver Cave",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "70",
+      "chance": 40,
+      "rareItem": "Fire Stone"
+    }
+  ],
   "Rapidashgalarian": [],
-  "Slowpokeplain": [],
+  "Slowpoke": [],
   "Slowpokegalarian": [],
-  "Slowbroplain": [],
+  "Slowbro": [],
   "Slowbrogalarian": [],
   "Magnemite": [
     {
@@ -8725,7 +9340,7 @@
       "chance": 10
     }
   ],
-  "Farfetchdplain": [],
+  "Farfetchd": [],
   "Farfetchdgalarian": [],
   "Doduo": [
     {
@@ -9309,10 +9924,76 @@
       "chance": 10
     }
   ],
-  "Grimerplain": [],
-  "Grimeralolan": [],
-  "Mukplain": [],
-  "Mukalolan": [],
+  "Grimer": [],
+  "Grimeralolan": [
+    {
+      "area": "STORMY_BEACH",
+      "method": "grass",
+      "time": "morn",
+      "level": "LEVEL_FROM_BADGES - 1",
+      "chance": 10
+    },
+    {
+      "area": "STORMY_BEACH",
+      "method": "grass",
+      "time": "day",
+      "level": "LEVEL_FROM_BADGES - 1",
+      "chance": 10
+    },
+    {
+      "area": "MURKY_SWAMP",
+      "method": "grass",
+      "time": "morn",
+      "level": "LEVEL_FROM_BADGES - 1",
+      "chance": 2
+    },
+    {
+      "area": "MURKY_SWAMP",
+      "method": "grass",
+      "time": "morn",
+      "level": "LEVEL_FROM_BADGES + 0",
+      "chance": 2
+    },
+    {
+      "area": "MURKY_SWAMP",
+      "method": "grass",
+      "time": "day",
+      "level": "LEVEL_FROM_BADGES - 1",
+      "chance": 2
+    },
+    {
+      "area": "MURKY_SWAMP",
+      "method": "grass",
+      "time": "day",
+      "level": "LEVEL_FROM_BADGES + 0",
+      "chance": 2
+    },
+    {
+      "area": "Stormy Beach",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Level from badges + 3",
+      "chance": 40,
+      "rareItem": "Water Stone"
+    }
+  ],
+  "Muk": [],
+  "Mukalolan": [
+    {
+      "area": "MURKY_SWAMP",
+      "method": "grass",
+      "time": "morn",
+      "level": "LEVEL_FROM_BADGES + 1",
+      "chance": 2
+    },
+    {
+      "area": "MURKY_SWAMP",
+      "method": "grass",
+      "time": "day",
+      "level": "LEVEL_FROM_BADGES + 1",
+      "chance": 2
+    }
+  ],
   "Shellder": [
     {
       "area": "WHIRL_ISLAND_NW",
@@ -11498,8 +12179,17 @@
       "chance": 6
     }
   ],
-  "Voltorbplain": [],
-  "Electrodeplain": [],
+  "Voltorb": [
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "Level from badges + 3",
+      "chance": 5,
+      "rareItem": "THUNDERSTONE"
+    }
+  ],
+  "Electrode": [],
   "Voltorbhisuian": [],
   "Electrodehisuian": [],
   "Exeggcute": [
@@ -11575,7 +12265,7 @@
       "rareItem": "Shiny Stone"
     }
   ],
-  "Exeggutorplain": [],
+  "Exeggutor": [],
   "Exeggutoralolan": [],
   "Cubone": [
     {
@@ -11734,7 +12424,7 @@
       "rareItem": "Shiny Stone"
     }
   ],
-  "Marowakplain": [],
+  "Marowak": [],
   "Marowakalolan": [],
   "Hitmonlee": [],
   "Hitmonchan": [],
@@ -11890,7 +12580,7 @@
       "chance": 4
     }
   ],
-  "Weezingplain": [],
+  "Weezing": [],
   "Weezinggalarian": [],
   "Rhyhorn": [
     {
@@ -12671,7 +13361,7 @@
       "chance": 6
     }
   ],
-  "Mrmimeplain": [],
+  "Mrmime": [],
   "Scyther": [
     {
       "area": "SAFARI_ZONE_HUB",
@@ -13249,7 +13939,16 @@
       "chance": 10
     }
   ],
-  "Taurosplain": [],
+  "Tauros": [
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Level from badges + 3",
+      "chance": 40,
+      "rareItem": "THUNDERSTONE"
+    }
+  ],
   "Taurospaldean": [],
   "Taurospaldeanfire": [],
   "Taurospaldeanwater": [],
@@ -13792,11 +14491,11 @@
   "Kabutops": [],
   "Aerodactyl": [],
   "Snorlax": [],
-  "Articunoplain": [],
+  "Articuno": [],
   "Articunogalarian": [],
-  "Zapdosplain": [],
+  "Zapdos": [],
   "Zapdosgalarian": [],
-  "Moltresplain": [],
+  "Moltres": [],
   "Moltresgalarian": [],
   "Dratini": [
     {
@@ -13972,7 +14671,7 @@
   "Meganium": [],
   "Cyndaquil": [],
   "Quilava": [],
-  "Typhlosionplain": [],
+  "Typhlosion": [],
   "Typhlosionhisuian": [],
   "Totodile": [],
   "Croconaw": [],
@@ -16262,7 +16961,16 @@
       "rareItem": "Sun Stone"
     }
   ],
-  "Wooperplain": [],
+  "Wooper": [
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "5",
+      "chance": 40,
+      "rareItem": "Everstone"
+    }
+  ],
   "Wooperpaldean": [],
   "Quagsire": [
     {
@@ -16957,7 +17665,7 @@
       "chance": 10
     }
   ],
-  "Slowkingplain": [],
+  "Slowking": [],
   "Slowkinggalarian": [],
   "Misdreavus": [
     {
@@ -18131,12 +18839,29 @@
       "chance": 10
     }
   ],
-  "Qwilfishplain": [],
+  "Qwilfish": [],
   "Qwilfishhisuian": [],
   "Scizor": [],
   "Shuckle": [],
   "Heracross": [],
-  "Sneaselplain": [],
+  "Sneasel": [
+    {
+      "area": "Snowtop Mountain Inside",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "Level from badges + 4",
+      "chance": 5,
+      "rareItem": "Ice Stone"
+    },
+    {
+      "area": "Silver Cave",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "70",
+      "chance": 40,
+      "rareItem": "Fire Stone"
+    }
+  ],
   "Sneaselhisuian": [],
   "Teddiursa": [
     {
@@ -18782,7 +19507,16 @@
     }
   ],
   "Piloswine": [],
-  "Corsolaplain": [],
+  "Corsola": [
+    {
+      "area": "Cherrygrove Bay",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "Level from badges + 0",
+      "chance": 5,
+      "rareItem": "Shiny Stone"
+    }
+  ],
   "Corsolagalarian": [],
   "Remoraid": [
     {
@@ -20017,7 +20751,7 @@
   "Mrmimegalarian": [],
   "Wyrdeer": [],
   "Kleavor": [],
-  "Ursalunaplain": [],
+  "Ursaluna": [],
   "Ursalunabloodmoon": [],
   "Sneasler": [],
   "Overqwil": [],
@@ -20046,16 +20780,6 @@
     }
   ],
   "Annihilape": [],
-  "Wooper": [
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "5",
-      "chance": 40,
-      "rareItem": "Everstone"
-    }
-  ],
   "EkansArbokJohtoForm": [
     {
       "area": "ROUTE ",
@@ -20064,56 +20788,6 @@
       "level": "5",
       "chance": 15,
       "rareItem": "Everstone"
-    }
-  ],
-  "Growlithe": [
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "16",
-      "chance": 40,
-      "rareItem": "Fire Stone"
-    }
-  ],
-  "Vulpix": [
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "16",
-      "chance": 15,
-      "rareItem": "Fire Stone"
-    }
-  ],
-  "Corsola": [
-    {
-      "area": "Cherrygrove Bay",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "Level from badges + 0",
-      "chance": 5,
-      "rareItem": "Shiny Stone"
-    }
-  ],
-  "RattataAlolanForm": [
-    {
-      "area": "Violet Outskirts",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Level from badges - 0",
-      "chance": 40,
-      "rareItem": "Dusk Stone"
-    }
-  ],
-  "Raticate": [
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "Level from badges + 3",
-      "chance": 15,
-      "rareItem": "Water Stone"
     }
   ],
   "ArbokArbokJohtoForm": [
@@ -20126,46 +20800,6 @@
       "rareItem": "Water Stone"
     }
   ],
-  "GrimerAlolanForm": [
-    {
-      "area": "Stormy Beach",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Level from badges + 3",
-      "chance": 40,
-      "rareItem": "Water Stone"
-    }
-  ],
-  "Tauros": [
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Level from badges + 3",
-      "chance": 40,
-      "rareItem": "THUNDERSTONE"
-    }
-  ],
-  "Voltorb": [
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "Level from badges + 3",
-      "chance": 5,
-      "rareItem": "THUNDERSTONE"
-    }
-  ],
-  "Sandshrew": [
-    {
-      "area": "Ruins of Alph",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "25",
-      "chance": 40,
-      "rareItem": "Moon Stone"
-    }
-  ],
   "FarfetchDGalarianForm": [
     {
       "area": "ROUTE ",
@@ -20174,34 +20808,6 @@
       "level": "Level from badges + 0",
       "chance": 40,
       "rareItem": "Shiny Stone"
-    }
-  ],
-  "Meowth": [
-    {
-      "area": "Yellow Forest",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "Level from badges + 0",
-      "chance": 15,
-      "rareItem": "THUNDERSTONE"
-    }
-  ],
-  "Graveler": [
-    {
-      "area": "Rugged Road North",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Level from badges + 1",
-      "chance": 40,
-      "rareItem": "Fire Stone"
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "25",
-      "chance": 5,
-      "rareItem": "Dusk Stone"
     }
   ],
   "GrowlitheHisuianForm": [
@@ -20240,24 +20846,6 @@
       "rareItem": "Ice Stone"
     }
   ],
-  "Sneasel": [
-    {
-      "area": "Snowtop Mountain Inside",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "Level from badges + 4",
-      "chance": 5,
-      "rareItem": "Ice Stone"
-    },
-    {
-      "area": "Silver Cave",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "70",
-      "chance": 40,
-      "rareItem": "Fire Stone"
-    }
-  ],
   "FarfetchD": [
     {
       "area": "Lake of Rage",
@@ -20268,16 +20856,6 @@
       "rareItem": "Water Stone"
     }
   ],
-  "VulpixAlolanForm": [
-    {
-      "area": "Sinjoh Ruins",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Level from badges + 5",
-      "chance": 40,
-      "rareItem": "Ice Stone"
-    }
-  ],
   "SneaselHisuianForm": [
     {
       "area": "Sinjoh Ruins",
@@ -20286,16 +20864,6 @@
       "level": "Level from badges + 5",
       "chance": 5,
       "rareItem": "Ice Stone"
-    }
-  ],
-  "Rapidash": [
-    {
-      "area": "Silver Cave",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "70",
-      "chance": 40,
-      "rareItem": "Fire Stone"
     }
   ]
 }

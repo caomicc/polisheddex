@@ -461,14 +461,38 @@ function parseWildmonLine(line: string): { level: string; species: string; form:
 // Helper to normalize Pokémon name (TitleCase)
 function normalizeMonName(name: string, form: string | null): string {
   let n = toTitleCase(name);
-  if (form) n += toTitleCase(form);
+
+  // Special handling for form names to match expected output format
+  if (form) {
+    // Convert ALOLAN_FORM to just "alolan" to match expected keys
+    if (form === 'ALOLAN_FORM') {
+      n += 'alolan';
+    } else if (form === 'PLAIN_FORM' || form.includes('PLAIN')) {
+      // Skip adding 'plain' suffix for the base form
+      // Don't append anything for plain forms
+    } else {
+      // For other forms, just append the TitleCase version
+      n += toTitleCase(form);
+    }
+  } else {
+    // If no form specified, default to regular form
+    n += '';
+  }
+
+  // Debug: Log when processing Diglett or if we're in Diglett's Cave
+  if (name === 'DIGLETT' || name === 'DUGTRIO') {
+    console.log(`Processing: ${name} form: ${form || 'null'} -> ${n}`);
+  }
+
   return n;
 }
 
 // Aggregate locations by Pokémon
 const locationsByMon: { [mon: string]: LocationEntry[] } = {};
 
+console.log('Starting to process wild Pokémon locations...');
 for (const file of wildFiles) {
+  console.log(`Processing wild file: ${file}`);
   const filePath = path.join(wildDir, file);
   const content = fs.readFileSync(filePath, 'utf8');
   const lines = content.split(/\r?\n/);
@@ -495,6 +519,10 @@ for (const file of wildFiles) {
       time = null;
       // Reset encounter rates for new area
       encounterRates = { morn: 0, day: 0, nite: 0 };
+      // Debug for Diglett's Cave
+      if (area === 'DIGLETTS_CAVE') {
+        console.log(`Found DIGLETTS_CAVE area definition on line ${i + 1}`);
+      }
       continue;
     }
 
@@ -711,9 +739,9 @@ function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
         const pokemonName = pokemonMatch[1];
         const formName = pokemonMatch[2] || null;
 
-        // Get the formatted Pokémon name using our existing naming function
-        const formattedName = toTitleCase(pokemonName);
-        const formattedFullName = formName ? formattedName + toTitleCase(formName) : formattedName;
+        // Get the formatted Pokémon name using our normalizeMonName function
+        const formattedName = normalizeMonName(pokemonName, null);
+        const formattedFullName = normalizeMonName(pokemonName, formName);
 
         // Determine which slot this is and set rarity
         let rarity: string;
@@ -724,7 +752,7 @@ function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
           common2 = formattedName;
           rarity = 'common';
         } else if (uncommon === null) {
-          const formattedUncommon = formName ? formattedName + toTitleCase(formName) : formattedName;
+          const formattedUncommon = normalizeMonName(pokemonName, formName);
           uncommon = formattedUncommon; // Store the formatted name
           rarity = 'uncommon';
         } else if (rare === null) {
@@ -765,12 +793,33 @@ const locationData: Record<string, LocationEntry[]> = {};
 
 // First, add wild encounter locations
 for (const [mon, data] of Object.entries(finalResultV3)) {
+  // Skip entries with 'plain' in the name, as we don't want to add the plain suffix anymore
+  if (mon.includes('plain')) {
+    // Extract the base name without 'plain' suffix
+    const baseName = mon.replace('plain', '');
+    // If the base name entry doesn't exist yet, create it with this data
+    if (!locationData[baseName]) {
+      locationData[baseName] = data.locations;
+    }
+    // Skip creating the entry with 'plain' in the name
+    continue;
+  }
   locationData[mon] = data.locations;
 }
 
 // Then extract and add hidden grotto locations
 const grottoLocations = extractHiddenGrottoes();
 for (const [pokemonName, locations] of Object.entries(grottoLocations)) {
+  // Skip entries with 'plain' in the name
+  if (pokemonName.includes('plain')) {
+    const baseName = pokemonName.replace('plain', '');
+    if (!locationData[baseName]) {
+      locationData[baseName] = [];
+    }
+    locationData[baseName].push(...locations);
+    continue;
+  }
+
   if (!locationData[pokemonName]) {
     locationData[pokemonName] = [];
   }

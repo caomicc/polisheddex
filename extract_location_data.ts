@@ -14,6 +14,7 @@ interface LocationEntry {
   time: string | null;
   level: string;
   chance: number;
+  rareItem?: string; // Optional property for hidden grottoes
 }
 
 // Extended interface for encounter details that may include rare items (for grottoes)
@@ -42,7 +43,11 @@ async function extractLocationsByArea() {
       for (const location of locations) {
         if (!location.area) continue;
 
-        const areaName = location.area;
+        // Format the area name to match UI component formatting (converting DIGLETTS_CAVE to "Digletts Cave")
+        const areaName = location.area
+          .toLowerCase()
+          .replace(/_/g, ' ')
+          .replace(/\b\w/g, c => c.toUpperCase());
         const method = location.method || 'unknown';
         const time = location.time || 'any';
 
@@ -67,10 +72,17 @@ async function extractLocationsByArea() {
         }
 
         // Add encounter details
-        locationsByArea[areaName].pokemon[pokemon].methods[method].times[time].push({
+        const encounterDetail: EncounterDetail = {
           level: location.level,
           chance: location.chance
-        });
+        };
+
+        // Add rareItem if present (for hidden grottoes)
+        if ('rareItem' in location && location.rareItem) {
+          encounterDetail.rareItem = location.rareItem;
+        }
+
+        locationsByArea[areaName].pokemon[pokemon].methods[method].times[time].push(encounterDetail);
       }
     }
 
