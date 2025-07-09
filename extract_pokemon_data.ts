@@ -365,59 +365,186 @@ function standardizePokemonKey(name: string): string {
   return toTitleCase(baseName.toLowerCase());
 }
 
-function getEvolutionChain(mon: string, visited = new Set<string>()): string[] {
-  // Standardize the input Pokemon name
-  mon = standardizePokemonKey(mon);
+// Non-recursive function to build the complete evolution chain
+function buildCompleteEvolutionChain(startMon: string): string[] {
+  // This map will keep track of which Pokémon we've already processed
+  const processedMons = new Set<string>();
 
-  // Use normalizeMonName to handle forms and get baseName
-  const { baseName } = normalizeMonName(mon, null);
+  // Starting with the requested Pokémon
+  const standardizedStartMon = standardizePokemonKey(startMon);
+  const queue: string[] = [standardizedStartMon];
+  const chain: string[] = [];
 
-  // Create a consistent key for the Pokemon, regardless of form notation
-  const monKey = baseName; // We'll handle the evolution chain at the base Pokemon level
+  // Also check for form variations of the starting Pokémon
+  // This helps with Pokémon like "GrowlithePlain" vs "Growlithe"
+  for (const key of Object.keys(evoMap)) {
+    const standardKey = standardizePokemonKey(key);
+    if (standardKey === standardizedStartMon && key !== standardizedStartMon) {
+      queue.push(key);
+    }
+  }
 
-  if (visited.has(monKey)) return [];
-  visited.add(monKey);
+  for (const key of Object.keys(preEvoMap)) {
+    const standardKey = standardizePokemonKey(key);
+    if (standardKey === standardizedStartMon && key !== standardizedStartMon) {
+      queue.push(key);
+    }
+  }
 
-  // Go backwards through pre-evolutions
-  const chain = preEvoMap[monKey]?.flatMap(pre => {
-    const preMon = standardizePokemonKey(pre);
-    return getEvolutionChain(preMon, visited);
-  }) || [];
+  // Process Pokémon in breadth-first order
+  while (queue.length > 0) {
+    const currentMon = queue.shift()!;
+    // Always standardize to remove form suffixes
+    const standardMon = standardizePokemonKey(currentMon);
+    const { baseName } = normalizeMonName(standardMon, null);
 
-  const withSelf = [...chain, monKey];
+    // Skip if we've already processed this Pokémon
+    if (processedMons.has(baseName)) continue;
+    processedMons.add(baseName);
 
-  // Go forwards through evolutions
-  const fullChain = [...withSelf]; // Create a new array to modify
+    // Add to our evolution chain if not already included
+    if (!chain.includes(baseName)) {
+      chain.push(baseName);
+    }
 
-  if (evoMap[monKey]) {
-    for (const evo of evoMap[monKey]) {
-      // Standardize target name
-      const { target } = evo;
-      const targetMon = standardizePokemonKey(target);
-      const { baseName: evoBaseName } = normalizeMonName(targetMon, null);
-
-      // Add this evolution to the chain even if we've seen it before
-      if (!fullChain.includes(evoBaseName)) {
-        fullChain.push(evoBaseName);
+    // Check for any pre-evolutions, including form variants
+    // We need to check both the standardized name and possibly the original name with form
+    for (const [preKey, preEvos] of Object.entries(preEvoMap)) {
+      // Check if this entry matches our current Pokémon (either exact or standardized)
+      const standardPreKey = standardizePokemonKey(preKey);
+      if (preKey === currentMon || standardPreKey === standardMon) {
+        // Add all its pre-evolutions to the queue
+        for (const pre of preEvos) {
+          const standardPre = standardizePokemonKey(pre);
+          if (!processedMons.has(standardPre)) {
+            queue.push(pre);
+          }
+        }
       }
+    }
 
-      // Continue with this evolution's chain if we haven't visited it yet
-      if (!visited.has(evoBaseName)) {
-        const nextVisited = new Set(visited);
-        nextVisited.add(evoBaseName);
-        const evoChain = getEvolutionChain(evoBaseName, nextVisited);
-
-        for (const item of evoChain) {
-          if (!fullChain.includes(item)) {
-            fullChain.push(item);
+    // Check for any evolutions, including form variants
+    for (const [evoKey, evos] of Object.entries(evoMap)) {
+      // Check if this entry matches our current Pokémon (either exact or standardized)
+      const standardEvoKey = standardizePokemonKey(evoKey);
+      if (evoKey === currentMon || standardEvoKey === standardMon) {
+        // Add all its evolutions to the queue
+        for (const evo of evos) {
+          const targetMon = standardizePokemonKey(evo.target);
+          if (!processedMons.has(targetMon)) {
+            queue.push(evo.target);
           }
         }
       }
     }
   }
 
-  // Remove duplicates while preserving order
-  return [...new Set(fullChain)];
+  // Sort the chain to put earliest evolutions first
+  return sortEvolutionChain(chain);
+}
+
+// Helper to sort the evolution chain properly
+function sortEvolutionChain(chain: string[]): string[] {
+  // Create a dependency graph for topological sorting
+  const graph: Record<string, Set<string>> = {};
+
+  // Initialize all nodes
+  for (const mon of chain) {
+    graph[mon] = new Set<string>();
+  }
+
+  // First pass: Add direct evolution connections to the graph
+  for (const mon of chain) {
+    const standardMon = standardizePokemonKey(mon);
+
+    // Check all entries in evoMap for matches (considering form variations)
+    for (const [evoKey, evos] of Object.entries(evoMap)) {
+      const standardEvoKey = standardizePokemonKey(evoKey);
+
+      // If this is the Pokémon we're looking at (either exact or standardized)
+      if (evoKey === mon || standardEvoKey === standardMon) {
+        // For each of its evolutions
+        for (const evo of evos) {
+          const targetMon = standardizePokemonKey(evo.target);
+
+          // If the target is in our chain, add the dependency
+          if (chain.includes(targetMon)) {
+            graph[mon].add(targetMon); // mon evolves into target
+          }
+        }
+      }
+    }
+
+    // Check all entries in preEvoMap for matches (considering form variations)
+    for (const [preKey, preEvos] of Object.entries(preEvoMap)) {
+      const standardPreKey = standardizePokemonKey(preKey);
+
+      // If this is the Pokémon we're looking at (either exact or standardized)
+      if (preKey === mon || standardPreKey === standardMon) {
+        // For each of its pre-evolutions
+        for (const pre of preEvos) {
+          const standardPre = standardizePokemonKey(pre);
+
+          // If the pre-evolution is in our chain, add the dependency
+          if (chain.includes(standardPre)) {
+            graph[standardPre].add(mon); // pre evolves into mon
+          }
+        }
+      }
+    }
+  }
+
+  // Manual sorting based on evolution relationships
+  const sortedChain: string[] = [];
+  const addedNodes = new Set<string>();
+
+  // Helper function to add a node and all its descendants
+  function addNodeAndDescendants(node: string) {
+    if (addedNodes.has(node)) return;
+    addedNodes.add(node);
+    sortedChain.push(node);
+
+    // Add all evolutions of this node
+    for (const nextNode of graph[node]) {
+      if (!addedNodes.has(nextNode)) {
+        addNodeAndDescendants(nextNode);
+      }
+    }
+  }
+
+  // Find nodes with no incoming edges (base forms)
+  const baseNodes: string[] = [];
+  for (const node of chain) {
+    let hasIncoming = false;
+    for (const outgoingNodes of Object.values(graph)) {
+      if (outgoingNodes.has(node)) {
+        hasIncoming = true;
+        break;
+      }
+    }
+    if (!hasIncoming) {
+      baseNodes.push(node);
+    }
+  }
+
+  // Add base nodes first, followed by their evolutions
+  for (const node of baseNodes) {
+    addNodeAndDescendants(node);
+  }
+
+  // Add any remaining nodes that weren't connected
+  for (const node of chain) {
+    if (!addedNodes.has(node)) {
+      sortedChain.push(node);
+    }
+  }
+
+  return sortedChain;
+}
+
+function getEvolutionChain(mon: string): string[] {
+  // Use the new non-recursive approach to build a complete chain
+  return buildCompleteEvolutionChain(mon);
 }
 
 // --- Dex number helpers ---
