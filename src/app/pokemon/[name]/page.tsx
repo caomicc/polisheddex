@@ -41,6 +41,7 @@ interface LocationEntry {
   time: string | null;
   level: string;
   chance: number;
+  rareItem?: string; // Optional for hidden grottoes
 }
 
 // Function to safely load JSON data
@@ -232,6 +233,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
                 time={loc.time}
                 level={loc.level}
                 chance={loc.chance}
+                rareItem={loc.rareItem}
               />
             ))}
           </ul>

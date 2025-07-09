@@ -16,6 +16,13 @@ interface LocationEntry {
   chance: number;
 }
 
+// Extended interface for encounter details that may include rare items (for grottoes)
+interface EncounterDetail {
+  level: string;
+  chance: number;
+  rareItem?: string;
+}
+
 // Load the Pokemon location data
 async function extractLocationsByArea() {
   try {
@@ -25,10 +32,7 @@ async function extractLocationsByArea() {
     const locationsByArea: Record<string, {
       pokemon: Record<string, {
         methods: Record<string, {
-          times: Record<string, {
-            level: string;
-            chance: number;
-          }[]>
+          times: Record<string, EncounterDetail[]>
         }>
       }>
     }> = {};

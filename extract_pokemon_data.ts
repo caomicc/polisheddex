@@ -15,6 +15,7 @@ const EVOLUTION_OUTPUT = path.join(__dirname, 'pokemon_evolution_data.json');
 const LEVEL_MOVES_OUTPUT = path.join(__dirname, 'pokemon_level_moves.json');
 const LOCATIONS_OUTPUT = path.join(__dirname, 'pokemon_locations.json');
 
+
 // Helper to convert move names to Capital Case with spaces
 function toCapitalCaseWithSpaces(str: string) {
   return str
@@ -440,6 +441,7 @@ type LocationEntry = {
   time: string | null;
   level: string;
   chance: number; // Percentage chance of encounter
+  rareItem?: string; // For hidden grottoes
 };
 
 const wildDir = path.join(__dirname, 'data/wild');
@@ -602,11 +604,180 @@ for (const [mon, data] of Object.entries(finalResultV3)) {
 fs.writeFileSync(LEVEL_MOVES_OUTPUT, JSON.stringify(levelMoves, null, 2));
 console.log('Pokémon level-up moves extracted to', LEVEL_MOVES_OUTPUT);
 
-// Extract and save location data
+// --- Hidden Grotto Extraction ---
+function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
+  // Result will be keyed by Pokémon name, containing location entries
+  const grottoLocations: Record<string, LocationEntry[]> = {};
+
+  // Read the grottoes.asm file
+  const grottoeFilePath = path.join(__dirname, 'data/events/hidden_grottoes/grottoes.asm');
+  if (!fs.existsSync(grottoeFilePath)) {
+    console.warn('Hidden grottoes file not found, skipping extraction');
+    return {};
+  }
+
+  const grottoeContents = fs.readFileSync(grottoeFilePath, 'utf8');
+  const lines = grottoeContents.split(/\r?\n/);
+
+  // Maps for item names and location names
+  const itemNames: Record<string, string> = {
+    'FIRE_STONE': 'Fire Stone',
+    'WATER_STONE': 'Water Stone',
+    'THUNDER_STONE': 'Thunder Stone',
+    'LEAF_STONE': 'Leaf Stone',
+    'MOON_STONE': 'Moon Stone',
+    'SUN_STONE': 'Sun Stone',
+    'SHINY_STONE': 'Shiny Stone',
+    'DUSK_STONE': 'Dusk Stone',
+    'ICE_STONE': 'Ice Stone',
+    'EVERSTONE': 'Everstone',
+  };
+
+  // Maps for location names (from CONSTANT to human-readable name)
+  const locationNames: Record<string, string> = {
+    'HIDDENGROTTO_ROUTE_32': 'Route 32',
+    'HIDDENGROTTO_ILEX_FOREST': 'Ilex Forest',
+    'HIDDENGROTTO_ROUTE_35': 'Route 35',
+    'HIDDENGROTTO_ROUTE_36': 'Route 36',
+    'HIDDENGROTTO_CHERRYGROVE_BAY': 'Cherrygrove Bay',
+    'HIDDENGROTTO_VIOLET_OUTSKIRTS': 'Violet Outskirts',
+    'HIDDENGROTTO_ROUTE_32_COAST': 'Route 32 Coast',
+    'HIDDENGROTTO_STORMY_BEACH': 'Stormy Beach',
+    'HIDDENGROTTO_ROUTE_35_COAST': 'Route 35 Coast',
+    'HIDDENGROTTO_RUINS_OF_ALPH': 'Ruins of Alph',
+    'HIDDENGROTTO_ROUTE_47': 'Route 47',
+    'HIDDENGROTTO_YELLOW_FOREST': 'Yellow Forest',
+    'HIDDENGROTTO_RUGGED_ROAD_NORTH': 'Rugged Road North',
+    'HIDDENGROTTO_SNOWTOP_MOUNTAIN_INSIDE': 'Snowtop Mountain Inside',
+    'HIDDENGROTTO_ROUTE_42': 'Route 42',
+    'HIDDENGROTTO_LAKE_OF_RAGE': 'Lake of Rage',
+    'HIDDENGROTTO_BELLCHIME_TRAIL': 'Bellchime Trail',
+    'HIDDENGROTTO_ROUTE_44': 'Route 44',
+    'HIDDENGROTTO_ROUTE_45': 'Route 45',
+    'HIDDENGROTTO_ROUTE_46': 'Route 46',
+    'HIDDENGROTTO_SINJOH_RUINS': 'Sinjoh Ruins',
+    'HIDDENGROTTO_SILVER_CAVE': 'Silver Cave',
+  };
+
+  let currentLocation: string | null = null;
+  let rareItem: string | null = null;
+  let level: string | number | null = null;
+  let common1: string | null = null;
+  let common2: string | null = null;
+  let uncommon: string | null = null;
+  let rare: string | null = null;
+
+  // Process the file line by line
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Skip empty lines and table headers
+    if (!line || line.startsWith('HiddenGrottoData:') || line.startsWith('table_width')) continue;
+
+    // Parse location headers
+    if (line.startsWith('; HIDDENGROTTO_') || line.match(/^;\s*HIDDENGROTTO_/)) {
+      const locationMatch = line.match(/;\s*(HIDDENGROTTO_[A-Z_]+)/);
+      if (locationMatch) {
+        const locationKey = locationMatch[1];
+        currentLocation = locationNames[locationKey] || locationKey.replace('HIDDENGROTTO_', '').replace(/_/g, ' ');
+      }
+      continue;
+    }
+
+    // Parse the grotto data line (db warp number, rare item, level)
+    if (line.startsWith('db') && currentLocation) {
+      const dataMatch = line.match(/db\s+(\d+),\s+([A-Z_]+),\s+([A-Z0-9_\+\-\s]+)/);
+      if (dataMatch) {
+        rareItem = itemNames[dataMatch[2]] || dataMatch[2];
+
+        // Handle level values
+        if (dataMatch[3].includes('LEVEL_FROM_BADGES')) {
+          const modifier = dataMatch[3].match(/LEVEL_FROM_BADGES\s*([\+\-]\s*\d+)?/);
+          if (modifier && modifier[1]) {
+            level = `Level from badges ${modifier[1].trim()}`;
+          } else {
+            level = 'Level from badges';
+          }
+        } else {
+          level = dataMatch[3];
+        }
+      }
+      continue;
+    }
+
+    // Parse Pokemon entries
+    if (line.startsWith('dp') && currentLocation && rareItem && level !== null) {
+      const pokemonMatch = line.match(/dp\s+([A-Z0-9_]+)(?:,\s+([A-Z0-9_]+))?/);
+      if (pokemonMatch) {
+        const pokemonName = pokemonMatch[1];
+        const formName = pokemonMatch[2] || null;
+
+        // Get the formatted Pokémon name using our existing naming function
+        const formattedName = toTitleCase(pokemonName);
+        const formattedFullName = formName ? formattedName + toTitleCase(formName) : formattedName;
+
+        // Determine which slot this is and set rarity
+        let rarity: string;
+        if (common1 === null) {
+          common1 = formattedName;
+          rarity = 'common';
+        } else if (common2 === null) {
+          common2 = formattedName;
+          rarity = 'common';
+        } else if (uncommon === null) {
+          const formattedUncommon = formName ? formattedName + toTitleCase(formName) : formattedName;
+          uncommon = formattedUncommon; // Store the formatted name
+          rarity = 'uncommon';
+        } else if (rare === null) {
+          rare = formattedName;
+          rarity = 'rare';
+
+          // Reset for next grotto
+          common1 = null;
+          common2 = null;
+          uncommon = null;
+          rare = null;
+        } else {
+          continue; // Something went wrong with the parsing
+        }
+
+        // Add this location to the Pokémon's entry
+        if (!grottoLocations[formattedFullName]) {
+          grottoLocations[formattedFullName] = [];
+        }
+
+        grottoLocations[formattedFullName].push({
+          area: currentLocation,
+          method: 'hidden_grotto',
+          time: rarity,
+          level: String(level), // Convert to string regardless of type
+          chance: rarity === 'rare' ? 5 : rarity === 'uncommon' ? 15 : 40,
+          rareItem: rareItem
+        });
+      }
+    }
+  }
+
+  return grottoLocations;
+}
+
+// Extract and save location data (including hidden grottoes)
 const locationData: Record<string, LocationEntry[]> = {};
+
+// First, add wild encounter locations
 for (const [mon, data] of Object.entries(finalResultV3)) {
   locationData[mon] = data.locations;
 }
+
+// Then extract and add hidden grotto locations
+const grottoLocations = extractHiddenGrottoes();
+for (const [pokemonName, locations] of Object.entries(grottoLocations)) {
+  if (!locationData[pokemonName]) {
+    locationData[pokemonName] = [];
+  }
+  locationData[pokemonName].push(...locations);
+}
+
 fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(locationData, null, 2));
 console.log('Pokémon location data extracted to', LOCATIONS_OUTPUT);
 

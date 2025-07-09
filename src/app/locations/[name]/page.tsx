@@ -32,6 +32,7 @@ interface LocationData {
 function formatMethod(method: string): string {
   if (method === 'grass') return 'Wild Grass';
   if (method === 'water') return 'Surfing';
+  if (method === 'hidden_grotto') return 'Hidden Grotto';
   if (method === 'unknown') return 'Special Encounter';
   return method.charAt(0).toUpperCase() + method.slice(1);
 }
@@ -43,6 +44,10 @@ function formatTime(time: string): string {
   if (time === 'nite') return 'Night';
   if (time === 'eve') return 'Evening';
   if (time === 'any') return 'Any Time';
+  // Hidden grotto rarities
+  if (time === 'common') return 'Common';
+  if (time === 'uncommon') return 'Uncommon';
+  if (time === 'rare') return 'Rare';
   return time.charAt(0).toUpperCase() + time.slice(1);
 }
 
@@ -81,6 +86,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
           name: string;
           level: string;
           chance: number;
+          rareItem?: string;
         }[];
       };
     };
@@ -100,11 +106,23 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
         }
 
         encounters.forEach(encounter => {
-          groupedByMethodAndTime[method][time].pokemon.push({
+          const pokemonEntry: {
+            name: string;
+            level: string;
+            chance: number;
+            rareItem?: string;
+          } = {
             name: pokemonName,
             level: encounter.level,
             chance: encounter.chance
-          });
+          };
+
+          // Add rareItem if it exists
+          if ('rareItem' in encounter && typeof encounter.rareItem === 'string') {
+            pokemonEntry.rareItem = encounter.rareItem;
+          }
+
+          groupedByMethodAndTime[method][time].pokemon.push(pokemonEntry);
         });
       });
     });
@@ -159,6 +177,9 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
                       <div className="flex gap-4">
                         <span className="text-gray-700">Lv. {pokemon.level}</span>
                         <span className="text-gray-500">{pokemon.chance}% chance</span>
+                        {pokemon.rareItem && (
+                          <span className="text-amber-600 font-medium">Item: {pokemon.rareItem}</span>
+                        )}
                       </div>
                     </div>
                   ))}

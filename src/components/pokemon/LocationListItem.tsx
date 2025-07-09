@@ -6,9 +6,10 @@ interface LocationEntryProps {
   time: string | null;
   level: string;
   chance: number;
+  rareItem?: string; // Optional rare item for hidden grottoes
 }
 
-export default function LocationListItem({ area, method, time, level, chance }: LocationEntryProps) {
+export default function LocationListItem({ area, method, time, level, chance, rareItem }: LocationEntryProps) {
   const formattedArea = area || 'Unknown Area';
 
   return (
@@ -21,6 +22,7 @@ export default function LocationListItem({ area, method, time, level, chance }: 
           <div>
             <span className="font-semibold text-blue-700">{formatAreaName(formattedArea)}</span>
             {method && <span className="ml-2 text-gray-600">({formatMethod(method)})</span>}
+            {rareItem && <span className="ml-2 text-amber-600 font-medium">Item: {rareItem}</span>}
           </div>
           <div>
             <span className="bg-gray-100 px-2 py-1 rounded text-sm">Lv. {level}</span>
