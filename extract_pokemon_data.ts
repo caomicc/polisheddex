@@ -8,7 +8,6 @@ const __dirname = path.dirname(__filename);
 
 // Output file paths
 const MOVE_DESCRIPTIONS_OUTPUT = path.join(__dirname, 'pokemon_move_descriptions.json');
-const EVO_MOVES_OUTPUT = path.join(__dirname, 'pokemon_evo_moves.json');
 const EGG_MOVES_OUTPUT = path.join(__dirname, 'pokemon_egg_moves.json');
 const BASE_DATA_OUTPUT = path.join(__dirname, 'pokemon_base_data.json');
 const EVOLUTION_OUTPUT = path.join(__dirname, 'pokemon_evolution_data.json');
@@ -780,10 +779,6 @@ for (const [pokemonName, locations] of Object.entries(grottoLocations)) {
 
 fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(locationData, null, 2));
 console.log('Pokémon location data extracted to', LOCATIONS_OUTPUT);
-
-// Save the combined data for backward compatibility
-fs.writeFileSync(EVO_MOVES_OUTPUT, JSON.stringify(finalResultV3, null, 2));
-console.log('Full Pokémon data extracted to', EVO_MOVES_OUTPUT);
 
 // --- Egg Moves Extraction ---
 function extractEggMoves() {
