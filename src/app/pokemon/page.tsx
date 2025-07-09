@@ -2,21 +2,21 @@ import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
 
-export default async function PokemonList({ params }: { params: Promise<{ sort: string }> }) {
+export default async function PokemonList({ searchParams }: { searchParams?: { sort?: string } }) {
   // Read the JSON file at build time
   const filePath = path.join(process.cwd(), 'pokemon_base_data.json');
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-  const { sort } = await params;
+  const sort = searchParams?.sort ?? 'alphabetical';
 
   // Determine sort type from query param
-  const sortType = sort === 'nationaldex' ? sort : 'alphabetical';
+  const sortType = sort === 'nationaldex' ? 'nationaldex' : 'alphabetical';
 
   // Prepare an array of Pokémon with their names and dex numbers
   // eslint-disable-next-line
   const pokemonList = Object.entries(data).map(([name, info]: [string, any]) => ({
     name,
-    nationaldex: info.nationalDex ?? Infinity,
+    nationalDex: info.nationalDex ?? Infinity,
   }));
 
   // Sort based on selected sort type
@@ -25,7 +25,7 @@ export default async function PokemonList({ params }: { params: Promise<{ sort: 
       return a.name.localeCompare(b.name);
     }
     if (sortType === 'nationaldex') {
-      return a.nationaldex - b.nationaldex || a.name.localeCompare(b.name);
+      return a.nationalDex - b.nationalDex || a.name.localeCompare(b.name);
     }
     return 0;
   });
@@ -56,7 +56,7 @@ export default async function PokemonList({ params }: { params: Promise<{ sort: 
               </Link>
             </div>
             <span className="ml-2 text-xs text-gray-500">
-              National: {p.nationaldex !== Infinity ? p.nationaldex : '—'}
+              National: {p.nationalDex !== Infinity ? p.nationalDex : '—'}
             </span>
           </li>
         ))}
