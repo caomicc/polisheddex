@@ -439,6 +439,7 @@ type LocationEntry = {
   method: string | null;
   time: string | null;
   level: string;
+  chance: number; // Percentage chance of encounter
 };
 
 const wildDir = path.join(__dirname, 'data/wild');
@@ -475,6 +476,12 @@ for (const file of wildFiles) {
   let time: string | null = null;
   let inBlock = false;
   let blockType: string | null = null;
+  let encounterRates: { morn: number; day: number; nite: number; eve?: number } = {
+    morn: 0,
+    day: 0,
+    nite: 0
+  };
+
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
     // Area block start
@@ -485,8 +492,36 @@ for (const file of wildFiles) {
       inBlock = true;
       blockType = method;
       time = null;
+      // Reset encounter rates for new area
+      encounterRates = { morn: 0, day: 0, nite: 0 };
       continue;
     }
+
+    // Parse encounter rates line
+    if (inBlock && line.match(/^\s*db\s+\d+\s+percent/)) {
+      const rateMatches = line.match(/(\d+)\s+percent/g);
+      if (rateMatches) {
+        if (rateMatches.length >= 3) {
+          // Format: db X percent, Y percent, Z percent ; encounter rates: morn/day/nite
+          encounterRates.morn = parseInt(rateMatches[0].match(/(\d+)/)![1], 10);
+          encounterRates.day = parseInt(rateMatches[1].match(/(\d+)/)![1], 10);
+          encounterRates.nite = parseInt(rateMatches[2].match(/(\d+)/)![1], 10);
+          // Handle eve if present (some files might have a 4th rate)
+          if (rateMatches.length > 3) {
+            encounterRates.eve = parseInt(rateMatches[3].match(/(\d+)/)![1], 10);
+          }
+        } else {
+          // Format: db X percent ; encounter rate (for water areas typically)
+          const rate = parseInt(rateMatches[0].match(/(\d+)/)![1], 10);
+          encounterRates.morn = rate;
+          encounterRates.day = rate;
+          encounterRates.nite = rate;
+          encounterRates.eve = rate;
+        }
+      }
+      continue;
+    }
+
     if (inBlock && line.startsWith('end_' + blockType + '_wildmons')) {
       inBlock = false;
       area = null;
@@ -494,6 +529,7 @@ for (const file of wildFiles) {
       time = null;
       continue;
     }
+
     if (inBlock && line.startsWith(';')) {
       // Time of day section
       const t = line.replace(';', '').trim().toLowerCase();
@@ -502,16 +538,27 @@ for (const file of wildFiles) {
       }
       continue;
     }
+
     if (inBlock && line.startsWith('wildmon')) {
       const parsed = parseWildmonLine(line);
       if (parsed) {
         const mon = normalizeMonName(parsed.species, parsed.form);
         if (!locationsByMon[mon]) locationsByMon[mon] = [];
+
+        // Determine the encounter rate based on time of day
+        let encounterRate = 0;
+        if (time === 'morn') encounterRate = encounterRates.morn;
+        else if (time === 'day') encounterRate = encounterRates.day;
+        else if (time === 'nite') encounterRate = encounterRates.nite;
+        else if (time === 'eve' && encounterRates.eve !== undefined) encounterRate = encounterRates.eve;
+        else encounterRate = encounterRates.day; // Default to day rate if time is unknown
+
         locationsByMon[mon].push({
           area,
           method,
           time,
-          level: parsed.level
+          level: parsed.level,
+          chance: encounterRate // Use the actual encounter rate
         });
       }
       continue;

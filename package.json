@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "extract": "ts-node extract_pokemon_data.ts"
+    "extract": "ts-node extract_pokemon_data.ts && ts-node extract_location_data.ts"
   },
   "dependencies": {
     "next": "15.3.5",

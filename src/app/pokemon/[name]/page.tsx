@@ -24,26 +24,101 @@ interface EvolutionMethod {
   target: string;
   form?: string;
 }
+
 interface Evolution {
   methods: EvolutionMethod[];
   chain: string[];
 }
-interface PokemonData {
-  evolution: Evolution | null;
-  moves: Move[];
+
+interface BaseData {
+  nationalDex: number | null;
   types: string[] | string;
 }
 
-export default function PokemonDetail({ params }: { params: { name: string } }) {
-  const evoFile = path.join(process.cwd(), 'pokemon_evo_moves.json');
-  const descFile = path.join(process.cwd(), 'move_descriptions.json');
-  const eggMovesFile = path.join(process.cwd(), 'pokemon_egg_moves.json');
-  const evoData: Record<string, PokemonData> = JSON.parse(fs.readFileSync(evoFile, 'utf8'));
-  const moveDescs: Record<string, MoveDetail> = JSON.parse(fs.readFileSync(descFile, 'utf8'));
-  const eggMovesData: Record<string, string[]> = JSON.parse(fs.readFileSync(eggMovesFile, 'utf8'));
+interface LocationEntry {
+  area: string | null;
+  method: string | null;
+  time: string | null;
+  level: string;
+  chance: number;
+}
 
-  const mon = evoData[params.name];
-  if (!mon) return notFound();
+// Function to safely load JSON data
+async function loadJsonData<T>(filePath: string): Promise<T> {
+  try {
+    const data = await fs.promises.readFile(filePath, 'utf8');
+    return JSON.parse(data) as T;
+  } catch (error) {
+    console.error(`Error loading data from ${filePath}:`, error);
+    return {} as T;
+  }
+}
+
+// Moved outside the component to use for generateStaticParams
+let cachedBaseStatsData: Record<string, BaseData> | null = null;
+
+// This function helps Next.js pre-render pages at build time
+export async function generateStaticParams() {
+  const baseStatsFile = path.join(process.cwd(), 'pokemon_base_data.json');
+  try {
+    const data = await fs.promises.readFile(baseStatsFile, 'utf8');
+    const parsed = JSON.parse(data);
+    cachedBaseStatsData = parsed;
+    return Object.keys(parsed).map(name => ({ name }));
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [];
+  }
+}
+
+export default async function PokemonDetail({ params }: { params: { name: string } }) {
+  const { name } = await params;
+  const pokemonName = name;
+
+  // Define file paths
+  const baseStatsFile = path.join(process.cwd(), 'pokemon_base_data.json');
+  const moveDescFile = path.join(process.cwd(), 'pokemon_move_descriptions.json');
+  const eggMovesFile = path.join(process.cwd(), 'pokemon_egg_moves.json');
+  const levelMovesFile = path.join(process.cwd(), 'pokemon_level_moves.json');
+  const locationsFile = path.join(process.cwd(), 'pokemon_locations.json');
+  const evolutionDataFile = path.join(process.cwd(), 'pokemon_evolution_data.json');
+
+  // Load data using Promise.all for parallel loading
+  const [
+    baseStatsData,
+    moveDescData,
+    eggMovesData,
+    levelMovesData,
+    locationsData,
+    evolutionData
+  ] = await Promise.all([
+    cachedBaseStatsData || loadJsonData<Record<string, BaseData>>(baseStatsFile),
+    loadJsonData<Record<string, MoveDetail>>(moveDescFile),
+    loadJsonData<Record<string, string[]>>(eggMovesFile),
+    loadJsonData<Record<string, Move[]>>(levelMovesFile),
+    loadJsonData<Record<string, LocationEntry[]>>(locationsFile),
+    loadJsonData<Record<string, Evolution | null>>(evolutionDataFile)
+  ]);
+
+  // Save the loaded base stats data for future use
+  if (!cachedBaseStatsData) {
+    cachedBaseStatsData = baseStatsData;
+  }
+
+  // Combine data for this Pokémon
+  const baseStats = baseStatsData[pokemonName];
+  const evolution = evolutionData[pokemonName];
+  const moves = levelMovesData[pokemonName] || [];
+
+  if (!baseStats) return notFound();
+
+  // Combined Pokemon data
+  const mon = {
+    types: baseStats.types,
+    evolution,
+    moves,
+    nationalDex: baseStats.nationalDex
+  };
 
   return (
     <div className="max-w-xl mx-auto p-4">
@@ -57,10 +132,10 @@ export default function PokemonDetail({ params }: { params: { name: string } }) 
             <Link href="/pokemon" className="hover:underline text-blue-700">Pokemon</Link>
             <span className="mx-2">/</span>
           </li>
-          <li className="text-gray-900 font-semibold">{params.name}</li>
+          <li className="text-gray-900 font-semibold">{pokemonName}</li>
         </ol>
       </nav>
-      <h1 className="text-2xl font-bold mb-4">{params.name}</h1>
+      <h1 className="text-2xl font-bold mb-4">{pokemonName}</h1>
 
       {/* Evolution Info */}
       <div className="mb-4">
@@ -80,9 +155,9 @@ export default function PokemonDetail({ params }: { params: { name: string } }) 
         <h2 className="text-xl font-semibold mb-1">Evolution Chain</h2>
         {mon.evolution ? (
           <div className="mb-2 flex flex-wrap gap-2 items-center">
-            {mon.evolution.chain.map((name, i) => (
+            {mon.evolution.chain.map((name: string, i: number) => (
               <React.Fragment key={name}>
-              <span key={name} className="px-2 py-1 rounded bg-gray-100 font-mono">
+              <span className="px-2 py-1 rounded bg-gray-100 font-mono">
                 <Link href={`/pokemon/${name}`} className="hover:underline text-blue-700">{name}</Link>
               </span>
               {i < (mon.evolution?.chain.length ?? 0) - 1 && <span className="mx-1">→</span>}
@@ -96,7 +171,7 @@ export default function PokemonDetail({ params }: { params: { name: string } }) 
           <div className="mt-2">
             <h3 className="font-semibold">Evolution Methods:</h3>
             <ul className="list-disc ml-6">
-              {mon.evolution.methods.map((m, idx) => (
+              {mon.evolution.methods.map((m: EvolutionMethod, idx: number) => (
                 <li key={idx}>
                   <span className="font-mono">{m.method.replace('EVOLVE_', '').toLowerCase()}</span>
                   {m.parameter !== null && (
@@ -117,19 +192,24 @@ export default function PokemonDetail({ params }: { params: { name: string } }) 
       {/* Moves List */}
       <h2 className="text-xl font-semibold mb-2">Moves</h2>
       <ul className="grid gap-3">
-        {mon.moves.map(({ level, move }) => {
-          const moveInfo = moveDescs[move] || null;
+        {mon.moves.map((moveData: Move) => {
+          const moveInfo = moveDescData[moveData.move] || null;
           return (
-            <MoveCard key={move + level} name={move} level={level} info={moveInfo} />
+            <MoveCard
+              key={moveData.move + moveData.level}
+              name={moveData.move}
+              level={moveData.level}
+              info={moveInfo}
+            />
           );
         })}
       </ul>
 
       <h2 className="text-xl font-semibold mt-6 mb-2">Egg Moves</h2>
-      {eggMovesData[params.name] && eggMovesData[params.name].length > 0 ? (
+      {eggMovesData[pokemonName] && eggMovesData[pokemonName].length > 0 ? (
         <ul className="grid gap-3">
-          {eggMovesData[params.name].map((move) => {
-            const moveInfo = moveDescs[move] || null;
+          {eggMovesData[pokemonName].map((move: string) => {
+            const moveInfo = moveDescData[move] || null;
             const level = 1; // Default to 1 if no level info
             return (
               <MoveCard key={move + level} name={move} level={level} info={moveInfo} />
@@ -138,6 +218,31 @@ export default function PokemonDetail({ params }: { params: { name: string } }) 
         </ul>
       ) : (
         <div className="text-gray-400 text-sm mb-6">No egg moves</div>
+      )}
+
+      <h2 className="text-xl font-semibold mt-6 mb-2">Locations</h2>
+      {locationsData[pokemonName] && locationsData[pokemonName].length > 0 ? (
+        <div className="mb-6">
+          <ul className="divide-y divide-gray-200">
+            {locationsData[pokemonName].map((loc: LocationEntry, idx: number) => (
+              <li key={idx} className="py-2">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className="font-semibold">{loc.area || 'Unknown Area'}</span>
+                    {loc.method && <span className="ml-2 text-gray-600">({loc.method})</span>}
+                  </div>
+                  <div>
+                    <span className="bg-gray-100 px-2 py-1 rounded text-sm">Lv. {loc.level}</span>
+                    {loc.time && <span className="ml-2 text-sm text-gray-600">{loc.time}</span>}
+                    <span className="ml-2 text-sm text-gray-500">{loc.chance}% chance</span>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div className="text-gray-400 text-sm mb-6">No location data</div>
       )}
     </div>
   );
