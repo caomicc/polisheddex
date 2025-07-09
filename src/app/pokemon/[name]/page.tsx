@@ -3,7 +3,7 @@ import path from 'path';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import React from 'react';
-import { MoveCard } from '@/components/pokemon';
+import { MoveCard, LocationListItem } from '@/components/pokemon';
 
 interface Move {
   level: number;
@@ -225,19 +225,14 @@ export default async function PokemonDetail({ params }: { params: { name: string
         <div className="mb-6">
           <ul className="divide-y divide-gray-200">
             {locationsData[pokemonName].map((loc: LocationEntry, idx: number) => (
-              <li key={idx} className="py-2">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <span className="font-semibold">{loc.area || 'Unknown Area'}</span>
-                    {loc.method && <span className="ml-2 text-gray-600">({loc.method})</span>}
-                  </div>
-                  <div>
-                    <span className="bg-gray-100 px-2 py-1 rounded text-sm">Lv. {loc.level}</span>
-                    {loc.time && <span className="ml-2 text-sm text-gray-600">{loc.time}</span>}
-                    <span className="ml-2 text-sm text-gray-500">{loc.chance}% chance</span>
-                  </div>
-                </div>
-              </li>
+              <LocationListItem
+                key={idx}
+                area={loc.area}
+                method={loc.method}
+                time={loc.time}
+                level={loc.level}
+                chance={loc.chance}
+              />
             ))}
           </ul>
         </div>
