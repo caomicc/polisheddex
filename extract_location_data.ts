@@ -1,36 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import type { LocationEntry, PokemonLocationData, EncounterDetail } from './src/types/types';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const LOCATIONS_DATA_PATH = path.join(__dirname, 'pokemon_locations.json');
 const LOCATIONS_BY_AREA_OUTPUT = path.join(__dirname, 'locations_by_area.json');
-
-interface LocationEntry {
-  area: string | null;
-  method: string | null;
-  time: string | null;
-  level: string;
-  chance: number;
-  rareItem?: string; // Optional property for hidden grottoes
-  formName?: string | null; // Form name if applicable
-}
-
-// Interface for the Pokemon data structure in the JSON
-interface PokemonLocationData {
-  locations: LocationEntry[];
-  forms?: Record<string, { locations: LocationEntry[] }>;
-}
-
-// Extended interface for encounter details that may include rare items (for grottoes)
-interface EncounterDetail {
-  level: string;
-  chance: number;
-  rareItem?: string;
-  formName?: string | null;
-}
 
 // Load the Pokemon location data
 async function extractLocationsByArea() {

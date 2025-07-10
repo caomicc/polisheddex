@@ -1,3 +1,4 @@
+import type { Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -252,41 +253,6 @@ const filePath = path.join(__dirname, 'data/pokemon/evos_attacks.asm');
 const data = fs.readFileSync(filePath, 'utf8');
 const lines = data.split(/\r?\n/);
 
-// --- Evolution parsing ---
-type Move = { level: number; move: string };
-type EvolutionMethod = {
-  method: string;
-  parameter: string | number | null;
-  target: string;
-  form?: string;
-};
-type Evolution = {
-  methods: EvolutionMethod[];
-  chain: string[];
-};
-type PokemonDataV2 = { evolution: Evolution | null; moves: Move[] };
-
-// Define a type for Pokemon forms
-type PokemonForm = {
-  formName: string;
-  types?: string | string[];
-  moves?: Move[];
-  locations?: LocationEntry[];
-};
-
-type PokemonDataV3 = PokemonDataV2 & {
-  nationalDex: number | null,
-  types: string | string[],
-  locations: LocationEntry[],
-  forms?: Record<string, PokemonForm>
-};
-
-interface EvoRaw {
-  method: string;
-  parameter: string | number | null;
-  target: string;
-  form?: string;
-}
 
 const evoMap: Record<string, EvoRaw[]> = {};
 const preEvoMap: Record<string, string[]> = {};
@@ -670,16 +636,7 @@ for (const mon of Object.keys(result)) {
 }
 
 // --- Wild Pokémon Location Extraction ---
-type LocationEntry = {
-  area: string | null;
-  method: string | null;
-  time: string | null;
-  level: string;
-  chance: number; // Percentage chance of encounter
-  rareItem?: string; // For hidden grottoes
-  formName?: string | null; // Form name (alolan, galarian, etc)
-};
-
+// LocationEntry type is now imported from the common types file
 const wildDir = path.join(__dirname, 'data/wild');
 const wildFiles = fs.readdirSync(wildDir).filter(f => f.endsWith('.asm'));
 
