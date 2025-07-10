@@ -929,7 +929,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
   baseData[mon] = {
     nationalDex: data.nationalDex,
     types: data.types,
-    frontSpriteUrl: `/sprites/pokemon/${spriteName}.png`
+    frontSpriteUrl: `/sprites/pokemon/${spriteName}/front_cropped.png`
   };
 
   // Add form-specific type data and sprite URL if available
@@ -940,7 +940,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
       const formSpriteName = `${spriteName}_${formName.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
       baseData[mon].forms[formName] = {
         types: formData.types || 'None',
-        frontSpriteUrl: `/sprites/pokemon/${formSpriteName}.png`
+        frontSpriteUrl: `/sprites/pokemon/${formSpriteName}/front_cropped.png`
       };
     }
   }

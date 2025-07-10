@@ -3,43 +3,14 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MoveCard, LocationListItem } from "@/components/pokemon";
-import { LocationEntryProps } from "@/components/pokemon/LocationListItem";
+import { LocationEntryProps, MoveDetail, FormData, EvolutionMethod, Move } from '@/types/types';
 
-interface Move {
-  level: number;
-  move: string;
-}
-interface MoveDetail {
-  description: string;
-  type: string;
-  pp: number;
-  power: number;
-  category: string;
-}
-interface EvolutionMethod {
-  method: string;
-  parameter: string | number | null;
-  target: string;
-  form?: string;
-}
-interface Evolution {
-  methods: EvolutionMethod[];
-  chain: string[];
-}
-interface FormData {
-  types: string[] | string;
-  moves: Move[];
-  locations: LocationEntryProps[];
-  eggMoves: string[];
-  evolution: Evolution | null;
-  nationalDex: number | null;
-}
 
 export default function PokemonFormClient({
   forms,
   allFormData,
   moveDescData,
-  // pokemonName,
+  pokemonName,
 }: {
   forms: string[];
   allFormData: Record<string, FormData>;
@@ -48,6 +19,8 @@ export default function PokemonFormClient({
 }) {
   const [selectedForm, setSelectedForm] = useState("default");
   const formData = allFormData[selectedForm] || allFormData["default"];
+
+  console.log("Form Data:", formData);
 
   return (
     <>
@@ -70,10 +43,10 @@ export default function PokemonFormClient({
       )}
       {/* Sprite Display */}
       <div className="mb-4 flex items-center gap-4">
-        {formData.nationalDex ? (
+        {formData.frontSpriteUrl ? (
           <Image
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${formData.nationalDex}.png`}
-            alt={`Sprite of Pokémon #${formData.nationalDex}`}
+            src={formData.frontSpriteUrl ?? ""}
+            alt={`Sprite of Pokémon ${pokemonName}`}
             width={64}
             height={64}
             className="w-16 h-16"

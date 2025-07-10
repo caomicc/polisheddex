@@ -45,8 +45,8 @@ async function processAllSprites() {
   if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR);
   const files = findAllFrontPngs(SPRITE_DIR);
   for (const filePath of files) {
-    // Preserve subdirectory structure in output
-    const relPath = path.relative(SPRITE_DIR, filePath);
+    // Preserve subdirectory structure in output, but remove '_plain' from any part of the path
+    const relPath = path.relative(SPRITE_DIR, filePath).replace(/_plain/g, '');
     const outPath = path.join(OUTPUT_DIR, relPath.replace('front.png', 'front_cropped.png'));
     const outDir = path.dirname(outPath);
     if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });

@@ -1,13 +1,5 @@
+import { LocationEntryProps } from '@/types/types';
 import Link from 'next/link';
-
-export interface LocationEntryProps {
-  area: string | null;
-  method: string | null;
-  time: string | null;
-  level: string;
-  chance: number;
-  rareItem?: string; // Optional rare item for hidden grottoes
-}
 
 export default function LocationListItem({ area, method, time, level, chance, rareItem }: LocationEntryProps) {
   const formattedArea = area || 'Unknown Area';

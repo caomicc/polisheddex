@@ -3,57 +3,8 @@ import path from 'path';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
+import { BaseData, Evolution, LevelMovesData, LocationsData, MoveDetail } from '@/types/types';
 
-interface Move {
-  level: number;
-  move: string;
-}
-
-interface MoveDetail {
-  description: string;
-  type: string;
-  pp: number;
-  power: number;
-  category: string;
-}
-
-interface EvolutionMethod {
-  method: string;
-  parameter: string | number | null;
-  target: string;
-  form?: string;
-}
-
-interface Evolution {
-  methods: EvolutionMethod[];
-  chain: string[];
-}
-
-// --- Updated types for new structure ---
-interface BaseData {
-  nationalDex: number | null;
-  types: string[] | string;
-  forms?: Record<string, { types: string[] | string }>;
-}
-
-interface LevelMovesData {
-  moves: Move[];
-  forms?: Record<string, { moves: Move[] }>;
-}
-
-interface LocationsData {
-  locations: LocationEntry[];
-  forms?: Record<string, { locations: LocationEntry[] }>;
-}
-
-interface LocationEntry {
-  area: string | null;
-  method: string | null;
-  time: string | null;
-  level: string;
-  chance: number;
-  rareItem?: string; // Optional for hidden grottoes
-}
 
 // Function to safely load JSON data
 async function loadJsonData<T>(filePath: string): Promise<T> {
@@ -132,6 +83,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     eggMoves: eggMovesData[pokemonName] || [],
     evolution: evolutionData[pokemonName],
     nationalDex: baseStats.nationalDex,
+    frontSpriteUrl: baseStats.frontSpriteUrl // <-- add sprite url for default
   };
 
   // Prepare all form data for the client component
@@ -147,6 +99,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           eggMoves: eggMovesData[pokemonName] || [],
           evolution: evolutionData[pokemonName],
           nationalDex: baseStats.nationalDex,
+          frontSpriteUrl: baseStats.forms?.[formKey]?.frontSpriteUrl || baseStats.frontSpriteUrl // <-- add sprite url for form
         }
       ])
     )

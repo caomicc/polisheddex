@@ -2,12 +2,12 @@ import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
 
-export default async function PokemonList({ searchParams }: { searchParams?: { sort?: string } }) {
+export default async function PokemonList({ searchParams }: { searchParams: Promise<{ sort?: string }> }) {
   // Read the JSON file at build time
   const filePath = path.join(process.cwd(), 'pokemon_base_data.json');
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-  const sort = searchParams?.sort ?? 'alphabetical';
+  const { sort = 'alphabetical' } = await searchParams ?? {};
 
   // Determine sort type from query param
   const sortType = sort === 'nationaldex' ? 'nationaldex' : 'alphabetical';
