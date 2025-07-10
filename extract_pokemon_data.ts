@@ -965,23 +965,26 @@ function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): Record<s
 const groupedPokemonData = groupPokemonForms(finalResultV3);
 
 // Extract and save base data (dex number, types)
-const baseData: Record<string, { nationalDex: number | null, types: string | string[], forms?: Record<string, { types: string | string[] }> }> = {};
+const baseData: Record<string, { nationalDex: number | null, types: string | string[], forms?: Record<string, { types: string | string[], frontSpriteUrl?: string }>, frontSpriteUrl?: string }> = {};
 for (const [mon, data] of Object.entries(groupedPokemonData)) {
+  // Generate the front sprite URL for the base form
+  const spriteName = mon.toLowerCase().replace(/[^a-z0-9]/g, '');
   baseData[mon] = {
     nationalDex: data.nationalDex,
-    types: data.types
+    types: data.types,
+    frontSpriteUrl: `/sprites/pokemon/${spriteName}.png`
   };
 
-  // Add form-specific type data if available
+  // Add form-specific type data and sprite URL if available
   if (data.forms && Object.keys(data.forms).length > 0) {
     baseData[mon].forms = {};
     for (const [formName, formData] of Object.entries(data.forms)) {
-      if (formData.types) {
-        if (!baseData[mon].forms) baseData[mon].forms = {};
-        baseData[mon].forms[formName] = {
-          types: formData.types
-        };
-      }
+      // Normalize form sprite name: base + form
+      const formSpriteName = `${spriteName}_${formName.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+      baseData[mon].forms[formName] = {
+        types: formData.types || 'None',
+        frontSpriteUrl: `/sprites/pokemon/${formSpriteName}.png`
+      };
     }
   }
 }

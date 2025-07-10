@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import PokemonFormClient from './PokemonFormClient';
+import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
 
 interface Move {
   level: number;

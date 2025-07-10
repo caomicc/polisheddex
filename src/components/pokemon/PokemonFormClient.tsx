@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { MoveCard, LocationListItem } from "@/components/pokemon";
 import { LocationEntryProps } from "@/components/pokemon/LocationListItem";
 
@@ -67,6 +68,20 @@ export default function PokemonFormClient({
           </select>
         </div>
       )}
+      {/* Sprite Display */}
+      <div className="mb-4 flex items-center gap-4">
+        {formData.nationalDex ? (
+          <Image
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${formData.nationalDex}.png`}
+            alt={`Sprite of Pokémon #${formData.nationalDex}`}
+            width={64}
+            height={64}
+            className="w-16 h-16"
+          />
+        ) : (
+          <span className="text-gray-400">No sprite available</span>
+        )}
+      </div>
       {/* Evolution Info */}
       <div className="mb-4">
         <h2 className="text-xl font-semibold mb-1">
