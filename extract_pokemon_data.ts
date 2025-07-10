@@ -1372,3 +1372,43 @@ function extractEggMoves() {
 }
 
 extractEggMoves();
+
+// --- Type Chart Extraction ---
+function extractTypeChart() {
+  const matchupPath = path.join(__dirname, 'data/types/type_matchups.asm');
+  const typeNamesPath = path.join(__dirname, 'data/types/names.asm');
+  const outputPath = path.join(__dirname, 'type_chart.json');
+
+  // Read type names in order
+  const typeNamesRaw = fs.readFileSync(typeNamesPath, 'utf8');
+  const typeLines = typeNamesRaw.split(/\r?\n/).filter(l => l.trim().startsWith('dr '));
+  const typeNames = typeLines.map(l => l.replace('dr ', '').trim().toLowerCase());
+
+  // Parse matchups
+  const matchupRaw = fs.readFileSync(matchupPath, 'utf8');
+  const lines = matchupRaw.split(/\r?\n/);
+  const chart: Record<string, Record<string, number>> = {};
+  for (const t of typeNames) chart[t] = {};
+
+  const effectMap: Record<string, number> = {
+    'SUPER_EFFECTIVE': 2,
+    'NOT_VERY_EFFECTIVE': 0.5,
+    'NO_EFFECT': 0,
+  };
+
+  for (const line of lines) {
+    const m = line.match(/db ([A-Z_]+),\s*([A-Z_]+),\s*([A-Z_]+)/);
+    if (m) {
+      let [_, atk, def, eff] = m;
+      atk = atk.toLowerCase();
+      def = def.toLowerCase();
+      const effVal = effectMap[eff] ?? 1;
+      if (!chart[atk]) chart[atk] = {};
+      chart[atk][def] = effVal;
+    }
+  }
+  fs.writeFileSync(outputPath, JSON.stringify(chart, null, 2));
+  console.log('Type chart extracted to', outputPath);
+}
+
+extractTypeChart();

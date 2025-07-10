@@ -1,8 +1,8 @@
-"use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { MoveRow, LocationListItem } from "@/components/pokemon";
+'use client';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { MoveRow, LocationListItem } from '@/components/pokemon';
 import {
   LocationEntryProps,
   MoveDetail,
@@ -11,17 +11,11 @@ import {
   Move,
   MoveDescription,
   PokemonType,
-} from "@/types/types";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../ui/table";
-import { Badge } from "../ui/badge";
-import { EvolutionChain } from "@/components/ui/EvolutionChain";
+} from '@/types/types';
+import { Table, TableBody, TableCaption, TableHead, TableHeader, TableRow } from '../ui/table';
+import { Badge } from '../ui/badge';
+import { EvolutionChain } from '@/components/ui/EvolutionChain';
+import { WeaknessChart } from './WeaknessChart';
 
 export default function PokemonFormClient({
   forms,
@@ -34,10 +28,10 @@ export default function PokemonFormClient({
   moveDescData: Record<string, MoveDescription>;
   pokemonName: string;
 }) {
-  const [selectedForm, setSelectedForm] = useState("default");
-  const formData = allFormData[selectedForm] || allFormData["default"];
+  const [selectedForm, setSelectedForm] = useState('default');
+  const formData = allFormData[selectedForm] || allFormData['default'];
 
-  console.log("Form Data:", formData);
+  console.log('Form Data:', formData);
 
   return (
     <>
@@ -62,7 +56,7 @@ export default function PokemonFormClient({
       <div className="mb-4 flex items-center gap-4">
         {formData.frontSpriteUrl ? (
           <Image
-            src={formData.frontSpriteUrl ?? ""}
+            src={formData.frontSpriteUrl ?? ''}
             alt={`Sprite of Pokémon ${pokemonName}`}
             width={64}
             height={64}
@@ -76,29 +70,33 @@ export default function PokemonFormClient({
       <div className="mb-4">
         <h2 className="text-xl font-semibold mb-1">
           Type
-          {Array.isArray(formData.types) && formData.types.length > 1
-            ? "s"
-            : ""}
+          {Array.isArray(formData.types) && formData.types.length > 1 ? 's' : ''}
         </h2>
         <div className="flex gap-2">
           {Array.isArray(formData.types) ? (
             formData.types.map((type: string) => (
-              <Badge
-                key={type}
-                variant={type.toLowerCase() as PokemonType["name"]}
-              >
+              <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
                 {type}
               </Badge>
             ))
           ) : (
             <Badge
               key={formData.types}
-              variant={formData.types.toLowerCase() as PokemonType["name"]}
+              variant={formData.types.toLowerCase() as PokemonType['name']}
             >
               {formData.types}
             </Badge>
           )}
         </div>
+      </div>
+      <div className="mb-4">
+        <WeaknessChart
+          types={
+            Array.isArray(formData.types)
+              ? formData.types.map((t: string) => t.toLowerCase())
+              : [formData.types.toLowerCase()]
+          }
+        />
       </div>
       <div className="mb-4">
         <h2 className="text-xl font-semibold mb-1">Evolution Chain</h2>
@@ -110,11 +108,9 @@ export default function PokemonFormClient({
               // Use the key as in allFormData, which is usually the normalized name
               const formEntry = Object.entries(allFormData).find(
                 ([, f]) =>
-                  f.nationalDex &&
-                  name &&
-                  name.toLowerCase() === pokemonName.toLowerCase()
+                  f.nationalDex && name && name.toLowerCase() === pokemonName.toLowerCase(),
               );
-              acc[name] = formEntry?.[1]?.frontSpriteUrl || "";
+              acc[name] = formEntry?.[1]?.frontSpriteUrl || '';
               return acc;
             }, {} as Record<string, string>)}
           />
@@ -125,31 +121,26 @@ export default function PokemonFormClient({
           <div className="mt-2">
             <h3 className="font-semibold">Evolution Methods:</h3>
             <ul className="list-disc ml-6">
-              {formData.evolution.methods.map(
-                (m: EvolutionMethod, idx: number) => (
-                  <li key={idx}>
-                    <span className="font-mono">
-                      {m.method.replace("EVOLVE_", "").toLowerCase()}
-                    </span>
-                    {m.parameter !== null && (
-                      <>
-                        :{" "}
-                        <span className="font-mono">{String(m.parameter)}</span>
-                      </>
-                    )}
-                    {m.form && (
-                      <>
-                        (form: <span className="font-mono">{m.form}</span>)
-                      </>
-                    )}
-                    {m.target && (
-                      <>
-                        → <span className="font-mono">{m.target}</span>
-                      </>
-                    )}
-                  </li>
-                )
-              )}
+              {formData.evolution.methods.map((m: EvolutionMethod, idx: number) => (
+                <li key={idx}>
+                  <span className="font-mono">{m.method.replace('EVOLVE_', '').toLowerCase()}</span>
+                  {m.parameter !== null && (
+                    <>
+                      : <span className="font-mono">{String(m.parameter)}</span>
+                    </>
+                  )}
+                  {m.form && (
+                    <>
+                      (form: <span className="font-mono">{m.form}</span>)
+                    </>
+                  )}
+                  {m.target && (
+                    <>
+                      → <span className="font-mono">{m.target}</span>
+                    </>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         )}
@@ -159,30 +150,14 @@ export default function PokemonFormClient({
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="attheader cen align-middle text-left">
-              Level
-            </TableHead>
-            <TableHead className="attheader cen align-middle text-left">
-              Attack Name
-            </TableHead>
-            <TableHead className="attheader cen align-middle text-left">
-              Type
-            </TableHead>
-            <TableHead className="attheader cen align-middle text-left">
-              Cat.
-            </TableHead>
-            <TableHead className="attheader cen align-middle text-left">
-              Att.
-            </TableHead>
-            <TableHead className="attheader cen align-middle text-left">
-              Acc.
-            </TableHead>
-            <TableHead className="attheader cen align-middle text-left">
-              PP
-            </TableHead>
-            <TableHead className="attheader cen align-middle text-left">
-              Effect %
-            </TableHead>
+            <TableHead className="attheader cen align-middle text-left">Level</TableHead>
+            <TableHead className="attheader cen align-middle text-left">Attack Name</TableHead>
+            <TableHead className="attheader cen align-middle text-left">Type</TableHead>
+            <TableHead className="attheader cen align-middle text-left">Cat.</TableHead>
+            <TableHead className="attheader cen align-middle text-left">Att.</TableHead>
+            <TableHead className="attheader cen align-middle text-left">Acc.</TableHead>
+            <TableHead className="attheader cen align-middle text-left">PP</TableHead>
+            <TableHead className="attheader cen align-middle text-left">Effect %</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -204,43 +179,20 @@ export default function PokemonFormClient({
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="attheader cen align-middle text-left">
-                Level
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left">
-                Attack Name
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left">
-                Type
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left">
-                Cat.
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left">
-                Att.
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left">
-                Acc.
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left">
-                PP
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left">
-                Effect %
-              </TableHead>
+              <TableHead className="attheader cen align-middle text-left">Level</TableHead>
+              <TableHead className="attheader cen align-middle text-left">Attack Name</TableHead>
+              <TableHead className="attheader cen align-middle text-left">Type</TableHead>
+              <TableHead className="attheader cen align-middle text-left">Cat.</TableHead>
+              <TableHead className="attheader cen align-middle text-left">Att.</TableHead>
+              <TableHead className="attheader cen align-middle text-left">Acc.</TableHead>
+              <TableHead className="attheader cen align-middle text-left">PP</TableHead>
+              <TableHead className="attheader cen align-middle text-left">Effect %</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {formData.eggMoves.flatMap((moveName: string) => {
               const moveInfo = moveDescData[moveName] || null;
-              return (
-                <MoveRow
-                  key={`egg-${moveName}`}
-                  name={moveName}
-                  level={1}
-                  info={moveInfo}
-                />
-              );
+              return <MoveRow key={`egg-${moveName}`} name={moveName} level={1} info={moveInfo} />;
             })}
           </TableBody>
         </Table>

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Move, PokemonType } from "@/types/types";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const MoveRow: React.FC<Move> = ({ name, level, info }) => [
   <TableRow
@@ -25,14 +26,20 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => [
       </Badge>
     </TableCell>
     <TableCell className="cen align-middle text-left">
-      {/* Replace with category icon if available */}
-      <Image
-        src={`/sprites/attack-${info?.category}.svg`}
-        alt={info?.category ?? "Unknown Category"}
-        width={16}
-        height={16}
-        className="inline-block"
-      />
+      <Tooltip>
+        <TooltipTrigger>
+          <Image
+            src={`/sprites/attack-${info?.category}.svg`}
+            alt={info?.category ?? "Unknown Category"}
+            width={16}
+            height={16}
+            className="inline-block"
+          />
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{info?.category}</p>
+        </TooltipContent>
+      </Tooltip>
     </TableCell>
     <TableCell className="cen align-middle text-left">
       {info?.power ?? "--"}

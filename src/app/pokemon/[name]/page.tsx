@@ -5,24 +5,25 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import fs from "fs";
-import path from "path";
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import PokemonFormClient from "@/components/pokemon/PokemonFormClient";
+} from '@/components/ui/breadcrumb';
+import fs from 'fs';
+import path from 'path';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
 import {
   BaseData,
   Evolution,
   LevelMovesData,
   LocationsData,
+  MoveDescription,
   MoveDetail,
-} from "@/types/types";
+} from '@/types/types';
 
 // Function to safely load JSON data
 async function loadJsonData<T>(filePath: string): Promise<T> {
   try {
-    const data = await fs.promises.readFile(filePath, "utf8");
+    const data = await fs.promises.readFile(filePath, 'utf8');
     return JSON.parse(data) as T;
   } catch (error) {
     console.error(`Error loading data from ${filePath}:`, error);
@@ -35,57 +36,40 @@ let cachedBaseStatsData: Record<string, BaseData> | null = null;
 
 // This function helps Next.js pre-render pages at build time
 export async function generateStaticParams() {
-  const baseStatsFile = path.join(process.cwd(), "pokemon_base_data.json");
+  const baseStatsFile = path.join(process.cwd(), 'pokemon_base_data.json');
   try {
-    const data = await fs.promises.readFile(baseStatsFile, "utf8");
+    const data = await fs.promises.readFile(baseStatsFile, 'utf8');
     const parsed = JSON.parse(data);
     cachedBaseStatsData = parsed;
     return Object.keys(parsed).map((name) => ({ name }));
   } catch (error) {
-    console.error("Error generating static params:", error);
+    console.error('Error generating static params:', error);
     return [];
   }
 }
 
-export default async function PokemonDetail({
-  params,
-}: {
-  params: Promise<{ name: string }>;
-}) {
+export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
   const { name } = await params;
   const pokemonName = name;
 
   // Define file paths
-  const baseStatsFile = path.join(process.cwd(), "pokemon_base_data.json");
-  const moveDescFile = path.join(
-    process.cwd(),
-    "pokemon_move_descriptions.json"
-  );
-  const eggMovesFile = path.join(process.cwd(), "pokemon_egg_moves.json");
-  const levelMovesFile = path.join(process.cwd(), "pokemon_level_moves.json");
-  const locationsFile = path.join(process.cwd(), "pokemon_locations.json");
-  const evolutionDataFile = path.join(
-    process.cwd(),
-    "pokemon_evolution_data.json"
-  );
+  const baseStatsFile = path.join(process.cwd(), 'pokemon_base_data.json');
+  const moveDescFile = path.join(process.cwd(), 'pokemon_move_descriptions.json');
+  const eggMovesFile = path.join(process.cwd(), 'pokemon_egg_moves.json');
+  const levelMovesFile = path.join(process.cwd(), 'pokemon_level_moves.json');
+  const locationsFile = path.join(process.cwd(), 'pokemon_locations.json');
+  const evolutionDataFile = path.join(process.cwd(), 'pokemon_evolution_data.json');
 
   // Load data using Promise.all for parallel loading
-  const [
-    baseStatsData,
-    moveDescData,
-    eggMovesData,
-    levelMovesData,
-    locationsData,
-    evolutionData,
-  ] = await Promise.all([
-    cachedBaseStatsData ||
-      loadJsonData<Record<string, BaseData>>(baseStatsFile),
-    loadJsonData<Record<string, MoveDetail>>(moveDescFile),
-    loadJsonData<Record<string, string[]>>(eggMovesFile),
-    loadJsonData<Record<string, LevelMovesData>>(levelMovesFile),
-    loadJsonData<Record<string, LocationsData>>(locationsFile),
-    loadJsonData<Record<string, Evolution | null>>(evolutionDataFile),
-  ]);
+  const [baseStatsData, moveDescData, eggMovesData, levelMovesData, locationsData, evolutionData] =
+    await Promise.all([
+      cachedBaseStatsData || loadJsonData<Record<string, BaseData>>(baseStatsFile),
+      loadJsonData<Record<string, MoveDescription>>(moveDescFile),
+      loadJsonData<Record<string, string[]>>(eggMovesFile),
+      loadJsonData<Record<string, LevelMovesData>>(levelMovesFile),
+      loadJsonData<Record<string, LocationsData>>(locationsFile),
+      loadJsonData<Record<string, Evolution | null>>(evolutionDataFile),
+    ]);
 
   // Save the loaded base stats data for future use
   if (!cachedBaseStatsData) {
@@ -118,20 +102,15 @@ export default async function PokemonDetail({
         formKey,
         {
           types: baseStats.forms?.[formKey]?.types || baseStats.types,
-          moves:
-            levelMovesData[pokemonName]?.forms?.[formKey]?.moves ||
-            defaultForm.moves,
+          moves: levelMovesData[pokemonName]?.forms?.[formKey]?.moves || defaultForm.moves,
           locations:
-            locationsData[pokemonName]?.forms?.[formKey]?.locations ||
-            defaultForm.locations,
+            locationsData[pokemonName]?.forms?.[formKey]?.locations || defaultForm.locations,
           eggMoves: eggMovesData[pokemonName] || [],
           evolution: evolutionData[pokemonName],
           nationalDex: baseStats.nationalDex,
-          frontSpriteUrl:
-            baseStats.forms?.[formKey]?.frontSpriteUrl ||
-            baseStats.frontSpriteUrl, // <-- add sprite url for form
+          frontSpriteUrl: baseStats.forms?.[formKey]?.frontSpriteUrl || baseStats.frontSpriteUrl, // <-- add sprite url for form
         },
-      ])
+      ]),
     ),
   };
 
