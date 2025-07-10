@@ -1,3 +1,4 @@
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
@@ -107,26 +108,36 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // Render the main page
   return (
-    <div className="max-w-xl mx-auto p-4">
-      <nav className="mb-4 text-sm">
-        <ol className="list-reset flex text-gray-600">
-          <li>
-            <Link href="/" className="hover:underline text-blue-700">Home</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li>
-            <Link href="/pokemon" className="hover:underline text-blue-700">Pokemon</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="text-gray-900 font-semibold">{pokemonName}</li>
-        </ol>
-      </nav>
+    <div className="max-w-xl md:max-w-4xl mx-auto p-4">
+      <Breadcrumb className='mb-4'>
+        <BreadcrumbList>
+        <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+  <Link href="/" className="hover:underline text-blue-700">
+          Home
+          </Link>
+                    </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+          <Link href="/pokemon" className="hover:underline text-blue-700">
+          Pokemon
+          </Link>
+                    </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>{pokemonName}</BreadcrumbPage>
+        </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
       <h1 className="text-2xl font-bold mb-4">{pokemonName}</h1>
       <PokemonFormClient
-        forms={forms}
-        allFormData={allFormData}
-        moveDescData={moveDescData}
-        pokemonName={pokemonName}
+      forms={forms}
+      allFormData={allFormData}
+      moveDescData={moveDescData}
+      pokemonName={pokemonName}
       />
     </div>
   );

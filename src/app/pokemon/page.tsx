@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import PokemonCard from '@/components/pokemon/PokemonCard';
 import { BaseData } from '@/types/types';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 
 export default async function PokemonList({ searchParams }: { searchParams: Promise<{ sort?: string }> }) {
   // Read the JSON file at build time
@@ -31,15 +32,25 @@ export default async function PokemonList({ searchParams }: { searchParams: Prom
 
   return (
     <div className="max-w-xl md:max-w-4xl mx-auto p-4">
-      <nav className="mb-4 text-sm">
-        <ol className="list-reset flex text-gray-600">
-          <li>
-            <Link href="/" className="hover:underline text-blue-700">Home</Link>
-            <span className="mx-2">/</span>
-          </li>
-          <li className="text-gray-900 font-semibold">Pokemon</li>
-        </ol>
-      </nav>
+      <Breadcrumb className='mb-4'>
+        <BreadcrumbList>
+
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link href="/" className="hover:underline text-blue-700">
+                Home
+              </Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+
+          <BreadcrumbSeparator />
+
+          <BreadcrumbItem>
+            <BreadcrumbPage>Pokemon</BreadcrumbPage>
+          </BreadcrumbItem>
+          
+        </BreadcrumbList>
+      </Breadcrumb>
       <h1 className="text-2xl font-bold mb-4">Pokémon List</h1>
       <div className="mb-4 flex gap-4">
         <SortLink label="Alphabetical" sort="alphabetical" current={sortType} />

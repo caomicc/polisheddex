@@ -1,4 +1,4 @@
-import { BaseData } from '@/types/types';
+import { BaseData, PokemonType } from '@/types/types';
 import Link from 'next/link';
 import React from 'react';
 import { Card } from '../ui/card';
@@ -19,16 +19,19 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => (
         height={64}
         className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
       />
-      <span>No.{pokemon.nationalDex !== Infinity ? pokemon.nationalDex : '—'}</span>
-      <h2>{pokemon.name}</h2>
-      <div className="flex justify-center gap-2">
-        {(Array.isArray(pokemon.types) ? pokemon.types : [pokemon.types]).map((type) => (
-          <Badge
-            key={type}
-          >
-            {type}
-          </Badge>
-        ))}
+      <div className="flex flex-col gap-0">
+        <p className='font-bold'>#{pokemon.nationalDex !== Infinity ? pokemon.nationalDex : '—'}</p>
+        <h2 className='text-xl mb-5 font-bold'>{pokemon.name}</h2>
+        <div className="flex justify-center gap-2">
+          {(Array.isArray(pokemon.types) ? pokemon.types : [pokemon.types]).map((type) => (
+            <Badge
+              key={type}
+              variant={type.toLowerCase() as PokemonType['name']}
+            >
+              {type}
+            </Badge>
+          ))}
+        </div>
       </div>
     </Card>
   </Link>

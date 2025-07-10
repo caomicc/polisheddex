@@ -111,3 +111,33 @@ export interface LocationsData {
   locations: LocationEntry[];
   forms?: Record<string, { locations: LocationEntry[] }>;
 }
+
+export interface PokemonType {
+  name:
+    | "normal"
+    | "fire"
+    | "water"
+    | "electric"
+    | "grass"
+    | "ice"
+    | "fighting"
+    | "poison"
+    | "ground"
+    | "flying"
+    | "psychic"
+    | "bug"
+    | "rock"
+    | "ghost"
+    | "dragon"
+    | "dark"
+    | "steel"
+    | "fairy";
+  damageRelations?: {
+    doubleDamageTo: PokemonType[];
+    doubleDamageFrom: PokemonType[];
+    halfDamageTo: PokemonType[];
+    halfDamageFrom: PokemonType[];
+    noDamageTo: PokemonType[];
+    noDamageFrom: PokemonType[];
+  };
+}
