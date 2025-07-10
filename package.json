@@ -10,6 +10,7 @@
     "extract": "ts-node extract_pokemon_data.ts && ts-node extract_location_data.ts"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "next": "15.3.5",
     "pngjs": "^7.0.0",
     "react": "^19.0.0",
