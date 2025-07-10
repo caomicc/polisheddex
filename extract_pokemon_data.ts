@@ -374,6 +374,13 @@ if (currentMonV2) {
 
 // Helper to standardize Pokemon key names across the codebase
 function standardizePokemonKey(name: string): string {
+  // Special handling for Paldean forms that need specific treatment
+  if (name.toLowerCase().includes(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())) {
+    return toTitleCase(name.substring(0, name.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())).toLowerCase());
+  } else if (name.toLowerCase().includes(KNOWN_FORMS.PALDEAN_WATER.toLowerCase())) {
+    return toTitleCase(name.substring(0, name.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_WATER.toLowerCase())).toLowerCase());
+  }
+
   // Create a regex pattern using all the known forms from our constant
   const formSuffixPattern = new RegExp(`(${Object.values(KNOWN_FORMS).join('|')})$`, 'i');
 
@@ -706,8 +713,12 @@ function normalizeMonName(name: string, formStr: string | null): { baseName: str
     } else if (formStr === 'PALDEAN_FORM') {
       formName = KNOWN_FORMS.PALDEAN;
     } else if (formStr === 'TAUROS_PALDEAN_FIRE_FORM') {
+      // Log for debugging
+      console.log(`Converting TAUROS_PALDEAN_FIRE_FORM to ${KNOWN_FORMS.PALDEAN_FIRE}`);
       formName = KNOWN_FORMS.PALDEAN_FIRE;
     } else if (formStr === 'TAUROS_PALDEAN_WATER_FORM') {
+      // Log for debugging
+      console.log(`Converting TAUROS_PALDEAN_WATER_FORM to ${KNOWN_FORMS.PALDEAN_WATER}`);
       formName = KNOWN_FORMS.PALDEAN_WATER;
     } else if (formStr === 'PLAIN_FORM' || formStr.includes('PLAIN')) {
       // Skip adding form for plain forms
@@ -730,6 +741,18 @@ function normalizeMonName(name: string, formStr: string | null): { baseName: str
 // Will be gradually phased out as we convert the code to use the new structure
 function getFullPokemonName(name: string, form: string | null): string {
   const { baseName, formName } = normalizeMonName(name, form);
+
+  // For debugging special cases
+  if ((name === 'TAUROS' || name === 'WOOPER') && form) {
+    console.log(`Creating name for ${name} with form ${form} => ${baseName}${formName || ''}`);
+  }
+
+  // Return the combined name - use consistent format for forms
+  // For the special Paldean forms, use a unique separator to make extraction easier
+  if (formName === KNOWN_FORMS.PALDEAN_FIRE || formName === KNOWN_FORMS.PALDEAN_WATER) {
+    return `${baseName}-${formName}`;  // Use a separator for these complex forms
+  }
+
   return formName ? `${baseName}${formName}` : baseName;
 }
 
@@ -1157,12 +1180,25 @@ const locationData: Record<string, LocationEntry[]> = {};
 
 // Helper to extract the base name from a combined name with form
 function extractBasePokemonName(fullName: string): string {
+  // Check if the name contains the special separator for complex forms
+  if (fullName.includes('-')) {
+    return fullName.split('-')[0];
+  }
+
   // Use the KNOWN_FORMS constant for consistency
   const knownForms = Object.values(KNOWN_FORMS);
   let baseName = fullName;
 
+  // Special handling for compound form names like "paldean_fire" and "paldean_water"
+  if (fullName.toLowerCase().includes(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())) {
+    return fullName.substring(0, fullName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase()));
+  } else if (fullName.toLowerCase().includes(KNOWN_FORMS.PALDEAN_WATER.toLowerCase())) {
+    return fullName.substring(0, fullName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_WATER.toLowerCase()));
+  }
+
+  // Handle standard forms
   for (const form of knownForms) {
-    if (fullName.toLowerCase().endsWith(form)) {
+    if (fullName.toLowerCase().endsWith(form.toLowerCase())) {
       baseName = fullName.substring(0, fullName.length - form.length);
       break;
     }
