@@ -9,6 +9,8 @@ import {
   FormData,
   EvolutionMethod,
   Move,
+  MoveDescription,
+  PokemonType,
 } from "@/types/types";
 import {
   Table,
@@ -18,6 +20,8 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import { Badge } from "../ui/badge";
+import { EvolutionChain } from "@/components/ui/EvolutionChain";
 
 export default function PokemonFormClient({
   forms,
@@ -27,7 +31,7 @@ export default function PokemonFormClient({
 }: {
   forms: string[];
   allFormData: Record<string, FormData>;
-  moveDescData: Record<string, MoveDetail>;
+  moveDescData: Record<string, MoveDescription>;
   pokemonName: string;
 }) {
   const [selectedForm, setSelectedForm] = useState("default");
@@ -79,40 +83,41 @@ export default function PokemonFormClient({
         <div className="flex gap-2">
           {Array.isArray(formData.types) ? (
             formData.types.map((type: string) => (
-              <span
+              <Badge
                 key={type}
-                className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-mono text-sm"
+                variant={type.toLowerCase() as PokemonType["name"]}
               >
                 {type}
-              </span>
+              </Badge>
             ))
           ) : (
-            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-mono text-sm">
+            <Badge
+              key={formData.types}
+              variant={formData.types.toLowerCase() as PokemonType["name"]}
+            >
               {formData.types}
-            </span>
+            </Badge>
           )}
         </div>
       </div>
       <div className="mb-4">
         <h2 className="text-xl font-semibold mb-1">Evolution Chain</h2>
         {formData.evolution ? (
-          <div className="mb-2 flex flex-wrap gap-2 items-center">
-            {formData.evolution.chain.map((name: string, i: number) => (
-              <React.Fragment key={name}>
-                <span className="px-2 py-1 rounded bg-gray-100 font-mono">
-                  <Link
-                    href={`/pokemon/${name}`}
-                    className="hover:underline text-blue-700"
-                  >
-                    {name}
-                  </Link>
-                </span>
-                {i < (formData.evolution?.chain.length ?? 0) - 1 && (
-                  <span className="mx-1">→</span>
-                )}
-              </React.Fragment>
-            ))}
-          </div>
+          <EvolutionChain
+            chain={formData.evolution.chain}
+            spritesByGen={formData.evolution.chain.reduce((acc, name) => {
+              // Try to get sprite from allFormData if available
+              // Use the key as in allFormData, which is usually the normalized name
+              const formEntry = Object.entries(allFormData).find(
+                ([, f]) =>
+                  f.nationalDex &&
+                  name &&
+                  name.toLowerCase() === pokemonName.toLowerCase()
+              );
+              acc[name] = formEntry?.[1]?.frontSpriteUrl || "";
+              return acc;
+            }, {} as Record<string, string>)}
+          />
         ) : (
           <div className="text-gray-500">No evolution data.</div>
         )}
@@ -154,28 +159,28 @@ export default function PokemonFormClient({
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="attheader cen align-middle text-center">
+            <TableHead className="attheader cen align-middle text-left">
               Level
             </TableHead>
             <TableHead className="attheader cen align-middle text-left">
               Attack Name
             </TableHead>
-            <TableHead className="attheader cen align-middle text-center">
+            <TableHead className="attheader cen align-middle text-left">
               Type
             </TableHead>
-            <TableHead className="attheader cen align-middle text-center">
+            <TableHead className="attheader cen align-middle text-left">
               Cat.
             </TableHead>
-            <TableHead className="attheader cen align-middle text-center">
+            <TableHead className="attheader cen align-middle text-left">
               Att.
             </TableHead>
-            <TableHead className="attheader cen align-middle text-center">
+            <TableHead className="attheader cen align-middle text-left">
               Acc.
             </TableHead>
-            <TableHead className="attheader cen align-middle text-center">
+            <TableHead className="attheader cen align-middle text-left">
               PP
             </TableHead>
-            <TableHead className="attheader cen align-middle text-center">
+            <TableHead className="attheader cen align-middle text-left">
               Effect %
             </TableHead>
           </TableRow>
@@ -199,28 +204,28 @@ export default function PokemonFormClient({
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="cen align-middle text-center attheader">
+              <TableHead className="attheader cen align-middle text-left">
                 Level
               </TableHead>
-              <TableHead className="cen align-middle text-center attheader">
+              <TableHead className="attheader cen align-middle text-left">
                 Attack Name
               </TableHead>
-              <TableHead className="cen align-middle text-center attheader">
+              <TableHead className="attheader cen align-middle text-left">
                 Type
               </TableHead>
-              <TableHead className="cen align-middle text-center attheader">
+              <TableHead className="attheader cen align-middle text-left">
                 Cat.
               </TableHead>
-              <TableHead className="cen align-middle text-center attheader">
+              <TableHead className="attheader cen align-middle text-left">
                 Att.
               </TableHead>
-              <TableHead className="cen align-middle text-center attheader">
+              <TableHead className="attheader cen align-middle text-left">
                 Acc.
               </TableHead>
-              <TableHead className="cen align-middle text-center attheader">
+              <TableHead className="attheader cen align-middle text-left">
                 PP
               </TableHead>
-              <TableHead className="cen align-middle text-center attheader">
+              <TableHead className="attheader cen align-middle text-left">
                 Effect %
               </TableHead>
             </TableRow>

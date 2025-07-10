@@ -37,7 +37,7 @@ export interface Move {
 
 export interface MoveDescription {
   description: string;
-  type: string;
+  type: PokemonType;
   pp: number | string;
   power: number | string;
   accuracy?: number | string;
@@ -153,4 +153,10 @@ export interface PokemonType {
     noDamageTo: PokemonType[];
     noDamageFrom: PokemonType[];
   };
+}
+
+export interface EvolutionChainProps {
+  chain: string[];
+  spritesByGen?: Record<string, string>; // key: pokemon name, value: sprite url
+  className?: string;
 }
