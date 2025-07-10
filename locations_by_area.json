@@ -6042,7 +6042,7 @@
           }
         }
       },
-      "FarfetchDGalarianForm": {
+      "FarfetchD": {
         "methods": {
           "hidden_grotto": {
             "times": {
@@ -6051,7 +6051,7 @@
                   "level": "Level from badges + 0",
                   "chance": 40,
                   "rareItem": "Shiny Stone",
-                  "formName": "GalarianForm"
+                  "formName": "galarian"
                 }
               ]
             }
@@ -8993,6 +8993,35 @@
             }
           }
         }
+      },
+      "Tauros": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "59",
+                  "chance": 10,
+                  "formName": "paldean"
+                }
+              ],
+              "day": [
+                {
+                  "level": "59",
+                  "chance": 10,
+                  "formName": "paldean"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "59",
+                  "chance": 10,
+                  "formName": "paldean"
+                }
+              ]
+            }
+          }
+        }
       }
     }
   },
@@ -10256,7 +10285,7 @@
           }
         }
       },
-      "GrowlitheHisuianForm": {
+      "Growlithe": {
         "methods": {
           "hidden_grotto": {
             "times": {
@@ -10265,30 +10294,14 @@
                   "level": "Level from badges + 5",
                   "chance": 15,
                   "rareItem": "Ice Stone",
-                  "formName": "HisuianForm"
+                  "formName": "hisuian"
                 }
               ]
             }
           }
         }
       },
-      "MrMimeGalarianForm": {
-        "methods": {
-          "hidden_grotto": {
-            "times": {
-              "common": [
-                {
-                  "level": "Level from badges + 5",
-                  "chance": 40,
-                  "rareItem": "Ice Stone",
-                  "formName": "GalarianForm"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "SneaselHisuianForm": {
+      "Sneasel": {
         "methods": {
           "hidden_grotto": {
             "times": {
@@ -10297,7 +10310,23 @@
                   "level": "Level from badges + 5",
                   "chance": 5,
                   "rareItem": "Ice Stone",
-                  "formName": "HisuianForm"
+                  "formName": "hisuian"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "MrMime": {
+        "methods": {
+          "hidden_grotto": {
+            "times": {
+              "common": [
+                {
+                  "level": "Level from badges + 5",
+                  "chance": 40,
+                  "rareItem": "Ice Stone",
+                  "formName": "galarian"
                 }
               ]
             }
@@ -14592,6 +14621,28 @@
           }
         }
       },
+      "Wooper": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "LEVEL_FROM_BADGES - 2",
+                  "chance": 2,
+                  "formName": "paldean"
+                }
+              ],
+              "day": [
+                {
+                  "level": "LEVEL_FROM_BADGES - 2",
+                  "chance": 2,
+                  "formName": "paldean"
+                }
+              ]
+            }
+          }
+        }
+      },
       "Quagsire": {
         "methods": {
           "water": {
@@ -15063,6 +15114,50 @@
                 {
                   "level": "58",
                   "chance": 6
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Corsola": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "58",
+                  "chance": 4,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "62",
+                  "chance": 4,
+                  "formName": "galarian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "58",
+                  "chance": 4,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "62",
+                  "chance": 4,
+                  "formName": "galarian"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "58",
+                  "chance": 4,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "62",
+                  "chance": 4,
+                  "formName": "galarian"
                 }
               ]
             }
@@ -17468,6 +17563,21 @@
             }
           }
         }
+      },
+      "Sneasel": {
+        "methods": {
+          "grass": {
+            "times": {
+              "nite": [
+                {
+                  "level": "51",
+                  "chance": 4,
+                  "formName": "hisuian"
+                }
+              ]
+            }
+          }
+        }
       }
     }
   },
@@ -17600,6 +17710,35 @@
                 {
                   "level": "51",
                   "chance": 4
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Sneasel": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "50",
+                  "chance": 4,
+                  "formName": "hisuian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "50",
+                  "chance": 4,
+                  "formName": "hisuian"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "50",
+                  "chance": 4,
+                  "formName": "hisuian"
                 }
               ]
             }
@@ -17753,6 +17892,50 @@
             }
           }
         }
+      },
+      "Corsola": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "58",
+                  "chance": 4,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "59",
+                  "chance": 4,
+                  "formName": "galarian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "58",
+                  "chance": 4,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "59",
+                  "chance": 4,
+                  "formName": "galarian"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "58",
+                  "chance": 4,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "59",
+                  "chance": 4,
+                  "formName": "galarian"
+                }
+              ]
+            }
+          }
+        }
       }
     }
   },
@@ -17876,6 +18059,35 @@
                 {
                   "level": "54",
                   "chance": 6
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Corsola": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "60",
+                  "chance": 4,
+                  "formName": "galarian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "60",
+                  "chance": 4,
+                  "formName": "galarian"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "60",
+                  "chance": 4,
+                  "formName": "galarian"
                 }
               ]
             }
@@ -18148,6 +18360,35 @@
                 {
                   "level": "LEVEL_FROM_BADGES + 2",
                   "chance": 10
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Meowth": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 10,
+                  "formName": "galarian"
                 }
               ]
             }
@@ -20862,6 +21103,224 @@
       }
     }
   },
+  "Rugged Road South": {
+    "pokemon": {
+      "Growlithe": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "LEVEL_FROM_BADGES - 2",
+                  "chance": 10,
+                  "formName": "hisuian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 10,
+                  "formName": "hisuian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES - 1",
+                  "chance": 10,
+                  "formName": "hisuian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "LEVEL_FROM_BADGES - 2",
+                  "chance": 10,
+                  "formName": "hisuian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 10,
+                  "formName": "hisuian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES - 1",
+                  "chance": 10,
+                  "formName": "hisuian"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Goldeen": {
+        "methods": {
+          "water": {
+            "times": {
+              "any": [
+                {
+                  "level": "LEVEL_FROM_BADGES - 5",
+                  "chance": 6
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Seaking": {
+        "methods": {
+          "water": {
+            "times": {
+              "any": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 6
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Gligar": {
+        "methods": {
+          "grass": {
+            "times": {
+              "nite": [
+                {
+                  "level": "LEVEL_FROM_BADGES - 1",
+                  "chance": 10
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Qwilfish": {
+        "methods": {
+          "water": {
+            "times": {
+              "any": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 5",
+                  "chance": 6,
+                  "formName": "hisuian"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Skarmory": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "LEVEL_FROM_BADGES - 1",
+                  "chance": 10
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10
+                }
+              ],
+              "day": [
+                {
+                  "level": "LEVEL_FROM_BADGES - 1",
+                  "chance": 10
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Houndour": {
+        "methods": {
+          "grass": {
+            "times": {
+              "nite": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 10
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES - 1",
+                  "chance": 10
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Rugged Road North": {
+    "pokemon": {
+      "Growlithe": {
+        "methods": {
+          "hidden_grotto": {
+            "times": {
+              "common": [
+                {
+                  "level": "Level from badges + 1",
+                  "chance": 40,
+                  "rareItem": "Fire Stone",
+                  "formName": "hisuian"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Graveler": {
+        "methods": {
+          "hidden_grotto": {
+            "times": {
+              "common": [
+                {
+                  "level": "Level from badges + 1",
+                  "chance": 40,
+                  "rareItem": "Fire Stone"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Dunsparce": {
+        "methods": {
+          "hidden_grotto": {
+            "times": {
+              "rare": [
+                {
+                  "level": "Level from badges + 1",
+                  "chance": 5,
+                  "rareItem": "Fire Stone"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Skarmory": {
+        "methods": {
+          "hidden_grotto": {
+            "times": {
+              "uncommon": [
+                {
+                  "level": "Level from badges + 1",
+                  "chance": 15,
+                  "rareItem": "Fire Stone"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
   "Route 44": {
     "pokemon": {
       "Poliwag": {
@@ -21686,6 +22145,50 @@
           }
         }
       },
+      "Slowpoke": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ]
+            }
+          }
+        }
+      },
       "Krabby": {
         "methods": {
           "grass": {
@@ -21830,6 +22333,50 @@
                 {
                   "level": "LEVEL_FROM_BADGES + 2",
                   "chance": 6
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Slowpoke": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
                 }
               ]
             }
@@ -22022,6 +22569,50 @@
           }
         }
       },
+      "Slowpoke": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ]
+            }
+          }
+        }
+      },
       "Krabby": {
         "methods": {
           "grass": {
@@ -22200,6 +22791,94 @@
                 {
                   "level": "LEVEL_FROM_BADGES + 2",
                   "chance": 6
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Ponyta": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 0",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 2",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Rapidash": {
+        "methods": {
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 3",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 3",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 10,
+                  "formName": "galarian"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 3",
+                  "chance": 10,
+                  "formName": "galarian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 10,
+                  "formName": "galarian"
                 }
               ]
             }
@@ -23468,71 +24147,6 @@
       }
     }
   },
-  "Rugged Road North": {
-    "pokemon": {
-      "Graveler": {
-        "methods": {
-          "hidden_grotto": {
-            "times": {
-              "common": [
-                {
-                  "level": "Level from badges + 1",
-                  "chance": 40,
-                  "rareItem": "Fire Stone"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "Dunsparce": {
-        "methods": {
-          "hidden_grotto": {
-            "times": {
-              "rare": [
-                {
-                  "level": "Level from badges + 1",
-                  "chance": 5,
-                  "rareItem": "Fire Stone"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "Skarmory": {
-        "methods": {
-          "hidden_grotto": {
-            "times": {
-              "uncommon": [
-                {
-                  "level": "Level from badges + 1",
-                  "chance": 15,
-                  "rareItem": "Fire Stone"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "GrowlitheHisuianForm": {
-        "methods": {
-          "hidden_grotto": {
-            "times": {
-              "common": [
-                {
-                  "level": "Level from badges + 1",
-                  "chance": 40,
-                  "rareItem": "Fire Stone",
-                  "formName": "HisuianForm"
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
-  },
   "Silver Cave": {
     "pokemon": {
       "Rapidash": {
@@ -24721,102 +25335,6 @@
       }
     }
   },
-  "Rugged Road South": {
-    "pokemon": {
-      "Goldeen": {
-        "methods": {
-          "water": {
-            "times": {
-              "any": [
-                {
-                  "level": "LEVEL_FROM_BADGES - 5",
-                  "chance": 6
-                }
-              ]
-            }
-          }
-        }
-      },
-      "Seaking": {
-        "methods": {
-          "water": {
-            "times": {
-              "any": [
-                {
-                  "level": "LEVEL_FROM_BADGES + 0",
-                  "chance": 6
-                }
-              ]
-            }
-          }
-        }
-      },
-      "Gligar": {
-        "methods": {
-          "grass": {
-            "times": {
-              "nite": [
-                {
-                  "level": "LEVEL_FROM_BADGES - 1",
-                  "chance": 10
-                },
-                {
-                  "level": "LEVEL_FROM_BADGES + 0",
-                  "chance": 10
-                }
-              ]
-            }
-          }
-        }
-      },
-      "Skarmory": {
-        "methods": {
-          "grass": {
-            "times": {
-              "morn": [
-                {
-                  "level": "LEVEL_FROM_BADGES - 1",
-                  "chance": 10
-                },
-                {
-                  "level": "LEVEL_FROM_BADGES + 0",
-                  "chance": 10
-                }
-              ],
-              "day": [
-                {
-                  "level": "LEVEL_FROM_BADGES - 1",
-                  "chance": 10
-                },
-                {
-                  "level": "LEVEL_FROM_BADGES + 0",
-                  "chance": 10
-                }
-              ]
-            }
-          }
-        }
-      },
-      "Houndour": {
-        "methods": {
-          "grass": {
-            "times": {
-              "nite": [
-                {
-                  "level": "LEVEL_FROM_BADGES + 1",
-                  "chance": 10
-                },
-                {
-                  "level": "LEVEL_FROM_BADGES - 1",
-                  "chance": 10
-                }
-              ]
-            }
-          }
-        }
-      }
-    }
-  },
   "Cerulean City": {
     "pokemon": {
       "Goldeen": {
@@ -25767,6 +26285,46 @@
                 }
               ]
             }
+          },
+          "grass": {
+            "times": {
+              "morn": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 8,
+                  "formName": "hisuian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 3",
+                  "chance": 8,
+                  "formName": "hisuian"
+                }
+              ],
+              "day": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 8,
+                  "formName": "hisuian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 3",
+                  "chance": 8,
+                  "formName": "hisuian"
+                }
+              ],
+              "nite": [
+                {
+                  "level": "LEVEL_FROM_BADGES + 1",
+                  "chance": 8,
+                  "formName": "hisuian"
+                },
+                {
+                  "level": "LEVEL_FROM_BADGES + 3",
+                  "chance": 8,
+                  "formName": "hisuian"
+                }
+              ]
+            }
           }
         }
       },
@@ -25882,7 +26440,7 @@
           }
         }
       },
-      "MrMimeGalarianForm": {
+      "MrMime": {
         "methods": {
           "hidden_grotto": {
             "times": {
@@ -25891,7 +26449,7 @@
                   "level": "Level from badges + 4",
                   "chance": 40,
                   "rareItem": "Ice Stone",
-                  "formName": "GalarianForm"
+                  "formName": "galarian"
                 }
               ]
             }

@@ -6,6 +6,22 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Define all known Pokémon form types in one place for consistency
+const KNOWN_FORMS = {
+  ALOLAN: 'alolan',
+  GALARIAN: 'galarian',
+  HISUIAN: 'hisuian',
+  GALAR: 'galar',
+  HISUI: 'hisui',
+  PLAIN: 'plain',
+  RED: 'red',
+  ARMORED: 'armored',
+  BLOODMOON: 'bloodmoon',
+  PALDEAN: 'paldean',
+  PALDEAN_FIRE: 'paldean_fire',
+  PALDEAN_WATER: 'paldean_water'
+};
+
 // Output file paths
 const MOVE_DESCRIPTIONS_OUTPUT = path.join(__dirname, 'pokemon_move_descriptions.json');
 const EGG_MOVES_OUTPUT = path.join(__dirname, 'pokemon_egg_moves.json');
@@ -358,8 +374,11 @@ if (currentMonV2) {
 
 // Helper to standardize Pokemon key names across the codebase
 function standardizePokemonKey(name: string): string {
-  // Remove any form suffixes (like "Plain", "Alolan", etc.)
-  const baseName = name.replace(/Plain$|Alolan$|Galarian$|Hisuian$/i, '');
+  // Create a regex pattern using all the known forms from our constant
+  const formSuffixPattern = new RegExp(`(${Object.values(KNOWN_FORMS).join('|')})$`, 'i');
+
+  // Remove any form suffixes
+  const baseName = name.replace(formSuffixPattern, '');
 
   // Convert to title case and remove any case inconsistencies
   return toTitleCase(baseName.toLowerCase());
@@ -554,12 +573,25 @@ function parseDexEntries(file: string): string[] {
   const text = fs.readFileSync(file, 'utf8');
   const lines = text.split(/\r?\n/);
   const names: string[] = [];
+
+  // Keep track of Pokemon that have been processed to avoid duplicates
+  const processedBaseNames = new Set<string>();
+
   for (const line of lines) {
     const match = line.match(/^(\w+)PokedexEntry::/);
     if (match) {
-      // Remove trailing 'Plain', 'Alolan', etc. for forms, keep as is for unique forms
-      const name = match[1];
-      names.push(toTitleCase(name));
+      const nameWithPotentialForm = match[1];
+
+      // Handle forms by extracting the base name
+      // Find known form patterns using our KNOWN_FORMS constant
+      const formPatterns = new RegExp(`(?:${Object.values(KNOWN_FORMS).map(form => form.charAt(0).toUpperCase() + form.slice(1)).join('|')})$`);
+      const baseName = nameWithPotentialForm.replace(formPatterns, '');
+
+      // Only add each base Pokemon once to the dex order
+      if (!processedBaseNames.has(baseName)) {
+        processedBaseNames.add(baseName);
+        names.push(toTitleCase(baseName));
+      }
     }
   }
   return names;
@@ -617,7 +649,9 @@ for (const mon of Object.keys(result)) {
   // it could be a basic Pokémon with no evolutions
   const evolution: Evolution = { methods, chain };
   // Dex numbers (1-based, null if not found)
-  const nationalDex = nationalDexOrder.indexOf(mon) >= 0 ? nationalDexOrder.indexOf(mon) + 1 : null;
+  // First get the base name by removing any form suffixes
+  const baseMonName = standardizePokemonKey(mon);
+  const nationalDex = nationalDexOrder.indexOf(baseMonName) >= 0 ? nationalDexOrder.indexOf(baseMonName) + 1 : null;
   // Types
   let types: string | string[] = typeMap[mon] || ['None', 'None'];
   // Remove duplicates and handle 'None'
@@ -662,9 +696,19 @@ function normalizeMonName(name: string, formStr: string | null): { baseName: str
   let formName: string | null = null;
 
   if (formStr) {
-    // Convert ALOLAN_FORM to just "alolan" to match expected keys
+    // Convert form constants to our standardized form names
     if (formStr === 'ALOLAN_FORM') {
-      formName = 'alolan';
+      formName = KNOWN_FORMS.ALOLAN;
+    } else if (formStr === 'GALARIAN_FORM') {
+      formName = KNOWN_FORMS.GALARIAN;
+    } else if (formStr === 'HISUIAN_FORM') {
+      formName = KNOWN_FORMS.HISUIAN;
+    } else if (formStr === 'PALDEAN_FORM') {
+      formName = KNOWN_FORMS.PALDEAN;
+    } else if (formStr === 'TAUROS_PALDEAN_FIRE_FORM') {
+      formName = KNOWN_FORMS.PALDEAN_FIRE;
+    } else if (formStr === 'TAUROS_PALDEAN_WATER_FORM') {
+      formName = KNOWN_FORMS.PALDEAN_WATER;
     } else if (formStr === 'PLAIN_FORM' || formStr.includes('PLAIN')) {
       // Skip adding form for plain forms
       formName = null;
@@ -820,9 +864,9 @@ function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): Record<s
 
   // Pre-process to identify plain forms
   for (const [name, data] of Object.entries(pokemonData)) {
-    if (name.toLowerCase().endsWith('plain')) {
+    if (name.toLowerCase().endsWith(KNOWN_FORMS.PLAIN)) {
       // Store plain forms separately
-      const baseName = name.substring(0, name.length - 5); // Remove 'plain' suffix
+      const baseName = name.substring(0, name.length - KNOWN_FORMS.PLAIN.length); // Remove 'plain' suffix
       plainForms[baseName] = data;
     } else {
       // Keep non-plain forms
@@ -1113,8 +1157,8 @@ const locationData: Record<string, LocationEntry[]> = {};
 
 // Helper to extract the base name from a combined name with form
 function extractBasePokemonName(fullName: string): string {
-  // Handle known form suffixes
-  const knownForms = ['alolan', 'galarian', 'hisuian', 'galar', 'hisui', 'plain'];
+  // Use the KNOWN_FORMS constant for consistency
+  const knownForms = Object.values(KNOWN_FORMS);
   let baseName = fullName;
 
   for (const form of knownForms) {

@@ -7193,6 +7193,34 @@
             "formName": "alolan"
           }
         ]
+      },
+      "galarian": {
+        "locations": [
+          {
+            "area": "SHAMOUTI_TUNNEL",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 1",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_TUNNEL",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 1",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_TUNNEL",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 1",
+            "chance": 10,
+            "formName": "galarian"
+          }
+        ]
       }
     }
   },
@@ -7882,7 +7910,79 @@
         "rareItem": "Fire Stone",
         "formName": null
       }
-    ]
+    ],
+    "forms": {
+      "hisuian": {
+        "locations": [
+          {
+            "area": "RUGGED_ROAD_SOUTH",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES - 2",
+            "chance": 10,
+            "formName": "hisuian"
+          },
+          {
+            "area": "RUGGED_ROAD_SOUTH",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 1",
+            "chance": 10,
+            "formName": "hisuian"
+          },
+          {
+            "area": "RUGGED_ROAD_SOUTH",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES - 1",
+            "chance": 10,
+            "formName": "hisuian"
+          },
+          {
+            "area": "RUGGED_ROAD_SOUTH",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES - 2",
+            "chance": 10,
+            "formName": "hisuian"
+          },
+          {
+            "area": "RUGGED_ROAD_SOUTH",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 1",
+            "chance": 10,
+            "formName": "hisuian"
+          },
+          {
+            "area": "RUGGED_ROAD_SOUTH",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES - 1",
+            "chance": 10,
+            "formName": "hisuian"
+          },
+          {
+            "area": "Rugged Road North",
+            "method": "hidden_grotto",
+            "time": "common",
+            "level": "Level from badges + 1",
+            "chance": 40,
+            "rareItem": "Fire Stone",
+            "formName": "hisuian"
+          },
+          {
+            "area": "Sinjoh Ruins",
+            "method": "hidden_grotto",
+            "time": "uncommon",
+            "level": "Level from badges + 5",
+            "chance": 15,
+            "rareItem": "Ice Stone",
+            "formName": "hisuian"
+          }
+        ]
+      }
+    }
   },
   "Arcanine": {
     "locations": []
@@ -10491,7 +10591,61 @@
     "locations": []
   },
   "Ponyta": {
-    "locations": []
+    "locations": [],
+    "forms": {
+      "galarian": {
+        "locations": [
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          }
+        ]
+      }
+    }
   },
   "Rapidash": {
     "locations": [
@@ -10504,10 +10658,214 @@
         "rareItem": "Fire Stone",
         "formName": null
       }
-    ]
+    ],
+    "forms": {
+      "galarian": {
+        "locations": [
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 3",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 1",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 3",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 1",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 3",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 1",
+            "chance": 10,
+            "formName": "galarian"
+          }
+        ]
+      }
+    }
   },
   "Slowpoke": {
-    "locations": []
+    "locations": [],
+    "forms": {
+      "galarian": {
+        "locations": [
+          {
+            "area": "BEAUTIFUL_BEACH",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "BEAUTIFUL_BEACH",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "BEAUTIFUL_BEACH",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "BEAUTIFUL_BEACH",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "BEAUTIFUL_BEACH",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "BEAUTIFUL_BEACH",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "WARM_BEACH",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "WARM_BEACH",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "WARM_BEACH",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "WARM_BEACH",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "WARM_BEACH",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "WARM_BEACH",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "ROCKY_BEACH",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "ROCKY_BEACH",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "ROCKY_BEACH",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "ROCKY_BEACH",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "ROCKY_BEACH",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 0",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "ROCKY_BEACH",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 2",
+            "chance": 10,
+            "formName": "galarian"
+          }
+        ]
+      }
+    }
   },
   "Slowbro": {
     "locations": []
@@ -16186,10 +16544,37 @@
         "rareItem": "THUNDERSTONE",
         "formName": null
       }
-    ]
-  },
-  "Taurospaldean": {
-    "locations": []
+    ],
+    "forms": {
+      "paldean": {
+        "locations": [
+          {
+            "area": "SAFARI_ZONE_EAST",
+            "method": "grass",
+            "time": "morn",
+            "level": "59",
+            "chance": 10,
+            "formName": "paldean"
+          },
+          {
+            "area": "SAFARI_ZONE_EAST",
+            "method": "grass",
+            "time": "day",
+            "level": "59",
+            "chance": 10,
+            "formName": "paldean"
+          },
+          {
+            "area": "SAFARI_ZONE_EAST",
+            "method": "grass",
+            "time": "nite",
+            "level": "59",
+            "chance": 10,
+            "formName": "paldean"
+          }
+        ]
+      }
+    }
   },
   "Taurospaldeanfire": {
     "locations": []
@@ -19756,10 +20141,29 @@
         "rareItem": "Everstone",
         "formName": null
       }
-    ]
-  },
-  "Wooperpaldean": {
-    "locations": []
+    ],
+    "forms": {
+      "paldean": {
+        "locations": [
+          {
+            "area": "MURKY_SWAMP",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES - 2",
+            "chance": 2,
+            "formName": "paldean"
+          },
+          {
+            "area": "MURKY_SWAMP",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES - 2",
+            "chance": 2,
+            "formName": "paldean"
+          }
+        ]
+      }
+    }
   },
   "Quagsire": {
     "locations": [
@@ -21923,7 +22327,21 @@
     ]
   },
   "Qwilfish": {
-    "locations": []
+    "locations": [],
+    "forms": {
+      "hisuian": {
+        "locations": [
+          {
+            "area": "RUGGED_ROAD_SOUTH",
+            "method": "water",
+            "time": null,
+            "level": "LEVEL_FROM_BADGES + 5",
+            "chance": 6,
+            "formName": "hisuian"
+          }
+        ]
+      }
+    }
   },
   "Scizor": {
     "locations": []
@@ -21954,7 +22372,102 @@
         "rareItem": "Fire Stone",
         "formName": null
       }
-    ]
+    ],
+    "forms": {
+      "hisuian": {
+        "locations": [
+          {
+            "area": "SNOWTOP_MOUNTAIN_INSIDE",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 1",
+            "chance": 8,
+            "formName": "hisuian"
+          },
+          {
+            "area": "SNOWTOP_MOUNTAIN_INSIDE",
+            "method": "grass",
+            "time": "morn",
+            "level": "LEVEL_FROM_BADGES + 3",
+            "chance": 8,
+            "formName": "hisuian"
+          },
+          {
+            "area": "SNOWTOP_MOUNTAIN_INSIDE",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 1",
+            "chance": 8,
+            "formName": "hisuian"
+          },
+          {
+            "area": "SNOWTOP_MOUNTAIN_INSIDE",
+            "method": "grass",
+            "time": "day",
+            "level": "LEVEL_FROM_BADGES + 3",
+            "chance": 8,
+            "formName": "hisuian"
+          },
+          {
+            "area": "SNOWTOP_MOUNTAIN_INSIDE",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 1",
+            "chance": 8,
+            "formName": "hisuian"
+          },
+          {
+            "area": "SNOWTOP_MOUNTAIN_INSIDE",
+            "method": "grass",
+            "time": "nite",
+            "level": "LEVEL_FROM_BADGES + 3",
+            "chance": 8,
+            "formName": "hisuian"
+          },
+          {
+            "area": "DIM_CAVE_4F",
+            "method": "grass",
+            "time": "nite",
+            "level": "51",
+            "chance": 4,
+            "formName": "hisuian"
+          },
+          {
+            "area": "DIM_CAVE_5F",
+            "method": "grass",
+            "time": "morn",
+            "level": "50",
+            "chance": 4,
+            "formName": "hisuian"
+          },
+          {
+            "area": "DIM_CAVE_5F",
+            "method": "grass",
+            "time": "day",
+            "level": "50",
+            "chance": 4,
+            "formName": "hisuian"
+          },
+          {
+            "area": "DIM_CAVE_5F",
+            "method": "grass",
+            "time": "nite",
+            "level": "50",
+            "chance": 4,
+            "formName": "hisuian"
+          },
+          {
+            "area": "Sinjoh Ruins",
+            "method": "hidden_grotto",
+            "time": "rare",
+            "level": "Level from badges + 5",
+            "chance": 5,
+            "rareItem": "Ice Stone",
+            "formName": "hisuian"
+          }
+        ]
+      }
+    }
   },
   "Teddiursa": {
     "locations": [
@@ -22713,7 +23226,133 @@
         "rareItem": "Shiny Stone",
         "formName": null
       }
-    ]
+    ],
+    "forms": {
+      "galarian": {
+        "locations": [
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "58",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "62",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "day",
+            "level": "58",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "day",
+            "level": "62",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "58",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "62",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "58",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "59",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "day",
+            "level": "58",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "day",
+            "level": "59",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "58",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "59",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_SHIPWRECK",
+            "method": "grass",
+            "time": "morn",
+            "level": "60",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_SHIPWRECK",
+            "method": "grass",
+            "time": "day",
+            "level": "60",
+            "chance": 4,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_SHIPWRECK",
+            "method": "grass",
+            "time": "nite",
+            "level": "60",
+            "chance": 4,
+            "formName": "galarian"
+          }
+        ]
+      }
+    }
   },
   "Remoraid": {
     "locations": [
@@ -24228,9 +24867,6 @@
   "Ursaluna": {
     "locations": []
   },
-  "Ursalunabloodmoon": {
-    "locations": []
-  },
   "Sneasler": {
     "locations": []
   },
@@ -24307,78 +24943,6 @@
       }
     }
   },
-  "FarfetchDGalarianForm": {
-    "locations": [],
-    "forms": {
-      "GalarianForm": {
-        "locations": [
-          {
-            "area": "ROUTE ",
-            "method": "hidden_grotto",
-            "time": "common",
-            "level": "Level from badges + 0",
-            "chance": 40,
-            "rareItem": "Shiny Stone",
-            "formName": "GalarianForm"
-          }
-        ]
-      }
-    }
-  },
-  "GrowlitheHisuianForm": {
-    "locations": [],
-    "forms": {
-      "HisuianForm": {
-        "locations": [
-          {
-            "area": "Rugged Road North",
-            "method": "hidden_grotto",
-            "time": "common",
-            "level": "Level from badges + 1",
-            "chance": 40,
-            "rareItem": "Fire Stone",
-            "formName": "HisuianForm"
-          },
-          {
-            "area": "Sinjoh Ruins",
-            "method": "hidden_grotto",
-            "time": "uncommon",
-            "level": "Level from badges + 5",
-            "chance": 15,
-            "rareItem": "Ice Stone",
-            "formName": "HisuianForm"
-          }
-        ]
-      }
-    }
-  },
-  "MrMimeGalarianForm": {
-    "locations": [],
-    "forms": {
-      "GalarianForm": {
-        "locations": [
-          {
-            "area": "Snowtop Mountain Inside",
-            "method": "hidden_grotto",
-            "time": "common",
-            "level": "Level from badges + 4",
-            "chance": 40,
-            "rareItem": "Ice Stone",
-            "formName": "GalarianForm"
-          },
-          {
-            "area": "Sinjoh Ruins",
-            "method": "hidden_grotto",
-            "time": "common",
-            "level": "Level from badges + 5",
-            "chance": 40,
-            "rareItem": "Ice Stone",
-            "formName": "GalarianForm"
-          }
-        ]
-      }
-    }
-  },
   "FarfetchD": {
     "locations": [
       {
@@ -24390,21 +24954,45 @@
         "rareItem": "Water Stone",
         "formName": null
       }
-    ]
+    ],
+    "forms": {
+      "galarian": {
+        "locations": [
+          {
+            "area": "ROUTE ",
+            "method": "hidden_grotto",
+            "time": "common",
+            "level": "Level from badges + 0",
+            "chance": 40,
+            "rareItem": "Shiny Stone",
+            "formName": "galarian"
+          }
+        ]
+      }
+    }
   },
-  "SneaselHisuianForm": {
+  "MrMime": {
     "locations": [],
     "forms": {
-      "HisuianForm": {
+      "galarian": {
         "locations": [
+          {
+            "area": "Snowtop Mountain Inside",
+            "method": "hidden_grotto",
+            "time": "common",
+            "level": "Level from badges + 4",
+            "chance": 40,
+            "rareItem": "Ice Stone",
+            "formName": "galarian"
+          },
           {
             "area": "Sinjoh Ruins",
             "method": "hidden_grotto",
-            "time": "rare",
+            "time": "common",
             "level": "Level from badges + 5",
-            "chance": 5,
+            "chance": 40,
             "rareItem": "Ice Stone",
-            "formName": "HisuianForm"
+            "formName": "galarian"
           }
         ]
       }
