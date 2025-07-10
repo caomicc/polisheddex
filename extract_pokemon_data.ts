@@ -1,4 +1,4 @@
-import type { Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
+import type { BaseData, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -922,11 +922,12 @@ function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): Record<s
 const groupedPokemonData = groupPokemonForms(finalResultV3);
 
 // Extract and save base data (dex number, types)
-const baseData: Record<string, { nationalDex: number | null, types: string | string[], forms?: Record<string, { types: string | string[], frontSpriteUrl?: string }>, frontSpriteUrl?: string }> = {};
+const baseData: Record<string, BaseData> = {};
 for (const [mon, data] of Object.entries(groupedPokemonData)) {
   // Generate the front sprite URL for the base form
   const spriteName = mon.toLowerCase().replace(/[^a-z0-9]/g, '');
   baseData[mon] = {
+    name: mon,
     nationalDex: data.nationalDex,
     types: data.types,
     frontSpriteUrl: `/sprites/pokemon/${spriteName}/front_cropped.png`

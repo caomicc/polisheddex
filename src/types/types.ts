@@ -95,6 +95,7 @@ export interface FormData {
 }
 
 export interface BaseData {
+  name: string;
   nationalDex: number | null;
   types: string[] | string;
   frontSpriteUrl?: string;
