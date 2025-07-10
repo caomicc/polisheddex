@@ -1,18 +1,16 @@
 'use client';
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { MoveRow, LocationListItem } from '@/components/pokemon';
 import {
   LocationEntryProps,
-  MoveDetail,
   FormData,
   EvolutionMethod,
   Move,
   MoveDescription,
   PokemonType,
 } from '@/types/types';
-import { Table, TableBody, TableCaption, TableHead, TableHeader, TableRow } from '../ui/table';
+import { Table, TableBody,  TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
 import { EvolutionChain } from '@/components/ui/EvolutionChain';
 import { WeaknessChart } from './WeaknessChart';
@@ -148,7 +146,7 @@ export default function PokemonFormClient({
       {/* Moves List */}
       <h2 className="text-xl font-semibold mb-2">Moves</h2>
       <Table>
-        <TableHeader>
+        <TableHeader className={"hidden md:table-header-group"}>
           <TableRow>
             <TableHead className="attheader cen align-middle text-left">Level</TableHead>
             <TableHead className="attheader cen align-middle text-left">Attack Name</TableHead>
@@ -177,7 +175,7 @@ export default function PokemonFormClient({
       <h2 className="text-xl font-semibold mt-6 mb-2">Egg Moves</h2>
       {formData.eggMoves && formData.eggMoves.length > 0 ? (
         <Table>
-          <TableHeader>
+          <TableHeader className={"hidden md:table-header-group"}>
             <TableRow>
               <TableHead className="attheader cen align-middle text-left">Level</TableHead>
               <TableHead className="attheader cen align-middle text-left">Attack Name</TableHead>

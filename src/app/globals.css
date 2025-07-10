@@ -1,5 +1,8 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@source inline("bg-{physical,special,status}");
+
 /*
 ---break--- */
 @custom-variant dark (&:is(.dark *));
@@ -43,26 +46,30 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   /* Pokémon Type Colors */
-  --color-type-bug: oklch(0.75 0.18 110); /* greenish */
-  --color-type-dark: oklch(0.25 0.05 260); /* dark purple */
-  --color-type-dragon: oklch(0.55 0.18 270); /* blue-violet */
-  --color-type-electric: oklch(0.92 0.18 100); /* yellow */
-  --color-type-fairy: oklch(0.98 0.12 340); /* pink */
-  --color-type-fighting: oklch(0.55 0.18 40); /* orange-brown */
-  --color-type-fire: oklch(0.85 0.22 40); /* orange */
-  --color-type-flying: oklch(0.85 0.1 250); /* light blue */
-  --color-type-ghost: oklch(0.38 0.1 300); /* purple */
-  --color-type-grass: oklch(0.75 0.18 135); /* green */
-  --color-type-ground: oklch(0.75 0.18 80); /* brown */
-  --color-type-ice: oklch(0.92 0.1 200); /* light cyan */
-  --color-type-normal: oklch(0.85 0.05 80); /* beige */
-  --color-type-poison: oklch(0.65 0.18 320); /* purple */
-  --color-type-psychic: oklch(0.85 0.18 20); /* red-orange */
-  --color-type-rock: oklch(0.65 0.1 80); /* tan */
-  --color-type-steel: oklch(0.8 0.05 250); /* steel blue */
-  --color-type-water: oklch(0.65 0.18 250); /* blue */
+  --color-bug: oklch(0.75 0.18 110); /* greenish */
+  --color-dark: oklch(0.25 0.05 260); /* dark purple */
+  --color-dragon: oklch(0.55 0.18 270); /* blue-violet */
+  --color-electric: oklch(0.92 0.18 100); /* yellow */
+  --color-fairy: oklch(0.98 0.12 340); /* pink */
+  --color-fighting: oklch(0.55 0.18 40); /* orange-brown */
+  --color-fire: oklch(0.85 0.22 40); /* orange */
+  --color-flying: oklch(0.85 0.1 250); /* light blue */
+  --color-ghost: oklch(0.38 0.1 300); /* purple */
+  --color-grass: oklch(0.75 0.18 135); /* green */
+  --color-ground: oklch(0.75 0.18 80); /* brown */
+  --color-ice: oklch(0.92 0.1 200); /* light cyan */
+  --color-normal: oklch(0.85 0.05 80); /* beige */
+  --color-poison: oklch(0.65 0.18 320); /* purple */
+  --color-psychic: oklch(0.85 0.18 20); /* red-orange */
+  --color-rock: oklch(0.65 0.1 80); /* tan */
+  --color-steel: oklch(0.8 0.05 250); /* steel blue */
+  --color-water: oklch(0.65 0.18 250); /* blue */
 
   --color-error: oklch(0.577 0.245 27.325); /* red */
+
+  --color-physical: #e45e3e;
+  --color-special: #5973a7;
+  --color-status: #a9a795;
 }
 /*
 @media (prefers-color-scheme: dark) {
@@ -142,24 +149,24 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
   /* Pokémon Type Colors (Dark) */
-  --color-type-bug: oklch(0.45 0.18 110);
-  --color-type-dark: oklch(0.18 0.05 260);
-  --color-type-dragon: oklch(0.38 0.18 270);
-  --color-type-electric: oklch(0.65 0.18 100);
-  --color-type-fairy: oklch(0.85 0.12 340);
-  --color-type-fighting: oklch(0.38 0.18 40);
-  --color-type-fire: oklch(0.65 0.22 40);
-  --color-type-flying: oklch(0.65 0.1 250);
-  --color-type-ghost: oklch(0.25 0.1 300);
-  --color-type-grass: oklch(0.45 0.18 135);
-  --color-type-ground: oklch(0.45 0.18 80);
-  --color-type-ice: oklch(0.65 0.1 200);
-  --color-type-normal: oklch(0.45 0.05 80);
-  --color-type-poison: oklch(0.38 0.18 320);
-  --color-type-psychic: oklch(0.65 0.18 20);
-  --color-type-rock: oklch(0.38 0.1 80);
-  --color-type-steel: oklch(0.55 0.05 250);
-  --color-type-water: oklch(0.38 0.18 250);
+  --color-bug: oklch(0.45 0.18 110);
+  --color-dark: oklch(0.18 0.05 260);
+  --color-dragon: oklch(0.38 0.18 270);
+  --color-electric: oklch(0.65 0.18 100);
+  --color-fairy: oklch(0.85 0.12 340);
+  --color-fighting: oklch(0.38 0.18 40);
+  --color-fire: oklch(0.65 0.22 40);
+  --color-flying: oklch(0.65 0.1 250);
+  --color-ghost: oklch(0.25 0.1 300);
+  --color-grass: oklch(0.45 0.18 135);
+  --color-ground: oklch(0.45 0.18 80);
+  --color-ice: oklch(0.65 0.1 200);
+  --color-normal: oklch(0.45 0.05 80);
+  --color-poison: oklch(0.38 0.18 320);
+  --color-psychic: oklch(0.65 0.18 20);
+  --color-rock: oklch(0.38 0.1 80);
+  --color-steel: oklch(0.55 0.05 250);
+  --color-water: oklch(0.38 0.18 250);
 }
 /*
 ---break--- */

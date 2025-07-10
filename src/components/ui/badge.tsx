@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { PokemonType } from "@/types/types";
 
 // All possible badge variants, including Pokémon types and UI variants
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const badgeVariantNames = [
   "default",
   "secondary",
@@ -47,24 +48,24 @@ const badgeVariants = cva(
         outline:
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
         // Pokémon type variants
-        normal: "bg-type-normal text-white border-transparent",
-        fire: "bg-type-fire text-white border-transparent",
-        water: "bg-type-water text-white border-transparent",
-        electric: "bg-type-electric text-black border-transparent",
-        grass: "bg-type-grass text-white border-transparent",
-        ice: "bg-type-ice text-black border-transparent",
-        fighting: "bg-type-fighting text-white border-transparent",
-        poison: "bg-type-poison text-white border-transparent",
-        ground: "bg-type-ground text-black border-transparent",
-        flying: "bg-type-flying text-white border-transparent",
-        psychic: "bg-type-psychic text-white border-transparent",
-        bug: "bg-type-bug text-white border-transparent",
-        rock: "bg-type-rock text-white border-transparent",
-        ghost: "bg-type-ghost text-white border-transparent",
-        dragon: "bg-type-dragon text-white border-transparent",
-        dark: "bg-type-dark text-white border-transparent",
-        steel: "bg-type-steel text-black border-transparent",
-        fairy: "bg-type-fairy text-white border-transparent",
+        normal: "bg-normal text-white border-transparent",
+        fire: "bg-fire text-white border-transparent",
+        water: "bg-water text-white border-transparent",
+        electric: "bg-electric text-black border-transparent",
+        grass: "bg-grass text-white border-transparent",
+        ice: "bg-ice text-black border-transparent",
+        fighting: "bg-fighting text-white border-transparent",
+        poison: "bg-poison text-white border-transparent",
+        ground: "bg-ground text-black border-transparent",
+        flying: "bg-flying text-white border-transparent",
+        psychic: "bg-psychic text-white border-transparent",
+        bug: "bg-bug text-white border-transparent",
+        rock: "bg-rock text-white border-transparent",
+        ghost: "bg-ghost text-white border-transparent",
+        dragon: "bg-dragon text-white border-transparent",
+        dark: "bg-dark text-white border-transparent",
+        steel: "bg-steel text-black border-transparent",
+        fairy: "bg-fairy text-white border-transparent",
       },
     },
     defaultVariants: {
