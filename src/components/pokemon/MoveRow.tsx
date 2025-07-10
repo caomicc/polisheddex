@@ -37,7 +37,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       </TableCell>
 
       <TableCell className="align-middle p-2 ">
-        <MoveCategoryIcon category={info?.category || ''} />
+        <MoveCategoryIcon category={info?.category || ''} className={'w-6 h-6'} />
       </TableCell>
 
       <TableCell className="align-middle p-2 ">

@@ -157,14 +157,14 @@ export default function PokemonFormClient({
       <Table>
       <TableHeader className={"hidden md:table-header-group"}>
         <TableRow>
-        <TableHead className="attheader cen align-middle text-left">Level</TableHead>
-        <TableHead className="attheader cen align-middle text-left">Attack Name</TableHead>
-        <TableHead className="attheader cen align-middle text-left">Type</TableHead>
-        <TableHead className="attheader cen align-middle text-left">Cat.</TableHead>
-        <TableHead className="attheader cen align-middle text-left">Att.</TableHead>
-        <TableHead className="attheader cen align-middle text-left">Acc.</TableHead>
-        <TableHead className="attheader cen align-middle text-left">PP</TableHead>
-        <TableHead className="attheader cen align-middle text-left">Effect %</TableHead>
+          <TableHead className="attheader cen align-middle text-left w-[60px]">Level</TableHead>
+          <TableHead className="attheader cen align-middle text-left w-[180px]">Attack Name</TableHead>
+          <TableHead className="attheader cen align-middle text-left w-[80px]">Type</TableHead>
+          <TableHead className="attheader cen align-middle text-left w-[80px]">Cat.</TableHead>
+          <TableHead className="attheader cen align-middle text-left w-[80px]">Att.</TableHead>
+          <TableHead className="attheader cen align-middle text-left w-[80px]">Acc.</TableHead>
+          <TableHead className="attheader cen align-middle text-left w-[80px]">PP</TableHead>
+          <TableHead className="attheader cen align-middle text-left w-[80px]">Effect %</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -186,14 +186,14 @@ export default function PokemonFormClient({
       <Table>
         <TableHeader className={"hidden md:table-header-group"}>
         <TableRow>
-          <TableHead className="attheader cen align-middle text-left">Level</TableHead>
-          <TableHead className="attheader cen align-middle text-left">Attack Name</TableHead>
-          <TableHead className="attheader cen align-middle text-left">Type</TableHead>
-          <TableHead className="attheader cen align-middle text-left">Cat.</TableHead>
-          <TableHead className="attheader cen align-middle text-left">Att.</TableHead>
-          <TableHead className="attheader cen align-middle text-left">Acc.</TableHead>
-          <TableHead className="attheader cen align-middle text-left">PP</TableHead>
-          <TableHead className="attheader cen align-middle text-left">Effect %</TableHead>
+        <TableHead className="attheader cen align-middle text-left w-[60px]">Level</TableHead>
+        <TableHead className="attheader cen align-middle text-left w-[180px]">Attack Name</TableHead>
+        <TableHead className="attheader cen align-middle text-left w-[80px]">Type</TableHead>
+        <TableHead className="attheader cen align-middle text-left w-[80px]">Cat.</TableHead>
+        <TableHead className="attheader cen align-middle text-left w-[80px]">Att.</TableHead>
+        <TableHead className="attheader cen align-middle text-left w-[80px]">Acc.</TableHead>
+        <TableHead className="attheader cen align-middle text-left w-[80px]">PP</TableHead>
+        <TableHead className="attheader cen align-middle text-left w-[80px]">Effect %</TableHead>
         </TableRow>
         </TableHeader>
         <TableBody>
@@ -210,17 +210,17 @@ export default function PokemonFormClient({
       {formData.locations && formData.locations.length > 0 ? (
       <div className="mb-6">
         <ul className="divide-y divide-gray-200">
-        {formData.locations.map((loc: LocationEntryProps, idx: number) => (
-          <LocationListItem
-          key={idx}
-          area={loc.area}
-          method={loc.method}
-          time={loc.time}
-          level={loc.level}
-          chance={loc.chance}
-          rareItem={loc.rareItem}
-          />
-        ))}
+          {formData.locations.map((loc: LocationEntryProps, idx: number) => (
+            <LocationListItem
+            key={idx}
+            area={loc.area}
+            method={loc.method}
+            time={loc.time}
+            level={loc.level}
+            chance={loc.chance}
+            rareItem={loc.rareItem}
+            />
+          ))}
         </ul>
       </div>
       ) : (
