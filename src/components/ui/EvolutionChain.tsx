@@ -6,7 +6,6 @@ import type { EvolutionChainProps } from "@/types/types";
 
 export function EvolutionChain({
   chain,
-  spritesByGen = {},
   className,
 }: EvolutionChainProps) {
   return (

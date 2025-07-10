@@ -4,6 +4,8 @@ import { PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
 import typeChartData from '../../../type_chart.json';
 
+// TODO: Update types
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as any;
 const ALL_TYPES = Object.keys(TYPE_CHART).filter((type) => {
   const data = TYPE_CHART[type];
@@ -33,7 +35,7 @@ export function WeaknessChart({ types }: { types: string[] }) {
       <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
         {ALL_TYPES.map((type) => {
           const value = effectiveness[type];
-          let color =
+          const color =
             value > 1
               ? 'bg-red-200 text-red-800'
               : value < 1 && value > 0

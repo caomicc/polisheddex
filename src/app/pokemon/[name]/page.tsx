@@ -17,7 +17,6 @@ import {
   LevelMovesData,
   LocationsData,
   MoveDescription,
-  MoveDetail,
 } from '@/types/types';
 
 // Function to safely load JSON data

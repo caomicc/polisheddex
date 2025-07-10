@@ -74,7 +74,7 @@ export interface PokemonDataV3 extends PokemonDataV2 {
 
 
 export interface MoveDetail {
-  level: any;
+  level: string;
   name: string;
   description: string;
   type: string;
