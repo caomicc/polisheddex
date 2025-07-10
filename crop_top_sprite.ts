@@ -22,8 +22,27 @@ async function autodetectAndCropSprite(filePath: string, outPath: string) {
     }
   }
   // Crop the top sprite
-  await image.extract({ left: 0, top: 0, width, height: spriteHeight }).toFile(outPath);
-  console.log(`Cropped top sprite from ${filePath} -> ${outPath}`);
+  const cropped = await image.extract({ left: 0, top: 0, width, height: spriteHeight }).toBuffer();
+
+  // Make white pixels transparent
+  await sharp(cropped)
+    .png()
+    .ensureAlpha()
+    .recomb([
+      [1, 0, 0],
+      [0, 1, 0],
+      [0, 0, 1],
+    ])
+    .joinChannel(
+      await sharp(cropped)
+        .removeAlpha()
+        .toColourspace('b-w')
+        .threshold(254) // 254 to catch near-white
+        .negate()
+        .toBuffer()
+    )
+    .toFile(outPath);
+  console.log(`Cropped top sprite from ${filePath} -> ${outPath} (white made transparent)`);
 }
 
 function findAllFrontPngs(dir: string): string[] {

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
+import PokemonCard from '@/components/pokemon/PokemonCard';
+import { BaseData } from '@/types/types';
 
 export default async function PokemonList({ searchParams }: { searchParams: Promise<{ sort?: string }> }) {
   // Read the JSON file at build time
@@ -14,10 +16,7 @@ export default async function PokemonList({ searchParams }: { searchParams: Prom
 
   // Prepare an array of Pokémon with their names and dex numbers
   // eslint-disable-next-line
-  const pokemonList = Object.entries(data).map(([name, info]: [string, any]) => ({
-    name,
-    nationalDex: info.nationalDex ?? Infinity,
-  }));
+  const pokemonList: BaseData[] = Object.values(data) as BaseData[];
 
   // Sort based on selected sort type
   const sortedPokemon = [...pokemonList].sort((a, b) => {
@@ -25,13 +24,13 @@ export default async function PokemonList({ searchParams }: { searchParams: Prom
       return a.name.localeCompare(b.name);
     }
     if (sortType === 'nationaldex') {
-      return a.nationalDex - b.nationalDex || a.name.localeCompare(b.name);
+      return (a.nationalDex ?? 0) - (b.nationalDex ?? 0) || a.name.localeCompare(b.name);
     }
     return 0;
   });
 
   return (
-    <div className="max-w-xl mx-auto p-4">
+    <div className="max-w-xl md:max-w-4xl mx-auto p-4">
       <nav className="mb-4 text-sm">
         <ol className="list-reset flex text-gray-600">
           <li>
@@ -44,20 +43,12 @@ export default async function PokemonList({ searchParams }: { searchParams: Prom
       <h1 className="text-2xl font-bold mb-4">Pokémon List</h1>
       <div className="mb-4 flex gap-4">
         <SortLink label="Alphabetical" sort="alphabetical" current={sortType} />
-        {/* <SortLink label="Local Dex" sort="localdex" current={sortType} /> */}
         <SortLink label="National Dex" sort="nationaldex" current={sortType} />
       </div>
-      <ul className="grid gap-2">
+      <ul className="grid gap-2 md:gap-8 grid-cols-2 md:grid-cols-3">
         {sortedPokemon.map((p) => (
-          <li key={p.name} className="border rounded p-2 flex items-center justify-between">
-            <div>
-              <Link href={`/pokemon/${encodeURIComponent(p.name)}`} className="text-blue-600 hover:underline font-semibold">
-                {p.name}
-              </Link>
-            </div>
-            <span className="ml-2 text-xs text-gray-500">
-              National: {p.nationalDex !== Infinity ? p.nationalDex : '—'}
-            </span>
+          <li key={p.name}>
+            <PokemonCard  pokemon={p} />
           </li>
         ))}
       </ul>

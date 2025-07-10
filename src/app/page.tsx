@@ -1,14 +1,15 @@
 import Link from 'next/link';
+import { cn } from '../lib/utils';
 
 export default function Home() {
   return (
-    <div className="max-w-5xl mx-auto p-6">
+    <div className="max-w-5xl mx-auto p-6 min-h-screen flex flex-col">
       <div className="text-center my-12">
         <h1 className="text-4xl font-bold mb-4">Welcome to PolishedDex</h1>
         <p className="text-xl text-gray-600 mb-8">Your comprehensive guide to Pokémon Polished Crystal</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-1">
         <Link href="/pokemon" className="group">
           <div className="border rounded-lg p-6 h-full transition hover:shadow-lg hover:border-blue-500">
             <h2 className="text-2xl font-bold mb-3 group-hover:text-blue-700">Pokémon Database</h2>
