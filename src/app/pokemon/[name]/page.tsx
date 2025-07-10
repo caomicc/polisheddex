@@ -100,7 +100,10 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       forms.map((formKey) => [
         formKey,
         {
-          types: baseStats.forms?.[formKey]?.types || baseStats.types,
+          types:
+            baseStats.forms?.[formKey]?.types !== undefined && baseStats.forms?.[formKey]?.types !== null
+              ? baseStats.forms[formKey].types
+              : baseStats.types,
           moves: levelMovesData[pokemonName]?.forms?.[formKey]?.moves || defaultForm.moves,
           locations:
             locationsData[pokemonName]?.forms?.[formKey]?.locations || defaultForm.locations,

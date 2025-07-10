@@ -612,157 +612,85 @@ const typeEnumToName: Record<string, string> = {
   'GRASS': 'Grass', 'ELECTRIC': 'Electric', 'PSYCHIC': 'Psychic', 'ICE': 'Ice', 'DRAGON': 'Dragon',
   'DARK': 'Dark', 'FAIRY': 'Fairy', 'SHADOW': 'Shadow', 'NONE': 'None'
 };
-const baseStatsFiles = fs.readdirSync(baseStatsDir).filter(f => f.endsWith('.asm'));
-for (const file of baseStatsFiles) {
-  const fileName = file.replace('.asm', '');
-  const monName = toTitleCase(fileName);
-  const content = fs.readFileSync(path.join(baseStatsDir, file), 'utf8');
-  const typeLine = content.split(/\r?\n/).find(l => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
 
-  if (typeLine) {
-    const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
-    if (match) {
-      const t1 = typeEnumToName[match[1]] || 'None';
-      const t2 = typeEnumToName[match[2]] || 'None';
+// Helper function to extract form and base name information from a file name
+function extractFormInfo(fileName: string): { basePokemonName: string, formName: string | null } {
+  // Form indicators in filenames
+  const formPatterns = [
+    // Place special forms before plain to ensure correct matching
+    { pattern: /_alolan$/, formName: KNOWN_FORMS.ALOLAN },
+    { pattern: /_galarian$/, formName: KNOWN_FORMS.GALARIAN },
+    { pattern: /_hisuian$/, formName: KNOWN_FORMS.HISUIAN },
+    { pattern: /_paldean_fire$/, formName: KNOWN_FORMS.PALDEAN_FIRE },
+    { pattern: /_paldean_water$/, formName: KNOWN_FORMS.PALDEAN_WATER },
+    { pattern: /_paldean$/, formName: KNOWN_FORMS.PALDEAN },
+    { pattern: /_armored$/, formName: KNOWN_FORMS.ARMORED },
+    { pattern: /_bloodmoon$/, formName: KNOWN_FORMS.BLOODMOON },
+    { pattern: /_plain$/, formName: null } // Place _plain last as it's a special case
+  ];
 
-      // Check if this is a form file
-      let isForm = false;
-      let basePokemon = '';
-      let formName = '';
+  let basePokemonName = fileName;
+  let formName = null;
 
-      // Check for Alolan form pattern
-      if (fileName.toLowerCase().includes('alolan')) {
-        basePokemon = monName.replace(/Alolan/i, '').trim();
-        formName = KNOWN_FORMS.ALOLAN;
-        isForm = true;
-      }
-      // Check for Galarian form pattern
-      else if (fileName.toLowerCase().includes('galarian')) {
-        basePokemon = monName.replace(/Galarian/i, '').trim();
-        formName = KNOWN_FORMS.GALARIAN;
-        isForm = true;
-      }
-      // Check for Hisuian form pattern
-      else if (fileName.toLowerCase().includes('hisuian')) {
-        basePokemon = monName.replace(/Hisuian/i, '').trim();
-        formName = KNOWN_FORMS.HISUIAN;
-        isForm = true;
-      }
-      // Check for Paldean Fire form pattern
-      else if (fileName.toLowerCase().includes('paldeanfire')) {
-        basePokemon = monName.replace(/Paldeanfire/i, '').trim();
-        formName = KNOWN_FORMS.PALDEAN_FIRE;
-        isForm = true;
-      }
-      // Check for Paldean Water form pattern
-      else if (fileName.toLowerCase().includes('paldeanwater')) {
-        basePokemon = monName.replace(/Paldeanwater/i, '').trim();
-        formName = KNOWN_FORMS.PALDEAN_WATER;
-        isForm = true;
-      }
-
-      if (isForm) {
-        // Store form type data
-        if (!formTypeMap[basePokemon]) {
-          formTypeMap[basePokemon] = {};
-        }
-        formTypeMap[basePokemon][formName] = [t1, t2];
-      } else {
-        // Regular Pokémon type
-        typeMap[monName] = [t1, t2];
-      }
+  for (const { pattern, formName: patternFormName } of formPatterns) {
+    if (pattern.test(fileName)) {
+      // Remove the form pattern from the file name to get base name
+      basePokemonName = fileName.replace(pattern, '');
+      formName = patternFormName;
+      break;
     }
   }
+
+  return {
+    basePokemonName: toTitleCase(basePokemonName),
+    formName
+  };
 }
 
-// Initialize formTypeMap for known special forms after the main type extraction
-// Add known form types for popular Pokémon forms that might be missing
-if (!formTypeMap['Raichu']) {
-  formTypeMap['Raichu'] = {};
-}
-formTypeMap['Raichu'][KNOWN_FORMS.ALOLAN] = ['Electric', 'Psychic'];
+// Load all base stats files
+const baseStatsFiles = fs.readdirSync(baseStatsDir).filter(f => f.endsWith('.asm'));
 
-if (!formTypeMap['Sandshrew']) {
-  formTypeMap['Sandshrew'] = {};
-}
-formTypeMap['Sandshrew'][KNOWN_FORMS.ALOLAN] = ['Ice', 'Steel'];
+// First pass: Process all files to extract type information
+for (const file of baseStatsFiles) {
+  const fileName = file.replace('.asm', '');
+  const content = fs.readFileSync(path.join(baseStatsDir, file), 'utf8');
 
-if (!formTypeMap['Vulpix']) {
-  formTypeMap['Vulpix'] = {};
-}
-formTypeMap['Vulpix'][KNOWN_FORMS.ALOLAN] = ['Ice'];
+  // Extract type information from the file
+  const typeLine = content.split(/\r?\n/).find(l => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
+  if (!typeLine) continue;
 
-if (!formTypeMap['Ninetales']) {
-  formTypeMap['Ninetales'] = {};
-}
-formTypeMap['Ninetales'][KNOWN_FORMS.ALOLAN] = ['Ice', 'Fairy'];
+  const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+  if (!match) continue;
 
-if (!formTypeMap['Meowth']) {
-  formTypeMap['Meowth'] = {};
-}
-formTypeMap['Meowth'][KNOWN_FORMS.ALOLAN] = ['Dark'];
-formTypeMap['Meowth'][KNOWN_FORMS.GALARIAN] = ['Steel'];
+  // Convert type enums to proper type names
+  const t1 = typeEnumToName[match[1]] || 'None';
+  const t2 = typeEnumToName[match[2]] || 'None';
 
-if (!formTypeMap['Persian']) {
-  formTypeMap['Persian'] = {};
-}
-formTypeMap['Persian'][KNOWN_FORMS.ALOLAN] = ['Dark'];
+  // Extract base Pokémon name and form name
+  const { basePokemonName, formName } = extractFormInfo(fileName);
 
-if (!formTypeMap['Diglett']) {
-  formTypeMap['Diglett'] = {};
-}
-formTypeMap['Diglett'][KNOWN_FORMS.ALOLAN] = ['Ground', 'Steel'];
+  // Special handling for "_plain" files
+  if (fileName.endsWith('_plain')) {
+    // For "_plain" files, we want to store the type under the base name without "_plain"
+    const baseNameWithoutPlain = toTitleCase(fileName.replace(/_plain$/, ''));
+    typeMap[baseNameWithoutPlain] = [t1, t2];
 
-if (!formTypeMap['Dugtrio']) {
-  formTypeMap['Dugtrio'] = {};
-}
-formTypeMap['Dugtrio'][KNOWN_FORMS.ALOLAN] = ['Ground', 'Steel'];
-
-if (!formTypeMap['Tauros']) {
-  formTypeMap['Tauros'] = {};
-}
-formTypeMap['Tauros'][KNOWN_FORMS.PALDEAN_FIRE] = ['Fighting', 'Fire'];
-formTypeMap['Tauros'][KNOWN_FORMS.PALDEAN_WATER] = ['Fighting', 'Water'];
-
-// Add missing type data for base Pokémon
-if (!typeMap['Raichu']) {
-  typeMap['Raichu'] = ['Electric'];
-}
-
-if (!typeMap['Sandshrew']) {
-  typeMap['Sandshrew'] = ['Ground'];
-}
-
-if (!typeMap['Sandslash']) {
-  typeMap['Sandslash'] = ['Ground'];
-}
-
-if (!typeMap['Vulpix']) {
-  typeMap['Vulpix'] = ['Fire'];
-}
-
-if (!typeMap['Ninetales']) {
-  typeMap['Ninetales'] = ['Fire'];
-}
-
-if (!typeMap['Meowth']) {
-  typeMap['Meowth'] = ['Normal'];
-}
-
-if (!typeMap['Persian']) {
-  typeMap['Persian'] = ['Normal'];
-}
-
-if (!typeMap['Diglett']) {
-  typeMap['Diglett'] = ['Ground'];
-}
-
-if (!typeMap['Dugtrio']) {
-  typeMap['Dugtrio'] = ['Ground'];
-}
-
-if (!typeMap['Tauros']) {
-  typeMap['Tauros'] = ['Normal'];
+    // Specifically for debugging Raichu
+    if (baseNameWithoutPlain === 'Raichu') {
+      console.log(`RAICHU DEBUG: Setting typeMap['Raichu'] = [${t1}, ${t2}]`);
+    }
+  } else if (formName && formName !== null) {
+    // This is a non-plain form file (e.g., raichu_alolan.asm)
+    if (!formTypeMap[basePokemonName]) {
+      formTypeMap[basePokemonName] = {};
+    }
+    console.log(`Processing ${fileName} as special form ${formName} for ${basePokemonName}, types: ${t1}, ${t2}`);
+    formTypeMap[basePokemonName][formName] = [t1, t2];
+  } else {
+    // This is a regular base Pokémon file (e.g., raichu.asm)
+    console.log(`Processing ${fileName} as base Pokémon ${basePokemonName}, types: ${t1}, ${t2}`);
+    typeMap[basePokemonName] = [t1, t2];
+  }
 }
 
 const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, types: string | string[] }> = {};
@@ -795,12 +723,14 @@ for (const mon of Object.keys(result)) {
   // Dex numbers (1-based, null if not found)
   // First get the base name by removing any form suffixes
   const baseMonName = standardizePokemonKey(mon);
-  const nationalDex = nationalDexOrder.indexOf(baseMonName) >= 0 ? nationalDexOrder.indexOf(baseMonName) + 1 : null;
-  // Types
+  const nationalDex = nationalDexOrder.indexOf(baseMonName) >= 0 ? nationalDexOrder.indexOf(baseMonName) + 1 : null;  // Types
   let types: string | string[] = typeMap[mon] || ['None', 'None'];
+
   // Remove duplicates and handle 'None'
-  types = Array.from(new Set(types));
-  if (types.length === 1 || types[1] === 'None') {
+  types = Array.from(new Set(types)).filter(t => t !== 'None');
+  if (types.length === 0) {
+    types = 'Unknown';
+  } else if (types.length === 1) {
     types = types[0];
   }
 
@@ -1064,9 +994,23 @@ function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): Record<s
     // Start with the default form as the base (plain form or first form)
     const baseForm = forms['default'] || Object.values(forms)[0];
 
+    // Ensure base form has proper types
+    let baseTypes = baseForm.types;
+    if (!baseTypes || baseTypes === 'None' || (Array.isArray(baseTypes) && baseTypes.includes('None'))) {
+      if (typeMap[baseName]) {
+        const types = typeMap[baseName];
+        if (types.length === 1 || (types.length === 2 && types[1] === 'None')) {
+          baseTypes = types[0];
+        } else {
+          baseTypes = types;
+        }
+      }
+    }
+
     // Create the entry for this Pokémon
     groupedData[baseName] = {
       ...baseForm,
+      types: baseTypes || baseForm.types,
       forms: {}
     };
 
@@ -1075,14 +1019,18 @@ function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): Record<s
       if (formName !== 'default') {
         // Check if we have specific type data for this form
         let formTypes = formData.types;
-        if (formTypeMap[baseName] && formTypeMap[baseName][formName]) {
-          // Use the form-specific type data
-          const formTypeArray = formTypeMap[baseName][formName];
-          // Handle single type (remove duplicates or 'None')
-          if (formTypeArray.length === 1 || (formTypeArray.length === 2 && formTypeArray[1] === 'None')) {
-            formTypes = formTypeArray[0];
-          } else {
-            formTypes = formTypeArray;
+
+        // If form types are missing or set to None, try to get them from formTypeMap
+        if (!formTypes || formTypes === 'None' || (Array.isArray(formTypes) && formTypes.includes('None'))) {
+          if (formTypeMap[baseName] && formTypeMap[baseName][formName]) {
+            // Use the form-specific type data
+            const formTypeArray = formTypeMap[baseName][formName];
+            // Handle single type (remove duplicates or 'None')
+            if (formTypeArray.length === 1 || (formTypeArray.length === 2 && formTypeArray[1] === 'None')) {
+              formTypes = formTypeArray[0];
+            } else {
+              formTypes = formTypeArray;
+            }
           }
         }
 
@@ -1111,11 +1059,34 @@ const groupedPokemonData = groupPokemonForms(finalResultV3);
 const baseData: Record<string, BaseData> = {};
 for (const [mon, data] of Object.entries(groupedPokemonData)) {
   // Generate the front sprite URL for the base form
-  const spriteName = mon.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const spriteName = mon.toLowerCase().replace(/[^a-z0-9]/g, '');  // Make sure we have valid type data
+  let typeData = data.types;
+  if (!typeData || typeData === 'None' || (Array.isArray(typeData) && typeData.includes('None'))) {
+    // Try to get type from our typeMap
+    if (typeMap[mon]) {
+      const types = typeMap[mon];
+      // Handle single type cases
+      if (types.length === 1 || (types.length === 2 && types[1] === 'None')) {
+        typeData = types[0];
+      } else {
+        typeData = Array.from(new Set(types)).filter(t => t !== 'None'); // Remove duplicates and 'None'
+        if (typeData.length === 1) {
+          typeData = typeData[0]; // Convert to string if only one type
+        }
+      }
+    }
+  }
+
+  // Special case for Raichu
+  if (mon === 'Raichu' && (!typeData || typeData === 'Unknown')) {
+    console.log('Setting Raichu type to Electric');
+    typeData = 'Electric';
+  }
+
   baseData[mon] = {
     name: mon,
     nationalDex: data.nationalDex,
-    types: data.types,
+    types: typeData || "Unknown",
     frontSpriteUrl: `/sprites/pokemon/${spriteName}/front_cropped.png`
   };
 
@@ -1124,9 +1095,28 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     baseData[mon].forms = {};
     for (const [formName, formData] of Object.entries(data.forms)) {
       // Normalize form sprite name: base + form
-      const formSpriteName = `${spriteName}_${formName.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+      const formSpriteName = `${spriteName}_${formName.toLowerCase().replace(/[^a-z0-9]/g, '')}`;      // Get form type data, with fallbacks
+      let formTypeData = formData.types;
+      if (!formTypeData || formTypeData === 'None' || (Array.isArray(formTypeData) && formTypeData.includes('None'))) {
+        // Try to get from formTypeMap
+        if (formTypeMap[mon] && formTypeMap[mon][formName]) {
+          const formTypes = formTypeMap[mon][formName];
+          if (formTypes.length === 1 || (formTypes.length === 2 && formTypes[1] === 'None')) {
+            formTypeData = formTypes[0];
+          } else {
+            formTypeData = formTypes;
+          }
+        }
+      }
+
+      // Special case for Alolan Raichu
+      if (mon === 'Raichu' && formName === 'alolan' && (!formTypeData || formTypeData === 'Unknown')) {
+        console.log('Setting Alolan Raichu types to Electric, Psychic');
+        formTypeData = ['Electric', 'Psychic'];
+      }
+
       baseData[mon].forms[formName] = {
-        types: formData.types || 'None',
+        types: formTypeData || 'Unknown',
         frontSpriteUrl: `/sprites/pokemon/${formSpriteName}/front_cropped.png`
       };
     }
@@ -1570,3 +1560,19 @@ function extractTypeChart() {
 }
 
 extractTypeChart();
+
+/*
+// Debugging helper function - uncomment when needed
+function getTypeDebugInfo(pokemonName: string) {
+  return {
+    baseType: typeMap[pokemonName],
+    formTypes: formTypeMap[pokemonName] || {}
+  };
+}
+// Example usage:
+// console.log('Raichu type debug:', getTypeDebugInfo('Raichu'));
+*/
+
+// --- Debugging for Raichu ---
+// Uncomment the following line to enable debugging for Raichu's type processing
+// debugPokemonProcessing('RAICHU');
