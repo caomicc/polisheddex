@@ -117,21 +117,24 @@ function extractMoveDescriptions() {
     'PHYSICAL': 'Physical', 'SPECIAL': 'Special', 'STATUS': 'Status'
   };
   const statsLines = statsData.split(/\r?\n/);
-  const moveStats: Record<string, { type: string; pp: number; power: number; category: string }> = {};
+  // Updated regex: capture accuracy (5th argument)
+  // move NAME, EFFECT, POWER, TYPE, ACCURACY, PP, PRIORITY, CATEGORY
+  const moveStats: Record<string, { type: string; pp: number; power: number; category: string; accuracy: any }> = {};
   for (const line of statsLines) {
-    const match = line.match(/^\s*move\s+([A-Z0-9_]+),\s*[A-Z0-9_]+,\s*(-?\d+),\s*([A-Z_]+),\s*-?\d+,\s*(\d+),\s*\d+,\s*([A-Z_]+)/);
+    const match = line.match(/^\s*move\s+([A-Z0-9_]+),\s*[A-Z0-9_]+,\s*(-?\d+),\s*([A-Z_]+),\s*(-?\d+),\s*(\d+),\s*\d+,\s*([A-Z_]+)/);
     if (match) {
       const move = match[1];
       const power = parseInt(match[2], 10);
       const type = typeEnumToName[match[3]] || 'None';
-      const pp = parseInt(match[4], 10);
-      const category = categoryEnumToName[match[5]] || 'Unknown';
-      moveStats[move] = { type, pp, power, category };
+      const accuracy = parseInt(match[4], 10);
+      const pp = parseInt(match[5], 10);
+      const category = categoryEnumToName[match[6]] || 'Unknown';
+      moveStats[move] = { type, pp, power, category, accuracy };
     }
   }
 
   // Map move names to their description by label name
-  const moveDescByName: Record<string, { description: string; type: string; pp: number; power: number; category: string }> = {};
+  const moveDescByName: Record<string, { description: string; type: string; pp: number; power: number; category: string; accuracy: number }> = {};
   // Define normalized groups for shared descriptions
   const sharedDescriptionGroups: Record<string, string[]> = {
     paralysis: [
@@ -211,14 +214,15 @@ function extractMoveDescriptions() {
         }
       }
     }
-    const stats = moveStats[moveKey] || { type: 'None', pp: 0, power: 0, category: 'Unknown' };
+    const stats = moveStats[moveKey] || { type: 'None', pp: 0, power: 0, category: 'Unknown', accuracy: 0 };
     const prettyName = toCapitalCaseWithSpaces(moveKey);
     moveDescByName[prettyName] = {
       description: desc,
       type: stats.type,
       pp: stats.pp,
       power: stats.power,
-      category: stats.category
+      category: stats.category,
+      accuracy: stats.accuracy === -1 ? '--' : stats.accuracy // -1 means always lands, show as --
     };
   }
 
@@ -253,6 +257,14 @@ const filePath = path.join(__dirname, 'data/pokemon/evos_attacks.asm');
 const data = fs.readFileSync(filePath, 'utf8');
 const lines = data.split(/\r?\n/);
 
+
+// --- Move Description Map ---
+// Read move descriptions from the generated JSON file
+const moveDescriptionsPath = path.join(__dirname, 'pokemon_move_descriptions.json');
+let moveDescriptions: Record<string, any> = {};
+if (fs.existsSync(moveDescriptionsPath)) {
+  moveDescriptions = JSON.parse(fs.readFileSync(moveDescriptionsPath, 'utf8'));
+}
 
 const evoMap: Record<string, EvoRaw[]> = {};
 const preEvoMap: Record<string, string[]> = {};
@@ -313,9 +325,24 @@ for (const lineRaw of lines) {
   } else if (line.startsWith('learnset ')) {
     const match = line.match(/learnset (\d+),\s*([A-Z0-9_]+)/);
     if (match) {
+      const level = parseInt(match[1], 10);
+      const moveKey = match[2];
+      const prettyName = toCapitalCaseWithSpaces(moveKey);
+      const info = moveDescriptions[prettyName]
+        ? {
+          description: moveDescriptions[prettyName].description,
+          type: moveDescriptions[prettyName].type,
+          pp: moveDescriptions[prettyName].pp,
+          power: moveDescriptions[prettyName].power,
+          accuracy: moveDescriptions[prettyName].accuracy,
+          effectPercent: moveDescriptions[prettyName].effectPercent,
+          category: moveDescriptions[prettyName].category
+        }
+        : undefined;
       movesV2.push({
-        level: parseInt(match[1], 10),
-        move: match[2]
+        name: prettyName,
+        level,
+        ...(info ? { info } : {}),
       });
     }
   }
@@ -600,9 +627,11 @@ const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, 
 for (const mon of Object.keys(result)) {
   // Normalize move names in evolution moves
   const moves = result[mon].moves.map(m => ({
+    name: m.name,
     level: m.level,
-    move: toCapitalCaseWithSpaces(m.move)
-  }));  // Standardize the Pokemon name to ensure consistent keys
+    ...(m.info ? { info: m.info } : {})
+  }));
+  // Standardize the Pokemon name to ensure consistent keys
   const standardMon = standardizePokemonKey(mon);
 
   // Every Pokémon should have an evolution object, even if it's a final evolution
@@ -969,7 +998,11 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
       if (formData.moves && formData.moves.length > 0) {
         if (!levelMoves[mon].forms) levelMoves[mon].forms = {};
         levelMoves[mon].forms[formName] = {
-          moves: formData.moves
+          moves: formData.moves.map(m => ({
+            name: m.name,
+            level: m.level,
+            ...(m.info ? { info: m.info } : {})
+          }))
         };
       }
     }

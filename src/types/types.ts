@@ -30,8 +30,19 @@ export interface EncounterDetail {
 }
 
 export interface Move {
-  level: number;
-  move: string;
+  name: string;
+  level: number | string;
+  info?: MoveDescription;
+}
+
+export interface MoveDescription {
+  description: string;
+  type: string;
+  pp: number | string;
+  power: number | string;
+  accuracy?: number | string;
+  effectPercent?: number | string;
+  category: string;
 }
 
 export interface EvolutionMethod {
@@ -63,6 +74,8 @@ export interface PokemonDataV3 extends PokemonDataV2 {
 
 
 export interface MoveDetail {
+  level: any;
+  name: string;
   description: string;
   type: string;
   pp: number;
@@ -114,24 +127,24 @@ export interface LocationsData {
 
 export interface PokemonType {
   name:
-    | "normal"
-    | "fire"
-    | "water"
-    | "electric"
-    | "grass"
-    | "ice"
-    | "fighting"
-    | "poison"
-    | "ground"
-    | "flying"
-    | "psychic"
-    | "bug"
-    | "rock"
-    | "ghost"
-    | "dragon"
-    | "dark"
-    | "steel"
-    | "fairy";
+  | "normal"
+  | "fire"
+  | "water"
+  | "electric"
+  | "grass"
+  | "ice"
+  | "fighting"
+  | "poison"
+  | "ground"
+  | "flying"
+  | "psychic"
+  | "bug"
+  | "rock"
+  | "ghost"
+  | "dragon"
+  | "dark"
+  | "steel"
+  | "fairy";
   damageRelations?: {
     doubleDamageTo: PokemonType[];
     doubleDamageFrom: PokemonType[];
