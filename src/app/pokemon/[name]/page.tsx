@@ -77,6 +77,9 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // Get the main data for this Pokémon
   const baseStats = baseStatsData[pokemonName];
+
+  console.log(`Loading data for Pokémon: ${pokemonName}`, baseStats);
+
   if (!baseStats) return notFound();
 
   // --- Handle forms ---
