@@ -1,4 +1,4 @@
-import type { BaseData, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3, PokemonDexEntry } from './src/types/types.ts';
+import type { BaseData, DetailedStats, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3, PokemonDexEntry } from './src/types/types.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -32,28 +32,128 @@ const LEVEL_MOVES_OUTPUT = path.join(__dirname, 'pokemon_level_moves.json');
 const LOCATIONS_OUTPUT = path.join(__dirname, 'pokemon_locations.json');
 const POKEDEX_ENTRIES_OUTPUT = path.join(__dirname, 'pokemon_pokedex_entries.json');
 const DETAILED_STATS_OUTPUT = path.join(__dirname, 'pokemon_detailed_stats.json');
+const ABILITY_DESCRIPTIONS_OUTPUT = path.join(__dirname, 'pokemon_ability_descriptions.json');
 
-// Type definitions for the detailed stats
-interface DetailedStats {
-  baseStats: {
-    hp: number;
-    attack: number;
-    defense: number;
-    speed: number;
-    specialAttack: number;
-    specialDefense: number;
-    total: number;
+
+function extractAbilityDescriptions() {
+  const abilityNamesPath = path.join(__dirname, 'data/abilities/names.asm');
+  const abilityDescriptionsPath = path.join(__dirname, 'data/abilities/descriptions.asm');
+
+  const namesData = fs.readFileSync(abilityNamesPath, 'utf8');
+  const descData = fs.readFileSync(abilityDescriptionsPath, 'utf8');
+
+  console.log('Extracting ability descriptions...');
+
+  // Parse ability names (order matters)
+  // First get the ability identifiers from the table at the beginning
+  const nameIds = namesData.split(/\r?\n/)
+    .filter(l => l.trim().startsWith('dw '))
+    .map(l => l.trim().replace('dw ', ''))
+    .filter(Boolean);
+
+  // Then get the actual string names from the rawchar definitions
+  const abilityNameMap: Record<string, string> = {};
+  const rawNameMatches = namesData.matchAll(/^(\w+):\s+rawchar\s+"([^@]+)@"/gm);
+
+  // Debug the rawchar matching
+  console.log('Raw name matches found:', [...namesData.matchAll(/^(\w+):\s+rawchar\s+"([^@]+)@"/gm)].length);
+
+  for (const match of rawNameMatches) {
+    const [, id, name] = match;
+    abilityNameMap[id] = name;
+  }
+
+  console.log('Ability name map entries:', Object.keys(abilityNameMap).length);
+
+  // Map the ids to their corresponding names
+  const abilityNames = nameIds.map(id => abilityNameMap[id] || id);
+
+  console.log('Ability names parsed:', abilityNames.length, 'abilities');
+
+  // Parse descriptions by label name
+  const descLines = descData.split(/\r?\n/);
+  const descMap: Record<string, string> = {};
+  let currentLabels: string[] = [];
+  let collecting = false;
+  let buffer: string[] = [];
+  for (const line of descLines) {
+    const labelMatch = line.match(/^([A-Za-z0-9_]+)Description:/);
+    if (labelMatch) {
+      if (currentLabels.length && buffer.length) {
+        for (const label of currentLabels) {
+          const normalizedLabel = label.toUpperCase();
+          descMap[normalizedLabel] = buffer.join(' ');
+        }
+      }
+      // Start a new group of labels
+      const normalizedLabel = labelMatch[1].toUpperCase();
+      currentLabels = [normalizedLabel];
+      buffer = [];
+      collecting = false;
+    } else if (line.match(/^\s*[A-Za-z0-9_]+Description:/)) {
+      const match = line.match(/^\s*([A-Za-z0-9_]+)Description:/);
+      if (match) {
+        const extraLabel = match[1].toUpperCase();
+        currentLabels.push(extraLabel);
+      }
+    } else if (line.trim().startsWith('text ')) {
+      collecting = true;
+      buffer.push(line.replace('text ', '').replace(/"/g, ''));
+    } else if (line.trim().startsWith('next ')) {
+      buffer.push(line.replace('next ', '').replace(/"/g, ''));
+    } else if (line.trim() === 'done') {
+      collecting = false;
+    } else if (collecting && line.trim()) {
+      buffer.push(line.trim().replace(/"/g, ''));
+    }
+  }
+  if (currentLabels.length && buffer.length) {
+    for (const label of currentLabels) {
+      const normalizedLabel = label.toUpperCase();
+      descMap[normalizedLabel] = buffer.join(' ');
+    }
+  }
+
+  // Map ability names to their description
+  const abilityDescByName: Record<string, { description: string }> = {};
+  for (let i = 0; i < abilityNames.length; i++) {
+    const abilityKey = abilityNames[i].toUpperCase().replace(/[^A-Z0-9_]/g, '_');
+    const desc = descMap[abilityKey] || '';
+    const prettyName = toCapitalCaseWithSpaces(abilityKey);
+    abilityDescByName[prettyName] = {
+      description: desc
+    };
+  }
+
+  // Handle special cases where descriptions are shared
+  const sharedDescriptionGroups: Record<string, string[]> = {
+    'Battle Armor': ['Shell Armor'],
+    'Cloud Nine': ['Air Lock'],
+    'Insomnia': ['Vital Spirit'],
+    'Immunity': ['Pastel Veil'],
+    'Clear Body': ['White Smoke'],
+    'Filter': ['Solid Rock'],
   };
-  catchRate: number;
-  baseExp: number;
-  heldItems: string[];
-  genderRatio: string;
-  hatchRate: string;
-  abilities: string[];
-  growthRate: string;
-  eggGroups: string[];
-  evYield: string;
+
+  // Apply shared descriptions
+  for (const [primary, aliasList] of Object.entries(sharedDescriptionGroups)) {
+    const primaryDesc = abilityDescByName[primary];
+    if (primaryDesc) {
+      for (const alias of aliasList) {
+        abilityDescByName[alias] = primaryDesc;
+      }
+    }
+  }
+
+  // Save to a JSON file for reference
+  fs.writeFileSync(ABILITY_DESCRIPTIONS_OUTPUT, JSON.stringify(abilityDescByName, null, 2));
+  console.log('Ability descriptions extracted to', ABILITY_DESCRIPTIONS_OUTPUT);
+
+  return abilityDescByName;
 }
+
+extractAbilityDescriptions();
+
 
 // Helper to convert move names to Capital Case with spaces
 function toCapitalCaseWithSpaces(str: string) {
@@ -736,8 +836,6 @@ for (const file of baseStatsFiles) {
 
     typeMap[baseNameWithoutPlain] = [t1, t2];
 
-    console.log(`typeMap[baseNameWithoutPlain] Processing ${fileName} as plain type for ${baseNameWithoutPlain}, types: ${t1}, ${t2}`);
-
     if (isDebug) {
       console.log(`DEBUG: Setting typeMap['${baseNameWithoutPlain}'] = [${t1}, ${t2}]`);
     }
@@ -758,8 +856,6 @@ for (const file of baseStatsFiles) {
     typeMap[basePokemonName] = [t1, t2];
   }
 }
-
-console.log(typeMap);
 
 const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, johtoDex: number | null, types: string | string[] }> = {};
 for (const mon of Object.keys(result)) {
@@ -815,16 +911,16 @@ for (const mon of Object.keys(result)) {
     if (formTypeMap[basePokemonName] && formTypeMap[basePokemonName][formName]) {
       // Use form-specific type data from formTypeMap
       types = formTypeMap[basePokemonName][formName];
-      console.log(`Using form types for ${mon} (${basePokemonName} + ${formName}): ${types.join(', ')}`);
+      // console.log(`Using form types for ${mon} (${basePokemonName} + ${formName}): ${types.join(', ')}`);
     } else {
       // Fallback to base type if form type not found
       types = typeMap[basePokemonName] || ['None', 'None'];
-      console.log(`Form type not found for ${mon}, falling back to base type: ${types.join(', ')}`);
+      // console.log(`Form type not found for ${mon}, falling back to base type: ${types.join(', ')}`);
     }
   } else {
     // This is a base form or plain form - look up directly in typeMap
     types = typeMap[baseMonName] || ['None', 'None'];
-    console.log(`Using base type for ${mon}: ${types.join(', ')}`);
+    // console.log(`Using base type for ${mon}: ${types.join(', ')}`);
   }
 
   // Remove duplicates and handle 'None'
@@ -1227,19 +1323,6 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
         }
       }
     }
-  }
-
-  // Special case for Raichu
-  console.log(`Processing ${mon} with types: ${typeData}`);
-  if (mon === 'Raichu' && (!typeData || typeData === 'Unknown')) {
-    console.log('Setting Raichu type to Electric');
-    typeData = 'Electric';
-  }
-
-  // Special case for Growlithe
-  if (mon === 'Growlithe' && (!typeData || typeData === 'Unknown')) {
-    console.log('Setting Growlithe type to Fire');
-    typeData = 'Fire';
   }
 
   baseData[mon] = {
@@ -1968,7 +2051,7 @@ function extractDetailedStats(): Record<string, DetailedStats> {
       // Calculate the total if it wasn't provided
       if (baseStats.total === 0) {
         baseStats.total = baseStats.hp + baseStats.attack + baseStats.defense +
-                          baseStats.speed + baseStats.specialAttack + baseStats.specialDefense;
+          baseStats.speed + baseStats.specialAttack + baseStats.specialDefense;
       }
 
       // Extract catch rate - Format: db NUM ; catch rate

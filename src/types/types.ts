@@ -98,6 +98,35 @@ export interface Evolution {
   chain: string[];
 }
 
+
+// Type definitions for the detailed stats
+export interface DetailedStats {
+  baseStats: {
+    hp: number;
+    attack: number;
+    defense: number;
+    speed: number;
+    specialAttack: number;
+    specialDefense: number;
+    total: number;
+  };
+  catchRate: number;
+  baseExp: number;
+  heldItems: string[];
+  genderRatio: string;
+  hatchRate: string;
+  abilities: Ability[] | string[]; // Can be either an array of Ability objects or strings
+  growthRate: string;
+  eggGroups: string[];
+  evYield: string;
+}
+
+export interface Ability {
+  name: string;
+  description: string;
+  isHidden?: boolean;
+}
+
 export interface FormData {
   types: string[] | string;
   moves: Move[];
