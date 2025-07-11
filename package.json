@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "extract": "ts-node extract_pokemon_data.ts && ts-node extract_location_data.ts",
-    "extract:new": "node --loader ts-node/esm extract_pokemon_data/index.ts",
     "crop": "ts-node crop_top_sprite.ts"
   },
   "dependencies": {
