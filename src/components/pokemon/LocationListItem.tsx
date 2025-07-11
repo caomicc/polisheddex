@@ -1,40 +1,50 @@
 import { LocationEntryProps } from '@/types/types';
 import Link from 'next/link';
+import { TableRow, TableCell } from '@/components/ui/table';
 
-export default function LocationListItem({ area, method, time, level, chance, rareItem }: LocationEntryProps) {
+export function LocationListItem({
+  area,
+  method,
+  time,
+  level,
+  chance,
+  rareItem,
+}: LocationEntryProps) {
   const formattedArea = area || 'Unknown Area';
+  const areaUrl = area ? `/locations/${encodeURIComponent(formatAreaName(area))}` : '#';
 
   return (
-    <li className="py-2 hover:bg-gray-50 transition-colors">
-      <Link
-        href={area ? `/locations/${encodeURIComponent(formatAreaName(area))}` : '#'}
-        className="block"
-      >
-        <div className="flex justify-between items-center">
-          <div>
-            <span className="font-semibold text-blue-700">{formatAreaName(formattedArea)}</span>
-            {method && <span className="ml-2 text-gray-600">({formatMethod(method)})</span>}
-            {rareItem && <span className="ml-2 text-amber-600 font-medium">Item: {rareItem}</span>}
-          </div>
-          <div>
-            <span className="bg-gray-100 px-2 py-1 rounded text-sm">Lv. {level}</span>
-            {time && <span className="ml-2 text-sm text-gray-600">{formatTime(time)}</span>}
-            <span className="ml-2 text-sm text-gray-500">{chance}% chance</span>
-          </div>
-        </div>
-      </Link>
-    </li>
+    <TableRow className="hover:bg-gray-50 transition-colors">
+      <TableCell className="font-semibold text-blue-700">
+        {area ? (
+          <Link
+            href={areaUrl}
+            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            {formatAreaName(formattedArea)}
+          </Link>
+        ) : (
+          formatAreaName(formattedArea)
+        )}
+      </TableCell>
+      <TableCell className="text-gray-600">{method ? formatMethod(method) : '-'}</TableCell>
+      <TableCell className="text-sm text-gray-600">{time ? formatTime(time) : '-'}</TableCell>
+      <TableCell className="bg-gray-100 px-2 py-1 rounded text-sm">Lv. {level}</TableCell>
+      <TableCell className="text-sm text-gray-500">{chance}%</TableCell>
+      <TableCell className="text-amber-600 font-medium">
+        {rareItem ? `Item: ${rareItem}` : '-'}
+      </TableCell>
+    </TableRow>
   );
 }
 
 // Helper function to format area names from UPPER_SNAKE_CASE to Title Case
 function formatAreaName(area: string): string {
   if (!area) return 'Unknown Area';
-
   return area
     .toLowerCase()
     .replace(/_/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase());
+    .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 // Helper function to format method names
