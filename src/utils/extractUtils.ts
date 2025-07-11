@@ -679,26 +679,22 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
  */
 export function addBodyDataToDetailedStats(
   line: string,
-  detailedStats: Record<string, unknown>
-): Record<string, unknown> {
+  detailedStats: DetailedStats
+): DetailedStats {
   // Example line: body_data   7,   69, QUADRUPED,    GREEN  ; BULBASAUR
   const bodyDataRegex = /body_data\s+(\d+),\s*(\d+),\s*([A-Z_]+),\s*([A-Z_]+)\s*;\s*(.+)/;
   const match = line.match(bodyDataRegex);
   if (!match) return detailedStats;
 
-  const [, height, weight, shape, color, name] = match;
+  const [, height, weight, shape, color] = match;
 
   // Add body data to detailedStats
   return {
     ...detailedStats,
-
     height: Number(height),
     weight: Number(weight),
     bodyShape: toTitleCase(shape),
     bodyColor: toTitleCase(color),
-    // Optionally add name if needed
-    name,
-    // name,
   };
 }
 
