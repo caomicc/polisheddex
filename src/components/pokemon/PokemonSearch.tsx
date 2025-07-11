@@ -1,10 +1,14 @@
-"use client";
+'use client';
 
-import { BaseData } from "@/types/types";
-import React, { useState } from "react";
-import PokemonCard from "./PokemonCard";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import { BaseData } from '@/types/types';
+import React, { useState } from 'react';
+import PokemonCard from './PokemonCard';
+import { Input } from '../ui/input';
+import { Label } from '../ui/label';
+import Link from 'next/link';
+import { Button } from '../ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger } from '../ui/select';
+import { cn } from '@/lib/utils';
 
 interface PokemonSearchProps {
   pokemon: BaseData[];
@@ -12,7 +16,7 @@ interface PokemonSearchProps {
 }
 
 export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps) {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Filter Pokemon based on search query (name or type)
   const filteredPokemon = pokemon.filter((p) => {
@@ -21,7 +25,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
     // Check if name matches
     if (p.name.toLowerCase().includes(query)) {
       return true;
-    }    // Check if any type matches
+    } // Check if any type matches
     const types = Array.isArray(p.types) ? p.types : [p.types];
     if (types.some((type: string) => type.toLowerCase().includes(query))) {
       return true;
@@ -46,16 +50,47 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
   return (
     <>
       <div className="grid w-full items-center gap-3">
-        <Label htmlFor="pokemon-search">
-          Search Pokémon
-        </Label>
+        <Label htmlFor="pokemon-search">Search Pokémon</Label>
         <Input
-        id="pokemon-search"
+          id="pokemon-search"
           placeholder="Search by name or type..."
-          className="mb-18 bg-white"
+          className=" bg-white"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
+      </div>
+
+      <div className="my-4 flex items-center gap-2 relative">
+        <Label htmlFor="sort-select" className="sr-only">
+          Sort Pokémon
+        </Label>
+        <Select
+          value={sortType}
+          onValueChange={(value) => {
+            window.location.search = `?sort=${value}`;
+          }}
+        >
+          <SelectTrigger
+            className={cn(
+              'w-full sm:w-[180px]', // full width on mobile, fixed on larger screens
+              'max-w-[180px]',
+              'bg-white',
+            )}
+            id="sort-select"
+          >
+            <span>Sort by</span>
+          </SelectTrigger>
+          <SelectContent
+            className={cn(
+              'w-full right-0 max-w-[180px]', // ensure dropdown is full width and right aligned
+              'sm:w-[180px]',
+            )}
+          >
+            <SelectItem value="johtodex">Johto Dex</SelectItem>
+            <SelectItem value="nationaldex">National Dex</SelectItem>
+            <SelectItem value="alphabetical">Alphabetical</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
       {filteredPokemon.length === 0 ? (
         <p className="text-center py-8 text-gray-500">No Pokémon found matching your search.</p>
@@ -69,5 +104,15 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
         </ul>
       )}
     </>
+  );
+}
+
+function SortLink({ label, sort, current }: { label: string; sort: string; current: string }) {
+  return (
+    <Link href={`?sort=${sort}`} aria-current={current === sort ? 'page' : undefined}>
+      <Button variant={current === sort ? 'default' : 'outline'} asChild>
+        <span>{label}</span>
+      </Button>
+    </Link>
   );
 }
