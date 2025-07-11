@@ -111,9 +111,12 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     baseStats: detailedStatData[pokemonName]?.baseStats,
     height: detailedStatData[pokemonName]?.height ?? 0,
     weight: detailedStatData[pokemonName]?.weight ?? 0,
-    evYield: detailedStatData[pokemonName]?.evYield || {},
-    color: baseStats.color || '', // Add color property
-    shape: baseStats.shape || '', // Add shape property
+    evYield: detailedStatData[pokemonName]?.evYield || '',
+    color: detailedStatData[pokemonName]?.color || '', // Add color property
+    shape: detailedStatData[pokemonName]?.shape || '', // Add shape property
+    hatchRate: detailedStatData[pokemonName]?.hatchRate || '',
+    eggGroups: detailedStatData[pokemonName]?.eggGroups || [],
+
   };
 
   // Prepare all form data for the client component
@@ -146,8 +149,10 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           height: detailedStatData[pokemonName]?.height ?? 0,
           weight: detailedStatData[pokemonName]?.weight ?? 0,
           evYield: detailedStatData[pokemonName]?.evYield || '',
-          color: baseStats.color || '', // Add color property
-          shape: baseStats.shape || '', // Add shape property
+          color: detailedStatData[pokemonName]?.color || '', // Add color property
+          shape: detailedStatData[pokemonName]?.shape || '', // Add shape property
+          hatchRate: detailedStatData[pokemonName]?.hatchRate || '',
+          eggGroups: detailedStatData[pokemonName]?.eggGroups || [],
         },
       ]),
     ),

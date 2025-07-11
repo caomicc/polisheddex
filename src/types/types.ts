@@ -125,6 +125,8 @@ export interface DetailedStats {
   evYield: string;
   height?: number | string; // Height can be a number or a string (e.g., "1.2 m")
   weight?: number | string; // Weight can be a number or a string (e.g., "60 kg");
+  shape?: string;
+  color?: string;
 }
 
 export interface Ability {
@@ -133,7 +135,7 @@ export interface Ability {
   isHidden?: boolean;
 }
 
-export interface FormData {
+export interface FormData extends DetailedStats {
   types: string[] | string;
   moves: Move[];
   locations: LocationEntry[];
@@ -144,74 +146,18 @@ export interface FormData {
   johtoDex: number | null;
   species: string;
   description: string;
-  baseStats: {
-    hp: number;
-    attack: number;
-    defense: number;
-    speed: number;
-    specialAttack: number;
-    specialDefense: number;
-    total: number;
-  };
-  catchRate: number;
-  baseExp: number;
-  heldItems: string[];
-  abilities: string[] | Ability[];
-  genderRatio: string;
-  growthRate: string;
-  height: number | string;
-  weight: number | string;
-  color: string;
-  shape: string;
 }
 
-export interface BaseData {
+export interface BaseData extends DetailedStats {
+
   name: string;
   nationalDex: number | null;
   johtoDex: number | null;
   types: string[] | string;
   frontSpriteUrl?: string;
-  baseStats: {
-    hp: number;
-    attack: number;
-    defense: number;
-    speed: number;
-    specialAttack: number;
-    specialDefense: number;
-    total: number;
-  };
-  catchRate: number;
-  baseExp: number;
-  heldItems: string[];
-  abilities: string[] | { name: string; description: string; isHidden?: boolean }[];
-  genderRatio: string;
-  growthRate: string;
-  height: number | string;
-  weight: number | string;
-  color: string;
-  shape: string;
-  forms?: Record<string, {
+  forms?: Record<string, DetailedStats & {
     types: string[] | string;
     frontSpriteUrl?: string;
-    baseStats?: {
-      hp: number;
-      attack: number;
-      defense: number;
-      speed: number;
-      specialAttack: number;
-      specialDefense: number;
-      total: number;
-    };
-    catchRate?: number;
-    baseExp?: number;
-    heldItems?: string[];
-    abilities?: string[] | { name: string; description: string; isHidden?: boolean }[];
-    genderRatio?: string;
-    growthRate?: string;
-    height?: number | string;
-    weight?: number | string;
-    color?: string;
-    shape?: string;
   }>;
 }
 

@@ -1330,9 +1330,27 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     nationalDex: data.nationalDex,
     johtoDex: data.johtoDex,
     types: typeData || "Unknown",
-    frontSpriteUrl: `/sprites/pokemon/${spriteName}/front_cropped.png`
-  };
-
+    frontSpriteUrl: `/sprites/pokemon/${spriteName}/front_cropped.png`,
+    baseStats: {
+      hp: 0,
+      attack: 0,
+      defense: 0,
+      speed: 0,
+      specialAttack: 0,
+      specialDefense: 0,
+      total: 0
+    },
+    catchRate: 255, // default value
+    baseExp: 0, // default value
+    heldItems: [], // default value
+    abilities: [], // default value
+    growthRate: "Medium Fast", // default value
+    eggGroups: [], // default value
+    genderRatio: "Unknown", // default value
+    hatchRate: "Unknown", // default value
+    evYield: "None", // default value
+    forms: {}
+  }
   // Add form-specific type data and sprite URL if available
   if (data.forms && Object.keys(data.forms).length > 0) {
     baseData[mon].forms = {};
@@ -1397,7 +1415,25 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
 
       baseData[mon].forms[formName] = {
         types: formTypeData || 'Unknown',
-        frontSpriteUrl: `/sprites/pokemon/${formSpriteName}/front_cropped.png`
+        frontSpriteUrl: `/sprites/pokemon/${formSpriteName}/front_cropped.png`,
+        baseStats: {
+          hp: 0,
+          attack: 0,
+          defense: 0,
+          speed: 0,
+          specialAttack: 0,
+          specialDefense: 0,
+          total: 0
+        },
+        catchRate: 255,
+        baseExp: 0,
+        heldItems: [],
+        abilities: [],
+        growthRate: "Medium Fast",
+        eggGroups: [],
+        genderRatio: "Unknown",
+        hatchRate: "Unknown",
+        evYield: "None"
       };
     }
   }
