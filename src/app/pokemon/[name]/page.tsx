@@ -194,7 +194,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <h1 className="text-2xl font-bold mb-4">{pokemonName}</h1>
+      <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
       <PokemonFormClient
         forms={forms}
         allFormData={allFormData}

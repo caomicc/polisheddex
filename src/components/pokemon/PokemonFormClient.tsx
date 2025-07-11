@@ -54,27 +54,33 @@ export default function PokemonFormClient({
           </Select>
         </div>
       )}
-      <div className="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
-        <div className="relative p-6 bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-800 dark:to-gray-900 flex flex-col md:flex-row items-center justify-center md:justify-start gap-6">
-          <Image
-            src={formData.frontSpriteUrl ?? ''}
-            alt={`Sprite of Pokémon ${pokemonName}`}
-            width={200}
-            height={200}
-            className="object-contain drop-shadow-lg"
-            priority
-          />
-          <div className="text-center md:text-left">
-            <div className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
+      <div className="max-w-4xl mx-auto md:rounded-xl overflow-hidden md:shadow-lg">
+        <div className="relative md:p-6 md:bg-gradient-to-br md:from-gray-100 md:to-gray-300 md:dark:from-gray-800 md:dark:to-gray-900 flex flex-row items-center justify-start gap-6">
+          <div className="w-14 p-1 md:p-0 md:w-24 md:h-auto ">
+            <Image
+              src={formData.frontSpriteUrl ?? ''}
+              alt={`Sprite of Pokémon ${pokemonName}`}
+              width={200}
+              height={200}
+              className="object-contain w-12 md:drop-shadow-xs md:w-24 md:h-auto md:mb-0"
+              priority
+            />
+          </div>
+          <div className="text-left">
+            <div className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
               National Dex #{String(formData.nationalDex).padStart(3, '0')}
               {formData.johtoDex && (
-                <span className="ml-2">Johto #{String(formData.johtoDex).padStart(3, '0')}</span>
+                <span className="block md:inline-block md:ml-2">
+                  Johto Dex #{String(formData.johtoDex).padStart(3, '0')}
+                </span>
               )}
             </div>
-            <p className="text-4xl font-extrabold capitalize text-gray-900 dark:text-gray-50">
+            <p className="text-sm md:text-4xl font-bold capitalize text-gray-900 dark:text-gray-50">
               {pokemonName}
             </p>
-            <p className="text-lg text-muted-foreground mt-1">{formData.species}</p>
+            <p className="text-xs md:text-lg text-muted-foreground mt-1">
+              {formData.species} type Pokémon
+            </p>
           </div>
         </div>
       </div>
