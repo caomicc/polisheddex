@@ -54,13 +54,13 @@ export default function PokemonFormClient({
       )}
       <div className="max-w-4xl mx-auto md:rounded-xl overflow-hidden md:shadow-lg">
         <div className="relative md:p-6 md:bg-gradient-to-br md:from-gray-100 md:to-gray-300 md:dark:from-gray-800 md:dark:to-gray-900 flex flex-row items-center justify-start gap-6">
-          <div className="w-14 p-1 md:p-0 md:w-24 md:h-auto ">
+          <div className="w-24 p-1 md:p-0 md:w-24 md:h-auto ">
             <Image
               src={formData.frontSpriteUrl ?? ''}
               alt={`Sprite of Pokémon ${pokemonName}`}
               width={200}
               height={200}
-              className="object-contain w-12 md:drop-shadow-xs md:w-24 md:h-auto md:mb-0"
+              className="object-contain w-24 md:drop-shadow-xs md:w-24 md:h-auto md:mb-0"
               priority
             />
           </div>
@@ -84,7 +84,7 @@ export default function PokemonFormClient({
       </div>
 
       <div>
-        <h2 className="text-2xl font-bold mb-3">Pokedex Entry</h2>
+        <h2 className="text-md md:text-2xl font-bold mb-3">Pokedex Entry</h2>
         <p className="text-muted-foreground">{formData.description}</p>
       </div>
 
@@ -92,39 +92,69 @@ export default function PokemonFormClient({
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <h2 className="text-2xl font-bold mb-3">Basic Information</h2>
-          <div className="grid grid-cols-2 gap-2 text-sm space-y-2">
-            <div className="font-medium">Height:</div>
-            <div>{((formData.height as number) / 10).toFixed(1)} m</div>
-            <div className="font-medium">Weight:</div>
-            <div>{((formData.weight as number) / 10).toFixed(1)} kg</div>
-            <div className="font-medium">Base Exp.:</div>
-            <div>{formData.baseExp}</div>
-            <div className="font-medium">Catch Rate:</div>
-            <div>{formData.catchRate}</div>
-            <div className="font-medium">Growth Rate:</div>
-            <div>{formData.growthRate}</div>
-            <div className="font-medium">Hatch Rate:</div>
-            <div>{formData.hatchRate}</div>
-            <div className="font-medium">Egg Groups:</div>
-            <div className="flex items-center gap-2">
-              {formData.eggGroups && formData.eggGroups.length > 0 ? (
-                formData.eggGroups.map((group, idx) => (
-                  <Badge key={idx} variant="default">
-                    {group}
-                  </Badge>
-                ))
-              ) : (
-                <span className="text-gray-500">Unknown</span>
-              )}
-            </div>
-            <div className="font-medium">EV Yield:</div>
-            <div>{formData.evYield || 'None'}</div>
-            <div className="font-medium">Body Color:</div>
-            <div>{formData.bodyColor || 'Unknown'}</div>
-            <div className="font-medium">Body Shape:</div>
-            <div>{formData.bodyShape || 'Unknown'}</div>
-          </div>
+          <h2 className="text-md md:text-2xl font-bold mb-3">Basic Information</h2>
+          <Table className="max-w-full">
+            <TableHeader>
+              <TableRow>
+                <TableHead className="font-medium">Stat</TableHead>
+                <TableHead className="font-medium">Value</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell className="font-medium">Height</TableCell>
+                <TableCell>{((formData.height as number) / 10).toFixed(1)} m</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Weight</TableCell>
+                <TableCell>{((formData.weight as number) / 10).toFixed(1)} kg</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Base Exp.</TableCell>
+                <TableCell>{formData.baseExp}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Catch Rate</TableCell>
+                <TableCell>{formData.catchRate}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Growth Rate</TableCell>
+                <TableCell>{formData.growthRate}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Hatch Rate</TableCell>
+                <TableCell>{formData.hatchRate}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Egg Groups</TableCell>
+                <TableCell>
+                  <div className="flex items-center gap-2">
+                    {formData.eggGroups && formData.eggGroups.length > 0 ? (
+                      formData.eggGroups.map((group, idx) => (
+                        <Badge key={idx} variant="default">
+                          {group}
+                        </Badge>
+                      ))
+                    ) : (
+                      <span className="text-gray-500">Unknown</span>
+                    )}
+                  </div>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">EV Yield</TableCell>
+                <TableCell>{formData.evYield || 'None'}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Body Color</TableCell>
+                <TableCell>{formData.bodyColor || 'Unknown'}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Body Shape</TableCell>
+                <TableCell>{formData.bodyShape || 'Unknown'}</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </div>
         <div>
           <h2 className="text-2xl font-bold mb-3">Abilities</h2>
