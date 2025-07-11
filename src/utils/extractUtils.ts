@@ -1094,6 +1094,62 @@ export async function extractLocationsByArea() {
       }
     }
 
+    // --- Map encounter rates to each area and method ---
+    for (const [areaName, areaData] of Object.entries(locationsByArea)) {
+      // Collect all unique methods and times for this area
+      const allMethods = new Set<string>();
+      const allTimesByMethod: Record<string, Set<string>> = {};
+      for (const pokemonData of Object.values(areaData.pokemon)) {
+        for (const [method, methodData] of Object.entries(pokemonData.methods)) {
+          allMethods.add(method);
+          if (!allTimesByMethod[method]) allTimesByMethod[method] = new Set();
+          for (const time of Object.keys(methodData.times)) {
+            allTimesByMethod[method].add(time);
+          }
+        }
+      }
+      // Iterate over all methods and times
+      for (const method of allMethods) {
+        for (const time of allTimesByMethod[method]) {
+          // Collect all Pokémon for this area/method/time in slot order
+          const slotPokemon = [];
+          for (const [pokemonName, pokemonData] of Object.entries(areaData.pokemon)) {
+            const details = pokemonData.methods[method]?.times[time];
+            if (details && details.length > 0) {
+              for (let i = 0; i < details.length; i++) {
+                slotPokemon.push(pokemonName);
+              }
+            }
+          }
+          // Determine encounter type
+          const encounterType =
+            method.toLowerCase().includes('surf') || method.toLowerCase().includes('water') ? 'surf'
+            : method.toLowerCase().includes('fish') ? 'fish'
+            : 'grass';
+          // Use correct slot count for each type
+          const maxSlots =
+            encounterType === 'grass' ? 10 : encounterType === 'surf' ? 3 : 4;
+          // Map canonical rates to first N slots, extras get 0
+          const mappedRates = mapEncounterRatesToPokemon(slotPokemon.slice(0, maxSlots), encounterType);
+          // Assign rates to EncounterDetails in slot order
+          let slotIdx = 0;
+          for (const [pokemonName, pokemonData] of Object.entries(areaData.pokemon)) {
+            const details = pokemonData.methods[method]?.times[time];
+            if (details && details.length > 0) {
+              for (let i = 0; i < details.length; i++) {
+                if (slotIdx < maxSlots) {
+                  details[i].chance = mappedRates[slotIdx]?.rate ?? 0;
+                } else {
+                  details[i].chance = 0;
+                }
+                slotIdx++;
+              }
+            }
+          }
+        }
+      }
+    }
+
     // Write to file
     await fs.promises.writeFile(
       LOCATIONS_BY_AREA_OUTPUT,
@@ -1104,4 +1160,45 @@ export async function extractLocationsByArea() {
   } catch (error) {
     console.error('Error extracting locations by area:', error);
   }
+}
+
+/**
+ * Converts cumulative probability thresholds to individual slot percentages.
+ * @param cumulative Array of cumulative values (e.g., [30, 60, 80, ...])
+ * @returns Array of slot percentages (e.g., [30, 30, 20, ...])
+ */
+function getSlotPercentages(cumulative: number[]): number[] {
+  return cumulative.map((val, idx, arr) => val - (arr[idx - 1] ?? 0));
+}
+
+/**
+ * Maps encounter rates to Pokémon for a given area using the ASM probability tables.
+ * @param pokemonList - Array of Pokémon names in encounter slot order.
+ * @param encounterType - 'grass' | 'surf' | 'fish'
+ * @returns Array of objects: { name: string, rate: number }
+ */
+export function mapEncounterRatesToPokemon(
+  pokemonList: string[],
+  encounterType: 'grass' | 'surf' | 'fish'
+): Array<{ name: string; rate: number }> {
+  // Probability tables from probabilities.asm (cumulative)
+  const GRASS_PROBABILITIES_CUMULATIVE = [30, 60, 80, 90, 95, 98, 100];
+  const SURF_PROBABILITIES_CUMULATIVE = [60, 90, 100]; // Surf: 3 slots
+  const FISH_PROBABILITIES_CUMULATIVE = [70, 90, 98, 100]; // Example: 4 slots for fishing
+
+  let probabilities: number[];
+  if (encounterType === 'grass') {
+    probabilities = getSlotPercentages(GRASS_PROBABILITIES_CUMULATIVE);
+  } else if (encounterType === 'surf') {
+    probabilities = getSlotPercentages(SURF_PROBABILITIES_CUMULATIVE);
+  } else if (encounterType === 'fish') {
+    probabilities = getSlotPercentages(FISH_PROBABILITIES_CUMULATIVE);
+  } else {
+    probabilities = [];
+  }
+
+  return pokemonList.map((name, idx) => ({
+    name,
+    rate: probabilities[idx] || 0 // 0 if more Pokémon than slots
+  }));
 }
