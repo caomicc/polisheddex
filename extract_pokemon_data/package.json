@@ -1,0 +1,15 @@
+{
+  "name": "pokemon-data-extractor",
+  "version": "1.0.0",
+  "description": "Data extraction utilities for Pokémon game data",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --loader ts-node/esm index.ts",
+    "build": "tsc",
+    "extract": "node --loader ts-node/esm index.ts"
+  },
+  "engines": {
+    "node": ">=14.16"
+  }
+}
