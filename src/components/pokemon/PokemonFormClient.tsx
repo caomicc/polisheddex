@@ -73,6 +73,40 @@ export default function PokemonFormClient({
         <span className="text-gray-400">No sprite available</span>
       )}
       </div>
+      {/* Basic Info */}
+      <div className="mb-4">
+      <h2 className="text-xl font-semibold mb-1">Basic Info</h2>
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex-1">
+          <p className="text-gray-700">
+            <span className="font-semibold">Species:</span> {formData.species || 'N/A'}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-semibold">Description:</span> {formData.description || 'N/A'}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-semibold">National Dex:</span> {formData.nationalDex || 'N/A'}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-semibold">Johto Dex:</span> {formData.johtoDex || 'N/A'}
+          </p>
+        </div>
+        <div className="flex-1">
+          <p className="text-gray-700">
+            <span className="font-semibold">Height:</span> {formData.height || 'N/A'}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-semibold">Weight:</span> {formData.weight || 'N/A'}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-semibold">Base Experience:</span> {formData.baseExperience || 'N/A'}
+          </p>
+          <p className="text-gray-700">
+            <span className="font-semibold">Catch Rate:</span> {formData.catchRate || 'N/A'}
+          </p>
+        </div>
+      </div>
+      </div>
       {/* Evolution Info */}
       <div className="mb-4">
       <h2 className="text-xl font-semibold mb-1">

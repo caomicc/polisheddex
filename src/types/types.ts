@@ -106,6 +106,13 @@ export interface FormData {
   evolution: Evolution | null;
   nationalDex: number | null;
   frontSpriteUrl?: string;
+  johtoDex: number | null;
+  species: string;
+  description: string;
+  height?: number; // in decimetres
+  weight?: number; // in hectograms
+  catchRate?: number; // Catch rate percentage
+  baseExperience?: number; // Base experience yield
 }
 
 export interface BaseData {

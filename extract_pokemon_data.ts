@@ -31,7 +31,29 @@ const EVOLUTION_OUTPUT = path.join(__dirname, 'pokemon_evolution_data.json');
 const LEVEL_MOVES_OUTPUT = path.join(__dirname, 'pokemon_level_moves.json');
 const LOCATIONS_OUTPUT = path.join(__dirname, 'pokemon_locations.json');
 const POKEDEX_ENTRIES_OUTPUT = path.join(__dirname, 'pokemon_pokedex_entries.json');
+const DETAILED_STATS_OUTPUT = path.join(__dirname, 'pokemon_detailed_stats.json');
 
+// Type definitions for the detailed stats
+interface DetailedStats {
+  baseStats: {
+    hp: number;
+    attack: number;
+    defense: number;
+    speed: number;
+    specialAttack: number;
+    specialDefense: number;
+    total: number;
+  };
+  catchRate: number;
+  baseExp: number;
+  heldItems: string[];
+  genderRatio: string;
+  hatchRate: string;
+  abilities: string[];
+  growthRate: string;
+  eggGroups: string[];
+  evYield: string;
+}
 
 // Helper to convert move names to Capital Case with spaces
 function toCapitalCaseWithSpaces(str: string) {
@@ -1695,6 +1717,24 @@ function extractEggMoves() {
 
 extractEggMoves();
 
+// --- Detailed Stats Extraction ---
+function exportDetailedStats() {
+  try {
+    const detailedStats = extractDetailedStats();
+    if (detailedStats && Object.keys(detailedStats).length > 0) {
+      fs.writeFileSync(DETAILED_STATS_OUTPUT, JSON.stringify(detailedStats, null, 2));
+      console.log('Detailed Pokémon stats extracted to', DETAILED_STATS_OUTPUT);
+    } else {
+      console.error('No detailed stats data was extracted.');
+    }
+  } catch (error) {
+    console.error('Error extracting detailed stats:', error);
+  }
+}
+
+// Execute the function to extract and export detailed stats
+exportDetailedStats();
+
 // --- Type Chart Extraction ---
 function extractTypeChart() {
   const matchupPath = path.join(__dirname, 'data/types/type_matchups.asm');
@@ -1885,3 +1925,239 @@ function extractPokedexEntries() {
 }
 
 extractPokedexEntries();
+
+// --- Detailed Stats Extraction ---
+function extractDetailedStats(): Record<string, DetailedStats> {
+  const detailedStatsDir = path.join(__dirname, 'data/pokemon/base_stats');
+  const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter(f => f.endsWith('.asm'));
+
+  const detailedStats: Record<string, DetailedStats> = {};
+
+  for (const file of detailedStatsFiles) {
+    const fileName = file.replace('.asm', '');
+    const content = fs.readFileSync(path.join(detailedStatsDir, file), 'utf8');
+    const lines = content.split(/\r?\n/);
+
+    // Extract the Pokemon name from the file name
+    const { basePokemonName, formName } = extractFormInfo(fileName);
+    const pokemonName = formName ? `${basePokemonName}${formName}` : basePokemonName;
+
+    try {
+      // Extract base stats (first line)
+      // Format: db hp, atk, def, spe, sat, sdf ; BST
+      const baseStatsLine = lines.find(l => l.trim().match(/^db\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+/));
+      if (!baseStatsLine) continue;
+
+      const baseStatsMatch = baseStatsLine.trim().match(/db\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+)/);
+      if (!baseStatsMatch) continue;
+
+      // Get BST from comment if available
+      const bstMatch = baseStatsLine.match(/;\s*(\d+)\s*BST/);
+      const bst = bstMatch ? parseInt(bstMatch[1], 10) : 0;
+
+      const baseStats = {
+        hp: parseInt(baseStatsMatch[1], 10),
+        attack: parseInt(baseStatsMatch[2], 10),
+        defense: parseInt(baseStatsMatch[3], 10),
+        speed: parseInt(baseStatsMatch[4], 10),
+        specialAttack: parseInt(baseStatsMatch[5], 10),
+        specialDefense: parseInt(baseStatsMatch[6], 10),
+        total: bst || 0 // Use calculated BST or 0 if not found
+      };
+
+      // Calculate the total if it wasn't provided
+      if (baseStats.total === 0) {
+        baseStats.total = baseStats.hp + baseStats.attack + baseStats.defense +
+                          baseStats.speed + baseStats.specialAttack + baseStats.specialDefense;
+      }
+
+      // Extract catch rate - Format: db NUM ; catch rate
+      const catchRateLine = lines.find(l => l.trim().match(/^db\s+\d+\s*;\s*catch rate/));
+      let catchRate = 255; // Default
+      if (catchRateLine) {
+        const catchRateMatch = catchRateLine.match(/db\s+(\d+)/);
+        if (catchRateMatch) {
+          catchRate = parseInt(catchRateMatch[1], 10);
+        }
+      }
+
+      // Extract base exp - Format: db NUM ; base exp
+      const baseExpLine = lines.find(l => l.trim().match(/^db\s+\d+\s*;\s*base exp/));
+      let baseExp = 0;
+      if (baseExpLine) {
+        const baseExpMatch = baseExpLine.match(/db\s+(\d+)/);
+        if (baseExpMatch) {
+          baseExp = parseInt(baseExpMatch[1], 10);
+        }
+      }
+
+      // Extract held items - Format: db ITEM1, ITEM2 ; held items
+      const heldItemsLine = lines.find(l => l.trim().match(/^db.*;\s*held items/));
+      const heldItems: string[] = [];
+      if (heldItemsLine) {
+        const heldItemsMatch = heldItemsLine.match(/db\s+([A-Z_]+)(?:,\s*([A-Z_]+))?/);
+        if (heldItemsMatch) {
+          if (heldItemsMatch[1] && heldItemsMatch[1] !== 'NO_ITEM') {
+            heldItems.push(heldItemsMatch[1]);
+          }
+          if (heldItemsMatch[2] && heldItemsMatch[2] !== 'NO_ITEM') {
+            heldItems.push(heldItemsMatch[2]);
+          }
+        }
+      }
+
+      // Extract gender ratio and hatch rate
+      // Format: dn GENDER_XXX, HATCH_XXX ; gender ratio, step cycles to hatch
+      const genderHatchLine = lines.find(l => l.trim().match(/^dn.*;\s*gender ratio/));
+      let genderRatio = 'Unknown';
+      let hatchRate = 'Unknown';
+
+      if (genderHatchLine) {
+        const genderHatchMatch = genderHatchLine.match(/dn\s+([A-Z_\d]+),\s*([A-Z_\d]+)/);
+        if (genderHatchMatch) {
+          // Convert gender ratio code to human-readable text
+          const genderCode = genderHatchMatch[1];
+          genderRatio = convertGenderCode(genderCode);
+
+          // Convert hatch rate code to human-readable text
+          const hatchCode = genderHatchMatch[2];
+          hatchRate = convertHatchCode(hatchCode);
+        }
+      }
+
+      // Extract abilities - Format: abilities_for POKEMON, ABILITY1, ABILITY2, HIDDEN_ABILITY
+      const abilitiesLine = lines.find(l => l.trim().startsWith('abilities_for'));
+      const abilities: string[] = [];
+
+      if (abilitiesLine) {
+        // Split by commas, but skip the first part which is the Pokémon name
+        const abilityParts = abilitiesLine.split(',').slice(1);
+        for (const part of abilityParts) {
+          const ability = part.trim();
+          if (ability) {
+            abilities.push(ability);
+          }
+        }
+      }
+
+      // Extract growth rate - Format: db GROWTH_XXX ; growth rate
+      const growthRateLine = lines.find(l => l.trim().match(/^db\s+GROWTH_[A-Z_]+\s*;\s*growth rate/));
+      let growthRate = 'Medium';
+
+      if (growthRateLine) {
+        const growthRateMatch = growthRateLine.match(/db\s+(GROWTH_[A-Z_]+)/);
+        if (growthRateMatch) {
+          growthRate = convertGrowthRateCode(growthRateMatch[1]);
+        }
+      }
+
+      // Extract egg groups - Format: dn EGG_GROUP1, EGG_GROUP2 ; egg groups
+      const eggGroupsLine = lines.find(l => l.trim().match(/^dn.*;\s*egg groups/));
+      const eggGroups: string[] = [];
+
+      if (eggGroupsLine) {
+        const eggGroupsMatch = eggGroupsLine.match(/dn\s+([A-Z_]+)(?:,\s*([A-Z_]+))?/);
+        if (eggGroupsMatch) {
+          if (eggGroupsMatch[1]) {
+            eggGroups.push(convertEggGroupCode(eggGroupsMatch[1]));
+          }
+          if (eggGroupsMatch[2]) {
+            eggGroups.push(convertEggGroupCode(eggGroupsMatch[2]));
+          }
+        }
+      }
+
+      // Extract EV yield - Format: ev_yield NUM STAT
+      const evYieldLine = lines.find(l => l.trim().startsWith('ev_yield'));
+      let evYield = 'None';
+
+      if (evYieldLine) {
+        const evYieldMatch = evYieldLine.match(/ev_yield\s+(\d+)\s+([A-Za-z]+)/);
+        if (evYieldMatch) {
+          evYield = `${evYieldMatch[1]} ${evYieldMatch[2]}`;
+        }
+      }
+
+      // Add the detailed stats to our result
+      detailedStats[pokemonName] = {
+        baseStats,
+        catchRate,
+        baseExp,
+        heldItems,
+        genderRatio,
+        hatchRate,
+        abilities,
+        growthRate,
+        eggGroups,
+        evYield
+      };
+    } catch (error) {
+      console.error(`Error processing ${fileName}:`, error);
+    }
+  }
+
+  return detailedStats;
+}
+
+// Helper functions to convert game codes to human-readable strings
+function convertGenderCode(code: string): string {
+  const genderCodes: Record<string, string> = {
+    'GENDER_F0': '0% ♀ (Male only)',
+    'GENDER_F12_5': '12.5% ♀, 87.5% ♂',
+    'GENDER_F25': '25% ♀, 75% ♂',
+    'GENDER_F50': '50% ♀, 50% ♂',
+    'GENDER_F75': '75% ♀, 25% ♂',
+    'GENDER_F100': '100% ♀ (Female only)',
+    'GENDER_UNKNOWN': 'Genderless'
+  };
+  return genderCodes[code] || 'Unknown';
+}
+
+function convertHatchCode(code: string): string {
+  const hatchCodes: Record<string, string> = {
+    'HATCH_FASTEST': 'Very Fast (1,280 steps)',
+    'HATCH_FASTER': 'Fast (2,560 steps)',
+    'HATCH_FAST': 'Medium-Fast (5,120 steps)',
+    'HATCH_MEDIUM_FAST': 'Medium-Fast (5,120 steps)',
+    'HATCH_MEDIUM_SLOW': 'Medium-Slow (6,400 steps)',
+    'HATCH_SLOW': 'Slow (8,960 steps)',
+    'HATCH_SLOWER': 'Very Slow (10,240 steps)',
+    'HATCH_SLOWEST': 'Extremely Slow (20,480 steps)'
+  };
+  return hatchCodes[code] || 'Unknown';
+}
+
+function convertGrowthRateCode(code: string): string {
+  const growthRateCodes: Record<string, string> = {
+    'GROWTH_MEDIUM_FAST': 'Medium Fast',
+    'GROWTH_SLIGHTLY_FAST': 'Slightly Fast',
+    'GROWTH_SLIGHTLY_SLOW': 'Slightly Slow',
+    'GROWTH_MEDIUM_SLOW': 'Medium Slow',
+    'GROWTH_FAST': 'Fast',
+    'GROWTH_SLOW': 'Slow',
+    'GROWTH_ERRATIC': 'Erratic',
+    'GROWTH_FLUCTUATING': 'Fluctuating'
+  };
+  return growthRateCodes[code] || 'Medium Fast';
+}
+
+function convertEggGroupCode(code: string): string {
+  const eggGroupCodes: Record<string, string> = {
+    'EGG_MONSTER': 'Monster',
+    'EGG_WATER_1': 'Water 1',
+    'EGG_BUG': 'Bug',
+    'EGG_FLYING': 'Flying',
+    'EGG_GROUND': 'Field',
+    'EGG_FAIRY': 'Fairy',
+    'EGG_PLANT': 'Grass',
+    'EGG_HUMANSHAPE': 'Human-Like',
+    'EGG_WATER_3': 'Water 3',
+    'EGG_MINERAL': 'Mineral',
+    'EGG_INDETERMINATE': 'Amorphous',
+    'EGG_WATER_2': 'Water 2',
+    'EGG_DITTO': 'Ditto',
+    'EGG_DRAGON': 'Dragon',
+    'EGG_NONE': 'Undiscovered'
+  };
+  return eggGroupCodes[code] || 'Undiscovered';
+}
