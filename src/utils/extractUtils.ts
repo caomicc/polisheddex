@@ -44,8 +44,8 @@ export function extractBasePokemonName(fullName: string): string {
 
 // --- Type Chart Extraction ---
 export function extractTypeChart() {
-  const matchupPath = path.join(__dirname, '../../data/types/type_matchups.asm');
-  const typeNamesPath = path.join(__dirname, '../../data/types/names.asm');
+  const matchupPath = path.join(__dirname, '../../rom/data/types/type_matchups.asm');
+  const typeNamesPath = path.join(__dirname, '../../rom/data/types/names.asm');
   const outputPath = path.join(__dirname, '../../output/type_chart.json');
 
   // Read type names in order
@@ -82,7 +82,7 @@ export function extractTypeChart() {
 }
 
 export function extractPokedexEntries() {
-  const pokedexEntriesPath = path.join(__dirname, '../../data/pokemon/dex_entries.asm');
+  const pokedexEntriesPath = path.join(__dirname, '../../rom/data/pokemon/dex_entries.asm');
   const entriesData = fs.readFileSync(pokedexEntriesPath, 'utf8');
   const lines = entriesData.split(/\r?\n/);
 
@@ -213,9 +213,9 @@ export function extractPokedexEntries() {
 }
 
 export function extractMoveDescriptions() {
-  const moveNamesPath = path.join(__dirname, '../../data/moves/names.asm');
-  const moveDescriptionsPath = path.join(__dirname, '../../data/moves/descriptions.asm');
-  const moveStatsPath = path.join(__dirname, '../../data/moves/moves.asm');
+  const moveNamesPath = path.join(__dirname, '../../rom/data/moves/names.asm');
+  const moveDescriptionsPath = path.join(__dirname, '../../rom/data/moves/descriptions.asm');
+  const moveStatsPath = path.join(__dirname, '../../rom/data/moves/moves.asm');
 
   const namesData = fs.readFileSync(moveNamesPath, 'utf8');
   const descData = fs.readFileSync(moveDescriptionsPath, 'utf8');
@@ -414,8 +414,8 @@ export function extractMoveDescriptions() {
 }
 
 export function extractEggMoves() {
-  const eggMovesPath = path.join(__dirname, '../../data/pokemon/egg_moves.asm');
-  const eggMovePointersPath = path.join(__dirname, '../../data/pokemon/egg_move_pointers.asm');
+  const eggMovesPath = path.join(__dirname, '../../rom/data/pokemon/egg_moves.asm');
+  const eggMovePointersPath = path.join(__dirname, '../../rom/data/pokemon/egg_move_pointers.asm');
 
   // Parse pointers: species => EggSpeciesMoves label
   const pointerData = fs.readFileSync(eggMovePointersPath, 'utf8');
@@ -499,7 +499,7 @@ export function extractFormInfo(fileName: string): { basePokemonName: string, fo
 }
 // --- Detailed Stats Extraction ---
 export function extractDetailedStats(): Record<string, DetailedStats> {
-  const detailedStatsDir = path.join(__dirname, '../../data/pokemon/base_stats');
+  const detailedStatsDir = path.join(__dirname, '../../rom/data/pokemon/base_stats');
   const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter(f => f.endsWith('.asm'));
 
   const detailedStats: Record<string, DetailedStats> = {};
@@ -672,8 +672,8 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
 
 export function extractAbilityDescriptions() {
-  const abilityNamesPath = path.join(__dirname, '../../data/abilities/names.asm');
-  const abilityDescriptionsPath = path.join(__dirname, '../../data/abilities/descriptions.asm');
+  const abilityNamesPath = path.join(__dirname, '../../rom/data/abilities/names.asm');
+  const abilityDescriptionsPath = path.join(__dirname, '../../rom/data/abilities/descriptions.asm');
 
   const namesData = fs.readFileSync(abilityNamesPath, 'utf8');
   const descData = fs.readFileSync(abilityDescriptionsPath, 'utf8');
@@ -815,7 +815,7 @@ export function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
   const grottoLocations: Record<string, LocationEntry[]> = {};
 
   // Read the grottoes.asm file
-  const grottoeFilePath = path.join(__dirname, '../../data/events/hidden_grottoes/grottoes.asm');
+  const grottoeFilePath = path.join(__dirname, '../../rom/data/events/hidden_grottoes/grottoes.asm');
   if (!fs.existsSync(grottoeFilePath)) {
     console.warn('Hidden grottoes file not found, skipping extraction');
     return {};
