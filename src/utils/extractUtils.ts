@@ -2,7 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { convertEggGroupCode, convertGenderCode, convertGrowthRateCode, convertHatchCode, normalizeAsmLabelToMoveKey, normalizeMonName, standardizePokemonKey, toCapitalCaseWithSpaces, toTitleCase } from './stringUtils.ts';
-import type { DetailedStats, LocationEntry, PokemonDexEntry } from '../types/types.ts';
+import type { DetailedStats, EncounterDetail, LocationEntry, PokemonDexEntry, PokemonLocationData } from '../types/types.ts';
 import { KNOWN_FORMS } from '../data/constants.ts';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -12,6 +12,9 @@ const EGG_MOVES_OUTPUT = path.join(__dirname, '../../output/pokemon_egg_moves.js
 const POKEDEX_ENTRIES_OUTPUT = path.join(__dirname, '../../output/pokemon_pokedex_entries.json');
 const MOVE_DESCRIPTIONS_OUTPUT = path.join(__dirname, '../../output/pokemon_move_descriptions.json');
 const ABILITY_DESCRIPTIONS_OUTPUT = path.join(__dirname, '../../output/pokemon_ability_descriptions.json');
+
+const LOCATIONS_DATA_PATH = path.join(__dirname, '../../output/pokemon_locations.json');
+const LOCATIONS_BY_AREA_OUTPUT = path.join(__dirname, '../../output/locations_by_area.json');
 
 // Helper to extract the base name from a combined name with form
 export function extractBasePokemonName(fullName: string): string {
@@ -992,4 +995,113 @@ export function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
   }
 
   return grottoLocations;
+}
+
+
+// Helper function to process locations
+function processLocations(
+  pokemon: string,
+  locations: LocationEntry[],
+  formName: string | null,
+  locationsByArea: Record<string, {
+    pokemon: Record<string, {
+      methods: Record<string, {
+        times: Record<string, EncounterDetail[]>
+      }>
+    }>
+  }>
+) {
+  for (const location of locations) {
+    if (!location.area) continue;
+
+    // Format the area name to match UI component formatting
+    const areaName = location.area
+      .toLowerCase()
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, c => c.toUpperCase());
+    const method = location.method || 'unknown';
+    const time = location.time || 'any';
+
+    // Initialize area if it doesn't exist
+    if (!locationsByArea[areaName]) {
+      locationsByArea[areaName] = { pokemon: {} };
+    }
+
+    // Initialize Pokemon in this area if it doesn't exist
+    if (!locationsByArea[areaName].pokemon[pokemon]) {
+      locationsByArea[areaName].pokemon[pokemon] = { methods: {} };
+    }
+
+    // Initialize method if it doesn't exist
+    if (!locationsByArea[areaName].pokemon[pokemon].methods[method]) {
+      locationsByArea[areaName].pokemon[pokemon].methods[method] = { times: {} };
+    }
+
+    // Initialize time if it doesn't exist
+    if (!locationsByArea[areaName].pokemon[pokemon].methods[method].times[time]) {
+      locationsByArea[areaName].pokemon[pokemon].methods[method].times[time] = [];
+    }
+
+    // Add encounter details
+    const encounterDetail: EncounterDetail = {
+      level: location.level,
+      chance: location.chance
+    };
+
+    // Add rareItem if present (for hidden grottoes)
+    if ('rareItem' in location && location.rareItem) {
+      encounterDetail.rareItem = location.rareItem;
+    }
+
+    // Add form name if present
+    if (formName || ('formName' in location && location.formName)) {
+      encounterDetail.formName = formName || location.formName;
+    }
+
+    locationsByArea[areaName].pokemon[pokemon].methods[method].times[time].push(encounterDetail);
+  }
+}
+
+
+// Load the Pokemon location data
+export async function extractLocationsByArea() {
+  try {
+    const pokemonLocationsData = JSON.parse(await fs.promises.readFile(LOCATIONS_DATA_PATH, 'utf8'));
+
+    // Organize by area
+    const locationsByArea: Record<string, {
+      pokemon: Record<string, {
+        methods: Record<string, {
+          times: Record<string, EncounterDetail[]>
+        }>
+      }>
+    }> = {};
+
+    // Process each Pokemon and its locations
+    for (const [pokemon, pokemonData] of Object.entries<PokemonLocationData>(pokemonLocationsData)) {
+      // Process base form locations
+      if (pokemonData.locations && Array.isArray(pokemonData.locations)) {
+        processLocations(pokemon, pokemonData.locations, null, locationsByArea);
+      }
+
+      // Process alternate forms if they exist
+      if (pokemonData.forms) {
+        for (const [formName, formData] of Object.entries(pokemonData.forms)) {
+          if (formData.locations && Array.isArray(formData.locations)) {
+            processLocations(pokemon, formData.locations, formName, locationsByArea);
+          }
+        }
+      }
+    }
+
+    // Write to file
+    await fs.promises.writeFile(
+      LOCATIONS_BY_AREA_OUTPUT,
+      JSON.stringify(locationsByArea, null, 2)
+    );
+
+    console.log(`Location data by area extracted to ${LOCATIONS_BY_AREA_OUTPUT}`);
+  } catch (error) {
+    console.error('Error extracting locations by area:', error);
+  }
 }

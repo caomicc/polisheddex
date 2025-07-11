@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } from './src/data/constants.ts';
-import { extractAbilityDescriptions, extractBasePokemonName, extractDetailedStats, extractEggMoves, extractFormInfo, extractHiddenGrottoes, extractMoveDescriptions, extractPokedexEntries, extractTypeChart, getFullPokemonName, addBodyDataToDetailedStats } from './src/utils/extractUtils.ts';
+import { extractAbilityDescriptions, extractBasePokemonName, extractDetailedStats, extractEggMoves, extractFormInfo, extractHiddenGrottoes, extractMoveDescriptions, extractPokedexEntries, extractTypeChart, getFullPokemonName, addBodyDataToDetailedStats, extractLocationsByArea } from './src/utils/extractUtils.ts';
 import { groupPokemonForms } from './src/utils/helpers.ts';
 
 
@@ -973,3 +973,5 @@ exportDetailedStats();
 extractTypeChart();
 
 extractPokedexEntries();
+
+extractLocationsByArea().catch(console.error);
