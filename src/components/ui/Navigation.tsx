@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
   const pathname = usePathname();
-  
+
   const isActive = (path: string) => {
     return pathname === path || pathname.startsWith(`${path}/`);
   };
@@ -19,24 +19,24 @@ export default function Navigation() {
               PolishedDex
             </Link>
           </div>
-          
+
           <nav className="flex space-x-4">
-            <Link 
-              href="/pokemon" 
+            <Link
+              href="/pokemon"
               className={`px-3 py-2 rounded-md text-sm font-medium ${
-                isActive('/pokemon') 
-                  ? 'bg-blue-800 text-white' 
+                isActive('/pokemon')
+                  ? 'bg-blue-800 text-white'
                   : 'text-blue-100 hover:bg-blue-600'
               }`}
             >
               Pokémon
             </Link>
-            
-            <Link 
-              href="/locations" 
+
+            <Link
+              href="/locations"
               className={`px-3 py-2 rounded-md text-sm font-medium ${
-                isActive('/locations') 
-                  ? 'bg-blue-800 text-white' 
+                isActive('/locations')
+                  ? 'bg-blue-800 text-white'
                   : 'text-blue-100 hover:bg-blue-600'
               }`}
             >

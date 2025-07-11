@@ -175,7 +175,7 @@ export default async function LocationDetailPage({
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/" className="hover:underline text-blue-700">
+              <Link href="/" className="hover:underline dark:text-blue-200 text-blue-700">
                 Home
               </Link>
             </BreadcrumbLink>
@@ -183,7 +183,7 @@ export default async function LocationDetailPage({
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/locations" className="hover:underline text-blue-700">
+              <Link href="/locations" className="hover:underline dark:text-blue-200 text-blue-700">
                 Locations
               </Link>
             </BreadcrumbLink>

@@ -58,7 +58,7 @@ export default async function LocationsPage() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbLink asChild>
-            <Link href="/" className="hover:underline text-blue-700">
+            <Link href="/" className="hover:underline dark:text-blue-200 text-blue-700">
               Home
             </Link>
           </BreadcrumbLink>

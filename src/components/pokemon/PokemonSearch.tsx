@@ -76,7 +76,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
             )}
             id="sort-select"
           >
-            <span>Sort by</span>
+            {sortType.charAt(0).toUpperCase() + sortType.slice(1).replace('dex', ' Dex')}
           </SelectTrigger>
           <SelectContent
             className={cn(

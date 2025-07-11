@@ -391,14 +391,11 @@ export default function PokemonFormClient({
           ].map(({ label, value }) => (
             <div key={label} className="flex flex-row gap-4 items-center">
               <div className="flex justify-between items-center w-[120px]">
-                <span className="text-xs font-bold leading-none">{label}</span>
-                <span className="text-xs leading-none text-muted-foreground">{value ?? 'N/A'}</span>
+              <span className="text-xs font-bold leading-none">{label}</span>
+              <span className="text-xs leading-none text-muted-foreground">{value ?? 'N/A'}</span>
               </div>
               <Progress
-                value={typeof value === 'number' ? Math.min(value, 255) : 0}
-                max={255}
-                aria-valuenow={value ?? 0}
-                aria-valuemax={255}
+                value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
                 aria-label={`${label} stat`}
               />
             </div>

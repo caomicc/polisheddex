@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Navigation } from "@/components/ui";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
-import { cn } from "@/lib/utils";
+import { Footer } from "@/components/ui/Footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -77,35 +77,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100`}
       >
         <div className="flex flex-col min-h-screen">
           <Navigation />
           <main className="flex-grow">
             {children}
           </main>
-            <footer
-            className={cn('w-full mt-12 py-6 border-t text-center text-sm text-gray-500')}
-            aria-label="Footer"
-            >
-            <a
-              href="https://github.com/caomicc/polisheddex"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline text-blue-600"
-            >
-              View on GitHub
-            </a>{" "}
-            | © {new Date().getFullYear()} PolishedDex by{" "}
-            <a
-              href="https://caomi.cc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline text-blue-600"
-            >
-              Cammy
-            </a>
-            </footer>
+            <Footer/>
         </div>
         <Analytics />
       </body>

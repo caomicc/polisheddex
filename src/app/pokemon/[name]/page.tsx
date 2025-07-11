@@ -175,7 +175,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/" className="hover:underline text-blue-700">
+              <Link href="/" className="hover:underline dark:text-blue-200 text-blue-700">
                 Home
               </Link>
             </BreadcrumbLink>
@@ -183,7 +183,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/pokemon" className="hover:underline text-blue-700">
+              <Link href="/pokemon" className="hover:underline dark:text-blue-200 text-blue-700">
                 Pokemon
               </Link>
             </BreadcrumbLink>
