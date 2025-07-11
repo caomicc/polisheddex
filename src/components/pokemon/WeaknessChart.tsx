@@ -1,8 +1,9 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { PokemonType } from '@/types/types';
-import { Badge } from '../ui/badge';
+// import { Badge } from '../ui/badge';
 import typeChartData from '../../../type_chart.json';
+import TypeIcon from './TypeIcon';
 
 // TODO: Update types
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,27 +32,27 @@ export function WeaknessChart({ types }: { types: string[] }) {
   const effectiveness = getTypeEffectiveness(types);
   return (
     <div className="mb-4">
-      <h2 className="text-xl font-semibold mb-1">Weaknesses</h2>
-      <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+      <div className="grid grid-cols-3 sm:grid-cols-6 gap-x-4 gap-y-1 w-full">
         {ALL_TYPES.map((type) => {
           const value = effectiveness[type];
           const color =
             value > 1
-              ? 'bg-red-200 text-red-800'
+              ? 'text-red-800'
               : value < 1 && value > 0
-              ? 'bg-blue-200 text-blue-800'
+              ? 'text-blue-800'
               : value === 0
-              ? 'bg-gray-300 text-gray-600 line-through'
-              : 'bg-gray-100 text-gray-800';
+              ? 'text-gray-600 line-through'
+              : 'text-gray-800';
           return (
             <div
               key={type}
-              className={cn('flex flex-col items-center rounded p-2 text-xs font-medium', color)}
+              className={cn('flex flex-col items-center text-xs font-medium p-1', color)}
               aria-label={`${type} damage: ${value}x`}
             >
-              <Badge variant={type as PokemonType['name']} className="mb-1">
+              {/* <Badge variant={type as PokemonType['name']} className="mb-1">
                 {type.charAt(0).toUpperCase() + type.slice(1)}
-              </Badge>
+              </Badge> */}
+              <TypeIcon type={type as PokemonType['name']} className="mb-2" />
               <span>{value}x</span>
             </div>
           );

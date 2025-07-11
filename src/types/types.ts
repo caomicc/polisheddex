@@ -17,6 +17,17 @@ export interface LocationEntry {
   formName?: string | null; // Form name if applicable
 }
 
+// Make LocationEntryProps identical to LocationEntry for consistency
+export interface LocationEntryProps {
+  area: string | null;
+  method: string | null;
+  time: string | null;
+  level: string;
+  chance: number;
+  rareItem?: string; // Optional property for hidden grottoes
+  formName?: string | null; // Form name if applicable
+}
+
 export interface PokemonLocationData {
   locations: LocationEntry[];
   forms?: Record<string, { locations: LocationEntry[] }>;
@@ -37,7 +48,7 @@ export interface Move {
 
 export interface MoveDescription {
   description: string;
-  type: PokemonType;
+  type: string | PokemonType['name'];
   pp: number | string;
   power: number | string;
   accuracy?: number | string;
@@ -84,14 +95,7 @@ export interface MoveDetail {
   category: string;
 }
 
-export interface LocationEntryProps {
-  area: string | null;
-  method: string | null;
-  time: string | null;
-  level: string;
-  chance: number;
-  rareItem?: string; // Optional rare item for hidden grottoes
-}
+// Already defined above, remove duplicate definition
 
 export interface Evolution {
   methods: EvolutionMethod[];
@@ -119,6 +123,8 @@ export interface DetailedStats {
   growthRate: string;
   eggGroups: string[];
   evYield: string;
+  height?: number | string; // Height can be a number or a string (e.g., "1.2 m")
+  weight?: number | string; // Weight can be a number or a string (e.g., "60 kg");
 }
 
 export interface Ability {
@@ -130,7 +136,7 @@ export interface Ability {
 export interface FormData {
   types: string[] | string;
   moves: Move[];
-  locations: LocationEntryProps[];
+  locations: LocationEntry[];
   eggMoves: string[];
   evolution: Evolution | null;
   nationalDex: number | null;
@@ -138,10 +144,25 @@ export interface FormData {
   johtoDex: number | null;
   species: string;
   description: string;
-  height?: number; // in decimetres
-  weight?: number; // in hectograms
-  catchRate?: number; // Catch rate percentage
-  baseExperience?: number; // Base experience yield
+  baseStats: {
+    hp: number;
+    attack: number;
+    defense: number;
+    speed: number;
+    specialAttack: number;
+    specialDefense: number;
+    total: number;
+  };
+  catchRate: number;
+  baseExp: number;
+  heldItems: string[];
+  abilities: string[] | Ability[];
+  genderRatio: string;
+  growthRate: string;
+  height: number | string;
+  weight: number | string;
+  color: string;
+  shape: string;
 }
 
 export interface BaseData {
@@ -150,7 +171,48 @@ export interface BaseData {
   johtoDex: number | null;
   types: string[] | string;
   frontSpriteUrl?: string;
-  forms?: Record<string, { types: string[] | string; frontSpriteUrl?: string }>;
+  baseStats: {
+    hp: number;
+    attack: number;
+    defense: number;
+    speed: number;
+    specialAttack: number;
+    specialDefense: number;
+    total: number;
+  };
+  catchRate: number;
+  baseExp: number;
+  heldItems: string[];
+  abilities: string[] | { name: string; description: string; isHidden?: boolean }[];
+  genderRatio: string;
+  growthRate: string;
+  height: number | string;
+  weight: number | string;
+  color: string;
+  shape: string;
+  forms?: Record<string, {
+    types: string[] | string;
+    frontSpriteUrl?: string;
+    baseStats?: {
+      hp: number;
+      attack: number;
+      defense: number;
+      speed: number;
+      specialAttack: number;
+      specialDefense: number;
+      total: number;
+    };
+    catchRate?: number;
+    baseExp?: number;
+    heldItems?: string[];
+    abilities?: string[] | { name: string; description: string; isHidden?: boolean }[];
+    genderRatio?: string;
+    growthRate?: string;
+    height?: number | string;
+    weight?: number | string;
+    color?: string;
+    shape?: string;
+  }>;
 }
 
 export interface LevelMovesData {

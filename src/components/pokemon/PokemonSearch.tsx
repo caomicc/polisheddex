@@ -4,6 +4,7 @@ import { BaseData } from "@/types/types";
 import React, { useState } from "react";
 import PokemonCard from "./PokemonCard";
 import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 
 interface PokemonSearchProps {
   pokemon: BaseData[];
@@ -44,12 +45,18 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
 
   return (
     <>
-      <Input
-        placeholder="Search by name or type..."
-        className="mb-4"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
+      <div className="grid w-full items-center gap-3">
+        <Label htmlFor="pokemon-search">
+          Search Pokémon
+        </Label>
+        <Input
+        id="pokemon-search"
+          placeholder="Search by name or type..."
+          className="mb-18 bg-white"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
       {filteredPokemon.length === 0 ? (
         <p className="text-center py-8 text-gray-500">No Pokémon found matching your search.</p>
       ) : (

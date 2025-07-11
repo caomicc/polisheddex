@@ -13,6 +13,7 @@ import Link from 'next/link';
 import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
 import {
   BaseData,
+  DetailedStats,
   Evolution,
   LevelMovesData,
   LocationsData,
@@ -48,9 +49,8 @@ export async function generateStaticParams() {
   }
 }
 
-export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
-  const { name } = await params;
-  const pokemonName = name;
+export default async function PokemonDetail({ params }: { params: { name: string } }) {
+  const pokemonName = params.name;
 
   // Define file paths
   const baseStatsFile = path.join(process.cwd(), 'output/pokemon_base_data.json');
@@ -60,9 +60,10 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const locationsFile = path.join(process.cwd(), 'output/pokemon_locations.json');
   const evolutionDataFile = path.join(process.cwd(), 'output/pokemon_evolution_data.json');
   const dexEntryDataFile = path.join(process.cwd(), 'output/pokemon_pokedex_entries.json');
+  const detailedStatDataFile = path.join(process.cwd(), 'output/pokemon_detailed_stats.json');
 
   // Load data using Promise.all for parallel loading
-  const [baseStatsData, moveDescData, eggMovesData, levelMovesData, locationsData, evolutionData, dexEntryData] =
+  const [baseStatsData, moveDescData, eggMovesData, levelMovesData, locationsData, evolutionData, dexEntryData, detailedStatData] =
     await Promise.all([
       cachedBaseStatsData || loadJsonData<Record<string, BaseData>>(baseStatsFile),
       loadJsonData<Record<string, MoveDescription>>(moveDescFile),
@@ -71,6 +72,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       loadJsonData<Record<string, LocationsData>>(locationsFile),
       loadJsonData<Record<string, Evolution | null>>(evolutionDataFile),
       loadJsonData<Record<string, PokemonDexEntry>>(dexEntryDataFile),
+      loadJsonData<Record<string, DetailedStats>>(detailedStatDataFile), // Adjusted type to 'any' for detailed stats
     ]);
 
   // Save the loaded base stats data for future use
@@ -96,10 +98,22 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     eggMoves: eggMovesData[pokemonName] || [],
     evolution: evolutionData[pokemonName],
     nationalDex: baseStats.nationalDex,
-    frontSpriteUrl: baseStats.frontSpriteUrl, // <-- add sprite url for default
-    johtoDex: baseStats.johtoDex, // <-- add Johto Dex number
+    frontSpriteUrl: baseStats.frontSpriteUrl,
+    johtoDex: baseStats.johtoDex,
     species: dexEntryData[pokemonName]?.species || '',
     description: dexEntryData[pokemonName]?.description || '',
+    catchRate: detailedStatData[pokemonName]?.catchRate || 0,
+    baseExp: detailedStatData[pokemonName]?.baseExp || 0,
+    heldItems: detailedStatData[pokemonName]?.heldItems,
+    abilities: detailedStatData[pokemonName]?.abilities,
+    genderRatio: detailedStatData[pokemonName]?.genderRatio,
+    growthRate: detailedStatData[pokemonName]?.growthRate,
+    baseStats: detailedStatData[pokemonName]?.baseStats,
+    height: detailedStatData[pokemonName]?.height ?? 0,
+    weight: detailedStatData[pokemonName]?.weight ?? 0,
+    evYield: detailedStatData[pokemonName]?.evYield || {},
+    color: baseStats.color || '', // Add color property
+    shape: baseStats.shape || '', // Add shape property
   };
 
   // Prepare all form data for the client component
@@ -119,10 +133,21 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           eggMoves: eggMovesData[pokemonName] || [],
           evolution: evolutionData[pokemonName],
           nationalDex: baseStats.nationalDex,
-          frontSpriteUrl: baseStats.forms?.[formKey]?.frontSpriteUrl || baseStats.frontSpriteUrl, // <-- add sprite url for form
-          johtoDex: baseStats.johtoDex, // <-- add Johto Dex number
+          frontSpriteUrl: baseStats.forms?.[formKey]?.frontSpriteUrl || baseStats.frontSpriteUrl,
+          johtoDex: baseStats.johtoDex,
           species: dexEntryData[pokemonName]?.species || '',
           description: dexEntryData[pokemonName]?.description || '',
+          catchRate: detailedStatData[pokemonName]?.catchRate || 0,
+          baseExp: detailedStatData[pokemonName]?.baseExp || 0,
+          heldItems: detailedStatData[pokemonName]?.heldItems || [],
+          abilities: detailedStatData[pokemonName]?.abilities || [],
+          genderRatio: detailedStatData[pokemonName]?.genderRatio || '',
+          growthRate: detailedStatData[pokemonName]?.growthRate || '',
+          height: detailedStatData[pokemonName]?.height ?? 0,
+          weight: detailedStatData[pokemonName]?.weight ?? 0,
+          evYield: detailedStatData[pokemonName]?.evYield || '',
+          color: baseStats.color || '', // Add color property
+          shape: baseStats.shape || '', // Add shape property
         },
       ]),
     ),

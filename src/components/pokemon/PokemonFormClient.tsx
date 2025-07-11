@@ -10,7 +10,7 @@ import {
   MoveDescription,
   PokemonType,
 } from '@/types/types';
-import { Table, TableBody,  TableHead, TableHeader, TableRow } from '../ui/table';
+import { Table, TableBody,  TableCell,  TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
 import { EvolutionChain } from '@/components/ui/EvolutionChain';
 import { WeaknessChart } from './WeaknessChart';
@@ -33,7 +33,7 @@ export default function PokemonFormClient({
   console.log('Form Data:', formData);
 
   return (
-    <>
+    <div className="space-y-6">
       {forms.length > 0 && (
         <div className="mb-4">
           <label className="font-semibold mr-2" htmlFor="form-select">
@@ -59,62 +59,72 @@ export default function PokemonFormClient({
           </Select>
         </div>
       )}
-      {/* Sprite Display */}
-      <div className="mb-4 flex items-center gap-4">
-      {formData.frontSpriteUrl ? (
-        <Image
-        src={formData.frontSpriteUrl ?? ''}
-        alt={`Sprite of Pokémon ${pokemonName}`}
-        width={64}
-        height={64}
-        className="w-16 h-16"
-        />
-      ) : (
-        <span className="text-gray-400">No sprite available</span>
-      )}
-      </div>
-      {/* Basic Info */}
-      <div className="mb-4">
-      <h2 className="text-xl font-semibold mb-1">Basic Info</h2>
-      <div className="flex flex-col md:flex-row gap-4">
-        <div className="flex-1">
-          <p className="text-gray-700">
-            <span className="font-semibold">Species:</span> {formData.species || 'N/A'}
-          </p>
-          <p className="text-gray-700">
-            <span className="font-semibold">Description:</span> {formData.description || 'N/A'}
-          </p>
-          <p className="text-gray-700">
-            <span className="font-semibold">National Dex:</span> {formData.nationalDex || 'N/A'}
-          </p>
-          <p className="text-gray-700">
-            <span className="font-semibold">Johto Dex:</span> {formData.johtoDex || 'N/A'}
-          </p>
+        <div className="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
+          <div className="relative p-6 bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-800 dark:to-gray-900 flex flex-col md:flex-row items-center justify-center md:justify-start gap-6">
+            <Image
+              src={formData.frontSpriteUrl ?? ''}
+              alt={`Sprite of Pokémon ${pokemonName}`}
+              width={200}
+              height={200}
+              className="object-contain drop-shadow-lg"
+              priority
+            />
+            <div className="text-center md:text-left">
+              <div className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
+                National Dex #{String(formData.nationalDex).padStart(3, "0")}
+                {formData.johtoDex && <span className="ml-2">Johto #{String(formData.johtoDex).padStart(3, "0")}</span>}
+              </div>
+              <p className="text-4xl font-extrabold capitalize text-gray-900 dark:text-gray-50">
+                {pokemonName}
+              </p>
+              <p className="text-lg text-muted-foreground mt-1">{formData.species}</p>
+            </div>
+          </div>
         </div>
-        <div className="flex-1">
-          <p className="text-gray-700">
-            <span className="font-semibold">Height:</span> {formData.height || 'N/A'}
-          </p>
-          <p className="text-gray-700">
-            <span className="font-semibold">Weight:</span> {formData.weight || 'N/A'}
-          </p>
-          <p className="text-gray-700">
-            <span className="font-semibold">Base Experience:</span> {formData.baseExperience || 'N/A'}
-          </p>
-          <p className="text-gray-700">
-            <span className="font-semibold">Catch Rate:</span> {formData.catchRate || 'N/A'}
-          </p>
-        </div>
-      </div>
-      </div>
-      {/* Evolution Info */}
-      <div className="mb-4">
-      <h2 className="text-xl font-semibold mb-1">
-        Type
-        {Array.isArray(formData.types) && formData.types.length > 1 ? 's' : ''}
-      </h2>
-      <div className="flex gap-2">
-        {Array.isArray(formData.types) ? (
+
+          <div>
+            <h2 className="text-2xl font-bold mb-3">Pokedex Entry</h2>
+            <p className="text-muted-foreground">{formData.description}</p>
+          </div>
+
+          <hr className='border-gray-200 dark:border-gray-700' />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h2 className="text-2xl font-bold mb-3">Basic Information</h2>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                <div className="font-medium">Height:</div>
+                <div>{(formData.height as number / 10).toFixed(1)} m</div>
+                <div className="font-medium">Weight:</div>
+                <div>{(formData.weight as number / 10).toFixed(1)} kg</div>
+                <div className="font-medium">Base Experience:</div>
+                <div>{formData.baseExp}</div>
+                <div className="font-medium">Catch Rate:</div>
+                <div>{formData.catchRate}</div>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold mb-3">Abilities</h2>
+              <div className="flex flex-wrap gap-2">
+                {formData.abilities.map((ability, idx) => {
+                  const abilityName = typeof ability === 'string' ? ability : ability.name;
+                  return (
+                    <Badge key={idx} variant="secondary" className="px-3 py-1 text-sm">
+                      {abilityName}
+                    </Badge>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+      <hr/>
+
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h2 className="text-2xl font-bold mb-3">Types</h2>
+              <div className="flex flex-wrap gap-2">
+                        {Array.isArray(formData.types) ? (
         formData.types.map((type: string) => (
           <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
           {type}
@@ -128,16 +138,24 @@ export default function PokemonFormClient({
           {formData.types}
         </Badge>
         )}
-      </div>
-      </div>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold mb-3">Weaknesses</h2>
+              <div className="flex flex-wrap gap-2">
+                <WeaknessChart
+                  types={
+                  Array.isArray(formData.types)
+                    ? formData.types.map((t: string) => t.toLowerCase())
+                    : [formData.types.toLowerCase()]
+                  }
+                />
+              </div>
+            </div>
+          </div>
+
       <div className="mb-4">
-      <WeaknessChart
-        types={
-        Array.isArray(formData.types)
-          ? formData.types.map((t: string) => t.toLowerCase())
-          : [formData.types.toLowerCase()]
-        }
-      />
+
       </div>
       <div className="mb-4">
       <h2 className="text-xl font-semibold mb-1">Evolution Chain</h2>
@@ -240,6 +258,50 @@ export default function PokemonFormClient({
       ) : (
       <div className="text-gray-400 text-sm mb-6">No egg moves</div>
       )}
+
+      <h2 className="text-xl font-semibold mt-6 mb-2">Base Stats</h2>
+      {formData.baseStats ? (
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[80px] "></TableHead>
+              <TableHead className="w-[80px] text-center">HP</TableHead>
+              <TableHead className="w-[80px] text-center">Attack</TableHead>
+              <TableHead className="w-[80px] text-center">Defense</TableHead>
+              <TableHead className="w-[80px] text-center">Sp. Atk</TableHead>
+              <TableHead className="w-[80px] text-center">Sp. Def</TableHead>
+              <TableHead className="w-[80px] text-center">Speed</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell className="text-left">Base Stats - Total: {" "}
+                {[
+                  formData.baseStats.hp,
+                  formData.baseStats.attack,
+                  formData.baseStats.defense,
+                  formData.baseStats.specialAttack,
+                  formData.baseStats.specialDefense,
+                  formData.baseStats.speed,
+                ].reduce(
+                  (sum, stat) => typeof stat === 'number' ? sum + stat : sum,
+                  0
+                )}
+              </TableCell>
+              <TableCell className='text-center'>{formData.baseStats.hp ?? 'N/A'}</TableCell>
+              <TableCell className='text-center'>{formData.baseStats.attack ?? 'N/A'}</TableCell>
+              <TableCell className='text-center'>{formData.baseStats.defense ?? 'N/A'}</TableCell>
+              <TableCell className='text-center'>{formData.baseStats.specialAttack ?? 'N/A'}</TableCell>
+              <TableCell className='text-center'>{formData.baseStats.specialDefense ?? 'N/A'}</TableCell>
+              <TableCell className='text-center'>{formData.baseStats.speed ?? 'N/A'}</TableCell>
+
+            </TableRow>
+          </TableBody>
+        </Table>
+      ) : (
+        <div className="text-gray-400 text-sm mb-6">No base stat data</div>
+      )}
+
       <h2 className="text-xl font-semibold mt-6 mb-2">Locations</h2>
       {formData.locations && formData.locations.length > 0 ? (
       <div className="mb-6">
@@ -260,6 +322,6 @@ export default function PokemonFormClient({
       ) : (
       <div className="text-gray-400 text-sm mb-6">No location data</div>
       )}
-    </>
+    </div>
   );
 }
