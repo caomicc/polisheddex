@@ -30,7 +30,7 @@ export default function PokemonFormClient({
   const [selectedForm, setSelectedForm] = useState('default');
   const formData = allFormData[selectedForm] || allFormData['default'];
 
-  console.log('Form Data:', formData);
+  // console.log('Form Data:', formData);
 
   return (
     <div className="space-y-6">
@@ -106,14 +106,18 @@ export default function PokemonFormClient({
             <div>
               <h2 className="text-2xl font-bold mb-3">Abilities</h2>
               <div className="flex flex-wrap gap-2">
-                {formData.abilities.map((ability, idx) => {
-                  const abilityName = typeof ability === 'string' ? ability : ability.name;
-                  return (
-                    <Badge key={idx} variant="secondary" className="px-3 py-1 text-sm">
-                      {abilityName}
-                    </Badge>
-                  );
-                })}
+                {formData.abilities && formData.abilities.length > 0 ? (
+                  formData.abilities.map((ability, idx) => {
+                    const abilityName = typeof ability === 'string' ? ability : ability?.name || 'Unknown';
+                    return (
+                      <Badge key={idx} variant="secondary" className="px-3 py-1 text-sm">
+                        {abilityName}
+                      </Badge>
+                    );
+                  })
+                ) : (
+                  <span className="text-gray-500">No abilities data</span>
+                )}
               </div>
             </div>
           </div>
@@ -124,32 +128,38 @@ export default function PokemonFormClient({
             <div>
               <h2 className="text-2xl font-bold mb-3">Types</h2>
               <div className="flex flex-wrap gap-2">
-                        {Array.isArray(formData.types) ? (
-        formData.types.map((type: string) => (
-          <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-          {type}
-          </Badge>
-        ))
-        ) : (
-        <Badge
-          key={formData.types}
-          variant={formData.types.toLowerCase() as PokemonType['name']}
-        >
-          {formData.types}
-        </Badge>
-        )}
+                {formData.types ? (
+                  Array.isArray(formData.types) ? (
+                    formData.types.map((type: string) => (
+                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                        {type}
+                      </Badge>
+                    ))
+                  ) : (
+                    <Badge
+                      key={formData.types}
+                      variant={formData.types.toLowerCase() as PokemonType['name']}
+                    >
+                      {formData.types}
+                    </Badge>
+                  )
+                ) : (
+                  <Badge variant="secondary">Unknown</Badge>
+                )}
               </div>
             </div>
             <div>
               <h2 className="text-2xl font-bold mb-3">Weaknesses</h2>
               <div className="flex flex-wrap gap-2">
-                <WeaknessChart
-                  types={
-                  Array.isArray(formData.types)
-                    ? formData.types.map((t: string) => t.toLowerCase())
-                    : [formData.types.toLowerCase()]
-                  }
-                />
+                {formData.types && (
+                  <WeaknessChart
+                    types={
+                      Array.isArray(formData.types)
+                        ? formData.types.map((t: string) => t.toLowerCase())
+                        : formData.types ? [formData.types.toLowerCase()] : []
+                    }
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -159,7 +169,7 @@ export default function PokemonFormClient({
       </div>
       <div className="mb-4">
       <h2 className="text-xl font-semibold mb-1">Evolution Chain</h2>
-      {formData.evolution ? (
+      {formData.evolution && formData.evolution.chain ? (
         <EvolutionChain
         chain={formData.evolution.chain}
         spritesByGen={formData.evolution.chain.reduce((acc, name) => {
@@ -176,7 +186,7 @@ export default function PokemonFormClient({
       ) : (
         <div className="text-gray-500">No evolution data.</div>
       )}
-      {formData.evolution && formData.evolution.methods.length > 0 && (
+      {formData.evolution && formData.evolution.methods && formData.evolution.methods.length > 0 && (
         <div className="mt-2">
         <h3 className="font-semibold">Evolution Methods:</h3>
         <ul className="list-disc ml-6">
@@ -206,6 +216,7 @@ export default function PokemonFormClient({
       </div>
       {/* Moves List */}
       <h2 className="text-xl font-semibold mb-2">Moves</h2>
+      {formData.moves && Array.isArray(formData.moves) && formData.moves.length > 0 ? (
       <Table>
       <TableHeader className={"hidden md:table-header-group"}>
         <TableRow>
@@ -220,21 +231,24 @@ export default function PokemonFormClient({
         </TableRow>
       </TableHeader>
       <TableBody>
-        {formData.moves.flatMap((moveData: Move) => {
-        const moveInfo = moveDescData[moveData.name] || null;
-        return (
-          <MoveRow
-          key={`move-${moveData.name}-${moveData.level}`}
-          name={moveData.name}
-          level={moveData.level}
-          info={moveInfo}
-          />
-        );
+        {formData.moves.map((moveData: Move) => {
+          const moveInfo = moveDescData[moveData.name] || null;
+          return (
+            <MoveRow
+            key={`move-${moveData.name}-${moveData.level}`}
+            name={moveData.name}
+            level={moveData.level}
+            info={moveInfo}
+            />
+          );
         })}
       </TableBody>
       </Table>
+      ) : (
+        <div className="text-gray-400 text-sm mb-6">No move data</div>
+      )}
       <h2 className="text-xl font-semibold mt-6 mb-2">Egg Moves</h2>
-      {formData.eggMoves && formData.eggMoves.length > 0 ? (
+      {formData.eggMoves && Array.isArray(formData.eggMoves) && formData.eggMoves.length > 0 ? (
       <Table>
         <TableHeader className={"hidden md:table-header-group"}>
         <TableRow>
@@ -249,7 +263,7 @@ export default function PokemonFormClient({
         </TableRow>
         </TableHeader>
         <TableBody>
-        {formData.eggMoves.flatMap((moveName: string) => {
+        {formData.eggMoves.map((moveName: string) => {
           const moveInfo = moveDescData[moveName] || null;
           return <MoveRow key={`egg-${moveName}`} name={moveName} level={1} info={moveInfo} />;
         })}
@@ -303,7 +317,7 @@ export default function PokemonFormClient({
       )}
 
       <h2 className="text-xl font-semibold mt-6 mb-2">Locations</h2>
-      {formData.locations && formData.locations.length > 0 ? (
+      {formData.locations && Array.isArray(formData.locations) && formData.locations.length > 0 ? (
       <div className="mb-6">
         <ul className="divide-y divide-gray-200">
           {formData.locations.map((loc: LocationEntryProps, idx: number) => (
