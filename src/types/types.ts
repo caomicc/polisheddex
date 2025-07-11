@@ -17,6 +17,14 @@ export interface LocationEntry {
   formName?: string | null; // Form name if applicable
 }
 
+// Define location data structure types
+export interface LocationAreaData {
+  pokemon: Record<string, {
+    methods: Record<string, {
+      times: Record<string, EncounterDetail[]>
+    }>
+  }>
+};
 
 export interface PokemonLocationData {
   locations: LocationEntry[];

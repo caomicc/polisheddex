@@ -103,12 +103,3 @@ function formatMethod(method: string): string {
   if (method === 'water') return 'Surfing';
   return method.charAt(0).toUpperCase() + method.slice(1);
 }
-
-// Helper function to format time of day
-function formatTime(time: string): string {
-  if (time === 'morn') return 'Morning';
-  if (time === 'day') return 'Day';
-  if (time === 'nite') return 'Night';
-  if (time === 'eve') return 'Evening';
-  return time.charAt(0).toUpperCase() + time.slice(1);
-}

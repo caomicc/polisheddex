@@ -2,7 +2,9 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { convertEggGroupCode, convertGenderCode, convertGrowthRateCode, convertHatchCode, normalizeAsmLabelToMoveKey, normalizeMonName, standardizePokemonKey, toCapitalCaseWithSpaces, toTitleCase } from './stringUtils.ts';
-import type { DetailedStats, EncounterDetail, LocationEntry, PokemonDexEntry, PokemonLocationData } from '../types/types.ts';
+import type { DetailedStats, EncounterDetail, LocationEntry, PokemonDexEntry, PokemonLocationData, LocationAreaData } from '../types/types.ts';
+
+
 import { KNOWN_FORMS } from '../data/constants.ts';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -1003,13 +1005,7 @@ function processLocations(
   pokemon: string,
   locations: LocationEntry[],
   formName: string | null,
-  locationsByArea: Record<string, {
-    pokemon: Record<string, {
-      methods: Record<string, {
-        times: Record<string, EncounterDetail[]>
-      }>
-    }>
-  }>
+  locationsByArea: Record<string, LocationAreaData>
 ) {
   for (const location of locations) {
     if (!location.area) continue;
@@ -1069,13 +1065,7 @@ export async function extractLocationsByArea() {
     const pokemonLocationsData = JSON.parse(await fs.promises.readFile(LOCATIONS_DATA_PATH, 'utf8'));
 
     // Organize by area
-    const locationsByArea: Record<string, {
-      pokemon: Record<string, {
-        methods: Record<string, {
-          times: Record<string, EncounterDetail[]>
-        }>
-      }>
-    }> = {};
+    const locationsByArea: Record<string, LocationAreaData> = {};
 
     // Process each Pokemon and its locations
     for (const [pokemon, pokemonData] of Object.entries<PokemonLocationData>(pokemonLocationsData)) {
@@ -1095,8 +1085,7 @@ export async function extractLocationsByArea() {
     }
 
     // --- Map encounter rates to each area and method ---
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    for (const [_areaName, areaData] of Object.entries(locationsByArea)) {
+    for (const [, areaData] of Object.entries(locationsByArea)) {
       // Collect all unique methods and times for this area
       const allMethods = new Set<string>();
       const allTimesByMethod: Record<string, Set<string>> = {};
@@ -1134,8 +1123,7 @@ export async function extractLocationsByArea() {
           const mappedRates = mapEncounterRatesToPokemon(slotPokemon.slice(0, maxSlots), encounterType);
           // Assign rates to EncounterDetails in slot order
           let slotIdx = 0;
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          for (const [_pokemonName, pokemonData] of Object.entries(areaData.pokemon)) {
+          for (const [, pokemonData] of Object.entries(areaData.pokemon)) {
             const details = pokemonData.methods[method]?.times[time];
             if (details && details.length > 0) {
               for (let i = 0; i < details.length; i++) {
@@ -1232,7 +1220,7 @@ export async function synchronizeLocationChances() {
         if (areaObj) {
           // Find matching slot by level and (optionally) formName
           const match = areaObj.find(
-            (slot: any) => String(slot.level) === String(level) && (loc.formName == null || slot.formName === loc.formName)
+            (slot: EncounterDetail) => String(slot.level) === String(level) && (loc.formName == null || slot.formName === loc.formName)
           );
           if (match) {
             loc.chance = match.chance;
@@ -1242,7 +1230,7 @@ export async function synchronizeLocationChances() {
     }
     // Handle alternate forms
     if (data.forms) {
-      for (const [formName, formData] of Object.entries(data.forms)) {
+      for (const [, formData] of Object.entries(data.forms)) {
         if (Array.isArray(formData.locations)) {
           for (const loc of formData.locations) {
             const areaName = normalizeArea(loc.area ?? "");
@@ -1252,7 +1240,7 @@ export async function synchronizeLocationChances() {
             const areaObj = locationsByArea[areaName]?.pokemon?.[pokemon]?.methods?.[method]?.times?.[time];
             if (areaObj) {
               const match = areaObj.find(
-                (slot: any) => String(slot.level) === String(level) && (loc.formName == null || slot.formName === loc.formName)
+                (slot: EncounterDetail) => String(slot.level) === String(level) && (loc.formName == null || slot.formName === loc.formName)
               );
               if (match) {
                 loc.chance = match.chance;

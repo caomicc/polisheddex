@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { LocationEntry, PokemonType } from '@/types/types';
+import { LocationEntry } from '@/types/types';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
 interface TypeIconProps {
