@@ -57,7 +57,7 @@ export default function PokemonFormClient({
       <div className="max-w-4xl mx-auto rounded-xl overflow-hidden">
         <div
           className={cn(
-            'relative py-4 md:p-6 md:dark:from-gray-800 md:dark:to-gray-900 flex flex-row items-center justify-start gap-6',
+            'relative py-4 px-4 md:p-6 md:dark:from-gray-800 md:dark:to-gray-900 flex flex-row items-center justify-start gap-6',
             `bg-${
               formData.types
                 ? typeof formData.types === 'string'

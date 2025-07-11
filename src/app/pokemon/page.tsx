@@ -61,7 +61,7 @@ export default async function PokemonList({
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <h1 className="text-2xl font-bold mb-8">Pokémon List</h1>
+      <h1 className="sr-only">Pokémon List</h1>
 
       <PokemonSearch pokemon={sortedPokemon} sortType={sortType} />
     </div>
