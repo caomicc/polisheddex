@@ -22,13 +22,17 @@ export default async function PokemonList({
   const filePath = path.join(process.cwd(), "pokemon_base_data.json");
   const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
-  const { sort = "alphabetical" } = (await searchParams) ?? {};
+  const { sort = "johtodex" } = (await searchParams) ?? {};
 
   // Determine sort type from query param
-  const sortType = sort === "nationaldex" ? "nationaldex" : "alphabetical";
+  const sortType =
+    sort === "nationaldex"
+      ? "nationaldex"
+      : sort === "johtodex"
+      ? "johtodex"
+      : "alphabetical";
 
   // Prepare an array of Pokémon with their names and dex numbers
-  // eslint-disable-next-line
   const pokemonList: BaseData[] = Object.values(data) as BaseData[];
 
   // Sort based on selected sort type
@@ -39,6 +43,12 @@ export default async function PokemonList({
     if (sortType === "nationaldex") {
       return (
         (a.nationalDex ?? 0) - (b.nationalDex ?? 0) ||
+        a.name.localeCompare(b.name)
+      );
+    }
+    if (sortType === "johtodex") {
+      return (
+        (a.johtoDex ?? 999) - (b.johtoDex ?? 999) ||
         a.name.localeCompare(b.name)
       );
     }
@@ -64,13 +74,14 @@ export default async function PokemonList({
       </Breadcrumb>
       <h1 className="text-2xl font-bold mb-8">Pokémon List</h1>
       <div className="mb-16 flex gap-4">
-        <SortLink label="Alphabetical" sort="alphabetical" current={sortType} />
+        <SortLink label="Johto Dex" sort="johtodex" current={sortType} />
         <SortLink label="National Dex" sort="nationaldex" current={sortType} />
+        <SortLink label="Alphabetical" sort="alphabetical" current={sortType} />
       </div>
       <ul className="grid gap-2 md:gap-8 grid-cols-2 md:grid-cols-3">
         {sortedPokemon.map((p) => (
           <li key={p.name}>
-            <PokemonCard pokemon={p} />
+            <PokemonCard pokemon={p} sortType={sortType} />
           </li>
         ))}
       </ul>

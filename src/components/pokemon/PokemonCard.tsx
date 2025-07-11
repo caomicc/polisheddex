@@ -7,9 +7,10 @@ import Image from "next/image";
 
 export interface PokemonCardProps {
   pokemon: BaseData;
+  sortType?: string;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => (
+const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = "nationaldex" }) => (
   <Link href={`/pokemon/${encodeURIComponent(pokemon.name)}`}>
     <Card className="shadow-md hover:shadow-lg transition-shadow duration-200 text-center border-0 mt-8 relative pt-[64px]">
       <Image
@@ -21,7 +22,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => (
       />
       <div className="flex flex-col gap-0">
         <p className="font-bold">
-          #{pokemon.nationalDex !== Infinity ? pokemon.nationalDex : "—"}
+          #{sortType === "johtodex"
+            ? (pokemon.johtoDex !== null && pokemon.johtoDex < 999 ? pokemon.johtoDex : "—")
+            : (pokemon.nationalDex !== null ? pokemon.nationalDex : "—")}
         </p>
         <h2 className="text-xl mb-5 font-bold">{pokemon.name}</h2>
         <div className="flex justify-center gap-2">
