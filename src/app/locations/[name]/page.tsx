@@ -54,7 +54,7 @@ function formatTime(time: string): string {
 // Function to load location data
 async function loadLocationData() {
   try {
-    const locationsFile = path.join(process.cwd(), 'locations_by_area.json');
+    const locationsFile = path.join(process.cwd(), 'output/locations_by_area.json');
     const data = await fs.promises.readFile(locationsFile, 'utf8');
     return JSON.parse(data) as Record<string, LocationData>;
   } catch (error) {
