@@ -120,8 +120,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     height: detailedStatData[pokemonName]?.height ?? 0,
     weight: detailedStatData[pokemonName]?.weight ?? 0,
     evYield: detailedStatData[pokemonName]?.evYield || '',
-    color: detailedStatData[pokemonName]?.color || '', // Add color property
-    shape: detailedStatData[pokemonName]?.shape || '', // Add shape property
+    bodyColor: detailedStatData[pokemonName]?.bodyColor || '', // Add color property
+    bodyShape: detailedStatData[pokemonName]?.bodyShape || '', // Add body shape property
     hatchRate: detailedStatData[pokemonName]?.hatchRate || '',
     eggGroups: detailedStatData[pokemonName]?.eggGroups || [],
   };
@@ -157,8 +157,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           height: detailedStatData[pokemonName]?.height ?? 0,
           weight: detailedStatData[pokemonName]?.weight ?? 0,
           evYield: detailedStatData[pokemonName]?.evYield || '',
-          color: detailedStatData[pokemonName]?.color || '', // Add color property
-          shape: detailedStatData[pokemonName]?.shape || '', // Add shape property
+          bodyColor: detailedStatData[pokemonName]?.bodyColor || '', // Add color property
+          bodyShape: detailedStatData[pokemonName]?.bodyShape || '', // Add shape property
           hatchRate: detailedStatData[pokemonName]?.hatchRate || '',
           eggGroups: detailedStatData[pokemonName]?.eggGroups || [],
         },

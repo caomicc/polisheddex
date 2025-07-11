@@ -30,8 +30,6 @@ export default function PokemonFormClient({
   const [selectedForm, setSelectedForm] = useState('default');
   const formData = allFormData[selectedForm] || allFormData['default'];
 
-  // console.log('Form Data:', formData);
-
   return (
     <div className="space-y-6">
       {forms.length > 0 && (
@@ -120,6 +118,12 @@ export default function PokemonFormClient({
                 <span className="text-gray-500">Unknown</span>
               )}
             </div>
+            <div className="font-medium">EV Yield:</div>
+            <div>{formData.evYield || 'None'}</div>
+            <div className="font-medium">Body Color:</div>
+            <div>{formData.bodyColor || 'Unknown'}</div>
+            <div className="font-medium">Body Shape:</div>
+            <div>{formData.bodyShape || 'Unknown'}</div>
           </div>
         </div>
         <div>

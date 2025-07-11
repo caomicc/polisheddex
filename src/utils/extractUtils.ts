@@ -693,8 +693,8 @@ export function addBodyDataToDetailedStats(
     ...detailedStats,
     height: Number(height),
     weight: Number(weight),
-    bodyShape: shape,
-    bodyColor: color,
+    bodyShape: toTitleCase(shape),
+    bodyColor: toTitleCase(color),
     // Optionally add name if needed
     // name,
   };

@@ -125,8 +125,8 @@ export interface DetailedStats {
   evYield: string;
   height?: number | string; // Height can be a number or a string (e.g., "1.2 m")
   weight?: number | string; // Weight can be a number or a string (e.g., "60 kg");
-  shape?: string;
-  color?: string;
+  bodyShape?: string;
+  bodyColor?: string;
 }
 
 export interface Ability {
