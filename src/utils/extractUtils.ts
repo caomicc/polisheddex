@@ -1015,7 +1015,7 @@ function processLocations(
     if (!location.area) continue;
 
     // Format the area name to match UI component formatting
-    const areaName = location.area
+    const formattedAreaName = location.area
       .toLowerCase()
       .replace(/_/g, ' ')
       .replace(/\b\w/g, c => c.toUpperCase());
@@ -1023,23 +1023,23 @@ function processLocations(
     const time = location.time || 'any';
 
     // Initialize area if it doesn't exist
-    if (!locationsByArea[areaName]) {
-      locationsByArea[areaName] = { pokemon: {} };
+    if (!locationsByArea[formattedAreaName]) {
+      locationsByArea[formattedAreaName] = { pokemon: {} };
     }
 
     // Initialize Pokemon in this area if it doesn't exist
-    if (!locationsByArea[areaName].pokemon[pokemon]) {
-      locationsByArea[areaName].pokemon[pokemon] = { methods: {} };
+    if (!locationsByArea[formattedAreaName].pokemon[pokemon]) {
+      locationsByArea[formattedAreaName].pokemon[pokemon] = { methods: {} };
     }
 
     // Initialize method if it doesn't exist
-    if (!locationsByArea[areaName].pokemon[pokemon].methods[method]) {
-      locationsByArea[areaName].pokemon[pokemon].methods[method] = { times: {} };
+    if (!locationsByArea[formattedAreaName].pokemon[pokemon].methods[method]) {
+      locationsByArea[formattedAreaName].pokemon[pokemon].methods[method] = { times: {} };
     }
 
     // Initialize time if it doesn't exist
-    if (!locationsByArea[areaName].pokemon[pokemon].methods[method].times[time]) {
-      locationsByArea[areaName].pokemon[pokemon].methods[method].times[time] = [];
+    if (!locationsByArea[formattedAreaName].pokemon[pokemon].methods[method].times[time]) {
+      locationsByArea[formattedAreaName].pokemon[pokemon].methods[method].times[time] = [];
     }
 
     // Add encounter details
@@ -1058,7 +1058,7 @@ function processLocations(
       encounterDetail.formName = formName || location.formName;
     }
 
-    locationsByArea[areaName].pokemon[pokemon].methods[method].times[time].push(encounterDetail);
+    locationsByArea[formattedAreaName].pokemon[pokemon].methods[method].times[time].push(encounterDetail);
   }
 }
 
@@ -1095,7 +1095,8 @@ export async function extractLocationsByArea() {
     }
 
     // --- Map encounter rates to each area and method ---
-    for (const [areaName, areaData] of Object.entries(locationsByArea)) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for (const [_areaName, areaData] of Object.entries(locationsByArea)) {
       // Collect all unique methods and times for this area
       const allMethods = new Set<string>();
       const allTimesByMethod: Record<string, Set<string>> = {};
@@ -1124,8 +1125,8 @@ export async function extractLocationsByArea() {
           // Determine encounter type
           const encounterType =
             method.toLowerCase().includes('surf') || method.toLowerCase().includes('water') ? 'surf'
-            : method.toLowerCase().includes('fish') ? 'fish'
-            : 'grass';
+              : method.toLowerCase().includes('fish') ? 'fish'
+                : 'grass';
           // Use correct slot count for each type
           const maxSlots =
             encounterType === 'grass' ? 10 : encounterType === 'surf' ? 3 : 4;
@@ -1133,7 +1134,8 @@ export async function extractLocationsByArea() {
           const mappedRates = mapEncounterRatesToPokemon(slotPokemon.slice(0, maxSlots), encounterType);
           // Assign rates to EncounterDetails in slot order
           let slotIdx = 0;
-          for (const [pokemonName, pokemonData] of Object.entries(areaData.pokemon)) {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          for (const [_pokemonName, pokemonData] of Object.entries(areaData.pokemon)) {
             const details = pokemonData.methods[method]?.times[time];
             if (details && details.length > 0) {
               for (let i = 0; i < details.length; i++) {
