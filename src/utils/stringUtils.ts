@@ -46,7 +46,6 @@ export function standardizePokemonKey(name: string): string {
   return toTitleCase(baseName.toLowerCase());
 }
 
-
 export function parseDexEntries(file: string): string[] {
   // Accepts a file path to a dex order file and returns an array of TitleCase names in order
   const text = fs.readFileSync(file, 'utf8');
@@ -110,9 +109,7 @@ export function parseWildmonLine(line: string): { level: string; species: string
   };
 }
 
-export
-  // Helper to normalize Pokémon name and form
-  function normalizeMonName(name: string, formStr: string | null): { baseName: string; formName: string | null } {
+export function normalizeMonName(name: string, formStr: string | null): { baseName: string; formName: string | null } {
   const baseName = toTitleCase(name);
 
   // Return normalized form name
@@ -145,16 +142,8 @@ export
     }
   }
 
-  // // Debug: Log when processing Diglett or if we're in Diglett's Cave
-  // if (name === 'DIGLETT' || name === 'DUGTRIO') {
-  //   console.log(`Processing: ${name} form: ${formStr || 'null'} -> ${baseName} (form: ${formName})`);
-  // }
-
   return { baseName, formName };
 }
-
-
-
 // Helper functions to convert game codes to human-readable strings
 export function convertGenderCode(code: string): string {
   const genderCodes: Record<string, string> = {

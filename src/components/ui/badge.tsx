@@ -52,7 +52,7 @@ const badgeVariants = cva(
         electric: 'bg-electric text-yellow-900 border-transparent',
         grass: 'bg-grass text-green-900 border-transparent',
         ice: 'bg-ice text-blue-900 border-transparent',
-        fighting: 'bg-fighting text-white border-transparent',
+        fighting: 'bg-fighting text-orange-50 border-transparent',
         poison: 'bg-poison text-purple-50 border-transparent',
         ground: 'bg-ground text-orange-900 border-transparent',
         flying: 'bg-flying text-blue-900 border-transparent',

@@ -604,7 +604,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         // Split by commas, but skip the first part which is the Pokémon name
         const abilityParts = abilitiesLine.split(',').slice(1);
         for (const part of abilityParts) {
-          const ability = part.trim();
+          const ability = toCapitalCaseWithSpaces(part.trim());
           if (ability) {
             abilities.push(ability);
           }

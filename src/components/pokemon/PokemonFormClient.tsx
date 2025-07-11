@@ -16,6 +16,7 @@ import { EvolutionChain } from '@/components/ui/EvolutionChain';
 import { WeaknessChart } from './WeaknessChart';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { cn } from '@/lib/utils';
+import { Progress } from '../ui/progress';
 
 export default function PokemonFormClient({
   forms,
@@ -114,58 +115,85 @@ export default function PokemonFormClient({
           </div>
         </div>
       </div>
-
       <div>
         <h2 className="text-md md:text-2xl font-bold mb-3">Pokedex Entry</h2>
-        <p className="text-muted-foreground">{formData.description}</p>
+        <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
       </div>
-
-      <hr className="border-gray-200 dark:border-gray-700" />
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <h2 className="text-md md:text-2xl font-bold mb-3">Basic Information</h2>
+          <h2 className="text-md md:text-2xl font-bold mb-3">About</h2>
           <Table className="max-w-full">
-            <TableHeader>
+            <TableHeader className="sr-only">
               <TableRow>
-                <TableHead className="font-medium">Stat</TableHead>
+                <TableHead className="font-medium w-[120px]">Stat</TableHead>
                 <TableHead className="font-medium">Value</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               <TableRow>
-                <TableCell className="font-medium">Height</TableCell>
+                <TableCell className="font-medium w-[120px]">Height</TableCell>
                 <TableCell>{((formData.height as number) / 10).toFixed(1)} m</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell className="font-medium">Weight</TableCell>
+                <TableCell className="font-medium w-[120px]">Weight</TableCell>
                 <TableCell>{((formData.weight as number) / 10).toFixed(1)} kg</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell className="font-medium">Base Exp.</TableCell>
-                <TableCell>{formData.baseExp}</TableCell>
+                <TableCell className="font-medium w-[120px]">Abilities</TableCell>
+                <TableCell>
+                  <div className="flex flex-wrap gap-2">
+                    {formData.abilities && formData.abilities.length > 0 ? (
+                      formData.abilities.map((ability, idx) => {
+                        const abilityName =
+                          typeof ability === 'string' ? ability : ability?.name || 'Unknown';
+                        return <span key={idx}>{abilityName}</span>;
+                      })
+                    ) : (
+                      <span className="text-gray-500">No abilities data</span>
+                    )}
+                  </div>
+                </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell className="font-medium">Catch Rate</TableCell>
-                <TableCell>{formData.catchRate}</TableCell>
+                <TableCell className="font-medium w-[120px]">Color</TableCell>
+                <TableCell>{formData.bodyColor || 'Unknown'}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell className="font-medium">Growth Rate</TableCell>
+                <TableCell className="font-medium w-[120px]">Shape</TableCell>
+                <TableCell>{formData.bodyShape || 'Unknown'}</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </div>
+
+        <div>
+          <h2 className="text-md md:text-2xl font-bold mb-3">Breeding</h2>
+          <Table className="max-w-full">
+            <TableHeader className="sr-only">
+              <TableRow>
+                <TableHead className="font-medium w-[120px]">Breeding Stats</TableHead>
+                <TableHead className="font-medium">Value</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell className="font-medium w-[120px]">Gender Dist</TableCell>
+                <TableCell>{formData.genderRatio}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium w-[120px]">Growth Rate</TableCell>
                 <TableCell>{formData.growthRate}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell className="font-medium">Hatch Rate</TableCell>
-                <TableCell>{formData.hatchRate}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">Egg Groups</TableCell>
+                <TableCell className="font-medium w-[120px]">Egg Groups</TableCell>
                 <TableCell>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                     {formData.eggGroups && formData.eggGroups.length > 0 ? (
                       formData.eggGroups.map((group, idx) => (
-                        <Badge key={idx} variant="default">
+                        <span key={idx}>
                           {group}
-                        </Badge>
+                          {idx < formData.eggGroups.length - 1 && <span>,</span>}
+                        </span>
                       ))
                     ) : (
                       <span className="text-gray-500">Unknown</span>
@@ -173,38 +201,43 @@ export default function PokemonFormClient({
                   </div>
                 </TableCell>
               </TableRow>
+
               <TableRow>
-                <TableCell className="font-medium">EV Yield</TableCell>
-                <TableCell>{formData.evYield || 'None'}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">Body Color</TableCell>
-                <TableCell>{formData.bodyColor || 'Unknown'}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">Body Shape</TableCell>
-                <TableCell>{formData.bodyShape || 'Unknown'}</TableCell>
+                <TableCell className="font-medium w-[120px]">Hatch Rate</TableCell>
+                <TableCell>{formData.hatchRate}</TableCell>
               </TableRow>
             </TableBody>
           </Table>
         </div>
+      </div>
+
+      <hr className="border-gray-200 dark:border-gray-700" />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <h2 className="text-2xl font-bold mb-3">Abilities</h2>
-          <div className="flex flex-wrap gap-2">
-            {formData.abilities && formData.abilities.length > 0 ? (
-              formData.abilities.map((ability, idx) => {
-                const abilityName =
-                  typeof ability === 'string' ? ability : ability?.name || 'Unknown';
-                return (
-                  <Badge key={idx} variant="default">
-                    {abilityName}
-                  </Badge>
-                );
-              })
-            ) : (
-              <span className="text-gray-500">No abilities data</span>
-            )}
-          </div>
+          <h2 className="text-md md:text-2xl font-bold mb-3">Training</h2>
+          <Table className="w-full">
+            <TableHeader className="sr-only">
+              <TableRow>
+                <TableHead className="font-medium w-[120px]">Stat</TableHead>
+                <TableHead className="font-medium">Value</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell className="font-medium w-[120px]">Base Exp.</TableCell>
+                <TableCell>{formData.baseExp}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium w-[120px]">Catch Rate</TableCell>
+                <TableCell>{formData.catchRate}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">EV Yield</TableCell>
+                <TableCell>{formData.evYield || 'None'}</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </div>
       </div>
 
@@ -353,44 +386,43 @@ export default function PokemonFormClient({
 
       <h2 className="text-xl font-semibold mt-6 mb-2">Base Stats</h2>
       {formData.baseStats ? (
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[80px] "></TableHead>
-              <TableHead className="w-[80px] text-center">HP</TableHead>
-              <TableHead className="w-[80px] text-center">Attack</TableHead>
-              <TableHead className="w-[80px] text-center">Defense</TableHead>
-              <TableHead className="w-[80px] text-center">Sp. Atk</TableHead>
-              <TableHead className="w-[80px] text-center">Sp. Def</TableHead>
-              <TableHead className="w-[80px] text-center">Speed</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-              <TableCell className="text-left">
-                Base Stats - Total:{' '}
-                {[
-                  formData.baseStats.hp,
-                  formData.baseStats.attack,
-                  formData.baseStats.defense,
-                  formData.baseStats.specialAttack,
-                  formData.baseStats.specialDefense,
-                  formData.baseStats.speed,
-                ].reduce((sum, stat) => (typeof stat === 'number' ? sum + stat : sum), 0)}
-              </TableCell>
-              <TableCell className="text-center">{formData.baseStats.hp ?? 'N/A'}</TableCell>
-              <TableCell className="text-center">{formData.baseStats.attack ?? 'N/A'}</TableCell>
-              <TableCell className="text-center">{formData.baseStats.defense ?? 'N/A'}</TableCell>
-              <TableCell className="text-center">
-                {formData.baseStats.specialAttack ?? 'N/A'}
-              </TableCell>
-              <TableCell className="text-center">
-                {formData.baseStats.specialDefense ?? 'N/A'}
-              </TableCell>
-              <TableCell className="text-center">{formData.baseStats.speed ?? 'N/A'}</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
+        <div className="space-y-6">
+          {[
+            { label: 'HP', value: formData.baseStats.hp },
+            { label: 'Atk', value: formData.baseStats.attack },
+            { label: 'Def', value: formData.baseStats.defense },
+            { label: 'Sp. Atk', value: formData.baseStats.specialAttack },
+            { label: 'Sp. Def', value: formData.baseStats.specialDefense },
+            { label: 'Spd', value: formData.baseStats.speed },
+          ].map(({ label, value }) => (
+            <div key={label} className="flex flex-row gap-4 items-center">
+              <div className="flex justify-between items-center w-[120px]">
+                <span className="text-xs font-bold leading-none">{label}</span>
+                <span className="text-xs leading-none text-muted-foreground">{value ?? 'N/A'}</span>
+              </div>
+              <Progress
+                value={typeof value === 'number' ? Math.min(value, 255) : 0}
+                max={255}
+                aria-valuenow={value ?? 0}
+                aria-valuemax={255}
+                aria-label={`${label} stat`}
+              />
+            </div>
+          ))}
+          <div className="flex justify-between items-center mt-2">
+            <span className="font-semibold">Total</span>
+            <span className="text-xs text-muted-foreground">
+              {[
+                formData.baseStats.hp,
+                formData.baseStats.attack,
+                formData.baseStats.defense,
+                formData.baseStats.specialAttack,
+                formData.baseStats.specialDefense,
+                formData.baseStats.speed,
+              ].reduce((sum, stat) => (typeof stat === 'number' ? sum + stat : sum), 0)}
+            </span>
+          </div>
+        </div>
       ) : (
         <div className="text-gray-400 text-sm mb-6">No base stat data</div>
       )}

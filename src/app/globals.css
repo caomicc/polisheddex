@@ -3,12 +3,6 @@
 
 @source inline("bg-{physical,special,status}");
 
-@source inline("bg-{bug,dark,dragon,electric,fairy,fighting,fire,flying,ghost,grass,ground,ice,normal,poison,psychic,rock,steel,water}");
-
-/*
----break--- */
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
