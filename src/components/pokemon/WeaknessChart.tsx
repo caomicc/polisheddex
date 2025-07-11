@@ -2,7 +2,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { PokemonType } from '@/types/types';
 // import { Badge } from '../ui/badge';
-import typeChartData from '../../../type_chart.json';
+import typeChartData from '../../../output/type_chart.json';
 import TypeIcon from './TypeIcon';
 
 // TODO: Update types

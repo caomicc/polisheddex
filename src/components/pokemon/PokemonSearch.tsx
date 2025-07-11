@@ -5,8 +5,6 @@ import React, { useState } from 'react';
 import PokemonCard from './PokemonCard';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
-import Link from 'next/link';
-import { Button } from '../ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger } from '../ui/select';
 import { cn } from '@/lib/utils';
 
@@ -104,15 +102,5 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
         </ul>
       )}
     </>
-  );
-}
-
-function SortLink({ label, sort, current }: { label: string; sort: string; current: string }) {
-  return (
-    <Link href={`?sort=${sort}`} aria-current={current === sort ? 'page' : undefined}>
-      <Button variant={current === sort ? 'default' : 'outline'} asChild>
-        <span>{label}</span>
-      </Button>
-    </Link>
   );
 }
