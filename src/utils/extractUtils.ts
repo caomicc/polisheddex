@@ -671,6 +671,35 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 }
 
 
+/**
+ * Extracts body data from a line and adds it to the detailed stats object for a Pokémon.
+ * @param line - The body_data line from the ASM file.
+ * @param detailedStats - The detailed stats object to update.
+ * @returns The updated detailed stats object with body data fields.
+ */
+export function addBodyDataToDetailedStats(
+  line: string,
+  detailedStats: Record<string, any>
+): Record<string, any> {
+  // Example line: body_data   7,   69, QUADRUPED,    GREEN  ; BULBASAUR
+  const bodyDataRegex = /body_data\s+(\d+),\s*(\d+),\s*([A-Z_]+),\s*([A-Z_]+)\s*;\s*(.+)/;
+  const match = line.match(bodyDataRegex);
+  if (!match) return detailedStats;
+
+  const [, height, weight, shape, color, name] = match;
+
+  // Add body data to detailedStats
+  return {
+    ...detailedStats,
+    height: Number(height),
+    weight: Number(weight),
+    bodyShape: shape,
+    bodyColor: color,
+    // Optionally add name if needed
+    // name,
+  };
+}
+
 export function extractAbilityDescriptions() {
   const abilityNamesPath = path.join(__dirname, '../../rom/data/abilities/names.asm');
   const abilityDescriptionsPath = path.join(__dirname, '../../rom/data/abilities/descriptions.asm');

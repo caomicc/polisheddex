@@ -1,10 +1,10 @@
 import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toCapitalCaseWithSpaces, toTitleCase } from './src/utils/stringUtils.ts';
-import type { BaseData, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3, PokemonDexEntry } from './src/types/types.ts';
+import type { BaseData, DetailedStats, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3, PokemonDexEntry } from './src/types/types.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } from './src/data/constants.ts';
-import { extractAbilityDescriptions, extractBasePokemonName, extractDetailedStats, extractEggMoves, extractFormInfo, extractHiddenGrottoes, extractMoveDescriptions, extractPokedexEntries, extractTypeChart, getFullPokemonName } from './src/utils/extractUtils.ts';
+import { extractAbilityDescriptions, extractBasePokemonName, extractDetailedStats, extractEggMoves, extractFormInfo, extractHiddenGrottoes, extractMoveDescriptions, extractPokedexEntries, extractTypeChart, getFullPokemonName, addBodyDataToDetailedStats } from './src/utils/extractUtils.ts';
 import { groupPokemonForms } from './src/utils/helpers.ts';
 
 
@@ -935,13 +935,26 @@ for (const [mon, locations] of Object.entries(locationData)) {
 fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(groupedLocationData, null, 2));
 console.log('Pokémon location data extracted to', LOCATIONS_OUTPUT);
 
-
-
-
-// --- Detailed Stats Extraction ---
 function exportDetailedStats() {
   try {
-    const detailedStats = extractDetailedStats();
+    const detailedStats: Record<string, DetailedStats> = extractDetailedStats();
+    // --- Body Data Extraction ---
+    const bodyDataPath = path.join(__dirname, 'rom/data/pokemon/body_data.asm');
+    if (fs.existsSync(bodyDataPath)) {
+      const bodyDataLines = fs.readFileSync(bodyDataPath, 'utf8').split(/\r?\n/);
+      for (const line of bodyDataLines) {
+        if (line.trim().startsWith('body_data')) {
+          // Extract Pokémon name from comment
+          const nameMatch = line.match(/;\s*([A-Z0-9_]+)/);
+          if (nameMatch) {
+            const monName = toTitleCase(nameMatch[1].replace(/_/g, ' '));
+            if (detailedStats[monName]) {
+              detailedStats[monName] = addBodyDataToDetailedStats(line, detailedStats[monName]) as DetailedStats;
+            }
+          }
+        }
+      }
+    }
     if (detailedStats && Object.keys(detailedStats).length > 0) {
       fs.writeFileSync(DETAILED_STATS_OUTPUT, JSON.stringify(detailedStats, null, 2));
       console.log('Detailed Pokémon stats extracted to', DETAILED_STATS_OUTPUT);
@@ -952,8 +965,8 @@ function exportDetailedStats() {
     console.error('Error extracting detailed stats:', error);
   }
 }
-extractEggMoves();
 
+extractEggMoves();
 // Execute the function to extract and export detailed stats
 exportDetailedStats();
 
