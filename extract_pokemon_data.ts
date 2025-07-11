@@ -24,15 +24,15 @@ const KNOWN_FORMS = {
 };
 
 // Output file paths
-const MOVE_DESCRIPTIONS_OUTPUT = path.join(__dirname, 'pokemon_move_descriptions.json');
-const EGG_MOVES_OUTPUT = path.join(__dirname, 'pokemon_egg_moves.json');
-const BASE_DATA_OUTPUT = path.join(__dirname, 'pokemon_base_data.json');
-const EVOLUTION_OUTPUT = path.join(__dirname, 'pokemon_evolution_data.json');
-const LEVEL_MOVES_OUTPUT = path.join(__dirname, 'pokemon_level_moves.json');
-const LOCATIONS_OUTPUT = path.join(__dirname, 'pokemon_locations.json');
-const POKEDEX_ENTRIES_OUTPUT = path.join(__dirname, 'pokemon_pokedex_entries.json');
-const DETAILED_STATS_OUTPUT = path.join(__dirname, 'pokemon_detailed_stats.json');
-const ABILITY_DESCRIPTIONS_OUTPUT = path.join(__dirname, 'pokemon_ability_descriptions.json');
+const MOVE_DESCRIPTIONS_OUTPUT = path.join(__dirname, 'output/pokemon_move_descriptions.json');
+const EGG_MOVES_OUTPUT = path.join(__dirname, 'output/pokemon_egg_moves.json');
+const BASE_DATA_OUTPUT = path.join(__dirname, 'output/pokemon_base_data.json');
+const EVOLUTION_OUTPUT = path.join(__dirname, 'output/pokemon_evolution_data.json');
+const LEVEL_MOVES_OUTPUT = path.join(__dirname, 'output/pokemon_level_moves.json');
+const LOCATIONS_OUTPUT = path.join(__dirname, 'output/pokemon_locations.json');
+const POKEDEX_ENTRIES_OUTPUT = path.join(__dirname, 'output/pokemon_pokedex_entries.json');
+const DETAILED_STATS_OUTPUT = path.join(__dirname, 'output/pokemon_detailed_stats.json');
+const ABILITY_DESCRIPTIONS_OUTPUT = path.join(__dirname, 'output/pokemon_ability_descriptions.json');
 
 
 function extractAbilityDescriptions() {

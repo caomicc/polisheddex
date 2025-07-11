@@ -32,7 +32,7 @@ interface LocationData {
 // Function to load location data
 async function loadLocationData(): Promise<Record<string, LocationData>> {
   try {
-    const locationsFile = path.join(process.cwd(), 'locations_by_area.json');
+    const locationsFile = path.join(process.cwd(), 'output/locations_by_area.json');
     const data = await fs.promises.readFile(locationsFile, 'utf8');
     return JSON.parse(data) as Record<string, LocationData>;
   } catch (error) {
@@ -58,7 +58,7 @@ export default async function LocationsPage() {
       </nav>
 
       <h1 className="text-3xl font-bold mb-6">Game Locations</h1>
-      
+
       {/* Hidden Grotto Locations */}
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Hidden Grotto Locations</h2>
@@ -66,14 +66,14 @@ export default async function LocationsPage() {
           {locationNames
             .filter(locationName => {
               return Object.values(locationData[locationName].pokemon).some(
-                (pokemon: PokemonMethods) => 
+                (pokemon: PokemonMethods) =>
                   pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto')
               );
             })
             .map((locationName) => {
               // Count total Pokémon in hidden grottoes at this location
               const pokemonCount = Object.values(locationData[locationName].pokemon)
-                .filter((pokemon: PokemonMethods) => 
+                .filter((pokemon: PokemonMethods) =>
                   pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto')
                 ).length;
 
@@ -99,10 +99,10 @@ export default async function LocationsPage() {
         {locationNames.map((locationName) => {
           // Count total Pokémon in this location
           const pokemonCount = Object.keys(locationData[locationName].pokemon).length;
-          
+
           // Check if this location has hidden grottoes
           const hasHiddenGrottoes = Object.values(locationData[locationName].pokemon).some(
-            (pokemon: PokemonMethods) => 
+            (pokemon: PokemonMethods) =>
               pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto')
           );
 

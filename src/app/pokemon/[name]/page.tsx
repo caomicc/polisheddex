@@ -36,7 +36,7 @@ let cachedBaseStatsData: Record<string, BaseData> | null = null;
 
 // This function helps Next.js pre-render pages at build time
 export async function generateStaticParams() {
-  const baseStatsFile = path.join(process.cwd(), 'pokemon_base_data.json');
+  const baseStatsFile = path.join(process.cwd(), 'output/pokemon_base_data.json');
   try {
     const data = await fs.promises.readFile(baseStatsFile, 'utf8');
     const parsed = JSON.parse(data);
@@ -53,13 +53,13 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const pokemonName = name;
 
   // Define file paths
-  const baseStatsFile = path.join(process.cwd(), 'pokemon_base_data.json');
-  const moveDescFile = path.join(process.cwd(), 'pokemon_move_descriptions.json');
-  const eggMovesFile = path.join(process.cwd(), 'pokemon_egg_moves.json');
-  const levelMovesFile = path.join(process.cwd(), 'pokemon_level_moves.json');
-  const locationsFile = path.join(process.cwd(), 'pokemon_locations.json');
-  const evolutionDataFile = path.join(process.cwd(), 'pokemon_evolution_data.json');
-  const dexEntryDataFile = path.join(process.cwd(), 'pokemon_pokedex_entries.json');
+  const baseStatsFile = path.join(process.cwd(), 'output/pokemon_base_data.json');
+  const moveDescFile = path.join(process.cwd(), 'output/pokemon_move_descriptions.json');
+  const eggMovesFile = path.join(process.cwd(), 'output/pokemon_egg_moves.json');
+  const levelMovesFile = path.join(process.cwd(), 'output/pokemon_level_moves.json');
+  const locationsFile = path.join(process.cwd(), 'output/pokemon_locations.json');
+  const evolutionDataFile = path.join(process.cwd(), 'output/pokemon_evolution_data.json');
+  const dexEntryDataFile = path.join(process.cwd(), 'output/pokemon_pokedex_entries.json');
 
   // Load data using Promise.all for parallel loading
   const [baseStatsData, moveDescData, eggMovesData, levelMovesData, locationsData, evolutionData, dexEntryData] =

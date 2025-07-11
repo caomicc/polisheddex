@@ -19,7 +19,7 @@ export default async function PokemonList({
   searchParams: Promise<{ sort?: string }>;
 }) {
   // Read the JSON file at build time
-  const filePath = path.join(process.cwd(), "pokemon_base_data.json");
+  const filePath = path.join(process.cwd(), "output/pokemon_base_data.json");
   const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
   const { sort = "johtodex" } = (await searchParams) ?? {};

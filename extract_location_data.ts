@@ -6,8 +6,8 @@ import type { LocationEntry, PokemonLocationData, EncounterDetail } from './src/
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const LOCATIONS_DATA_PATH = path.join(__dirname, 'pokemon_locations.json');
-const LOCATIONS_BY_AREA_OUTPUT = path.join(__dirname, 'locations_by_area.json');
+const LOCATIONS_DATA_PATH = path.join(__dirname, 'output/pokemon_locations.json');
+const LOCATIONS_BY_AREA_OUTPUT = path.join(__dirname, 'output/locations_by_area.json');
 
 // Load the Pokemon location data
 async function extractLocationsByArea() {
