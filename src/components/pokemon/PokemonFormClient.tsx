@@ -67,6 +67,15 @@ export default function PokemonFormClient({
                   : 'unknown'
                 : 'unknown'
             }-20`,
+            `dark:bg-${
+              formData.types
+                ? typeof formData.types === 'string'
+                  ? formData.types.toLowerCase()
+                  : Array.isArray(formData.types) && formData.types.length > 0
+                  ? formData.types[0].toLowerCase()
+                  : 'unknown'
+                : 'unknown'
+            }-dark`
           )}
         >
           <div className="w-24 p-1 md:p-0 md:w-24 md:h-auto ">

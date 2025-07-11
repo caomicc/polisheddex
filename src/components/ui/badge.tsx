@@ -46,7 +46,7 @@ const badgeVariants = cva(
           'border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
         outline: 'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',
         // Pokémon type variants
-        normal: 'bg-normal text-brown-900 border-transparent',
+        normal: 'bg-normal text-black border-transparent',
         fire: 'bg-fire text-orange-50 border-transparent',
         water: 'bg-water text-blue-50 border-transparent',
         electric: 'bg-electric text-yellow-950 border-transparent',
@@ -57,7 +57,7 @@ const badgeVariants = cva(
         ground: 'bg-ground text-orange-950 border-transparent',
         flying: 'bg-flying text-blue-950 border-transparent',
         psychic: 'bg-psychic text-pink-950 border-transparent',
-        bug: 'bg-bug text-brown-950 border-transparent',
+        bug: 'bg-bug text-green-950! border-transparent',
         rock: 'bg-rock text-brown-50 border-transparent',
         ghost: 'bg-ghost text-purple-50 border-transparent',
         dragon: 'bg-dragon text-purple-50 border-transparent',

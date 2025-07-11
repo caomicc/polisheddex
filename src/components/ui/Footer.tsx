@@ -21,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
   return (
     <footer
       className={cn(
-        "w-full py-6 px-4 flex items-center justify-between border-t border-gray-200 bg-white dark:bg-gray-900",
+        "w-full py-6 px-4 flex flex-col md:flex-row md:items-center spacing-2 justify-between border-t border-gray-200 bg-white dark:bg-gray-900",
         className
       )}
       role="contentinfo"

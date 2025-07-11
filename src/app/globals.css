@@ -388,3 +388,22 @@
     transparent
   );
 }
+
+.bg-bug-dark {
+  background-color: red;
+}
+.bg-dark-dark {
+  background-color: oklch(var(--color-dark-raw) / 0.2);
+}
+.bg-dragon-dark {
+  background-color: oklch(var(--color-dragon-raw) / 0.2);
+}
+.bg-electric-dark {
+  background-color: oklch(var(--color-electric-raw) / 0.2);
+}
+.bg-fairy-dark {
+  background-color: oklch(var(--color-fairy-raw) / 0.2);
+}
+.bg-fighting-dark {
+  background-color: oklch(var(--color-fighting-raw) / 0.2);
+}
