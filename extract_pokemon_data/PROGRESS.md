@@ -1,5 +1,7 @@
 # Refactoring Progress
 
+# NOT READY
+
 ## Completed
 - Created base folder structure
 - Created TypeScript configuration
