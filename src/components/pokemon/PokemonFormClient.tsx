@@ -89,15 +89,31 @@ export default function PokemonFormClient({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h2 className="text-2xl font-bold mb-3">Basic Information</h2>
-          <div className="grid grid-cols-2 gap-2 text-sm">
+          <div className="grid grid-cols-2 gap-2 text-sm space-y-2">
             <div className="font-medium">Height:</div>
             <div>{((formData.height as number) / 10).toFixed(1)} m</div>
             <div className="font-medium">Weight:</div>
             <div>{((formData.weight as number) / 10).toFixed(1)} kg</div>
-            <div className="font-medium">Base Experience:</div>
+            <div className="font-medium">Base Exp.:</div>
             <div>{formData.baseExp}</div>
             <div className="font-medium">Catch Rate:</div>
             <div>{formData.catchRate}</div>
+            <div className="font-medium">Growth Rate:</div>
+            <div>{formData.growthRate}</div>
+            <div className="font-medium">Hatch Rate:</div>
+            <div>{formData.hatchRate}</div>
+            <div className="font-medium">Egg Groups:</div>
+            <div className="flex items-center gap-2">
+              {formData.eggGroups && formData.eggGroups.length > 0 ? (
+                formData.eggGroups.map((group, idx) => (
+                  <Badge key={idx} variant="default">
+                    {group}
+                  </Badge>
+                ))
+              ) : (
+                <span className="text-gray-500">Unknown</span>
+              )}
+            </div>
           </div>
         </div>
         <div>
@@ -108,7 +124,7 @@ export default function PokemonFormClient({
                 const abilityName =
                   typeof ability === 'string' ? ability : ability?.name || 'Unknown';
                 return (
-                  <Badge key={idx} variant="secondary" className="px-3 py-1 text-sm">
+                  <Badge key={idx} variant="default">
                     {abilityName}
                   </Badge>
                 );

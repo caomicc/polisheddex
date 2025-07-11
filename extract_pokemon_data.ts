@@ -28,12 +28,12 @@ const LOCATIONS_OUTPUT = path.join(__dirname, 'output/pokemon_locations.json');
 const DETAILED_STATS_OUTPUT = path.join(__dirname, 'output/pokemon_detailed_stats.json');
 
 
-const filePath = path.join(__dirname, 'data/pokemon/evos_attacks.asm');
+const filePath = path.join(__dirname, 'rom/data/pokemon/evos_attacks.asm');
 
 const data = fs.readFileSync(filePath, 'utf8');
 const lines = data.split(/\r?\n/);
 
-const moveDescriptionsPath = path.join(__dirname, 'pokemon_move_descriptions.json');
+const moveDescriptionsPath = path.join(__dirname, 'output/pokemon_move_descriptions.json');
 
 
 extractAbilityDescriptions();
@@ -323,10 +323,10 @@ function getEvolutionChain(mon: string): string[] {
 }
 
 // Parse both National and Johto (New) Dex orders
-const nationalDexOrder = parseDexEntries(path.join(__dirname, 'data/pokemon/dex_entries.asm'));
-const johtoDexOrder = parseDexEntries(path.join(__dirname, 'data/pokemon/dex_order_new.asm'));
+const nationalDexOrder = parseDexEntries(path.join(__dirname, 'rom/data/pokemon/dex_entries.asm'));
+const johtoDexOrder = parseDexEntries(path.join(__dirname, 'rom/data/pokemon/dex_order_new.asm'));
 
-const baseStatsDir = path.join(__dirname, 'data/pokemon/base_stats');
+const baseStatsDir = path.join(__dirname, 'rom/data/pokemon/base_stats');
 
 const typeEnumToName: Record<string, string> = {
   'NORMAL': 'Normal', 'FIGHTING': 'Fighting', 'FLYING': 'Flying', 'POISON': 'Poison', 'GROUND': 'Ground',
@@ -472,7 +472,7 @@ for (const mon of Object.keys(result)) {
 
 // --- Wild Pokémon Location Extraction ---
 // LocationEntry type is now imported from the common types file
-const wildDir = path.join(__dirname, 'data/wild');
+const wildDir = path.join(__dirname, 'rom/data/wild');
 const wildFiles = fs.readdirSync(wildDir).filter(f => f.endsWith('.asm'));
 
 // Aggregate locations by Pokémon

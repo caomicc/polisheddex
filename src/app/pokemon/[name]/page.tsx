@@ -63,17 +63,25 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const detailedStatDataFile = path.join(process.cwd(), 'output/pokemon_detailed_stats.json');
 
   // Load data using Promise.all for parallel loading
-  const [baseStatsData, moveDescData, eggMovesData, levelMovesData, locationsData, evolutionData, dexEntryData, detailedStatData] =
-    await Promise.all([
-      cachedBaseStatsData || loadJsonData<Record<string, BaseData>>(baseStatsFile),
-      loadJsonData<Record<string, MoveDescription>>(moveDescFile),
-      loadJsonData<Record<string, string[]>>(eggMovesFile),
-      loadJsonData<Record<string, LevelMovesData>>(levelMovesFile),
-      loadJsonData<Record<string, LocationsData>>(locationsFile),
-      loadJsonData<Record<string, Evolution | null>>(evolutionDataFile),
-      loadJsonData<Record<string, PokemonDexEntry>>(dexEntryDataFile),
-      loadJsonData<Record<string, DetailedStats>>(detailedStatDataFile), // Adjusted type to 'any' for detailed stats
-    ]);
+  const [
+    baseStatsData,
+    moveDescData,
+    eggMovesData,
+    levelMovesData,
+    locationsData,
+    evolutionData,
+    dexEntryData,
+    detailedStatData,
+  ] = await Promise.all([
+    cachedBaseStatsData || loadJsonData<Record<string, BaseData>>(baseStatsFile),
+    loadJsonData<Record<string, MoveDescription>>(moveDescFile),
+    loadJsonData<Record<string, string[]>>(eggMovesFile),
+    loadJsonData<Record<string, LevelMovesData>>(levelMovesFile),
+    loadJsonData<Record<string, LocationsData>>(locationsFile),
+    loadJsonData<Record<string, Evolution | null>>(evolutionDataFile),
+    loadJsonData<Record<string, PokemonDexEntry>>(dexEntryDataFile),
+    loadJsonData<Record<string, DetailedStats>>(detailedStatDataFile), // Adjusted type to 'any' for detailed stats
+  ]);
 
   // Save the loaded base stats data for future use
   if (!cachedBaseStatsData) {
@@ -116,7 +124,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     shape: detailedStatData[pokemonName]?.shape || '', // Add shape property
     hatchRate: detailedStatData[pokemonName]?.hatchRate || '',
     eggGroups: detailedStatData[pokemonName]?.eggGroups || [],
-
   };
 
   // Prepare all form data for the client component
@@ -127,7 +134,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         formKey,
         {
           types:
-            baseStats.forms?.[formKey]?.types !== undefined && baseStats.forms?.[formKey]?.types !== null
+            baseStats.forms?.[formKey]?.types !== undefined &&
+            baseStats.forms?.[formKey]?.types !== null
               ? baseStats.forms[formKey].types
               : baseStats.types,
           moves: levelMovesData[pokemonName]?.forms?.[formKey]?.moves || defaultForm.moves,
@@ -158,7 +166,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     ),
   };
 
-  // console.log(`All form data for ${pokemonName}:`, allFormData);
+  console.log(`All form data for ${pokemonName}:`, allFormData);
 
   // Render the main page
   return (
