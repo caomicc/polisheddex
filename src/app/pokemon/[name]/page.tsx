@@ -17,6 +17,7 @@ import {
   LevelMovesData,
   LocationsData,
   MoveDescription,
+  PokemonDexEntry,
 } from '@/types/types';
 
 // Function to safely load JSON data
@@ -58,9 +59,10 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const levelMovesFile = path.join(process.cwd(), 'pokemon_level_moves.json');
   const locationsFile = path.join(process.cwd(), 'pokemon_locations.json');
   const evolutionDataFile = path.join(process.cwd(), 'pokemon_evolution_data.json');
+  const dexEntryDataFile = path.join(process.cwd(), 'pokemon_pokedex_entries.json');
 
   // Load data using Promise.all for parallel loading
-  const [baseStatsData, moveDescData, eggMovesData, levelMovesData, locationsData, evolutionData] =
+  const [baseStatsData, moveDescData, eggMovesData, levelMovesData, locationsData, evolutionData, dexEntryData] =
     await Promise.all([
       cachedBaseStatsData || loadJsonData<Record<string, BaseData>>(baseStatsFile),
       loadJsonData<Record<string, MoveDescription>>(moveDescFile),
@@ -68,6 +70,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       loadJsonData<Record<string, LevelMovesData>>(levelMovesFile),
       loadJsonData<Record<string, LocationsData>>(locationsFile),
       loadJsonData<Record<string, Evolution | null>>(evolutionDataFile),
+      loadJsonData<Record<string, PokemonDexEntry>>(dexEntryDataFile),
     ]);
 
   // Save the loaded base stats data for future use
@@ -94,6 +97,9 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     evolution: evolutionData[pokemonName],
     nationalDex: baseStats.nationalDex,
     frontSpriteUrl: baseStats.frontSpriteUrl, // <-- add sprite url for default
+    johtoDex: baseStats.johtoDex, // <-- add Johto Dex number
+    species: dexEntryData[pokemonName]?.species || '',
+    description: dexEntryData[pokemonName]?.description || '',
   };
 
   // Prepare all form data for the client component
@@ -114,10 +120,15 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           evolution: evolutionData[pokemonName],
           nationalDex: baseStats.nationalDex,
           frontSpriteUrl: baseStats.forms?.[formKey]?.frontSpriteUrl || baseStats.frontSpriteUrl, // <-- add sprite url for form
+          johtoDex: baseStats.johtoDex, // <-- add Johto Dex number
+          species: dexEntryData[pokemonName]?.species || '',
+          description: dexEntryData[pokemonName]?.description || '',
         },
       ]),
     ),
   };
+
+  console.log(`All form data for ${pokemonName}:`, allFormData);
 
   // Render the main page
   return (

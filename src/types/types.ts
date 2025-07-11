@@ -162,3 +162,8 @@ export interface EvolutionChainProps {
   spritesByGen?: Record<string, string>; // key: pokemon name, value: sprite url
   className?: string;
 }
+
+export interface PokemonDexEntry {
+  species: string;
+  description: string;
+}

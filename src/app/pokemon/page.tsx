@@ -1,7 +1,6 @@
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
-import PokemonCard from "@/components/pokemon/PokemonCard";
 import { BaseData } from "@/types/types";
 import {
   Breadcrumb,
@@ -12,6 +11,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
+import PokemonSearch from "@/components/pokemon/PokemonSearch";
 
 export default async function PokemonList({
   searchParams,
@@ -78,13 +78,7 @@ export default async function PokemonList({
         <SortLink label="National Dex" sort="nationaldex" current={sortType} />
         <SortLink label="Alphabetical" sort="alphabetical" current={sortType} />
       </div>
-      <ul className="grid gap-2 md:gap-8 grid-cols-2 md:grid-cols-3">
-        {sortedPokemon.map((p) => (
-          <li key={p.name}>
-            <PokemonCard pokemon={p} sortType={sortType} />
-          </li>
-        ))}
-      </ul>
+      <PokemonSearch pokemon={sortedPokemon} sortType={sortType} />
     </div>
   );
 }
