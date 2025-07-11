@@ -571,7 +571,7 @@ function getEvolutionChain(mon: string): string[] {
 // --- Dex number helpers ---
 
 function parseDexEntries(file: string): string[] {
-  // Accepts a file path to dex_entries.asm and returns an array of TitleCase names in order
+  // Accepts a file path to a dex order file and returns an array of TitleCase names in order
   const text = fs.readFileSync(file, 'utf8');
   const lines = text.split(/\r?\n/);
   const names: string[] = [];
@@ -579,27 +579,55 @@ function parseDexEntries(file: string): string[] {
   // Keep track of Pokemon that have been processed to avoid duplicates
   const processedBaseNames = new Set<string>();
 
+  // Check if this is a dp-style file (dex_order_new.asm) or a SECTION-style file (dex_entries.asm)
+  const isOrderStyle = text.includes('dp ');
+
   for (const line of lines) {
-    const match = line.match(/^(\w+)PokedexEntry::/);
-    if (match) {
-      const nameWithPotentialForm = match[1];
+    if (isOrderStyle) {
+      // Look for lines with dp POKEMON_NAME format
+      const match = line.match(/dp ([A-Z0-9_]+)/);
+      if (match) {
+        const name = toTitleCase(match[1]);
+        if (!processedBaseNames.has(name)) {
+          processedBaseNames.add(name);
+          names.push(name);
+        }
+      }
+    } else {
+      // Look for lines with SECTION "PokemonNamePokedexEntry" format
+      const match = line.match(/SECTION "([A-Za-z0-9_]+)PokedexEntry"/);
+      if (match) {
+        let name = match[1];
 
-      // Handle forms by extracting the base name
-      // Find known form patterns using our KNOWN_FORMS constant
-      const formPatterns = new RegExp(`(?:${Object.values(KNOWN_FORMS).map(form => form.charAt(0).toUpperCase() + form.slice(1)).join('|')})$`);
-      const baseName = nameWithPotentialForm.replace(formPatterns, '');
+        // Remove form suffixes from names
+        for (const form of Object.values(KNOWN_FORMS)) {
+          const formCapitalized = form.charAt(0).toUpperCase() + form.slice(1);
+          if (name.endsWith(formCapitalized)) {
+            name = name.slice(0, name.length - formCapitalized.length);
+            break;
+          }
+        }
 
-      // Only add each base Pokemon once to the dex order
-      if (!processedBaseNames.has(baseName)) {
-        processedBaseNames.add(baseName);
-        names.push(toTitleCase(baseName));
+        // Convert to TitleCase
+        name = toTitleCase(name);
+
+        if (!processedBaseNames.has(name)) {
+          processedBaseNames.add(name);
+          names.push(name);
+        }
       }
     }
   }
   return names;
 }
 
+// Parse both National and Johto (New) Dex orders
 const nationalDexOrder = parseDexEntries(path.join(__dirname, 'data/pokemon/dex_entries.asm'));
+const johtoDexOrder = parseDexEntries(path.join(__dirname, 'data/pokemon/dex_order_new.asm'));
+
+// Log the first few entries of each dex for verification
+console.log('First 10 entries in National Dex:', nationalDexOrder.slice(0, 10));
+console.log('First 10 entries in Johto Dex:', johtoDexOrder.slice(0, 10));
 
 // --- Type Extraction ---
 const baseStatsDir = path.join(__dirname, 'data/pokemon/base_stats');
@@ -691,7 +719,7 @@ for (const file of baseStatsFiles) {
       console.log(`DEBUG: Setting typeMap['${baseNameWithoutPlain}'] = [${t1}, ${t2}]`);
     }
   } else if (formName && formName !== null) {
-    // This is a non-plain form file (e.g., raichu_alolan.asm)
+    // This is a non-plain form (e.g., raichu_alolan.asm)
     if (!formTypeMap[basePokemonName]) {
       formTypeMap[basePokemonName] = {};
     }
@@ -710,7 +738,7 @@ for (const file of baseStatsFiles) {
 
 console.log(typeMap);
 
-const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, types: string | string[] }> = {};
+const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, johtoDex: number | null, types: string | string[] }> = {};
 for (const mon of Object.keys(result)) {
   // Normalize move names in evolution moves
   const moves = result[mon].moves.map(m => ({
@@ -740,7 +768,8 @@ for (const mon of Object.keys(result)) {
   // Dex numbers (1-based, null if not found)
   // First get the base name by removing any form suffixes
   const baseMonName = standardizePokemonKey(mon);
-  const nationalDex = nationalDexOrder.indexOf(baseMonName) >= 0 ? nationalDexOrder.indexOf(baseMonName) + 1 : null;  // Types
+  const nationalDex = nationalDexOrder.indexOf(baseMonName) >= 0 ? nationalDexOrder.indexOf(baseMonName) + 1 : null;
+  const johtoDex = johtoDexOrder.indexOf(baseMonName) >= 0 ? johtoDexOrder.indexOf(baseMonName) + 1 : null;  // Types
 
   // Determine if this is a form and extract the base name and form name
   let basePokemonName = baseMonName;
@@ -785,7 +814,7 @@ for (const mon of Object.keys(result)) {
   }
 
   // Create the final result with the correct types
-  finalResult[mon] = { evolution, moves, nationalDex, types };
+  finalResult[mon] = { evolution, moves, nationalDex, johtoDex, types };
 }
 
 // --- Wild Pokémon Location Extraction ---
@@ -1193,6 +1222,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
   baseData[mon] = {
     name: mon,
     nationalDex: data.nationalDex,
+    johtoDex: data.johtoDex,
     types: typeData || "Unknown",
     frontSpriteUrl: `/sprites/pokemon/${spriteName}/front_cropped.png`
   };

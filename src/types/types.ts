@@ -67,6 +67,7 @@ export interface PokemonForm {
 
 export interface PokemonDataV3 extends PokemonDataV2 {
   nationalDex: number | null;
+  johtoDex: number | null;
   types: string | string[];
   locations: LocationEntry[];
   forms?: Record<string, PokemonForm>;
@@ -110,6 +111,7 @@ export interface FormData {
 export interface BaseData {
   name: string;
   nationalDex: number | null;
+  johtoDex: number | null;
   types: string[] | string;
   frontSpriteUrl?: string;
   forms?: Record<string, { types: string[] | string; frontSpriteUrl?: string }>;
