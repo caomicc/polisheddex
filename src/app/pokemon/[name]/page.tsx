@@ -49,8 +49,8 @@ export async function generateStaticParams() {
   }
 }
 
-export default async function PokemonDetail({ params }: { params: { name: string } }) {
-  const pokemonName = params.name;
+export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
+  const pokemonName = (await params).name;
 
   // Define file paths
   const baseStatsFile = path.join(process.cwd(), 'output/pokemon_base_data.json');
