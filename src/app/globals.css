@@ -3,6 +3,8 @@
 
 @source inline("bg-{physical,special,status}");
 
+@source inline("bg-{bug,dark,dragon,electric,fairy,fighting,fire,flying,ghost,grass,ground,ice,normal,poison,psychic,rock,steel,water}");
+
 /*
 ---break--- */
 @custom-variant dark (&:is(.dark *));
@@ -47,23 +49,41 @@
   --radius-xl: calc(var(--radius) + 4px);
   /* Pokémon Type Colors */
   --color-bug: oklch(0.75 0.18 110); /* greenish */
+  --color-bug-raw: 0.75 0.18 110;
   --color-dark: oklch(0.25 0.05 260); /* dark purple */
+  --color-dark-raw: 0.25 0.05 260;
   --color-dragon: oklch(0.55 0.18 270); /* blue-violet */
+  --color-dragon-raw: 0.55 0.18 270;
   --color-electric: oklch(0.92 0.18 100); /* yellow */
+  --color-electric-raw: 0.92 0.18 100;
   --color-fairy: oklch(0.98 0.12 340); /* pink */
+  --color-fairy-raw: 0.98 0.12 340;
   --color-fighting: oklch(0.55 0.18 40); /* orange-brown */
+  --color-fighting-raw: 0.55 0.18 40;
   --color-fire: oklch(0.85 0.22 40); /* orange */
+  --color-fire-raw: 0.85 0.22 40;
   --color-flying: oklch(0.85 0.1 250); /* light blue */
+  --color-flying-raw: 0.85 0.1 250;
   --color-ghost: oklch(0.38 0.1 300); /* purple */
+  --color-ghost-raw: 0.38 0.1 300;
   --color-grass: oklch(0.75 0.18 135); /* green */
+  --color-grass-raw: 0.75 0.18 135;
   --color-ground: oklch(0.75 0.18 80); /* brown */
+  --color-ground-raw: 0.75 0.18 80;
   --color-ice: oklch(0.92 0.1 200); /* light cyan */
+  --color-ice-raw: 0.92 0.1 200;
   --color-normal: oklch(0.85 0.05 80); /* beige */
+  --color-normal-raw: 0.85 0.05 80;
   --color-poison: oklch(0.65 0.18 320); /* purple */
+  --color-poison-raw: 0.65 0.18 320;
   --color-psychic: oklch(0.85 0.18 20); /* red-orange */
+  --color-psychic-raw: 0.85 0.18 20;
   --color-rock: oklch(0.65 0.1 80); /* tan */
+  --color-rock-raw: 0.65 0.1 80;
   --color-steel: oklch(0.8 0.05 250); /* steel blue */
+  --color-steel-raw: 0.8 0.05 250;
   --color-water: oklch(0.65 0.18 250); /* blue */
+  --color-water-raw: 0.65 0.18 250;
 
   --color-error: oklch(0.577 0.245 27.325); /* red */
 
@@ -150,33 +170,222 @@
   --sidebar-ring: oklch(0.556 0 0);
   /* Pokémon Type Colors (Dark) */
   --color-bug: oklch(0.45 0.18 110);
+  --color-bug-raw: 0.45 0.18 110;
   --color-dark: oklch(0.18 0.05 260);
+  --color-dark-raw: 0.18 0.05 260;
   --color-dragon: oklch(0.38 0.18 270);
+  --color-dragon-raw: 0.38 0.18 270;
   --color-electric: oklch(0.65 0.18 100);
+  --color-electric-raw: 0.65 0.18 100;
   --color-fairy: oklch(0.85 0.12 340);
+  --color-fairy-raw: 0.85 0.12 340;
   --color-fighting: oklch(0.38 0.18 40);
+  --color-fighting-raw: 0.38 0.18 40;
   --color-fire: oklch(0.65 0.22 40);
+  --color-fire-raw: 0.65 0.22 40;
   --color-flying: oklch(0.65 0.1 250);
+  --color-flying-raw: 0.65 0.1 250;
   --color-ghost: oklch(0.25 0.1 300);
+  --color-ghost-raw: 0.25 0.1 300;
   --color-grass: oklch(0.45 0.18 135);
+  --color-grass-raw: 0.45 0.18 135;
   --color-ground: oklch(0.45 0.18 80);
+  --color-ground-raw: 0.45 0.18 80;
   --color-ice: oklch(0.65 0.1 200);
+  --color-ice-raw: 0.65 0.1 200;
   --color-normal: oklch(0.45 0.05 80);
+  --color-normal-raw: 0.45 0.05 80;
   --color-poison: oklch(0.38 0.18 320);
+  --color-poison-raw: 0.38 0.18 320;
   --color-psychic: oklch(0.65 0.18 20);
+  --color-psychic-raw: 0.65 0.18 20;
   --color-rock: oklch(0.38 0.1 80);
+  --color-rock-raw: 0.38 0.1 80;
   --color-steel: oklch(0.55 0.05 250);
+  --color-steel-raw: 0.55 0.05 250;
   --color-water: oklch(0.38 0.18 250);
 }
-/*
----break--- */
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-    @apply mx-0!;
-    @apply w-screen;
-  }
+
+/* Pokémon Type Backgrounds with 50% Opacity */
+.bg-bug-20 {
+  background-color: oklch(var(--color-bug-raw) / 0.2);
+}
+.bg-dark-20 {
+  background-color: oklch(var(--color-dark-raw) / 0.2);
+}
+.bg-dragon-20 {
+  background-color: oklch(var(--color-dragon-raw) / 0.2);
+}
+.bg-electric-20 {
+  background-color: oklch(var(--color-electric-raw) / 0.2);
+}
+.bg-fairy-20 {
+  background-color: oklch(var(--color-fairy-raw) / 0.2);
+}
+.bg-fighting-20 {
+  background-color: oklch(var(--color-fighting-raw) / 0.2);
+}
+.bg-fire-20 {
+  background-color: oklch(var(--color-fire-raw) / 0.2);
+}
+.bg-flying-20 {
+  background-color: oklch(var(--color-flying-raw) / 0.2);
+}
+.bg-ghost-20 {
+  background-color: oklch(var(--color-ghost-raw) / 0.2);
+}
+.bg-grass-20 {
+  background-color: oklch(var(--color-grass-raw) / 0.2);
+}
+.bg-ground-20 {
+  background-color: oklch(var(--color-ground-raw) / 0.2);
+}
+.bg-ice-20 {
+  background-color: oklch(var(--color-ice-raw) / 0.2);
+}
+.bg-normal-20 {
+  background-color: oklch(var(--color-normal-raw) / 0.2);
+}
+.bg-poison-20 {
+  background-color: oklch(var(--color-poison-raw) / 0.2);
+}
+.bg-psychic-20 {
+  background-color: oklch(var(--color-psychic-raw) / 0.2);
+}
+.bg-rock-20 {
+  background-color: oklch(var(--color-rock-raw) / 0.2);
+}
+.bg-steel-20 {
+  background-color: oklch(var(--color-steel-raw) / 0.2);
+}
+.bg-water-20 {
+  background-color: oklch(var(--color-water-raw) / 0.2);
+}
+
+/* Pokémon Type Shadow Classes */
+.shadow-bug {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-bug) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-dark {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-dark) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-dragon {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-dragon) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-electric {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-electric) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-fairy {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-fairy) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-fighting {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-fighting) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-fire {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-fire) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-flying {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-flying) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-ghost {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-ghost) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-grass {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-grass) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-ground {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-ground) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-ice {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-ice) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-normal {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-normal) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-poison {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-poison) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-psychic {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-psychic) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-rock {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-rock) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-steel {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-steel) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
+}
+.shadow-water {
+  --tw-shadow-color: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-water) 20%, transparent) var(--tw-shadow-alpha, 1),
+    transparent
+  );
 }

@@ -15,6 +15,7 @@ import { Badge } from '../ui/badge';
 import { EvolutionChain } from '@/components/ui/EvolutionChain';
 import { WeaknessChart } from './WeaknessChart';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { cn } from '@/lib/utils';
 
 export default function PokemonFormClient({
   forms,
@@ -52,8 +53,21 @@ export default function PokemonFormClient({
           </Select>
         </div>
       )}
-      <div className="max-w-4xl mx-auto md:rounded-xl overflow-hidden md:shadow-lg">
-        <div className="relative md:p-6 md:bg-gradient-to-br md:from-gray-100 md:to-gray-300 md:dark:from-gray-800 md:dark:to-gray-900 flex flex-row items-center justify-start gap-6">
+      <div className="max-w-4xl mx-auto rounded-xl overflow-hidden">
+        <div
+          className={cn(
+            'relative py-4 md:p-6 md:dark:from-gray-800 md:dark:to-gray-900 flex flex-row items-center justify-start gap-6',
+            `bg-${
+              formData.types
+                ? typeof formData.types === 'string'
+                  ? formData.types.toLowerCase()
+                  : Array.isArray(formData.types) && formData.types.length > 0
+                  ? formData.types[0].toLowerCase()
+                  : 'unknown'
+                : 'unknown'
+            }-20`,
+          )}
+        >
           <div className="w-24 p-1 md:p-0 md:w-24 md:h-auto ">
             <Image
               src={formData.frontSpriteUrl ?? ''}
@@ -66,19 +80,37 @@ export default function PokemonFormClient({
           </div>
           <div className="text-left">
             <div className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
-              National Dex #{String(formData.nationalDex).padStart(3, '0')}
+              National #{String(formData.nationalDex).padStart(3, '0')}
               {formData.johtoDex && (
-                <span className="block md:inline-block md:ml-2">
-                  Johto Dex #{String(formData.johtoDex).padStart(3, '0')}
-                </span>
+                <span className="ml-2">Johto #{String(formData.johtoDex).padStart(3, '0')}</span>
               )}
             </div>
             <p className="text-sm md:text-4xl font-bold capitalize text-gray-900 dark:text-gray-50">
               {pokemonName}
             </p>
-            <p className="text-xs md:text-lg text-muted-foreground mt-1">
+            <p className="text-xs md:text-lg text-muted-grass mt-1">
               {formData.species} type Pokémon
             </p>
+            <div className="flex flex-wrap gap-2 mt-2" aria-label="Pokemon Types" role="group">
+              {formData.types ? (
+                Array.isArray(formData.types) ? (
+                  formData.types.map((type: string) => (
+                    <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                      {type}
+                    </Badge>
+                  ))
+                ) : (
+                  <Badge
+                    key={formData.types}
+                    variant={formData.types.toLowerCase() as PokemonType['name']}
+                  >
+                    {formData.types}
+                  </Badge>
+                )
+              ) : (
+                <Badge variant="secondary">Unknown</Badge>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -178,30 +210,7 @@ export default function PokemonFormClient({
 
       <hr className="border-gray-200 dark:border-gray-700" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <h2 className="text-2xl font-bold mb-3">Types</h2>
-          <div className="flex flex-wrap gap-2">
-            {formData.types ? (
-              Array.isArray(formData.types) ? (
-                formData.types.map((type: string) => (
-                  <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                    {type}
-                  </Badge>
-                ))
-              ) : (
-                <Badge
-                  key={formData.types}
-                  variant={formData.types.toLowerCase() as PokemonType['name']}
-                >
-                  {formData.types}
-                </Badge>
-              )
-            ) : (
-              <Badge variant="secondary">Unknown</Badge>
-            )}
-          </div>
-        </div>
+      <div className="grid grid-cols-1 gap-6">
         <div>
           <h2 className="text-2xl font-bold mb-3">Weaknesses</h2>
           <div className="flex flex-wrap gap-2">

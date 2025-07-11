@@ -93,7 +93,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
       {filteredPokemon.length === 0 ? (
         <p className="text-center py-8 text-gray-500">No Pokémon found matching your search.</p>
       ) : (
-        <ul className="grid gap-2 md:gap-8 grid-cols-2 md:grid-cols-3">
+        <ul className="grid gap-4 md:gap-8 grid-cols-2 md:grid-cols-3">
           {filteredPokemon.map((p) => (
             <li key={p.name}>
               <PokemonCard pokemon={p} sortType={sortType} />

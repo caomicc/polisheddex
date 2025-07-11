@@ -4,6 +4,7 @@ import React from 'react';
 import { Card } from '../ui/card';
 import { Badge } from '../ui/badge';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 export interface PokemonCardProps {
   pokemon: BaseData;
@@ -12,7 +13,29 @@ export interface PokemonCardProps {
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'nationaldex' }) => (
   <Link href={`/pokemon/${encodeURIComponent(pokemon.name)}`}>
-    <Card className="shadow-md hover:shadow-lg transition-shadow duration-200 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pt-[48px] h-[100px] md:h-auto ">
+    <Card
+      className={cn(
+        'shadow-sm hover:shadow-md transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pt-[48px] h-[100px] md:h-auto',
+        `bg-${
+          pokemon.types
+            ? typeof pokemon.types === 'string'
+              ? pokemon.types.toLowerCase()
+              : Array.isArray(pokemon.types) && pokemon.types.length > 0
+              ? pokemon.types[0].toLowerCase()
+              : 'unknown'
+            : 'unknown'
+        }-20`,
+        `shadow-${
+          pokemon.types
+            ? typeof pokemon.types === 'string'
+              ? pokemon.types.toLowerCase()
+              : Array.isArray(pokemon.types) && pokemon.types.length > 0
+              ? pokemon.types[0].toLowerCase()
+              : 'unknown'
+            : 'unknown'
+        }`,
+      )}
+    >
       <Image
         src={pokemon.frontSpriteUrl ?? '/images/pokemon-placeholder.png'}
         alt={`${pokemon.name} sprite`}
