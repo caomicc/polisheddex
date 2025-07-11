@@ -5,7 +5,10 @@ import typeChartData from '../../../output/type_chart.json';
 import TypeIcon from './TypeIcon';
 import { Table, TableBody, TableCell, TableHeader, TableRow } from '../ui/table';
 
-const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as any;
+const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as Record<
+  string,
+  Record<string, number>
+>;
 const ALL_TYPES = Object.keys(TYPE_CHART).filter((type) => {
   const data = TYPE_CHART[type];
   return data && Object.keys(data).length > 0;
@@ -53,7 +56,7 @@ export function TypeRelationsChart({ types }: { types: string[] }) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {relationLabels.map(({ label }) => (
+        {relationLabels.map(({ label }: { label: string }) => (
           <TableRow key={label}>
             <TableCell className="font-semibold">{label}</TableCell>
             <TableCell className={'p-0'}>

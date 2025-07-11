@@ -13,7 +13,6 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
 import { EvolutionChain } from '@/components/ui/EvolutionChain';
-import { WeaknessChart } from './WeaknessChart';
 import { TypeRelationsChart } from './TypeRelationsChart';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { cn } from '@/lib/utils';
