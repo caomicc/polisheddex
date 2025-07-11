@@ -14,6 +14,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 import { Badge } from '../ui/badge';
 import { EvolutionChain } from '@/components/ui/EvolutionChain';
 import { WeaknessChart } from './WeaknessChart';
+import { TypeRelationsChart } from './TypeRelationsChart';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { cn } from '@/lib/utils';
 import { Progress } from '../ui/progress';
@@ -211,8 +212,6 @@ export default function PokemonFormClient({
         </div>
       </div>
 
-      <hr className="border-gray-200 dark:border-gray-700" />
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h2 className="text-md md:text-2xl font-bold mb-3">Training</h2>
@@ -239,33 +238,26 @@ export default function PokemonFormClient({
             </TableBody>
           </Table>
         </div>
-      </div>
-
-      <hr className="border-gray-200 dark:border-gray-700" />
-
-      <div className="grid grid-cols-1 gap-6">
         <div>
-          <h2 className="text-2xl font-bold mb-3">Weaknesses</h2>
-          <div className="flex flex-wrap gap-2">
-            {formData.types && (
-              <WeaknessChart
-                types={
-                  Array.isArray(formData.types)
-                    ? formData.types.map((t: string) => t.toLowerCase())
-                    : formData.types
-                    ? [formData.types.toLowerCase()]
-                    : []
-                }
-              />
-            )}
-          </div>
+          <h2 className="text-md md:text-2xl font-bold mb-3">Type Relations</h2>
+          {formData.types && (
+            <TypeRelationsChart
+              types={
+                Array.isArray(formData.types)
+                  ? formData.types.map((t: string) => t.toLowerCase())
+                  : formData.types
+                  ? [formData.types.toLowerCase()]
+                  : []
+              }
+            />
+          )}
         </div>
       </div>
 
       <hr className="border-gray-200 dark:border-gray-700" />
 
       <div className="mb-4">
-        <h2 className="text-xl font-semibold mb-1">Evolution Chain</h2>
+        <h2 className="text-md md:text-2xl font-bold mb-3">Evolution Chain</h2>
         {formData.evolution && formData.evolution.chain ? (
           <EvolutionChain
             chain={formData.evolution.chain}
@@ -283,11 +275,14 @@ export default function PokemonFormClient({
         ) : (
           <div className="text-gray-500">No evolution data.</div>
         )}
+      </div>
+
+      <div>
         {formData.evolution &&
           formData.evolution.methods &&
           formData.evolution.methods.length > 0 && (
             <div className="mt-2">
-              <h3 className="font-semibold">Evolution Methods:</h3>
+              <h2 className="text-md md:text-2xl font-bold mb-3">Evolution Methods</h2>
               <ul className="list-disc ml-6">
                 {formData.evolution.methods.map((m: EvolutionMethod, idx: number) => (
                   <li key={idx}>
@@ -318,7 +313,7 @@ export default function PokemonFormClient({
 
       <hr className="border-gray-200 dark:border-gray-700" />
       {/* Moves List */}
-      <h2 className="text-xl font-semibold mb-2">Moves</h2>
+      <h2 className="text-md md:text-2xl font-bold mb-3">Moves</h2>
       {formData.moves && Array.isArray(formData.moves) && formData.moves.length > 0 ? (
         <Table>
           <TableHeader className={'hidden md:table-header-group'}>
@@ -354,7 +349,7 @@ export default function PokemonFormClient({
       ) : (
         <div className="text-gray-400 text-sm mb-6">No move data</div>
       )}
-      <h2 className="text-xl font-semibold mt-6 mb-2">Egg Moves</h2>
+      <h2 className="text-md md:text-2xl font-bold mb-3">Egg Moves</h2>
       {formData.eggMoves && Array.isArray(formData.eggMoves) && formData.eggMoves.length > 0 ? (
         <Table>
           <TableHeader className={'hidden md:table-header-group'}>
@@ -384,7 +379,7 @@ export default function PokemonFormClient({
         <div className="text-gray-400 text-sm mb-6">No egg moves</div>
       )}
 
-      <h2 className="text-xl font-semibold mt-6 mb-2">Base Stats</h2>
+      <h2 className="text-md md:text-2xl font-bold mb-3">Base Stats</h2>
       {formData.baseStats ? (
         <div className="space-y-6">
           {[
@@ -427,7 +422,7 @@ export default function PokemonFormClient({
         <div className="text-gray-400 text-sm mb-6">No base stat data</div>
       )}
 
-      <h2 className="text-xl font-semibold mt-6 mb-2">Locations</h2>
+      <h2 className="text-md md:text-2xl font-bold mb-3">Locations</h2>
       {formData.locations && Array.isArray(formData.locations) && formData.locations.length > 0 ? (
         <Table>
           <TableHeader className={'hidden md:table-header-group'}>

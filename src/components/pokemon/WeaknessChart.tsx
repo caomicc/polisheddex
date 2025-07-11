@@ -30,33 +30,44 @@ function getTypeEffectiveness(defTypes: string[]): Record<string, number> {
 
 export function WeaknessChart({ types }: { types: string[] }) {
   const effectiveness = getTypeEffectiveness(types);
+  const weaknesses = ALL_TYPES.filter((type) => effectiveness[type] > 1);
+  const strengths = ALL_TYPES.filter((type) => effectiveness[type] < 1 && effectiveness[type] > 0);
+
   return (
     <div className="mb-4">
-      <div className="grid grid-cols-3 sm:grid-cols-6 gap-x-4 gap-y-1 w-full">
-        {ALL_TYPES.map((type) => {
-          const value = effectiveness[type];
-          const color =
-            value > 1
-              ? 'text-red-800'
-              : value < 1 && value > 0
-              ? 'text-blue-800'
-              : value === 0
-              ? 'text-gray-600 line-through'
-              : 'text-gray-800';
-          return (
+      <div className="mb-2 font-semibold text-lg">Weak Against</div>
+      <div className="w-full flex flex-row flex-wrap gap-2 mb-6">
+        {weaknesses.length === 0 ? (
+          <span className="text-gray-600">None</span>
+        ) : (
+          weaknesses.map((type) => (
             <div
               key={type}
-              className={cn('flex flex-col items-center text-xs font-medium p-1', color)}
-              aria-label={`${type} damage: ${value}x`}
+              className={cn('flex flex-col items-center text-xs font-medium p-1 text-red-800')}
+              aria-label={`${type} damage: ${effectiveness[type]}x`}
             >
-              {/* <Badge variant={type as PokemonType['name']} className="mb-1">
-                {type.charAt(0).toUpperCase() + type.slice(1)}
-              </Badge> */}
               <TypeIcon type={type as PokemonType['name']} className="mb-2" />
-              <span>{value}x</span>
+              <span>{effectiveness[type]}x</span>
             </div>
-          );
-        })}
+          ))
+        )}
+      </div>
+      <div className="mb-2 font-semibold text-lg">Strength Against</div>
+      <div className="w-full flex flex-row flex-wrap gap-2">
+        {strengths.length === 0 ? (
+          <span className="text-gray-600">None</span>
+        ) : (
+          strengths.map((type) => (
+            <div
+              key={type}
+              className={cn('flex flex-col items-center text-xs font-medium p-1 text-blue-800')}
+              aria-label={`${type} resistance: ${effectiveness[type]}x`}
+            >
+              <TypeIcon type={type as PokemonType['name']} className="mb-2" />
+              <span>{effectiveness[type]}x</span>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
