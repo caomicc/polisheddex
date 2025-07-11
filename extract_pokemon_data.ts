@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } from './src/data/constants.ts';
-import { extractAbilityDescriptions, extractBasePokemonName, extractDetailedStats, extractEggMoves, extractFormInfo, extractHiddenGrottoes, extractMoveDescriptions, extractPokedexEntries, extractTypeChart, getFullPokemonName, addBodyDataToDetailedStats, extractLocationsByArea } from './src/utils/extractUtils.ts';
+import { extractAbilityDescriptions, extractBasePokemonName, extractDetailedStats, extractEggMoves, extractFormInfo, extractHiddenGrottoes, extractMoveDescriptions, extractPokedexEntries, extractTypeChart, getFullPokemonName, addBodyDataToDetailedStats, extractLocationsByArea, mapEncounterRatesToPokemon } from './src/utils/extractUtils.ts';
 import { groupPokemonForms } from './src/utils/helpers.ts';
 
 
@@ -485,7 +485,6 @@ for (const file of wildFiles) {
   const lines = content.split(/\r?\n/);
   let area: string | null = null;
   let method: string | null = null;
-  let time: string | null = null;
   let inBlock = false;
   let blockType: string | null = null;
   let encounterRates: { morn: number; day: number; nite: number; eve?: number } = {
@@ -493,6 +492,9 @@ for (const file of wildFiles) {
     day: 0,
     nite: 0
   };
+  // --- Group wildmon entries by time ---
+  let slotEntriesByTime: Record<string, Array<{ key: string; entry: LocationEntry }>> = {};
+  let currentTime: string | null = null;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
@@ -503,31 +505,23 @@ for (const file of wildFiles) {
       method = areaMatch[1];
       inBlock = true;
       blockType = method;
-      time = null;
-      // Reset encounter rates for new area
+      currentTime = null;
+      slotEntriesByTime = {};
       encounterRates = { morn: 0, day: 0, nite: 0 };
-      // Debug for Diglett's Cave
-      if (area === 'DIGLETTS_CAVE') {
-        console.log(`Found DIGLETTS_CAVE area definition on line ${i + 1}`);
-      }
       continue;
     }
-
     // Parse encounter rates line
     if (inBlock && line.match(/^\s*db\s+\d+\s+percent/)) {
       const rateMatches = line.match(/(\d+)\s+percent/g);
       if (rateMatches) {
         if (rateMatches.length >= 3) {
-          // Format: db X percent, Y percent, Z percent ; encounter rates: morn/day/nite
           encounterRates.morn = parseInt(rateMatches[0].match(/(\d+)/)![1], 10);
           encounterRates.day = parseInt(rateMatches[1].match(/(\d+)/)![1], 10);
           encounterRates.nite = parseInt(rateMatches[2].match(/(\d+)/)![1], 10);
-          // Handle eve if present (some files might have a 4th rate)
           if (rateMatches.length > 3) {
             encounterRates.eve = parseInt(rateMatches[3].match(/(\d+)/)![1], 10);
           }
         } else {
-          // Format: db X percent ; encounter rate (for water areas typically)
           const rate = parseInt(rateMatches[0].match(/(\d+)/)![1], 10);
           encounterRates.morn = rate;
           encounterRates.day = rate;
@@ -537,47 +531,67 @@ for (const file of wildFiles) {
       }
       continue;
     }
-
     if (inBlock && line.startsWith('end_' + blockType + '_wildmons')) {
+      // For each time block, assign canonical rates
+      const encounterType = (method === 'water') ? 'surf' : 'grass';
+      for (const [timeBlock, slotEntries] of Object.entries(slotEntriesByTime)) {
+        const slotPokemon = slotEntries.map(e => e.key);
+        const mappedRates = mapEncounterRatesToPokemon(slotPokemon, encounterType);
+        for (let idx = 0; idx < slotEntries.length; idx++) {
+          slotEntries[idx].entry.chance = mappedRates[idx]?.rate ?? 0;
+          if (!locationsByMon[slotEntries[idx].key]) locationsByMon[slotEntries[idx].key] = [];
+          locationsByMon[slotEntries[idx].key].push(slotEntries[idx].entry);
+        }
+      }
+      // Reset for next block
       inBlock = false;
       area = null;
       method = null;
-      time = null;
+      slotEntriesByTime = {};
+      currentTime = null;
       continue;
     }
-
     if (inBlock && line.startsWith(';')) {
       // Time of day section
       const t = line.replace(';', '').trim().toLowerCase();
       if (["morn", "day", "nite", "eve"].includes(t)) {
-        time = t;
+        currentTime = t;
+        if (!slotEntriesByTime[currentTime]) slotEntriesByTime[currentTime] = [];
       }
       continue;
     }
-
     if (inBlock && line.startsWith('wildmon')) {
       const parsed = parseWildmonLine(line);
       if (parsed) {
         const { formName } = normalizeMonName(parsed.species, parsed.form); // Extract form name
         const key = getFullPokemonName(parsed.species, parsed.form); // Use legacy function for now
-
-        if (!locationsByMon[key]) locationsByMon[key] = [];
-
-        // Determine the encounter rate based on time of day
+        // Normalize LEVEL_FROM_BADGES in level value
+        let normalizedLevel = parsed.level;
+        if (typeof normalizedLevel === 'string' && /LEVEL_FROM_BADGES/.test(normalizedLevel)) {
+          const modifierMatch = normalizedLevel.match(/LEVEL_FROM_BADGES\s*([\+\-]\s*\d+)?/);
+          if (modifierMatch && modifierMatch[1]) {
+            normalizedLevel = `Badge Level ${modifierMatch[1].replace(/\s+/g, ' ')}`;
+          } else {
+            normalizedLevel = 'Badge Level';
+          }
+        }
         let encounterRate = 0;
-        if (time === 'morn') encounterRate = encounterRates.morn;
-        else if (time === 'day') encounterRate = encounterRates.day;
-        else if (time === 'nite') encounterRate = encounterRates.nite;
-        else if (time === 'eve' && encounterRates.eve !== undefined) encounterRate = encounterRates.eve;
-        else encounterRate = encounterRates.day; // Default to day rate if time is unknown
-
-        locationsByMon[key].push({
-          area,
-          method,
-          time,
-          level: parsed.level,
-          chance: encounterRate, // Use the actual encounter rate
-          formName // Add the form name
+        if (currentTime === 'morn') encounterRate = encounterRates.morn;
+        else if (currentTime === 'day') encounterRate = encounterRates.day;
+        else if (currentTime === 'nite') encounterRate = encounterRates.nite;
+        else if (currentTime === 'eve' && encounterRates.eve !== undefined) encounterRate = encounterRates.eve;
+        else encounterRate = encounterRates.day;
+        if (!slotEntriesByTime[currentTime || 'day']) slotEntriesByTime[currentTime || 'day'] = [];
+        slotEntriesByTime[currentTime || 'day'].push({
+          key,
+          entry: {
+            area,
+            method,
+            time: currentTime,
+            level: normalizedLevel,
+            chance: 0, // Will be set below
+            formName
+          }
         });
       }
       continue;

@@ -925,13 +925,13 @@ export function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
       if (dataMatch) {
         rareItem = itemNames[dataMatch[2]] || dataMatch[2];
 
-        // Handle level values
-        if (dataMatch[3].includes('LEVEL_FROM_BADGES')) {
-          const modifier = dataMatch[3].match(/LEVEL_FROM_BADGES\s*([\+\-]\s*\d+)?/);
-          if (modifier && modifier[1]) {
-            level = `Level from badges ${modifier[1].trim()}`;
+        // Normalize LEVEL_FROM_BADGES to a consistent string
+        if (/LEVEL_FROM_BADGES/.test(dataMatch[3])) {
+          const modifierMatch = dataMatch[3].match(/LEVEL_FROM_BADGES\s*([\+\-]\s*\d+)?/);
+          if (modifierMatch && modifierMatch[1]) {
+            level = `Badge Level ${modifierMatch[1].replace(/\s+/g, ' ')}`;
           } else {
-            level = 'Level from badges';
+            level = 'Badge Level';
           }
         } else {
           level = dataMatch[3];
@@ -1203,4 +1203,71 @@ export function mapEncounterRatesToPokemon(
     name,
     rate: probabilities[idx] || 0 // 0 if more Pokémon than slots
   }));
+}
+
+// --- Synchronize encounter rates from locations_by_area.json to pokemon_locations.json ---
+export async function synchronizeLocationChances() {
+  const locationsByArea = JSON.parse(await fs.promises.readFile(LOCATIONS_BY_AREA_OUTPUT, 'utf8'));
+  const pokemonLocations = JSON.parse(await fs.promises.readFile(LOCATIONS_DATA_PATH, 'utf8'));
+
+  // Helper to normalize area names for matching
+  function normalizeArea(area: string): string {
+    return area
+      .toLowerCase()
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  for (const [pokemon, rawData] of Object.entries(pokemonLocations)) {
+    const data = rawData as PokemonLocationData;
+    // Handle base form locations
+    if (Array.isArray(data.locations)) {
+      for (const loc of data.locations) {
+        const areaName = normalizeArea(loc.area ?? "");
+        const method = loc.method || 'unknown';
+        const time = loc.time || 'any';
+        const level = loc.level;
+        // Find matching slot in locations_by_area.json
+        const areaObj = locationsByArea[areaName]?.pokemon?.[pokemon]?.methods?.[method]?.times?.[time];
+        if (areaObj) {
+          // Find matching slot by level and (optionally) formName
+          const match = areaObj.find(
+            (slot: any) => String(slot.level) === String(level) && (loc.formName == null || slot.formName === loc.formName)
+          );
+          if (match) {
+            loc.chance = match.chance;
+          }
+        }
+      }
+    }
+    // Handle alternate forms
+    if (data.forms) {
+      for (const [formName, formData] of Object.entries(data.forms)) {
+        if (Array.isArray(formData.locations)) {
+          for (const loc of formData.locations) {
+            const areaName = normalizeArea(loc.area ?? "");
+            const method = loc.method || 'unknown';
+            const time = loc.time || 'any';
+            const level = loc.level;
+            const areaObj = locationsByArea[areaName]?.pokemon?.[pokemon]?.methods?.[method]?.times?.[time];
+            if (areaObj) {
+              const match = areaObj.find(
+                (slot: any) => String(slot.level) === String(level) && (loc.formName == null || slot.formName === loc.formName)
+              );
+              if (match) {
+                loc.chance = match.chance;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Write updated pokemon_locations.json
+  await fs.promises.writeFile(
+    LOCATIONS_DATA_PATH,
+    JSON.stringify(pokemonLocations, null, 2)
+  );
+  console.log('Synchronized encounter rates in pokemon_locations.json');
 }

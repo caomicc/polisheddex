@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { MoveRow, LocationListItem } from '@/components/pokemon';
 import {
-  LocationEntryProps,
   FormData,
   EvolutionMethod,
   Move,
   MoveDescription,
   PokemonType,
+  LocationEntry,
 } from '@/types/types';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
@@ -441,7 +441,8 @@ export default function PokemonFormClient({
             </TableRow>
           </TableHeader>
           <TableBody>
-            {formData.locations.map((loc: LocationEntryProps, idx: number) => (
+            {/* Show all slots for this Pokémon, not just one per area/method/time */}
+            {formData.locations.map((loc: LocationEntry, idx: number) => (
               <LocationListItem
                 key={idx}
                 area={loc.area}

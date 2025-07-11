@@ -17,16 +17,6 @@ export interface LocationEntry {
   formName?: string | null; // Form name if applicable
 }
 
-// Make LocationEntryProps identical to LocationEntry for consistency
-export interface LocationEntryProps {
-  area: string | null;
-  method: string | null;
-  time: string | null;
-  level: string;
-  chance: number;
-  rareItem?: string; // Optional property for hidden grottoes
-  formName?: string | null; // Form name if applicable
-}
 
 export interface PokemonLocationData {
   locations: LocationEntry[];
