@@ -218,7 +218,12 @@ export function extractPokedexEntries() {
 }
 
 function normalizeMoveKey(name: string): string {
-  return name.toUpperCase().replace(/[^A-Z0-9_]/g, '_');
+  // Convert camelCase to snake_case, replace spaces with underscores, and uppercase
+  return name
+    .replace(/([a-z])([A-Z])/g, '$1_$2') // camelCase to snake_case
+    .replace(/\s+/g, '_') // spaces to underscores
+    .replace(/[^A-Z0-9_]/gi, '_') // non-alphanumeric to underscores
+    .toUpperCase();
 }
 
 export function extractMoveDescriptions() {
@@ -236,6 +241,7 @@ export function extractMoveDescriptions() {
 
   // Parse descriptions by label name
   const descLines = descData.split(/\r?\n/);
+  console.log('Parsing move descriptions...');
   const descMap: Record<string, string> = {};
   let currentLabels: string[] = [];
   let collecting = false;
@@ -245,19 +251,22 @@ export function extractMoveDescriptions() {
     if (labelMatch) {
       if (currentLabels.length && buffer.length) {
         for (const label of currentLabels) {
-          const normalizedLabel = label.toUpperCase();
+          const normalizedLabel = normalizeMoveKey(label);
           descMap[normalizedLabel] = buffer.join(' ');
         }
       }
       // Start a new group of labels
-      const normalizedLabel = labelMatch[1].toUpperCase();
+      // Add space before capital letters in camelCase labels
+      const normalizedLabel = labelMatch[1].replace(/([a-z])([A-Z])/g, '$1 $2');
       currentLabels = [normalizedLabel];
       buffer = [];
       collecting = false;
     } else if (line.match(/^\s*[A-Za-z0-9_]+Description:/)) {
+      // Handle extra labels that might not be in the main format
+      // e.g., "someMoveDescription:"
       const match = line.match(/^\s*([A-Za-z0-9_]+)Description:/);
       if (match) {
-        const extraLabel = match[1].toUpperCase();
+        const extraLabel = match[1];
         currentLabels.push(extraLabel);
       }
     } else if (line.trim().startsWith('text ')) {
@@ -273,7 +282,7 @@ export function extractMoveDescriptions() {
   }
   if (currentLabels.length && buffer.length) {
     for (const label of currentLabels) {
-      const normalizedLabel = label.toUpperCase();
+      const normalizedLabel = normalizeMoveKey(label);
       descMap[normalizedLabel] = buffer.join(' ');
     }
   }
@@ -369,12 +378,15 @@ export function extractMoveDescriptions() {
   const moveToGroup: Record<string, string> = {};
   for (const [group, moves] of Object.entries(sharedDescriptionGroups)) {
     for (const move of moves) {
-      moveToGroup[move] = group;
+      moveToGroup[normalizeMoveKey(move)] = group;
     }
   }
   for (let i = 0; i < moveNames.length; i++) {
+    // Normalize the move name to match the keys in descMap and moveStats
+    console.log('Processing move name:', moveNames[i]);
     const moveKey = normalizeMoveKey(moveNames[i]);
     let desc = descMap[moveKey] || '';
+    console.log('Processing move:', moveKey, 'Description:', desc);
     // If not found, try to find a description from the normalized group
     if (!desc && moveToGroup[moveKey]) {
       const group = moveToGroup[moveKey];
@@ -404,14 +416,15 @@ export function extractMoveDescriptions() {
     // Find the first move in the group that has a description
     let groupDesc = '';
     for (const gMove of groupMoves) {
-      if (descMap[gMove]) {
-        groupDesc = descMap[gMove];
+      const gMoveKey = normalizeMoveKey(gMove);
+      if (descMap[gMoveKey]) {
+        groupDesc = descMap[gMoveKey];
         break;
       }
     }
     if (groupDesc) {
       for (const gMove of groupMoves) {
-        const prettyName = toCapitalCaseWithSpaces(gMove);
+        const prettyName = toCapitalCaseWithSpaces(normalizeMoveKey(gMove));
         if (moveDescByName[prettyName] && !moveDescByName[prettyName].description) {
           moveDescByName[prettyName].description = groupDesc;
         }
