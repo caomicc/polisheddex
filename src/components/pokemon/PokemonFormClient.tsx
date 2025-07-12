@@ -18,6 +18,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { cn } from '@/lib/utils';
 import { Progress } from '../ui/progress';
 import { PokemonAbilities } from './pokemon-abilities';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 
 export default function PokemonFormClient({
   forms,
@@ -325,104 +326,117 @@ export default function PokemonFormClient({
             </div>
           )}
       </div>
+<div>
+        <h2 className="text-md md:text-2xl font-bold mb-3">Moves</h2>
 
-      <hr className="border-gray-200 dark:border-gray-700" />
-      {/* Moves List */}
-      <h2 className="text-md md:text-2xl font-bold mb-3">Moves</h2>
-      {formData.moves && Array.isArray(formData.moves) && formData.moves.length > 0 ? (
-        <Table>
-          <TableHeader className={'hidden md:table-header-group'}>
-            <TableRow>
-              <TableHead className="attheader cen align-middle text-left w-[60px]">Level</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[180px]">
-                Attack Name
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Type</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Cat.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Att.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Acc.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">PP</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">
-                Effect %
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {formData.moves.map((moveData: Move) => {
-              const moveInfo = moveDescData[moveData.name] || null;
-              return (
-                <MoveRow
-                  key={`move-${moveData.name}-${moveData.level}`}
-                  name={moveData.name}
-                  level={moveData.level}
-                  info={moveInfo}
-                />
-              );
-            })}
-          </TableBody>
-        </Table>
-      ) : (
-        <div className="text-gray-400 text-sm mb-6">No move data</div>
-      )}
-      <h2 className="text-md md:text-2xl font-bold mb-3">Egg Moves</h2>
-      {formData.eggMoves && Array.isArray(formData.eggMoves) && formData.eggMoves.length > 0 ? (
-        <Table>
-          <TableHeader className={'hidden md:table-header-group'}>
-            <TableRow>
-              <TableHead className="attheader cen align-middle text-left w-[60px]">Level</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[180px]">
-                Attack Name
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Type</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Cat.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Att.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Acc.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">PP</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">
-                Effect %
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {formData.eggMoves.map((moveName: string) => {
-              const moveInfo = moveDescData[moveName] || null;
-              return <MoveRow key={`egg-${moveName}`} name={moveName} level={1} info={moveInfo} />;
-            })}
-          </TableBody>
-        </Table>
-      ) : (
-        <div className="text-gray-400 text-sm mb-6">No egg moves</div>
-      )}
+      <Tabs defaultValue="level-up" className="w-full">
+        <TabsList>
+          <TabsTrigger value="level-up">Level Up</TabsTrigger>
+          <TabsTrigger value="egg">Egg Moves</TabsTrigger>
+          <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
+        </TabsList>
+        <TabsContent value="level-up">
+          {/* Moves List */}
+          {formData.moves && Array.isArray(formData.moves) && formData.moves.length > 0 ? (
+            <Table>
+              <TableHeader className={'hidden md:table-header-group'}>
+                <TableRow>
+                  <TableHead className="attheader cen align-middle text-left w-[60px]">Level</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[180px]">
+                    Attack Name
+                  </TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Type</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Cat.</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Att.</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Acc.</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">PP</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">
+                    Effect %
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {formData.moves.map((moveData: Move) => {
+                  const moveInfo = moveDescData[moveData.name] || null;
+                  return (
+                    <MoveRow
+                      key={`move-${moveData.name}-${moveData.level}`}
+                      name={moveData.name}
+                      level={moveData.level}
+                      info={moveInfo}
+                    />
+                  );
+                })}
+              </TableBody>
+            </Table>
+          ) : (
+            <div className="text-gray-400 text-sm mb-6">No move data</div>
+          )}
+        </TabsContent>
+        <TabsContent value="egg">
+          {formData.eggMoves && Array.isArray(formData.eggMoves) && formData.eggMoves.length > 0 ? (
+            <Table>
+              <TableHeader className={'hidden md:table-header-group'}>
+                <TableRow>
+                  <TableHead className="attheader cen align-middle text-left w-[60px]">Level</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[180px]">
+                    Attack Name
+                  </TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Type</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Cat.</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Att.</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Acc.</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">PP</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">
+                    Effect %
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {formData.eggMoves.map((moveName: string) => {
+                  const moveInfo = moveDescData[moveName] || null;
+                  return <MoveRow key={`egg-${moveName}`} name={moveName} level={1} info={moveInfo} />;
+                })}
+              </TableBody>
+            </Table>
+          ) : (
+            <div className="text-gray-400 text-sm mb-6">No egg moves</div>
+          )}
+        </TabsContent>
+        <TabsContent value="tm-hm">
+          {formData.tmHmLearnset && Array.isArray(formData.tmHmLearnset) && formData.tmHmLearnset.length > 0 ? (
+            <Table>
+              <TableHeader className={'hidden md:table-header-group'}>
+                <TableRow>
+                  <TableHead className="attheader cen align-middle text-left w-[60px]">Level</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[180px]">
+                    Attack Name
+                  </TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Type</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Cat.</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Att.</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">Acc.</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">PP</TableHead>
+                  <TableHead className="attheader cen align-middle text-left w-[80px]">
+                    Effect %
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {formData.tmHmLearnset.map((move) => {
+                  const moveInfo = moveDescData[move.name] || null;
+                  return <MoveRow key={`tm-${move.name}`} name={move.name} level={move.level} info={moveInfo} />;
+                })}
+              </TableBody>
+            </Table>
+          ) : (
+            <div className="text-gray-400 text-sm mb-6">No learnset</div>
+          )}
+        </TabsContent>
+      </Tabs>
 
-            <h2 className="text-md md:text-2xl font-bold mb-3">TM/HM Learnset</h2>
-      {formData.tmHmLearnset && Array.isArray(formData.tmHmLearnset) && formData.tmHmLearnset.length > 0 ? (
-        <Table>
-          <TableHeader className={'hidden md:table-header-group'}>
-            <TableRow>
-              <TableHead className="attheader cen align-middle text-left w-[60px]">Level</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[180px]">
-                Attack Name
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Type</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Cat.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Att.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Acc.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">PP</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">
-                Effect %
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {formData.tmHmLearnset.map((move) => {
-              const moveInfo = moveDescData[move.name] || null;
-              return <MoveRow key={`tm-${move.name}`} name={move.name} level={move.level} info={moveInfo} />;
-            })}
-          </TableBody>
-        </Table>
-      ) : (
-        <div className="text-gray-400 text-sm mb-6">No learnset</div>
-      )}
+
+</div>
 
       <h2 className="text-md md:text-2xl font-bold mb-3">Base Stats</h2>
       {formData.baseStats ? (

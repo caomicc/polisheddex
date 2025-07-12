@@ -45,7 +45,18 @@ export function LocationListItem({ area, method, time, level, chance, rareItem }
       {/* Mobile combined cell for level and name */}
       <TableCell className="align-middle p-2">
         <div className="flex items-center">
-          <span className="font-bold">{formatAreaName(formattedArea)}</span>
+          <span className="font-bold">
+                    {area ? (
+          <Link
+            href={areaUrl}
+            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            {formatAreaName(formattedArea)}
+          </Link>
+        ) : (
+          formatAreaName(formattedArea)
+        )}
+          </span>
         </div>
       </TableCell>
 
