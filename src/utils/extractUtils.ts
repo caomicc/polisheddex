@@ -1,7 +1,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { convertEggGroupCode, convertGenderCode, convertGrowthRateCode, convertHatchCode, normalizeAsmLabelToMoveKey, normalizeMonName, standardizePokemonKey, toCapitalCaseWithSpaces, toTitleCase } from './stringUtils.ts';
+import { convertEggGroupCode, convertGenderCode, convertGrowthRateCode, convertHatchCode, normalizeMonName, standardizePokemonKey, toCapitalCaseWithSpaces, toTitleCase } from './stringUtils.ts';
 import type { Ability, DetailedStats, EncounterDetail, LocationEntry, PokemonDexEntry, PokemonLocationData, LocationAreaData } from '../types/types.ts';
 
 
@@ -217,6 +217,10 @@ export function extractPokedexEntries() {
   console.log('Pokédex entries extracted to', POKEDEX_ENTRIES_OUTPUT);
 }
 
+function normalizeMoveKey(name: string): string {
+  return name.toUpperCase().replace(/[^A-Z0-9_]/g, '_');
+}
+
 export function extractMoveDescriptions() {
   const moveNamesPath = path.join(__dirname, '../../rom/data/moves/names.asm');
   const moveDescriptionsPath = path.join(__dirname, '../../rom/data/moves/descriptions.asm');
@@ -241,19 +245,19 @@ export function extractMoveDescriptions() {
     if (labelMatch) {
       if (currentLabels.length && buffer.length) {
         for (const label of currentLabels) {
-          const normalizedLabel = normalizeAsmLabelToMoveKey(label);
+          const normalizedLabel = label.toUpperCase();
           descMap[normalizedLabel] = buffer.join(' ');
         }
       }
       // Start a new group of labels
-      const normalizedLabel = normalizeAsmLabelToMoveKey(labelMatch[1]);
+      const normalizedLabel = labelMatch[1].toUpperCase();
       currentLabels = [normalizedLabel];
       buffer = [];
       collecting = false;
     } else if (line.match(/^\s*[A-Za-z0-9_]+Description:/)) {
       const match = line.match(/^\s*([A-Za-z0-9_]+)Description:/);
       if (match) {
-        const extraLabel = normalizeAsmLabelToMoveKey(match[1]);
+        const extraLabel = match[1].toUpperCase();
         currentLabels.push(extraLabel);
       }
     } else if (line.trim().startsWith('text ')) {
@@ -261,7 +265,7 @@ export function extractMoveDescriptions() {
       buffer.push(line.replace('text ', '').replace(/"/g, ''));
     } else if (line.trim().startsWith('next ')) {
       buffer.push(line.replace('next ', '').replace(/"/g, ''));
-    } else if (line.trim().startsWith('done')) {
+    } else if (line.trim() === 'done') {
       collecting = false;
     } else if (collecting && line.trim()) {
       buffer.push(line.trim().replace(/"/g, ''));
@@ -269,7 +273,7 @@ export function extractMoveDescriptions() {
   }
   if (currentLabels.length && buffer.length) {
     for (const label of currentLabels) {
-      const normalizedLabel = normalizeAsmLabelToMoveKey(label);
+      const normalizedLabel = label.toUpperCase();
       descMap[normalizedLabel] = buffer.join(' ');
     }
   }
@@ -369,16 +373,16 @@ export function extractMoveDescriptions() {
     }
   }
   for (let i = 0; i < moveNames.length; i++) {
-    const moveKey = moveNames[i].toUpperCase().replace(/[^A-Z0-9_]/g, '_');
-    // Try direct match first
+    const moveKey = normalizeMoveKey(moveNames[i]);
     let desc = descMap[moveKey] || '';
     // If not found, try to find a description from the normalized group
     if (!desc && moveToGroup[moveKey]) {
       const group = moveToGroup[moveKey];
       const groupMoves = sharedDescriptionGroups[group];
       for (const gMove of groupMoves) {
-        if (descMap[gMove]) {
-          desc = descMap[gMove];
+        const gMoveKey = normalizeMoveKey(gMove);
+        if (descMap[gMoveKey]) {
+          desc = descMap[gMoveKey];
           break;
         }
       }
@@ -391,7 +395,7 @@ export function extractMoveDescriptions() {
       pp: stats.pp,
       power: stats.power,
       category: stats.category,
-      accuracy: stats.accuracy === -1 ? '--' : stats.accuracy // -1 means always lands, show as --
+      accuracy: stats.accuracy === -1 ? '--' : stats.accuracy
     };
   }
 
@@ -631,6 +635,8 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       // First try to find a standard abilities_for line regardless of conditional blocks
       const standardAbilitiesLine = lines.find(l => l.trim().startsWith('abilities_for'));
 
+      console.log('Standard abilities line:', standardAbilitiesLine);
+
       // Look for conditional ability definitions
       let foundConditionalAbilities = false;
       for (let i = 0; i < lines.length; i++) {
@@ -671,6 +677,8 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         }
       }
 
+      console.log(`Found conditional abilities for ${pokemonName}:`, foundConditionalAbilities);
+
       // If no conditional abilities were found, use the standard abilities line
       if (!foundConditionalAbilities && standardAbilitiesLine) {
         faithfulAbilitiesLine = standardAbilitiesLine;
@@ -692,12 +700,15 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         }
 
         if (faithfulMatch) {
+
+          // console.log(`Faithful match found for ${pokemonName}:`, faithfulMatch);
+
           // Extract ability names from the faithful match - handle NO_ABILITY properly
           const faithfulPrimaryName = faithfulMatch[2] && faithfulMatch[2] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(faithfulMatch[2].trim()) : null;
           const faithfulSecondaryName = faithfulMatch[3] && faithfulMatch[3] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(faithfulMatch[3].trim()) : null;
           const faithfulHiddenName = faithfulMatch[4] && faithfulMatch[4] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(faithfulMatch[4].trim()) : null;
 
-          console.log(`Parsed abilities for ${pokemonName}: Primary: ${faithfulPrimaryName}, Secondary: ${faithfulSecondaryName}, Hidden: ${faithfulHiddenName}`);
+          // console.log(`Parsed abilities for ${pokemonName}: Primary: ${faithfulPrimaryName}, Secondary: ${faithfulSecondaryName}, Hidden: ${faithfulHiddenName}`);
 
           // Process non-faithful abilities if available
           let nonFaithfulPrimaryName = faithfulPrimaryName;
@@ -708,6 +719,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
           let hasDistinctAbilities = false;
 
           if (nonFaithfulAbilitiesLine && nonFaithfulAbilitiesLine !== faithfulAbilitiesLine) {
+            // console.log(`Processing non-faithful abilities for ${pokemonName}: ${nonFaithfulAbilitiesLine}`);
             const nonFaithfulMatch = nonFaithfulAbilitiesLine.match(/abilities_for\s+([A-Z_0-9]+),\s*([A-Z_0-9]+)(?:,\s*([A-Z_0-9]+))?(?:,\s*([A-Z_0-9]+))?/);
             if (nonFaithfulMatch) {
               nonFaithfulPrimaryName = nonFaithfulMatch[2] && nonFaithfulMatch[2] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(nonFaithfulMatch[2].trim()) : null;
@@ -724,6 +736,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
           // Add primary ability to faithful abilities
           if (faithfulPrimaryName) {
+            // console.log(`Adding faithful primary ability for ${pokemonName}: ${faithfulPrimaryName}`);
             const faithfulAbilityData: Ability = {
               name: faithfulPrimaryName,
               description: '', // Will be filled in later
@@ -736,6 +749,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
           // Add secondary ability to faithful abilities
           if (faithfulSecondaryName) {
+            // console.log(`Adding faithful secondary ability for ${pokemonName}: ${faithfulSecondaryName}`);
             const faithfulAbilityData: Ability = {
               name: faithfulSecondaryName,
               description: '', // Will be filled in later
@@ -748,6 +762,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
           // Add hidden ability to faithful abilities
           if (faithfulHiddenName) {
+            // console.log(`Adding faithful hidden ability for ${pokemonName}: ${faithfulHiddenName}`);
             const faithfulAbilityData: Ability = {
               name: faithfulHiddenName,
               description: '', // Will be filled in later
@@ -760,6 +775,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
           // Only create separate updatedAbilities if they're actually different from faithful abilities
           if (hasDistinctAbilities) {
+            // console.log(`Creating updated abilities for ${pokemonName} since they differ from faithful abilities`);
             // Add abilities to the updated abilities array since they differ from faithful
             if (nonFaithfulPrimaryName) {
               const updatedAbilityData: Ability = {
@@ -772,6 +788,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
             }
 
             if (nonFaithfulSecondaryName) {
+              // console.log(`Adding non-faithful secondary ability for ${pokemonName}: ${nonFaithfulSecondaryName}`);
               const updatedAbilityData: Ability = {
                 name: nonFaithfulSecondaryName,
                 description: '', // Will be filled in later
@@ -782,6 +799,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
             }
 
             if (nonFaithfulHiddenName) {
+              // console.log(`Adding non-faithful hidden ability for ${pokemonName}: ${nonFaithfulHiddenName}`);
               const updatedAbilityData: Ability = {
                 name: nonFaithfulHiddenName,
                 description: '', // Will be filled in later
@@ -900,14 +918,23 @@ export function extractAbilityDescriptions() {
 
   // Parse ability names (order matters)
   // First get the ability identifiers from the table at the beginning
+  console.log('Parsing ability name IDs...', namesData);
+  console.log('Names data length:', namesData.length);
   const nameIds = namesData.split(/\r?\n/)
     .filter(l => l.trim().startsWith('dw '))
-    .map(l => l.trim().replace('dw ', ''))
+    .map(l => l.trim().replace(/^dw\s+/, '')) // Ensure space after 'dw'
+    .map(id => id.replace(/([a-z])([A-Z])/g, '$1 $2'))
     .filter(Boolean);
+
+  console.log('Ability name IDs found:', nameIds.length, [...nameIds]);
 
   // Then get the actual string names from the rawchar definitions
   const abilityNameMap: Record<string, string> = {};
+
+  console.log('Parsing ability names...');
   const rawNameMatches = namesData.matchAll(/^(\w+):\s+rawchar\s+"([^@]+)@"/gm);
+  console.log('Raw name matches found:', [...rawNameMatches].length);
+  console.log('rawNameMatches', [...rawNameMatches]);
 
   // Debug the rawchar matching
   console.log('Raw name matches found:', [...namesData.matchAll(/^(\w+):\s+rawchar\s+"([^@]+)@"/gm)].length);
@@ -920,34 +947,39 @@ export function extractAbilityDescriptions() {
   console.log('Ability name map entries:', Object.keys(abilityNameMap).length);
 
   // Map the ids to their corresponding names
-  const abilityNames = nameIds.map(id => abilityNameMap[id] || id);
+  const abilityNames = nameIds.map(id => abilityNameMap[toTitleCase(id)] || toTitleCase(id));
 
-  console.log('Ability names parsed:', abilityNames.length, 'abilities');
+
+  console.log('Ability names parsed:', abilityNames.length, abilityNames, 'abilities');
 
   // Parse descriptions by label name
   const descLines = descData.split(/\r?\n/);
+  console.log('Parsing ability descriptions...');
+  console.log('Description lines found:', descLines.length, [...descLines.slice(0, 10)]); // Show first 10 lines for context
   const descMap: Record<string, string> = {};
   let currentLabels: string[] = [];
   let collecting = false;
   let buffer: string[] = [];
   for (const line of descLines) {
     const labelMatch = line.match(/^([A-Za-z0-9_]+)Description:/);
+    console.log('Processing line:', line.trim(), labelMatch ? labelMatch[1] : null);
     if (labelMatch) {
       if (currentLabels.length && buffer.length) {
         for (const label of currentLabels) {
-          const normalizedLabel = label.toUpperCase();
+          const normalizedLabel = toTitleCase(label);
           descMap[normalizedLabel] = buffer.join(' ');
         }
       }
       // Start a new group of labels
-      const normalizedLabel = labelMatch[1].toUpperCase();
+      const normalizedLabel = labelMatch[1].replace(/([a-z])([A-Z])/g, '$1 $2');
+      console.log('Found new label: normalizedLabel', normalizedLabel);
       currentLabels = [normalizedLabel];
       buffer = [];
       collecting = false;
     } else if (line.match(/^\s*[A-Za-z0-9_]+Description:/)) {
       const match = line.match(/^\s*([A-Za-z0-9_]+)Description:/);
       if (match) {
-        const extraLabel = match[1].toUpperCase();
+        const extraLabel = toTitleCase(match[1]);
         currentLabels.push(extraLabel);
       }
     } else if (line.trim().startsWith('text ')) {
@@ -963,7 +995,7 @@ export function extractAbilityDescriptions() {
   }
   if (currentLabels.length && buffer.length) {
     for (const label of currentLabels) {
-      const normalizedLabel = label.toUpperCase();
+      const normalizedLabel = toTitleCase(label);
       descMap[normalizedLabel] = buffer.join(' ');
     }
   }
@@ -971,10 +1003,9 @@ export function extractAbilityDescriptions() {
   // Map ability names to their description
   const abilityDescByName: Record<string, { description: string }> = {};
   for (let i = 0; i < abilityNames.length; i++) {
-    const abilityKey = abilityNames[i].toUpperCase().replace(/[^A-Z0-9_]/g, '_');
-    const desc = descMap[abilityKey] || '';
-    const prettyName = toCapitalCaseWithSpaces(abilityKey);
-    abilityDescByName[prettyName] = {
+    const normalizedAbilityName = toTitleCase(abilityNames[i]);
+    const desc = descMap[normalizedAbilityName] || '';
+    abilityDescByName[normalizedAbilityName] = {
       description: desc
     };
   }
