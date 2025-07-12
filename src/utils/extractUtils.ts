@@ -351,10 +351,13 @@ export function extractMoveDescriptions() {
 
   // --- Ensure all moves in a shared group get the same description ---
   for (const groupMoves of Object.values(sharedDescriptionGroups)) {
+    console.log('Processing shared group:', groupMoves);
     // Find the first move in the group that has a description
     let groupDesc = '';
     for (const gMove of groupMoves) {
+      console.log('Checking group move:', gMove);
       const gMoveKey = normalizeMoveKey(gMove);
+      console.log('ABC Checking group move:', gMoveKey);
       if (descMap[gMoveKey]) {
         groupDesc = descMap[gMoveKey];
         break;

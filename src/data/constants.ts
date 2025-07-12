@@ -82,4 +82,10 @@ export const sharedDescriptionGroups: Record<string, string[]> = {
   leveldamage: [
     'SEISMIC_TOSS', 'NIGHT_SHADE'
   ],
+  recoil: [
+    'FLARE_BLITZ', 'BRAVE_BIRD', 'WILD_CHARGE'
+  ],
+  neverMiss: [
+    'SWIFT', 'AERIAL_ACE', 'FEINT_ATTACK', 'DISARM_VOICE', 'AURA_SPHERE'
+  ]
 };

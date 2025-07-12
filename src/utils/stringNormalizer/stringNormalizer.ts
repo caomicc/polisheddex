@@ -47,11 +47,6 @@ export const normalizeString = (str: string): string => {
     'SLASH': 'Slash',
     'NightSlashDescription': 'Night Slash',
     'SlashDescription': 'Slash',
-    'EXTREMESPEED': 'Extreme Speed',
-    'ExtremeSpeed': 'Extreme Speed',
-    'HEALINGLIGHT': 'Healing Light',
-    'Healinglight': 'Healing Light',
-    'HealingLight': 'Healing Light',
   };
 
   // Check if this is a special case that needs direct mapping
