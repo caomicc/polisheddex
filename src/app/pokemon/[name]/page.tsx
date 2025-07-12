@@ -114,6 +114,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     baseExp: detailedStatData[pokemonName]?.baseExp || 0,
     heldItems: detailedStatData[pokemonName]?.heldItems,
     abilities: detailedStatData[pokemonName]?.abilities,
+    faithfulAbilities: detailedStatData[pokemonName]?.faithfulAbilities || [],
+    updatedAbilities: detailedStatData[pokemonName]?.updatedAbilities || [],
     genderRatio: detailedStatData[pokemonName]?.genderRatio,
     growthRate: detailedStatData[pokemonName]?.growthRate,
     baseStats: detailedStatData[pokemonName]?.baseStats,
@@ -161,6 +163,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           bodyShape: detailedStatData[pokemonName]?.bodyShape || '', // Add shape property
           hatchRate: detailedStatData[pokemonName]?.hatchRate || '',
           eggGroups: detailedStatData[pokemonName]?.eggGroups || [],
+          faithfulAbilities: detailedStatData[pokemonName]?.faithfulAbilities || [],
+          updatedAbilities: detailedStatData[pokemonName]?.updatedAbilities || [],
         },
       ]),
     ),

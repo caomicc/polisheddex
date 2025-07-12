@@ -2,7 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { convertEggGroupCode, convertGenderCode, convertGrowthRateCode, convertHatchCode, normalizeAsmLabelToMoveKey, normalizeMonName, standardizePokemonKey, toCapitalCaseWithSpaces, toTitleCase } from './stringUtils.ts';
-import type { DetailedStats, EncounterDetail, LocationEntry, PokemonDexEntry, PokemonLocationData, LocationAreaData } from '../types/types.ts';
+import type { Ability, DetailedStats, EncounterDetail, LocationEntry, PokemonDexEntry, PokemonLocationData, LocationAreaData } from '../types/types.ts';
 
 
 import { KNOWN_FORMS } from '../data/constants.ts';
@@ -511,12 +511,26 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
   for (const file of detailedStatsFiles) {
     const fileName = file.replace('.asm', '');
+
+    // Debug for Pikachu
+    if (fileName === 'pikachu') {
+      console.log('Found pikachu.asm file');
+    }
+
     const content = fs.readFileSync(path.join(detailedStatsDir, file), 'utf8');
     const lines = content.split(/\r?\n/);
 
     // Extract the Pokemon name from the file name
     const { basePokemonName, formName } = extractFormInfo(fileName);
     const pokemonName = formName ? `${basePokemonName}${formName}` : basePokemonName;
+
+    // Debug for Pikachu
+    if (pokemonName === 'Pikachu') {
+      console.log('Processing Pikachu with pokemonName:', pokemonName);
+      console.log('Looking for abilities_for line...');
+      const abilitiesLine = lines.find(l => l.trim().startsWith('abilities_for'));
+      console.log('Found abilities_for line:', abilitiesLine);
+    }
 
     try {
       // Extract base stats (first line)
@@ -599,19 +613,187 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
           const hatchCode = genderHatchMatch[2];
           hatchRate = convertHatchCode(hatchCode);
         }
+      }      // Extract abilities - Format: abilities_for POKEMON, ABILITY1, ABILITY2, HIDDEN_ABILITY
+      // Check for faithful vs non-faithful conditional abilities
+      let faithfulAbilitiesLine: string | undefined;
+      let nonFaithfulAbilitiesLine: string | undefined;
+      let hasFaithfulConditional = false;
+      const abilities: Array<Ability> = [];
+      const faithfulAbilities: Array<Ability> = [];
+      const updatedAbilities: Array<Ability> = [];
+
+      // Debug for Pikachu
+      if (pokemonName === 'Pikachu') {
+        console.log('Looking for abilities for Pikachu...');
+        console.log('File contains conditional blocks:', lines.some(l => l.includes('if DEF(FAITHFUL)')));
       }
 
-      // Extract abilities - Format: abilities_for POKEMON, ABILITY1, ABILITY2, HIDDEN_ABILITY
-      const abilitiesLine = lines.find(l => l.trim().startsWith('abilities_for'));
-      const abilities: string[] = [];
+      // First try to find a standard abilities_for line regardless of conditional blocks
+      const standardAbilitiesLine = lines.find(l => l.trim().startsWith('abilities_for'));
 
-      if (abilitiesLine) {
-        // Split by commas, but skip the first part which is the Pokémon name
-        const abilityParts = abilitiesLine.split(',').slice(1);
-        for (const part of abilityParts) {
-          const ability = toCapitalCaseWithSpaces(part.trim());
-          if (ability) {
-            abilities.push(ability);
+      // Look for conditional ability definitions
+      let foundConditionalAbilities = false;
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line.startsWith('if DEF(FAITHFUL)')) {
+          hasFaithfulConditional = true;
+          // Look for the abilities_for line within the faithful block
+          for (let j = i + 1; j < lines.length; j++) {
+            const innerLine = lines[j].trim();
+            if (innerLine.startsWith('abilities_for')) {
+              faithfulAbilitiesLine = innerLine;
+              foundConditionalAbilities = true;
+              if (pokemonName === 'Pikachu') {
+                console.log('Found faithful abilities line:', faithfulAbilitiesLine);
+              }
+              break;
+            }
+            if (innerLine === 'else' || innerLine === 'endc') {
+              break;
+            }
+          }
+        } else if (hasFaithfulConditional && line === 'else') {
+          // Look for the abilities_for line within the non-faithful block
+          for (let j = i + 1; j < lines.length; j++) {
+            const innerLine = lines[j].trim();
+            if (innerLine.startsWith('abilities_for')) {
+              nonFaithfulAbilitiesLine = innerLine;
+              foundConditionalAbilities = true;
+              if (pokemonName === 'Pikachu') {
+                console.log('Found non-faithful abilities line:', nonFaithfulAbilitiesLine);
+              }
+              break;
+            }
+            if (innerLine === 'endc') {
+              break;
+            }
+          }
+        }
+      }
+
+      // If no conditional abilities were found, use the standard abilities line
+      if (!foundConditionalAbilities && standardAbilitiesLine) {
+        faithfulAbilitiesLine = standardAbilitiesLine;
+        nonFaithfulAbilitiesLine = standardAbilitiesLine; // Use the same line for both faithful and non-faithful abilities
+
+        if (pokemonName === 'Pikachu') {
+          console.log('Using standard abilities line:', standardAbilitiesLine);
+        }
+      } else if (pokemonName === 'Pikachu' && !foundConditionalAbilities && !standardAbilitiesLine) {
+        console.log('No abilities line found for Pikachu');
+      }// Process abilities
+      if (faithfulAbilitiesLine) {
+        console.log(`Processing abilities for ${pokemonName}: ${faithfulAbilitiesLine}`);
+        const faithfulMatch = faithfulAbilitiesLine.match(/abilities_for\s+([A-Z_0-9]+),\s*([A-Z_0-9]+)(?:,\s*([A-Z_0-9]+))?(?:,\s*([A-Z_0-9]+))?/);
+
+        // Special debug for Pikachu
+        if (pokemonName === "Pikachu") {
+          console.log("PIKACHU DEBUG: Match result:", faithfulMatch);
+        }
+
+        if (faithfulMatch) {
+          // Extract ability names from the faithful match - handle NO_ABILITY properly
+          const faithfulPrimaryName = faithfulMatch[2] && faithfulMatch[2] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(faithfulMatch[2].trim()) : null;
+          const faithfulSecondaryName = faithfulMatch[3] && faithfulMatch[3] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(faithfulMatch[3].trim()) : null;
+          const faithfulHiddenName = faithfulMatch[4] && faithfulMatch[4] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(faithfulMatch[4].trim()) : null;
+
+          console.log(`Parsed abilities for ${pokemonName}: Primary: ${faithfulPrimaryName}, Secondary: ${faithfulSecondaryName}, Hidden: ${faithfulHiddenName}`);
+
+          // Process non-faithful abilities if available
+          let nonFaithfulPrimaryName = faithfulPrimaryName;
+          let nonFaithfulSecondaryName = faithfulSecondaryName;
+          let nonFaithfulHiddenName = faithfulHiddenName;
+
+          // Check if there are actually different ability lines for faithful vs non-faithful versions
+          let hasDistinctAbilities = false;
+
+          if (nonFaithfulAbilitiesLine && nonFaithfulAbilitiesLine !== faithfulAbilitiesLine) {
+            const nonFaithfulMatch = nonFaithfulAbilitiesLine.match(/abilities_for\s+([A-Z_0-9]+),\s*([A-Z_0-9]+)(?:,\s*([A-Z_0-9]+))?(?:,\s*([A-Z_0-9]+))?/);
+            if (nonFaithfulMatch) {
+              nonFaithfulPrimaryName = nonFaithfulMatch[2] && nonFaithfulMatch[2] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(nonFaithfulMatch[2].trim()) : null;
+              nonFaithfulSecondaryName = nonFaithfulMatch[3] && nonFaithfulMatch[3] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(nonFaithfulMatch[3].trim()) : null;
+              nonFaithfulHiddenName = nonFaithfulMatch[4] && nonFaithfulMatch[4] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(nonFaithfulMatch[4].trim()) : null;
+
+              // Check if the abilities are actually different between faithful and non-faithful versions
+              hasDistinctAbilities =
+                faithfulPrimaryName !== nonFaithfulPrimaryName ||
+                faithfulSecondaryName !== nonFaithfulSecondaryName ||
+                faithfulHiddenName !== nonFaithfulHiddenName;
+            }
+          }
+
+          // Add primary ability to faithful abilities
+          if (faithfulPrimaryName) {
+            const faithfulAbilityData: Ability = {
+              name: faithfulPrimaryName,
+              description: '', // Will be filled in later
+              isHidden: false,
+              abilityType: 'primary'
+            };
+            faithfulAbilities.push(faithfulAbilityData);
+            abilities.push({ ...faithfulAbilityData }); // For backward compatibility
+          }
+
+          // Add secondary ability to faithful abilities
+          if (faithfulSecondaryName) {
+            const faithfulAbilityData: Ability = {
+              name: faithfulSecondaryName,
+              description: '', // Will be filled in later
+              isHidden: false,
+              abilityType: 'secondary'
+            };
+            faithfulAbilities.push(faithfulAbilityData);
+            abilities.push({ ...faithfulAbilityData }); // For backward compatibility
+          }
+
+          // Add hidden ability to faithful abilities
+          if (faithfulHiddenName) {
+            const faithfulAbilityData: Ability = {
+              name: faithfulHiddenName,
+              description: '', // Will be filled in later
+              isHidden: true,
+              abilityType: 'hidden'
+            };
+            faithfulAbilities.push(faithfulAbilityData);
+            abilities.push({ ...faithfulAbilityData }); // For backward compatibility
+          }
+
+          // Only create separate updatedAbilities if they're actually different from faithful abilities
+          if (hasDistinctAbilities) {
+            // Add abilities to the updated abilities array since they differ from faithful
+            if (nonFaithfulPrimaryName) {
+              const updatedAbilityData: Ability = {
+                name: nonFaithfulPrimaryName,
+                description: '', // Will be filled in later
+                isHidden: false,
+                abilityType: 'primary'
+              };
+              updatedAbilities.push(updatedAbilityData);
+            }
+
+            if (nonFaithfulSecondaryName) {
+              const updatedAbilityData: Ability = {
+                name: nonFaithfulSecondaryName,
+                description: '', // Will be filled in later
+                isHidden: false,
+                abilityType: 'secondary'
+              };
+              updatedAbilities.push(updatedAbilityData);
+            }
+
+            if (nonFaithfulHiddenName) {
+              const updatedAbilityData: Ability = {
+                name: nonFaithfulHiddenName,
+                description: '', // Will be filled in later
+                isHidden: true,
+                abilityType: 'hidden'
+              };
+              updatedAbilities.push(updatedAbilityData);
+            }
+          } else {
+            // If the abilities are identical, use an empty array for updatedAbilities
+            // This will signal that the updatedAbilities are the same as faithfulAbilities
+            updatedAbilities.length = 0; // Clear any existing entries
           }
         }
       }
@@ -655,6 +837,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       }
 
       // Add the detailed stats to our result
+      // For updatedAbilities, only use fallbacks if there are distinct abilities
       detailedStats[pokemonName] = {
         baseStats,
         catchRate,
@@ -662,7 +845,10 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         heldItems,
         genderRatio,
         hatchRate,
-        abilities,
+        abilities: abilities.length > 0 ? abilities : [],
+        faithfulAbilities: faithfulAbilities.length > 0 ? faithfulAbilities : abilities.length > 0 ? abilities : [],
+        // Keep updatedAbilities empty if we explicitly cleared it (meaning abilities are identical)
+        updatedAbilities: updatedAbilities,
         growthRate,
         eggGroups,
         evYield

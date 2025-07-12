@@ -117,7 +117,9 @@ export interface DetailedStats {
   heldItems: string[];
   genderRatio: string;
   hatchRate: string;
-  abilities: Ability[] | string[]; // Can be either an array of Ability objects or strings
+  abilities: Ability[]; // The combined list of abilities (for backward compatibility)
+  faithfulAbilities: Ability[]; // Abilities in the faithful version
+  updatedAbilities: Ability[]; // Abilities in the updated (non-faithful) version
   growthRate: string;
   eggGroups: string[];
   evYield: string;
@@ -131,6 +133,7 @@ export interface Ability {
   name: string;
   description: string;
   isHidden?: boolean;
+  abilityType?: 'primary' | 'secondary' | 'hidden';
 }
 
 export interface FormData extends DetailedStats {

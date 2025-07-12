@@ -1,5 +1,5 @@
 import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toCapitalCaseWithSpaces, toTitleCase } from './src/utils/stringUtils.ts';
-import type { BaseData, DetailedStats, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3, PokemonDexEntry } from './src/types/types.ts';
+import type { BaseData, DetailedStats, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -534,7 +534,7 @@ for (const file of wildFiles) {
     if (inBlock && line.startsWith('end_' + blockType + '_wildmons')) {
       // For each time block, assign canonical rates
       const encounterType = (method === 'water') ? 'surf' : 'grass';
-      for (const [timeBlock, slotEntries] of Object.entries(slotEntriesByTime)) {
+      for (const [, slotEntries] of Object.entries(slotEntriesByTime)) {
         const slotPokemon = slotEntries.map(e => e.key);
         const mappedRates = mapEncounterRatesToPokemon(slotPokemon, encounterType);
         for (let idx = 0; idx < slotEntries.length; idx++) {
@@ -581,6 +581,7 @@ for (const file of wildFiles) {
         else if (currentTime === 'nite') encounterRate = encounterRates.nite;
         else if (currentTime === 'eve' && encounterRates.eve !== undefined) encounterRate = encounterRates.eve;
         else encounterRate = encounterRates.day;
+        console.log(`DEBUG: Adding wildmon ${key} at level ${normalizedLevel} with rate ${encounterRate} in area ${area} (${method}) at time ${currentTime}`);
         if (!slotEntriesByTime[currentTime || 'day']) slotEntriesByTime[currentTime || 'day'] = [];
         slotEntriesByTime[currentTime || 'day'].push({
           key,
@@ -691,6 +692,8 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
       specialDefense: 0,
       total: 0
     },
+    faithfulAbilities: [],
+    updatedAbilities: [],
     catchRate: 255, // default value
     baseExp: 0, // default value
     heldItems: [], // default value
@@ -776,6 +779,8 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
           specialDefense: 0,
           total: 0
         },
+        faithfulAbilities: [],
+        updatedAbilities: [],
         catchRate: 255,
         baseExp: 0,
         heldItems: [],
@@ -949,9 +954,13 @@ for (const [mon, locations] of Object.entries(locationData)) {
 fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(groupedLocationData, null, 2));
 console.log('Pokémon location data extracted to', LOCATIONS_OUTPUT);
 
+// Add the import for the Ability type at the top of the file
+import type { Ability } from './src/types/types.ts';
+
 function exportDetailedStats() {
   try {
     const detailedStats: Record<string, DetailedStats> = extractDetailedStats();
+
     // --- Body Data Extraction ---
     const bodyDataPath = path.join(__dirname, 'rom/data/pokemon/body_data.asm');
     if (fs.existsSync(bodyDataPath)) {
@@ -969,6 +978,77 @@ function exportDetailedStats() {
         }
       }
     }
+
+    // --- Ability Description Enhancement ---
+    // Load ability descriptions to add them to the abilities
+    const abilityDescriptionsPath = path.join(__dirname, 'output/pokemon_ability_descriptions.json');
+    if (fs.existsSync(abilityDescriptionsPath)) {
+      try {
+        const abilityDescriptions = JSON.parse(fs.readFileSync(abilityDescriptionsPath, 'utf8'));
+
+        // Enhance each Pokemon's ability with its description
+        for (const [, stats] of Object.entries(detailedStats)) {
+          // Function to enhance abilities with descriptions
+          const enhanceAbilitiesWithDescriptions = (abilities: Ability[]): Ability[] => {
+            if (!abilities || !Array.isArray(abilities)) return abilities;
+
+            return abilities.map(ability => {
+              if (abilityDescriptions[ability.name]) {
+                return {
+                  ...ability,
+                  description: abilityDescriptions[ability.name].description || ''
+                };
+              }
+              return ability;
+            });
+          };
+
+          // Enhance regular abilities (for backward compatibility)
+          if (stats.abilities && Array.isArray(stats.abilities)) {
+            // Check if abilities are already objects with proper type
+            if (stats.abilities.length > 0 && typeof stats.abilities[0] === 'object') {
+              stats.abilities = enhanceAbilitiesWithDescriptions(stats.abilities as Ability[]);
+            }
+            // If abilities are still strings, convert them to objects
+            else if (stats.abilities.length > 0 && typeof stats.abilities[0] === 'string') {
+              const stringAbilities = stats.abilities as unknown as string[];
+              const enhancedAbilities = stringAbilities.map((abilityName, index) => {
+                const isHidden = index === 2; // Third ability is hidden
+                const abilityType = index === 0 ? 'primary' as const : (index === 1 ? 'secondary' as const : 'hidden' as const);
+
+                return {
+                  name: abilityName,
+                  description: abilityDescriptions[abilityName]?.description || '',
+                  isHidden,
+                  abilityType
+                } as Ability;
+              });
+              stats.abilities = enhancedAbilities;
+            }
+          }
+
+          // Enhance faithful abilities
+          if (stats.faithfulAbilities && Array.isArray(stats.faithfulAbilities)) {
+            stats.faithfulAbilities = enhanceAbilitiesWithDescriptions(stats.faithfulAbilities);
+          }
+
+          // Enhance updated abilities
+          if (stats.updatedAbilities && Array.isArray(stats.updatedAbilities)) {
+            // If updatedAbilities array is empty, it means they're the same as faithfulAbilities
+            // So we use faithfulAbilities instead
+            if (stats.updatedAbilities.length === 0 && stats.faithfulAbilities && stats.faithfulAbilities.length > 0) {
+              // Don't copy the reference, create a new array to avoid shared references
+              stats.updatedAbilities = [];
+            } else {
+              stats.updatedAbilities = enhanceAbilitiesWithDescriptions(stats.updatedAbilities);
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Error enhancing abilities with descriptions:', error);
+      }
+    }
+
     if (detailedStats && Object.keys(detailedStats).length > 0) {
       fs.writeFileSync(DETAILED_STATS_OUTPUT, JSON.stringify(detailedStats, null, 2));
       console.log('Detailed Pokémon stats extracted to', DETAILED_STATS_OUTPUT);

@@ -17,6 +17,7 @@ import { TypeRelationsChart } from './TypeRelationsChart';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { cn } from '@/lib/utils';
 import { Progress } from '../ui/progress';
+import { PokemonAbilities } from './pokemon-abilities';
 
 export default function PokemonFormClient({
   forms,
@@ -31,6 +32,8 @@ export default function PokemonFormClient({
 }) {
   const [selectedForm, setSelectedForm] = useState('default');
   const formData = allFormData[selectedForm] || allFormData['default'];
+
+  console.log('Rendering PokemonFormClient with formData:', formData);
 
   return (
     <div className="space-y-6">
@@ -128,6 +131,10 @@ export default function PokemonFormClient({
         <h2 className="text-md md:text-2xl font-bold mb-3">Pokedex Entry</h2>
         <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
       </div>
+      <PokemonAbilities
+        faithfulAbilities={formData.faithfulAbilities}
+        updatedAbilities={formData.updatedAbilities}
+      />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h2 className="text-md md:text-2xl font-bold mb-3">About</h2>
@@ -147,7 +154,7 @@ export default function PokemonFormClient({
                 <TableCell className="font-medium w-[120px]">Weight</TableCell>
                 <TableCell>{((formData.weight as number) / 10).toFixed(1)} kg</TableCell>
               </TableRow>
-              <TableRow>
+              {/* <TableRow>
                 <TableCell className="font-medium w-[120px]">Abilities</TableCell>
                 <TableCell>
                   <div className="flex flex-wrap gap-2">
@@ -162,7 +169,7 @@ export default function PokemonFormClient({
                     )}
                   </div>
                 </TableCell>
-              </TableRow>
+              </TableRow> */}
               <TableRow>
                 <TableCell className="font-medium w-[120px]">Color</TableCell>
                 <TableCell>{formData.bodyColor || 'Unknown'}</TableCell>
