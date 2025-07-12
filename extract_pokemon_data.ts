@@ -1,4 +1,4 @@
-import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toCapitalCaseWithSpaces, toTitleCase } from './src/utils/stringUtils.ts';
+import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toTitleCase } from './src/utils/stringUtils.ts';
 import type { BaseData, DetailedStats, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -7,6 +7,7 @@ import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } f
 import { extractAbilityDescriptions, extractBasePokemonName, extractDetailedStats, extractEggMoves, extractFormInfo, extractHiddenGrottoes, extractMoveDescriptions, extractPokedexEntries, extractTypeChart, getFullPokemonName, addBodyDataToDetailedStats, extractLocationsByArea, mapEncounterRatesToPokemon } from './src/utils/extractUtils.ts';
 import { groupPokemonForms } from './src/utils/helpers.ts';
 import type { Ability } from './src/types/types.ts';
+import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
 
 
 // Use this workaround for __dirname in ES modules
@@ -57,21 +58,22 @@ let evoMethods: EvoRaw[] = [];
 
 for (const lineRaw of lines) {
   const line = lineRaw.trim();
+  console.log('Processing line:', line);
   if (line.startsWith('evos_attacks ')) {
     if (currentMonV2) {
-      result[toTitleCase(currentMonV2)] = {
+      result[normalizeMoveString(currentMonV2)] = {
         moves: movesV2
       };
       if (evoMethods.length) {
-        evoMap[toTitleCase(currentMonV2)] = evoMethods.map(e => ({
+        evoMap[normalizeMoveString(currentMonV2)] = evoMethods.map(e => ({
           ...e,
-          target: toTitleCase(e.target),
-          form: e.form ? toTitleCase(e.form) : undefined
+          target: normalizeMoveString(e.target),
+          form: e.form ? normalizeMoveString(e.form) : undefined
         }));
         for (const evo of evoMethods) {
-          const tgt = toTitleCase(evo.target);
+          const tgt = normalizeMoveString(evo.target);
           if (!preEvoMap[tgt]) preEvoMap[tgt] = [];
-          preEvoMap[tgt].push(toTitleCase(currentMonV2));
+          preEvoMap[tgt].push(normalizeMoveString(currentMonV2));
         }
       }
     }
@@ -83,6 +85,7 @@ for (const lineRaw of lines) {
     // Or: evo_data EVOLVE_ITEM, MOON_STONE, NIDOQUEEN
     // Or: evo_data EVOLVE_ITEM, THUNDERSTONE, RAICHU, PLAIN_FORM
     const evoMatch = line.match(/evo_data (\w+), ([^,]+), ([^,\s]+)(?:, ([^,\s]+))?/);
+    console.log('evoMatch', { evoMatch });
     if (evoMatch) {
       const [, method, param, target, form] = evoMatch;
       let parsedParam: string | number = param.trim();
@@ -101,8 +104,8 @@ for (const lineRaw of lines) {
     if (match) {
       const level = parseInt(match[1], 10);
       const moveKey = match[2];
-      const prettyName = toCapitalCaseWithSpaces(moveKey);
-      console.log('toCapitalCaseWithSpaces', { prettyName, moveKey })
+      const prettyName = normalizeMoveString(moveKey);
+      console.log('normalizeMoveString', { prettyName, moveKey })
       const info = moveDescriptions[prettyName]
         ? {
           description: moveDescriptions[prettyName].description,
@@ -397,7 +400,7 @@ const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, 
 for (const mon of Object.keys(result)) {
   // Normalize move names in evolution moves
 
-  console.log(`Processing Pokémon: ${mon}`);
+  // console.log(`Processing Pokémon: ${mon}`);
 
   // Normalize the move names to ensure consistent keys
 
@@ -820,7 +823,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
 
   levelMoves[mon] = { moves: data.moves };
 
-  console.log(`Processing level-up moves for ${mon}`, data.moves);
+  // console.log(`Processing level-up moves for ${mon}`, data.moves);
 
   // Add form-specific moves if available
   if (data.forms && Object.keys(data.forms).length > 0) {

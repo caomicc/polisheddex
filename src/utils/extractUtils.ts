@@ -5,7 +5,8 @@ import { convertEggGroupCode, convertGenderCode, convertGrowthRateCode, convertH
 import type { Ability, DetailedStats, EncounterDetail, LocationEntry, PokemonDexEntry, PokemonLocationData, LocationAreaData } from '../types/types.ts';
 
 
-import { KNOWN_FORMS } from '../data/constants.ts';
+import { KNOWN_FORMS, sharedDescriptionGroups } from '../data/constants.ts';
+import { normalizeMoveString } from './stringNormalizer/stringNormalizer.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -310,62 +311,6 @@ export function extractMoveDescriptions() {
   // Map move names to their description by label name
   const moveDescByName: Record<string, { description: string; type: string; pp: number; power: number; category: string; accuracy: number }> = {};
   // Define normalized groups for shared descriptions
-  const sharedDescriptionGroups: Record<string, string[]> = {
-    paralysis: [
-      'BODY_SLAM', 'THUNDERSHOCK', 'THUNDERBOLT', 'THUNDER', 'LICK', 'SPARK'
-    ],
-    freeze: [
-      'ICE_BEAM', 'BLIZZARD'
-    ],
-    confuse: [
-      'PSYBEAM', 'CONFUSION', 'DIZZY_PUNCH', 'WATER_PULSE', 'HURRICANE'
-    ],
-    flinch: [
-      'STOMP', 'HEADBUTT', 'BITE', 'WATERFALL', 'ROCK_SLIDE', 'HYPER_FANG', 'AIR_SLASH', 'IRON_HEAD', 'ZEN_HEADBUTT', 'EXTRA_SENSORY', 'DARK_PULSE', 'ASTONISH', 'ICICLE_CRASH'
-    ],
-    poison: [
-      'POISON_STING', 'SLUDGE_BOMB', 'POISON_JAB', 'GUNK_SHOT'
-    ],
-    burn: [
-      'EMBER', 'FLAME_THROWER', 'FIRE_BLAST', 'SACRED_FIRE', 'SCALD'
-    ],
-    statdown_spdef: [
-      'ACID', 'PSYCHIC_M', 'SHADOW_BALL', 'BUG_BUZZ', 'EARTH_POWER', 'ENERGY_BALL', 'FLASH_CANNON', 'FOCUS_BLAST'
-    ],
-    statdown_def: [
-      'CRUNCH', 'IRON_TAIL'
-    ],
-    statdown_atk: [
-      'AURORA_BEAM', 'PLAY_ROUGH'
-    ],
-    statdown_speed: [
-      'BUBBLE_BEAM', 'BULLDOZE', 'ICY_WIND'
-    ],
-    statdown_acc: [
-      'MUD_SLAP', 'OCTAZOOKA', 'SMOKESCREEN', 'FLASH'
-    ],
-    confuse2: [
-      'CONFUSE_RAY', 'SUPERSONIC', 'SWEET_KISS'
-    ],
-    sleep: [
-      'SING', 'SLEEP_POWDER', 'HYPNOSIS'
-    ],
-    sleep2: [
-      'SPORE'
-    ],
-    paralyze: [
-      'STUN_SPORE', 'GLARE'
-    ],
-    burn2: [
-      'WILL_O_WISP'
-    ],
-    poison2: [
-      'POISON_POWDER'
-    ],
-    leveldamage: [
-      'SEISMIC_TOSS', 'NIGHT_SHADE'
-    ]
-  };
   // Reverse lookup for quick group membership
   const moveToGroup: Record<string, string> = {};
   for (const [group, moves] of Object.entries(sharedDescriptionGroups)) {
@@ -641,7 +586,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       // First try to find a standard abilities_for line regardless of conditional blocks
       const standardAbilitiesLine = lines.find(l => l.trim().startsWith('abilities_for'));
 
-      console.log('Standard abilities line:', standardAbilitiesLine);
+      // console.log('Standard abilities line:', standardAbilitiesLine);
 
       // Look for conditional ability definitions
       let foundConditionalAbilities = false;
@@ -683,7 +628,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         }
       }
 
-      console.log(`Found conditional abilities for ${pokemonName}:`, foundConditionalAbilities);
+      // console.log(`Found conditional abilities for ${pokemonName}:`, foundConditionalAbilities);
 
       // If no conditional abilities were found, use the standard abilities line
       if (!foundConditionalAbilities && standardAbilitiesLine) {
@@ -697,7 +642,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         console.log('No abilities line found for Pikachu');
       }// Process abilities
       if (faithfulAbilitiesLine) {
-        console.log(`Processing abilities for ${pokemonName}: ${faithfulAbilitiesLine}`);
+        // console.log(`Processing abilities for ${pokemonName}: ${faithfulAbilitiesLine}`);
         const faithfulMatch = faithfulAbilitiesLine.match(/abilities_for\s+([A-Z_0-9]+),\s*([A-Z_0-9]+)(?:,\s*([A-Z_0-9]+))?(?:,\s*([A-Z_0-9]+))?/);
 
         // Special debug for Pikachu
@@ -1015,16 +960,6 @@ export function extractAbilityDescriptions() {
       description: desc
     };
   }
-
-  // Handle special cases where descriptions are shared
-  const sharedDescriptionGroups: Record<string, string[]> = {
-    'Battle Armor': ['Shell Armor'],
-    'Cloud Nine': ['Air Lock'],
-    'Insomnia': ['Vital Spirit'],
-    'Immunity': ['Pastel Veil'],
-    'Clear Body': ['White Smoke'],
-    'Filter': ['Solid Rock'],
-  };
 
   // Apply shared descriptions
   for (const [primary, aliasList] of Object.entries(sharedDescriptionGroups)) {
@@ -1491,7 +1426,7 @@ if (fs.existsSync(pokemonLevelMovesPath)) {
     if (Array.isArray(levelMovesData[pokemon].moves)) {
       for (const move of levelMovesData[pokemon].moves) {
         if (move.name) {
-          move.name = normalizeMoveKey(move.name);
+          move.name = normalizeMoveString(move.name);
         }
       }
     }

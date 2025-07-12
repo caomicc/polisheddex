@@ -18,6 +18,28 @@ PolishedDex is a modern, searchable Pokédex and location guide for Pokémon Pol
 - **Next.js** (App Router, TypeScript)
 - **Tailwind CSS v4** (utility-first styling)
 - **shadcn/ui** and **Radix UI** (accessible components)
+
+## Utilities
+
+### String Normalizer
+A utility for normalizing Pokémon move names and related strings across different formats.
+
+```typescript
+// Normalize any variant of a move name to a consistent Capital Case format
+import { normalizeMoveString } from '@/utils/stringNormalizer';
+
+// All these return the same normalized string: "Thunder Shock"
+normalizeMoveString('THUNDERSHOCK');
+normalizeMoveString('ThunderShock');
+normalizeMoveString('ThundershockDescription');
+normalizeMoveString('BattleAnim_ThunderShock');
+
+// Handles edge cases and conflicts
+normalizeMoveString('SLASH'); // "Slash"
+normalizeMoveString('NIGHT_SLASH'); // "Night Slash"
+```
+
+See [String Normalizer Documentation](/src/utils/stringNormalizer/README.md) for more details.
 - **TypeScript** (type safety)
 - **ESLint** and **Prettier** (code quality)
 - **Vercel Analytics** (optional)

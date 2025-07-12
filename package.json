@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "extract": "ts-node extract_pokemon_data.ts",
-    "crop": "ts-node crop_top_sprite.ts"
+    "crop": "ts-node crop_top_sprite.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.7",
@@ -38,9 +40,11 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.5",
+    "lightningcss": "^1.30.1",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
     "tw-animate-css": "^1.3.5",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^0.34.6"
   }
 }

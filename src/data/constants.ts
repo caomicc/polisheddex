@@ -26,3 +26,60 @@ export const formTypeMap: Record<string, Record<string, string[]>> = {};
 
 export const evoMap: Record<string, EvoRaw[]> = {};
 export const preEvoMap: Record<string, string[]> = {};
+
+export const sharedDescriptionGroups: Record<string, string[]> = {
+  paralysis: [
+    'BODY_SLAM', 'THUNDERSHOCK', 'THUNDERBOLT', 'THUNDER', 'LICK', 'SPARK'
+  ],
+  freeze: [
+    'ICE_BEAM', 'BLIZZARD'
+  ],
+  confuse: [
+    'PSYBEAM', 'CONFUSION', 'DIZZY_PUNCH', 'WATER_PULSE', 'HURRICANE'
+  ],
+  flinch: [
+    'STOMP', 'HEADBUTT', 'BITE', 'WATERFALL', 'ROCK_SLIDE', 'HYPER_FANG', 'AIR_SLASH', 'IRON_HEAD', 'ZEN_HEADBUTT', 'EXTRASENSORY', 'DARK_PULSE', 'ASTONISH', 'ICICLE_CRASH'
+  ],
+  poison: [
+    'POISON_STING', 'SLUDGE_BOMB', 'POISON_JAB', 'GUNK_SHOT'
+  ],
+  burn: [
+    'EMBER', 'FLAME_THROWER', 'FIRE_BLAST', 'SACRED_FIRE', 'SCALD'
+  ],
+  statdown_spdef: [
+    'ACID', 'PSYCHIC_M', 'SHADOW_BALL', 'BUG_BUZZ', 'EARTH_POWER', 'ENERGY_BALL', 'FLASH_CANNON', 'FOCUS_BLAST'
+  ],
+  statdown_def: [
+    'CRUNCH', 'IRON_TAIL'
+  ],
+  statdown_atk: [
+    'AURORA_BEAM', 'PLAY_ROUGH'
+  ],
+  statdown_speed: [
+    'BUBBLE_BEAM', 'BULLDOZE', 'ICY_WIND'
+  ],
+  statdown_acc: [
+    'MUD_SLAP', 'OCTAZOOKA', 'SMOKESCREEN', 'FLASH'
+  ],
+  confuse2: [
+    'CONFUSE_RAY', 'SUPERSONIC', 'SWEET_KISS'
+  ],
+  sleep: [
+    'SING', 'SLEEP_POWDER', 'HYPNOSIS'
+  ],
+  sleep2: [
+    'SPORE'
+  ],
+  paralyze: [
+    'STUN_SPORE', 'GLARE'
+  ],
+  burn2: [
+    'WILL_O_WISP'
+  ],
+  poison2: [
+    'POISON_POWDER'
+  ],
+  leveldamage: [
+    'SEISMIC_TOSS', 'NIGHT_SHADE'
+  ],
+};
