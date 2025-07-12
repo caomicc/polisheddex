@@ -337,8 +337,9 @@ export function extractMoveDescriptions() {
       }
     }
     const stats = moveStats[moveKey] || { type: 'None', pp: 0, power: 0, category: 'Unknown', accuracy: 0 };
-    const prettyName = toCapitalCaseWithSpaces(moveKey);
+    let prettyName = toCapitalCaseWithSpaces(moveKey);
     console.log(`Adding move description for ${prettyName} m,dhuisadhguwishdkj`, moveKey);
+    if (prettyName === 'Doubleslap') prettyName = 'Double Slap'; // Special case for Double Slap
     moveDescByName[prettyName] = {
       description: desc,
       type: stats.type,
