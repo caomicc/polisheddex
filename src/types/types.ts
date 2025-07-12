@@ -141,7 +141,7 @@ export interface FormData extends DetailedStats {
   moves: Move[];
   tmHmLearnset: Move[];
   locations: LocationEntry[];
-  eggMoves: Move[];
+  eggMoves: string[];
   evolution: Evolution | null;
   nationalDex: number | null;
   frontSpriteUrl?: string;

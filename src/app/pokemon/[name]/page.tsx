@@ -19,6 +19,8 @@ import {
   LocationsData,
   MoveDescription,
   PokemonDexEntry,
+  FormData,
+  Move
 } from '@/types/types';
 
 // Function to safely load JSON data
@@ -84,7 +86,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     loadJsonData<Record<string, Evolution | null>>(evolutionDataFile),
     loadJsonData<Record<string, PokemonDexEntry>>(dexEntryDataFile),
     loadJsonData<Record<string, DetailedStats>>(detailedStatDataFile), // Adjusted type to 'any' for detailed stats
-    loadJsonData<Record<string, MoveDescription>>(tmHmLearnsetFile),
+    loadJsonData<Record<string, Move[]>>(tmHmLearnsetFile),
 
   ]);
 
@@ -104,7 +106,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // If forms exist, get the list of form keys (excluding 'default')
   const forms = baseStats.forms ? Object.keys(baseStats.forms) : [];
   // Default form is the base data
-  const defaultForm = {
+  const defaultForm: FormData = {
     types: baseStats.types,
     moves: levelMovesData[pokemonName]?.moves || [],
     locations: locationsData[pokemonName]?.locations || [],

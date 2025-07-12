@@ -11,7 +11,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
   const desktopRows = [
     <TableRow
       key={`row-${name}-${level}`}
-      className="hover:bg-muted/50 border-b-0 group hidden md:table-row"
+      className="bg-transparent! border-b-0 group hidden md:table-row"
     >
       <TableCell
         rowSpan={2}
@@ -56,7 +56,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         {info?.effectPercent ?? "--"}
       </TableCell>
     </TableRow>,
-    <TableRow key={`desc-${name}-${level}-desktop`} className="group-hover:bg-muted/50 hidden md:table-row">
+    <TableRow key={`desc-${name}-${level}-desktop`} className="bg-transparent! hidden md:table-row">
       <TableCell
         className={cn(
           "text-muted-foreground text-sm p-2 pb-4",
