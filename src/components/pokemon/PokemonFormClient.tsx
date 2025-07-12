@@ -394,6 +394,36 @@ export default function PokemonFormClient({
         <div className="text-gray-400 text-sm mb-6">No egg moves</div>
       )}
 
+            <h2 className="text-md md:text-2xl font-bold mb-3">TM/HM Learnset</h2>
+      {formData.tmHmLearnset && Array.isArray(formData.tmHmLearnset) && formData.tmHmLearnset.length > 0 ? (
+        <Table>
+          <TableHeader className={'hidden md:table-header-group'}>
+            <TableRow>
+              <TableHead className="attheader cen align-middle text-left w-[60px]">Level</TableHead>
+              <TableHead className="attheader cen align-middle text-left w-[180px]">
+                Attack Name
+              </TableHead>
+              <TableHead className="attheader cen align-middle text-left w-[80px]">Type</TableHead>
+              <TableHead className="attheader cen align-middle text-left w-[80px]">Cat.</TableHead>
+              <TableHead className="attheader cen align-middle text-left w-[80px]">Att.</TableHead>
+              <TableHead className="attheader cen align-middle text-left w-[80px]">Acc.</TableHead>
+              <TableHead className="attheader cen align-middle text-left w-[80px]">PP</TableHead>
+              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                Effect %
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {formData.tmHmLearnset.map((move) => {
+              const moveInfo = moveDescData[move.name] || null;
+              return <MoveRow key={`tm-${move.name}`} name={move.name} level={move.level} info={moveInfo} />;
+            })}
+          </TableBody>
+        </Table>
+      ) : (
+        <div className="text-gray-400 text-sm mb-6">No learnset</div>
+      )}
+
       <h2 className="text-md md:text-2xl font-bold mb-3">Base Stats</h2>
       {formData.baseStats ? (
         <div className="space-y-6">

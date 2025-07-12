@@ -435,7 +435,7 @@ export function extractTmHmLearnset() {
 
   // Parse pointers: species => EggSpeciesMoves label
   const tmHmLearnset: Record<string, MoveDescription[]> = {};
-  
+
   // Load move descriptions
   let moveDescriptions: Record<string, MoveDescription> = {};
   if (fs.existsSync(MOVE_DESCRIPTIONS_OUTPUT)) {

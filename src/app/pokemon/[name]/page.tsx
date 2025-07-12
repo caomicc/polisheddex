@@ -61,6 +61,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const evolutionDataFile = path.join(process.cwd(), 'output/pokemon_evolution_data.json');
   const dexEntryDataFile = path.join(process.cwd(), 'output/pokemon_pokedex_entries.json');
   const detailedStatDataFile = path.join(process.cwd(), 'output/pokemon_detailed_stats.json');
+  const tmHmLearnsetFile = path.join(process.cwd(), 'output/pokemon_tm_hm_learnset.json');
+
 
   // Load data using Promise.all for parallel loading
   const [
@@ -72,6 +74,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     evolutionData,
     dexEntryData,
     detailedStatData,
+    tmHmLearnsetData
   ] = await Promise.all([
     cachedBaseStatsData || loadJsonData<Record<string, BaseData>>(baseStatsFile),
     loadJsonData<Record<string, MoveDescription>>(moveDescFile),
@@ -81,6 +84,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     loadJsonData<Record<string, Evolution | null>>(evolutionDataFile),
     loadJsonData<Record<string, PokemonDexEntry>>(dexEntryDataFile),
     loadJsonData<Record<string, DetailedStats>>(detailedStatDataFile), // Adjusted type to 'any' for detailed stats
+    loadJsonData<Record<string, MoveDescription>>(tmHmLearnsetFile),
+
   ]);
 
   // Save the loaded base stats data for future use
@@ -104,6 +109,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     moves: levelMovesData[pokemonName]?.moves || [],
     locations: locationsData[pokemonName]?.locations || [],
     eggMoves: eggMovesData[pokemonName] || [],
+    tmHmLearnset: tmHmLearnsetData[pokemonName] || [],
     evolution: evolutionData[pokemonName],
     nationalDex: baseStats.nationalDex,
     frontSpriteUrl: baseStats.frontSpriteUrl,
@@ -144,6 +150,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           locations:
             locationsData[pokemonName]?.forms?.[formKey]?.locations || defaultForm.locations,
           eggMoves: eggMovesData[pokemonName] || [],
+          tmHmLearnset: tmHmLearnsetData[pokemonName] || [],
           evolution: evolutionData[pokemonName],
           nationalDex: baseStats.nationalDex,
           frontSpriteUrl: baseStats.forms?.[formKey]?.frontSpriteUrl || baseStats.frontSpriteUrl,

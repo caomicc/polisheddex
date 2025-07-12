@@ -139,8 +139,9 @@ export interface Ability {
 export interface FormData extends DetailedStats {
   types: string[] | string;
   moves: Move[];
+  tmHmLearnset: Move[];
   locations: LocationEntry[];
-  eggMoves: string[];
+  eggMoves: Move[];
   evolution: Evolution | null;
   nationalDex: number | null;
   frontSpriteUrl?: string;
