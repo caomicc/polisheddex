@@ -206,3 +206,15 @@ export function convertEggGroupCode(code: string): string {
   };
   return eggGroupCodes[code] || 'Undiscovered';
 }
+
+/**
+ * Normalizes a move name to the canonical key format used for lookups.
+ * Example: "Light Screen" -> "LIGHT_SCREEN", "psybeam" -> "PSY_BEAM"
+ */
+export function normalizeMoveKey(name: string): string {
+  return name
+    .replace(/([a-z])([A-Z])/g, '$1_$2') // camelCase to snake_case
+    .replace(/\s+/g, '_') // spaces to underscores
+    .replace(/[^A-Z0-9_]/gi, '_') // non-alphanumeric to underscores
+    .toUpperCase();
+}

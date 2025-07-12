@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } from './src/data/constants.ts';
 import { extractAbilityDescriptions, extractBasePokemonName, extractDetailedStats, extractEggMoves, extractFormInfo, extractHiddenGrottoes, extractMoveDescriptions, extractPokedexEntries, extractTypeChart, getFullPokemonName, addBodyDataToDetailedStats, extractLocationsByArea, mapEncounterRatesToPokemon } from './src/utils/extractUtils.ts';
 import { groupPokemonForms } from './src/utils/helpers.ts';
+import type { Ability } from './src/types/types.ts';
 
 
 // Use this workaround for __dirname in ES modules
@@ -394,6 +395,12 @@ for (const file of baseStatsFiles) {
 const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, johtoDex: number | null, types: string | string[] }> = {};
 for (const mon of Object.keys(result)) {
   // Normalize move names in evolution moves
+
+  console.log(`Processing Pokémon: ${mon}`);
+
+  console.log(`result[mon].moves ${mon}`, result[mon].moves);
+  // Normalize the move names to ensure consistent keys
+
   const moves = result[mon].moves.map(m => ({
     name: m.name,
     level: m.level,
@@ -465,6 +472,8 @@ for (const mon of Object.keys(result)) {
   } else if (types.length === 1) {
     types = types[0];
   }
+
+  console.log(`Final moves for ${mon}: ${moves}`);
 
   // Create the final result with the correct types
   finalResult[mon] = { evolution, moves, nationalDex, johtoDex, types };
@@ -808,7 +817,10 @@ console.log('Pokémon evolution data extracted to', EVOLUTION_OUTPUT);
 // Extract and save level-up moves
 const levelMoves: Record<string, { moves: Move[], forms?: Record<string, { moves: Move[] }> }> = {};
 for (const [mon, data] of Object.entries(groupedPokemonData)) {
+
   levelMoves[mon] = { moves: data.moves };
+
+  console.log(`Processing level-up moves for ${mon}`, data.moves);
 
   // Add form-specific moves if available
   if (data.forms && Object.keys(data.forms).length > 0) {
@@ -954,9 +966,6 @@ for (const [mon, locations] of Object.entries(locationData)) {
 fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(groupedLocationData, null, 2));
 console.log('Pokémon location data extracted to', LOCATIONS_OUTPUT);
 
-// Add the import for the Ability type at the top of the file
-import type { Ability } from './src/types/types.ts';
-
 function exportDetailedStats() {
   try {
     const detailedStats: Record<string, DetailedStats> = extractDetailedStats();
@@ -1034,14 +1043,7 @@ function exportDetailedStats() {
 
           // Enhance updated abilities
           if (stats.updatedAbilities && Array.isArray(stats.updatedAbilities)) {
-            // If updatedAbilities array is empty, it means they're the same as faithfulAbilities
-            // So we use faithfulAbilities instead
-            if (stats.updatedAbilities.length === 0 && stats.faithfulAbilities && stats.faithfulAbilities.length > 0) {
-              // Don't copy the reference, create a new array to avoid shared references
-              stats.updatedAbilities = [];
-            } else {
-              stats.updatedAbilities = enhanceAbilitiesWithDescriptions(stats.updatedAbilities);
-            }
+            stats.updatedAbilities = enhanceAbilitiesWithDescriptions(stats.updatedAbilities);
           }
         }
       } catch (error) {

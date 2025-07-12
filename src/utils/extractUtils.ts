@@ -1,7 +1,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { convertEggGroupCode, convertGenderCode, convertGrowthRateCode, convertHatchCode, normalizeMonName, standardizePokemonKey, toCapitalCaseWithSpaces, toTitleCase } from './stringUtils.ts';
+import { convertEggGroupCode, convertGenderCode, convertGrowthRateCode, convertHatchCode, normalizeMonName, normalizeMoveKey, standardizePokemonKey, toCapitalCaseWithSpaces, toTitleCase } from './stringUtils.ts';
 import type { Ability, DetailedStats, EncounterDetail, LocationEntry, PokemonDexEntry, PokemonLocationData, LocationAreaData } from '../types/types.ts';
 
 
@@ -217,15 +217,6 @@ export function extractPokedexEntries() {
   console.log('Pokédex entries extracted to', POKEDEX_ENTRIES_OUTPUT);
 }
 
-function normalizeMoveKey(name: string): string {
-  // Convert camelCase to snake_case, replace spaces with underscores, and uppercase
-  return name
-    .replace(/([a-z])([A-Z])/g, '$1_$2') // camelCase to snake_case
-    .replace(/\s+/g, '_') // spaces to underscores
-    .replace(/[^A-Z0-9_]/gi, '_') // non-alphanumeric to underscores
-    .toUpperCase();
-}
-
 export function extractMoveDescriptions() {
   const moveNamesPath = path.join(__dirname, '../../rom/data/moves/names.asm');
   const moveDescriptionsPath = path.join(__dirname, '../../rom/data/moves/descriptions.asm');
@@ -306,12 +297,13 @@ export function extractMoveDescriptions() {
     const match = line.match(/^\s*move\s+([A-Z0-9_]+),\s*[A-Z0-9_]+,\s*(-?\d+),\s*([A-Z_]+),\s*(-?\d+),\s*(\d+),\s*\d+,\s*([A-Z_]+)/);
     if (match) {
       const move = match[1];
+      const moveKey = normalizeMoveKey(move);
       const power = parseInt(match[2], 10);
       const type = typeEnumToName[match[3]] || 'None';
       const accuracy = parseInt(match[4], 10);
       const pp = parseInt(match[5], 10);
       const category = categoryEnumToName[match[6]] || 'Unknown';
-      moveStats[move] = { type, pp, power, category, accuracy };
+      moveStats[moveKey] = { type, pp, power, category, accuracy };
     }
   }
 
@@ -1488,4 +1480,21 @@ export async function synchronizeLocationChances() {
     JSON.stringify(pokemonLocations, null, 2)
   );
   console.log('Synchronized encounter rates in pokemon_locations.json');
+}
+
+// --- Normalize move names in level-up moves output before writing ---
+const pokemonLevelMovesPath = path.join(__dirname, '../../output/pokemon_level_moves.json');
+if (fs.existsSync(pokemonLevelMovesPath)) {
+  const levelMovesData = JSON.parse(fs.readFileSync(pokemonLevelMovesPath, 'utf8'));
+  for (const pokemon in levelMovesData) {
+    if (Array.isArray(levelMovesData[pokemon].moves)) {
+      for (const move of levelMovesData[pokemon].moves) {
+        if (move.name) {
+          move.name = normalizeMoveKey(move.name);
+        }
+      }
+    }
+  }
+  fs.writeFileSync(pokemonLevelMovesPath, JSON.stringify(levelMovesData, null, 2));
+  console.log('Normalized move names in pokemon_level_moves.json');
 }
