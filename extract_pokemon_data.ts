@@ -102,6 +102,7 @@ for (const lineRaw of lines) {
       const level = parseInt(match[1], 10);
       const moveKey = match[2];
       const prettyName = toCapitalCaseWithSpaces(moveKey);
+      console.log('toCapitalCaseWithSpaces', { prettyName, moveKey })
       const info = moveDescriptions[prettyName]
         ? {
           description: moveDescriptions[prettyName].description,
@@ -398,7 +399,6 @@ for (const mon of Object.keys(result)) {
 
   console.log(`Processing Pokémon: ${mon}`);
 
-  console.log(`result[mon].moves ${mon}`, result[mon].moves);
   // Normalize the move names to ensure consistent keys
 
   const moves = result[mon].moves.map(m => ({

@@ -312,7 +312,7 @@ export function extractMoveDescriptions() {
   // Define normalized groups for shared descriptions
   const sharedDescriptionGroups: Record<string, string[]> = {
     paralysis: [
-      'BODY_SLAM', 'THUNDER_SHOCK', 'THUNDERBOLT', 'THUNDER', 'LICK', 'SPARK'
+      'BODY_SLAM', 'THUNDERSHOCK', 'THUNDERBOLT', 'THUNDER', 'LICK', 'SPARK'
     ],
     freeze: [
       'ICE_BEAM', 'BLIZZARD'
@@ -393,6 +393,7 @@ export function extractMoveDescriptions() {
     }
     const stats = moveStats[moveKey] || { type: 'None', pp: 0, power: 0, category: 'Unknown', accuracy: 0 };
     const prettyName = toCapitalCaseWithSpaces(moveKey);
+    console.log(`Adding move description for ${prettyName} m,dhuisadhguwishdkj`, moveKey);
     moveDescByName[prettyName] = {
       description: desc,
       type: stats.type,
