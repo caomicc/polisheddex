@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } from './src/data/constants.ts';
-import { extractAbilityDescriptions, extractBasePokemonName, extractDetailedStats, extractEggMoves, extractFormInfo, extractHiddenGrottoes, extractMoveDescriptions, extractPokedexEntries, extractTypeChart, getFullPokemonName, addBodyDataToDetailedStats, extractLocationsByArea, mapEncounterRatesToPokemon } from './src/utils/extractUtils.ts';
+import { extractAbilityDescriptions, extractBasePokemonName, extractDetailedStats, extractEggMoves, extractFormInfo, extractHiddenGrottoes, extractMoveDescriptions, extractPokedexEntries, extractTypeChart, getFullPokemonName, addBodyDataToDetailedStats, mapEncounterRatesToPokemon, extractTmHmLearnset } from './src/utils/extractUtils.ts';
 import { groupPokemonForms } from './src/utils/helpers.ts';
 import type { Ability } from './src/types/types.ts';
 import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
@@ -28,7 +28,6 @@ const EVOLUTION_OUTPUT = path.join(__dirname, 'output/pokemon_evolution_data.jso
 const LEVEL_MOVES_OUTPUT = path.join(__dirname, 'output/pokemon_level_moves.json');
 const LOCATIONS_OUTPUT = path.join(__dirname, 'output/pokemon_locations.json');
 const DETAILED_STATS_OUTPUT = path.join(__dirname, 'output/pokemon_detailed_stats.json');
-
 
 const filePath = path.join(__dirname, 'rom/data/pokemon/evos_attacks.asm');
 
@@ -1073,4 +1072,4 @@ extractTypeChart();
 
 extractPokedexEntries();
 
-extractLocationsByArea().catch(console.error);
+extractTmHmLearnset()

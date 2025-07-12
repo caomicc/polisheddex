@@ -2,7 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { convertEggGroupCode, convertGenderCode, convertGrowthRateCode, convertHatchCode, normalizeMonName, normalizeMoveKey, standardizePokemonKey, toCapitalCaseWithSpaces, toTitleCase } from './stringUtils.ts';
-import type { Ability, DetailedStats, EncounterDetail, LocationEntry, PokemonDexEntry, PokemonLocationData, LocationAreaData } from '../types/types.ts';
+import type { Ability, DetailedStats, EncounterDetail, LocationEntry, PokemonDexEntry, PokemonLocationData, LocationAreaData, MoveDescription } from '../types/types.ts';
 
 
 import { KNOWN_FORMS, sharedDescriptionGroups } from '../data/constants.ts';
@@ -15,6 +15,7 @@ const EGG_MOVES_OUTPUT = path.join(__dirname, '../../output/pokemon_egg_moves.js
 const POKEDEX_ENTRIES_OUTPUT = path.join(__dirname, '../../output/pokemon_pokedex_entries.json');
 const MOVE_DESCRIPTIONS_OUTPUT = path.join(__dirname, '../../output/pokemon_move_descriptions.json');
 const ABILITY_DESCRIPTIONS_OUTPUT = path.join(__dirname, '../../output/pokemon_ability_descriptions.json');
+const TM_HM_LEARNSET_PATH = path.join(__dirname, '../../output/pokemon_tm_hm_learnset.json');
 
 const LOCATIONS_DATA_PATH = path.join(__dirname, '../../output/pokemon_locations.json');
 const LOCATIONS_BY_AREA_OUTPUT = path.join(__dirname, '../../output/locations_by_area.json');
@@ -426,6 +427,73 @@ export function extractEggMoves() {
 
   fs.writeFileSync(EGG_MOVES_OUTPUT, JSON.stringify(eggMoves, null, 2));
   console.log('Egg moves extracted to', EGG_MOVES_OUTPUT);
+}
+
+export function extractTmHmLearnset() {
+  const detailedStatsDir = path.join(__dirname, '../../rom/data/pokemon/base_stats');
+  const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter(f => f.endsWith('.asm'));
+
+  // Parse pointers: species => EggSpeciesMoves label
+  const tmHmLearnset: Record<string, MoveDescription[]> = {};
+  
+  // Load move descriptions
+  let moveDescriptions: Record<string, MoveDescription> = {};
+  if (fs.existsSync(MOVE_DESCRIPTIONS_OUTPUT)) {
+    moveDescriptions = JSON.parse(fs.readFileSync(MOVE_DESCRIPTIONS_OUTPUT, 'utf8'));
+  } else {
+    console.warn('Move descriptions file not found. Move data will be incomplete.');
+  }
+
+  for (const file of detailedStatsFiles) {
+    const fileName = file.replace('.asm', '');
+    const { basePokemonName, formName } = extractFormInfo(fileName);
+    const pokemonName = formName ? `${basePokemonName}${formName}` : basePokemonName;
+
+    const content = fs.readFileSync(path.join(detailedStatsDir, file), 'utf8');
+    const lines = content.split(/\r?\n/);
+
+    // Find TM/HM learnset lines: tmhm TM_MOVE_1, TM_MOVE_2, ...
+    const tmhmLine = lines.find(l => l.trim().startsWith('tmhm '));
+    if (tmhmLine) {
+      const moves = tmhmLine
+        .replace('tmhm ', '')
+        .split(',')
+        .map(m => m.trim())
+        .filter(m => m && m !== 'NO_MOVE')
+        .map(m => toCapitalCaseWithSpaces(m));
+
+      tmHmLearnset[pokemonName] = moves.map(name => {
+        // Check if we have move description data for this move
+        const moveData = moveDescriptions[name];
+        if (moveData) {
+          return {
+            name,
+            description: moveData.description || '',
+            type: moveData.type || '',
+            pp: moveData.pp || 0,
+            power: moveData.power || 0,
+            category: moveData.category || '',
+            accuracy: moveData.accuracy || 0,
+            effectPercent: moveData.effectPercent
+          };
+        } else {
+          return {
+            name,
+            description: '',
+            type: '',
+            pp: 0,
+            power: 0,
+            category: '',
+            accuracy: 0
+          };
+        }
+      });
+    }
+  }
+
+  fs.writeFileSync(TM_HM_LEARNSET_PATH, JSON.stringify(tmHmLearnset, null, 2));
+  console.log('Learnset extracted to', TM_HM_LEARNSET_PATH);
+  return tmHmLearnset;
 }
 
 // Helper function to extract form and base name information from a file name
