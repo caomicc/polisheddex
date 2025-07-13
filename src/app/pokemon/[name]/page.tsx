@@ -134,6 +134,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // Combine all form types
   const forms = [...baseDataForms, ...variantFormTypes];
 
+console.log(`Name for... ${pokemonName}:`);
+
   // Default form is the base data
   const defaultForm: FormData = {
     types: baseStats.types,

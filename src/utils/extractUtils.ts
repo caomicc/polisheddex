@@ -46,6 +46,10 @@ export function extractBasePokemonName(fullName: string): string {
     }
   }
 
+  if (baseName === 'Ho Oh') {
+    baseName = 'Ho-Oh'; // Special case for Ho-Oh
+  }
+
   // Trim any trailing spaces
   return baseName.trim();
 }
@@ -111,7 +115,12 @@ export function extractPokedexEntries() {
       // Save previous entry if we were processing one
       if (currentMon && currentSpecies && currentEntries.length > 0) {
         // Convert to title case for consistency with other data files
-        const standardizedMon = standardizePokemonKey(currentMon);
+        let standardizedMon = standardizePokemonKey(currentMon);
+        // Special case for HoOh
+        if (standardizedMon === 'HoOh') {
+          standardizedMon = 'Ho-Oh';
+        }
+        console.log(`Saving entry for ${standardizedMon}:`, currentSpecies, currentEntries);
         pokedexEntries[standardizedMon] = {
           species: currentSpecies,
           entries: currentEntries
@@ -191,7 +200,11 @@ export function extractPokedexEntries() {
 
   // Don't forget the last entry
   if (currentMon && currentSpecies && currentEntries.length > 0) {
-    const standardizedMon = standardizePokemonKey(currentMon);
+    let standardizedMon = standardizePokemonKey(currentMon);
+    // Special case for HoOh
+    if (standardizedMon === 'HoOh' || standardizedMon === 'Hooh' || standardizedMon === 'Ho Oh') {
+      standardizedMon = 'Ho-Oh';
+    }
     pokedexEntries[standardizedMon] = {
       species: currentSpecies,
       entries: currentEntries
@@ -201,7 +214,12 @@ export function extractPokedexEntries() {
   // Clean up and format the entries
   const formattedEntries: Record<string, PokemonDexEntry> = {};
 
-  for (const [mon, data] of Object.entries(pokedexEntries)) {
+  // eslint-disable-next-line prefer-const
+  for (let [mon, data] of Object.entries(pokedexEntries)) {
+
+    if (mon === 'Ho Oh' || mon === 'Hooh' || mon === 'Ho-Oh') {
+      mon = 'Ho-Oh';
+    }
     // Join the entries into a single description, handling line breaks
     // We'll preserve some formatting by adding spaces between entries
     // and replacing @ with an empty string (end of entry marker)
@@ -389,10 +407,17 @@ export function extractEggMoves() {
   const speciesToPointer: Record<string, string> = {};
   for (const line of pointerLines) {
     const match = line.match(/^\s*dw ([A-Za-z0-9_]+)\s*;\s*(.+)$/);
+
     if (match) {
+      console.log('match[2]', match[2]);
       const pointer = match[1];
       // Use only the first word before any parenthesis or extra info as the species name
-      const species = match[2].split('(')[0].split(';')[0].trim().replace(/\s+\(.+\)/, '').replace(/\s+$/, '');
+      let species = match[2].split('(')[0].split(';')[0].trim().replace(/\s+\(.+\)/, '').replace(/\s+$/, '');
+
+      if (species === 'Ho Oh') {
+        species = 'Ho-Oh'; // Special case for Ho-Oh
+      }
+
       speciesToPointer[species] = pointer;
     }
   }
@@ -422,9 +447,17 @@ export function extractEggMoves() {
 
   // Assign moves to each species using the pointer mapping
   const eggMoves: Record<string, string[]> = {};
-  for (const [species, pointer] of Object.entries(speciesToPointer)) {
+  // eslint-disable-next-line prefer-const
+  for (let [species, pointer] of Object.entries(speciesToPointer)) {
+
+    if (species === 'Ho Oh' || species === 'HoOh' || species === 'Hooh') {
+      species = 'Ho-Oh'; // Special case for Ho-Oh
+    }
+    console.log('eggMoves[toTitleCase(species)] = pointerToMoves[pointer] || [];', species, eggMoves[toTitleCase(species)] = pointerToMoves[pointer] || []);
     eggMoves[toTitleCase(species)] = pointerToMoves[pointer] || [];
   }
+
+  console.log('Egg moves extracted:', eggMoves);
 
   fs.writeFileSync(EGG_MOVES_OUTPUT, JSON.stringify(eggMoves, null, 2));
   console.log('Egg moves extracted to', EGG_MOVES_OUTPUT);
@@ -448,7 +481,11 @@ export function extractTmHmLearnset() {
   for (const file of detailedStatsFiles) {
     const fileName = file.replace('.asm', '');
     const { basePokemonName, formName } = extractFormInfo(fileName);
-    const pokemonName = formName ? `${basePokemonName} ${formName}` : basePokemonName;
+    let pokemonName = formName ? `${basePokemonName} ${formName}` : basePokemonName;
+
+    if (pokemonName === 'Ho Oh' || pokemonName === 'Hooh' || pokemonName === 'Ho-Oh' || pokemonName === 'HoOh') {
+      pokemonName = 'Ho-Oh'; // Special case for Ho-Oh
+    }
 
     const content = fs.readFileSync(path.join(detailedStatsDir, file), 'utf8');
     const lines = content.split(/\r?\n/);
@@ -550,7 +587,11 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
     // Extract the Pokemon name from the file name
     const { basePokemonName, formName } = extractFormInfo(fileName);
-    const pokemonName = formName ? `${basePokemonName} ${formName}`.trim() : basePokemonName.trim();
+    let pokemonName = formName ? `${basePokemonName} ${formName}`.trim() : basePokemonName.trim();
+
+    if (pokemonName === 'Ho Oh' || pokemonName === 'Hooh' || pokemonName === 'Ho-Oh' || pokemonName === 'HoOh') {
+      pokemonName = 'Ho-Oh'; // Special case for Ho-Oh
+    }
 
     // Debug for Pikachu
     if (pokemonName === 'Pikachu') {

@@ -80,6 +80,7 @@ export interface PokemonDataV3 extends PokemonDataV2 {
   types: string | string[];
   locations: LocationEntry[];
   forms?: Record<string, PokemonForm>;
+  name?: string;
 };
 
 

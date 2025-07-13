@@ -29,8 +29,12 @@ export function toTitleCase(str: string) {
 
 // Helper to standardize Pokemon key names across the codebase
 export function standardizePokemonKey(name: string): string {
-  // First, trim any whitespace from the name to avoid trailing spaces
+  // First, trim any whitespace from the name to avoid trailing space
   name = name.trim();
+
+  console.log(`Standardizing Pokémon key to name: ${name}`);
+
+  if (name === 'Ho Oh') name = 'Ho-Oh';
 
   // Special handling for Paldean forms that need specific treatment
   if (name.toLowerCase().includes(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())) {
@@ -44,6 +48,8 @@ export function standardizePokemonKey(name: string): string {
 
   // Remove any form suffixes
   const baseName = name.replace(formSuffixPattern, '');
+
+  console.log(`Base Pokémon name after removing forms: ${baseName}`);
 
   // Convert to title case and remove any case inconsistencies
   return toTitleCase(baseName.toLowerCase().trim());

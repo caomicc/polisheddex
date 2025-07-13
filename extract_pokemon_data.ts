@@ -639,10 +639,22 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
 
   console.log(`Processing base data for Pokémon: ${mon}`, data);
   // Ensure there are no trailing spaces in the Pokemon name
-  const trimmedMon = mon.trim();
+  let trimmedMon = mon.trim();
+
+  if (trimmedMon === 'Ho Oh') {
+    trimmedMon = 'Ho-Oh'; // Special case for Ho-Oh
+  }
+
+  console.log(`Trimmed Pokémon name: ${trimmedMon}`);
+
+  // if (trimmedMon === 'Ho Oh') trimmedMon = 'Ho-Oh'; // Special case for Ho-Oh
 
   // Generate the front sprite URL for the base form
-  const spriteName = trimmedMon.toLowerCase().replace(/[^a-z0-9]/g, '');  // Make sure we have valid type data
+  const spriteName = trimmedMon
+    .toLowerCase()
+    .replace(/[^a-z0-9\-]/g, '') // Remove non-alphanumerics except hyphens
+    .replace(/-/g, '_'); // Replace middle hyphens with underscores
+  console.log(`Sprite name for ${trimmedMon}: ${spriteName}`);
   let typeData = data.types;
 
   // console.log(`Processing ${trimmedMon} with initial types: ${typeData}`);
@@ -702,6 +714,8 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     }
   }
 
+  console.log(`sprite info data`, `/sprites/pokemon/${spriteName}/front_cropped.png`);
+
   baseData[trimmedMon] = {
     name: trimmedMon,
     nationalDex: data.nationalDex,
@@ -728,12 +742,12 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     genderRatio: "Unknown", // default value
     hatchRate: "Unknown", // default value
     evYield: "None", // default value
-    forms: {} // Ensure forms are included, even if empty
+    forms: {} // Ensure forms are initialized as an empty object
   }  // Add form-specific type data and sprite URL if available
 
-  console.log(`Base data for ${data.nationalDex}:`, data.forms);
+  console.log(`Base data for ${data.nationalDex}, ${data.name}:`, data.forms);
   if (data.forms && Object.keys(data.forms).length > 0) {
-    baseData[trimmedMon].forms = {};
+    // forms is already initialized as an empty object in baseData[trimmedMon]
     for (const [formName, formData] of Object.entries(data.forms)) {
       console.log(`Processing form ${formName} for ${trimmedMon}`);
       // Get form type data, with fallbacks
@@ -797,6 +811,8 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
       // Create directory-style sprite path for form variants
       const formSpritePath = `${spriteName}_${formName.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
 
+      // Add the form data to the baseData
+      // @ts-expect-error // TypeScript doesn't know about the dynamic structure of baseData[trimmedMon].forms
       baseData[trimmedMon].forms[formName] = {
         types: formTypeData || 'Unknown',
         frontSpriteUrl: `/sprites/pokemon/${formSpritePath}/front_cropped.png`,
@@ -1107,6 +1123,8 @@ function validatePokemonKeys<T>(jsonData: Record<string, T>): Record<string, T> 
 
   for (const [key, value] of Object.entries(jsonData)) {
     const trimmedKey = key.trim();
+
+    console.log(`Validating Pokémon key: x${trimmedKey}x`);
 
     // Deep clean any nested forms objects
     if (typeof value === 'object' && value !== null) {
