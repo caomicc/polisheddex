@@ -411,6 +411,8 @@ for (const mon of Object.keys(result)) {
   // Standardize the Pokemon name to ensure consistent keys
   const standardMon = standardizePokemonKey(mon);
 
+  console.log(`Standardized Pokémon name: x${standardMon}x`);
+
   // Every Pokémon should have an evolution object, even if it's a final evolution
   // with no further evolutions. This ensures we have a chain for all Pokémon.
   const methods = evoMap[standardMon] ? evoMap[standardMon].map(e => ({
@@ -450,6 +452,7 @@ for (const mon of Object.keys(result)) {
   let types: string | string[];
 
   if (formName && formName !== KNOWN_FORMS.PLAIN) {
+    console.log(`Processing ${mon} as a special form: ${basePokemonName} + x${formName}x`,);
     // This is a special form like alolan, galarian, etc.
     if (formTypeMap[basePokemonName] && formTypeMap[basePokemonName][formName]) {
       // Use form-specific type data from formTypeMap
@@ -573,7 +576,9 @@ for (const file of wildFiles) {
     }
     if (inBlock && line.startsWith('wildmon')) {
       const parsed = parseWildmonLine(line);
+      console.log(`Parsed wildmon line: ${line} ->`, parsed);
       if (parsed) {
+        console.log('parsed.species, parsed.form', parsed.species, parsed.form);
         const { formName } = normalizeMonName(parsed.species, parsed.form); // Extract form name
         const key = getFullPokemonName(parsed.species, parsed.form); // Use legacy function for now
         // Normalize LEVEL_FROM_BADGES in level value
@@ -614,6 +619,8 @@ for (const file of wildFiles) {
 // Using the previously defined PokemonDataV3 type
 const finalResultV3: Record<string, PokemonDataV3> = {};
 for (const mon of Object.keys(finalResult)) {
+  console.log(`Finalizing Pokémon: ${mon}`, finalResult[mon]);
+
   finalResultV3[mon] = {
     ...finalResult[mon],
     locations: locationsByMon[mon] || []
@@ -623,20 +630,27 @@ for (const mon of Object.keys(finalResult)) {
 // Group all Pokemon data
 const groupedPokemonData = groupPokemonForms(finalResultV3);
 
+console.log(`Grouped Pokémon data: ${Object.keys(groupedPokemonData).length} Pokémon found.`);
+
+
 // Extract and save base data (dex number, types)
 const baseData: Record<string, BaseData> = {};
 for (const [mon, data] of Object.entries(groupedPokemonData)) {
 
+  console.log(`Processing base data for Pokémon: ${mon}`, data);
+  // Ensure there are no trailing spaces in the Pokemon name
+  const trimmedMon = mon.trim();
+
   // Generate the front sprite URL for the base form
-  const spriteName = mon.toLowerCase().replace(/[^a-z0-9]/g, '');  // Make sure we have valid type data
+  const spriteName = trimmedMon.toLowerCase().replace(/[^a-z0-9]/g, '');  // Make sure we have valid type data
   let typeData = data.types;
 
-  // console.log(`Processing ${mon} with initial types: ${typeData}`);
+  // console.log(`Processing ${trimmedMon} with initial types: ${typeData}`);
 
   if (!typeData || typeData === 'None' || (Array.isArray(typeData) && typeData.includes('None'))) {
     // Try to get type from our typeMap
-    if (typeMap[mon]) {
-      const types = typeMap[mon];
+    if (typeMap[trimmedMon]) {
+      const types = typeMap[trimmedMon];
       // Handle single type cases
       if (types.length === 1 || (types.length === 2 && types[1] === 'None')) {
         typeData = types[0];
@@ -649,10 +663,10 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     }
     // Check for _plain file types if we still don't have valid type data
     else {
-      console.log(`No type data found for ${mon}, checking for _plain file...`);
+      console.log(`No type data found for ${trimmedMon}, checking for _plain file...`);
       // The Pokémon might only have a _plain file (like Growlithe) but no direct entry in typeMap
       // Construct the filename pattern and check for it in all processed files
-      const plainFileName = `${mon.toLowerCase()}_plain`;
+      const plainFileName = `${trimmedMon.toLowerCase()}_plain`;
 
       // Look for any base stats files that match this pattern
       const matchingPlainFiles = baseStatsFiles.filter(f =>
@@ -660,7 +674,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
       );
 
       if (matchingPlainFiles.length > 0) {
-        console.log(`Found _plain file for ${mon}: ${matchingPlainFiles[0]}`);
+        console.log(`Found _plain file for ${trimmedMon}: ${matchingPlainFiles[0]}`);
 
         // Extract type information from the first matching file
         const plainContent = fs.readFileSync(path.join(baseStatsDir, matchingPlainFiles[0]), 'utf8');
@@ -674,7 +688,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
             const t1 = typeEnumToName[plainMatch[1]] || 'None';
             const t2 = typeEnumToName[plainMatch[2]] || 'None';
 
-            console.log(`Extracted types for ${mon} from _plain file: ${t1}, ${t2}`);
+            console.log(`Extracted types for ${trimmedMon} from _plain file: ${t1}, ${t2}`);
 
             // Update the type data
             if (t1 === t2 || t2 === 'None') {
@@ -688,8 +702,8 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     }
   }
 
-  baseData[mon] = {
-    name: mon,
+  baseData[trimmedMon] = {
+    name: trimmedMon,
     nationalDex: data.nationalDex,
     johtoDex: data.johtoDex,
     types: typeData || "Unknown",
@@ -715,17 +729,17 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     hatchRate: "Unknown", // default value
     evYield: "None", // default value
     forms: {}
-  }
-  // Add form-specific type data and sprite URL if available
+  }  // Add form-specific type data and sprite URL if available
   if (data.forms && Object.keys(data.forms).length > 0) {
-    baseData[mon].forms = {};
+    baseData[trimmedMon].forms = {};
     for (const [formName, formData] of Object.entries(data.forms)) {
-      // Normalize form sprite name: base + form
-      const formSpriteName = `${spriteName}_${formName.toLowerCase().replace(/[^a-z0-9]/g, '')}`;      // Get form type data, with fallbacks
+      console.log(`Processing form ${formName} for ${trimmedMon}`);
+      // Get form type data, with fallbacks
       let formTypeData = formData.types;
       if (!formTypeData || formTypeData === 'None' || (Array.isArray(formTypeData) && formTypeData.includes('None'))) {
+        console.log(`No type data found for ${trimmedMon} ${formName}, checking typeMap...`);
         // Try to get from formTypeMap
-        if (formTypeMap[mon] && formTypeMap[mon][formName]) {
+        if (formTypeMap[trimmedMon] && formTypeMap[trimmedMon][formName]) {
           const formTypes = formTypeMap[mon][formName];
           if (formTypes.length === 1 || (formTypes.length === 2 && formTypes[1] === 'None')) {
             formTypeData = formTypes[0];
@@ -778,9 +792,12 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
         formTypeData = ['Electric', 'Psychic'];
       }
 
-      baseData[mon].forms[formName] = {
+      // Create directory-style sprite path for form variants
+      const formSpritePath = `${spriteName}_${formName.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+
+      baseData[trimmedMon].forms[formName] = {
         types: formTypeData || 'Unknown',
-        frontSpriteUrl: `/sprites/pokemon/${formSpriteName}/front_cropped.png`,
+        frontSpriteUrl: `/sprites/pokemon/${formSpritePath}/front_cropped.png`,
         baseStats: {
           hp: 0,
           attack: 0,
@@ -805,15 +822,20 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     }
   }
 }
-fs.writeFileSync(BASE_DATA_OUTPUT, JSON.stringify(baseData, null, 2));
+// Validate keys before writing to ensure no trailing spaces
+const validatedBaseData = validatePokemonKeys(baseData);
+fs.writeFileSync(BASE_DATA_OUTPUT, JSON.stringify(validatedBaseData, null, 2));
 console.log('Pokémon base data extracted to', BASE_DATA_OUTPUT);
 
 // Extract and save evolution data
 const evolutionData: Record<string, Evolution | null> = {};
 for (const [mon, data] of Object.entries(groupedPokemonData)) {
+  console.log(`Processing evolution data for ${mon}`, data);
   evolutionData[mon] = data.evolution;
 }
-fs.writeFileSync(EVOLUTION_OUTPUT, JSON.stringify(evolutionData, null, 2));
+
+const validatedEvolutionData = validatePokemonKeys(evolutionData);
+fs.writeFileSync(EVOLUTION_OUTPUT, JSON.stringify(validatedEvolutionData, null, 2));
 console.log('Pokémon evolution data extracted to', EVOLUTION_OUTPUT);
 
 // Extract and save level-up moves
@@ -841,7 +863,8 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     }
   }
 }
-fs.writeFileSync(LEVEL_MOVES_OUTPUT, JSON.stringify(levelMoves, null, 2));
+const validatedLevelMoves = validatePokemonKeys(levelMoves);
+fs.writeFileSync(LEVEL_MOVES_OUTPUT, JSON.stringify(validatedLevelMoves, null, 2));
 console.log('Pokémon level-up moves extracted to', LEVEL_MOVES_OUTPUT);
 
 
@@ -965,7 +988,8 @@ for (const [mon, locations] of Object.entries(locationData)) {
   }
 }
 
-fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(groupedLocationData, null, 2));
+const validatedLocationData = validatePokemonKeys(groupedLocationData);
+fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(validatedLocationData, null, 2));
 console.log('Pokémon location data extracted to', LOCATIONS_OUTPUT);
 
 function exportDetailedStats() {
@@ -1054,7 +1078,8 @@ function exportDetailedStats() {
     }
 
     if (detailedStats && Object.keys(detailedStats).length > 0) {
-      fs.writeFileSync(DETAILED_STATS_OUTPUT, JSON.stringify(detailedStats, null, 2));
+      const validatedDetailedStats = validatePokemonKeys(detailedStats);
+      fs.writeFileSync(DETAILED_STATS_OUTPUT, JSON.stringify(validatedDetailedStats, null, 2));
       console.log('Detailed Pokémon stats extracted to', DETAILED_STATS_OUTPUT);
     } else {
       console.error('No detailed stats data was extracted.');
@@ -1071,5 +1096,32 @@ exportDetailedStats();
 extractTypeChart();
 
 extractPokedexEntries();
+
+// Add function to validate and normalize Pokemon keys
+function validatePokemonKeys<T>(jsonData: Record<string, T>): Record<string, T> {
+  const validatedData: Record<string, T> = {};
+
+  for (const [key, value] of Object.entries(jsonData)) {
+    const trimmedKey = key.trim();
+
+    // Deep clean any nested forms objects
+    if (typeof value === 'object' && value !== null) {
+      const valueObj = value as Record<string, unknown>;
+      if (valueObj.forms && typeof valueObj.forms === 'object') {
+        const cleanedForms: Record<string, unknown> = {};
+        for (const [formKey, formValue] of Object.entries(valueObj.forms as Record<string, unknown>)) {
+          const trimmedFormKey = formKey.trim();
+          cleanedForms[trimmedFormKey] = formValue;
+        }
+        valueObj.forms = cleanedForms;
+      }
+    }
+
+    validatedData[trimmedKey] = value;
+  }
+
+  console.log('Validated Pokemon keys to remove trailing spaces');
+  return validatedData;
+}
 
 extractTmHmLearnset()

@@ -29,6 +29,9 @@ export function toTitleCase(str: string) {
 
 // Helper to standardize Pokemon key names across the codebase
 export function standardizePokemonKey(name: string): string {
+  // First, trim any whitespace from the name to avoid trailing spaces
+  name = name.trim();
+
   // Special handling for Paldean forms that need specific treatment
   if (name.toLowerCase().includes(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())) {
     return toTitleCase(name.substring(0, name.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())).toLowerCase());
@@ -43,7 +46,7 @@ export function standardizePokemonKey(name: string): string {
   const baseName = name.replace(formSuffixPattern, '');
 
   // Convert to title case and remove any case inconsistencies
-  return toTitleCase(baseName.toLowerCase());
+  return toTitleCase(baseName.toLowerCase().trim());
 }
 
 export function parseDexEntries(file: string): string[] {
@@ -101,22 +104,30 @@ export function parseDexEntries(file: string): string[] {
 export function parseWildmonLine(line: string): { level: string; species: string; form: string | null } | null {
   // Handles: wildmon LEVEL, SPECIES [, FORM]
   const match = line.match(/wildmon ([^,]+), ([A-Z0-9_]+)(?:, ([A-Z0-9_]+))?/);
+  console.log(`matching wildmon line: ${line} ->`, match);
   if (!match) return null;
+  console.log(`Parsed wildmon level: ${match[1].trim()}`);
+  console.log(`Parsed wildmon species: ${match[2].trim()}`);
+  console.log(`Parsed wildmon form: ${match[3] ? match[3].trim() : null}`);
+
+  let level = match[1].trim();
+  if (level.startsWith('LEVEL_FROM_BADGES')) {
+    level = level.replace(/^LEVEL_FROM_BADGES/, 'Badge Level').trim();
+  }
   return {
-    level: match[1].trim(),
+    level,
     species: match[2].trim(),
     form: match[3] ? match[3].trim() : null
   };
 }
 
 export function normalizeMonName(name: string, formStr: string | null): { baseName: string; formName: string | null } {
-  const baseName = toTitleCase(name);
+  // Trim and convert to TitleCase, then remove any trailing spaces
+  const baseName = toTitleCase(name).trimEnd();
 
-  // Return normalized form name
   let formName: string | null = null;
 
   if (formStr) {
-    // Convert form constants to our standardized form names
     if (formStr === 'ALOLAN_FORM') {
       formName = KNOWN_FORMS.ALOLAN;
     } else if (formStr === 'GALARIAN_FORM') {
@@ -126,21 +137,17 @@ export function normalizeMonName(name: string, formStr: string | null): { baseNa
     } else if (formStr === 'PALDEAN_FORM') {
       formName = KNOWN_FORMS.PALDEAN;
     } else if (formStr === 'TAUROS_PALDEAN_FIRE_FORM') {
-      // Log for debugging
-      console.log(`Converting TAUROS_PALDEAN_FIRE_FORM to ${KNOWN_FORMS.PALDEAN_FIRE}`);
       formName = KNOWN_FORMS.PALDEAN_FIRE;
     } else if (formStr === 'TAUROS_PALDEAN_WATER_FORM') {
-      // Log for debugging
-      console.log(`Converting TAUROS_PALDEAN_WATER_FORM to ${KNOWN_FORMS.PALDEAN_WATER}`);
       formName = KNOWN_FORMS.PALDEAN_WATER;
     } else if (formStr === 'PLAIN_FORM' || formStr.includes('PLAIN')) {
-      // Skip adding form for plain forms
       formName = null;
     } else {
-      // For other forms, use the TitleCase version
-      formName = toTitleCase(formStr);
+      formName = toTitleCase(formStr).trimEnd();
     }
   }
+
+  console.log(`Normalizing Pokémon name: ${name} (form: ${formStr}) -> base: ${baseName}, form: ${formName}`);
 
   return { baseName, formName };
 }

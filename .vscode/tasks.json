@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Extract Pokemon Data",
+			"type": "shell",
+			"command": "ts-node",
+			"args": [
+				"extract_pokemon_data.ts"
+			],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		}
+	]
+}

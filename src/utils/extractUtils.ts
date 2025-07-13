@@ -46,7 +46,8 @@ export function extractBasePokemonName(fullName: string): string {
     }
   }
 
-  return baseName;
+  // Trim any trailing spaces
+  return baseName.trim();
 }
 
 // --- Type Chart Extraction ---
@@ -525,8 +526,8 @@ export function extractFormInfo(fileName: string): { basePokemonName: string, fo
   }
 
   return {
-    basePokemonName: toTitleCase(basePokemonName),
-    formName
+    basePokemonName: toTitleCase(basePokemonName).trimEnd(),
+    formName: formName ? formName.trimEnd() : null
   };
 }
 // --- Detailed Stats Extraction ---
@@ -549,7 +550,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
     // Extract the Pokemon name from the file name
     const { basePokemonName, formName } = extractFormInfo(fileName);
-    const pokemonName = formName ? `${basePokemonName}${formName}` : basePokemonName;
+    const pokemonName = formName ? `${basePokemonName}${formName}`.trim() : basePokemonName.trim();
 
     // Debug for Pikachu
     if (pokemonName === 'Pikachu') {
