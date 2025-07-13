@@ -34,6 +34,22 @@ async function loadJsonData<T>(filePath: string): Promise<T> {
   }
 }
 
+// Helper function to get regional variant keys
+function getRegionalVariantKeys(pokemonName: string, detailedStatData: Record<string, DetailedStats>): string[] {
+  // Look for entries like "Diglett alolan", "Meowth galarian", etc.
+  const variants: string[] = [];
+  const formTypes = ['alolan', 'galarian', 'hisuian', 'paldean', 'paldean fire', 'paldean water'];
+  
+  for (const formType of formTypes) {
+    const variantKey = `${pokemonName} ${formType}`;
+    if (detailedStatData[variantKey]) {
+      variants.push(variantKey);
+    }
+  }
+  
+  return variants;
+}
+
 // Moved outside the component to use for generateStaticParams
 let cachedBaseStatsData: Record<string, BaseData> | null = null;
 
@@ -103,8 +119,21 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   if (!baseStats) return notFound();
 
   // --- Handle forms ---
-  // If forms exist, get the list of form keys (excluding 'default')
-  const forms = baseStats.forms ? Object.keys(baseStats.forms) : [];
+  // Check for regional variants in the detailed stats data
+  const variantKeys = getRegionalVariantKeys(pokemonName, detailedStatData);
+  
+  // Extract form types from variant keys
+  const variantFormTypes = variantKeys.map(key => {
+    // Extract the form type from the key (e.g., "Diglett alolan" -> "alolan")
+    return key.replace(pokemonName, '').trim();
+  });
+  
+  // If forms exist in base data, get the list of form keys (excluding 'default')
+  const baseDataForms = baseStats.forms ? Object.keys(baseStats.forms) : [];
+  
+  // Combine all form types
+  const forms = [...baseDataForms, ...variantFormTypes];
+  
   // Default form is the base data
   const defaultForm: FormData = {
     types: baseStats.types,
@@ -139,45 +168,67 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // Prepare all form data for the client component
   const allFormData: Record<string, typeof defaultForm> = {
     default: defaultForm,
-    ...Object.fromEntries(
-      forms.map((formKey) => [
-        formKey,
-        {
-          types:
-            baseStats.forms?.[formKey]?.types !== undefined &&
-            baseStats.forms?.[formKey]?.types !== null
-              ? baseStats.forms[formKey].types
-              : baseStats.types,
-          moves: levelMovesData[pokemonName]?.forms?.[formKey]?.moves || defaultForm.moves,
-          locations:
-            locationsData[pokemonName]?.forms?.[formKey]?.locations || defaultForm.locations,
-          eggMoves: eggMovesData[pokemonName] || [],
-          tmHmLearnset: tmHmLearnsetData[pokemonName] || [],
-          evolution: evolutionData[pokemonName],
-          nationalDex: baseStats.nationalDex,
-          frontSpriteUrl: baseStats.forms?.[formKey]?.frontSpriteUrl || baseStats.frontSpriteUrl,
-          johtoDex: baseStats.johtoDex,
-          species: dexEntryData[pokemonName]?.species || '',
-          description: dexEntryData[pokemonName]?.description || '',
-          catchRate: detailedStatData[pokemonName]?.catchRate || 0,
-          baseExp: detailedStatData[pokemonName]?.baseExp || 0,
-          heldItems: detailedStatData[pokemonName]?.heldItems || [],
-          abilities: detailedStatData[pokemonName]?.abilities || [],
-          genderRatio: detailedStatData[pokemonName]?.genderRatio || '',
-          growthRate: detailedStatData[pokemonName]?.growthRate || '',
-          height: detailedStatData[pokemonName]?.height ?? 0,
-          weight: detailedStatData[pokemonName]?.weight ?? 0,
-          evYield: detailedStatData[pokemonName]?.evYield || '',
-          bodyColor: detailedStatData[pokemonName]?.bodyColor || '', // Add color property
-          bodyShape: detailedStatData[pokemonName]?.bodyShape || '', // Add shape property
-          hatchRate: detailedStatData[pokemonName]?.hatchRate || '',
-          eggGroups: detailedStatData[pokemonName]?.eggGroups || [],
-          faithfulAbilities: detailedStatData[pokemonName]?.faithfulAbilities || [],
-          updatedAbilities: detailedStatData[pokemonName]?.updatedAbilities || [],
-        },
-      ]),
-    ),
   };
+  
+  // Map to track which forms we have processed
+  const processedForms = new Set<string>();
+
+  // First, process base data forms
+  if (baseStats.forms) {
+    Object.keys(baseStats.forms).forEach(formKey => {
+      allFormData[formKey] = { ...defaultForm };
+      
+      // Override with form-specific data
+      if (baseStats.forms && baseStats.forms[formKey]?.types) {
+        allFormData[formKey].types = baseStats.forms[formKey].types;
+      }
+      
+      if (baseStats.forms && baseStats.forms[formKey]?.frontSpriteUrl) {
+        allFormData[formKey].frontSpriteUrl = baseStats.forms[formKey].frontSpriteUrl;
+      }
+      
+      // Check for form-specific moves
+      if (levelMovesData[pokemonName]?.forms && 
+          formKey in levelMovesData[pokemonName].forms) {
+        allFormData[formKey].moves = levelMovesData[pokemonName].forms[formKey].moves;
+      }
+      
+      // Check for form-specific locations
+      if (locationsData[pokemonName]?.forms && 
+          formKey in locationsData[pokemonName].forms) {
+        allFormData[formKey].locations = locationsData[pokemonName].forms[formKey].locations;
+      }
+      
+      processedForms.add(formKey);
+    });
+  }
+  
+  // Then, process regional variants
+  variantKeys.forEach(variantKey => {
+    const formType = variantKey.replace(pokemonName, '').trim();
+    
+    if (detailedStatData[variantKey] && !processedForms.has(formType)) {
+      allFormData[formType] = { ...defaultForm };
+      
+      // For regional variants, override with variant-specific data
+      const variantData = detailedStatData[variantKey];
+      if (variantData) {
+        if (variantData.baseStats) allFormData[formType].baseStats = variantData.baseStats;
+        if (variantData.evYield) allFormData[formType].evYield = variantData.evYield;
+        if (variantData.bodyColor) allFormData[formType].bodyColor = variantData.bodyColor;
+        if (variantData.abilities) allFormData[formType].abilities = variantData.abilities;
+        if (variantData.faithfulAbilities) allFormData[formType].faithfulAbilities = variantData.faithfulAbilities;
+        if (variantData.updatedAbilities) allFormData[formType].updatedAbilities = variantData.updatedAbilities;
+      }
+      
+      // Generate a sprite URL for the variant
+      const formattedName = pokemonName.toLowerCase();
+      const formattedForm = formType.toLowerCase();
+      allFormData[formType].frontSpriteUrl = `/sprites/pokemon/${formattedName}/${formattedForm}/front_cropped.png`;
+      
+      processedForms.add(formType);
+    }
+  });
 
   console.log(`All form data for ${pokemonName}:`, allFormData);
 
@@ -208,8 +259,19 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         </BreadcrumbList>
       </Breadcrumb>
       <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
+      
+      {/* Add debug info for forms */}
+      {process.env.NODE_ENV !== "production" && (
+        <div className="bg-gray-100 p-4 mb-4 text-xs rounded">
+          <h3 className="font-bold">Debug Info:</h3>
+          <p>Regional variants: {variantKeys.join(", ") || "None"}</p>
+          <p>All forms: {forms.join(", ") || "None"}</p>
+          <p>Valid forms: {Object.keys(allFormData).filter(f => f !== "default").join(", ") || "None"}</p>
+        </div>
+      )}
+      
       <PokemonFormClient
-        forms={forms}
+        forms={Object.keys(allFormData).filter(f => f !== "default")}
         allFormData={allFormData}
         moveDescData={moveDescData}
         pokemonName={pokemonName}

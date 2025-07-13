@@ -448,7 +448,7 @@ export function extractTmHmLearnset() {
   for (const file of detailedStatsFiles) {
     const fileName = file.replace('.asm', '');
     const { basePokemonName, formName } = extractFormInfo(fileName);
-    const pokemonName = formName ? `${basePokemonName}${formName}` : basePokemonName;
+    const pokemonName = formName ? `${basePokemonName} ${formName}` : basePokemonName;
 
     const content = fs.readFileSync(path.join(detailedStatsDir, file), 'utf8');
     const lines = content.split(/\r?\n/);
@@ -550,7 +550,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
     // Extract the Pokemon name from the file name
     const { basePokemonName, formName } = extractFormInfo(fileName);
-    const pokemonName = formName ? `${basePokemonName}${formName}`.trim() : basePokemonName.trim();
+    const pokemonName = formName ? `${basePokemonName} ${formName}`.trim() : basePokemonName.trim();
 
     // Debug for Pikachu
     if (pokemonName === 'Pikachu') {

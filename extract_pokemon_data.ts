@@ -728,8 +728,10 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     genderRatio: "Unknown", // default value
     hatchRate: "Unknown", // default value
     evYield: "None", // default value
-    forms: {}
+    forms: {} // Ensure forms are included, even if empty
   }  // Add form-specific type data and sprite URL if available
+
+  console.log(`Base data for ${data.nationalDex}:`, data.forms);
   if (data.forms && Object.keys(data.forms).length > 0) {
     baseData[trimmedMon].forms = {};
     for (const [formName, formData] of Object.entries(data.forms)) {
@@ -822,6 +824,8 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     }
   }
 }
+
+console.log(`Base Pokémon data extracted:`, validatePokemonKeys(baseData));
 // Validate keys before writing to ensure no trailing spaces
 const validatedBaseData = validatePokemonKeys(baseData);
 fs.writeFileSync(BASE_DATA_OUTPUT, JSON.stringify(validatedBaseData, null, 2));
