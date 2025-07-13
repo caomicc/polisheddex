@@ -330,3 +330,4 @@ if (fs.existsSync(pokemonLevelMovesPath)) {
   fs.writeFileSync(pokemonLevelMovesPath, JSON.stringify(levelMovesData, null, 2));
   console.log('Normalized move names in pokemon_level_moves.json');
 }
+

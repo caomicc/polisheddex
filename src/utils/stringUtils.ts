@@ -32,8 +32,6 @@ export function standardizePokemonKey(name: string): string {
   // First, trim any whitespace from the name to avoid trailing space
   name = name.trim();
 
-  console.log(`Standardizing Pokémon key to name: ${name}`);
-
   if (name === 'Ho Oh') name = 'Ho-Oh';
 
   // Special handling for Paldean forms that need specific treatment
@@ -48,8 +46,6 @@ export function standardizePokemonKey(name: string): string {
 
   // Remove any form suffixes
   const baseName = name.replace(formSuffixPattern, '');
-
-  console.log(`Base Pokémon name after removing forms: ${baseName}`);
 
   // Convert to title case and remove any case inconsistencies
   return toTitleCase(baseName.toLowerCase().trim());
@@ -110,11 +106,8 @@ export function parseDexEntries(file: string): string[] {
 export function parseWildmonLine(line: string): { level: string; species: string; form: string | null } | null {
   // Handles: wildmon LEVEL, SPECIES [, FORM]
   const match = line.match(/wildmon ([^,]+), ([A-Z0-9_]+)(?:, ([A-Z0-9_]+))?/);
-  console.log(`matching wildmon line: ${line} ->`, match);
+
   if (!match) return null;
-  console.log(`Parsed wildmon level: ${match[1].trim()}`);
-  console.log(`Parsed wildmon species: ${match[2].trim()}`);
-  console.log(`Parsed wildmon form: ${match[3] ? match[3].trim() : null}`);
 
   let level = match[1].trim();
   if (level.startsWith('LEVEL_FROM_BADGES')) {
@@ -152,8 +145,6 @@ export function normalizeMonName(name: string, formStr: string | null): { baseNa
       formName = toTitleCase(formStr).trimEnd();
     }
   }
-
-  console.log(`Normalizing Pokémon name: ${name} (form: ${formStr}) -> base: ${baseName}, form: ${formName}`);
 
   return { baseName, formName };
 }
@@ -231,3 +222,10 @@ export function normalizeMoveKey(name: string): string {
     .replace(/[^A-Z0-9_]/gi, '_') // non-alphanumeric to underscores
     .toUpperCase();
 }
+
+export const typeEnumToName: Record<string, string> = {
+  'NORMAL': 'Normal', 'FIGHTING': 'Fighting', 'FLYING': 'Flying', 'POISON': 'Poison', 'GROUND': 'Ground',
+  'ROCK': 'Rock', 'BUG': 'Bug', 'GHOST': 'Ghost', 'STEEL': 'Steel', 'FIRE': 'Fire', 'WATER': 'Water',
+  'GRASS': 'Grass', 'ELECTRIC': 'Electric', 'PSYCHIC': 'Psychic', 'ICE': 'Ice', 'DRAGON': 'Dragon',
+  'DARK': 'Dark', 'FAIRY': 'Fairy', 'SHADOW': 'Shadow', 'NONE': 'None'
+};

@@ -5,7 +5,7 @@ import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } f
 import { extractTypeChart, extractHiddenGrottoes, mapEncounterRatesToPokemon, extractEggMoves, extractFormInfo, extractMoveDescriptions, extractTmHmLearnset, addBodyDataToDetailedStats, extractAbilityDescriptions, extractDetailedStats, extractBasePokemonName, extractPokedexEntries, getFullPokemonName } from './src/utils/extractors/index.ts';
 import { groupPokemonForms, validatePokemonKeys } from './src/utils/helpers.ts';
 import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
-import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toTitleCase } from './src/utils/stringUtils.ts';
+import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toTitleCase, typeEnumToName } from './src/utils/stringUtils.ts';
 import type { Ability, BaseData, DetailedStats, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
 
 
@@ -19,15 +19,22 @@ const EVOLUTION_OUTPUT = path.join(__dirname, 'output/pokemon_evolution_data.jso
 const LEVEL_MOVES_OUTPUT = path.join(__dirname, 'output/pokemon_level_moves.json');
 const LOCATIONS_OUTPUT = path.join(__dirname, 'output/pokemon_locations.json');
 const DETAILED_STATS_OUTPUT = path.join(__dirname, 'output/pokemon_detailed_stats.json');
+const MOVE_DESCRIPTIONS_OUTPUT = path.join(__dirname, 'output/pokemon_move_descriptions.json');
+
 
 const EVO_ATTACK_FILE = path.join(__dirname, 'rom/data/pokemon/evos_attacks.asm');
 
 const data = fs.readFileSync(EVO_ATTACK_FILE, 'utf8');
 const lines = data.split(/\r?\n/);
 
-const MOVE_DESCRIPTIONS_OUTPUT = path.join(__dirname, 'output/pokemon_move_descriptions.json');
 
 const BASE_STATS_DIR = path.join(__dirname, 'rom/data/pokemon/base_stats');
+
+
+// Parse both National and Johto (New) Dex orders
+const nationalDexOrder = parseDexEntries(path.join(__dirname, 'rom/data/pokemon/dex_entries.asm'));
+const johtoDexOrder = parseDexEntries(path.join(__dirname, 'rom/data/pokemon/dex_order_new.asm'));
+
 
 extractAbilityDescriptions();
 
@@ -60,7 +67,6 @@ let evoMethods: EvoRaw[] = [];
 
 for (const lineRaw of lines) {
   const line = lineRaw.trim();
-  console.log('Processing line:', line);
   if (line.startsWith('evos_attacks ')) {
     if (currentMonV2) {
       result[normalizeMoveString(currentMonV2)] = {
@@ -87,7 +93,6 @@ for (const lineRaw of lines) {
     // Or: evo_data EVOLVE_ITEM, MOON_STONE, NIDOQUEEN
     // Or: evo_data EVOLVE_ITEM, THUNDERSTONE, RAICHU, PLAIN_FORM
     const evoMatch = line.match(/evo_data (\w+), ([^,]+), ([^,\s]+)(?:, ([^,\s]+))?/);
-    console.log('evoMatch', { evoMatch });
     if (evoMatch) {
       const [, method, param, target, form] = evoMatch;
       let parsedParam: string | number = param.trim();
@@ -107,7 +112,6 @@ for (const lineRaw of lines) {
       const level = parseInt(match[1], 10);
       const moveKey = match[2];
       const prettyName = normalizeMoveString(moveKey);
-      console.log('normalizeMoveString', { prettyName, moveKey })
       const info = moveDescriptions[prettyName]
         ? {
           description: moveDescriptions[prettyName].description,
@@ -328,18 +332,6 @@ function getEvolutionChain(mon: string): string[] {
   return buildCompleteEvolutionChain(mon);
 }
 
-// Parse both National and Johto (New) Dex orders
-const nationalDexOrder = parseDexEntries(path.join(__dirname, 'rom/data/pokemon/dex_entries.asm'));
-const johtoDexOrder = parseDexEntries(path.join(__dirname, 'rom/data/pokemon/dex_order_new.asm'));
-
-
-const typeEnumToName: Record<string, string> = {
-  'NORMAL': 'Normal', 'FIGHTING': 'Fighting', 'FLYING': 'Flying', 'POISON': 'Poison', 'GROUND': 'Ground',
-  'ROCK': 'Rock', 'BUG': 'Bug', 'GHOST': 'Ghost', 'STEEL': 'Steel', 'FIRE': 'Fire', 'WATER': 'Water',
-  'GRASS': 'Grass', 'ELECTRIC': 'Electric', 'PSYCHIC': 'Psychic', 'ICE': 'Ice', 'DRAGON': 'Dragon',
-  'DARK': 'Dark', 'FAIRY': 'Fairy', 'SHADOW': 'Shadow', 'NONE': 'None'
-};
-
 // Load all base stats files
 const baseStatsFiles = fs.readdirSync(BASE_STATS_DIR).filter(f => f.endsWith('.asm'));
 
@@ -407,8 +399,6 @@ for (const mon of Object.keys(result)) {
   // Standardize the Pokemon name to ensure consistent keys
   const standardMon = standardizePokemonKey(mon);
 
-  console.log(`Standardized Pokémon name: x${standardMon}x`);
-
   // Every Pokémon should have an evolution object, even if it's a final evolution
   // with no further evolutions. This ensures we have a chain for all Pokémon.
   const methods = evoMap[standardMon] ? evoMap[standardMon].map(e => ({
@@ -448,21 +438,17 @@ for (const mon of Object.keys(result)) {
   let types: string | string[];
 
   if (formName && formName !== KNOWN_FORMS.PLAIN) {
-    console.log(`Processing ${mon} as a special form: ${basePokemonName} + x${formName}x`,);
     // This is a special form like alolan, galarian, etc.
     if (formTypeMap[basePokemonName] && formTypeMap[basePokemonName][formName]) {
       // Use form-specific type data from formTypeMap
       types = formTypeMap[basePokemonName][formName];
-      // console.log(`Using form types for ${mon} (${basePokemonName} + ${formName}): ${types.join(', ')}`);
     } else {
       // Fallback to base type if form type not found
       types = typeMap[basePokemonName] || ['None', 'None'];
-      // console.log(`Form type not found for ${mon}, falling back to base type: ${types.join(', ')}`);
     }
   } else {
     // This is a base form or plain form - look up directly in typeMap
     types = typeMap[baseMonName] || ['None', 'None'];
-    // console.log(`Using base type for ${mon}: ${types.join(', ')}`);
   }
 
   // Remove duplicates and handle 'None'
@@ -572,9 +558,7 @@ for (const file of wildFiles) {
     }
     if (inBlock && line.startsWith('wildmon')) {
       const parsed = parseWildmonLine(line);
-      console.log(`Parsed wildmon line: ${line} ->`, parsed);
       if (parsed) {
-        console.log('parsed.species, parsed.form', parsed.species, parsed.form);
         const { formName } = normalizeMonName(parsed.species, parsed.form); // Extract form name
         const key = getFullPokemonName(parsed.species, parsed.form); // Use legacy function for now
         // Normalize LEVEL_FROM_BADGES in level value
@@ -615,8 +599,6 @@ for (const file of wildFiles) {
 // Using the previously defined PokemonDataV3 type
 const finalResultV3: Record<string, PokemonDataV3> = {};
 for (const mon of Object.keys(finalResult)) {
-  console.log(`Finalizing Pokémon: ${mon}`, finalResult[mon]);
-
   finalResultV3[mon] = {
     ...finalResult[mon],
     locations: locationsByMon[mon] || []
@@ -626,34 +608,23 @@ for (const mon of Object.keys(finalResult)) {
 // Group all Pokemon data
 const groupedPokemonData = groupPokemonForms(finalResultV3);
 
-console.log(`Grouped Pokémon data: ${Object.keys(groupedPokemonData).length} Pokémon found.`);
-
-
 // Extract and save base data (dex number, types)
 const baseData: Record<string, BaseData> = {};
 for (const [mon, data] of Object.entries(groupedPokemonData)) {
 
-  console.log(`Processing base data for Pokémon: ${mon}`, data);
-  // Ensure there are no trailing spaces in the Pokemon name
   let trimmedMon = mon.trim();
 
   if (trimmedMon === 'Ho Oh') {
     trimmedMon = 'Ho-Oh'; // Special case for Ho-Oh
   }
 
-  console.log(`Trimmed Pokémon name: ${trimmedMon}`);
-
-  // if (trimmedMon === 'Ho Oh') trimmedMon = 'Ho-Oh'; // Special case for Ho-Oh
-
-  // Generate the front sprite URL for the base form
   const spriteName = trimmedMon
     .toLowerCase()
     .replace(/[^a-z0-9\-]/g, '') // Remove non-alphanumerics except hyphens
     .replace(/-/g, '_'); // Replace middle hyphens with underscores
-  console.log(`Sprite name for ${trimmedMon}: ${spriteName}`);
+
   let typeData = data.types;
 
-  // console.log(`Processing ${trimmedMon} with initial types: ${typeData}`);
 
   if (!typeData || typeData === 'None' || (Array.isArray(typeData) && typeData.includes('None'))) {
     // Try to get type from our typeMap
@@ -696,8 +667,6 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
             const t1 = typeEnumToName[plainMatch[1]] || 'None';
             const t2 = typeEnumToName[plainMatch[2]] || 'None';
 
-            console.log(`Extracted types for ${trimmedMon} from _plain file: ${t1}, ${t2}`);
-
             // Update the type data
             if (t1 === t2 || t2 === 'None') {
               typeData = t1;
@@ -709,8 +678,6 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
       }
     }
   }
-
-  console.log(`sprite info data`, `/sprites/pokemon/${spriteName}/front_cropped.png`);
 
   baseData[trimmedMon] = {
     name: trimmedMon,
@@ -741,15 +708,12 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     forms: {} // Ensure forms are initialized as an empty object
   }  // Add form-specific type data and sprite URL if available
 
-  console.log(`Base data for ${data.nationalDex}, ${data.name}:`, data.forms);
   if (data.forms && Object.keys(data.forms).length > 0) {
     // forms is already initialized as an empty object in baseData[trimmedMon]
     for (const [formName, formData] of Object.entries(data.forms)) {
-      console.log(`Processing form ${formName} for ${trimmedMon}`);
       // Get form type data, with fallbacks
       let formTypeData = formData.types;
       if (!formTypeData || formTypeData === 'None' || (Array.isArray(formTypeData) && formTypeData.includes('None'))) {
-        console.log(`No type data found for ${trimmedMon} ${formName}, checking typeMap...`);
         // Try to get from formTypeMap
         if (formTypeMap[trimmedMon] && formTypeMap[trimmedMon][formName]) {
           const formTypes = formTypeMap[mon][formName];
@@ -770,7 +734,6 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
           );
 
           if (matchingFormFiles.length > 0) {
-            console.log(`Found form file for ${mon} ${formName}: ${matchingFormFiles[0]}`);
 
             // Extract type information from the file
             const formContent = fs.readFileSync(path.join(BASE_STATS_DIR, matchingFormFiles[0]), 'utf8');
@@ -783,8 +746,6 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
               if (formMatch) {
                 const t1 = typeEnumToName[formMatch[1]] || 'None';
                 const t2 = typeEnumToName[formMatch[2]] || 'None';
-
-                console.log(`Extracted types for ${mon} ${formName}: ${t1}, ${t2}`);
 
                 // Update the type data
                 if (t1 === t2 || t2 === 'None') {
@@ -837,7 +798,6 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
   }
 }
 
-console.log(`Base Pokémon data extracted:`, validatePokemonKeys(baseData));
 // Validate keys before writing to ensure no trailing spaces
 const validatedBaseData = validatePokemonKeys(baseData);
 fs.writeFileSync(BASE_DATA_OUTPUT, JSON.stringify(validatedBaseData, null, 2));
@@ -860,8 +820,6 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
 
   levelMoves[mon] = { moves: data.moves };
 
-  // console.log(`Processing level-up moves for ${mon}`, data.moves);
-
   // Add form-specific moves if available
   if (data.forms && Object.keys(data.forms).length > 0) {
     levelMoves[mon].forms = {};
@@ -881,13 +839,9 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
 }
 const validatedLevelMoves = validatePokemonKeys(levelMoves);
 fs.writeFileSync(LEVEL_MOVES_OUTPUT, JSON.stringify(validatedLevelMoves, null, 2));
-console.log('Pokémon level-up moves extracted to', LEVEL_MOVES_OUTPUT);
-
 
 // Extract and save location data (including hidden grottoes)
 const locationData: Record<string, LocationEntry[]> = {};
-
-
 
 // Group pokemon by their base form
 const formsByBaseName: Record<string, Record<string, LocationEntry[]>> = {};
@@ -1007,7 +961,6 @@ for (const [mon, locations] of Object.entries(locationData)) {
 
 const validatedLocationData = validatePokemonKeys(groupedLocationData);
 fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(validatedLocationData, null, 2));
-console.log('Pokémon location data extracted to', LOCATIONS_OUTPUT);
 
 function exportDetailedStats() {
   try {
