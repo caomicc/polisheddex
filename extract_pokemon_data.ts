@@ -1024,12 +1024,25 @@ function exportDetailedStats() {
         if (line.trim().startsWith('body_data')) {
           // Extract Pokémon name from comment
           const nameMatch = line.match(/;\s*([A-Z0-9_]+)/);
+          // Convert HO_OH to Ho-Oh and handle other cases
           if (nameMatch) {
-            const monName = toTitleCase(nameMatch[1].replace(/_/g, ' '));
+            let monName = nameMatch[1].replace(/_/g, ' ');
+            if (monName.toUpperCase() === 'HO OH') {
+              monName = 'Ho-Oh';
+            } else {
+              monName = toTitleCase(monName);
+            }
             if (detailedStats[monName]) {
               detailedStats[monName] = addBodyDataToDetailedStats(line, detailedStats[monName]) as DetailedStats;
             }
           }
+
+          //   if (nameMatch) {
+          //     const monName = toTitleCase(nameMatch[1].replace(/_/g, ' '));
+          //     if (detailedStats[monName]) {
+          //       detailedStats[monName] = addBodyDataToDetailedStats(line, detailedStats[monName]) as DetailedStats;
+          //     }
+          //   }
         }
       }
     }

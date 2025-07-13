@@ -960,6 +960,8 @@ export function addBodyDataToDetailedStats(
   const match = line.match(bodyDataRegex);
   if (!match) return detailedStats;
 
+  console.log('Extracting body data from line:', line, match);
+
   const [, height, weight, shape, color] = match;
 
   // Add body data to detailedStats
