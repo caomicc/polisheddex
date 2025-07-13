@@ -59,8 +59,8 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
       </div>
 
       <div className="my-4 flex items-center gap-2 relative">
-        <Label htmlFor="sort-select" className="sr-only">
-          Sort Pokémon
+        <Label htmlFor="sort-select" className="">
+          Sort:
         </Label>
         <Select
           value={sortType}

@@ -79,7 +79,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100`}
       >
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen pt-20 md:pt-24">
           <Navigation />
           <main className="flex-grow">
             {children}
