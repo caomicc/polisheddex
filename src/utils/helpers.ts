@@ -1,6 +1,6 @@
 import { formTypeMap, KNOWN_FORMS, typeMap } from "../data/constants.ts";
-import type { PokemonDataV3 } from "../types/types.ts";
-import { extractBasePokemonName } from "./extractUtils.ts";
+import type { EncounterDetail, LocationAreaData, LocationEntry, PokemonDataV3 } from "../types/types.ts";
+import { extractBasePokemonName } from "./extractors/pokedexExtractors.ts";
 
 // Create a grouped data structure combining forms
 export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): Record<string, PokemonDataV3> {
@@ -123,4 +123,93 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
   }
 
   return groupedData;
+}
+
+
+// Helper function to process locations
+export function processLocations(
+  pokemon: string,
+  locations: LocationEntry[],
+  formName: string | null,
+  locationsByArea: Record<string, LocationAreaData>
+) {
+  for (const location of locations) {
+    if (!location.area) continue;
+
+    // Format the area name to match UI component formatting
+    const formattedAreaName = location.area
+      .toLowerCase()
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, c => c.toUpperCase());
+    const method = location.method || 'unknown';
+    const time = location.time || 'any';
+
+    // Initialize area if it doesn't exist
+    if (!locationsByArea[formattedAreaName]) {
+      locationsByArea[formattedAreaName] = { pokemon: {} };
+    }
+
+    // Initialize Pokemon in this area if it doesn't exist
+    if (!locationsByArea[formattedAreaName].pokemon[pokemon]) {
+      locationsByArea[formattedAreaName].pokemon[pokemon] = { methods: {} };
+    }
+
+    // Initialize method if it doesn't exist
+    if (!locationsByArea[formattedAreaName].pokemon[pokemon].methods[method]) {
+      locationsByArea[formattedAreaName].pokemon[pokemon].methods[method] = { times: {} };
+    }
+
+    // Initialize time if it doesn't exist
+    if (!locationsByArea[formattedAreaName].pokemon[pokemon].methods[method].times[time]) {
+      locationsByArea[formattedAreaName].pokemon[pokemon].methods[method].times[time] = [];
+    }
+
+    // Add encounter details
+    const encounterDetail: EncounterDetail = {
+      level: location.level,
+      chance: location.chance
+    };
+
+    // Add rareItem if present (for hidden grottoes)
+    if ('rareItem' in location && location.rareItem) {
+      encounterDetail.rareItem = location.rareItem;
+    }
+
+    // Add form name if present
+    if (formName || ('formName' in location && location.formName)) {
+      encounterDetail.formName = formName || location.formName;
+    }
+
+    locationsByArea[formattedAreaName].pokemon[pokemon].methods[method].times[time].push(encounterDetail);
+  }
+}
+
+
+// Add function to validate and normalize Pokemon keys
+export function validatePokemonKeys<T>(jsonData: Record<string, T>): Record<string, T> {
+  const validatedData: Record<string, T> = {};
+
+  for (const [key, value] of Object.entries(jsonData)) {
+    const trimmedKey = key.trim();
+
+    console.log(`Validating Pokémon key: x${trimmedKey}x`);
+
+    // Deep clean any nested forms objects
+    if (typeof value === 'object' && value !== null) {
+      const valueObj = value as Record<string, unknown>;
+      if (valueObj.forms && typeof valueObj.forms === 'object') {
+        const cleanedForms: Record<string, unknown> = {};
+        for (const [formKey, formValue] of Object.entries(valueObj.forms as Record<string, unknown>)) {
+          const trimmedFormKey = formKey.trim();
+          cleanedForms[trimmedFormKey] = formValue;
+        }
+        valueObj.forms = cleanedForms;
+      }
+    }
+
+    validatedData[trimmedKey] = value;
+  }
+
+  console.log('Validated Pokemon keys to remove trailing spaces');
+  return validatedData;
 }

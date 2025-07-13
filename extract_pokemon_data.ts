@@ -1,26 +1,17 @@
-import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toTitleCase } from './src/utils/stringUtils.ts';
-import type { BaseData, DetailedStats, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } from './src/data/constants.ts';
-import { extractAbilityDescriptions, extractBasePokemonName, extractDetailedStats, extractEggMoves, extractFormInfo, extractHiddenGrottoes, extractMoveDescriptions, extractPokedexEntries, extractTypeChart, getFullPokemonName, addBodyDataToDetailedStats, mapEncounterRatesToPokemon, extractTmHmLearnset } from './src/utils/extractUtils.ts';
-import { groupPokemonForms } from './src/utils/helpers.ts';
-import type { Ability } from './src/types/types.ts';
+import { extractTypeChart, extractHiddenGrottoes, mapEncounterRatesToPokemon, extractEggMoves, extractFormInfo, extractMoveDescriptions, extractTmHmLearnset, addBodyDataToDetailedStats, extractAbilityDescriptions, extractDetailedStats, extractBasePokemonName, extractPokedexEntries, getFullPokemonName } from './src/utils/extractors/index.ts';
+import { groupPokemonForms, validatePokemonKeys } from './src/utils/helpers.ts';
 import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
+import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toTitleCase } from './src/utils/stringUtils.ts';
+import type { Ability, BaseData, DetailedStats, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
 
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-// If you still get ReferenceError: __dirname is not defined, replace all uses of __dirname with the above workaround.
-// For example, instead of:
-//   path.join(__dirname, 'output/pokemon_base_data.json')
-// You can use:
-//   path.join(path.dirname(fileURLToPath(import.meta.url)), 'output/pokemon_base_data.json')
-
-
 
 // Output file paths
 const BASE_DATA_OUTPUT = path.join(__dirname, 'output/pokemon_base_data.json');
@@ -29,24 +20,36 @@ const LEVEL_MOVES_OUTPUT = path.join(__dirname, 'output/pokemon_level_moves.json
 const LOCATIONS_OUTPUT = path.join(__dirname, 'output/pokemon_locations.json');
 const DETAILED_STATS_OUTPUT = path.join(__dirname, 'output/pokemon_detailed_stats.json');
 
-const filePath = path.join(__dirname, 'rom/data/pokemon/evos_attacks.asm');
+const EVO_ATTACK_FILE = path.join(__dirname, 'rom/data/pokemon/evos_attacks.asm');
 
-const data = fs.readFileSync(filePath, 'utf8');
+const data = fs.readFileSync(EVO_ATTACK_FILE, 'utf8');
 const lines = data.split(/\r?\n/);
 
-const moveDescriptionsPath = path.join(__dirname, 'output/pokemon_move_descriptions.json');
+const MOVE_DESCRIPTIONS_OUTPUT = path.join(__dirname, 'output/pokemon_move_descriptions.json');
 
+const BASE_STATS_DIR = path.join(__dirname, 'rom/data/pokemon/base_stats');
 
 extractAbilityDescriptions();
 
 extractMoveDescriptions();
 
+extractEggMoves();
+
+extractTypeChart();
+
+extractPokedexEntries();
+
+extractTmHmLearnset();
+
+exportDetailedStats();
+
 // --- Move Description Map ---
 // Read move descriptions from the generated JSON file
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let moveDescriptions: Record<string, any> = {};
-if (fs.existsSync(moveDescriptionsPath)) {
-  moveDescriptions = JSON.parse(fs.readFileSync(moveDescriptionsPath, 'utf8'));
+
+if (fs.existsSync(MOVE_DESCRIPTIONS_OUTPUT)) {
+  moveDescriptions = JSON.parse(fs.readFileSync(MOVE_DESCRIPTIONS_OUTPUT, 'utf8'));
 }
 
 const result: Record<string, { moves: Move[] }> = {};
@@ -141,7 +144,6 @@ if (currentMonV2) {
     }
   }
 }
-
 
 // Helper to sort the evolution chain properly
 function sortEvolutionChain(chain: string[]): string[] {
@@ -330,7 +332,6 @@ function getEvolutionChain(mon: string): string[] {
 const nationalDexOrder = parseDexEntries(path.join(__dirname, 'rom/data/pokemon/dex_entries.asm'));
 const johtoDexOrder = parseDexEntries(path.join(__dirname, 'rom/data/pokemon/dex_order_new.asm'));
 
-const baseStatsDir = path.join(__dirname, 'rom/data/pokemon/base_stats');
 
 const typeEnumToName: Record<string, string> = {
   'NORMAL': 'Normal', 'FIGHTING': 'Fighting', 'FLYING': 'Flying', 'POISON': 'Poison', 'GROUND': 'Ground',
@@ -340,12 +341,12 @@ const typeEnumToName: Record<string, string> = {
 };
 
 // Load all base stats files
-const baseStatsFiles = fs.readdirSync(baseStatsDir).filter(f => f.endsWith('.asm'));
+const baseStatsFiles = fs.readdirSync(BASE_STATS_DIR).filter(f => f.endsWith('.asm'));
 
 // First pass: Process all files to extract type information
 for (const file of baseStatsFiles) {
   const fileName = file.replace('.asm', '');
-  const content = fs.readFileSync(path.join(baseStatsDir, file), 'utf8');
+  const content = fs.readFileSync(path.join(BASE_STATS_DIR, file), 'utf8');
 
   // Extract type information from the file
   const typeLine = content.split(/\r?\n/).find(l => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
@@ -397,11 +398,6 @@ for (const file of baseStatsFiles) {
 
 const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, johtoDex: number | null, types: string | string[] }> = {};
 for (const mon of Object.keys(result)) {
-  // Normalize move names in evolution moves
-
-  // console.log(`Processing Pokémon: ${mon}`);
-
-  // Normalize the move names to ensure consistent keys
 
   const moves = result[mon].moves.map(m => ({
     name: m.name,
@@ -689,7 +685,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
         console.log(`Found _plain file for ${trimmedMon}: ${matchingPlainFiles[0]}`);
 
         // Extract type information from the first matching file
-        const plainContent = fs.readFileSync(path.join(baseStatsDir, matchingPlainFiles[0]), 'utf8');
+        const plainContent = fs.readFileSync(path.join(BASE_STATS_DIR, matchingPlainFiles[0]), 'utf8');
         const plainTypeLine = plainContent.split(/\r?\n/).find(l =>
           l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/)
         );
@@ -777,7 +773,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
             console.log(`Found form file for ${mon} ${formName}: ${matchingFormFiles[0]}`);
 
             // Extract type information from the file
-            const formContent = fs.readFileSync(path.join(baseStatsDir, matchingFormFiles[0]), 'utf8');
+            const formContent = fs.readFileSync(path.join(BASE_STATS_DIR, matchingFormFiles[0]), 'utf8');
             const formTypeLine = formContent.split(/\r?\n/).find(l =>
               l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/)
             );
@@ -928,6 +924,7 @@ for (const [mon, data] of Object.entries(finalResultV3)) {
 
 // Then process hidden grotto locations
 const grottoLocations = extractHiddenGrottoes();
+
 for (const [pokemonName, locations] of Object.entries(grottoLocations)) {
   const baseName = extractBasePokemonName(pokemonName);
 
@@ -1036,13 +1033,6 @@ function exportDetailedStats() {
               detailedStats[monName] = addBodyDataToDetailedStats(line, detailedStats[monName]) as DetailedStats;
             }
           }
-
-          //   if (nameMatch) {
-          //     const monName = toTitleCase(nameMatch[1].replace(/_/g, ' '));
-          //     if (detailedStats[monName]) {
-          //       detailedStats[monName] = addBodyDataToDetailedStats(line, detailedStats[monName]) as DetailedStats;
-          //     }
-          //   }
         }
       }
     }
@@ -1122,41 +1112,3 @@ function exportDetailedStats() {
   }
 }
 
-extractEggMoves();
-// Execute the function to extract and export detailed stats
-exportDetailedStats();
-
-extractTypeChart();
-
-extractPokedexEntries();
-
-// Add function to validate and normalize Pokemon keys
-function validatePokemonKeys<T>(jsonData: Record<string, T>): Record<string, T> {
-  const validatedData: Record<string, T> = {};
-
-  for (const [key, value] of Object.entries(jsonData)) {
-    const trimmedKey = key.trim();
-
-    console.log(`Validating Pokémon key: x${trimmedKey}x`);
-
-    // Deep clean any nested forms objects
-    if (typeof value === 'object' && value !== null) {
-      const valueObj = value as Record<string, unknown>;
-      if (valueObj.forms && typeof valueObj.forms === 'object') {
-        const cleanedForms: Record<string, unknown> = {};
-        for (const [formKey, formValue] of Object.entries(valueObj.forms as Record<string, unknown>)) {
-          const trimmedFormKey = formKey.trim();
-          cleanedForms[trimmedFormKey] = formValue;
-        }
-        valueObj.forms = cleanedForms;
-      }
-    }
-
-    validatedData[trimmedKey] = value;
-  }
-
-  console.log('Validated Pokemon keys to remove trailing spaces');
-  return validatedData;
-}
-
-extractTmHmLearnset()
