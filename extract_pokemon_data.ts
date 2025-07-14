@@ -6,7 +6,7 @@ import { extractTypeChart, extractHiddenGrottoes, mapEncounterRatesToPokemon, ex
 import { groupPokemonForms, validatePokemonKeys } from './src/utils/helpers.ts';
 import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
 import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toTitleCase, typeEnumToName } from './src/utils/stringUtils.ts';
-import type { Ability, BaseData, DetailedStats, Evolution, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
+import type { Ability, BaseData, DetailedStats, Evolution, EvolutionMethod, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
 
 
 // Use this workaround for __dirname in ES modules
@@ -248,11 +248,15 @@ function sortEvolutionChain(chain: string[]): string[] {
   return sortedChain;
 }
 
-// Non-recursive function to build the complete evolution chain
-function buildCompleteEvolutionChain(startMon: string): string[] {
+// Non-recursive function to build the complete evolution chain with methods
+function buildCompleteEvolutionChain(startMon: string): {
+  chain: string[],
+  methodsByPokemon: Record<string, EvolutionMethod[]>
+} {
   // This map will keep track of which Pokémon we've already processed
   const processedMons = new Set<string>();
-
+  // This map will store evolution methods for each Pokémon in the chain
+  const methodsByPokemon: Record<string, EvolutionMethod[]> = {};
 
   // Starting with the requested Pokémon
   const standardizedStartMon = standardizePokemonKey(startMon);
@@ -315,9 +319,23 @@ function buildCompleteEvolutionChain(startMon: string): string[] {
       // Check if this entry matches our current Pokémon (either exact or standardized)
       const standardEvoKey = standardizePokemonKey(evoKey);
       if (evoKey === currentMon || standardEvoKey === standardMon) {
-        // Add all its evolutions to the queue
+        // Store evolution methods for this Pokémon
+        if (!methodsByPokemon[baseName]) {
+          methodsByPokemon[baseName] = [];
+        }
+
+        // Add all its evolutions to the queue and collect their methods
         for (const evo of evos) {
           const targetMon = standardizePokemonKey(evo.target);
+
+          // Store evolution method information
+          methodsByPokemon[baseName].push({
+            method: evo.method,
+            parameter: evo.parameter,
+            target: targetMon,
+            ...(evo.form ? { form: evo.form } : {})
+          });
+
           if (!processedMons.has(targetMon)) {
             queue.push(evo.target);
           }
@@ -327,12 +345,23 @@ function buildCompleteEvolutionChain(startMon: string): string[] {
   }
 
   // Sort the chain to put earliest evolutions first
-  return sortEvolutionChain(chain);
+  const sortedChain = sortEvolutionChain(chain);
+
+  // Create a new methodsByPokemon object with the sorted Pokémon names
+  const sortedMethodsByPokemon: Record<string, EvolutionMethod[]> = {};
+  for (const pokemon of sortedChain) {
+    sortedMethodsByPokemon[pokemon] = methodsByPokemon[pokemon] || [];
+  }
+
+  return {
+    chain: sortedChain,
+    methodsByPokemon: sortedMethodsByPokemon
+  };
 }
 
-// Function to get the evolution chain for a Pokémon
-function getEvolutionChain(mon: string): string[] {
-  // Use the new non-recursive approach to build a complete chain
+// Function to get the evolution chain and methods for a Pokémon
+function getEvolutionChain(mon: string): { chain: string[], methodsByPokemon: Record<string, EvolutionMethod[]> } {
+  // Use the non-recursive approach to build a complete chain with methods
   return buildCompleteEvolutionChain(mon);
 }
 
@@ -414,13 +443,17 @@ for (const mon of Object.keys(result)) {
     ...(e.form ? { form: e.form } : {})
   })) : [];
 
-  // Get the evolution chain - this will work even for final evolutions
+  // Get the evolution chain and methods - this will work even for final evolutions
   // as it will include all pre-evolutions
-  const chain = getEvolutionChain(standardMon);
+  const evolutionResult = getEvolutionChain(standardMon);
 
   // If the chain contains only the current Pokémon and there are no methods,
   // it could be a basic Pokémon with no evolutions
-  const evolution: Evolution = { methods, chain };
+  const evolution: Evolution = {
+    methods,
+    chain: evolutionResult.chain,
+    chainWithMethods: evolutionResult.methodsByPokemon
+  };
   // Dex numbers (1-based, null if not found)
   // First get the base name by removing any form suffixes
   const baseMonName = standardizePokemonKey(mon);
@@ -810,6 +843,44 @@ const evolutionData: Record<string, Evolution | null> = {};
 for (const [mon, data] of Object.entries(groupedPokemonData)) {
   console.log(`Processing evolution data for ${mon}`, data);
   evolutionData[mon] = data.evolution;
+}
+
+// Build a map of chains to ensure consistent data across all members
+const chainCache: Record<string, Evolution> = {};
+const processed = new Set<string>();
+
+// Second pass: ensure all members of the same chain have the same chain data
+for (const [mon, evolutionInfo] of Object.entries(evolutionData)) {
+  if (!evolutionInfo || processed.has(mon)) continue;
+
+  // Get the chain members as a string for caching
+  const chainKey = evolutionInfo.chain.join(',');
+
+  // Store this chain in the cache if not already present
+  if (!chainCache[chainKey]) {
+    chainCache[chainKey] = evolutionInfo;
+  }
+
+  // For each member of this chain
+  for (const chainMember of evolutionInfo.chain) {
+    // Skip if already processed
+    if (processed.has(chainMember)) continue;
+
+    // Make sure this member has the complete chain data
+    if (evolutionData[chainMember]) {
+      // Update to use the cached chain data to ensure consistency
+      evolutionData[chainMember] = {
+        // Keep the member's own methods
+        methods: evolutionData[chainMember].methods,
+        // Use the complete chain and chainWithMethods
+        chain: chainCache[chainKey].chain,
+        chainWithMethods: chainCache[chainKey].chainWithMethods
+      };
+
+      // Mark as processed
+      processed.add(chainMember);
+    }
+  }
 }
 
 const validatedEvolutionData = validatePokemonKeys(evolutionData);

@@ -99,6 +99,7 @@ export interface MoveDetail {
 export interface Evolution {
   methods: EvolutionMethod[];
   chain: string[];
+  chainWithMethods: Record<string, EvolutionMethod[]>;
 }
 
 
@@ -206,6 +207,7 @@ export interface PokemonType {
 
 export interface EvolutionChainProps {
   chain: string[];
+  chainWithMethods?: Record<string, EvolutionMethod[]>; // key: pokemon name, value: evolution methods
   spritesByGen?: Record<string, string>; // key: pokemon name, value: sprite url
   className?: string;
 }

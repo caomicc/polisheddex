@@ -11,7 +11,24 @@
       "Bulbasaur",
       "Ivysaur",
       "Venusaur"
-    ]
+    ],
+    "chainWithMethods": {
+      "Bulbasaur": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Ivysaur"
+        }
+      ],
+      "Ivysaur": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Venusaur"
+        }
+      ],
+      "Venusaur": []
+    }
   },
   "Ivysaur": {
     "methods": [
@@ -25,7 +42,24 @@
       "Bulbasaur",
       "Ivysaur",
       "Venusaur"
-    ]
+    ],
+    "chainWithMethods": {
+      "Bulbasaur": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Ivysaur"
+        }
+      ],
+      "Ivysaur": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Venusaur"
+        }
+      ],
+      "Venusaur": []
+    }
   },
   "Venusaur": {
     "methods": [],
@@ -33,7 +67,24 @@
       "Bulbasaur",
       "Ivysaur",
       "Venusaur"
-    ]
+    ],
+    "chainWithMethods": {
+      "Bulbasaur": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Ivysaur"
+        }
+      ],
+      "Ivysaur": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Venusaur"
+        }
+      ],
+      "Venusaur": []
+    }
   },
   "Charmander": {
     "methods": [
@@ -47,7 +98,24 @@
       "Charmander",
       "Charmeleon",
       "Charizard"
-    ]
+    ],
+    "chainWithMethods": {
+      "Charmander": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Charmeleon"
+        }
+      ],
+      "Charmeleon": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Charizard"
+        }
+      ],
+      "Charizard": []
+    }
   },
   "Charmeleon": {
     "methods": [
@@ -61,7 +129,24 @@
       "Charmander",
       "Charmeleon",
       "Charizard"
-    ]
+    ],
+    "chainWithMethods": {
+      "Charmander": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Charmeleon"
+        }
+      ],
+      "Charmeleon": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Charizard"
+        }
+      ],
+      "Charizard": []
+    }
   },
   "Charizard": {
     "methods": [],
@@ -69,7 +154,24 @@
       "Charmander",
       "Charmeleon",
       "Charizard"
-    ]
+    ],
+    "chainWithMethods": {
+      "Charmander": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Charmeleon"
+        }
+      ],
+      "Charmeleon": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Charizard"
+        }
+      ],
+      "Charizard": []
+    }
   },
   "Squirtle": {
     "methods": [
@@ -83,7 +185,24 @@
       "Squirtle",
       "Wartortle",
       "Blastoise"
-    ]
+    ],
+    "chainWithMethods": {
+      "Squirtle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Wartortle"
+        }
+      ],
+      "Wartortle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Blastoise"
+        }
+      ],
+      "Blastoise": []
+    }
   },
   "Wartortle": {
     "methods": [
@@ -97,7 +216,24 @@
       "Squirtle",
       "Wartortle",
       "Blastoise"
-    ]
+    ],
+    "chainWithMethods": {
+      "Squirtle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Wartortle"
+        }
+      ],
+      "Wartortle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Blastoise"
+        }
+      ],
+      "Blastoise": []
+    }
   },
   "Blastoise": {
     "methods": [],
@@ -105,7 +241,24 @@
       "Squirtle",
       "Wartortle",
       "Blastoise"
-    ]
+    ],
+    "chainWithMethods": {
+      "Squirtle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Wartortle"
+        }
+      ],
+      "Wartortle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Blastoise"
+        }
+      ],
+      "Blastoise": []
+    }
   },
   "Caterpie": {
     "methods": [
@@ -119,7 +272,24 @@
       "Caterpie",
       "Metapod",
       "Butterfree"
-    ]
+    ],
+    "chainWithMethods": {
+      "Caterpie": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Metapod"
+        }
+      ],
+      "Metapod": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Butterfree"
+        }
+      ],
+      "Butterfree": []
+    }
   },
   "Metapod": {
     "methods": [
@@ -133,7 +303,24 @@
       "Caterpie",
       "Metapod",
       "Butterfree"
-    ]
+    ],
+    "chainWithMethods": {
+      "Caterpie": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Metapod"
+        }
+      ],
+      "Metapod": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Butterfree"
+        }
+      ],
+      "Butterfree": []
+    }
   },
   "Butterfree": {
     "methods": [],
@@ -141,7 +328,24 @@
       "Caterpie",
       "Metapod",
       "Butterfree"
-    ]
+    ],
+    "chainWithMethods": {
+      "Caterpie": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Metapod"
+        }
+      ],
+      "Metapod": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Butterfree"
+        }
+      ],
+      "Butterfree": []
+    }
   },
   "Weedle": {
     "methods": [
@@ -155,7 +359,24 @@
       "Weedle",
       "Kakuna",
       "Beedrill"
-    ]
+    ],
+    "chainWithMethods": {
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ],
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": []
+    }
   },
   "Kakuna": {
     "methods": [
@@ -169,7 +390,24 @@
       "Weedle",
       "Kakuna",
       "Beedrill"
-    ]
+    ],
+    "chainWithMethods": {
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ],
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": []
+    }
   },
   "Beedrill": {
     "methods": [],
@@ -177,7 +415,24 @@
       "Weedle",
       "Kakuna",
       "Beedrill"
-    ]
+    ],
+    "chainWithMethods": {
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ],
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": []
+    }
   },
   "Pidgey": {
     "methods": [
@@ -191,7 +446,24 @@
       "Pidgey",
       "Pidgeotto",
       "Pidgeot"
-    ]
+    ],
+    "chainWithMethods": {
+      "Pidgey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Pidgeotto"
+        }
+      ],
+      "Pidgeotto": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Pidgeot"
+        }
+      ],
+      "Pidgeot": []
+    }
   },
   "Pidgeotto": {
     "methods": [
@@ -205,7 +477,24 @@
       "Pidgey",
       "Pidgeotto",
       "Pidgeot"
-    ]
+    ],
+    "chainWithMethods": {
+      "Pidgey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Pidgeotto"
+        }
+      ],
+      "Pidgeotto": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Pidgeot"
+        }
+      ],
+      "Pidgeot": []
+    }
   },
   "Pidgeot": {
     "methods": [],
@@ -213,14 +502,47 @@
       "Pidgey",
       "Pidgeotto",
       "Pidgeot"
-    ]
+    ],
+    "chainWithMethods": {
+      "Pidgey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Pidgeotto"
+        }
+      ],
+      "Pidgeotto": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Pidgeot"
+        }
+      ],
+      "Pidgeot": []
+    }
   },
   "Rattata": {
     "methods": [],
     "chain": [
       "Rattata",
       "Raticate"
-    ]
+    ],
+    "chainWithMethods": {
+      "Rattata": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Raticate"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Raticate",
+          "form": "Alolan Form"
+        }
+      ],
+      "Raticate": []
+    }
   },
   "Spearow": {
     "methods": [
@@ -233,14 +555,34 @@
     "chain": [
       "Spearow",
       "Fearow"
-    ]
+    ],
+    "chainWithMethods": {
+      "Spearow": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Fearow"
+        }
+      ],
+      "Fearow": []
+    }
   },
   "Fearow": {
     "methods": [],
     "chain": [
       "Spearow",
       "Fearow"
-    ]
+    ],
+    "chainWithMethods": {
+      "Spearow": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Fearow"
+        }
+      ],
+      "Fearow": []
+    }
   },
   "Ekans": {
     "methods": [
@@ -254,14 +596,36 @@
     "chain": [
       "Ekans",
       "Arbok"
-    ]
+    ],
+    "chainWithMethods": {
+      "Ekans": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Arbok",
+          "form": "No Form"
+        }
+      ],
+      "Arbok": []
+    }
   },
   "Arbok": {
     "methods": [],
     "chain": [
       "Ekans",
       "Arbok"
-    ]
+    ],
+    "chainWithMethods": {
+      "Ekans": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Arbok",
+          "form": "No Form"
+        }
+      ],
+      "Arbok": []
+    }
   },
   "Pikachu": {
     "methods": [
@@ -282,7 +646,31 @@
       "Pichu",
       "Pikachu",
       "Raichu"
-    ]
+    ],
+    "chainWithMethods": {
+      "Pichu": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Pikachu"
+        }
+      ],
+      "Pikachu": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Raichu",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Raichu",
+          "form": "Alolan Form"
+        }
+      ],
+      "Raichu": []
+    }
   },
   "Raichu": {
     "methods": [],
@@ -290,21 +678,79 @@
       "Pichu",
       "Pikachu",
       "Raichu"
-    ]
+    ],
+    "chainWithMethods": {
+      "Pichu": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Pikachu"
+        }
+      ],
+      "Pikachu": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Raichu",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Raichu",
+          "form": "Alolan Form"
+        }
+      ],
+      "Raichu": []
+    }
   },
   "Sandshrew": {
     "methods": [],
     "chain": [
       "Sandshrew",
       "Sandslash"
-    ]
+    ],
+    "chainWithMethods": {
+      "Sandshrew": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Sandslash",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Sandslash",
+          "form": "Alolan Form"
+        }
+      ],
+      "Sandslash": []
+    }
   },
   "Sandslash": {
     "methods": [],
     "chain": [
       "Sandshrew",
       "Sandslash"
-    ]
+    ],
+    "chainWithMethods": {
+      "Sandshrew": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Sandslash",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Sandslash",
+          "form": "Alolan Form"
+        }
+      ],
+      "Sandslash": []
+    }
   },
   "Nidoran F": {
     "methods": [
@@ -318,7 +764,24 @@
       "Nidoran F",
       "Nidorina",
       "Nidoqueen"
-    ]
+    ],
+    "chainWithMethods": {
+      "Nidoran F": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorina"
+        }
+      ],
+      "Nidorina": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoqueen"
+        }
+      ],
+      "Nidoqueen": []
+    }
   },
   "Nidorina": {
     "methods": [
@@ -332,7 +795,24 @@
       "Nidoran F",
       "Nidorina",
       "Nidoqueen"
-    ]
+    ],
+    "chainWithMethods": {
+      "Nidoran F": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorina"
+        }
+      ],
+      "Nidorina": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoqueen"
+        }
+      ],
+      "Nidoqueen": []
+    }
   },
   "Nidoqueen": {
     "methods": [],
@@ -340,7 +820,24 @@
       "Nidoran F",
       "Nidorina",
       "Nidoqueen"
-    ]
+    ],
+    "chainWithMethods": {
+      "Nidoran F": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorina"
+        }
+      ],
+      "Nidorina": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoqueen"
+        }
+      ],
+      "Nidoqueen": []
+    }
   },
   "Nidoran M": {
     "methods": [
@@ -354,7 +851,24 @@
       "Nidoran M",
       "Nidorino",
       "Nidoking"
-    ]
+    ],
+    "chainWithMethods": {
+      "Nidoran M": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorino"
+        }
+      ],
+      "Nidorino": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoking"
+        }
+      ],
+      "Nidoking": []
+    }
   },
   "Nidorino": {
     "methods": [
@@ -368,7 +882,24 @@
       "Nidoran M",
       "Nidorino",
       "Nidoking"
-    ]
+    ],
+    "chainWithMethods": {
+      "Nidoran M": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorino"
+        }
+      ],
+      "Nidorino": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoking"
+        }
+      ],
+      "Nidoking": []
+    }
   },
   "Nidoking": {
     "methods": [],
@@ -376,7 +907,24 @@
       "Nidoran M",
       "Nidorino",
       "Nidoking"
-    ]
+    ],
+    "chainWithMethods": {
+      "Nidoran M": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorino"
+        }
+      ],
+      "Nidorino": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoking"
+        }
+      ],
+      "Nidoking": []
+    }
   },
   "Clefairy": {
     "methods": [
@@ -390,7 +938,24 @@
       "Cleffa",
       "Clefairy",
       "Clefable"
-    ]
+    ],
+    "chainWithMethods": {
+      "Cleffa": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Clefairy"
+        }
+      ],
+      "Clefairy": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Clefable"
+        }
+      ],
+      "Clefable": []
+    }
   },
   "Clefable": {
     "methods": [],
@@ -398,21 +963,72 @@
       "Cleffa",
       "Clefairy",
       "Clefable"
-    ]
+    ],
+    "chainWithMethods": {
+      "Cleffa": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Clefairy"
+        }
+      ],
+      "Clefairy": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Clefable"
+        }
+      ],
+      "Clefable": []
+    }
   },
   "Vulpix": {
     "methods": [],
     "chain": [
       "Vulpix",
       "Ninetales"
-    ]
+    ],
+    "chainWithMethods": {
+      "Vulpix": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Ninetales",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Ninetales",
+          "form": "Alolan Form"
+        }
+      ],
+      "Ninetales": []
+    }
   },
   "Ninetales": {
     "methods": [],
     "chain": [
       "Vulpix",
       "Ninetales"
-    ]
+    ],
+    "chainWithMethods": {
+      "Vulpix": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Ninetales",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Ninetales",
+          "form": "Alolan Form"
+        }
+      ],
+      "Ninetales": []
+    }
   },
   "Jigglypuff": {
     "methods": [
@@ -426,7 +1042,24 @@
       "Igglybuff",
       "Jigglypuff",
       "Wigglytuff"
-    ]
+    ],
+    "chainWithMethods": {
+      "Igglybuff": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Jigglypuff"
+        }
+      ],
+      "Jigglypuff": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Wigglytuff"
+        }
+      ],
+      "Wigglytuff": []
+    }
   },
   "Wigglytuff": {
     "methods": [],
@@ -434,7 +1067,24 @@
       "Igglybuff",
       "Jigglypuff",
       "Wigglytuff"
-    ]
+    ],
+    "chainWithMethods": {
+      "Igglybuff": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Jigglypuff"
+        }
+      ],
+      "Jigglypuff": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Wigglytuff"
+        }
+      ],
+      "Wigglytuff": []
+    }
   },
   "Zubat": {
     "methods": [
@@ -448,7 +1098,24 @@
       "Zubat",
       "Golbat",
       "Crobat"
-    ]
+    ],
+    "chainWithMethods": {
+      "Zubat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Golbat"
+        }
+      ],
+      "Golbat": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Crobat"
+        }
+      ],
+      "Crobat": []
+    }
   },
   "Golbat": {
     "methods": [
@@ -462,7 +1129,24 @@
       "Zubat",
       "Golbat",
       "Crobat"
-    ]
+    ],
+    "chainWithMethods": {
+      "Zubat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Golbat"
+        }
+      ],
+      "Golbat": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Crobat"
+        }
+      ],
+      "Crobat": []
+    }
   },
   "Oddish": {
     "methods": [
@@ -477,7 +1161,30 @@
       "Gloom",
       "Vileplume",
       "Bellossom"
-    ]
+    ],
+    "chainWithMethods": {
+      "Oddish": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Gloom"
+        }
+      ],
+      "Gloom": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Vileplume"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Bellossom"
+        }
+      ],
+      "Vileplume": [],
+      "Bellossom": []
+    }
   },
   "Gloom": {
     "methods": [
@@ -497,7 +1204,30 @@
       "Gloom",
       "Vileplume",
       "Bellossom"
-    ]
+    ],
+    "chainWithMethods": {
+      "Oddish": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Gloom"
+        }
+      ],
+      "Gloom": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Vileplume"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Bellossom"
+        }
+      ],
+      "Vileplume": [],
+      "Bellossom": []
+    }
   },
   "Vileplume": {
     "methods": [],
@@ -506,7 +1236,30 @@
       "Gloom",
       "Vileplume",
       "Bellossom"
-    ]
+    ],
+    "chainWithMethods": {
+      "Oddish": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Gloom"
+        }
+      ],
+      "Gloom": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Vileplume"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Bellossom"
+        }
+      ],
+      "Vileplume": [],
+      "Bellossom": []
+    }
   },
   "Paras": {
     "methods": [
@@ -519,14 +1272,34 @@
     "chain": [
       "Paras",
       "Parasect"
-    ]
+    ],
+    "chainWithMethods": {
+      "Paras": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 24,
+          "target": "Parasect"
+        }
+      ],
+      "Parasect": []
+    }
   },
   "Parasect": {
     "methods": [],
     "chain": [
       "Paras",
       "Parasect"
-    ]
+    ],
+    "chainWithMethods": {
+      "Paras": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 24,
+          "target": "Parasect"
+        }
+      ],
+      "Parasect": []
+    }
   },
   "Venonat": {
     "methods": [
@@ -539,28 +1312,82 @@
     "chain": [
       "Venonat",
       "Venomoth"
-    ]
+    ],
+    "chainWithMethods": {
+      "Venonat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 31,
+          "target": "Venomoth"
+        }
+      ],
+      "Venomoth": []
+    }
   },
   "Venomoth": {
     "methods": [],
     "chain": [
       "Venonat",
       "Venomoth"
-    ]
+    ],
+    "chainWithMethods": {
+      "Venonat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 31,
+          "target": "Venomoth"
+        }
+      ],
+      "Venomoth": []
+    }
   },
   "Diglett": {
     "methods": [],
     "chain": [
       "Diglett",
       "Dugtrio"
-    ]
+    ],
+    "chainWithMethods": {
+      "Diglett": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 26,
+          "target": "Dugtrio",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 26,
+          "target": "Dugtrio",
+          "form": "Alolan Form"
+        }
+      ],
+      "Dugtrio": []
+    }
   },
   "Dugtrio": {
     "methods": [],
     "chain": [
       "Diglett",
       "Dugtrio"
-    ]
+    ],
+    "chainWithMethods": {
+      "Diglett": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 26,
+          "target": "Dugtrio",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 26,
+          "target": "Dugtrio",
+          "form": "Alolan Form"
+        }
+      ],
+      "Dugtrio": []
+    }
   },
   "Meowth": {
     "methods": [],
@@ -568,7 +1395,31 @@
       "Meowth",
       "Persian",
       "Perrserker"
-    ]
+    ],
+    "chainWithMethods": {
+      "Meowth": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Persian",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Persian",
+          "form": "Alolan Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Perrserker",
+          "form": "Plain Form"
+        }
+      ],
+      "Persian": [],
+      "Perrserker": []
+    }
   },
   "Persian": {
     "methods": [],
@@ -576,7 +1427,31 @@
       "Meowth",
       "Persian",
       "Perrserker"
-    ]
+    ],
+    "chainWithMethods": {
+      "Meowth": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Persian",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Persian",
+          "form": "Alolan Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Perrserker",
+          "form": "Plain Form"
+        }
+      ],
+      "Persian": [],
+      "Perrserker": []
+    }
   },
   "Psyduck": {
     "methods": [
@@ -589,14 +1464,34 @@
     "chain": [
       "Psyduck",
       "Golduck"
-    ]
+    ],
+    "chainWithMethods": {
+      "Psyduck": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Golduck"
+        }
+      ],
+      "Golduck": []
+    }
   },
   "Golduck": {
     "methods": [],
     "chain": [
       "Psyduck",
       "Golduck"
-    ]
+    ],
+    "chainWithMethods": {
+      "Psyduck": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Golduck"
+        }
+      ],
+      "Golduck": []
+    }
   },
   "Mankey": {
     "methods": [
@@ -610,7 +1505,24 @@
       "Mankey",
       "Primeape",
       "Annihilape"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mankey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Primeape"
+        }
+      ],
+      "Primeape": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "OUTRAGE",
+          "target": "Annihilape"
+        }
+      ],
+      "Annihilape": []
+    }
   },
   "Primeape": {
     "methods": [
@@ -624,21 +1536,70 @@
       "Mankey",
       "Primeape",
       "Annihilape"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mankey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Primeape"
+        }
+      ],
+      "Primeape": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "OUTRAGE",
+          "target": "Annihilape"
+        }
+      ],
+      "Annihilape": []
+    }
   },
   "Growlithe": {
     "methods": [],
     "chain": [
       "Growlithe",
       "Arcanine"
-    ]
+    ],
+    "chainWithMethods": {
+      "Growlithe": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Arcanine"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Arcanine",
+          "form": "Hisuian Form"
+        }
+      ],
+      "Arcanine": []
+    }
   },
   "Arcanine": {
     "methods": [],
     "chain": [
       "Growlithe",
       "Arcanine"
-    ]
+    ],
+    "chainWithMethods": {
+      "Growlithe": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Arcanine"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Arcanine",
+          "form": "Hisuian Form"
+        }
+      ],
+      "Arcanine": []
+    }
   },
   "Poliwag": {
     "methods": [
@@ -653,7 +1614,30 @@
       "Poliwhirl",
       "Politoed",
       "Poliwrath"
-    ]
+    ],
+    "chainWithMethods": {
+      "Poliwag": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Poliwhirl"
+        }
+      ],
+      "Poliwhirl": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Politoed"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Poliwrath"
+        }
+      ],
+      "Politoed": [],
+      "Poliwrath": []
+    }
   },
   "Poliwhirl": {
     "methods": [
@@ -673,16 +1657,62 @@
       "Poliwhirl",
       "Politoed",
       "Poliwrath"
-    ]
+    ],
+    "chainWithMethods": {
+      "Poliwag": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Poliwhirl"
+        }
+      ],
+      "Poliwhirl": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Politoed"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Poliwrath"
+        }
+      ],
+      "Politoed": [],
+      "Poliwrath": []
+    }
   },
   "Poliwrath": {
     "methods": [],
     "chain": [
       "Poliwag",
       "Poliwhirl",
-      "Poliwrath",
-      "Politoed"
-    ]
+      "Politoed",
+      "Poliwrath"
+    ],
+    "chainWithMethods": {
+      "Poliwag": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Poliwhirl"
+        }
+      ],
+      "Poliwhirl": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Politoed"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Poliwrath"
+        }
+      ],
+      "Politoed": [],
+      "Poliwrath": []
+    }
   },
   "Abra": {
     "methods": [
@@ -696,7 +1726,24 @@
       "Abra",
       "Kadabra",
       "Alakazam"
-    ]
+    ],
+    "chainWithMethods": {
+      "Abra": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Kadabra"
+        }
+      ],
+      "Kadabra": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Alakazam"
+        }
+      ],
+      "Alakazam": []
+    }
   },
   "Kadabra": {
     "methods": [
@@ -710,7 +1757,24 @@
       "Abra",
       "Kadabra",
       "Alakazam"
-    ]
+    ],
+    "chainWithMethods": {
+      "Abra": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Kadabra"
+        }
+      ],
+      "Kadabra": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Alakazam"
+        }
+      ],
+      "Alakazam": []
+    }
   },
   "Alakazam": {
     "methods": [],
@@ -718,7 +1782,24 @@
       "Abra",
       "Kadabra",
       "Alakazam"
-    ]
+    ],
+    "chainWithMethods": {
+      "Abra": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Kadabra"
+        }
+      ],
+      "Kadabra": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Alakazam"
+        }
+      ],
+      "Alakazam": []
+    }
   },
   "Machop": {
     "methods": [
@@ -732,7 +1813,24 @@
       "Machop",
       "Machoke",
       "Machamp"
-    ]
+    ],
+    "chainWithMethods": {
+      "Machop": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Machoke"
+        }
+      ],
+      "Machoke": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Machamp"
+        }
+      ],
+      "Machamp": []
+    }
   },
   "Machoke": {
     "methods": [
@@ -746,7 +1844,24 @@
       "Machop",
       "Machoke",
       "Machamp"
-    ]
+    ],
+    "chainWithMethods": {
+      "Machop": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Machoke"
+        }
+      ],
+      "Machoke": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Machamp"
+        }
+      ],
+      "Machamp": []
+    }
   },
   "Machamp": {
     "methods": [],
@@ -754,7 +1869,24 @@
       "Machop",
       "Machoke",
       "Machamp"
-    ]
+    ],
+    "chainWithMethods": {
+      "Machop": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Machoke"
+        }
+      ],
+      "Machoke": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Machamp"
+        }
+      ],
+      "Machamp": []
+    }
   },
   "Bellsprout": {
     "methods": [
@@ -768,7 +1900,24 @@
       "Bellsprout",
       "Weepinbell",
       "Victreebel"
-    ]
+    ],
+    "chainWithMethods": {
+      "Bellsprout": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Weepinbell"
+        }
+      ],
+      "Weepinbell": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Victreebel"
+        }
+      ],
+      "Victreebel": []
+    }
   },
   "Weepinbell": {
     "methods": [
@@ -782,7 +1931,24 @@
       "Bellsprout",
       "Weepinbell",
       "Victreebel"
-    ]
+    ],
+    "chainWithMethods": {
+      "Bellsprout": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Weepinbell"
+        }
+      ],
+      "Weepinbell": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Victreebel"
+        }
+      ],
+      "Victreebel": []
+    }
   },
   "Victreebel": {
     "methods": [],
@@ -790,7 +1956,24 @@
       "Bellsprout",
       "Weepinbell",
       "Victreebel"
-    ]
+    ],
+    "chainWithMethods": {
+      "Bellsprout": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Weepinbell"
+        }
+      ],
+      "Weepinbell": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Victreebel"
+        }
+      ],
+      "Victreebel": []
+    }
   },
   "Tentacool": {
     "methods": [
@@ -803,14 +1986,34 @@
     "chain": [
       "Tentacool",
       "Tentacruel"
-    ]
+    ],
+    "chainWithMethods": {
+      "Tentacool": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Tentacruel"
+        }
+      ],
+      "Tentacruel": []
+    }
   },
   "Tentacruel": {
     "methods": [],
     "chain": [
       "Tentacool",
       "Tentacruel"
-    ]
+    ],
+    "chainWithMethods": {
+      "Tentacool": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Tentacruel"
+        }
+      ],
+      "Tentacruel": []
+    }
   },
   "Geodude": {
     "methods": [],
@@ -818,7 +2021,38 @@
       "Geodude",
       "Graveler",
       "Golem"
-    ]
+    ],
+    "chainWithMethods": {
+      "Geodude": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Alolan Form"
+        }
+      ],
+      "Graveler": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Alolan Form"
+        }
+      ],
+      "Golem": []
+    }
   },
   "Graveler": {
     "methods": [],
@@ -826,7 +2060,38 @@
       "Geodude",
       "Graveler",
       "Golem"
-    ]
+    ],
+    "chainWithMethods": {
+      "Geodude": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Alolan Form"
+        }
+      ],
+      "Graveler": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Alolan Form"
+        }
+      ],
+      "Golem": []
+    }
   },
   "Golem": {
     "methods": [],
@@ -834,21 +2099,86 @@
       "Geodude",
       "Graveler",
       "Golem"
-    ]
+    ],
+    "chainWithMethods": {
+      "Geodude": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Alolan Form"
+        }
+      ],
+      "Graveler": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Alolan Form"
+        }
+      ],
+      "Golem": []
+    }
   },
   "Ponyta": {
     "methods": [],
     "chain": [
       "Ponyta",
       "Rapidash"
-    ]
+    ],
+    "chainWithMethods": {
+      "Ponyta": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Rapidash",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Rapidash",
+          "form": "Galarian Form"
+        }
+      ],
+      "Rapidash": []
+    }
   },
   "Rapidash": {
     "methods": [],
     "chain": [
       "Ponyta",
       "Rapidash"
-    ]
+    ],
+    "chainWithMethods": {
+      "Ponyta": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Rapidash",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Rapidash",
+          "form": "Galarian Form"
+        }
+      ],
+      "Rapidash": []
+    }
   },
   "Slowpoke": {
     "methods": [],
@@ -856,7 +2186,37 @@
       "Slowpoke",
       "Slowking",
       "Slowbro"
-    ]
+    ],
+    "chainWithMethods": {
+      "Slowpoke": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "Galarian Form"
+        }
+      ],
+      "Slowking": [],
+      "Slowbro": []
+    }
   },
   "Slowbro": {
     "methods": [],
@@ -864,7 +2224,37 @@
       "Slowpoke",
       "Slowbro",
       "Slowking"
-    ]
+    ],
+    "chainWithMethods": {
+      "Slowpoke": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "Galarian Form"
+        }
+      ],
+      "Slowbro": [],
+      "Slowking": []
+    }
   },
   "Magnemite": {
     "methods": [
@@ -878,7 +2268,34 @@
       "Magnemite",
       "Magneton",
       "Magnezone"
-    ]
+    ],
+    "chainWithMethods": {
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ],
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnezone": []
+    }
   },
   "Magneton": {
     "methods": [
@@ -902,14 +2319,52 @@
       "Magnemite",
       "Magneton",
       "Magnezone"
-    ]
+    ],
+    "chainWithMethods": {
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ],
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnezone": []
+    }
   },
   "Farfetch D": {
     "methods": [],
     "chain": [
       "Farfetch D",
       "Sirfetch D"
-    ]
+    ],
+    "chainWithMethods": {
+      "Farfetch D": [
+        {
+          "method": "EVOLVE_CRIT",
+          "parameter": "TR_ANYTIME",
+          "target": "Sirfetch D",
+          "form": "Plain Form"
+        }
+      ],
+      "Sirfetch D": []
+    }
   },
   "Doduo": {
     "methods": [
@@ -922,14 +2377,34 @@
     "chain": [
       "Doduo",
       "Dodrio"
-    ]
+    ],
+    "chainWithMethods": {
+      "Doduo": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 31,
+          "target": "Dodrio"
+        }
+      ],
+      "Dodrio": []
+    }
   },
   "Dodrio": {
     "methods": [],
     "chain": [
       "Doduo",
       "Dodrio"
-    ]
+    ],
+    "chainWithMethods": {
+      "Doduo": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 31,
+          "target": "Dodrio"
+        }
+      ],
+      "Dodrio": []
+    }
   },
   "Seel": {
     "methods": [
@@ -942,28 +2417,82 @@
     "chain": [
       "Seel",
       "Dewgong"
-    ]
+    ],
+    "chainWithMethods": {
+      "Seel": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 34,
+          "target": "Dewgong"
+        }
+      ],
+      "Dewgong": []
+    }
   },
   "Dewgong": {
     "methods": [],
     "chain": [
       "Seel",
       "Dewgong"
-    ]
+    ],
+    "chainWithMethods": {
+      "Seel": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 34,
+          "target": "Dewgong"
+        }
+      ],
+      "Dewgong": []
+    }
   },
   "Grimer": {
     "methods": [],
     "chain": [
       "Grimer",
       "Muk"
-    ]
+    ],
+    "chainWithMethods": {
+      "Grimer": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Muk",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Muk",
+          "form": "Alolan Form"
+        }
+      ],
+      "Muk": []
+    }
   },
   "Muk": {
     "methods": [],
     "chain": [
       "Grimer",
       "Muk"
-    ]
+    ],
+    "chainWithMethods": {
+      "Grimer": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Muk",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Muk",
+          "form": "Alolan Form"
+        }
+      ],
+      "Muk": []
+    }
   },
   "Shellder": {
     "methods": [
@@ -976,14 +2505,34 @@
     "chain": [
       "Shellder",
       "Cloyster"
-    ]
+    ],
+    "chainWithMethods": {
+      "Shellder": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Cloyster"
+        }
+      ],
+      "Cloyster": []
+    }
   },
   "Cloyster": {
     "methods": [],
     "chain": [
       "Shellder",
       "Cloyster"
-    ]
+    ],
+    "chainWithMethods": {
+      "Shellder": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Cloyster"
+        }
+      ],
+      "Cloyster": []
+    }
   },
   "Gastly": {
     "methods": [
@@ -997,7 +2546,24 @@
       "Gastly",
       "Haunter",
       "Gengar"
-    ]
+    ],
+    "chainWithMethods": {
+      "Gastly": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Haunter"
+        }
+      ],
+      "Haunter": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Gengar"
+        }
+      ],
+      "Gengar": []
+    }
   },
   "Haunter": {
     "methods": [
@@ -1011,7 +2577,24 @@
       "Gastly",
       "Haunter",
       "Gengar"
-    ]
+    ],
+    "chainWithMethods": {
+      "Gastly": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Haunter"
+        }
+      ],
+      "Haunter": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Gengar"
+        }
+      ],
+      "Gengar": []
+    }
   },
   "Gengar": {
     "methods": [],
@@ -1019,7 +2602,24 @@
       "Gastly",
       "Haunter",
       "Gengar"
-    ]
+    ],
+    "chainWithMethods": {
+      "Gastly": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Haunter"
+        }
+      ],
+      "Haunter": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Gengar"
+        }
+      ],
+      "Gengar": []
+    }
   },
   "Onix": {
     "methods": [
@@ -1032,7 +2632,17 @@
     "chain": [
       "Onix",
       "Steelix"
-    ]
+    ],
+    "chainWithMethods": {
+      "Onix": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Steelix"
+        }
+      ],
+      "Steelix": []
+    }
   },
   "Drowzee": {
     "methods": [
@@ -1045,14 +2655,34 @@
     "chain": [
       "Drowzee",
       "Hypno"
-    ]
+    ],
+    "chainWithMethods": {
+      "Drowzee": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 26,
+          "target": "Hypno"
+        }
+      ],
+      "Hypno": []
+    }
   },
   "Hypno": {
     "methods": [],
     "chain": [
       "Drowzee",
       "Hypno"
-    ]
+    ],
+    "chainWithMethods": {
+      "Drowzee": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 26,
+          "target": "Hypno"
+        }
+      ],
+      "Hypno": []
+    }
   },
   "Krabby": {
     "methods": [
@@ -1065,28 +2695,80 @@
     "chain": [
       "Krabby",
       "Kingler"
-    ]
+    ],
+    "chainWithMethods": {
+      "Krabby": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Kingler"
+        }
+      ],
+      "Kingler": []
+    }
   },
   "Kingler": {
     "methods": [],
     "chain": [
       "Krabby",
       "Kingler"
-    ]
+    ],
+    "chainWithMethods": {
+      "Krabby": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Kingler"
+        }
+      ],
+      "Kingler": []
+    }
   },
   "Voltorb": {
     "methods": [],
     "chain": [
       "Voltorb",
       "Electrode"
-    ]
+    ],
+    "chainWithMethods": {
+      "Voltorb": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electrode"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Electrode",
+          "form": "Hisuian Form"
+        }
+      ],
+      "Electrode": []
+    }
   },
   "Electrode": {
     "methods": [],
     "chain": [
       "Voltorb",
       "Electrode"
-    ]
+    ],
+    "chainWithMethods": {
+      "Voltorb": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electrode"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Electrode",
+          "form": "Hisuian Form"
+        }
+      ],
+      "Electrode": []
+    }
   },
   "Exeggcute": {
     "methods": [
@@ -1106,14 +2788,48 @@
     "chain": [
       "Exeggcute",
       "Exeggutor"
-    ]
+    ],
+    "chainWithMethods": {
+      "Exeggcute": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Exeggutor",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Exeggutor",
+          "form": "Alolan Form"
+        }
+      ],
+      "Exeggutor": []
+    }
   },
   "Exeggutor": {
     "methods": [],
     "chain": [
       "Exeggcute",
       "Exeggutor"
-    ]
+    ],
+    "chainWithMethods": {
+      "Exeggcute": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Exeggutor",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Exeggutor",
+          "form": "Alolan Form"
+        }
+      ],
+      "Exeggutor": []
+    }
   },
   "Cubone": {
     "methods": [
@@ -1133,26 +2849,66 @@
     "chain": [
       "Cubone",
       "Marowak"
-    ]
+    ],
+    "chainWithMethods": {
+      "Cubone": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Marowak",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Marowak",
+          "form": "Alolan Form"
+        }
+      ],
+      "Marowak": []
+    }
   },
   "Marowak": {
     "methods": [],
     "chain": [
       "Cubone",
       "Marowak"
-    ]
+    ],
+    "chainWithMethods": {
+      "Cubone": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Marowak",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Marowak",
+          "form": "Alolan Form"
+        }
+      ],
+      "Marowak": []
+    }
   },
   "Hitmonlee": {
     "methods": [],
     "chain": [
       "Hitmonlee"
-    ]
+    ],
+    "chainWithMethods": {
+      "Hitmonlee": []
+    }
   },
   "Hitmonchan": {
     "methods": [],
     "chain": [
       "Hitmonchan"
-    ]
+    ],
+    "chainWithMethods": {
+      "Hitmonchan": []
+    }
   },
   "Lickitung": {
     "methods": [
@@ -1165,7 +2921,17 @@
     "chain": [
       "Lickitung",
       "Lickilicky"
-    ]
+    ],
+    "chainWithMethods": {
+      "Lickitung": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ROLLOUT",
+          "target": "Lickilicky"
+        }
+      ],
+      "Lickilicky": []
+    }
   },
   "Koffing": {
     "methods": [
@@ -1185,14 +2951,48 @@
     "chain": [
       "Koffing",
       "Weezing"
-    ]
+    ],
+    "chainWithMethods": {
+      "Koffing": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "CHARCOAL",
+          "target": "Weezing",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 35,
+          "target": "Weezing",
+          "form": "Plain Form"
+        }
+      ],
+      "Weezing": []
+    }
   },
   "Weezing": {
     "methods": [],
     "chain": [
       "Koffing",
       "Weezing"
-    ]
+    ],
+    "chainWithMethods": {
+      "Koffing": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "CHARCOAL",
+          "target": "Weezing",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 35,
+          "target": "Weezing",
+          "form": "Plain Form"
+        }
+      ],
+      "Weezing": []
+    }
   },
   "Rhyhorn": {
     "methods": [
@@ -1206,7 +3006,24 @@
       "Rhyhorn",
       "Rhydon",
       "Rhyperior"
-    ]
+    ],
+    "chainWithMethods": {
+      "Rhyhorn": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "Rhydon"
+        }
+      ],
+      "Rhydon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "PROTECTOR",
+          "target": "Rhyperior"
+        }
+      ],
+      "Rhyperior": []
+    }
   },
   "Rhydon": {
     "methods": [
@@ -1220,7 +3037,24 @@
       "Rhyhorn",
       "Rhydon",
       "Rhyperior"
-    ]
+    ],
+    "chainWithMethods": {
+      "Rhyhorn": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "Rhydon"
+        }
+      ],
+      "Rhydon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "PROTECTOR",
+          "target": "Rhyperior"
+        }
+      ],
+      "Rhyperior": []
+    }
   },
   "Chansey": {
     "methods": [
@@ -1233,7 +3067,17 @@
     "chain": [
       "Chansey",
       "Blissey"
-    ]
+    ],
+    "chainWithMethods": {
+      "Chansey": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Blissey"
+        }
+      ],
+      "Blissey": []
+    }
   },
   "Tangela": {
     "methods": [
@@ -1246,13 +3090,26 @@
     "chain": [
       "Tangela",
       "Tangrowth"
-    ]
+    ],
+    "chainWithMethods": {
+      "Tangela": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Tangrowth"
+        }
+      ],
+      "Tangrowth": []
+    }
   },
   "Kangaskhan": {
     "methods": [],
     "chain": [
       "Kangaskhan"
-    ]
+    ],
+    "chainWithMethods": {
+      "Kangaskhan": []
+    }
   },
   "Horsea": {
     "methods": [
@@ -1266,7 +3123,24 @@
       "Horsea",
       "Seadra",
       "Kingdra"
-    ]
+    ],
+    "chainWithMethods": {
+      "Horsea": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Seadra"
+        }
+      ],
+      "Seadra": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DRAGON_SCALE",
+          "target": "Kingdra"
+        }
+      ],
+      "Kingdra": []
+    }
   },
   "Seadra": {
     "methods": [
@@ -1280,7 +3154,24 @@
       "Horsea",
       "Seadra",
       "Kingdra"
-    ]
+    ],
+    "chainWithMethods": {
+      "Horsea": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Seadra"
+        }
+      ],
+      "Seadra": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DRAGON_SCALE",
+          "target": "Kingdra"
+        }
+      ],
+      "Kingdra": []
+    }
   },
   "Goldeen": {
     "methods": [
@@ -1293,14 +3184,34 @@
     "chain": [
       "Goldeen",
       "Seaking"
-    ]
+    ],
+    "chainWithMethods": {
+      "Goldeen": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Seaking"
+        }
+      ],
+      "Seaking": []
+    }
   },
   "Seaking": {
     "methods": [],
     "chain": [
       "Goldeen",
       "Seaking"
-    ]
+    ],
+    "chainWithMethods": {
+      "Goldeen": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Seaking"
+        }
+      ],
+      "Seaking": []
+    }
   },
   "Staryu": {
     "methods": [
@@ -1313,14 +3224,34 @@
     "chain": [
       "Staryu",
       "Starmie"
-    ]
+    ],
+    "chainWithMethods": {
+      "Staryu": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Starmie"
+        }
+      ],
+      "Starmie": []
+    }
   },
   "Starmie": {
     "methods": [],
     "chain": [
       "Staryu",
       "Starmie"
-    ]
+    ],
+    "chainWithMethods": {
+      "Staryu": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Starmie"
+        }
+      ],
+      "Starmie": []
+    }
   },
   "Scyther": {
     "methods": [
@@ -1340,14 +3271,41 @@
       "Scyther",
       "Scizor",
       "Tr Anytime"
-    ]
+    ],
+    "chainWithMethods": {
+      "Scyther": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Scizor"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "HARD_STONE",
+          "target": "Tr Anytime",
+          "form": "Kleavor"
+        }
+      ],
+      "Scizor": [],
+      "Tr Anytime": []
+    }
   },
   "Jynx": {
     "methods": [],
     "chain": [
       "Smoochum",
       "Jynx"
-    ]
+    ],
+    "chainWithMethods": {
+      "Smoochum": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Jynx"
+        }
+      ],
+      "Jynx": []
+    }
   },
   "Electabuzz": {
     "methods": [
@@ -1361,7 +3319,24 @@
       "Elekid",
       "Electabuzz",
       "Electivire"
-    ]
+    ],
+    "chainWithMethods": {
+      "Elekid": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electabuzz"
+        }
+      ],
+      "Electabuzz": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "ELECTIRIZER",
+          "target": "Electivire"
+        }
+      ],
+      "Electivire": []
+    }
   },
   "Magmar": {
     "methods": [
@@ -1375,31 +3350,60 @@
       "Magby",
       "Magmar",
       "Magmortar"
-    ]
+    ],
+    "chainWithMethods": {
+      "Magby": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magmar"
+        }
+      ],
+      "Magmar": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "MAGMARIZER",
+          "target": "Magmortar"
+        }
+      ],
+      "Magmortar": []
+    }
   },
   "Pinsir": {
     "methods": [],
     "chain": [
       "Pinsir"
-    ]
+    ],
+    "chainWithMethods": {
+      "Pinsir": []
+    }
   },
   "Tauros": {
     "methods": [],
     "chain": [
       "Tauros"
-    ]
+    ],
+    "chainWithMethods": {
+      "Tauros": []
+    }
   },
   "Tauros Paldean Fire": {
     "methods": [],
     "chain": [
       "Tauros Paldean Fire"
-    ]
+    ],
+    "chainWithMethods": {
+      "Tauros Paldean Fire": []
+    }
   },
   "Tauros Paldean Water": {
     "methods": [],
     "chain": [
       "Tauros Paldean Water"
-    ]
+    ],
+    "chainWithMethods": {
+      "Tauros Paldean Water": []
+    }
   },
   "Magikarp": {
     "methods": [
@@ -1413,26 +3417,54 @@
     "chain": [
       "Magikarp",
       "Gyarados"
-    ]
+    ],
+    "chainWithMethods": {
+      "Magikarp": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Gyarados",
+          "form": "No Form"
+        }
+      ],
+      "Gyarados": []
+    }
   },
   "Gyarados": {
     "methods": [],
     "chain": [
       "Magikarp",
       "Gyarados"
-    ]
+    ],
+    "chainWithMethods": {
+      "Magikarp": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Gyarados",
+          "form": "No Form"
+        }
+      ],
+      "Gyarados": []
+    }
   },
   "Lapras": {
     "methods": [],
     "chain": [
       "Lapras"
-    ]
+    ],
+    "chainWithMethods": {
+      "Lapras": []
+    }
   },
   "Ditto": {
     "methods": [],
     "chain": [
       "Ditto"
-    ]
+    ],
+    "chainWithMethods": {
+      "Ditto": []
+    }
   },
   "Eevee": {
     "methods": [
@@ -1507,21 +3539,165 @@
       "Leafeon",
       "Glaceon",
       "Sylveon"
-    ]
+    ],
+    "chainWithMethods": {
+      "Eevee": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Glaceon": [],
+      "Sylveon": []
+    }
   },
   "Vaporeon": {
     "methods": [],
     "chain": [
       "Eevee",
-      "Vaporeon",
       "Jolteon",
+      "Vaporeon",
       "Flareon",
       "Espeon",
       "Umbreon",
       "Leafeon",
       "Glaceon",
       "Sylveon"
-    ]
+    ],
+    "chainWithMethods": {
+      "Eevee": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Glaceon": [],
+      "Sylveon": []
+    }
   },
   "Jolteon": {
     "methods": [],
@@ -1535,21 +3711,165 @@
       "Leafeon",
       "Glaceon",
       "Sylveon"
-    ]
+    ],
+    "chainWithMethods": {
+      "Eevee": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Glaceon": [],
+      "Sylveon": []
+    }
   },
   "Flareon": {
     "methods": [],
     "chain": [
       "Eevee",
-      "Flareon",
       "Jolteon",
       "Vaporeon",
+      "Flareon",
       "Espeon",
       "Umbreon",
       "Leafeon",
       "Glaceon",
       "Sylveon"
-    ]
+    ],
+    "chainWithMethods": {
+      "Eevee": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Glaceon": [],
+      "Sylveon": []
+    }
   },
   "Porygon": {
     "methods": [
@@ -1563,7 +3883,24 @@
       "Porygon",
       "Porygon2",
       "Porygon-Z"
-    ]
+    ],
+    "chainWithMethods": {
+      "Porygon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "UPGRADE",
+          "target": "Porygon2"
+        }
+      ],
+      "Porygon2": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DUBIOUS_DISC",
+          "target": "Porygon-Z"
+        }
+      ],
+      "Porygon-Z": []
+    }
   },
   "Omanyte": {
     "methods": [
@@ -1576,14 +3913,34 @@
     "chain": [
       "Omanyte",
       "Omastar"
-    ]
+    ],
+    "chainWithMethods": {
+      "Omanyte": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Omastar"
+        }
+      ],
+      "Omastar": []
+    }
   },
   "Omastar": {
     "methods": [],
     "chain": [
       "Omanyte",
       "Omastar"
-    ]
+    ],
+    "chainWithMethods": {
+      "Omanyte": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Omastar"
+        }
+      ],
+      "Omastar": []
+    }
   },
   "Kabuto": {
     "methods": [
@@ -1596,45 +3953,87 @@
     "chain": [
       "Kabuto",
       "Kabutops"
-    ]
+    ],
+    "chainWithMethods": {
+      "Kabuto": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Kabutops"
+        }
+      ],
+      "Kabutops": []
+    }
   },
   "Kabutops": {
     "methods": [],
     "chain": [
       "Kabuto",
       "Kabutops"
-    ]
+    ],
+    "chainWithMethods": {
+      "Kabuto": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Kabutops"
+        }
+      ],
+      "Kabutops": []
+    }
   },
   "Aerodactyl": {
     "methods": [],
     "chain": [
       "Aerodactyl"
-    ]
+    ],
+    "chainWithMethods": {
+      "Aerodactyl": []
+    }
   },
   "Snorlax": {
     "methods": [],
     "chain": [
       "Munchlax",
       "Snorlax"
-    ]
+    ],
+    "chainWithMethods": {
+      "Munchlax": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Snorlax"
+        }
+      ],
+      "Snorlax": []
+    }
   },
   "Articuno": {
     "methods": [],
     "chain": [
       "Articuno"
-    ]
+    ],
+    "chainWithMethods": {
+      "Articuno": []
+    }
   },
   "Zapdos": {
     "methods": [],
     "chain": [
       "Zapdos"
-    ]
+    ],
+    "chainWithMethods": {
+      "Zapdos": []
+    }
   },
   "Moltres": {
     "methods": [],
     "chain": [
       "Moltres"
-    ]
+    ],
+    "chainWithMethods": {
+      "Moltres": []
+    }
   },
   "Dratini": {
     "methods": [
@@ -1648,7 +4047,24 @@
       "Dratini",
       "Dragonair",
       "Dragonite"
-    ]
+    ],
+    "chainWithMethods": {
+      "Dratini": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Dragonair"
+        }
+      ],
+      "Dragonair": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Dragonite"
+        }
+      ],
+      "Dragonite": []
+    }
   },
   "Dragonair": {
     "methods": [
@@ -1662,7 +4078,24 @@
       "Dratini",
       "Dragonair",
       "Dragonite"
-    ]
+    ],
+    "chainWithMethods": {
+      "Dratini": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Dragonair"
+        }
+      ],
+      "Dragonair": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Dragonite"
+        }
+      ],
+      "Dragonite": []
+    }
   },
   "Dragonite": {
     "methods": [],
@@ -1670,19 +4103,42 @@
       "Dratini",
       "Dragonair",
       "Dragonite"
-    ]
+    ],
+    "chainWithMethods": {
+      "Dratini": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Dragonair"
+        }
+      ],
+      "Dragonair": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Dragonite"
+        }
+      ],
+      "Dragonite": []
+    }
   },
   "Mewtwo": {
     "methods": [],
     "chain": [
       "Mewtwo"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mewtwo": []
+    }
   },
   "Mew": {
     "methods": [],
     "chain": [
       "Mew"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mew": []
+    }
   },
   "Chikorita": {
     "methods": [
@@ -1696,7 +4152,24 @@
       "Chikorita",
       "Bayleef",
       "Meganium"
-    ]
+    ],
+    "chainWithMethods": {
+      "Chikorita": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Bayleef"
+        }
+      ],
+      "Bayleef": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Meganium"
+        }
+      ],
+      "Meganium": []
+    }
   },
   "Bayleef": {
     "methods": [
@@ -1710,7 +4183,24 @@
       "Chikorita",
       "Bayleef",
       "Meganium"
-    ]
+    ],
+    "chainWithMethods": {
+      "Chikorita": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Bayleef"
+        }
+      ],
+      "Bayleef": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Meganium"
+        }
+      ],
+      "Meganium": []
+    }
   },
   "Meganium": {
     "methods": [],
@@ -1718,7 +4208,24 @@
       "Chikorita",
       "Bayleef",
       "Meganium"
-    ]
+    ],
+    "chainWithMethods": {
+      "Chikorita": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Bayleef"
+        }
+      ],
+      "Bayleef": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Meganium"
+        }
+      ],
+      "Meganium": []
+    }
   },
   "Cyndaquil": {
     "methods": [
@@ -1732,7 +4239,24 @@
       "Cyndaquil",
       "Quilava",
       "Typhlosion"
-    ]
+    ],
+    "chainWithMethods": {
+      "Cyndaquil": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 14,
+          "target": "Quilava"
+        }
+      ],
+      "Quilava": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Typhlosion"
+        }
+      ],
+      "Typhlosion": []
+    }
   },
   "Quilava": {
     "methods": [
@@ -1746,7 +4270,24 @@
       "Cyndaquil",
       "Quilava",
       "Typhlosion"
-    ]
+    ],
+    "chainWithMethods": {
+      "Cyndaquil": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 14,
+          "target": "Quilava"
+        }
+      ],
+      "Quilava": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Typhlosion"
+        }
+      ],
+      "Typhlosion": []
+    }
   },
   "Typhlosion": {
     "methods": [],
@@ -1754,7 +4295,24 @@
       "Cyndaquil",
       "Quilava",
       "Typhlosion"
-    ]
+    ],
+    "chainWithMethods": {
+      "Cyndaquil": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 14,
+          "target": "Quilava"
+        }
+      ],
+      "Quilava": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Typhlosion"
+        }
+      ],
+      "Typhlosion": []
+    }
   },
   "Totodile": {
     "methods": [
@@ -1768,7 +4326,24 @@
       "Totodile",
       "Croconaw",
       "Feraligatr"
-    ]
+    ],
+    "chainWithMethods": {
+      "Totodile": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Croconaw"
+        }
+      ],
+      "Croconaw": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Feraligatr"
+        }
+      ],
+      "Feraligatr": []
+    }
   },
   "Croconaw": {
     "methods": [
@@ -1782,7 +4357,24 @@
       "Totodile",
       "Croconaw",
       "Feraligatr"
-    ]
+    ],
+    "chainWithMethods": {
+      "Totodile": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Croconaw"
+        }
+      ],
+      "Croconaw": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Feraligatr"
+        }
+      ],
+      "Feraligatr": []
+    }
   },
   "Feraligatr": {
     "methods": [],
@@ -1790,7 +4382,24 @@
       "Totodile",
       "Croconaw",
       "Feraligatr"
-    ]
+    ],
+    "chainWithMethods": {
+      "Totodile": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Croconaw"
+        }
+      ],
+      "Croconaw": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Feraligatr"
+        }
+      ],
+      "Feraligatr": []
+    }
   },
   "Sentret": {
     "methods": [
@@ -1803,14 +4412,34 @@
     "chain": [
       "Sentret",
       "Furret"
-    ]
+    ],
+    "chainWithMethods": {
+      "Sentret": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Furret"
+        }
+      ],
+      "Furret": []
+    }
   },
   "Furret": {
     "methods": [],
     "chain": [
       "Sentret",
       "Furret"
-    ]
+    ],
+    "chainWithMethods": {
+      "Sentret": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Furret"
+        }
+      ],
+      "Furret": []
+    }
   },
   "Hoothoot": {
     "methods": [
@@ -1823,14 +4452,34 @@
     "chain": [
       "Hoothoot",
       "Noctowl"
-    ]
+    ],
+    "chainWithMethods": {
+      "Hoothoot": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Noctowl"
+        }
+      ],
+      "Noctowl": []
+    }
   },
   "Noctowl": {
     "methods": [],
     "chain": [
       "Hoothoot",
       "Noctowl"
-    ]
+    ],
+    "chainWithMethods": {
+      "Hoothoot": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Noctowl"
+        }
+      ],
+      "Noctowl": []
+    }
   },
   "Ledyba": {
     "methods": [
@@ -1843,14 +4492,34 @@
     "chain": [
       "Ledyba",
       "Ledian"
-    ]
+    ],
+    "chainWithMethods": {
+      "Ledyba": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Ledian"
+        }
+      ],
+      "Ledian": []
+    }
   },
   "Ledian": {
     "methods": [],
     "chain": [
       "Ledyba",
       "Ledian"
-    ]
+    ],
+    "chainWithMethods": {
+      "Ledyba": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Ledian"
+        }
+      ],
+      "Ledian": []
+    }
   },
   "Spinarak": {
     "methods": [
@@ -1863,14 +4532,34 @@
     "chain": [
       "Spinarak",
       "Ariados"
-    ]
+    ],
+    "chainWithMethods": {
+      "Spinarak": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Ariados"
+        }
+      ],
+      "Ariados": []
+    }
   },
   "Ariados": {
     "methods": [],
     "chain": [
       "Spinarak",
       "Ariados"
-    ]
+    ],
+    "chainWithMethods": {
+      "Spinarak": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Ariados"
+        }
+      ],
+      "Ariados": []
+    }
   },
   "Crobat": {
     "methods": [],
@@ -1878,7 +4567,24 @@
       "Zubat",
       "Golbat",
       "Crobat"
-    ]
+    ],
+    "chainWithMethods": {
+      "Zubat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Golbat"
+        }
+      ],
+      "Golbat": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Crobat"
+        }
+      ],
+      "Crobat": []
+    }
   },
   "Chinchou": {
     "methods": [
@@ -1891,14 +4597,34 @@
     "chain": [
       "Chinchou",
       "Lanturn"
-    ]
+    ],
+    "chainWithMethods": {
+      "Chinchou": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 27,
+          "target": "Lanturn"
+        }
+      ],
+      "Lanturn": []
+    }
   },
   "Lanturn": {
     "methods": [],
     "chain": [
       "Chinchou",
       "Lanturn"
-    ]
+    ],
+    "chainWithMethods": {
+      "Chinchou": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 27,
+          "target": "Lanturn"
+        }
+      ],
+      "Lanturn": []
+    }
   },
   "Pichu": {
     "methods": [
@@ -1912,7 +4638,31 @@
       "Pichu",
       "Pikachu",
       "Raichu"
-    ]
+    ],
+    "chainWithMethods": {
+      "Pichu": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Pikachu"
+        }
+      ],
+      "Pikachu": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Raichu",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Raichu",
+          "form": "Alolan Form"
+        }
+      ],
+      "Raichu": []
+    }
   },
   "Cleffa": {
     "methods": [
@@ -1926,7 +4676,24 @@
       "Cleffa",
       "Clefairy",
       "Clefable"
-    ]
+    ],
+    "chainWithMethods": {
+      "Cleffa": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Clefairy"
+        }
+      ],
+      "Clefairy": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Clefable"
+        }
+      ],
+      "Clefable": []
+    }
   },
   "Igglybuff": {
     "methods": [
@@ -1940,7 +4707,24 @@
       "Igglybuff",
       "Jigglypuff",
       "Wigglytuff"
-    ]
+    ],
+    "chainWithMethods": {
+      "Igglybuff": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Jigglypuff"
+        }
+      ],
+      "Jigglypuff": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Wigglytuff"
+        }
+      ],
+      "Wigglytuff": []
+    }
   },
   "Togepi": {
     "methods": [
@@ -1954,7 +4738,24 @@
       "Togepi",
       "Togetic",
       "Togekiss"
-    ]
+    ],
+    "chainWithMethods": {
+      "Togepi": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Togetic"
+        }
+      ],
+      "Togetic": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Togekiss"
+        }
+      ],
+      "Togekiss": []
+    }
   },
   "Togetic": {
     "methods": [
@@ -1968,7 +4769,24 @@
       "Togepi",
       "Togetic",
       "Togekiss"
-    ]
+    ],
+    "chainWithMethods": {
+      "Togepi": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Togetic"
+        }
+      ],
+      "Togetic": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Togekiss"
+        }
+      ],
+      "Togekiss": []
+    }
   },
   "Natu": {
     "methods": [
@@ -1981,14 +4799,34 @@
     "chain": [
       "Natu",
       "Xatu"
-    ]
+    ],
+    "chainWithMethods": {
+      "Natu": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Xatu"
+        }
+      ],
+      "Xatu": []
+    }
   },
   "Xatu": {
     "methods": [],
     "chain": [
       "Natu",
       "Xatu"
-    ]
+    ],
+    "chainWithMethods": {
+      "Natu": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Xatu"
+        }
+      ],
+      "Xatu": []
+    }
   },
   "Mareep": {
     "methods": [
@@ -2002,7 +4840,29 @@
       "Mareep",
       "Flaaffy",
       "Ampharos"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mareep": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Flaaffy"
+        }
+      ],
+      "Flaaffy": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ampharos"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Ampharos"
+        }
+      ],
+      "Ampharos": []
+    }
   },
   "Flaaffy": {
     "methods": [
@@ -2021,7 +4881,29 @@
       "Mareep",
       "Flaaffy",
       "Ampharos"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mareep": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Flaaffy"
+        }
+      ],
+      "Flaaffy": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ampharos"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Ampharos"
+        }
+      ],
+      "Ampharos": []
+    }
   },
   "Ampharos": {
     "methods": [],
@@ -2029,16 +4911,61 @@
       "Mareep",
       "Flaaffy",
       "Ampharos"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mareep": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Flaaffy"
+        }
+      ],
+      "Flaaffy": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ampharos"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Ampharos"
+        }
+      ],
+      "Ampharos": []
+    }
   },
   "Bellossom": {
     "methods": [],
     "chain": [
       "Oddish",
       "Gloom",
-      "Bellossom",
-      "Vileplume"
-    ]
+      "Vileplume",
+      "Bellossom"
+    ],
+    "chainWithMethods": {
+      "Oddish": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Gloom"
+        }
+      ],
+      "Gloom": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Vileplume"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Bellossom"
+        }
+      ],
+      "Vileplume": [],
+      "Bellossom": []
+    }
   },
   "Marill": {
     "methods": [
@@ -2052,7 +4979,24 @@
       "Azurill",
       "Marill",
       "Azumarill"
-    ]
+    ],
+    "chainWithMethods": {
+      "Azurill": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Marill"
+        }
+      ],
+      "Marill": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Azumarill"
+        }
+      ],
+      "Azumarill": []
+    }
   },
   "Azumarill": {
     "methods": [],
@@ -2060,14 +5004,41 @@
       "Azurill",
       "Marill",
       "Azumarill"
-    ]
+    ],
+    "chainWithMethods": {
+      "Azurill": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Marill"
+        }
+      ],
+      "Marill": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Azumarill"
+        }
+      ],
+      "Azumarill": []
+    }
   },
   "Sudowoodo": {
     "methods": [],
     "chain": [
       "Bonsly",
       "Sudowoodo"
-    ]
+    ],
+    "chainWithMethods": {
+      "Bonsly": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ROCK_THROW",
+          "target": "Sudowoodo"
+        }
+      ],
+      "Sudowoodo": []
+    }
   },
   "Politoed": {
     "methods": [],
@@ -2076,7 +5047,30 @@
       "Poliwhirl",
       "Politoed",
       "Poliwrath"
-    ]
+    ],
+    "chainWithMethods": {
+      "Poliwag": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Poliwhirl"
+        }
+      ],
+      "Poliwhirl": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Politoed"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Poliwrath"
+        }
+      ],
+      "Politoed": [],
+      "Poliwrath": []
+    }
   },
   "Hoppip": {
     "methods": [
@@ -2090,7 +5084,24 @@
       "Hoppip",
       "Skiploom",
       "Jumpluff"
-    ]
+    ],
+    "chainWithMethods": {
+      "Hoppip": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Skiploom"
+        }
+      ],
+      "Skiploom": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 27,
+          "target": "Jumpluff"
+        }
+      ],
+      "Jumpluff": []
+    }
   },
   "Skiploom": {
     "methods": [
@@ -2104,7 +5115,24 @@
       "Hoppip",
       "Skiploom",
       "Jumpluff"
-    ]
+    ],
+    "chainWithMethods": {
+      "Hoppip": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Skiploom"
+        }
+      ],
+      "Skiploom": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 27,
+          "target": "Jumpluff"
+        }
+      ],
+      "Jumpluff": []
+    }
   },
   "Jumpluff": {
     "methods": [],
@@ -2112,7 +5140,24 @@
       "Hoppip",
       "Skiploom",
       "Jumpluff"
-    ]
+    ],
+    "chainWithMethods": {
+      "Hoppip": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Skiploom"
+        }
+      ],
+      "Skiploom": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 27,
+          "target": "Jumpluff"
+        }
+      ],
+      "Jumpluff": []
+    }
   },
   "Aipom": {
     "methods": [
@@ -2125,7 +5170,17 @@
     "chain": [
       "Aipom",
       "Ambipom"
-    ]
+    ],
+    "chainWithMethods": {
+      "Aipom": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "DOUBLE_SLAP",
+          "target": "Ambipom"
+        }
+      ],
+      "Ambipom": []
+    }
   },
   "Sunkern": {
     "methods": [
@@ -2138,14 +5193,34 @@
     "chain": [
       "Sunkern",
       "Sunflora"
-    ]
+    ],
+    "chainWithMethods": {
+      "Sunkern": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Sunflora"
+        }
+      ],
+      "Sunflora": []
+    }
   },
   "Sunflora": {
     "methods": [],
     "chain": [
       "Sunkern",
       "Sunflora"
-    ]
+    ],
+    "chainWithMethods": {
+      "Sunkern": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Sunflora"
+        }
+      ],
+      "Sunflora": []
+    }
   },
   "Yanma": {
     "methods": [
@@ -2158,7 +5233,17 @@
     "chain": [
       "Yanma",
       "Yanmega"
-    ]
+    ],
+    "chainWithMethods": {
+      "Yanma": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Yanmega"
+        }
+      ],
+      "Yanmega": []
+    }
   },
   "Wooper": {
     "methods": [],
@@ -2166,7 +5251,23 @@
       "Wooper",
       "Quagsire",
       "Clodsire"
-    ]
+    ],
+    "chainWithMethods": {
+      "Wooper": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Quagsire"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Clodsire"
+        }
+      ],
+      "Quagsire": [],
+      "Clodsire": []
+    }
   },
   "Quagsire": {
     "methods": [],
@@ -2174,35 +5275,195 @@
       "Wooper",
       "Quagsire",
       "Clodsire"
-    ]
+    ],
+    "chainWithMethods": {
+      "Wooper": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Quagsire"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Clodsire"
+        }
+      ],
+      "Quagsire": [],
+      "Clodsire": []
+    }
   },
   "Espeon": {
     "methods": [],
     "chain": [
       "Eevee",
-      "Espeon",
       "Jolteon",
       "Vaporeon",
       "Flareon",
+      "Espeon",
       "Umbreon",
       "Leafeon",
       "Glaceon",
       "Sylveon"
-    ]
+    ],
+    "chainWithMethods": {
+      "Eevee": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Glaceon": [],
+      "Sylveon": []
+    }
   },
   "Umbreon": {
     "methods": [],
     "chain": [
       "Eevee",
-      "Umbreon",
       "Jolteon",
       "Vaporeon",
       "Flareon",
       "Espeon",
+      "Umbreon",
       "Leafeon",
       "Glaceon",
       "Sylveon"
-    ]
+    ],
+    "chainWithMethods": {
+      "Eevee": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Glaceon": [],
+      "Sylveon": []
+    }
   },
   "Murkrow": {
     "methods": [
@@ -2215,7 +5476,17 @@
     "chain": [
       "Murkrow",
       "Honchkrow"
-    ]
+    ],
+    "chainWithMethods": {
+      "Murkrow": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "DUSK_STONE",
+          "target": "Honchkrow"
+        }
+      ],
+      "Honchkrow": []
+    }
   },
   "Slowking": {
     "methods": [],
@@ -2223,7 +5494,37 @@
       "Slowpoke",
       "Slowking",
       "Slowbro"
-    ]
+    ],
+    "chainWithMethods": {
+      "Slowpoke": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "Galarian Form"
+        }
+      ],
+      "Slowking": [],
+      "Slowbro": []
+    }
   },
   "Misdreavus": {
     "methods": [
@@ -2236,20 +5537,43 @@
     "chain": [
       "Misdreavus",
       "Mismagius"
-    ]
+    ],
+    "chainWithMethods": {
+      "Misdreavus": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "DUSK_STONE",
+          "target": "Mismagius"
+        }
+      ],
+      "Mismagius": []
+    }
   },
   "Unown": {
     "methods": [],
     "chain": [
       "Unown"
-    ]
+    ],
+    "chainWithMethods": {
+      "Unown": []
+    }
   },
   "Wobbuffet": {
     "methods": [],
     "chain": [
       "Wynaut",
       "Wobbuffet"
-    ]
+    ],
+    "chainWithMethods": {
+      "Wynaut": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Wobbuffet"
+        }
+      ],
+      "Wobbuffet": []
+    }
   },
   "Girafarig": {
     "methods": [
@@ -2262,7 +5586,17 @@
     "chain": [
       "Girafarig",
       "Farigiraf"
-    ]
+    ],
+    "chainWithMethods": {
+      "Girafarig": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ZEN_HEADBUTT",
+          "target": "Farigiraf"
+        }
+      ],
+      "Farigiraf": []
+    }
   },
   "Pineco": {
     "methods": [
@@ -2275,14 +5609,34 @@
     "chain": [
       "Pineco",
       "Forretress"
-    ]
+    ],
+    "chainWithMethods": {
+      "Pineco": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 31,
+          "target": "Forretress"
+        }
+      ],
+      "Forretress": []
+    }
   },
   "Forretress": {
     "methods": [],
     "chain": [
       "Pineco",
       "Forretress"
-    ]
+    ],
+    "chainWithMethods": {
+      "Pineco": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 31,
+          "target": "Forretress"
+        }
+      ],
+      "Forretress": []
+    }
   },
   "Dunsparce": {
     "methods": [
@@ -2296,7 +5650,18 @@
     "chain": [
       "Dunsparce",
       "Dudunsparce"
-    ]
+    ],
+    "chainWithMethods": {
+      "Dunsparce": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Dudunsparce",
+          "form": "No Form"
+        }
+      ],
+      "Dudunsparce": []
+    }
   },
   "Gligar": {
     "methods": [
@@ -2313,20 +5678,67 @@
       "Sneasel",
       "Tr Mornday",
       "Happiny"
-    ]
+    ],
+    "chainWithMethods": {
+      "Gligar": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_FANG",
+          "target": "Tr Evenite",
+          "form": "Gliscor"
+        }
+      ],
+      "Tr Evenite": [],
+      "Sneasel": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Tr Evenite",
+          "form": "Weavile"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Tr Mornday",
+          "form": "Sneasler"
+        }
+      ],
+      "Tr Mornday": [],
+      "Happiny": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "OVAL_STONE",
+          "target": "Tr Mornday",
+          "form": "Chansey"
+        }
+      ]
+    }
   },
   "Gliscor": {
     "methods": [],
     "chain": [
       "Gliscor"
-    ]
+    ],
+    "chainWithMethods": {
+      "Gliscor": []
+    }
   },
   "Steelix": {
     "methods": [],
     "chain": [
       "Onix",
       "Steelix"
-    ]
+    ],
+    "chainWithMethods": {
+      "Onix": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Steelix"
+        }
+      ],
+      "Steelix": []
+    }
   },
   "Snubbull": {
     "methods": [
@@ -2339,21 +5751,51 @@
     "chain": [
       "Snubbull",
       "Granbull"
-    ]
+    ],
+    "chainWithMethods": {
+      "Snubbull": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 23,
+          "target": "Granbull"
+        }
+      ],
+      "Granbull": []
+    }
   },
   "Granbull": {
     "methods": [],
     "chain": [
       "Snubbull",
       "Granbull"
-    ]
+    ],
+    "chainWithMethods": {
+      "Snubbull": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 23,
+          "target": "Granbull"
+        }
+      ],
+      "Granbull": []
+    }
   },
   "Qwilfish": {
     "methods": [],
     "chain": [
       "Qwilfish",
       "Overqwil"
-    ]
+    ],
+    "chainWithMethods": {
+      "Qwilfish": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Overqwil"
+        }
+      ],
+      "Overqwil": []
+    }
   },
   "Scizor": {
     "methods": [],
@@ -2361,19 +5803,42 @@
       "Scyther",
       "Scizor",
       "Tr Anytime"
-    ]
+    ],
+    "chainWithMethods": {
+      "Scyther": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Scizor"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "HARD_STONE",
+          "target": "Tr Anytime",
+          "form": "Kleavor"
+        }
+      ],
+      "Scizor": [],
+      "Tr Anytime": []
+    }
   },
   "Shuckle": {
     "methods": [],
     "chain": [
       "Shuckle"
-    ]
+    ],
+    "chainWithMethods": {
+      "Shuckle": []
+    }
   },
   "Heracross": {
     "methods": [],
     "chain": [
       "Heracross"
-    ]
+    ],
+    "chainWithMethods": {
+      "Heracross": []
+    }
   },
   "Sneasel": {
     "methods": [],
@@ -2383,7 +5848,41 @@
       "Tr Mornday",
       "Gligar",
       "Happiny"
-    ]
+    ],
+    "chainWithMethods": {
+      "Sneasel": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Tr Evenite",
+          "form": "Weavile"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Tr Mornday",
+          "form": "Sneasler"
+        }
+      ],
+      "Tr Evenite": [],
+      "Tr Mornday": [],
+      "Gligar": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_FANG",
+          "target": "Tr Evenite",
+          "form": "Gliscor"
+        }
+      ],
+      "Happiny": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "OVAL_STONE",
+          "target": "Tr Mornday",
+          "form": "Chansey"
+        }
+      ]
+    }
   },
   "Teddiursa": {
     "methods": [
@@ -2397,7 +5896,34 @@
       "Teddiursa",
       "Ursaring",
       "Ursaluna"
-    ]
+    ],
+    "chainWithMethods": {
+      "Teddiursa": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ursaring"
+        }
+      ],
+      "Ursaring": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SINJOH_RUINS",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MYSTRI_STAGE",
+          "target": "Ursaluna"
+        }
+      ],
+      "Ursaluna": []
+    }
   },
   "Ursaring": {
     "methods": [
@@ -2421,7 +5947,34 @@
       "Teddiursa",
       "Ursaring",
       "Ursaluna"
-    ]
+    ],
+    "chainWithMethods": {
+      "Teddiursa": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ursaring"
+        }
+      ],
+      "Ursaring": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SINJOH_RUINS",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MYSTRI_STAGE",
+          "target": "Ursaluna"
+        }
+      ],
+      "Ursaluna": []
+    }
   },
   "Slugma": {
     "methods": [
@@ -2434,14 +5987,34 @@
     "chain": [
       "Slugma",
       "Magcargo"
-    ]
+    ],
+    "chainWithMethods": {
+      "Slugma": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Magcargo"
+        }
+      ],
+      "Magcargo": []
+    }
   },
   "Magcargo": {
     "methods": [],
     "chain": [
       "Slugma",
       "Magcargo"
-    ]
+    ],
+    "chainWithMethods": {
+      "Slugma": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Magcargo"
+        }
+      ],
+      "Magcargo": []
+    }
   },
   "Swinub": {
     "methods": [
@@ -2455,7 +6028,24 @@
       "Swinub",
       "Piloswine",
       "Mamoswine"
-    ]
+    ],
+    "chainWithMethods": {
+      "Swinub": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Piloswine"
+        }
+      ],
+      "Piloswine": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Mamoswine"
+        }
+      ],
+      "Mamoswine": []
+    }
   },
   "Piloswine": {
     "methods": [
@@ -2469,14 +6059,42 @@
       "Swinub",
       "Piloswine",
       "Mamoswine"
-    ]
+    ],
+    "chainWithMethods": {
+      "Swinub": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Piloswine"
+        }
+      ],
+      "Piloswine": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Mamoswine"
+        }
+      ],
+      "Mamoswine": []
+    }
   },
   "Corsola": {
     "methods": [],
     "chain": [
       "Corsola",
       "Cursola"
-    ]
+    ],
+    "chainWithMethods": {
+      "Corsola": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Cursola",
+          "form": "Plain Form"
+        }
+      ],
+      "Cursola": []
+    }
   },
   "Remoraid": {
     "methods": [
@@ -2489,33 +6107,69 @@
     "chain": [
       "Remoraid",
       "Octillery"
-    ]
+    ],
+    "chainWithMethods": {
+      "Remoraid": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Octillery"
+        }
+      ],
+      "Octillery": []
+    }
   },
   "Octillery": {
     "methods": [],
     "chain": [
       "Remoraid",
       "Octillery"
-    ]
+    ],
+    "chainWithMethods": {
+      "Remoraid": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Octillery"
+        }
+      ],
+      "Octillery": []
+    }
   },
   "Delibird": {
     "methods": [],
     "chain": [
       "Delibird"
-    ]
+    ],
+    "chainWithMethods": {
+      "Delibird": []
+    }
   },
   "Mantine": {
     "methods": [],
     "chain": [
       "Mantyke",
       "Mantine"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mantyke": [
+        {
+          "method": "EVOLVE_PARTY",
+          "parameter": "REMORAID",
+          "target": "Mantine"
+        }
+      ],
+      "Mantine": []
+    }
   },
   "Skarmory": {
     "methods": [],
     "chain": [
       "Skarmory"
-    ]
+    ],
+    "chainWithMethods": {
+      "Skarmory": []
+    }
   },
   "Houndour": {
     "methods": [
@@ -2528,14 +6182,34 @@
     "chain": [
       "Houndour",
       "Houndoom"
-    ]
+    ],
+    "chainWithMethods": {
+      "Houndour": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 24,
+          "target": "Houndoom"
+        }
+      ],
+      "Houndoom": []
+    }
   },
   "Houndoom": {
     "methods": [],
     "chain": [
       "Houndour",
       "Houndoom"
-    ]
+    ],
+    "chainWithMethods": {
+      "Houndour": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 24,
+          "target": "Houndoom"
+        }
+      ],
+      "Houndoom": []
+    }
   },
   "Kingdra": {
     "methods": [],
@@ -2543,7 +6217,24 @@
       "Horsea",
       "Seadra",
       "Kingdra"
-    ]
+    ],
+    "chainWithMethods": {
+      "Horsea": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Seadra"
+        }
+      ],
+      "Seadra": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DRAGON_SCALE",
+          "target": "Kingdra"
+        }
+      ],
+      "Kingdra": []
+    }
   },
   "Phanpy": {
     "methods": [
@@ -2556,14 +6247,34 @@
     "chain": [
       "Phanpy",
       "Donphan"
-    ]
+    ],
+    "chainWithMethods": {
+      "Phanpy": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Donphan"
+        }
+      ],
+      "Donphan": []
+    }
   },
   "Donphan": {
     "methods": [],
     "chain": [
       "Phanpy",
       "Donphan"
-    ]
+    ],
+    "chainWithMethods": {
+      "Phanpy": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Donphan"
+        }
+      ],
+      "Donphan": []
+    }
   },
   "Porygon2": {
     "methods": [
@@ -2577,7 +6288,24 @@
       "Porygon",
       "Porygon2",
       "Porygon-Z"
-    ]
+    ],
+    "chainWithMethods": {
+      "Porygon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "UPGRADE",
+          "target": "Porygon2"
+        }
+      ],
+      "Porygon2": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DUBIOUS_DISC",
+          "target": "Porygon-Z"
+        }
+      ],
+      "Porygon-Z": []
+    }
   },
   "Stantler": {
     "methods": [
@@ -2605,13 +6333,41 @@
     "chain": [
       "Stantler",
       "Wyrdeer"
-    ]
+    ],
+    "chainWithMethods": {
+      "Stantler": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "RUGGED_ROAD",
+          "target": "Wyrdeer"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SNOWTOP_MOUNTAIN",
+          "target": "Wyrdeer"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SINJOH_RUINS",
+          "target": "Wyrdeer"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MYSTRI_STAGE",
+          "target": "Wyrdeer"
+        }
+      ],
+      "Wyrdeer": []
+    }
   },
   "Smeargle": {
     "methods": [],
     "chain": [
       "Smeargle"
-    ]
+    ],
+    "chainWithMethods": {
+      "Smeargle": []
+    }
   },
   "Tyrogue": {
     "methods": [
@@ -2639,13 +6395,41 @@
       "Atk Lt Def",
       "Atk Gt Def",
       "Atk Eq Def"
-    ]
+    ],
+    "chainWithMethods": {
+      "Tyrogue": [
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Atk Lt Def",
+          "form": "Hitmonchan"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Atk Gt Def",
+          "form": "Hitmonlee"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Atk Eq Def",
+          "form": "Hitmontop"
+        }
+      ],
+      "Atk Lt Def": [],
+      "Atk Gt Def": [],
+      "Atk Eq Def": []
+    }
   },
   "Hitmontop": {
     "methods": [],
     "chain": [
       "Hitmontop"
-    ]
+    ],
+    "chainWithMethods": {
+      "Hitmontop": []
+    }
   },
   "Smoochum": {
     "methods": [
@@ -2658,7 +6442,17 @@
     "chain": [
       "Smoochum",
       "Jynx"
-    ]
+    ],
+    "chainWithMethods": {
+      "Smoochum": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Jynx"
+        }
+      ],
+      "Jynx": []
+    }
   },
   "Elekid": {
     "methods": [
@@ -2672,7 +6466,24 @@
       "Elekid",
       "Electabuzz",
       "Electivire"
-    ]
+    ],
+    "chainWithMethods": {
+      "Elekid": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electabuzz"
+        }
+      ],
+      "Electabuzz": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "ELECTIRIZER",
+          "target": "Electivire"
+        }
+      ],
+      "Electivire": []
+    }
   },
   "Magby": {
     "methods": [
@@ -2686,38 +6497,77 @@
       "Magby",
       "Magmar",
       "Magmortar"
-    ]
+    ],
+    "chainWithMethods": {
+      "Magby": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magmar"
+        }
+      ],
+      "Magmar": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "MAGMARIZER",
+          "target": "Magmortar"
+        }
+      ],
+      "Magmortar": []
+    }
   },
   "Miltank": {
     "methods": [],
     "chain": [
       "Miltank"
-    ]
+    ],
+    "chainWithMethods": {
+      "Miltank": []
+    }
   },
   "Blissey": {
     "methods": [],
     "chain": [
       "Chansey",
       "Blissey"
-    ]
+    ],
+    "chainWithMethods": {
+      "Chansey": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Blissey"
+        }
+      ],
+      "Blissey": []
+    }
   },
   "Raikou": {
     "methods": [],
     "chain": [
       "Raikou"
-    ]
+    ],
+    "chainWithMethods": {
+      "Raikou": []
+    }
   },
   "Entei": {
     "methods": [],
     "chain": [
       "Entei"
-    ]
+    ],
+    "chainWithMethods": {
+      "Entei": []
+    }
   },
   "Suicune": {
     "methods": [],
     "chain": [
       "Suicune"
-    ]
+    ],
+    "chainWithMethods": {
+      "Suicune": []
+    }
   },
   "Larvitar": {
     "methods": [
@@ -2731,7 +6581,24 @@
       "Larvitar",
       "Pupitar",
       "Tyranitar"
-    ]
+    ],
+    "chainWithMethods": {
+      "Larvitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Pupitar"
+        }
+      ],
+      "Pupitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Tyranitar"
+        }
+      ],
+      "Tyranitar": []
+    }
   },
   "Pupitar": {
     "methods": [
@@ -2745,7 +6612,24 @@
       "Larvitar",
       "Pupitar",
       "Tyranitar"
-    ]
+    ],
+    "chainWithMethods": {
+      "Larvitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Pupitar"
+        }
+      ],
+      "Pupitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Tyranitar"
+        }
+      ],
+      "Tyranitar": []
+    }
   },
   "Tyranitar": {
     "methods": [],
@@ -2753,25 +6637,51 @@
       "Larvitar",
       "Pupitar",
       "Tyranitar"
-    ]
+    ],
+    "chainWithMethods": {
+      "Larvitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Pupitar"
+        }
+      ],
+      "Pupitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Tyranitar"
+        }
+      ],
+      "Tyranitar": []
+    }
   },
   "Lugia": {
     "methods": [],
     "chain": [
       "Lugia"
-    ]
+    ],
+    "chainWithMethods": {
+      "Lugia": []
+    }
   },
   "Ho-Oh": {
     "methods": [],
     "chain": [
       "Ho-Oh"
-    ]
+    ],
+    "chainWithMethods": {
+      "Ho-Oh": []
+    }
   },
   "Celebi": {
     "methods": [],
     "chain": [
       "Celebi"
-    ]
+    ],
+    "chainWithMethods": {
+      "Celebi": []
+    }
   },
   "Azurill": {
     "methods": [
@@ -2785,7 +6695,24 @@
       "Azurill",
       "Marill",
       "Azumarill"
-    ]
+    ],
+    "chainWithMethods": {
+      "Azurill": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Marill"
+        }
+      ],
+      "Marill": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Azumarill"
+        }
+      ],
+      "Azumarill": []
+    }
   },
   "Wynaut": {
     "methods": [
@@ -2798,28 +6725,68 @@
     "chain": [
       "Wynaut",
       "Wobbuffet"
-    ]
+    ],
+    "chainWithMethods": {
+      "Wynaut": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Wobbuffet"
+        }
+      ],
+      "Wobbuffet": []
+    }
   },
   "Ambipom": {
     "methods": [],
     "chain": [
       "Aipom",
       "Ambipom"
-    ]
+    ],
+    "chainWithMethods": {
+      "Aipom": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "DOUBLE_SLAP",
+          "target": "Ambipom"
+        }
+      ],
+      "Ambipom": []
+    }
   },
   "Mismagius": {
     "methods": [],
     "chain": [
       "Misdreavus",
       "Mismagius"
-    ]
+    ],
+    "chainWithMethods": {
+      "Misdreavus": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "DUSK_STONE",
+          "target": "Mismagius"
+        }
+      ],
+      "Mismagius": []
+    }
   },
   "Honchkrow": {
     "methods": [],
     "chain": [
       "Murkrow",
       "Honchkrow"
-    ]
+    ],
+    "chainWithMethods": {
+      "Murkrow": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "DUSK_STONE",
+          "target": "Honchkrow"
+        }
+      ],
+      "Honchkrow": []
+    }
   },
   "Bonsly": {
     "methods": [
@@ -2832,7 +6799,17 @@
     "chain": [
       "Bonsly",
       "Sudowoodo"
-    ]
+    ],
+    "chainWithMethods": {
+      "Bonsly": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ROCK_THROW",
+          "target": "Sudowoodo"
+        }
+      ],
+      "Sudowoodo": []
+    }
   },
   "Mime Jr": {
     "methods": [
@@ -2858,7 +6835,30 @@
     "chain": [
       "Mime Jr",
       "Mr  Mime"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mime Jr": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Mr  Mime",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Mr  Mime",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Mr  Mime",
+          "form": "Galarian Form"
+        }
+      ],
+      "Mr  Mime": []
+    }
   },
   "Happiny": {
     "methods": [
@@ -2870,12 +6870,46 @@
       }
     ],
     "chain": [
-      "Happiny",
-      "Tr Mornday",
-      "Sneasel",
+      "Gligar",
       "Tr Evenite",
-      "Gligar"
-    ]
+      "Sneasel",
+      "Tr Mornday",
+      "Happiny"
+    ],
+    "chainWithMethods": {
+      "Gligar": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_FANG",
+          "target": "Tr Evenite",
+          "form": "Gliscor"
+        }
+      ],
+      "Tr Evenite": [],
+      "Sneasel": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Tr Evenite",
+          "form": "Weavile"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Tr Mornday",
+          "form": "Sneasler"
+        }
+      ],
+      "Tr Mornday": [],
+      "Happiny": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "OVAL_STONE",
+          "target": "Tr Mornday",
+          "form": "Chansey"
+        }
+      ]
+    }
   },
   "Munchlax": {
     "methods": [
@@ -2888,7 +6922,17 @@
     "chain": [
       "Munchlax",
       "Snorlax"
-    ]
+    ],
+    "chainWithMethods": {
+      "Munchlax": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Snorlax"
+        }
+      ],
+      "Snorlax": []
+    }
   },
   "Mantyke": {
     "methods": [
@@ -2901,13 +6945,26 @@
     "chain": [
       "Mantyke",
       "Mantine"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mantyke": [
+        {
+          "method": "EVOLVE_PARTY",
+          "parameter": "REMORAID",
+          "target": "Mantine"
+        }
+      ],
+      "Mantine": []
+    }
   },
   "Weavile": {
     "methods": [],
     "chain": [
       "Weavile"
-    ]
+    ],
+    "chainWithMethods": {
+      "Weavile": []
+    }
   },
   "Magnezone": {
     "methods": [],
@@ -2915,14 +6972,51 @@
       "Magnemite",
       "Magneton",
       "Magnezone"
-    ]
+    ],
+    "chainWithMethods": {
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ],
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnezone": []
+    }
   },
   "Lickilicky": {
     "methods": [],
     "chain": [
       "Lickitung",
       "Lickilicky"
-    ]
+    ],
+    "chainWithMethods": {
+      "Lickitung": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ROLLOUT",
+          "target": "Lickilicky"
+        }
+      ],
+      "Lickilicky": []
+    }
   },
   "Rhyperior": {
     "methods": [],
@@ -2930,14 +7024,41 @@
       "Rhyhorn",
       "Rhydon",
       "Rhyperior"
-    ]
+    ],
+    "chainWithMethods": {
+      "Rhyhorn": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "Rhydon"
+        }
+      ],
+      "Rhydon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "PROTECTOR",
+          "target": "Rhyperior"
+        }
+      ],
+      "Rhyperior": []
+    }
   },
   "Tangrowth": {
     "methods": [],
     "chain": [
       "Tangela",
       "Tangrowth"
-    ]
+    ],
+    "chainWithMethods": {
+      "Tangela": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Tangrowth"
+        }
+      ],
+      "Tangrowth": []
+    }
   },
   "Electivire": {
     "methods": [],
@@ -2945,7 +7066,24 @@
       "Elekid",
       "Electabuzz",
       "Electivire"
-    ]
+    ],
+    "chainWithMethods": {
+      "Elekid": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electabuzz"
+        }
+      ],
+      "Electabuzz": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "ELECTIRIZER",
+          "target": "Electivire"
+        }
+      ],
+      "Electivire": []
+    }
   },
   "Magmortar": {
     "methods": [],
@@ -2953,7 +7091,24 @@
       "Magby",
       "Magmar",
       "Magmortar"
-    ]
+    ],
+    "chainWithMethods": {
+      "Magby": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magmar"
+        }
+      ],
+      "Magmar": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "MAGMARIZER",
+          "target": "Magmortar"
+        }
+      ],
+      "Magmortar": []
+    }
   },
   "Togekiss": {
     "methods": [],
@@ -2961,42 +7116,213 @@
       "Togepi",
       "Togetic",
       "Togekiss"
-    ]
+    ],
+    "chainWithMethods": {
+      "Togepi": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Togetic"
+        }
+      ],
+      "Togetic": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Togekiss"
+        }
+      ],
+      "Togekiss": []
+    }
   },
   "Yanmega": {
     "methods": [],
     "chain": [
       "Yanma",
       "Yanmega"
-    ]
+    ],
+    "chainWithMethods": {
+      "Yanma": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Yanmega"
+        }
+      ],
+      "Yanmega": []
+    }
   },
   "Leafeon": {
     "methods": [],
     "chain": [
       "Eevee",
-      "Leafeon",
       "Jolteon",
       "Vaporeon",
       "Flareon",
       "Espeon",
       "Umbreon",
+      "Leafeon",
       "Glaceon",
       "Sylveon"
-    ]
+    ],
+    "chainWithMethods": {
+      "Eevee": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Glaceon": [],
+      "Sylveon": []
+    }
   },
   "Glaceon": {
     "methods": [],
     "chain": [
       "Eevee",
-      "Glaceon",
       "Jolteon",
       "Vaporeon",
       "Flareon",
       "Espeon",
       "Umbreon",
       "Leafeon",
+      "Glaceon",
       "Sylveon"
-    ]
+    ],
+    "chainWithMethods": {
+      "Eevee": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Glaceon": [],
+      "Sylveon": []
+    }
   },
   "Mamoswine": {
     "methods": [],
@@ -3004,7 +7330,24 @@
       "Swinub",
       "Piloswine",
       "Mamoswine"
-    ]
+    ],
+    "chainWithMethods": {
+      "Swinub": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Piloswine"
+        }
+      ],
+      "Piloswine": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Mamoswine"
+        }
+      ],
+      "Mamoswine": []
+    }
   },
   "Porygon-Z": {
     "methods": [],
@@ -3012,63 +7355,236 @@
       "Porygon",
       "Porygon2",
       "Porygon-Z"
-    ]
+    ],
+    "chainWithMethods": {
+      "Porygon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "UPGRADE",
+          "target": "Porygon2"
+        }
+      ],
+      "Porygon2": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DUBIOUS_DISC",
+          "target": "Porygon-Z"
+        }
+      ],
+      "Porygon-Z": []
+    }
   },
   "Sylveon": {
     "methods": [],
     "chain": [
       "Eevee",
-      "Sylveon",
       "Jolteon",
       "Vaporeon",
       "Flareon",
       "Espeon",
       "Umbreon",
       "Leafeon",
-      "Glaceon"
-    ]
+      "Glaceon",
+      "Sylveon"
+    ],
+    "chainWithMethods": {
+      "Eevee": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Glaceon": [],
+      "Sylveon": []
+    }
   },
   "Perrserker": {
     "methods": [],
     "chain": [
       "Meowth",
-      "Perrserker",
-      "Persian"
-    ]
+      "Persian",
+      "Perrserker"
+    ],
+    "chainWithMethods": {
+      "Meowth": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Persian",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Persian",
+          "form": "Alolan Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Perrserker",
+          "form": "Plain Form"
+        }
+      ],
+      "Persian": [],
+      "Perrserker": []
+    }
   },
   "Cursola": {
     "methods": [],
     "chain": [
       "Corsola",
       "Cursola"
-    ]
+    ],
+    "chainWithMethods": {
+      "Corsola": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Cursola",
+          "form": "Plain Form"
+        }
+      ],
+      "Cursola": []
+    }
   },
   "Sirfetch D": {
     "methods": [],
     "chain": [
       "Farfetch D",
       "Sirfetch D"
-    ]
+    ],
+    "chainWithMethods": {
+      "Farfetch D": [
+        {
+          "method": "EVOLVE_CRIT",
+          "parameter": "TR_ANYTIME",
+          "target": "Sirfetch D",
+          "form": "Plain Form"
+        }
+      ],
+      "Sirfetch D": []
+    }
   },
   "Mr Mime": {
     "methods": [],
     "chain": [
       "Mr Mime",
       "Mr  Rime"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mr Mime": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "Mr  Rime"
+        }
+      ],
+      "Mr  Rime": []
+    }
   },
   "Wyrdeer": {
     "methods": [],
     "chain": [
       "Stantler",
       "Wyrdeer"
-    ]
+    ],
+    "chainWithMethods": {
+      "Stantler": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "RUGGED_ROAD",
+          "target": "Wyrdeer"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SNOWTOP_MOUNTAIN",
+          "target": "Wyrdeer"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SINJOH_RUINS",
+          "target": "Wyrdeer"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MYSTRI_STAGE",
+          "target": "Wyrdeer"
+        }
+      ],
+      "Wyrdeer": []
+    }
   },
   "Kleavor": {
     "methods": [],
     "chain": [
       "Kleavor"
-    ]
+    ],
+    "chainWithMethods": {
+      "Kleavor": []
+    }
   },
   "Ursaluna": {
     "methods": [],
@@ -3076,35 +7592,102 @@
       "Teddiursa",
       "Ursaring",
       "Ursaluna"
-    ]
+    ],
+    "chainWithMethods": {
+      "Teddiursa": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ursaring"
+        }
+      ],
+      "Ursaring": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SINJOH_RUINS",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MYSTRI_STAGE",
+          "target": "Ursaluna"
+        }
+      ],
+      "Ursaluna": []
+    }
   },
   "Sneasler": {
     "methods": [],
     "chain": [
       "Sneasler"
-    ]
+    ],
+    "chainWithMethods": {
+      "Sneasler": []
+    }
   },
   "Overqwil": {
     "methods": [],
     "chain": [
       "Qwilfish",
       "Overqwil"
-    ]
+    ],
+    "chainWithMethods": {
+      "Qwilfish": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Overqwil"
+        }
+      ],
+      "Overqwil": []
+    }
   },
   "Dudunsparce": {
     "methods": [],
     "chain": [
       "Dunsparce",
       "Dudunsparce"
-    ]
+    ],
+    "chainWithMethods": {
+      "Dunsparce": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Dudunsparce",
+          "form": "No Form"
+        }
+      ],
+      "Dudunsparce": []
+    }
   },
   "Clodsire": {
     "methods": [],
     "chain": [
       "Wooper",
-      "Clodsire",
-      "Quagsire"
-    ]
+      "Quagsire",
+      "Clodsire"
+    ],
+    "chainWithMethods": {
+      "Wooper": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Quagsire"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Clodsire"
+        }
+      ],
+      "Quagsire": [],
+      "Clodsire": []
+    }
   },
   "Annihilape": {
     "methods": [],
@@ -3112,13 +7695,46 @@
       "Mankey",
       "Primeape",
       "Annihilape"
-    ]
+    ],
+    "chainWithMethods": {
+      "Mankey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Primeape"
+        }
+      ],
+      "Primeape": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "OUTRAGE",
+          "target": "Annihilape"
+        }
+      ],
+      "Annihilape": []
+    }
   },
   "Raticate": {
     "methods": [],
     "chain": [
       "Rattata",
       "Raticate"
-    ]
+    ],
+    "chainWithMethods": {
+      "Rattata": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Raticate"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Raticate",
+          "form": "Alolan Form"
+        }
+      ],
+      "Raticate": []
+    }
   }
 }
