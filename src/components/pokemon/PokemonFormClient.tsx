@@ -210,27 +210,55 @@ export default function PokemonFormClient({
                     {formData.genderRatio &&
                     formData.genderRatio.male === 0 &&
                     formData.genderRatio.female === 0 ? (
-                      <div className="translate-y-[-1px] relative">
+                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center">
+                        <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
+                          <div className="text-xs  items-center flex">
+                            <div className="aspect-square w-4 inline-block relative mr-1">
+                              <Image
+                                src={'/icons/genderless-solid.svg'}
+                                alt={''}
+                                className="inline-block fa-fw"
+                                fill
+                              />
+                            </div>{' '}
+                            Genderless
+                          </div>
+                        </div>
                         <div className="inline-block w-10 h-10 align-middle">
                           <GenderPieChart male={0} female={0} genderless={100} />
                         </div>
-                        <div className="text-sm md:text-md text-muted-foreground relative">
-                          Genderless
-                        </div>
                       </div>
                     ) : formData.genderRatio ? (
-                      <div className="translate-y-[-1px] relative">
-                        <div className="inline-block w-10 h-10 align-middle">
+                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center">
+                        <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
+                          <div className="text-xs  items-center flex">
+                            <div className="aspect-square w-4 inline-block relative mr-1">
+                              <Image
+                                src={'/icons/mars-solid.svg'}
+                                alt={''}
+                                className="inline-block fa-fw"
+                                fill
+                              />
+                            </div>{' '}
+                            {formData.genderRatio.male}%
+                          </div>
+                          <div className="text-xs  items-center flex">
+                            <div className="aspect-square w-4 inline-block relative items-center mr-1">
+                              <Image
+                                src={'/icons/venus-solid.svg'}
+                                alt={''}
+                                className="inline-block w-full"
+                                fill
+                              />
+                            </div>{' '}
+                            {formData.genderRatio.female}%
+                          </div>
+                        </div>
+                        <div className="inline-block w-14 h-14">
                           <GenderPieChart
                             male={formData.genderRatio.male}
                             female={formData.genderRatio.female}
                           />
-                        </div>
-                        <div className="text-sm md:text-md text-muted-foreground relative">
-                          {formData.genderRatio.male}%{' '}
-                          <span className={'translate-y-[-1px] inline-block'}>♂</span> /{' '}
-                          {formData.genderRatio.female}%{' '}
-                          <span className={'translate-y-[-1px] inline-block'}>♀</span>
                         </div>
                       </div>
                     ) : (
