@@ -56,6 +56,14 @@ export const normalizeString = (str: string): string => {
     'ho-oh': 'Ho-Oh', // Lowercase with hyphen
     'ho_oh': 'Ho-Oh', // Special case for file name format
     'HO_OH': 'Ho-Oh', // Special case for ASM constant format
+    'Porygon-Z': 'Porygon-Z', // Special case for Porygon-Z
+    'Porygon Z': 'Porygon-Z', // Special case for Porygon-Z
+    'PorygonZ': 'Porygon-Z', // Another variant for Porygon-Z
+    'PORYGON-Z': 'Porygon-Z', // Uppercase variant
+    'porygon-z': 'Porygon-Z', // Lowercase with hyphen
+    'porygon z': 'Porygon-Z', // Lowercase with space
+    'porygon_z': 'Porygon-Z', // Special case for file name format
+    'PORYGON_Z': 'Porygon-Z', // Special case for ASM constant format
   };
 
   // Check if this is a special case that needs direct mapping

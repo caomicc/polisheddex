@@ -967,18 +967,29 @@ fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(validatedLocationData, null, 2
 function exportDetailedStats() {
   try {
     const detailedStats: Record<string, DetailedStats> = extractDetailedStats();
-    
+
     // Check if Ho-Oh is in detailedStats after extraction
     console.log('After extractDetailedStats - Is Ho-Oh in detailedStats?', 'Ho-Oh' in detailedStats);
-    
+
+    // Check if Porygon-Z is in detailedStats after extraction
+    console.log('After extractDetailedStats - Is Porygon-Z in detailedStats?', 'Porygon-Z' in detailedStats);
+
     if (!('Ho-Oh' in detailedStats)) {
       // Try to find any keys that might be related to Ho-Oh
-      const possibleHoOhKeys = Object.keys(detailedStats).filter(k => 
-        k.toLowerCase().includes('ho') || 
-        k.toLowerCase().includes('oh') ||
-        k.toLowerCase().includes('_')
+      const possibleHoOhKeys = Object.keys(detailedStats).filter(k =>
+        k.toLowerCase().includes('ho') && k.toLowerCase().includes('oh')
       );
+
       console.log('Possible Ho-Oh related keys:', possibleHoOhKeys);
+    }
+
+    if (!('Porygon-Z' in detailedStats)) {
+      // Try to find any keys that might be related to Porygon-Z
+      const possiblePorygonZKeys = Object.keys(detailedStats).filter(k =>
+        k.toLowerCase().includes('porygon') && (k.toLowerCase().includes('z') || k.toLowerCase().includes('-z'))
+      );
+
+      console.log('Possible Porygon-Z related keys:', possiblePorygonZKeys);
     }
 
     // --- Body Data Extraction ---

@@ -68,7 +68,11 @@ export async function generateStaticParams() {
 }
 
 export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
-  const pokemonName = (await params).name;
+  const nameParam = (await params).name;
+  // The URL may have encoded characters, so we need to decode it
+  let pokemonName = decodeURIComponent(nameParam);
+  
+  console.log(`Loading Pokémon data for: ${pokemonName}`);
 
   // Define file paths
   const baseStatsFile = path.join(process.cwd(), 'output/pokemon_base_data.json');
@@ -112,9 +116,28 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   }
 
   // Get the main data for this Pokémon
-  const baseStats = baseStatsData[pokemonName];
+  let baseStats = baseStatsData[pokemonName];
 
-  // console.log(`Loading data for Pokémon: ${pokemonName}`, baseStats);
+  console.log(`Looking up base stats for: ${pokemonName}`, baseStats ? 'Found' : 'Not found');
+  
+  // Special handling for hyphenated Pokémon names
+  const alternativeKeys = [];
+  if (!baseStats && pokemonName === 'Porygon-Z') {
+    alternativeKeys.push('Porygon Z');
+  }
+
+  // Try alternative keys if the main lookup failed
+  if (!baseStats && alternativeKeys.length > 0) {
+    const alternativeKey = alternativeKeys.find(key => baseStatsData[key]);
+    if (alternativeKey) {
+      console.log(`Found alternative key: ${alternativeKey} for ${pokemonName}`);
+      baseStats = baseStatsData[alternativeKey];
+      // For consistency in the UI, use a consistent key for data lookups
+      // This helps us handle different formats in our JSON files
+      console.log(`Using key ${alternativeKey} for all data lookups`);
+      pokemonName = alternativeKey;
+    }
+  }
 
   if (!baseStats) return notFound();
 
@@ -190,15 +213,15 @@ console.log(`Name for... ${pokemonName}:`, detailedStatData[pokemonName]);
       }
 
       // Check for form-specific moves
-      if (levelMovesData[pokemonName]?.forms &&
-          formKey in levelMovesData[pokemonName].forms) {
-        allFormData[formKey].moves = levelMovesData[pokemonName].forms[formKey].moves;
+      const pokemonLevelMoves = levelMovesData[pokemonName];
+      if (pokemonLevelMoves?.forms && formKey in pokemonLevelMoves.forms) {
+        allFormData[formKey].moves = pokemonLevelMoves.forms[formKey]?.moves || [];
       }
 
       // Check for form-specific locations
-      if (locationsData[pokemonName]?.forms &&
-          formKey in locationsData[pokemonName].forms) {
-        allFormData[formKey].locations = locationsData[pokemonName].forms[formKey].locations;
+      const pokemonLocations = locationsData[pokemonName];
+      if (pokemonLocations?.forms && formKey in pokemonLocations.forms) {
+        allFormData[formKey].locations = pokemonLocations.forms[formKey]?.locations || [];
       }
 
       processedForms.add(formKey);

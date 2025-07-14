@@ -17,13 +17,13 @@ const ABILITY_DESCRIPTIONS_OUTPUT = path.join(__dirname, '../../../output/pokemo
 export function extractDetailedStats(): Record<string, DetailedStats> {
   const detailedStatsDir = path.join(__dirname, '../../../rom/data/pokemon/base_stats');
   const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter(f => f.endsWith('.asm'));
-  
+
   const detailedStats: Record<string, DetailedStats> = {};
 
   // Debug - Check if ho_oh.asm is in the files list
   console.log('Files to process:', detailedStatsFiles.length);
   console.log('Is ho_oh.asm present?', detailedStatsFiles.includes('ho_oh.asm'));
-  
+
   for (const file of detailedStatsFiles) {
     const fileName = file.replace('.asm', '');
 
@@ -42,6 +42,11 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
     // Special case handling for Ho-Oh
     if (fileName === 'ho_oh') {
       pokemonName = 'Ho-Oh'; // Force the correct name format
+    }
+
+    // Special case handling for Porygon-Z
+    if (fileName === 'porygon_z') {
+      pokemonName = 'Porygon-Z'; // Force the correct name format
     }
 
     try {
@@ -394,14 +399,14 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
   const outputPath = path.join(__dirname, '../../../output/pokemon_detailed_stats.json');
   fs.writeFileSync(outputPath, JSON.stringify(detailedStats, null, 2));
   console.log('Detailed stats extracted to', outputPath);
-  
+
   // Debug check for Ho-Oh
   console.log('Is Ho-Oh in detailedStats?', 'Ho-Oh' in detailedStats);
   if (!('Ho-Oh' in detailedStats)) {
     // Log all keys to see what's there
     console.log('All keys in detailedStats:', Object.keys(detailedStats).filter(k => k.includes('Ho') || k.includes('Oh')));
   }
-  
+
   return detailedStats;
 }
 /**
