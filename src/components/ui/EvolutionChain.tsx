@@ -234,10 +234,7 @@ export function EvolutionChain({
     <div className={cn('flex flex-wrap gap-4 items-center', className)}>
       {chainWithForms.map((name, i) => (
         <React.Fragment key={name}>
-          <Link
-            href={`/pokemon/${name.includes('(') ? name.split(' (')[0] : name}`}
-            className="hover:underline text-blue-700 text-sm font-mono"
-          >
+          <Link href={`/pokemon/${name.includes('(') ? name.split(' (')[0] : name}`}>
             <Card className="flex flex-col items-center min-w-[150px]">
               <Image
                 src={getSpriteUrl(name)}
@@ -247,7 +244,7 @@ export function EvolutionChain({
                 className="w-16 h-16"
               />
 
-              {name}
+              {name.replace(/ Form\)$/, ')')}
             </Card>
           </Link>
 
