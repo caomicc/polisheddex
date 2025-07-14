@@ -75,7 +75,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // The URL may have encoded characters, so we need to decode it
   let pokemonName = decodeURIComponent(nameParam);
 
-  console.log(`Loading Pokémon data for: ${pokemonName}`);
+  // console.log(`Loading Pokémon data for: ${pokemonName}`);
 
   // Define file paths
   const baseStatsFile = path.join(process.cwd(), 'output/pokemon_base_data.json');
@@ -119,7 +119,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // Get the main data for this Pokémon
   let baseStats = baseStatsData[pokemonName];
 
-  console.log(`Looking up base stats for: ${pokemonName}`, baseStats ? 'Found' : 'Not found');
+  // console.log(`Looking up base stats for: ${pokemonName}`, baseStats ? 'Found' : 'Not found');
 
   // Special handling for hyphenated Pokémon names
   const alternativeKeys = [];
@@ -131,11 +131,11 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   if (!baseStats && alternativeKeys.length > 0) {
     const alternativeKey = alternativeKeys.find((key) => baseStatsData[key]);
     if (alternativeKey) {
-      console.log(`Found alternative key: ${alternativeKey} for ${pokemonName}`);
+      // console.log(`Found alternative key: ${alternativeKey} for ${pokemonName}`);
       baseStats = baseStatsData[alternativeKey];
       // For consistency in the UI, use a consistent key for data lookups
       // This helps us handle different formats in our JSON files
-      console.log(`Using key ${alternativeKey} for all data lookups`);
+      // console.log(`Using key ${alternativeKey} for all data lookups`);
       pokemonName = alternativeKey;
     }
   }
@@ -157,8 +157,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // Combine all form types
   const forms = [...baseDataForms, ...variantFormTypes];
-
-  console.log(`Name for... ${pokemonName}:`, detailedStatData[pokemonName]);
 
   // Default form is the base data
   const defaultForm: FormData = {
@@ -201,7 +199,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // First, process base data forms
   if (baseStats.forms) {
-    console.log(`Processing forms for ${pokemonName}:`, Object.keys(baseStats.forms));
+    // console.log(`Processing forms for ${pokemonName}:`, Object.keys(baseStats.forms));
     Object.keys(baseStats.forms).forEach((formKey) => {
       allFormData[formKey] = { ...defaultForm };
 
@@ -211,10 +209,10 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       }
 
       if (baseStats.forms && baseStats.forms[formKey]?.frontSpriteUrl) {
-        console.log(
-          `Using front sprite URL for form ${formKey}:`,
-          baseStats.forms[formKey].frontSpriteUrl,
-        );
+        // console.log(
+        //   `Using front sprite URL for form ${formKey}:`,
+        //   baseStats.forms[formKey].frontSpriteUrl,
+        // );
         allFormData[formKey].frontSpriteUrl = baseStats.forms[formKey].frontSpriteUrl;
       }
 
@@ -265,7 +263,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     }
   });
 
-  console.log(`All form data for ${pokemonName}:`, allFormData);
+  // console.log(`All form data for ${pokemonName}:`, allFormData);
 
   // Render the main page
   return (
