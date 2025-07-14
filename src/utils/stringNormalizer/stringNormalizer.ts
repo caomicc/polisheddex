@@ -47,9 +47,15 @@ export const normalizeString = (str: string): string => {
     'SLASH': 'Slash',
     'NightSlashDescription': 'Night Slash',
     'SlashDescription': 'Slash',
-    // 'Ho Oh': 'Ho-Oh', // Special case for Ho-Oh
-    // 'Hooh': 'Ho-Oh', // Another variant for Ho-Oh
-    // 'HoOh': 'Ho-Oh', // Another variant for Ho-Oh
+    'Ho-Oh': 'Ho-Oh', // Special case for Ho-Oh
+    'Ho Oh': 'Ho-Oh', // Special case for Ho-Oh
+    'Hooh': 'Ho-Oh', // Another variant for Ho-Oh
+    'HoOh': 'Ho-Oh', // Another variant for Ho-Oh
+    'HOOH': 'Ho-Oh', // Uppercase variant
+    'ho oh': 'Ho-Oh', // Lowercase with space
+    'ho-oh': 'Ho-Oh', // Lowercase with hyphen
+    'ho_oh': 'Ho-Oh', // Special case for file name format
+    'HO_OH': 'Ho-Oh', // Special case for ASM constant format
   };
 
   // Check if this is a special case that needs direct mapping

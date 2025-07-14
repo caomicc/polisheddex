@@ -17,15 +17,19 @@ const ABILITY_DESCRIPTIONS_OUTPUT = path.join(__dirname, '../../../output/pokemo
 export function extractDetailedStats(): Record<string, DetailedStats> {
   const detailedStatsDir = path.join(__dirname, '../../../rom/data/pokemon/base_stats');
   const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter(f => f.endsWith('.asm'));
-
+  
   const detailedStats: Record<string, DetailedStats> = {};
 
+  // Debug - Check if ho_oh.asm is in the files list
+  console.log('Files to process:', detailedStatsFiles.length);
+  console.log('Is ho_oh.asm present?', detailedStatsFiles.includes('ho_oh.asm'));
+  
   for (const file of detailedStatsFiles) {
     const fileName = file.replace('.asm', '');
 
-    // Debug for Pikachu
-    if (fileName === 'pikachu') {
-      console.log('Found pikachu.asm file');
+    // Debug for specific Pokémon
+    if (fileName === 'ho_oh') {
+      console.log('Processing ho_oh.asm file');
     }
 
     const content = fs.readFileSync(path.join(detailedStatsDir, file), 'utf8');
@@ -33,21 +37,24 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
     // Extract the Pokemon name from the file name
     const { basePokemonName, formName } = extractFormInfo(fileName);
-    const pokemonName = formName ? `${basePokemonName} ${formName}`.trim() : basePokemonName.trim();
+    let pokemonName = formName ? `${basePokemonName} ${formName}`.trim() : basePokemonName.trim();
 
-    // Debug for Pikachu
-    if (pokemonName === 'Pikachu') {
-      console.log('Processing Pikachu with pokemonName:', pokemonName);
-      console.log('Looking for abilities_for line...');
-      const abilitiesLine = lines.find(l => l.trim().startsWith('abilities_for'));
-      console.log('Found abilities_for line:', abilitiesLine);
+    // Special case handling for Ho-Oh
+    if (fileName === 'ho_oh') {
+      pokemonName = 'Ho-Oh'; // Force the correct name format
     }
 
     try {
       // Extract base stats (first line)
       // Format: db hp, atk, def, spe, sat, sdf ; BST
       const baseStatsLine = lines.find(l => l.trim().match(/^db\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+/));
-      if (!baseStatsLine) continue;
+      if (!baseStatsLine) {
+        if (fileName === 'ho_oh') {
+          console.log('No base stats line found for Ho-Oh, skipping');
+          console.log('First few lines:', lines.slice(0, 5));
+        }
+        continue;
+      }
 
       const baseStatsMatch = baseStatsLine.trim().match(/db\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+)/);
       if (!baseStatsMatch) continue;
@@ -383,6 +390,18 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
     }
   }
 
+  // Write the detailedStats to a JSON file for use in the app
+  const outputPath = path.join(__dirname, '../../../output/pokemon_detailed_stats.json');
+  fs.writeFileSync(outputPath, JSON.stringify(detailedStats, null, 2));
+  console.log('Detailed stats extracted to', outputPath);
+  
+  // Debug check for Ho-Oh
+  console.log('Is Ho-Oh in detailedStats?', 'Ho-Oh' in detailedStats);
+  if (!('Ho-Oh' in detailedStats)) {
+    // Log all keys to see what's there
+    console.log('All keys in detailedStats:', Object.keys(detailedStats).filter(k => k.includes('Ho') || k.includes('Oh')));
+  }
+  
   return detailedStats;
 }
 /**

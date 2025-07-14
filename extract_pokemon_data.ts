@@ -967,6 +967,19 @@ fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(validatedLocationData, null, 2
 function exportDetailedStats() {
   try {
     const detailedStats: Record<string, DetailedStats> = extractDetailedStats();
+    
+    // Check if Ho-Oh is in detailedStats after extraction
+    console.log('After extractDetailedStats - Is Ho-Oh in detailedStats?', 'Ho-Oh' in detailedStats);
+    
+    if (!('Ho-Oh' in detailedStats)) {
+      // Try to find any keys that might be related to Ho-Oh
+      const possibleHoOhKeys = Object.keys(detailedStats).filter(k => 
+        k.toLowerCase().includes('ho') || 
+        k.toLowerCase().includes('oh') ||
+        k.toLowerCase().includes('_')
+      );
+      console.log('Possible Ho-Oh related keys:', possibleHoOhKeys);
+    }
 
     // --- Body Data Extraction ---
     const bodyDataPath = path.join(__dirname, 'rom/data/pokemon/body_data.asm');
@@ -1062,3 +1075,15 @@ function exportDetailedStats() {
   }
 }
 
+// const OUTPUT_DIR = path.join(__dirname, 'output');
+// const outputFiles = fs.readdirSync(OUTPUT_DIR).filter(f => f.endsWith('.json'));
+
+// for (const file of outputFiles) {
+//   const filePath = path.join(OUTPUT_DIR, file);
+//   let content = fs.readFileSync(filePath, 'utf8');
+//   if (content.includes('Ho Oh')) {
+//     content = content.replace(/Ho Oh/g, 'Ho-Oh');
+//     fs.writeFileSync(filePath, content, 'utf8');
+//     console.log(`Replaced "Ho Oh" with "Ho-Oh" in ${file}`);
+//   }
+// }

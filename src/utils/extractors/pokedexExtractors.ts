@@ -15,6 +15,11 @@ const POKEDEX_ENTRIES_OUTPUT = path.join(__dirname, '../../../output/pokemon_pok
 
 // Helper to extract the base name from a combined name with form
 export function extractBasePokemonName(fullName: string): string {
+  // Special case for Ho-Oh which contains a hyphen but shouldn't be split
+  if (fullName === 'Ho-Oh') {
+    return 'Ho-Oh';
+  }
+  
   // Check if the name contains the special separator for complex forms
   if (fullName.includes('-')) {
     return fullName.split('-')[0];
