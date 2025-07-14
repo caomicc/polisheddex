@@ -2,8 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import type { EvolutionChainProps, EvolutionMethod } from '@/types/types';
-import { Card } from './card';
+import type { EvolutionChainProps } from '@/types/types';
 import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
 
 export function EvolutionChain({
@@ -154,28 +153,22 @@ export function EvolutionChain({
     }
 
     // Find matching path - check both normal and with sourceForm
-    const path = evolutionPaths.find((p: any) => {
-      // Direct match from source to target
-      if (p.source === baseFromPokemon && p.target.toLowerCase() === baseToPokemon.toLowerCase()) {
-        // If the target is a form variant, match the specific form
-        if (isToFormVariant) {
-          return p.targetForm === toFormName;
-        }
-        // If the source is a form variant, we need to match the sourceForm
-        else if (isFromFormVariant) {
-          return p.sourceForm === fromFormName;
-        }
-        // Regular match without forms
-        else {
-          return !p.targetForm || p.targetForm === 'Plain Form';
-        }
-      }
-      return false;
+
+    const path = evolutionPaths.find((p) => {
+      // Match source and target, including form variants
+      const sourceMatches =
+        p.source === baseFromPokemon && (!isFromFormVariant || p.sourceForm === fromFormName);
+
+      const targetMatches =
+        p.target.toLowerCase() === baseToPokemon.toLowerCase() &&
+        (!isToFormVariant || p.targetForm === toFormName);
+
+      return sourceMatches && targetMatches;
     });
 
     if (!path) {
       // If no direct match, try to find any path to this Pokémon
-      const fallbackPath = evolutionPaths.find((p: any) => {
+      const fallbackPath = evolutionPaths.find((p) => {
         if (p.target.toLowerCase() === baseToPokemon.toLowerCase()) {
           // If the target is a form variant, match the specific form
           if (isToFormVariant) {
@@ -235,17 +228,15 @@ export function EvolutionChain({
       {chainWithForms.map((name, i) => (
         <React.Fragment key={name}>
           <Link href={`/pokemon/${name.includes('(') ? name.split(' (')[0] : name}`}>
-            <Card className="flex flex-col items-center min-w-[150px]">
-              <Image
-                src={getSpriteUrl(name)}
-                alt={`Sprite of Pokémon ${name}`}
-                width={64}
-                height={64}
-                className="w-16 h-16"
-              />
+            <Image
+              src={getSpriteUrl(name)}
+              alt={`Sprite of Pokémon ${name}`}
+              width={64}
+              height={64}
+              className="w-16 h-16"
+            />
 
-              {name.replace(/ Form\)$/, ')')}
-            </Card>
+            {name.replace(/ Form\)$/, ')')}
           </Link>
 
           {i < chainWithForms.length - 1 && (

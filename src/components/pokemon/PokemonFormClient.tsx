@@ -1,16 +1,8 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { MoveRow, LocationListItem } from '@/components/pokemon';
-import {
-  FormData,
-  EvolutionMethod,
-  Move,
-  MoveDescription,
-  PokemonType,
-  LocationEntry,
-} from '@/types/types';
+import { FormData, Move, MoveDescription, PokemonType, LocationEntry } from '@/types/types';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
 import { EvolutionChain } from '@/components/ui/EvolutionChain';
@@ -20,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { Progress } from '../ui/progress';
 import { PokemonAbilities } from './pokemon-abilities';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
+import { Card, CardContent, CardHeader } from '../ui/card';
 
 export default function PokemonFormClient({
   forms,
@@ -39,30 +32,10 @@ export default function PokemonFormClient({
 
   return (
     <div className="space-y-6">
-      {forms.length > 0 && (
-        <div className="mb-4">
-          <label className="font-semibold mr-2" htmlFor="form-select">
-            Form:
-          </label>
-          <Select value={selectedForm} onValueChange={setSelectedForm}>
-            <SelectTrigger id="form-select" className="min-w-[180px] bg-white">
-              <SelectValue placeholder="Select form" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="default">Default</SelectItem>
-              {forms.map((form) => (
-                <SelectItem key={form} value={form}>
-                  {form.replace(/[-_]/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-      )}
       <div className="max-w-4xl mx-auto rounded-xl overflow-hidden">
         <div
           className={cn(
-            'relative py-4 px-4 md:p-6 md:dark:from-gray-800 md:dark:to-gray-900 flex flex-row items-center justify-start gap-6',
+            'relative py-4 px-4 md:p-6 md:dark:from-gray-800 md:dark:to-gray-900 flex flex-col md:flex-row md:items-center justify-start gap-6',
             `bg-${
               formData.types
                 ? typeof formData.types === 'string'
@@ -83,17 +56,50 @@ export default function PokemonFormClient({
             }-dark`,
           )}
         >
-          <div className="w-24 p-1 md:p-0 md:w-24 md:h-auto ">
+          <div className={'md:hidden text-left mb-4'}>
+            <div className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
+              <p>National #{String(formData.nationalDex).padStart(3, '0')}</p>
+              {formData.johtoDex && (
+                <p>
+                  <span>Johto #{String(formData.johtoDex).padStart(3, '0')}</span>
+                </p>
+              )}
+            </div>
+            <p className="text-sm md:text-4xl font-bold capitalize text-gray-900 dark:text-gray-50">
+              {pokemonName}
+            </p>
+            <div className="flex flex-wrap gap-2 mt-2" aria-label="Pokemon Types" role="group">
+              {formData.types ? (
+                Array.isArray(formData.types) ? (
+                  formData.types.map((type: string) => (
+                    <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                      {type}
+                    </Badge>
+                  ))
+                ) : (
+                  <Badge
+                    key={formData.types}
+                    variant={formData.types.toLowerCase() as PokemonType['name']}
+                  >
+                    {formData.types}
+                  </Badge>
+                )
+              ) : (
+                <Badge variant="secondary">Unknown</Badge>
+              )}
+            </div>
+          </div>{' '}
+          <div className="w-36 p-1 md:p-0 md:w-24 md:h-auto md:mx-[initial] mx-auto">
             <Image
               src={formData.frontSpriteUrl ?? ''}
               alt={`Sprite of Pokémon ${pokemonName}`}
               width={200}
               height={200}
-              className="object-contain w-24 md:drop-shadow-xs md:w-24 md:h-auto md:mb-0"
+              className="object-contain w-36 md:drop-shadow-xs md:w-24 md:h-auto md:mb-0"
               priority
             />
           </div>
-          <div className="text-left">
+          <div className="text-left hidden md:block">
             <div className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
               National #{String(formData.nationalDex).padStart(3, '0')}
               {formData.johtoDex && (
@@ -102,9 +108,6 @@ export default function PokemonFormClient({
             </div>
             <p className="text-sm md:text-4xl font-bold capitalize text-gray-900 dark:text-gray-50">
               {pokemonName}
-            </p>
-            <p className="text-xs md:text-lg text-muted-grass mt-1">
-              {formData.species} type Pokémon
             </p>
             <div className="flex flex-wrap gap-2 mt-2" aria-label="Pokemon Types" role="group">
               {formData.types ? (
@@ -127,443 +130,561 @@ export default function PokemonFormClient({
               )}
             </div>
           </div>
-        </div>
-      </div>
-      <div>
-        <h2 className="text-md md:text-2xl font-bold mb-3">Pokedex Entry</h2>
-        <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
-      </div>
-      <PokemonAbilities
-        faithfulAbilities={formData.faithfulAbilities}
-        updatedAbilities={formData.updatedAbilities}
-      />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <h2 className="text-md md:text-2xl font-bold mb-3">About</h2>
-          <Table className="max-w-full">
-            <TableHeader className="sr-only">
-              <TableRow>
-                <TableHead className="font-medium w-[120px]">Stat</TableHead>
-                <TableHead className="font-medium">Value</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell className="font-medium w-[120px]">Height</TableCell>
-                <TableCell>{((formData.height as number) / 10).toFixed(1)} m</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium w-[120px]">Weight</TableCell>
-                <TableCell>{((formData.weight as number) / 10).toFixed(1)} kg</TableCell>
-              </TableRow>
-              {/* <TableRow>
-                <TableCell className="font-medium w-[120px]">Abilities</TableCell>
-                <TableCell>
-                  <div className="flex flex-wrap gap-2">
-                    {formData.abilities && formData.abilities.length > 0 ? (
-                      formData.abilities.map((ability, idx) => {
-                        const abilityName =
-                          typeof ability === 'string' ? ability : ability?.name || 'Unknown';
-                        return <span key={idx}>{abilityName}</span>;
-                      })
-                    ) : (
-                      <span className="text-gray-500">No abilities data</span>
-                    )}
-                  </div>
-                </TableCell>
-              </TableRow> */}
-              <TableRow>
-                <TableCell className="font-medium w-[120px]">Color</TableCell>
-                <TableCell>{formData.bodyColor || 'Unknown'}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium w-[120px]">Shape</TableCell>
-                <TableCell>{formData.bodyShape || 'Unknown'}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </div>
-
-        <div>
-          <h2 className="text-md md:text-2xl font-bold mb-3">Breeding</h2>
-          <Table className="max-w-full">
-            <TableHeader className="sr-only">
-              <TableRow>
-                <TableHead className="font-medium w-[120px]">Breeding Stats</TableHead>
-                <TableHead className="font-medium">Value</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell className="font-medium w-[120px]">Gender Dist</TableCell>
-                <TableCell>{formData.genderRatio}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium w-[120px]">Growth Rate</TableCell>
-                <TableCell>{formData.growthRate}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium w-[120px]">Egg Groups</TableCell>
-                <TableCell>
-                  <div className="flex items-center gap-1">
-                    {formData.eggGroups && formData.eggGroups.length > 0 ? (
-                      formData.eggGroups.map((group, idx) => (
-                        <span key={idx}>
-                          {group}
-                          {idx < formData.eggGroups.length - 1 && <span>,</span>}
-                        </span>
-                      ))
-                    ) : (
-                      <span className="text-gray-500">Unknown</span>
-                    )}
-                  </div>
-                </TableCell>
-              </TableRow>
-
-              <TableRow>
-                <TableCell className="font-medium w-[120px]">Hatch Rate</TableCell>
-                <TableCell>{formData.hatchRate}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <h2 className="text-md md:text-2xl font-bold mb-3">Training</h2>
-          <Table className="w-full">
-            <TableHeader className="sr-only">
-              <TableRow>
-                <TableHead className="font-medium w-[120px]">Stat</TableHead>
-                <TableHead className="font-medium">Value</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell className="font-medium w-[120px]">Base Exp.</TableCell>
-                <TableCell>{formData.baseExp}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium w-[120px]">Catch Rate</TableCell>
-                <TableCell>{formData.catchRate}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">EV Yield</TableCell>
-                <TableCell>{formData.evYield || 'None'}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </div>
-        <div>
-          <h2 className="text-md md:text-2xl font-bold mb-3">Type Relations</h2>
-          {formData.types && (
-            <TypeRelationsChart
-              types={
-                Array.isArray(formData.types)
-                  ? formData.types.map((t: string) => t.toLowerCase())
-                  : formData.types
-                  ? [formData.types.toLowerCase()]
-                  : []
-              }
-            />
+          {forms.length > 0 && (
+            <div className="md:ml-auto">
+              <label className="font-semibold mr-2" htmlFor="form-select">
+                Form:
+              </label>
+              <Select value={selectedForm} onValueChange={setSelectedForm}>
+                <SelectTrigger id="form-select" className="min-w-[180px] bg-white">
+                  <SelectValue placeholder="Select form" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="default">Default</SelectItem>
+                  {forms.map((form) => (
+                    <SelectItem key={form} value={form}>
+                      {form.replace(/[-_]/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           )}
         </div>
       </div>
 
-      <hr className="border-gray-200 dark:border-gray-700" />
+      <Tabs defaultValue="about" className="w-full">
+        <TabsList className="w-full">
+          <TabsTrigger value="about">About</TabsTrigger>
+          <TabsTrigger value="stats">Stats</TabsTrigger>
+          <TabsTrigger value="moves">Moves</TabsTrigger>
+          <TabsTrigger value="evolution">Location</TabsTrigger>
+        </TabsList>
+        <TabsContent
+          value="about"
+          className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
+        >
+          <Card>
+            <CardHeader>Species</CardHeader>
+            <CardContent className="space-y-2">
+              <p className="text-sm md:text-md text-foreground">{formData.species} Pokémon</p>
+              <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
+              <div
+                className="flex flex-wrap justify-center gap-2 md:my-4"
+                aria-label="Pokemon Types"
+                role="group"
+              >
+                {formData.types ? (
+                  Array.isArray(formData.types) ? (
+                    formData.types.map((type: string) => (
+                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                        {type}
+                      </Badge>
+                    ))
+                  ) : (
+                    <Badge
+                      key={formData.types}
+                      variant={formData.types.toLowerCase() as PokemonType['name']}
+                    >
+                      {formData.types}
+                    </Badge>
+                  )
+                ) : (
+                  <Badge variant="secondary">Unknown</Badge>
+                )}
+              </div>
+              <div className="flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
+                <div className="flex w-full flex-wrap justify-center items-center gap-0 mb-2">
+                  <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
+                    Height:
+                    <p className="text-sm md:text-md text-muted-foreground">
+                      {((formData.height as number) / 10).toFixed(1)} m
+                    </p>
+                  </div>
+                  <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
+                    Gender:
+                    <p className="text-sm md:text-md text-muted-foreground">
+                      {formData.genderRatio}
+                    </p>
+                  </div>
+                  <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
+                    Weight:
+                    <p className="text-sm md:text-md text-muted-foreground">
+                      {((formData.weight as number) / 10).toFixed(1)} kg
+                    </p>
+                  </div>
+                  <div className="w-1/2 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
+                    Body Color:
+                    <p className="text-sm md:text-md text-muted-foreground">
+                      {formData.bodyColor || 'Unknown'}
+                    </p>
+                  </div>
+                  <div className="w-1/2 md:w-1/5 text-center p-1">
+                    Body Shape:
+                    <p className="text-sm md:text-md text-muted-foreground">
+                      {formData.bodyShape || 'Unknown'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>Abilities</CardHeader>
+            <CardContent className="space-y-2">
+              <p className="text-sm md:text-md text-muted-foreground">
+                Abilities are special traits that Pokémon can have, affecting their stats and
+                abilities in battle.
+              </p>
+              <PokemonAbilities
+                faithfulAbilities={formData.faithfulAbilities}
+                updatedAbilities={formData.updatedAbilities}
+              />
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>Catch Rate</CardHeader>
+            <CardContent className="space-y-2">
+              <p className="text-sm md:text-md text-muted-foreground">
+                The catch rate determines how easy it is to catch a Pokémon in the wild.
+              </p>
+              <Table className="max-w-full">
+                <TableHeader className="sr-only">
+                  <TableRow>
+                    <TableHead className="font-medium w-[120px]">Catch Rate</TableHead>
+                    <TableHead className="font-medium">Value</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium w-[120px]">Base Catch Rate</TableCell>
+                    <TableCell>{formData.catchRate}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>Training</CardHeader>
+            <CardContent className="space-y-2">
+              <p className="text-sm md:text-md text-muted-foreground">
+                Training is an essential part of a Pokémon&apos;s growth and development.
+              </p>
+              <Table className="max-w-full">
+                <TableHeader className="sr-only">
+                  <TableRow>
+                    <TableHead className="font-medium w-[120px]">Training Stats</TableHead>
+                    <TableHead className="font-medium">Value</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium w-[120px]">Growth Rate</TableCell>
+                    <TableCell>{formData.growthRate}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">EV Yield</TableCell>
+                    <TableCell>{formData.evYield || 'None'}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-[120px]">Base Exp.</TableCell>
+                    <TableCell>{formData.baseExp}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>Breeding</CardHeader>
+            <CardContent className="space-y-2">
+              <Table className="max-w-full">
+                <TableHeader className="sr-only">
+                  <TableRow>
+                    <TableHead className="font-medium w-[120px]">Breeding Stats</TableHead>
+                    <TableHead className="font-medium">Value</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium w-[120px]">Egg Groups</TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-1">
+                        {formData.eggGroups && formData.eggGroups.length > 0 ? (
+                          formData.eggGroups.map((group, idx) => (
+                            <span key={idx}>
+                              {group}
+                              {idx < formData.eggGroups.length - 1 && <span>,</span>}
+                            </span>
+                          ))
+                        ) : (
+                          <span className="text-gray-500">Unknown</span>
+                        )}
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-[120px]">Hatch Rate</TableCell>
+                    <TableCell>{formData.hatchRate}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>Evolution</CardHeader>
+            <CardContent className="space-y-2">
+              <p className="text-sm md:text-md text-muted-foreground">
+                Evolution is a process that allows Pokémon to grow and change into more powerful
+                forms.
+              </p>
+              {formData.evolution && formData.evolution.chain ? (
+                <EvolutionChain
+                  chain={formData.evolution.chain}
+                  chainWithMethods={formData.evolution.chainWithMethods || {}}
+                  spritesByGen={(() => {
+                    const sprites: Record<string, string> = {};
 
-      <div className="mb-4">
-        <h2 className="text-md md:text-2xl font-bold mb-3">Evolution Chain</h2>
-        {formData.evolution && formData.evolution.chain ? (
-          <EvolutionChain
-            chain={formData.evolution.chain}
-            chainWithMethods={formData.evolution.chainWithMethods || {}}
-            spritesByGen={(() => {
-              const sprites: Record<string, string> = {};
-
-              // Add sprites for base chain Pokémon
-              formData.evolution.chain.forEach((name) => {
-                // Try to find an entry in allFormData for this Pokémon
-                for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
-                  if (
-                    formDataEntry.frontSpriteUrl &&
-                    formKey.toLowerCase() === name.toLowerCase()
-                  ) {
-                    sprites[name] = formDataEntry.frontSpriteUrl;
-                    break;
-                  }
-                }
-              });
-
-              // Add sprites for form variants
-              if (formData.evolution.chainWithMethods) {
-                Object.entries(formData.evolution.chainWithMethods).forEach(([source, methods]) => {
-                  methods.forEach((method) => {
-                    if (method.target && method.form) {
-                      const formVariantKey = `${method.target} (${method.form})`;
-
-                      // Try to find form variant in allFormData
+                    // Add sprites for base chain Pokémon
+                    formData.evolution.chain.forEach((name) => {
+                      // Try to find an entry in allFormData for this Pokémon
                       for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
-                        // Check if this is the right form
                         if (
-                          formKey.toLowerCase().includes(method.form.toLowerCase()) &&
-                          formKey.toLowerCase().includes(method.target.toLowerCase()) &&
-                          formDataEntry.frontSpriteUrl
+                          formDataEntry.frontSpriteUrl &&
+                          formKey.toLowerCase() === name.toLowerCase()
                         ) {
-                          sprites[formVariantKey] = formDataEntry.frontSpriteUrl;
+                          sprites[name] = formDataEntry.frontSpriteUrl;
                           break;
                         }
                       }
+                    });
+
+                    // Add sprites for form variants
+                    if (formData.evolution.chainWithMethods) {
+                      Object.entries(formData.evolution.chainWithMethods).forEach(
+                        ([source, methods]) => {
+                          console.log(`Processing methods for source: ${source}`, methods);
+                          methods.forEach((method) => {
+                            if (method.target && method.form) {
+                              const formVariantKey = `${method.target} (${method.form})`;
+
+                              // Try to find form variant in allFormData
+                              for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
+                                // Check if this is the right form
+                                if (
+                                  formKey.toLowerCase().includes(method.form.toLowerCase()) &&
+                                  formKey.toLowerCase().includes(method.target.toLowerCase()) &&
+                                  formDataEntry.frontSpriteUrl
+                                ) {
+                                  sprites[formVariantKey] = formDataEntry.frontSpriteUrl;
+                                  break;
+                                }
+                              }
+                            }
+                          });
+                        },
+                      );
                     }
-                  });
-                });
-              }
 
-              return sprites;
-            })()}
-          />
-        ) : (
-          <div className="text-gray-500">No evolution data.</div>
-        )}
-      </div>
-
-      <div>
-        <h2 className="text-md md:text-2xl font-bold mb-3">Moves</h2>
-
-        <Tabs defaultValue="level-up" className="w-full">
-          <TabsList>
-            <TabsTrigger value="level-up">Level Up</TabsTrigger>
-            <TabsTrigger value="egg">Egg Moves</TabsTrigger>
-            <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
-          </TabsList>
-          <TabsContent value="level-up">
-            {/* Moves List */}
-            {formData.moves && Array.isArray(formData.moves) && formData.moves.length > 0 ? (
-              <Table>
-                <TableHeader className={'hidden md:table-header-group'}>
-                  <TableRow>
-                    <TableHead className="attheader cen align-middle text-left w-[60px]">
-                      Level
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[180px]">
-                      Attack Name
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Type
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Cat.
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Att.
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Acc.
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      PP
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Effect %
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {formData.moves.map((moveData: Move) => {
-                    const moveInfo = moveDescData[moveData.name] || null;
-                    return (
-                      <MoveRow
-                        key={`move-${moveData.name}-${moveData.level}`}
-                        name={moveData.name}
-                        level={moveData.level}
-                        info={moveInfo}
+                    return sprites;
+                  })()}
+                />
+              ) : (
+                <div className="text-gray-500">No evolution data.</div>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent
+          value="stats"
+          className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
+        >
+          {formData.baseStats ? (
+            <Card>
+              <CardHeader>Base Stats</CardHeader>
+              <CardContent className="space-y-4">
+                {[
+                  { label: 'HP', value: formData.baseStats.hp },
+                  { label: 'Atk', value: formData.baseStats.attack },
+                  { label: 'Def', value: formData.baseStats.defense },
+                  { label: 'Sp. Atk', value: formData.baseStats.specialAttack },
+                  { label: 'Sp. Def', value: formData.baseStats.specialDefense },
+                  { label: 'Spd', value: formData.baseStats.speed },
+                ].map(({ label, value }) => (
+                  <div key={label} className="flex flex-row gap-4 items-center">
+                    <div className="flex justify-between items-center w-[120px]">
+                      <span className="text-xs font-bold leading-none">{label}</span>
+                      <span className="text-xs leading-none text-muted-foreground">
+                        {value ?? 'N/A'}
+                      </span>
+                    </div>
+                    <Progress
+                      value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
+                      aria-label={`${label} stat`}
+                    />
+                  </div>
+                ))}
+                <div className="flex justify-between items-center mt-2 border-t pt-2 border-gray-200 dark:border-gray-700">
+                  <span className="font-semibold">Total</span>
+                  <span className="text-xs text-muted-foreground">
+                    {[
+                      formData.baseStats.hp,
+                      formData.baseStats.attack,
+                      formData.baseStats.defense,
+                      formData.baseStats.specialAttack,
+                      formData.baseStats.specialDefense,
+                      formData.baseStats.speed,
+                    ].reduce((sum, stat) => (typeof stat === 'number' ? sum + stat : sum), 0)}
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="text-gray-400 text-sm mb-6">No base stat data</div>
+          )}
+          <Card>
+            <CardHeader>Type Relations</CardHeader>
+            <CardContent className="space-y-2">
+              <p className="text-sm md:text-md text-muted-foreground">
+                Type relations determine how effective moves are against this Pokémon.
+              </p>
+              {formData.types && (
+                <TypeRelationsChart
+                  types={
+                    Array.isArray(formData.types)
+                      ? formData.types.map((t: string) => t.toLowerCase())
+                      : formData.types
+                      ? [formData.types.toLowerCase()]
+                      : []
+                  }
+                />
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent
+          value="moves"
+          className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
+        >
+          <Card>
+            <CardHeader>Locations</CardHeader>
+            <CardContent className="space-y-2">
+              <Tabs defaultValue="level-up" className="w-full">
+                <TabsList>
+                  <TabsTrigger value="level-up">Level Up</TabsTrigger>
+                  <TabsTrigger value="egg">Egg Moves</TabsTrigger>
+                  <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
+                </TabsList>
+                <TabsContent value="level-up">
+                  {/* Moves List */}
+                  {formData.moves && Array.isArray(formData.moves) && formData.moves.length > 0 ? (
+                    <Table>
+                      <TableHeader className={'hidden md:table-header-group'}>
+                        <TableRow>
+                          <TableHead className="attheader cen align-middle text-left w-[60px]">
+                            Level
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[180px]">
+                            Attack Name
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Type
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Cat.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Att.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Acc.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            PP
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Effect %
+                          </TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {formData.moves.map((moveData: Move) => {
+                          const moveInfo = moveDescData[moveData.name] || null;
+                          return (
+                            <MoveRow
+                              key={`move-${moveData.name}-${moveData.level}`}
+                              name={moveData.name}
+                              level={moveData.level}
+                              info={moveInfo}
+                            />
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  ) : (
+                    <div className="text-gray-400 text-sm mb-6">No move data</div>
+                  )}
+                </TabsContent>
+                <TabsContent value="egg">
+                  {formData.eggMoves &&
+                  Array.isArray(formData.eggMoves) &&
+                  formData.eggMoves.length > 0 ? (
+                    <Table>
+                      <TableHeader className={'hidden md:table-header-group'}>
+                        <TableRow>
+                          <TableHead className="attheader cen align-middle text-left w-[60px]">
+                            Level
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[180px]">
+                            Attack Name
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Type
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Cat.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Att.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Acc.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            PP
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Effect %
+                          </TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {formData.eggMoves.map((moveName: string) => {
+                          const moveInfo = moveDescData[moveName] || null;
+                          return (
+                            <MoveRow
+                              key={`egg-${moveName}`}
+                              name={moveName}
+                              level={1}
+                              info={moveInfo}
+                            />
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  ) : (
+                    <div className="text-gray-400 text-sm mb-6">No egg moves</div>
+                  )}
+                </TabsContent>
+                <TabsContent value="tm-hm">
+                  {formData.tmHmLearnset &&
+                  Array.isArray(formData.tmHmLearnset) &&
+                  formData.tmHmLearnset.length > 0 ? (
+                    <Table>
+                      <TableHeader className={'hidden md:table-header-group'}>
+                        <TableRow>
+                          <TableHead className="attheader cen align-middle text-left w-[60px]">
+                            Level
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[180px]">
+                            Attack Name
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Type
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Cat.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Att.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Acc.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            PP
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Effect %
+                          </TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {formData.tmHmLearnset.map((move) => {
+                          const moveInfo = moveDescData[move.name] || null;
+                          return (
+                            <MoveRow
+                              key={`tm-${move.name}`}
+                              name={move.name}
+                              level={move.level}
+                              info={moveInfo}
+                            />
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  ) : (
+                    <div className="text-gray-400 text-sm mb-6">No learnset</div>
+                  )}
+                </TabsContent>
+              </Tabs>
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent
+          value="evolution"
+          className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
+        >
+          <Card>
+            <CardHeader>Locations</CardHeader>
+            <CardContent className="space-y-2">
+              {formData.locations &&
+              Array.isArray(formData.locations) &&
+              formData.locations.length > 0 ? (
+                <Table>
+                  <TableHeader className={'hidden md:table-header-group'}>
+                    <TableRow>
+                      <TableHead className="attheader cen align-middle text-left w-[60px]">
+                        Area
+                      </TableHead>
+                      <TableHead className="attheader cen align-middle text-left w-[180px]">
+                        Method
+                      </TableHead>
+                      <TableHead className="attheader cen align-middle text-left w-[80px]">
+                        Time
+                      </TableHead>
+                      <TableHead className="attheader cen align-middle text-left w-[80px]">
+                        Level
+                      </TableHead>
+                      <TableHead className="attheader cen align-middle text-left w-[80px]">
+                        Encounter Rate
+                      </TableHead>
+                      <TableHead className="attheader cen align-middle text-left w-[80px]">
+                        Held Item
+                      </TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {/* Show all slots for this Pokémon, not just one per area/method/time */}
+                    {formData.locations.map((loc: LocationEntry, idx: number) => (
+                      <LocationListItem
+                        key={idx}
+                        area={loc.area}
+                        method={loc.method}
+                        time={loc.time}
+                        level={loc.level}
+                        chance={loc.chance}
+                        rareItem={loc.rareItem}
                       />
-                    );
-                  })}
-                </TableBody>
-              </Table>
-            ) : (
-              <div className="text-gray-400 text-sm mb-6">No move data</div>
-            )}
-          </TabsContent>
-          <TabsContent value="egg">
-            {formData.eggMoves &&
-            Array.isArray(formData.eggMoves) &&
-            formData.eggMoves.length > 0 ? (
-              <Table>
-                <TableHeader className={'hidden md:table-header-group'}>
-                  <TableRow>
-                    <TableHead className="attheader cen align-middle text-left w-[60px]">
-                      Level
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[180px]">
-                      Attack Name
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Type
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Cat.
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Att.
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Acc.
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      PP
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Effect %
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {formData.eggMoves.map((moveName: string) => {
-                    const moveInfo = moveDescData[moveName] || null;
-                    return (
-                      <MoveRow key={`egg-${moveName}`} name={moveName} level={1} info={moveInfo} />
-                    );
-                  })}
-                </TableBody>
-              </Table>
-            ) : (
-              <div className="text-gray-400 text-sm mb-6">No egg moves</div>
-            )}
-          </TabsContent>
-          <TabsContent value="tm-hm">
-            {formData.tmHmLearnset &&
-            Array.isArray(formData.tmHmLearnset) &&
-            formData.tmHmLearnset.length > 0 ? (
-              <Table>
-                <TableHeader className={'hidden md:table-header-group'}>
-                  <TableRow>
-                    <TableHead className="attheader cen align-middle text-left w-[60px]">
-                      Level
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[180px]">
-                      Attack Name
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Type
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Cat.
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Att.
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Acc.
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      PP
-                    </TableHead>
-                    <TableHead className="attheader cen align-middle text-left w-[80px]">
-                      Effect %
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {formData.tmHmLearnset.map((move) => {
-                    const moveInfo = moveDescData[move.name] || null;
-                    return (
-                      <MoveRow
-                        key={`tm-${move.name}`}
-                        name={move.name}
-                        level={move.level}
-                        info={moveInfo}
-                      />
-                    );
-                  })}
-                </TableBody>
-              </Table>
-            ) : (
-              <div className="text-gray-400 text-sm mb-6">No learnset</div>
-            )}
-          </TabsContent>
-        </Tabs>
-      </div>
-
-      <h2 className="text-md md:text-2xl font-bold mb-3">Base Stats</h2>
-      {formData.baseStats ? (
-        <div className="space-y-6">
-          {[
-            { label: 'HP', value: formData.baseStats.hp },
-            { label: 'Atk', value: formData.baseStats.attack },
-            { label: 'Def', value: formData.baseStats.defense },
-            { label: 'Sp. Atk', value: formData.baseStats.specialAttack },
-            { label: 'Sp. Def', value: formData.baseStats.specialDefense },
-            { label: 'Spd', value: formData.baseStats.speed },
-          ].map(({ label, value }) => (
-            <div key={label} className="flex flex-row gap-4 items-center">
-              <div className="flex justify-between items-center w-[120px]">
-                <span className="text-xs font-bold leading-none">{label}</span>
-                <span className="text-xs leading-none text-muted-foreground">{value ?? 'N/A'}</span>
-              </div>
-              <Progress
-                value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
-                aria-label={`${label} stat`}
-              />
-            </div>
-          ))}
-          <div className="flex justify-between items-center mt-2">
-            <span className="font-semibold">Total</span>
-            <span className="text-xs text-muted-foreground">
-              {[
-                formData.baseStats.hp,
-                formData.baseStats.attack,
-                formData.baseStats.defense,
-                formData.baseStats.specialAttack,
-                formData.baseStats.specialDefense,
-                formData.baseStats.speed,
-              ].reduce((sum, stat) => (typeof stat === 'number' ? sum + stat : sum), 0)}
-            </span>
-          </div>
-        </div>
-      ) : (
-        <div className="text-gray-400 text-sm mb-6">No base stat data</div>
-      )}
-
-      <h2 className="text-md md:text-2xl font-bold mb-3">Locations</h2>
-      {formData.locations && Array.isArray(formData.locations) && formData.locations.length > 0 ? (
-        <Table>
-          <TableHeader className={'hidden md:table-header-group'}>
-            <TableRow>
-              <TableHead className="attheader cen align-middle text-left w-[60px]">Area</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[180px]">
-                Method
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Time</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Level</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">
-                Encounter Rate
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">
-                Held Item
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {/* Show all slots for this Pokémon, not just one per area/method/time */}
-            {formData.locations.map((loc: LocationEntry, idx: number) => (
-              <LocationListItem
-                key={idx}
-                area={loc.area}
-                method={loc.method}
-                time={loc.time}
-                level={loc.level}
-                chance={loc.chance}
-                rareItem={loc.rareItem}
-              />
-            ))}
-          </TableBody>
-        </Table>
-      ) : (
-        <div className="text-gray-400 text-sm mb-6">No location data</div>
-      )}
+                    ))}
+                  </TableBody>
+                </Table>
+              ) : (
+                <div className="text-gray-400 text-sm mb-6">No location data</div>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }
