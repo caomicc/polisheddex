@@ -215,7 +215,7 @@ export default function PokemonFormClient({
                           <GenderPieChart male={0} female={0} genderless={100} />
                         </div>
                         <div className="text-sm md:text-md text-muted-foreground relative">
-                          Genderless ○
+                          Genderless
                         </div>
                       </div>
                     ) : (
@@ -512,7 +512,7 @@ export default function PokemonFormClient({
         >
           <Card>
             <CardHeader>Moves</CardHeader>
-            <CardContent className="space-y-2 px-0 md:p-6">
+            <CardContent className="space-y-2 px-0 md:px-6">
               <Tabs defaultValue="level-up" className="w-full">
                 <div className="px-4 md:px-0">
                   <TabsList className="w-full">
