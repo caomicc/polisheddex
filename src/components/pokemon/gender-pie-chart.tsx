@@ -19,12 +19,6 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-type PieChartDataItem = {
-  label: string;
-  value: number;
-  fill?: string;
-};
-
 interface GenderPieChartProps {
   male: number;
   female: number;
