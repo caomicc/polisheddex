@@ -29,8 +29,6 @@ export default function PokemonFormClient({
   const [selectedForm, setSelectedForm] = useState('default');
   const formData = allFormData[selectedForm] || allFormData['default'];
 
-  console.log('Rendering PokemonFormClient with formData:', formData);
-
   return (
     <div className="space-y-6">
       <div className="max-w-4xl mx-auto rounded-xl overflow-hidden">
@@ -209,7 +207,9 @@ export default function PokemonFormClient({
                     </p>
                   </div>
                   <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
-                    {formData.genderRatio.male === 0 && formData.genderRatio.female === 0 ? (
+                    {formData.genderRatio &&
+                    formData.genderRatio.male === 0 &&
+                    formData.genderRatio.female === 0 ? (
                       <div className="translate-y-[-1px] relative">
                         <div className="inline-block w-10 h-10 align-middle">
                           <GenderPieChart male={0} female={0} genderless={100} />
@@ -218,7 +218,7 @@ export default function PokemonFormClient({
                           Genderless
                         </div>
                       </div>
-                    ) : (
+                    ) : formData.genderRatio ? (
                       <div className="translate-y-[-1px] relative">
                         <div className="inline-block w-10 h-10 align-middle">
                           <GenderPieChart
@@ -231,6 +231,15 @@ export default function PokemonFormClient({
                           <span className={'translate-y-[-1px] inline-block'}>♂</span> /{' '}
                           {formData.genderRatio.female}%{' '}
                           <span className={'translate-y-[-1px] inline-block'}>♀</span>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="translate-y-[-1px] relative">
+                        <div className="inline-block w-10 h-10 align-middle">
+                          <GenderPieChart male={50} female={50} />
+                        </div>
+                        <div className="text-sm md:text-md text-muted-foreground relative">
+                          Unknown
                         </div>
                       </div>
                     )}

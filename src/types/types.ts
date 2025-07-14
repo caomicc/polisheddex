@@ -120,6 +120,7 @@ export interface DetailedStats {
   genderRatio: {
     male: number;
     female: number;
+    genderless?: number; // Percentage for genderless Pokémon
   };
   hatchRate: string;
   abilities: Ability[]; // The combined list of abilities (for backward compatibility)

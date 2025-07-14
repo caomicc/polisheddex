@@ -250,6 +250,13 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           allFormData[formType].faithfulAbilities = variantData.faithfulAbilities;
         if (variantData.updatedAbilities)
           allFormData[formType].updatedAbilities = variantData.updatedAbilities;
+        // Ensure genderRatio is copied to the form data
+        if (variantData.genderRatio) {
+          allFormData[formType].genderRatio = variantData.genderRatio;
+        } else {
+          // Fallback to default gender ratio if not specified in variant data
+          allFormData[formType].genderRatio = { male: 0, female: 0, genderless: 100 };
+        }
       }
 
       // Generate a sprite URL for the variant
