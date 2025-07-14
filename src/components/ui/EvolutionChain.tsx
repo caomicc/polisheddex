@@ -271,9 +271,37 @@ export function EvolutionChain({
                               </Tooltip>
                             </div>
                           )}
+                          {evolutionInfo.methodName === 'happiness' && (
+                            <div>
+                              <p>Happiness:</p>
+                              {evolutionInfo.parameter === 'TR_MORNDAY' && (
+                                <span>(Morning/Day)</span>
+                              )}
+                              {evolutionInfo.parameter === 'TR_EVENITE' && (
+                                <span>(Evening/Night)</span>
+                              )}
+                              {evolutionInfo.parameter === 'TR_ANYTIME' && <span>Anytime</span>}
+                            </div>
+                          )}
+                          {evolutionInfo.methodName === 'stat' && (
+                            <div>
+                              Stat:
+                              {evolutionInfo.parameter === 'ATK_GT_DEF' && (
+                                <span> Attack &gt; Defense</span>
+                              )}
+                              {evolutionInfo.parameter === 'ATK_LT_DEF' && (
+                                <span> Attack &lt; Defense</span>
+                              )}
+                              {evolutionInfo.parameter === 'ATK_EQ_DEF' && (
+                                <span> Attack = Defense</span>
+                              )}
+                            </div>
+                          )}
                           {typeof evolutionInfo.parameter !== 'number' &&
                             evolutionInfo.parameter &&
-                            evolutionInfo.methodName !== 'item' && (
+                            evolutionInfo.methodName !== 'item' &&
+                            evolutionInfo.methodName !== 'happiness' &&
+                            evolutionInfo.methodName !== 'stat' && (
                               <div>{String(evolutionInfo.parameter)}</div>
                             )}
                           {typeof evolutionInfo.parameter === 'number' && (
