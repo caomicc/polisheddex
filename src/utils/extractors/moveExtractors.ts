@@ -192,11 +192,7 @@ export function extractEggMoves() {
       console.log('match[2]', match[2]);
       const pointer = match[1];
       // Use only the first word before any parenthesis or extra info as the species name
-      let species = match[2].split('(')[0].split(';')[0].trim().replace(/\s+\(.+\)/, '').replace(/\s+$/, '');
-
-      if (species === 'Ho Oh') {
-        species = 'Ho-Oh'; // Special case for Ho-Oh
-      }
+      const species = match[2].split('(')[0].split(';')[0].trim().replace(/\s+\(.+\)/, '').replace(/\s+$/, '');
 
       speciesToPointer[species] = pointer;
     }
@@ -229,11 +225,6 @@ export function extractEggMoves() {
   const eggMoves: Record<string, string[]> = {};
   // eslint-disable-next-line prefer-const
   for (let [species, pointer] of Object.entries(speciesToPointer)) {
-
-    if (species === 'Ho Oh' || species === 'HoOh' || species === 'Hooh') {
-      species = 'Ho-Oh'; // Special case for Ho-Oh
-    }
-    console.log('eggMoves[toTitleCase(species)] = pointerToMoves[pointer] || [];', species, eggMoves[toTitleCase(species)] = pointerToMoves[pointer] || []);
     eggMoves[toTitleCase(species)] = pointerToMoves[pointer] || [];
   }
 
@@ -261,12 +252,7 @@ export function extractTmHmLearnset() {
   for (const file of detailedStatsFiles) {
     const fileName = file.replace('.asm', '');
     const { basePokemonName, formName } = extractFormInfo(fileName);
-    let pokemonName = formName ? `${basePokemonName} ${formName}` : basePokemonName;
-
-    if (pokemonName === 'Ho Oh' || pokemonName === 'Hooh' || pokemonName === 'Ho-Oh' || pokemonName === 'HoOh') {
-      pokemonName = 'Ho-Oh'; // Special case for Ho-Oh
-    }
-
+    const pokemonName = formName ? `${basePokemonName} ${formName}` : basePokemonName;
     const content = fs.readFileSync(path.join(detailedStatsDir, file), 'utf8');
     const lines = content.split(/\r?\n/);
 

@@ -1,8 +1,11 @@
 import fs from 'node:fs';
 
 import { KNOWN_FORMS } from "../data/constants.ts";
+import { normalizeString } from './stringNormalizer/stringNormalizer.ts';
 
 // Helper to convert move names to Capital Case with spaces
+// This is useful for displaying move names in a user-friendly format
+// abilities, moves
 export function toCapitalCaseWithSpaces(str: string) {
   return str
     .toLowerCase()
@@ -19,11 +22,12 @@ export function normalizeAsmLabelToMoveKey(label: string) {
     .toUpperCase();
 }
 
+// old alias
 export function toTitleCase(str: string) {
-  return str
-    .toLowerCase()
-    .replace(/(^|_|\s|-)([a-z])/g, (_, sep, c) => sep + c.toUpperCase())
-    .replace(/_/g, '');
+  return normalizeString(str)
+  // .toLowerCase()
+  // .replace(/(^|_|\s|-)([a-z])/g, (_, sep, c) => sep + c.toUpperCase())
+  // .replace(/_/g, '');
 }
 
 
@@ -31,8 +35,6 @@ export function toTitleCase(str: string) {
 export function standardizePokemonKey(name: string): string {
   // First, trim any whitespace from the name to avoid trailing space
   name = name.trim();
-
-  if (name === 'Ho Oh') name = 'Ho-Oh';
 
   // Special handling for Paldean forms that need specific treatment
   if (name.toLowerCase().includes(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())) {
@@ -48,7 +50,7 @@ export function standardizePokemonKey(name: string): string {
   const baseName = name.replace(formSuffixPattern, '');
 
   // Convert to title case and remove any case inconsistencies
-  return toTitleCase(baseName.toLowerCase().trim());
+  return toTitleCase(baseName.trim());
 }
 
 export function parseDexEntries(file: string): string[] {

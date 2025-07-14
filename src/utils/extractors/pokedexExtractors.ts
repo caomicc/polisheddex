@@ -39,11 +39,6 @@ export function extractBasePokemonName(fullName: string): string {
       break;
     }
   }
-
-  if (baseName === 'Ho Oh') {
-    baseName = 'Ho-Oh'; // Special case for Ho-Oh
-  }
-
   // Trim any trailing spaces
   return baseName.trim();
 }
@@ -53,6 +48,7 @@ export function extractBasePokemonName(fullName: string): string {
 // Legacy function for compatibility with existing code
 // Will be gradually phased out as we convert the code to use the new structure
 export function getFullPokemonName(name: string, form: string | null): string {
+  console.log(`getFullPokemonName called with name: ${name}, form: ${form}`);
   const { baseName, formName } = normalizeMonName(name, form);
 
   // For debugging special cases
@@ -92,11 +88,7 @@ export function extractPokedexEntries() {
       // Save previous entry if we were processing one
       if (currentMon && currentSpecies && currentEntries.length > 0) {
         // Convert to title case for consistency with other data files
-        let standardizedMon = standardizePokemonKey(currentMon);
-        // Special case for HoOh
-        if (standardizedMon === 'HoOh') {
-          standardizedMon = 'Ho-Oh';
-        }
+        const standardizedMon = standardizePokemonKey(currentMon);
         console.log(`Saving entry for ${standardizedMon}:`, currentSpecies, currentEntries);
         pokedexEntries[standardizedMon] = {
           species: currentSpecies,
@@ -177,11 +169,8 @@ export function extractPokedexEntries() {
 
   // Don't forget the last entry
   if (currentMon && currentSpecies && currentEntries.length > 0) {
-    let standardizedMon = standardizePokemonKey(currentMon);
-    // Special case for HoOh
-    if (standardizedMon === 'HoOh' || standardizedMon === 'Hooh' || standardizedMon === 'Ho Oh') {
-      standardizedMon = 'Ho-Oh';
-    }
+    const standardizedMon = standardizePokemonKey(currentMon);
+
     pokedexEntries[standardizedMon] = {
       species: currentSpecies,
       entries: currentEntries
@@ -194,9 +183,6 @@ export function extractPokedexEntries() {
   // eslint-disable-next-line prefer-const
   for (let [mon, data] of Object.entries(pokedexEntries)) {
 
-    if (mon === 'Ho Oh' || mon === 'Hooh' || mon === 'Ho-Oh') {
-      mon = 'Ho-Oh';
-    }
     // Join the entries into a single description, handling line breaks
     // We'll preserve some formatting by adding spaces between entries
     // and replacing @ with an empty string (end of entry marker)

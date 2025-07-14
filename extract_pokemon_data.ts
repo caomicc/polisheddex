@@ -253,8 +253,12 @@ function buildCompleteEvolutionChain(startMon: string): string[] {
   // This map will keep track of which Pokémon we've already processed
   const processedMons = new Set<string>();
 
+
   // Starting with the requested Pokémon
   const standardizedStartMon = standardizePokemonKey(startMon);
+
+  console.log(`Building evolution chain for: ${standardizedStartMon}`, startMon);
+
   const queue: string[] = [standardizedStartMon];
   const chain: string[] = [];
 
@@ -390,6 +394,8 @@ for (const file of baseStatsFiles) {
 
 const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, johtoDex: number | null, types: string | string[] }> = {};
 for (const mon of Object.keys(result)) {
+
+  console.log(`Processing Pokémon: ${mon}`);
 
   const moves = result[mon].moves.map(m => ({
     name: m.name,
@@ -612,11 +618,7 @@ const groupedPokemonData = groupPokemonForms(finalResultV3);
 const baseData: Record<string, BaseData> = {};
 for (const [mon, data] of Object.entries(groupedPokemonData)) {
 
-  let trimmedMon = mon.trim();
-
-  if (trimmedMon === 'Ho Oh') {
-    trimmedMon = 'Ho-Oh'; // Special case for Ho-Oh
-  }
+  const trimmedMon = mon.trim();
 
   const spriteName = trimmedMon
     .toLowerCase()
@@ -974,14 +976,8 @@ function exportDetailedStats() {
         if (line.trim().startsWith('body_data')) {
           // Extract Pokémon name from comment
           const nameMatch = line.match(/;\s*([A-Z0-9_]+)/);
-          // Convert HO_OH to Ho-Oh and handle other cases
           if (nameMatch) {
-            let monName = nameMatch[1].replace(/_/g, ' ');
-            if (monName.toUpperCase() === 'HO OH') {
-              monName = 'Ho-Oh';
-            } else {
-              monName = toTitleCase(monName);
-            }
+            const monName = nameMatch[1].replace(/_/g, ' ');
             if (detailedStats[monName]) {
               detailedStats[monName] = addBodyDataToDetailedStats(line, detailedStats[monName]) as DetailedStats;
             }

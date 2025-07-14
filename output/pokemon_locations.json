@@ -1806,7 +1806,64 @@
     "locations": []
   },
   "Nidoran F": {
-    "locations": []
+    "locations": [
+      {
+        "area": "NATIONAL_PARK",
+        "method": "grass",
+        "time": "morn",
+        "level": "13",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "NATIONAL_PARK",
+        "method": "grass",
+        "time": "day",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "morn",
+        "level": "14",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "day",
+        "level": "14",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "morn",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "day",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "nite",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "Nidorina": {
     "locations": [
@@ -1993,7 +2050,64 @@
     ]
   },
   "Nidoran M": {
-    "locations": []
+    "locations": [
+      {
+        "area": "NATIONAL_PARK",
+        "method": "grass",
+        "time": "morn",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "NATIONAL_PARK",
+        "method": "grass",
+        "time": "day",
+        "level": "13",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "morn",
+        "level": "14",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "day",
+        "level": "14",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "morn",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "day",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "nite",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "Nidorino": {
     "locations": [
@@ -10226,7 +10340,32 @@
     ]
   },
   "Farfetch D": {
-    "locations": []
+    "locations": [
+      {
+        "area": "Lake of Rage",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "26",
+        "chance": 15,
+        "rareItem": "Water Stone",
+        "formName": null
+      }
+    ],
+    "forms": {
+      "galarian": {
+        "locations": [
+          {
+            "area": "ROUTE ",
+            "method": "hidden_grotto",
+            "time": "common",
+            "level": "Badge Level + 0",
+            "chance": 40,
+            "rareItem": "Shiny Stone",
+            "formName": "galarian"
+          }
+        ]
+      }
+    }
   },
   "Doduo": {
     "locations": [
@@ -23110,7 +23249,7 @@
   "Lugia": {
     "locations": []
   },
-  "Ho-Oh": {
+  "Ho Oh": {
     "locations": []
   },
   "Celebi": {
@@ -23591,10 +23730,10 @@
   "Annihilape": {
     "locations": []
   },
-  "EkansArbokJohtoForm": {
+  "EkansArbok Johto Form": {
     "locations": [],
     "forms": {
-      "ArbokJohtoForm": {
+      "Arbok Johto Form": {
         "locations": [
           {
             "area": "ROUTE ",
@@ -23603,16 +23742,16 @@
             "level": "5",
             "chance": 15,
             "rareItem": "Everstone",
-            "formName": "ArbokJohtoForm"
+            "formName": "Arbok Johto Form"
           }
         ]
       }
     }
   },
-  "ArbokArbokJohtoForm": {
+  "ArbokArbok Johto Form": {
     "locations": [],
     "forms": {
-      "ArbokJohtoForm": {
+      "Arbok Johto Form": {
         "locations": [
           {
             "area": "ROUTE ",
@@ -23621,41 +23760,13 @@
             "level": "Badge Level + 3",
             "chance": 5,
             "rareItem": "Water Stone",
-            "formName": "ArbokJohtoForm"
+            "formName": "Arbok Johto Form"
           }
         ]
       }
     }
   },
-  "FarfetchD": {
-    "locations": [
-      {
-        "area": "Lake of Rage",
-        "method": "hidden_grotto",
-        "time": "uncommon",
-        "level": "26",
-        "chance": 15,
-        "rareItem": "Water Stone",
-        "formName": null
-      }
-    ],
-    "forms": {
-      "galarian": {
-        "locations": [
-          {
-            "area": "ROUTE ",
-            "method": "hidden_grotto",
-            "time": "common",
-            "level": "Badge Level + 0",
-            "chance": 40,
-            "rareItem": "Shiny Stone",
-            "formName": "galarian"
-          }
-        ]
-      }
-    }
-  },
-  "MrMime": {
+  "Mr  Mime": {
     "locations": [],
     "forms": {
       "galarian": {

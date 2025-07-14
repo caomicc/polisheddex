@@ -47,10 +47,14 @@ export const normalizeString = (str: string): string => {
     'SLASH': 'Slash',
     'NightSlashDescription': 'Night Slash',
     'SlashDescription': 'Slash',
+    // 'Ho Oh': 'Ho-Oh', // Special case for Ho-Oh
+    // 'Hooh': 'Ho-Oh', // Another variant for Ho-Oh
+    // 'HoOh': 'Ho-Oh', // Another variant for Ho-Oh
   };
 
   // Check if this is a special case that needs direct mapping
   if (specialCases[str]) {
+    console.log(`Found special case: "${str}" → "${specialCases[str]}"`);
     return specialCases[str];
   }
 

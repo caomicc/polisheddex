@@ -33,11 +33,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
     // Extract the Pokemon name from the file name
     const { basePokemonName, formName } = extractFormInfo(fileName);
-    let pokemonName = formName ? `${basePokemonName} ${formName}`.trim() : basePokemonName.trim();
-
-    if (pokemonName === 'Ho Oh' || pokemonName === 'Hooh' || pokemonName === 'Ho-Oh' || pokemonName === 'HoOh') {
-      pokemonName = 'Ho-Oh'; // Special case for Ho-Oh
-    }
+    const pokemonName = formName ? `${basePokemonName} ${formName}`.trim() : basePokemonName.trim();
 
     // Debug for Pikachu
     if (pokemonName === 'Pikachu') {
