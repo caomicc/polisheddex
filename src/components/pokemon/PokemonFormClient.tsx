@@ -279,16 +279,49 @@ export default function PokemonFormClient({
           <EvolutionChain
             chain={formData.evolution.chain}
             chainWithMethods={formData.evolution.chainWithMethods || {}}
-            spritesByGen={formData.evolution.chain.reduce((acc, name) => {
-              // Try to get sprite from allFormData if available
-              // Use the key as in allFormData, which is usually the normalized name
-              const formEntry = Object.entries(allFormData).find(
-                ([, f]) =>
-                  f.nationalDex && name && name.toLowerCase() === pokemonName.toLowerCase(),
-              );
-              acc[name] = formEntry?.[1]?.frontSpriteUrl || '';
-              return acc;
-            }, {} as Record<string, string>)}
+            spritesByGen={(() => {
+              const sprites: Record<string, string> = {};
+
+              // Add sprites for base chain Pokémon
+              formData.evolution.chain.forEach((name) => {
+                // Try to find an entry in allFormData for this Pokémon
+                for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
+                  if (
+                    formDataEntry.frontSpriteUrl &&
+                    formKey.toLowerCase() === name.toLowerCase()
+                  ) {
+                    sprites[name] = formDataEntry.frontSpriteUrl;
+                    break;
+                  }
+                }
+              });
+
+              // Add sprites for form variants
+              if (formData.evolution.chainWithMethods) {
+                Object.entries(formData.evolution.chainWithMethods).forEach(([source, methods]) => {
+                  methods.forEach((method) => {
+                    if (method.target && method.form) {
+                      const formVariantKey = `${method.target} (${method.form})`;
+
+                      // Try to find form variant in allFormData
+                      for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
+                        // Check if this is the right form
+                        if (
+                          formKey.toLowerCase().includes(method.form.toLowerCase()) &&
+                          formKey.toLowerCase().includes(method.target.toLowerCase()) &&
+                          formDataEntry.frontSpriteUrl
+                        ) {
+                          sprites[formVariantKey] = formDataEntry.frontSpriteUrl;
+                          break;
+                        }
+                      }
+                    }
+                  });
+                });
+              }
+
+              return sprites;
+            })()}
           />
         ) : (
           <div className="text-gray-500">No evolution data.</div>

@@ -20,7 +20,7 @@ import {
   MoveDescription,
   PokemonDexEntry,
   FormData,
-  Move
+  Move,
 } from '@/types/types';
 
 // Function to safely load JSON data
@@ -35,7 +35,10 @@ async function loadJsonData<T>(filePath: string): Promise<T> {
 }
 
 // Helper function to get regional variant keys
-function getRegionalVariantKeys(pokemonName: string, detailedStatData: Record<string, DetailedStats>): string[] {
+function getRegionalVariantKeys(
+  pokemonName: string,
+  detailedStatData: Record<string, DetailedStats>,
+): string[] {
   // Look for entries like "Diglett alolan", "Meowth galarian", etc.
   const variants: string[] = [];
   const formTypes = ['alolan', 'galarian', 'hisuian', 'paldean', 'paldean fire', 'paldean water'];
@@ -71,7 +74,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const nameParam = (await params).name;
   // The URL may have encoded characters, so we need to decode it
   let pokemonName = decodeURIComponent(nameParam);
-  
+
   console.log(`Loading Pokémon data for: ${pokemonName}`);
 
   // Define file paths
@@ -85,7 +88,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const detailedStatDataFile = path.join(process.cwd(), 'output/pokemon_detailed_stats.json');
   const tmHmLearnsetFile = path.join(process.cwd(), 'output/pokemon_tm_hm_learnset.json');
 
-
   // Load data using Promise.all for parallel loading
   const [
     baseStatsData,
@@ -96,7 +98,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     evolutionData,
     dexEntryData,
     detailedStatData,
-    tmHmLearnsetData
+    tmHmLearnsetData,
   ] = await Promise.all([
     cachedBaseStatsData || loadJsonData<Record<string, BaseData>>(baseStatsFile),
     loadJsonData<Record<string, MoveDescription>>(moveDescFile),
@@ -107,7 +109,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     loadJsonData<Record<string, PokemonDexEntry>>(dexEntryDataFile),
     loadJsonData<Record<string, DetailedStats>>(detailedStatDataFile), // Adjusted type to 'any' for detailed stats
     loadJsonData<Record<string, Move[]>>(tmHmLearnsetFile),
-
   ]);
 
   // Save the loaded base stats data for future use
@@ -119,7 +120,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   let baseStats = baseStatsData[pokemonName];
 
   console.log(`Looking up base stats for: ${pokemonName}`, baseStats ? 'Found' : 'Not found');
-  
+
   // Special handling for hyphenated Pokémon names
   const alternativeKeys = [];
   if (!baseStats && pokemonName === 'Porygon-Z') {
@@ -128,7 +129,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // Try alternative keys if the main lookup failed
   if (!baseStats && alternativeKeys.length > 0) {
-    const alternativeKey = alternativeKeys.find(key => baseStatsData[key]);
+    const alternativeKey = alternativeKeys.find((key) => baseStatsData[key]);
     if (alternativeKey) {
       console.log(`Found alternative key: ${alternativeKey} for ${pokemonName}`);
       baseStats = baseStatsData[alternativeKey];
@@ -146,7 +147,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const variantKeys = getRegionalVariantKeys(pokemonName, detailedStatData);
 
   // Extract form types from variant keys
-  const variantFormTypes = variantKeys.map(key => {
+  const variantFormTypes = variantKeys.map((key) => {
     // Extract the form type from the key (e.g., "Diglett alolan" -> "alolan")
     return key.replace(pokemonName, '').trim();
   });
@@ -157,7 +158,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // Combine all form types
   const forms = [...baseDataForms, ...variantFormTypes];
 
-console.log(`Name for... ${pokemonName}:`, detailedStatData[pokemonName]);
+  console.log(`Name for... ${pokemonName}:`, detailedStatData[pokemonName]);
 
   // Default form is the base data
   const defaultForm: FormData = {
@@ -200,7 +201,8 @@ console.log(`Name for... ${pokemonName}:`, detailedStatData[pokemonName]);
 
   // First, process base data forms
   if (baseStats.forms) {
-    Object.keys(baseStats.forms).forEach(formKey => {
+    console.log(`Processing forms for ${pokemonName}:`, Object.keys(baseStats.forms));
+    Object.keys(baseStats.forms).forEach((formKey) => {
       allFormData[formKey] = { ...defaultForm };
 
       // Override with form-specific data
@@ -209,6 +211,10 @@ console.log(`Name for... ${pokemonName}:`, detailedStatData[pokemonName]);
       }
 
       if (baseStats.forms && baseStats.forms[formKey]?.frontSpriteUrl) {
+        console.log(
+          `Using front sprite URL for form ${formKey}:`,
+          baseStats.forms[formKey].frontSpriteUrl,
+        );
         allFormData[formKey].frontSpriteUrl = baseStats.forms[formKey].frontSpriteUrl;
       }
 
@@ -229,7 +235,7 @@ console.log(`Name for... ${pokemonName}:`, detailedStatData[pokemonName]);
   }
 
   // Then, process regional variants
-  variantKeys.forEach(variantKey => {
+  variantKeys.forEach((variantKey) => {
     const formType = variantKey.replace(pokemonName, '').trim();
 
     if (detailedStatData[variantKey] && !processedForms.has(formType)) {
@@ -242,14 +248,18 @@ console.log(`Name for... ${pokemonName}:`, detailedStatData[pokemonName]);
         if (variantData.evYield) allFormData[formType].evYield = variantData.evYield;
         if (variantData.bodyColor) allFormData[formType].bodyColor = variantData.bodyColor;
         if (variantData.abilities) allFormData[formType].abilities = variantData.abilities;
-        if (variantData.faithfulAbilities) allFormData[formType].faithfulAbilities = variantData.faithfulAbilities;
-        if (variantData.updatedAbilities) allFormData[formType].updatedAbilities = variantData.updatedAbilities;
+        if (variantData.faithfulAbilities)
+          allFormData[formType].faithfulAbilities = variantData.faithfulAbilities;
+        if (variantData.updatedAbilities)
+          allFormData[formType].updatedAbilities = variantData.updatedAbilities;
       }
 
       // Generate a sprite URL for the variant
       const formattedName = pokemonName.toLowerCase();
       const formattedForm = formType.toLowerCase();
-      allFormData[formType].frontSpriteUrl = `/sprites/pokemon/${formattedName}/${formattedForm}/front_cropped.png`;
+      allFormData[
+        formType
+      ].frontSpriteUrl = `/sprites/pokemon/${formattedName}_${formattedForm}/front_cropped.png`;
 
       processedForms.add(formType);
     }
@@ -286,17 +296,22 @@ console.log(`Name for... ${pokemonName}:`, detailedStatData[pokemonName]);
       <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
 
       {/* Add debug info for forms */}
-      {process.env.NODE_ENV !== "production" && (
+      {process.env.NODE_ENV !== 'production' && (
         <div className="bg-gray-100 p-4 mb-4 text-xs rounded">
           <h3 className="font-bold">Debug Info:</h3>
-          <p>Regional variants: {variantKeys.join(", ") || "None"}</p>
-          <p>All forms: {forms.join(", ") || "None"}</p>
-          <p>Valid forms: {Object.keys(allFormData).filter(f => f !== "default").join(", ") || "None"}</p>
+          <p>Regional variants: {variantKeys.join(', ') || 'None'}</p>
+          <p>All forms: {forms.join(', ') || 'None'}</p>
+          <p>
+            Valid forms:{' '}
+            {Object.keys(allFormData)
+              .filter((f) => f !== 'default')
+              .join(', ') || 'None'}
+          </p>
         </div>
       )}
 
       <PokemonFormClient
-        forms={Object.keys(allFormData).filter(f => f !== "default")}
+        forms={Object.keys(allFormData).filter((f) => f !== 'default')}
         allFormData={allFormData}
         moveDescData={moveDescData}
         pokemonName={pokemonName}
