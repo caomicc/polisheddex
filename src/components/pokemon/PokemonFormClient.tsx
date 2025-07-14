@@ -166,7 +166,7 @@ export default function PokemonFormClient({
         >
           <Card>
             <CardHeader>Species</CardHeader>
-            <CardContent className="space-y-2">
+            <CardContent className="space-y-2 px-2 md:px-6">
               <p className="text-sm md:text-md text-foreground">{formData.species} Pokémon</p>
               <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
               <div
@@ -196,7 +196,13 @@ export default function PokemonFormClient({
               <div className="mt-8 flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
                 <div className="flex w-full flex-wrap justify-center items-center gap-0 mb-2">
                   <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
-                    Height:
+                    <Image
+                      src="/icons/ruler-regular.svg"
+                      alt="Ruler Icon"
+                      width={24}
+                      height={24}
+                      className="mx-auto pb-2"
+                    />
                     <p className="text-sm md:text-md text-muted-foreground">
                       {((formData.height as number) / 10).toFixed(1)} m
                     </p>
@@ -207,20 +213,38 @@ export default function PokemonFormClient({
                       {formData.genderRatio}
                     </p>
                   </div>
-                  <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
-                    Weight:
+                  <div className="w-1/3 md:w-1/5 text-center md:border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
+                    <Image
+                      src="/icons/weight-scale-regular.svg"
+                      alt="Scale Icon"
+                      width={24}
+                      height={24}
+                      className="mx-auto pb-2"
+                    />
                     <p className="text-sm md:text-md text-muted-foreground">
                       {((formData.weight as number) / 10).toFixed(1)} kg
                     </p>
                   </div>
-                  <div className="w-1/2 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
-                    Body Color:
+                  <div className="mt-4 md:mt-0 w-1/2 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
+                    <Image
+                      src="/icons/palette-regular.svg"
+                      alt="Palette Icon"
+                      width={24}
+                      height={24}
+                      className="mx-auto pb-2"
+                    />
                     <p className="text-sm md:text-md text-muted-foreground">
                       {formData.bodyColor || 'Unknown'}
                     </p>
                   </div>
-                  <div className="w-1/2 md:w-1/5 text-center p-1">
-                    Body Shape:
+                  <div className="mt-4 md:mt-0 w-1/2 md:w-1/5 text-center p-1">
+                    <Image
+                      src="/icons/shapes-regular.svg"
+                      alt="Shape Icon"
+                      width={24}
+                      height={24}
+                      className="mx-auto pb-2"
+                    />
                     <p className="text-sm md:text-md text-muted-foreground">
                       {formData.bodyShape || 'Unknown'}
                     </p>
@@ -389,13 +413,21 @@ export default function PokemonFormClient({
               <CardHeader>Base Stats</CardHeader>
               <CardContent className="space-y-4">
                 {[
-                  { label: 'HP', value: formData.baseStats.hp },
-                  { label: 'Atk', value: formData.baseStats.attack },
-                  { label: 'Def', value: formData.baseStats.defense },
-                  { label: 'Sp. Atk', value: formData.baseStats.specialAttack },
-                  { label: 'Sp. Def', value: formData.baseStats.specialDefense },
-                  { label: 'Spd', value: formData.baseStats.speed },
-                ].map(({ label, value }) => (
+                  { label: 'HP', value: formData.baseStats.hp, color: '*:bg-red-400' },
+                  { label: 'Atk', value: formData.baseStats.attack, color: '*:bg-orange-400' },
+                  { label: 'Def', value: formData.baseStats.defense, color: '*:bg-yellow-400' },
+                  {
+                    label: 'Sp. Atk',
+                    value: formData.baseStats.specialAttack,
+                    color: '*:bg-blue-400',
+                  },
+                  {
+                    label: 'Sp. Def',
+                    value: formData.baseStats.specialDefense,
+                    color: '*:bg-green-400',
+                  },
+                  { label: 'Spd', value: formData.baseStats.speed, color: '*:bg-purple-400' },
+                ].map(({ label, value, color }) => (
                   <div key={label} className="flex flex-row gap-4 items-center">
                     <div className="flex justify-between items-center w-[120px]">
                       <span className="text-xs font-bold leading-none">{label}</span>
@@ -406,6 +438,11 @@ export default function PokemonFormClient({
                     <Progress
                       value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
                       aria-label={`${label} stat`}
+                      className={cn(
+                        color,
+                        'bg-slate-200 dark:bg-slate-800 h-2 w-full rounded-full',
+                        'transition-all duration-300 ease-in-out',
+                      )}
                     />
                   </div>
                 ))}
