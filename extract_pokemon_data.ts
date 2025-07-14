@@ -976,8 +976,9 @@ function exportDetailedStats() {
         if (line.trim().startsWith('body_data')) {
           // Extract Pokémon name from comment
           const nameMatch = line.match(/;\s*([A-Z0-9_]+)/);
+          console.log(`Processing body data line: ${line}`, nameMatch);
           if (nameMatch) {
-            const monName = nameMatch[1].replace(/_/g, ' ');
+            const monName = toTitleCase(nameMatch[1]);
             if (detailedStats[monName]) {
               detailedStats[monName] = addBodyDataToDetailedStats(line, detailedStats[monName]) as DetailedStats;
             }
