@@ -197,7 +197,12 @@ export default async function LocationDetailPage({
         </BreadcrumbList>
       </Breadcrumb>
 
-      <h1 className="text-3xl font-bold mb-6">{locationName}</h1>
+      <h1 className="text-3xl font-bold mb-2">{locationName}</h1>
+
+      <p className="mb-6 text-md text-muted-foreground">
+        *Badge Level pertains to the level a user can find in the wild related to current badges
+        earned.
+      </p>
 
       {Object.entries(groupedByMethodAndTime).map(([method, methodData]) => (
         <div key={method} className="mb-8">
