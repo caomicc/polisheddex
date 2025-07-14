@@ -45,7 +45,7 @@ export function PokemonAbilities({
 
 function AbilityRow({ ability }: { ability: DetailedStats['abilities'][number] }) {
   return (
-    <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-start md:gap-2">
+    <div className="w-full flex flex-col items-start justify-start">
       <span className="text-sm text-foreground">
         {ability.name} ({ability.abilityType}):
       </span>
