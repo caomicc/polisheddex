@@ -193,7 +193,7 @@ export default function PokemonFormClient({
                   <Badge variant="secondary">Unknown</Badge>
                 )}
               </div>
-              <div className="flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
+              <div className="mt-8 flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
                 <div className="flex w-full flex-wrap justify-center items-center gap-0 mb-2">
                   <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
                     Height:
@@ -232,10 +232,6 @@ export default function PokemonFormClient({
           <Card>
             <CardHeader>Abilities</CardHeader>
             <CardContent className="space-y-2">
-              <p className="text-sm md:text-md text-muted-foreground">
-                Abilities are special traits that Pokémon can have, affecting their stats and
-                abilities in battle.
-              </p>
               <PokemonAbilities
                 faithfulAbilities={formData.faithfulAbilities}
                 updatedAbilities={formData.updatedAbilities}
@@ -245,9 +241,6 @@ export default function PokemonFormClient({
           <Card>
             <CardHeader>Catch Rate</CardHeader>
             <CardContent className="space-y-2">
-              <p className="text-sm md:text-md text-muted-foreground">
-                The catch rate determines how easy it is to catch a Pokémon in the wild.
-              </p>
               <Table className="max-w-full">
                 <TableHeader className="sr-only">
                   <TableRow>
@@ -267,9 +260,6 @@ export default function PokemonFormClient({
           <Card>
             <CardHeader>Training</CardHeader>
             <CardContent className="space-y-2">
-              <p className="text-sm md:text-md text-muted-foreground">
-                Training is an essential part of a Pokémon&apos;s growth and development.
-              </p>
               <Table className="max-w-full">
                 <TableHeader className="sr-only">
                   <TableRow>
@@ -333,10 +323,6 @@ export default function PokemonFormClient({
           <Card>
             <CardHeader>Evolution</CardHeader>
             <CardContent className="space-y-2">
-              <p className="text-sm md:text-md text-muted-foreground">
-                Evolution is a process that allows Pokémon to grow and change into more powerful
-                forms.
-              </p>
               {formData.evolution && formData.evolution.chain ? (
                 <EvolutionChain
                   chain={formData.evolution.chain}
@@ -466,14 +452,16 @@ export default function PokemonFormClient({
           className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
         >
           <Card>
-            <CardHeader>Locations</CardHeader>
-            <CardContent className="space-y-2">
+            <CardHeader>Moves</CardHeader>
+            <CardContent className="space-y-2 px-0 md:p-6">
               <Tabs defaultValue="level-up" className="w-full">
-                <TabsList>
-                  <TabsTrigger value="level-up">Level Up</TabsTrigger>
-                  <TabsTrigger value="egg">Egg Moves</TabsTrigger>
-                  <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
-                </TabsList>
+                <div className="px-4 md:px-0">
+                  <TabsList className="w-full">
+                    <TabsTrigger value="level-up">Level Up</TabsTrigger>
+                    <TabsTrigger value="egg">Egg Moves</TabsTrigger>
+                    <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
+                  </TabsList>
+                </div>
                 <TabsContent value="level-up">
                   {/* Moves List */}
                   {formData.moves && Array.isArray(formData.moves) && formData.moves.length > 0 ? (
