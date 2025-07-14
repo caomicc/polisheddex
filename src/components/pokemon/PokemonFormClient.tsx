@@ -287,20 +287,66 @@ export default function PokemonFormClient({
           <Card>
             <CardHeader>Catch Rate</CardHeader>
             <CardContent className="space-y-2">
-              <Table className="max-w-full">
-                <TableHeader className="sr-only">
-                  <TableRow>
-                    <TableHead className="font-medium w-[120px]">Catch Rate</TableHead>
-                    <TableHead className="font-medium">Value</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium w-[120px]">Base Catch Rate</TableCell>
-                    <TableCell>{formData.catchRate}</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
+              <p className="text-sm">
+                <span className="font-bold">Base Catch Rate</span>: {formData.catchRate}
+              </p>
+              <span className="flex flex-row items-start justify-between max-w-[300px] mx-auto">
+                <div>
+                  <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
+                    <Image
+                      src="/sprites/items/poke_ball.png"
+                      alt="Pokeball Icon"
+                      width={32}
+                      height={32}
+                      className="block"
+                    />{' '}
+                    Pokeball
+                  </p>
+                  <p className="text-sm md:text-md text-muted-foreground text-center">
+                    <Badge className="bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-300">
+                      {(calculateCatchChance(formData.catchRate, 'pokeball') * 100).toFixed(1)}%
+                    </Badge>
+                  </p>
+                </div>
+                <div>
+                  <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
+                    <Image
+                      src="/sprites/items/great_ball.png"
+                      alt="Greatball Icon"
+                      width={32}
+                      height={32}
+                      className="block"
+                    />{' '}
+                    Greatball
+                  </p>
+                  <p className="text-sm md:text-md text-muted-foreground text-center">
+                    <Badge className="bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                      {(calculateCatchChance(formData.catchRate, 'greatball') * 100).toFixed(1)}%
+                    </Badge>
+                  </p>
+                </div>
+                <div>
+                  <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
+                    <Image
+                      src="/sprites/items/ultra_ball.png"
+                      alt="Ultraball Icon"
+                      width={32}
+                      height={32}
+                      className="block"
+                    />{' '}
+                    Ultraball
+                  </p>
+                  <p className="text-sm md:text-md text-muted-foreground text-center">
+                    <Badge className="bg-yellow-200 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">
+                      {(calculateCatchChance(formData.catchRate, 'ultraball') * 100).toFixed(1)}%
+                    </Badge>
+                  </p>
+                </div>
+              </span>
+              <p className="text-xs text-muted-foreground text-center mt-4">
+                Sample rates for this pokemon when full HP, actual calculation may vary based on
+                status effects, level, and other factors.
+              </p>
             </CardContent>
           </Card>
           <Card>
@@ -734,4 +780,36 @@ export default function PokemonFormClient({
       </Tabs>
     </div>
   );
+}
+
+export function calculateCatchChance(
+  baseCatchRate: number,
+  ballType: 'pokeball' | 'greatball' | 'ultraball' = 'pokeball',
+) {
+  // Ball multipliers
+  const ballMultipliers: Record<'pokeball' | 'greatball' | 'ultraball', number> = {
+    pokeball: 1,
+    greatball: 1.5,
+    ultraball: 2,
+  };
+
+  const ballBonus = ballMultipliers[ballType] ?? 1;
+
+  // Health factors for max HP (HP = maxHP means HP / maxHP = 1)
+  const maxHP = 100; // arbitrary, since HP/maxHP = 1
+  const currentHP = maxHP; // Full health
+
+  // No status effect
+  const statusBonus = 1;
+
+  // Calculate modified catch rate
+  const a = ((3 * maxHP - 2 * currentHP) * baseCatchRate * ballBonus * statusBonus) / (3 * maxHP);
+
+  // Clamp `a` to a max of 255
+  const cappedA = Math.min(a, 255);
+
+  // Compute catch probability
+  const catchProbability = cappedA / 255;
+
+  return catchProbability;
 }
