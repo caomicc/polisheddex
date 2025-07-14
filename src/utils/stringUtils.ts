@@ -151,17 +151,38 @@ export function normalizeMonName(name: string, formStr: string | null): { baseNa
   return { baseName, formName };
 }
 // Helper functions to convert game codes to human-readable strings
-export function convertGenderCode(code: string): string {
-  const genderCodes: Record<string, string> = {
-    'GENDER_F0': '0% ♀ (Male only)',
-    'GENDER_F12_5': '12.5% ♀, 87.5% ♂',
-    'GENDER_F25': '25% ♀, 75% ♂',
-    'GENDER_F50': '50% ♀, 50% ♂',
-    'GENDER_F75': '75% ♀, 25% ♂',
-    'GENDER_F100': '100% ♀ (Female only)',
-    'GENDER_UNKNOWN': 'Genderless'
+export function convertGenderCode(code: string): { male: number; female: number } {
+  const genderCodes: Record<string, { male: number; female: number }> = {
+    'GENDER_F0': {
+      male: 100,
+      female: 0,
+    },
+    'GENDER_F12_5': {
+      male: 87.5,
+      female: 12.5,
+    },
+    'GENDER_F25': {
+      male: 75,
+      female: 25,
+    },
+    'GENDER_F50': {
+      male: 50,
+      female: 50,
+    },
+    'GENDER_F75': {
+      male: 25,
+      female: 75,
+    },
+    'GENDER_F100': {
+      male: 0,
+      female: 100,
+    },
+    'GENDER_UNKNOWN': {
+      male: 0,
+      female: 0,
+    },
   };
-  return genderCodes[code] || 'Unknown';
+  return genderCodes[code] || { male: 0, female: 0 };
 }
 
 export function convertHatchCode(code: string): string {

@@ -737,7 +737,10 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     abilities: [], // default value
     growthRate: "Medium Fast", // default value
     eggGroups: [], // default value
-    genderRatio: "Unknown", // default value
+    genderRatio: {
+      male: 0,
+      female: 0
+    }, // default value
     hatchRate: "Unknown", // default value
     evYield: "None", // default value
     forms: {} // Ensure forms are initialized as an empty object
@@ -825,7 +828,10 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
         abilities: [],
         growthRate: "Medium Fast",
         eggGroups: [],
-        genderRatio: "Unknown",
+        genderRatio: {
+          male: 0,
+          female: 0
+        },
         hatchRate: "Unknown",
         evYield: "None"
       };

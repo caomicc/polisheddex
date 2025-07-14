@@ -117,7 +117,10 @@ export interface DetailedStats {
   catchRate: number;
   baseExp: number;
   heldItems: string[];
-  genderRatio: string;
+  genderRatio: {
+    male: number;
+    female: number;
+  };
   hatchRate: string;
   abilities: Ability[]; // The combined list of abilities (for backward compatibility)
   faithfulAbilities: Ability[]; // Abilities in the faithful version

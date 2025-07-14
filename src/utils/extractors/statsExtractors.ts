@@ -122,7 +122,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       // Extract gender ratio and hatch rate
       // Format: dn GENDER_XXX, HATCH_XXX ; gender ratio, step cycles to hatch
       const genderHatchLine = lines.find(l => l.trim().match(/^dn.*;\s*gender ratio/));
-      let genderRatio = 'Unknown';
+      let genderRatio = { male: 0, female: 0 };
       let hatchRate = 'Unknown';
 
       if (genderHatchLine) {

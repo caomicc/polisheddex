@@ -13,6 +13,7 @@ import { Progress } from '../ui/progress';
 import { PokemonAbilities } from './pokemon-abilities';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Card, CardContent, CardHeader } from '../ui/card';
+import { GenderPieChart } from './gender-pie-chart';
 
 export default function PokemonFormClient({
   forms,
@@ -208,10 +209,31 @@ export default function PokemonFormClient({
                     </p>
                   </div>
                   <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
-                    Gender:
-                    <p className="text-sm md:text-md text-muted-foreground">
-                      {formData.genderRatio}
-                    </p>
+                    {formData.genderRatio.male === 0 && formData.genderRatio.female === 0 ? (
+                      <div className="translate-y-[-1px] relative">
+                        <div className="inline-block w-10 h-10 align-middle">
+                          <GenderPieChart male={0} female={0} genderless={100} />
+                        </div>
+                        <div className="text-sm md:text-md text-muted-foreground relative">
+                          Genderless ○
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="translate-y-[-1px] relative">
+                        <div className="inline-block w-10 h-10 align-middle">
+                          <GenderPieChart
+                            male={formData.genderRatio.male}
+                            female={formData.genderRatio.female}
+                          />
+                        </div>
+                        <div className="text-sm md:text-md text-muted-foreground relative">
+                          {formData.genderRatio.male}%{' '}
+                          <span className={'translate-y-[-1px] inline-block'}>♂</span> /{' '}
+                          {formData.genderRatio.female}%{' '}
+                          <span className={'translate-y-[-1px] inline-block'}>♀</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                   <div className="w-1/3 md:w-1/5 text-center md:border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
                     <Image
