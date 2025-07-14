@@ -1038,6 +1038,47 @@ for (const [mon, locations] of Object.entries(locationData)) {
   }
 }
 
+// Add "evolve from" locations for Pokémon without any locations
+for (const [mon, data] of Object.entries(evolutionData)) {
+  // Skip if already has locations or no evolution data available
+  if (!data || !groupedLocationData[mon] || groupedLocationData[mon].locations.length > 0) continue;
+
+  // Check if this Pokémon is evolved from another one
+  const preEvos = data.chain.filter(preMon => {
+    // Check if preEvolution has a level evolution method to this mon
+    if (data.chainWithMethods[preMon]) {
+      return data.chainWithMethods[preMon].some(evo =>
+        evo.target === mon && evo.method === 'EVOLVE_LEVEL'
+      );
+    }
+    return false;
+  });
+
+  // If we found pre-evolutions that evolve into this mon by leveling
+  if (preEvos.length > 0) {
+    for (const preMon of preEvos) {
+      const methods = data.chainWithMethods[preMon].filter(evo =>
+        evo.target === mon && evo.method === 'EVOLVE_LEVEL'
+      );
+
+      // Create evolution location entries for each evolution method
+      methods.forEach(method => {
+        const evolveLocation: LocationEntry = {
+          area: null,
+          method: `Evolve from ${preMon} (Level ${method.parameter})`,
+          time: null,
+          level: '',
+          chance: 100,
+          formName: method.form || null
+        };
+
+        // Add the evolution location
+        groupedLocationData[mon].locations.push(evolveLocation);
+      });
+    }
+  }
+}
+
 const validatedLocationData = validatePokemonKeys(groupedLocationData);
 fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(validatedLocationData, null, 2));
 

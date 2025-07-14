@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@source inline("bg-{physical,special,status,morn,day,nite,eve}");
+@source inline("bg-{physical,special,status,morn,day,nite,eve,any,common,uncommon,rare}");
 
 @theme inline {
   --color-background: var(--background);
@@ -84,6 +84,11 @@
   --color-nite: var(--color-blue-900); /* dark background */
   --color-day: var(--color-blue-200); /* light background */
   --color-morn: var(--color-orange-200); /* morning background */
+  --color-any: var(--color-purple-200); /* evening background */
+
+  --color-common: var(--color-purple-300); /* light purple */
+  --color-uncommon: var(--color-blue-300); /* light blue */
+  --color-rare: var(--color-green-300); /* light blue */
 
   --color-error: oklch(0.577 0.245 27.325); /* red */
 

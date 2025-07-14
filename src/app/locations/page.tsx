@@ -54,8 +54,8 @@ export default async function LocationsPage() {
   const locationNames = Object.keys(locationData).sort();
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <Breadcrumb>
+    <div className="max-w-xl md:max-w-4xl mx-auto p-4">
+      <Breadcrumb className="mb-4">
         <BreadcrumbList>
           <BreadcrumbLink asChild>
             <Link href="/" className="hover:underline dark:text-blue-200 text-blue-700">

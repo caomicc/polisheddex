@@ -18,6 +18,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import TimeIcon from '@/components/pokemon/TimeIcon';
 
 interface EncounterDetail {
   level: string;
@@ -170,7 +172,7 @@ export default async function LocationDetailPage({
   });
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-xl md:max-w-4xl mx-auto p-4">
       <Breadcrumb className="mb-4">
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -199,44 +201,51 @@ export default async function LocationDetailPage({
 
       {Object.entries(groupedByMethodAndTime).map(([method, methodData]) => (
         <div key={method} className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">{formatMethod(method)} Encounters</h2>
           {Object.entries(methodData).map(([time, timeData]) => (
-            <div key={time} className="overflow-hidden mb-6">
-              <h3 className="text-xl font-semibold mb-2">{formatTime(time)}</h3>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-1/3">Pokémon</TableHead>
-                    <TableHead>Level</TableHead>
-                    <TableHead>Chance</TableHead>
-                    <TableHead>Rare Item</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {timeData.pokemon.map((pokemon, idx) => (
-                    <TableRow key={`${pokemon.name}-${idx}`}>
-                      <TableCell>
-                        <Link
-                          href={`/pokemon/${pokemon.name}`}
-                          className="text-blue-700 hover:underline font-medium"
-                        >
-                          {pokemon.name}
-                        </Link>
-                      </TableCell>
-                      <TableCell>Lv. {pokemon.level}</TableCell>
-                      <TableCell>{pokemon.chance}%</TableCell>
-                      <TableCell>
-                        {pokemon.rareItem ? (
-                          <span className="text-amber-600 font-medium">{pokemon.rareItem}</span>
-                        ) : (
-                          <span className="text-gray-400">—</span>
-                        )}
-                      </TableCell>
+            <Card key={time} className="overflow-hidden mb-6">
+              <CardHeader className="">
+                <TimeIcon time={time} className="inline-block" />{' '}
+                <p className="flex">
+                  {formatMethod(method)}: {formatTime(time)}
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-2 px-0 md:px-6">
+                {/* <Table defaultValue="level-up" className="w-full"> */}
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-1/3">Pokémon</TableHead>
+                      <TableHead>Level</TableHead>
+                      <TableHead>Chance</TableHead>
+                      <TableHead>Rare Item</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
+                  </TableHeader>
+                  <TableBody>
+                    {timeData.pokemon.map((pokemon, idx) => (
+                      <TableRow key={`${pokemon.name}-${idx}`}>
+                        <TableCell>
+                          <Link
+                            href={`/pokemon/${pokemon.name}`}
+                            className="text-blue-700 hover:underline font-medium"
+                          >
+                            {pokemon.name}
+                          </Link>
+                        </TableCell>
+                        <TableCell>Lv. {pokemon.level}</TableCell>
+                        <TableCell>{pokemon.chance}%</TableCell>
+                        <TableCell>
+                          {pokemon.rareItem ? (
+                            <span className="text-amber-600 font-medium">{pokemon.rareItem}</span>
+                          ) : (
+                            <span className="text-gray-400">—</span>
+                          )}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </Card>
           ))}
         </div>
       ))}

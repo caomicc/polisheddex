@@ -5,14 +5,14 @@ import { cn } from '@/lib/utils';
 import TimeIcon from './TimeIcon';
 
 export function LocationListItem({ area, method, time, level, chance, rareItem }: LocationEntry) {
-  const formattedArea = area || 'Unknown Area';
+  const formattedArea = area || 'N/A';
   const areaUrl = area ? `/locations/${encodeURIComponent(formatAreaName(area))}` : '#';
   const desktopRows = [
     <TableRow
       key={`row-${formattedArea}-${level}`}
       className="hover:bg-muted/50 border-b-0 group hidden md:table-row"
     >
-      <TableCell className="font-semibold text-blue-700">
+      <TableCell className="font-semibold">
         {area ? (
           <Link
             href={areaUrl}
@@ -26,8 +26,11 @@ export function LocationListItem({ area, method, time, level, chance, rareItem }
       </TableCell>
       <TableCell className="text-gray-600">{method ? formatMethod(method) : '-'}</TableCell>
       <TableCell className="text-sm text-gray-600">
-        <TimeIcon time={time} className={'w-7 h-7 p-[6px]'} />
-        {/* {time ? formatTime(time) : '-'} */}
+        <TimeIcon
+          time={time}
+          className={'w-7 h-7 p-[6px]'}
+          showTooltip={time === null ? false : true}
+        />
       </TableCell>
       <TableCell className="text-sm">Lv. {level}</TableCell>
       <TableCell className="text-sm text-gray-500">{chance}%</TableCell>
@@ -46,16 +49,16 @@ export function LocationListItem({ area, method, time, level, chance, rareItem }
       <TableCell className="align-middle p-2">
         <div className="flex items-center">
           <span className="font-bold">
-                    {area ? (
-          <Link
-            href={areaUrl}
-            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            {formatAreaName(formattedArea)}
-          </Link>
-        ) : (
-          formatAreaName(formattedArea)
-        )}
+            {area ? (
+              <Link
+                href={areaUrl}
+                className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                {formatAreaName(formattedArea)}
+              </Link>
+            ) : (
+              formatAreaName(formattedArea)
+            )}
           </span>
         </div>
       </TableCell>
