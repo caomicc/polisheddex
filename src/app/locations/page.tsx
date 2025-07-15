@@ -9,33 +9,9 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-
-// Define interfaces for location data structure
-interface EncounterDetail {
-  level: string;
-  chance: number;
-  rareItem?: string;
-}
-
-interface TimeEncounters {
-  [time: string]: EncounterDetail[];
-}
-
-interface MethodData {
-  times: TimeEncounters;
-}
-
-interface PokemonMethods {
-  methods: {
-    [method: string]: MethodData;
-  };
-}
-
-interface LocationData {
-  pokemon: {
-    [pokemonName: string]: PokemonMethods;
-  };
-}
+import { LocationData, PokemonMethods } from '@/types/types';
+// import LocationCard from '@/components/pokemon/LocationCard';
+import LocationSearch from '@/components/pokemon/LocationSearch';
 
 // Function to load location data
 async function loadLocationData(): Promise<Record<string, LocationData>> {
@@ -49,9 +25,55 @@ async function loadLocationData(): Promise<Record<string, LocationData>> {
   }
 }
 
+/**
+ * Determines location types based on the location name.
+ * Uses a simple heuristic mapping for biome/environment.
+ * @param locationName - The name of the location
+ * @returns Array of type strings
+ */
+export function getLocationTypes(locationName: string): string[] {
+  if (locationName.includes('Forest') || locationName.includes('Woods')) {
+    return ['Grass'];
+  } else if (locationName.includes('Cave') || locationName.includes('Mountain')) {
+    return ['Rock'];
+  } else if (locationName.includes('Lake') || locationName.includes('Sea') || locationName.includes('Ocean')) {
+    return ['Water'];
+  } else if (locationName.includes('Tower') || locationName.includes('Ruins')) {
+    return ['Ghost'];
+  } else if (locationName.includes('Power Plant')) {
+    return ['Electric'];
+  } else if (locationName.includes('Desert') || locationName.includes('Sand')) {
+    return ['Ground'];
+  } else if (locationName.includes('Volcano') || locationName.includes('Lava')) {
+    return ['Fire'];
+  } else if (locationName.includes('Route')) {
+    return ['Grass'];
+  } else if (locationName.includes('City') || locationName.includes('Town')) {
+    return ['Normal'];
+  }
+  return ['Normal'];
+}
+
 export default async function LocationsPage() {
   const locationData = await loadLocationData();
   const locationNames = Object.keys(locationData).sort();
+
+  // Process locations to include additional data
+  const processedLocations = locationNames.map(locationName => {
+    const pokemonCount = Object.keys(locationData[locationName].pokemon).length;
+
+    const hasHiddenGrottoes = Object.values(locationData[locationName].pokemon).some(
+      (pokemon: PokemonMethods) =>
+        pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
+    );
+
+    return {
+      area: locationName,
+      types: getLocationTypes(locationName),
+      pokemonCount,
+      hasHiddenGrottoes
+    };
+  });
 
   return (
     <div className="max-w-xl md:max-w-4xl mx-auto p-4">
@@ -69,9 +91,37 @@ export default async function LocationsPage() {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <h1 className="text-3xl font-bold mb-6">Game Locations</h1>
+      <h1 className="text-3xl font-bold mb-6 sr-only">Game Locations</h1>
 
-      {/* Hidden Grotto Locations */}
+      <LocationSearch locations={processedLocations} />
+
+      {/* <h1 className="text-3xl font-bold mb-6">Game Locations</h1>
+
+      <h2 className="text-xl font-semibold mb-4">All Locations</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {locationNames.map((locationName) => {
+          const pokemonCount = Object.keys(locationData[locationName].pokemon).length;
+
+          const hasHiddenGrottoes = Object.values(locationData[locationName].pokemon).some(
+            (pokemon: PokemonMethods) =>
+              pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
+          );
+
+
+          return (
+            <LocationCard
+              key={locationName}
+              location={{
+                area: locationName,
+                types: getLocationTypes(locationName),
+                pokemonCount,
+                hasHiddenGrottoes
+              }}
+            />
+          );
+        })}
+      </div>
+
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Hidden Grotto Locations</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -90,52 +140,19 @@ export default async function LocationsPage() {
               ).length;
 
               return (
-                <Link
+                <LocationCard
                   key={locationName + '-grotto'}
-                  href={`/locations/${encodeURIComponent(locationName)}`}
-                  className="block p-4 border border-green-200 bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
-                >
-                  <h3 className="text-lg font-semibold">{locationName}</h3>
-                  <p className="text-gray-600 mt-1">
-                    {pokemonCount} {pokemonCount === 1 ? 'Pokémon' : 'Pokémon'} in hidden grottoes
-                  </p>
-                </Link>
+                  location={{
+                    area: locationName,
+                    types: getLocationTypes(locationName),
+                    pokemonCount,
+                    hasHiddenGrottoes: true
+                  }}
+                />
               );
             })}
         </div>
-      </div>
-
-      <h2 className="text-xl font-semibold mb-4">All Locations</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {locationNames.map((locationName) => {
-          // Count total Pokémon in this location
-          const pokemonCount = Object.keys(locationData[locationName].pokemon).length;
-
-          // Check if this location has hidden grottoes
-          const hasHiddenGrottoes = Object.values(locationData[locationName].pokemon).some(
-            (pokemon: PokemonMethods) =>
-              pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
-          );
-
-          return (
-            <Link
-              key={locationName}
-              href={`/locations/${encodeURIComponent(locationName)}`}
-              className="block p-4 border rounded-lg hover:bg-blue-50 transition-colors"
-            >
-              <h2 className="text-xl font-semibold">{locationName}</h2>
-              <p className="text-gray-600 mt-1">
-                {pokemonCount} {pokemonCount === 1 ? 'Pokémon' : 'Pokémon'} available
-                {hasHiddenGrottoes && (
-                  <span className="ml-2 px-2 py-0.5 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                    Hidden Grotto
-                  </span>
-                )}
-              </p>
-            </Link>
-          );
-        })}
-      </div>
+      </div> */}
     </div>
   );
 }
