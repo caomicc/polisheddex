@@ -60,18 +60,11 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   if (pokemonData.forms) {
     Object.entries(pokemonData.forms).forEach(([formKey, formValue]: [string, any]) => {
       console.log(`Processing form: ${formKey} for ${pokemonName}`);
+      console.log('Form value:', formValue);
       allFormData[formKey] = {
-        ...formValue,
+        ...formValue.detailedStats,
         moves: formValue.moves || [],
-        tmHmLearnset: formValue.tmHmMoves || [],
-        locations: formValue.locations || [],
-        eggMoves: formValue.eggMoves || [],
-        evolution: formValue.evolution || null,
-        nationalDex: formValue.nationalDex || null,
         frontSpriteUrl: formValue.frontSpriteUrl,
-        johtoDex: formValue.johtoDex || null,
-        species: formValue.pokedexEntries?.species || '',
-        description: formValue.pokedexEntries?.description || '',
       };
       console.log(`Added form ${formKey} data for ${pokemonName}`, allFormData[formKey]);
     });
