@@ -27,7 +27,18 @@ export default function PokemonFormClient({
   pokemonName: string;
 }) {
   const [selectedForm, setSelectedForm] = useState('default');
-  const formData = allFormData[selectedForm] || allFormData['default'];
+  // Convert selectedForm to title case to match keys in allFormData
+  const toTitleCase = (str: string) =>
+    str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase());
+
+  const formKey =
+    selectedForm === 'default'
+      ? 'default'
+      : Object.keys(allFormData).find(
+          (key) => key.toLowerCase() === toTitleCase(selectedForm).toLowerCase(),
+        ) || selectedForm;
+
+  const formData = allFormData[formKey] || allFormData['default'];
 
   console.log('Form Data:', formData);
   console.log('selectedForm', selectedForm);

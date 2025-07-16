@@ -62,19 +62,22 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       console.log(`Processing form: ${formKey} for ${pokemonName}`);
       allFormData[formKey] = {
         ...formValue,
-        // moves: formValue.moves || [],
-        // tmHmLearnset: formValue.tmHmMoves || [],
-        // locations: formValue.locations || [],
-        // eggMoves: formValue.eggMoves || [],
-        // evolution: formValue.evolution || null,
-        // nationalDex: formValue.nationalDex || null,
-        // frontSpriteUrl: formValue.frontSpriteUrl,
-        // johtoDex: formValue.johtoDex || null,
-        // species: formValue.pokedexEntries?.species || '',
-        // description: formValue.pokedexEntries?.description || '',
+        moves: formValue.moves || [],
+        tmHmLearnset: formValue.tmHmMoves || [],
+        locations: formValue.locations || [],
+        eggMoves: formValue.eggMoves || [],
+        evolution: formValue.evolution || null,
+        nationalDex: formValue.nationalDex || null,
+        frontSpriteUrl: formValue.frontSpriteUrl,
+        johtoDex: formValue.johtoDex || null,
+        species: formValue.pokedexEntries?.species || '',
+        description: formValue.pokedexEntries?.description || '',
       };
+      console.log(`Added form ${formKey} data for ${pokemonName}`, allFormData[formKey]);
     });
   }
+
+  console.log(`Loaded Pokémon data for ${pokemonName}`, allFormData);
 
   // You may want to load moveDescData as before, or optimize further if you have per-move files
   // For now, keep the original moveDescData loading for compatibility
