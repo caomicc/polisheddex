@@ -137,6 +137,8 @@ export interface DetailedStats {
   weight?: number | string; // Weight can be a number or a string (e.g., "60 kg");
   bodyShape?: string;
   bodyColor?: string;
+  types: string[] | string;
+  updatedTypes?: string[] | string; // Types in the polished/updated version
 }
 
 export interface Ability {
@@ -147,7 +149,6 @@ export interface Ability {
 }
 
 export interface FormData extends DetailedStats {
-  types: string[] | string;
   moves: Move[];
   tmHmLearnset: Move[];
   locations: LocationEntry[];
@@ -164,9 +165,9 @@ export interface BaseData extends DetailedStats {
   name: string;
   nationalDex: number | null;
   johtoDex: number | null;
-  types: string[] | string; // Current displayed types (default to updated)
-  faithfulTypes?: string[] | string; // Types in the faithful version
-  updatedTypes?: string[] | string; // Types in the polished/updated version
+  // types: string[] | string; // Current displayed types (default to updated)
+  // faithfulTypes?: string[] | string; // Types in the faithful version
+  // updatedTypes?: string[] | string; // Types in the polished/updated version
   frontSpriteUrl?: string;
   forms?: Record<string, DetailedStats & {
     types: string[] | string; // Current displayed types (default to updated)

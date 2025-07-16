@@ -48,7 +48,7 @@ extractPokedexEntries();
 
 extractTmHmLearnset();
 
-exportDetailedStats();
+// exportDetailedStats() moved later after finalResultV3 is initialized
 
 // --- Move Description Map ---
 // Read move descriptions from the generated JSON file
@@ -759,6 +759,9 @@ for (const mon of Object.keys(finalResult)) {
   };
 }
 
+// Now that finalResultV3 is defined, we can call exportDetailedStats
+exportDetailedStats();
+
 // Group all Pokemon data
 const groupedPokemonData = groupPokemonForms(finalResultV3);
 
@@ -1294,6 +1297,31 @@ function exportDetailedStats() {
       console.log('Possible Porygon-Z related keys:', possiblePorygonZKeys);
     }
 
+    // Add types from finalResultV3 to the detailed stats
+    for (const [pokemonName, stats] of Object.entries(detailedStats)) {
+      if (finalResultV3[pokemonName]) {
+        // Copy types from finalResultV3
+        stats.types = finalResultV3[pokemonName].types || 'Unknown';
+        stats.updatedTypes = finalResultV3[pokemonName].updatedTypes || finalResultV3[pokemonName].types || 'Unknown';
+      } else {
+        // If pokemon not found in finalResultV3, try looking for a match
+        const matchingKey = Object.keys(finalResultV3).find(key =>
+          key.toLowerCase() === pokemonName.toLowerCase() ||
+          standardizePokemonKey(key) === standardizePokemonKey(pokemonName)
+        );
+
+        if (matchingKey) {
+          stats.types = finalResultV3[matchingKey].types || 'Unknown';
+          stats.updatedTypes = finalResultV3[matchingKey].updatedTypes || finalResultV3[matchingKey].types || 'Unknown';
+        } else {
+          // If still not found, set to Unknown
+          console.log(`No type data found for: ${pokemonName}`);
+          stats.types = 'Unknown';
+          stats.updatedTypes = 'Unknown';
+        }
+      }
+    }
+
     // --- Body Data Extraction ---
     const bodyDataPath = path.join(__dirname, 'rom/data/pokemon/body_data.asm');
     if (fs.existsSync(bodyDataPath)) {
@@ -1316,9 +1344,11 @@ function exportDetailedStats() {
     // --- Ability Description Enhancement ---
     // Load ability descriptions to add them to the abilities
     const abilityDescriptionsPath = path.join(__dirname, 'output/pokemon_ability_descriptions.json');
+    // Define abilityDescriptions outside the if block so it's accessible throughout the function
+    let abilityDescriptions: Record<string, { description: string }> = {};
     if (fs.existsSync(abilityDescriptionsPath)) {
       try {
-        const abilityDescriptions = JSON.parse(fs.readFileSync(abilityDescriptionsPath, 'utf8'));
+        abilityDescriptions = JSON.parse(fs.readFileSync(abilityDescriptionsPath, 'utf8'));
 
         // Enhance each Pokemon's ability with its description
         for (const [, stats] of Object.entries(detailedStats)) {

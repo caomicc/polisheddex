@@ -373,6 +373,109 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         }
       }
 
+      // Extract types data from the file content
+      // First look for a standard type line
+      let faithfulTypes: string | string[] = 'Unknown';
+      let updatedTypes: string | string[] = 'Unknown';
+
+      // Look for type data in the file
+      // First check if there are conditional types based on FAITHFUL
+      let hasConditionalTypes = false;
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line.startsWith('if DEF(FAITHFUL)')) {
+          // Look for type definition within the conditional block
+          for (let j = i + 1; j < lines.length && !lines[j].trim().startsWith('else'); j++) {
+            const typeLine = lines[j].trim();
+            if (typeLine.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/)) {
+              const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+              if (match) {
+                // Convert type enums to proper type names
+                const type1 = match[1].replace('TYPE_', '').toLowerCase();
+                const type2 = match[2].replace('TYPE_', '').toLowerCase();
+
+                // Capitalize first letter
+                const t1 = type1.charAt(0).toUpperCase() + type1.slice(1);
+                const t2 = type2.charAt(0).toUpperCase() + type2.slice(1);
+
+                if (t1 === t2 || t2 === 'None') {
+                  faithfulTypes = t1;
+                } else {
+                  faithfulTypes = [t1, t2];
+                }
+                hasConditionalTypes = true;
+              }
+              break;
+            }
+          }
+
+          // Look for the else block with updated types
+          let foundElse = false;
+          for (let j = i + 1; j < lines.length; j++) {
+            if (lines[j].trim() === 'else') {
+              foundElse = true;
+              // Look for type definition in the else block
+              for (let k = j + 1; k < lines.length && !lines[k].trim().startsWith('endc'); k++) {
+                const typeLine = lines[k].trim();
+                if (typeLine.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/)) {
+                  const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+                  if (match) {
+                    // Convert type enums to proper type names
+                    const type1 = match[1].replace('TYPE_', '').toLowerCase();
+                    const type2 = match[2].replace('TYPE_', '').toLowerCase();
+
+                    // Capitalize first letter
+                    const t1 = type1.charAt(0).toUpperCase() + type1.slice(1);
+                    const t2 = type2.charAt(0).toUpperCase() + type2.slice(1);
+
+                    if (t1 === t2 || t2 === 'None') {
+                      updatedTypes = t1;
+                    } else {
+                      updatedTypes = [t1, t2];
+                    }
+                  }
+                  break;
+                }
+              }
+            }
+            if (foundElse && lines[j].trim().startsWith('endc')) {
+              break;
+            }
+          }
+          break; // We've found and processed the conditional block
+        }
+      }
+
+      // If no conditional types were found, look for a standard type declaration
+      if (!hasConditionalTypes) {
+        const typeLine = lines.find(l => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
+        if (typeLine) {
+          const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+          if (match) {
+            // Convert type enums to proper type names
+            const type1 = match[1].replace('TYPE_', '').toLowerCase();
+            const type2 = match[2].replace('TYPE_', '').toLowerCase();
+
+            // Capitalize first letter
+            const t1 = type1.charAt(0).toUpperCase() + type1.slice(1);
+            const t2 = type2.charAt(0).toUpperCase() + type2.slice(1);
+
+            if (t1 === t2 || t2 === 'None') {
+              faithfulTypes = t1;
+              updatedTypes = t1;
+            } else {
+              faithfulTypes = [t1, t2];
+              updatedTypes = [t1, t2];
+            }
+          }
+        }
+      }
+
+      // If updatedTypes is still unknown but faithfulTypes is known, use faithfulTypes as the default
+      if (updatedTypes === 'Unknown' && faithfulTypes !== 'Unknown') {
+        updatedTypes = faithfulTypes;
+      }
+
       // Add the detailed stats to our result
       // For updatedAbilities, only use fallbacks if there are distinct abilities
       detailedStats[pokemonName] = {
@@ -388,7 +491,9 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         updatedAbilities: updatedAbilities,
         growthRate,
         eggGroups,
-        evYield
+        evYield,
+        types: faithfulTypes,
+        updatedTypes: updatedTypes
       };
     } catch (error) {
       console.error(`Error processing ${fileName}:`, error);
