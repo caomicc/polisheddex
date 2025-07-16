@@ -1,0 +1,265 @@
+{
+  "name": "Caterpie",
+  "nationalDex": 10,
+  "johtoDex": 24,
+  "types": "Bug",
+  "updatedTypes": "Bug",
+  "frontSpriteUrl": "/sprites/pokemon/caterpie/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 45,
+      "attack": 30,
+      "defense": 35,
+      "speed": 45,
+      "specialAttack": 20,
+      "specialDefense": 20,
+      "total": 195
+    },
+    "catchRate": 255,
+    "baseExp": 53,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Bug",
+      "Bug"
+    ],
+    "evYield": "1 HP",
+    "types": "Bug",
+    "updatedTypes": "Bug",
+    "height": 3,
+    "weight": 29,
+    "bodyShape": "Insectoid",
+    "bodyColor": "Green"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 7,
+        "target": "Metapod"
+      }
+    ],
+    "chain": [
+      "Caterpie",
+      "Metapod",
+      "Butterfree"
+    ],
+    "chainWithMethods": {
+      "Caterpie": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Metapod"
+        }
+      ],
+      "Metapod": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Butterfree"
+        }
+      ],
+      "Butterfree": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "String Shot",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Speed.",
+        "type": "Bug",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 95,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Bug Bite",
+      "level": 9,
+      "info": {
+        "description": "\tBites the foe and \teats a held Berry.",
+        "type": "Bug",
+        "pp": 20,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [],
+  "eggMoves": [],
+  "locations": [
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "morn",
+      "level": "10",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "day",
+      "level": "10",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "morn",
+      "level": "9",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "day",
+      "level": "9",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "morn",
+      "level": "3",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "morn",
+      "level": "4",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "day",
+      "level": "3",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "day",
+      "level": "4",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_31",
+      "method": "grass",
+      "time": "morn",
+      "level": "4",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_31",
+      "method": "grass",
+      "time": "day",
+      "level": "4",
+      "chance": 30,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Worm",
+    "description": "It crawls into foliage where it camouflages itself among leaves that are the same color as its body."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.803Z",
+  "version": "1.0.0"
+}

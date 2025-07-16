@@ -1,0 +1,596 @@
+{
+  "name": "Azurill",
+  "nationalDex": 252,
+  "johtoDex": 140,
+  "types": [
+    "Normal",
+    "Fairy"
+  ],
+  "updatedTypes": [
+    "Normal",
+    "Fairy"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/azurill/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 50,
+      "attack": 20,
+      "defense": 40,
+      "speed": 20,
+      "specialAttack": 20,
+      "specialDefense": 40,
+      "total": 190
+    },
+    "catchRate": 150,
+    "baseExp": 33,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 25,
+      "female": 75
+    },
+    "hatchRate": "Fast (2,560 steps)",
+    "abilities": [
+      {
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Huge Power",
+        "description": "\tBoosts its Attack \tstat.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sap Sipper",
+        "description": "\tBoosts Attack when \thit by Grass.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Huge Power",
+        "description": "\tBoosts its Attack \tstat.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sap Sipper",
+        "description": "\tBoosts Attack when \thit by Grass.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Fast",
+    "eggGroups": [
+      "Undiscovered",
+      "Undiscovered"
+    ],
+    "evYield": "1 HP",
+    "types": [
+      "Normal",
+      "Fairy"
+    ],
+    "updatedTypes": [
+      "Normal",
+      "Fairy"
+    ],
+    "height": 2,
+    "weight": 20,
+    "bodyShape": "Head Legs",
+    "bodyColor": "Blue"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_HAPPINESS",
+        "parameter": "TR_ANYTIME",
+        "target": "Marill"
+      }
+    ],
+    "chain": [
+      "Azurill",
+      "Marill",
+      "Azumarill"
+    ],
+    "chainWithMethods": {
+      "Azurill": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Marill"
+        }
+      ],
+      "Marill": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Azumarill"
+        }
+      ],
+      "Azumarill": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Splash",
+      "level": 1,
+      "info": {
+        "description": "\tHas no effect \twhatsoever.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Water Gun",
+      "level": 1,
+      "info": {
+        "description": "\tSquirts water to \tattack.",
+        "type": "Water",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Growl",
+      "level": 2,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Attack.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Foresight",
+      "level": 5,
+      "info": {
+        "description": "\tNegates foe's eva- \tsion and immunity.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Aqua Jet",
+      "level": 7,
+      "info": {
+        "description": "\tA speedy lunge. \tAlways goes first.",
+        "type": "Water",
+        "pp": 20,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Charm",
+      "level": 10,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Attack.",
+        "type": "Fairy",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Bubble Beam",
+      "level": 13,
+      "info": {
+        "description": "\tAn attack that may \tlower Speed.",
+        "type": "Water",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Sing",
+      "level": 16,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Rollout",
+      "level": 20,
+      "info": {
+        "description": "\tAttacks 5 turns \twith rising power.",
+        "type": "Rock",
+        "pp": 20,
+        "power": 30,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Body Slam",
+      "level": 23,
+      "info": {
+        "description": "\tAn attack that may \tcause paralysis.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 85,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hail",
+      "description": "\tInflicts damage \tevery turn.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Ice Beam",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Blizzard",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Light Screen",
+      "description": "\tRaises Sp.Def with \ta wall of light.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Iron Tail",
+      "description": "\tAn attack that may \tlower Defense.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 75
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Scald",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Water",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Water Pulse",
+      "description": "\tAn attack that may \tconfuse the foe.",
+      "type": "Water",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Surf",
+      "description": "\tA strong Water- \ttype attack.",
+      "type": "Water",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Whirlpool",
+      "description": "",
+      "type": "Water",
+      "pp": 15,
+      "power": 40,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Waterfall",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Water",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Charm",
+      "description": "\tSharply lowers the \tfoe's Attack.",
+      "type": "Fairy",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Defense Curl",
+      "description": "\tRaises the user's \tDefense.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Hyper Voice",
+      "description": "\tAttack the foe \twith sound waves.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Knock Off",
+      "description": "\tSlaps down the \tfoe's held item.",
+      "type": "Dark",
+      "pp": 20,
+      "power": 65,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rollout",
+      "description": "\tAttacks 5 turns \twith rising power.",
+      "type": "Rock",
+      "pp": 20,
+      "power": 30,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Belly Drum",
+    "Foresight",
+    "Future Sight",
+    "Perish Song",
+    "Supersonic",
+    "Light Screen",
+    "Amnesia",
+    "Calm Mind"
+  ],
+  "locations": [],
+  "pokedexEntries": {
+    "species": "Polka Dot",
+    "description": "Its tail is filled with the nutrients necessary for growth. It plays by bouncing on its tail."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.874Z",
+  "version": "1.0.0"
+}

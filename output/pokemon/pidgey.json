@@ -1,0 +1,853 @@
+{
+  "name": "Pidgey",
+  "nationalDex": 16,
+  "johtoDex": 10,
+  "types": [
+    "Normal",
+    "Flying"
+  ],
+  "updatedTypes": [
+    "Normal",
+    "Flying"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/pidgey/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 40,
+      "speed": 56,
+      "specialAttack": 35,
+      "specialDefense": 35,
+      "total": 251
+    },
+    "catchRate": 255,
+    "baseExp": 55,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Tangled Feet",
+        "description": "\tBoosts evasion if \tit is confused.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Big Pecks",
+        "description": "\tPrevents foes from \tlowering Defense.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Tangled Feet",
+        "description": "\tBoosts evasion if \tit is confused.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Big Pecks",
+        "description": "\tPrevents foes from \tlowering Defense.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Flying",
+      "Flying"
+    ],
+    "evYield": "1 Spe",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Normal",
+      "Flying"
+    ],
+    "height": 3,
+    "weight": 18,
+    "bodyShape": "Wings",
+    "bodyColor": "Brown"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 18,
+        "target": "Pidgeotto"
+      }
+    ],
+    "chain": [
+      "Pidgey",
+      "Pidgeotto",
+      "Pidgeot"
+    ],
+    "chainWithMethods": {
+      "Pidgey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Pidgeotto"
+        }
+      ],
+      "Pidgeotto": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Pidgeot"
+        }
+      ],
+      "Pidgeot": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Gust",
+      "level": 5,
+      "info": {
+        "description": "\tWhips up a strong \tgust of wind.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Mud Slap",
+      "level": 9,
+      "info": {
+        "description": "\tAn attack that \tlowers accuracy.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Quick Attack",
+      "level": 13,
+      "info": {
+        "description": "\tLets the user get \tin the first hit.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Rage",
+      "level": 17,
+      "info": {
+        "description": "\tRaises Attack if \tthe user is hit.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Charm",
+      "level": 21,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Attack.",
+        "type": "Fairy",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Swift",
+      "level": 25,
+      "info": {
+        "description": "\tAn attack that \tnever misses.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 60,
+        "accuracy": "--",
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 29,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Wing Attack",
+      "level": 33,
+      "info": {
+        "description": "\tStrikes the foe \twith wings.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Roost",
+      "level": 37,
+      "info": {
+        "description": "\tLands to restore \t1/2 the max HP.",
+        "type": "Flying",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Drill Peck",
+      "level": 41,
+      "info": {
+        "description": "\tA strong, spin- \tning-peck attack.",
+        "type": "Flying",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Steel Wing",
+      "level": 45,
+      "info": {
+        "description": "\tAn attack that may \tup user's Defense.",
+        "type": "Steel",
+        "pp": 25,
+        "power": 70,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Air Slash",
+      "level": 49,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Flying",
+        "pp": 15,
+        "power": 75,
+        "accuracy": 95,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Hurricane",
+      "level": 53,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Flying",
+        "pp": 10,
+        "power": 110,
+        "accuracy": 70,
+        "category": "Special"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Steel Wing",
+      "description": "\tAn attack that may \tup user's Defense.",
+      "type": "Steel",
+      "pp": 25,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Roost",
+      "description": "\tLands to restore \t1/2 the max HP.",
+      "type": "Flying",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Focus Blast",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Fighting",
+      "pp": 5,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "U Turn",
+      "description": "",
+      "type": "Bug",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Fly",
+      "description": "\t1st turn: Fly \t2nd turn: Attack",
+      "type": "Flying",
+      "pp": 15,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Peck",
+    "Feint Attack",
+    "Foresight",
+    "Pursuit",
+    "Air Slash",
+    "Steel Wing",
+    "Charm",
+    "Extremespeed",
+    "Brave Bird"
+  ],
+  "locations": [
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "morn",
+      "level": "14",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "day",
+      "level": "14",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "morn",
+      "level": "10",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "day",
+      "level": "10",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_29",
+      "method": "grass",
+      "time": "morn",
+      "level": "2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_29",
+      "method": "grass",
+      "time": "morn",
+      "level": "3",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_29",
+      "method": "grass",
+      "time": "day",
+      "level": "2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_29",
+      "method": "grass",
+      "time": "day",
+      "level": "3",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "morn",
+      "level": "4",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "day",
+      "level": "3",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "day",
+      "level": "4",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_31",
+      "method": "grass",
+      "time": "morn",
+      "level": "5",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_31",
+      "method": "grass",
+      "time": "day",
+      "level": "4",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_31",
+      "method": "grass",
+      "time": "day",
+      "level": "5",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_34",
+      "method": "grass",
+      "time": "morn",
+      "level": "13",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_34",
+      "method": "grass",
+      "time": "day",
+      "level": "13",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "morn",
+      "level": "14",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "day",
+      "level": "14",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "morn",
+      "level": "5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "morn",
+      "level": "6",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "morn",
+      "level": "7",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "morn",
+      "level": "7",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "day",
+      "level": "5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "day",
+      "level": "5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "day",
+      "level": "6",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "day",
+      "level": "7",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "day",
+      "level": "7",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_37",
+      "method": "grass",
+      "time": "morn",
+      "level": "14",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_37",
+      "method": "grass",
+      "time": "day",
+      "level": "14",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_37",
+      "method": "grass",
+      "time": "day",
+      "level": "15",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "VIOLET_OUTSKIRTS",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "VIOLET_OUTSKIRTS",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "CHERRYGROVE_BAY",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "CHERRYGROVE_BAY",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "morn",
+      "level": "14",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "day",
+      "level": "14",
+      "chance": 5,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Tiny Bird",
+    "description": "It rapidly flaps its wings in the grass, stirring up a dust cloud that drives insect prey out into the open."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.805Z",
+  "version": "1.0.0"
+}

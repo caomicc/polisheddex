@@ -15,12 +15,10 @@ export interface PokemonCardProps {
 const PokemonCard: React.FC<PokemonCardProps> = ({
   pokemon,
   sortType = 'nationaldex',
-  showUpdatedTypes = true
+  showUpdatedTypes = true,
 }) => {
   // Get the appropriate types based on preference
-  const displayTypes = showUpdatedTypes
-    ? pokemon.updatedTypes || pokemon.types
-    : pokemon.types;
+  const displayTypes = showUpdatedTypes ? pokemon.updatedTypes || pokemon.types : pokemon.types;
 
   // Get the primary type for styling
   const primaryType = displayTypes
@@ -35,7 +33,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
     <Link href={`/pokemon/${encodeURIComponent(pokemon.name)}`}>
       <Card
         className={cn(
-          'shadow-sm hover:shadow-md transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pt-[48px] h-[100px] md:h-auto',
+          'shadow-sm hover:shadow-md transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pt-[48px] h-[120px] md:h-auto',
           `bg-${primaryType}-20`,
           `shadow-${primaryType}`,
         )}

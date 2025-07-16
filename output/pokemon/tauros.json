@@ -1,0 +1,925 @@
+{
+  "name": "Tauros",
+  "nationalDex": 128,
+  "johtoDex": 162,
+  "types": "Normal",
+  "updatedTypes": "Normal",
+  "frontSpriteUrl": "/sprites/pokemon/tauros/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 95,
+      "speed": 110,
+      "specialAttack": 40,
+      "specialDefense": 70,
+      "total": 490
+    },
+    "catchRate": 45,
+    "baseExp": 211,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 100,
+      "female": 0
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Anger Point",
+        "description": "\tMaxes Attack after \ta critical hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Anger Point",
+        "description": "\tMaxes Attack after \ta critical hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Slow",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "1 Atk",
+    "types": "Normal",
+    "updatedTypes": "Normal",
+    "height": 14,
+    "weight": 1100,
+    "bodyShape": "Quadruped",
+    "bodyColor": "Black"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Tauros"
+    ],
+    "chainWithMethods": {
+      "Tauros": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Leer",
+      "level": 3,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Defense.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Rage",
+      "level": 5,
+      "info": {
+        "description": "\tRaises Attack if \tthe user is hit.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Horn Attack",
+      "level": 8,
+      "info": {
+        "description": "\tAn attack using a \thorn to jab.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Scary Face",
+      "level": 11,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Speed.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Pursuit",
+      "level": 15,
+      "info": {
+        "description": "\tHeavily strikes \tswitching #mon.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Rest",
+      "level": 19,
+      "info": {
+        "description": "\tSleep for 2 turns \tto fully recover.",
+        "type": "Psychic",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Quick Attack",
+      "level": 24,
+      "info": {
+        "description": "\tLets the user get \tin the first hit.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Focus Energy",
+      "level": 29,
+      "info": {
+        "description": "\tRaises the criti- \tcal hit ratio.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Take Down",
+      "level": 35,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 15,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Zen Headbutt",
+      "level": 41,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Psychic",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Swagger",
+      "level": 48,
+      "info": {
+        "description": "\tCauses confusion \tbut raises Attack.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 0,
+        "accuracy": 85,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Thrash",
+      "level": 55,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Double Edge",
+      "level": 63,
+      "info": {
+        "description": "\tA tackle that also \thurts the user.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Giga Impact",
+      "level": 71,
+      "info": {
+        "description": "\t1st turn: Attack \t2nd turn: Rest",
+        "type": "Normal",
+        "pp": 5,
+        "power": 150,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Outrage",
+      "level": 80,
+      "info": {
+        "description": "\tWorks 2-3 turns \tand confuses user.",
+        "type": "Dragon",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Bulk Up",
+      "description": "\tRaises the user's \tAtk and Def.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Ice Beam",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Blizzard",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Bulldoze",
+      "description": "\tA Ground attack \tthat lowers Speed.",
+      "type": "Ground",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Iron Tail",
+      "description": "\tAn attack that may \tlower Defense.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 75
+    },
+    {
+      "name": "Thunderbolt",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunder",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 10,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Earthquake",
+      "description": "\tTough but useless \tvs. flying foes.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Flamethrower",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sandstorm",
+      "description": "",
+      "type": "Rock",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Fire Blast",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 85
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Slide",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Rock",
+      "pp": 10,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Wild Charge",
+      "description": "\tA charge that also \thurts the user.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Water Pulse",
+      "description": "\tAn attack that may \tconfuse the foe.",
+      "type": "Water",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Stone Edge",
+      "description": "\tHas a high criti- \tcal hit ratio.",
+      "type": "Rock",
+      "pp": 5,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 80
+    },
+    {
+      "name": "Surf",
+      "description": "\tA strong Water- \ttype attack.",
+      "type": "Water",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Strength",
+      "description": "\tA powerful physi- \tcal attack.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Whirlpool",
+      "description": "",
+      "type": "Water",
+      "pp": 15,
+      "power": 40,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Iron Head",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Zap Cannon",
+      "description": "\tAn attack that \talways paralyzes.",
+      "type": "Electric",
+      "pp": 5,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 50
+    },
+    {
+      "name": "Zen Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 90
+    }
+  ],
+  "eggMoves": [],
+  "locations": [
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level + 3",
+      "chance": 40,
+      "rareItem": "THUNDERSTONE",
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Wild Bull",
+    "description": "The “Combat Breed” fights in close quarters. It uses its short horns to strike the foe's weak spots."
+  },
+  "forms": {
+    " Paldean": {
+      "formName": " Paldean",
+      "types": "Unknown",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 3,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 5,
+          "info": {
+            "description": "\tRaises Attack if \tthe user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "level": 8,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 11,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 15,
+          "info": {
+            "description": "\tHeavily strikes \tswitching #mon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rest",
+          "level": 19,
+          "info": {
+            "description": "\tSleep for 2 turns \tto fully recover.",
+            "type": "Psychic",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 24,
+          "info": {
+            "description": "\tA double kicking \tattack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 29,
+          "info": {
+            "description": "\tRaises the criti- \tcal hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 35,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "level": 41,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swagger",
+          "level": 48,
+          "info": {
+            "description": "\tCauses confusion \tbut raises Attack.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 55,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 63,
+          "info": {
+            "description": "\tA tackle that also \thurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 71,
+          "info": {
+            "description": "\tLowers the user's \tDef and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 80,
+          "info": {
+            "description": "\tWorks 2-3 turns \tand confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "locations": []
+    }
+  },
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.836Z",
+  "version": "1.0.0"
+}

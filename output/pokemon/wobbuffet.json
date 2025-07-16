@@ -1,0 +1,290 @@
+{
+  "name": "Wobbuffet",
+  "nationalDex": 202,
+  "johtoDex": 66,
+  "types": "Psychic",
+  "updatedTypes": "Psychic",
+  "frontSpriteUrl": "/sprites/pokemon/wobbuffet/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 190,
+      "attack": 33,
+      "defense": 58,
+      "speed": 33,
+      "specialAttack": 33,
+      "specialDefense": 58,
+      "total": 405
+    },
+    "catchRate": 45,
+    "baseExp": 177,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Amorphous",
+      "Amorphous"
+    ],
+    "evYield": "2 HP",
+    "types": "Psychic",
+    "updatedTypes": "Psychic",
+    "height": 13,
+    "weight": 285,
+    "bodyShape": "Head Base",
+    "bodyColor": "Blue"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Wynaut",
+      "Wobbuffet"
+    ],
+    "chainWithMethods": {
+      "Wynaut": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Wobbuffet"
+        }
+      ],
+      "Wobbuffet": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Splash",
+      "level": 1,
+      "info": {
+        "description": "\tHas no effect \twhatsoever.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Charm",
+      "level": 1,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Attack.",
+        "type": "Fairy",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Encore",
+      "level": 1,
+      "info": {
+        "description": "\tMakes the foe re- \tpeat 2-6 times.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Amnesia",
+      "level": 1,
+      "info": {
+        "description": "\tSharply raises the \tuser's Sp.Def.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Recover",
+      "level": 1,
+      "info": {
+        "description": "\tRestores HP by 1/2 \tthe max HP.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Counter",
+      "level": 1,
+      "info": {
+        "description": "\tReturns a physical \tattack double.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 1,
+        "accuracy": "--",
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Mirror Coat",
+      "level": 1,
+      "info": {
+        "description": "\tReturns a special \tattack double.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 1,
+        "accuracy": "--",
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Safeguard",
+      "level": 1,
+      "info": {
+        "description": "\tPrevents all \tstatus problems.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Destiny Bond",
+      "level": 1,
+      "info": {
+        "description": "\tThe foe faints if \tthe user does.",
+        "type": "Ghost",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Safeguard",
+      "description": "\tPrevents all \tstatus problems.",
+      "type": "Normal",
+      "pp": 25,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Charm",
+      "description": "\tSharply lowers the \tfoe's Attack.",
+      "type": "Fairy",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Counter",
+      "description": "\tReturns a physical \tattack double.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": "--"
+    }
+  ],
+  "eggMoves": [
+    "Charm",
+    "Encore"
+  ],
+  "locations": [
+    {
+      "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+      "method": "grass",
+      "time": "nite",
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+      "method": "grass",
+      "time": "nite",
+      "level": "25",
+      "chance": 5,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Patient",
+    "description": "In order to conceal its black tail, it lives in a dark cave and only moves about at night."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.857Z",
+  "version": "1.0.0"
+}

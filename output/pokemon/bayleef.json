@@ -1,0 +1,689 @@
+{
+  "name": "Bayleef",
+  "nationalDex": 153,
+  "johtoDex": 2,
+  "types": "Grass",
+  "updatedTypes": "Grass",
+  "frontSpriteUrl": "/sprites/pokemon/bayleef/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 60,
+      "attack": 62,
+      "defense": 80,
+      "speed": 60,
+      "specialAttack": 63,
+      "specialDefense": 80,
+      "total": 405
+    },
+    "catchRate": 45,
+    "baseExp": 141,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 87.5,
+      "female": 12.5
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Overgrow",
+        "description": "\tBoosts Grass moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Monster",
+      "Grass"
+    ],
+    "evYield": "1 Def",
+    "types": "Grass",
+    "updatedTypes": "Grass",
+    "height": 12,
+    "weight": 158,
+    "bodyShape": "Quadruped",
+    "bodyColor": "Green"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 32,
+        "target": "Meganium"
+      }
+    ],
+    "chain": [
+      "Chikorita",
+      "Bayleef",
+      "Meganium"
+    ],
+    "chainWithMethods": {
+      "Chikorita": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Bayleef"
+        }
+      ],
+      "Bayleef": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Meganium"
+        }
+      ],
+      "Meganium": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Growl",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Attack.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Razor Leaf",
+      "level": 6,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 55,
+        "accuracy": 95,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Poisonpowder",
+      "level": 9,
+      "info": {
+        "description": "\tA move that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 35,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Healinglight",
+      "level": 12,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Reflect",
+      "level": 18,
+      "info": {
+        "description": "\tRaises Defense \twith a barrier.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Light Screen",
+      "level": 18,
+      "info": {
+        "description": "\tRaises Sp.Def with \ta wall of light.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Disarm Voice",
+      "level": 22,
+      "info": {
+        "description": "\tAn attack that \tnever misses.",
+        "type": "Fairy",
+        "pp": 15,
+        "power": 40,
+        "accuracy": "--",
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Energy Ball",
+      "level": 26,
+      "info": {
+        "description": "\tAn attack that may \tlower Sp.Def.",
+        "type": "Grass",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Ancientpower",
+      "level": 32,
+      "info": {
+        "description": "\tAn attack that may \traise all stats.",
+        "type": "Rock",
+        "pp": 5,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Dazzlingleam",
+      "level": 36,
+      "info": {
+        "description": "\tDazzles with a \tpowerful flash.",
+        "type": "Fairy",
+        "pp": 10,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Body Slam",
+      "level": 40,
+      "info": {
+        "description": "\tAn attack that may \tcause paralysis.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 85,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Safeguard",
+      "level": 43,
+      "info": {
+        "description": "\tPrevents all \tstatus problems.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Play Rough",
+      "level": 47,
+      "info": {
+        "description": "\tAn attack that may \tlower Attack.",
+        "type": "Fairy",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Solar Beam",
+      "level": 51,
+      "info": {
+        "description": "\t1st turn: Prepare \t2nd turn: Attack",
+        "type": "Grass",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Heal Bell",
+      "level": 54,
+      "info": {
+        "description": "\tEliminates all \tstatus problems.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Outrage",
+      "level": 58,
+      "info": {
+        "description": "\tWorks 2-3 turns \tand confuses user.",
+        "type": "Dragon",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Moonblast",
+      "level": 64,
+      "info": {
+        "description": "\tAn attack that may \tlower Sp.Atk.",
+        "type": "Fairy",
+        "pp": 15,
+        "power": 95,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Calm Mind",
+      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Light Screen",
+      "description": "\tRaises Sp.Def with \ta wall of light.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Giga Drain",
+      "description": "",
+      "type": "Grass",
+      "pp": 10,
+      "power": 75,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Safeguard",
+      "description": "\tPrevents all \tstatus problems.",
+      "type": "Normal",
+      "pp": 25,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Iron Tail",
+      "description": "\tAn attack that may \tlower Defense.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 75
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Energy Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Grass",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swords Dance",
+      "description": "\tSharply raises the \tuser's Attack.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Cut",
+      "description": "\tCuts using claws, \tscythes, etc.",
+      "type": "Steel",
+      "pp": 30,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Strength",
+      "description": "\tA powerful physi- \tcal attack.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Counter",
+      "description": "\tReturns a physical \tattack double.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Seed Bomb",
+      "description": "\tSlams a barrage of \tseeds at the foe.",
+      "type": "Grass",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Leech Seed",
+    "Vine Whip",
+    "Ancientpower",
+    "Counter",
+    "Swords Dance",
+    "Charm",
+    "Heal Bell"
+  ],
+  "locations": [
+    {
+      "area": null,
+      "method": "Evolve from Chikorita (Level 16)",
+      "time": null,
+      "level": "",
+      "chance": 100,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Leaf",
+    "description": "The scent that wafts from the leaves on its neck causes anyone who smells it to become energetic."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.843Z",
+  "version": "1.0.0"
+}

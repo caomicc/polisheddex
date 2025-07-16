@@ -1,0 +1,1026 @@
+{
+  "name": "Persian",
+  "nationalDex": 53,
+  "johtoDex": 149,
+  "types": "Normal",
+  "updatedTypes": "Normal",
+  "frontSpriteUrl": "/sprites/pokemon/persian/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 65,
+      "attack": 70,
+      "defense": 60,
+      "speed": 115,
+      "specialAttack": 65,
+      "specialDefense": 65,
+      "total": 440
+    },
+    "catchRate": 90,
+    "baseExp": 148,
+    "heldItems": [
+      "QUICK_CLAW"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Unnerve",
+        "description": "\tPrevents foes from \teating Berries.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Unnerve",
+        "description": "\tPrevents foes from \teating Berries.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "2 Spe",
+    "types": "Normal",
+    "updatedTypes": "Normal",
+    "height": 11,
+    "weight": 330,
+    "bodyShape": "Quadruped",
+    "bodyColor": "Blue"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Meowth",
+      "Persian",
+      "Perrserker"
+    ],
+    "chainWithMethods": {
+      "Meowth": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Persian",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Persian",
+          "form": "Alolan Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Perrserker",
+          "form": "Plain Form"
+        }
+      ],
+      "Persian": [],
+      "Perrserker": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Bubble Beam",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tlower Speed.",
+        "type": "Water",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Play Rough",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tlower Attack.",
+        "type": "Fairy",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Swift",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that \tnever misses.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 60,
+        "accuracy": "--",
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Scratch",
+      "level": 1,
+      "info": {
+        "description": "\tScratches with \tsharp claws.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Growl",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Attack.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Bite",
+      "level": 6,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Dark",
+        "pp": 25,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Astonish",
+      "level": 9,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Ghost",
+        "pp": 15,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Fury Strikes",
+      "level": 14,
+      "info": {
+        "description": "\tScratches or jabs \t2-5 times.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 20,
+        "accuracy": 85,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Screech",
+      "level": 17,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Defense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 85,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Feint Attack",
+      "level": 22,
+      "info": {
+        "description": "\tAn attack that \tnever misses.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 60,
+        "accuracy": "--",
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Pursuit",
+      "level": 25,
+      "info": {
+        "description": "\tHeavily strikes \tswitching #mon.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Power Gem",
+      "level": 32,
+      "info": {
+        "description": "\tAttacks with a ray \tof gem-like light.",
+        "type": "Rock",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Slash",
+      "level": 37,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 20,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Nasty Plot",
+      "level": 44,
+      "info": {
+        "description": "\tSharply raises the \tuser's Sp.Atk.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Thief",
+      "level": 49,
+      "info": {
+        "description": "\tAn attack that may \tsteal a held item.",
+        "type": "Dark",
+        "pp": 25,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Charm",
+      "level": 56,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Attack.",
+        "type": "Fairy",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Night Slash",
+      "level": 61,
+      "info": {
+        "description": "",
+        "type": "Dark",
+        "pp": 15,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Roar",
+      "description": "\tScares wild foes \tto end battle.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hone Claws",
+      "description": "\tRaises the user's \tAtk and accuracy.",
+      "type": "Dark",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Iron Tail",
+      "description": "\tAn attack that may \tlower Defense.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 75
+    },
+    {
+      "name": "Thunderbolt",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunder",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 10,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dig",
+      "description": "\t1st turn: Burrow \t2nd turn: Attack",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Shadow Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "False Swipe",
+      "description": "\tLeaves the foe \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dark Pulse",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Dark",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Water Pulse",
+      "description": "\tAn attack that may \tconfuse the foe.",
+      "type": "Water",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Shadow Claw",
+      "description": "",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "U Turn",
+      "description": "",
+      "type": "Bug",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Cut",
+      "description": "\tCuts using claws, \tscythes, etc.",
+      "type": "Steel",
+      "pp": 30,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Charm",
+      "description": "\tSharply lowers the \tfoe's Attack.",
+      "type": "Fairy",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Defense Curl",
+      "description": "\tRaises the user's \tDefense.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dream Eater",
+      "description": "\tSteals HP from a \tsleeping victim.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 100,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Hyper Voice",
+      "description": "\tAttack the foe \twith sound waves.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Knock Off",
+      "description": "\tSlaps down the \tfoe's held item.",
+      "type": "Dark",
+      "pp": 20,
+      "power": 65,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Pay Day",
+      "description": "\tThrows coins. Gets \tthem back later.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Seed Bomb",
+      "description": "\tSlams a barrage of \tseeds at the foe.",
+      "type": "Grass",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Zap Cannon",
+      "description": "\tAn attack that \talways paralyzes.",
+      "type": "Electric",
+      "pp": 5,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 50
+    }
+  ],
+  "eggMoves": [
+    "Charm",
+    "Hypnosis",
+    "Amnesia",
+    "Leer",
+    "Night Slash"
+  ],
+  "locations": [
+    {
+      "area": null,
+      "method": "Evolve from Meowth (Level 28)",
+      "time": null,
+      "level": "",
+      "chance": 100,
+      "formName": "Plain Form"
+    },
+    {
+      "area": null,
+      "method": "Evolve from Meowth (Level 28)",
+      "time": null,
+      "level": "",
+      "chance": 100,
+      "formName": "Alolan Form"
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Classy Cat",
+    "description": "It has the classiest coat. The rippling of its fur in the heat of battle has a beauty all its own."
+  },
+  "forms": {
+    " Alolan": {
+      "formName": " Alolan",
+      "types": "Unknown",
+      "moves": [
+        {
+          "name": "Bubble Beam",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tlower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Play Rough",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tlower Attack.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "\tScratches with \tsharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 6,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Astonish",
+          "level": 9,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 14,
+          "info": {
+            "description": "\tScratches or jabs \t2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 17,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 22,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 25,
+          "info": {
+            "description": "\tHeavily strikes \tswitching #mon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Power Gem",
+          "level": 32,
+          "info": {
+            "description": "\tAttacks with a ray \tof gem-like light.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 37,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Nasty Plot",
+          "level": 44,
+          "info": {
+            "description": "\tSharply raises the \tuser's Sp.Atk.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thief",
+          "level": 49,
+          "info": {
+            "description": "\tAn attack that may \tsteal a held item.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 56,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Night Slash",
+          "level": 61,
+          "info": {
+            "description": "",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "level": 65,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "locations": []
+    }
+  },
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.815Z",
+  "version": "1.0.0"
+}

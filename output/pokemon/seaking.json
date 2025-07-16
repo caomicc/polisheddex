@@ -1,0 +1,738 @@
+{
+  "name": "Seaking",
+  "nationalDex": 119,
+  "johtoDex": 84,
+  "types": "Water",
+  "updatedTypes": "Water",
+  "frontSpriteUrl": "/sprites/pokemon/seaking/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 80,
+      "attack": 92,
+      "defense": 65,
+      "speed": 68,
+      "specialAttack": 65,
+      "specialDefense": 80,
+      "total": 450
+    },
+    "catchRate": 60,
+    "baseExp": 170,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Water Veil",
+        "description": "\tPrevents it from \tgetting a burn.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Water Veil",
+        "description": "\tPrevents it from \tgetting a burn.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "2 Atk",
+    "types": "Water",
+    "updatedTypes": "Water",
+    "height": 13,
+    "weight": 390,
+    "bodyShape": "Fins",
+    "bodyColor": "Red"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Goldeen",
+      "Seaking"
+    ],
+    "chainWithMethods": {
+      "Goldeen": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Seaking"
+        }
+      ],
+      "Seaking": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Poison Jab",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Peck",
+      "level": 1,
+      "info": {
+        "description": "\tJabs the foe with \ta beak, etc.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 35,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Leer",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Defense.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Water Gun",
+      "level": 1,
+      "info": {
+        "description": "\tSquirts water to \tattack.",
+        "type": "Water",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Supersonic",
+      "level": 5,
+      "info": {
+        "description": "\tA move that may \tconfuse the foe.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 65,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Horn Attack",
+      "level": 8,
+      "info": {
+        "description": "\tAn attack using a \thorn to jab.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Reversal",
+      "level": 13,
+      "info": {
+        "description": "\tStronger if the \tuser's HP is low.",
+        "type": "Fighting",
+        "pp": 15,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Water Pulse",
+      "level": 16,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Water",
+        "pp": 20,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Haze",
+      "level": 21,
+      "info": {
+        "description": "\tEliminates all \tstat changes.",
+        "type": "Ice",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Fury Strikes",
+      "level": 24,
+      "info": {
+        "description": "\tScratches or jabs \t2-5 times.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 20,
+        "accuracy": 85,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 29,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Waterfall",
+      "level": 32,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Water",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Body Slam",
+      "level": 40,
+      "info": {
+        "description": "\tAn attack that may \tcause paralysis.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 85,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Knock Off",
+      "level": 46,
+      "info": {
+        "description": "\tSlaps down the \tfoe's held item.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Megahorn",
+      "level": 54,
+      "info": {
+        "description": "\tA powerful charge \tattack.",
+        "type": "Bug",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 85,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hail",
+      "description": "\tInflicts damage \tevery turn.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Ice Beam",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Blizzard",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Scald",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Water",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Water Pulse",
+      "description": "\tAn attack that may \tconfuse the foe.",
+      "type": "Water",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Poison Jab",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 20,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Swords Dance",
+      "description": "\tSharply raises the \tuser's Attack.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Surf",
+      "description": "\tA strong Water- \ttype attack.",
+      "type": "Water",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Whirlpool",
+      "description": "",
+      "type": "Water",
+      "pp": 15,
+      "power": 40,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Waterfall",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Water",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aqua Tail",
+      "description": "\tSwings tail like a \twave in a storm.",
+      "type": "Water",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Knock Off",
+      "description": "\tSlaps down the \tfoe's held item.",
+      "type": "Dark",
+      "pp": 20,
+      "power": 65,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Aqua Tail",
+    "Hydro Pump",
+    "Psybeam",
+    "Quick Attack"
+  ],
+  "locations": [
+    {
+      "area": "MOUNT_MORTAR_1F_OUTSIDE",
+      "method": "water",
+      "time": null,
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_2F_INSIDE",
+      "method": "water",
+      "time": null,
+      "level": "25",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_B1F",
+      "method": "water",
+      "time": null,
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_42",
+      "method": "water",
+      "time": null,
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "RUGGED_ROAD_SOUTH",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level + 0",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TOHJO_FALLS",
+      "method": "water",
+      "time": null,
+      "level": "20",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_SOUTH",
+      "method": "water",
+      "time": null,
+      "level": "57",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_4",
+      "method": "water",
+      "time": null,
+      "level": "60",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_9",
+      "method": "water",
+      "time": null,
+      "level": "47",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_10_NORTH",
+      "method": "water",
+      "time": null,
+      "level": "52",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_16_WEST",
+      "method": "water",
+      "time": null,
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_24",
+      "method": "water",
+      "time": null,
+      "level": "52",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_25",
+      "method": "water",
+      "time": null,
+      "level": "52",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CITY",
+      "method": "water",
+      "time": null,
+      "level": "55",
+      "chance": 10,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Goldfish",
+    "description": "When autumn comes, the males patrol the area around their nests in order to protect their offspring."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.833Z",
+  "version": "1.0.0"
+}

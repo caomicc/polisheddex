@@ -1,0 +1,237 @@
+{
+  "name": "Kakuna",
+  "nationalDex": 14,
+  "johtoDex": 28,
+  "types": [
+    "Bug",
+    "Poison"
+  ],
+  "updatedTypes": [
+    "Bug",
+    "Poison"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/kakuna/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 45,
+      "attack": 25,
+      "defense": 50,
+      "speed": 35,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 205
+    },
+    "catchRate": 120,
+    "baseExp": 71,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Bug",
+      "Bug"
+    ],
+    "evYield": "2 Def",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "updatedTypes": [
+      "Bug",
+      "Poison"
+    ],
+    "height": 6,
+    "weight": 100,
+    "bodyShape": "Serpentine",
+    "bodyColor": "Yellow"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 10,
+        "target": "Beedrill"
+      }
+    ],
+    "chain": [
+      "Weedle",
+      "Kakuna",
+      "Beedrill"
+    ],
+    "chainWithMethods": {
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ],
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Poison Sting",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 35,
+        "power": 15,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "String Shot",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Speed.",
+        "type": "Bug",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 95,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Defense Curl",
+      "level": 1,
+      "info": {
+        "description": "\tRaises the user's \tDefense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    }
+  ],
+  "tmHmMoves": [],
+  "eggMoves": [],
+  "locations": [
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "morn",
+      "level": "10",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "day",
+      "level": "10",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "VIRIDIAN_FOREST",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "VIRIDIAN_FOREST",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "VIRIDIAN_FOREST",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 5,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Cocoon",
+    "description": "Nearly incapable of movement, it leans against stout trees while waiting for its evolution."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.804Z",
+  "version": "1.0.0"
+}

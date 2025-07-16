@@ -1,0 +1,669 @@
+{
+  "name": "Ninetales",
+  "nationalDex": 38,
+  "johtoDex": 135,
+  "types": "Fire",
+  "updatedTypes": [
+    "Fire",
+    "Ghost"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/ninetales/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 73,
+      "attack": 76,
+      "defense": 75,
+      "speed": 100,
+      "specialAttack": 81,
+      "specialDefense": 100,
+      "total": 505
+    },
+    "catchRate": 75,
+    "baseExp": 178,
+    "heldItems": [
+      "ALWAYS_ITEM_"
+    ],
+    "genderRatio": {
+      "male": 25,
+      "female": 75
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Forewarn",
+        "description": "\tDetermines the \tfoe's moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "1 Spe",
+    "types": "Fire",
+    "updatedTypes": [
+      "Fire",
+      "Ghost"
+    ],
+    "height": 11,
+    "weight": 199,
+    "bodyShape": "Quadruped",
+    "bodyColor": "Blue"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Vulpix",
+      "Ninetales"
+    ],
+    "chainWithMethods": {
+      "Vulpix": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Ninetales",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Ninetales",
+          "form": "Alolan Form"
+        }
+      ],
+      "Ninetales": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Nasty Plot",
+      "level": 1,
+      "info": {
+        "description": "\tSharply raises the \tuser's Sp.Atk.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Flamethrower",
+      "level": 1,
+      "info": {
+        "description": "",
+        "type": "Fire",
+        "pp": 15,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Quick Attack",
+      "level": 1,
+      "info": {
+        "description": "\tLets the user get \tin the first hit.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Confuse Ray",
+      "level": 1,
+      "info": {
+        "description": "\tA move that may \tconfuse the foe.",
+        "type": "Ghost",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Safeguard",
+      "level": 1,
+      "info": {
+        "description": "\tPrevents all \tstatus problems.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Calm Mind",
+      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Roar",
+      "description": "\tScares wild foes \tto end battle.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Safeguard",
+      "description": "\tPrevents all \tstatus problems.",
+      "type": "Normal",
+      "pp": 25,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Iron Tail",
+      "description": "\tAn attack that may \tlower Defense.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 75
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dig",
+      "description": "\t1st turn: Burrow \t2nd turn: Attack",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Shadow Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Flamethrower",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Fire Blast",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 85
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flame Charge",
+      "description": "\tAn attack that may \tup user's Speed.",
+      "type": "Fire",
+      "pp": 20,
+      "power": 50,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Energy Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Grass",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Dark Pulse",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Dark",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Will O Wisp",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Baton Pass",
+      "description": "\tSwitches while \tkeeping effects.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Charm",
+      "description": "\tSharply lowers the \tfoe's Attack.",
+      "type": "Fairy",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dream Eater",
+      "description": "\tSteals HP from a \tsleeping victim.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 100,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Zen Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 90
+    }
+  ],
+  "eggMoves": [
+    "Disable",
+    "Blizzard",
+    "Hypnosis",
+    "Feint Attack",
+    "Extrasensory",
+    "Charm",
+    "Ice Beam",
+    "Roar"
+  ],
+  "locations": [],
+  "pokedexEntries": {
+    "species": "Fox",
+    "description": "The reason it guides people all the way down its mountain's base is so that they hurry up and leave."
+  },
+  "forms": {
+    " Alolan": {
+      "formName": " Alolan",
+      "types": "Unknown",
+      "moves": [
+        {
+          "name": "Dazzlingleam",
+          "level": 1,
+          "info": {
+            "description": "\tDazzles with a \tpowerful flash.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Nasty Plot",
+          "level": 1,
+          "info": {
+            "description": "\tSharply raises the \tuser's Sp.Atk.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tfreeze the foe.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ice Shard",
+          "level": 1,
+          "info": {
+            "description": "\tHurls icy shards. \tAlways goes first.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 1,
+          "info": {
+            "description": "\tA move that may \tconfuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 1,
+          "info": {
+            "description": "\tPrevents all \tstatus problems.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "locations": []
+    }
+  },
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.811Z",
+  "version": "1.0.0"
+}

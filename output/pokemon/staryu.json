@@ -1,0 +1,717 @@
+{
+  "name": "Staryu",
+  "nationalDex": 120,
+  "johtoDex": 187,
+  "types": "Water",
+  "updatedTypes": "Water",
+  "frontSpriteUrl": "/sprites/pokemon/staryu/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 30,
+      "attack": 45,
+      "defense": 55,
+      "speed": 85,
+      "specialAttack": 70,
+      "specialDefense": 55,
+      "total": 340
+    },
+    "catchRate": 225,
+    "baseExp": 106,
+    "heldItems": [
+      "STARDUST",
+      "STAR_PIECE"
+    ],
+    "genderRatio": {
+      "male": 0,
+      "female": 0
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Illuminate",
+        "description": "\tRaises the rate \tof wild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Illuminate",
+        "description": "\tRaises the rate \tof wild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Slow",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "1 Spe",
+    "types": "Water",
+    "updatedTypes": "Water",
+    "height": 8,
+    "weight": 345,
+    "bodyShape": "Head Base",
+    "bodyColor": "Brown"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "WATER_STONE",
+        "target": "Starmie"
+      }
+    ],
+    "chain": [
+      "Staryu",
+      "Starmie"
+    ],
+    "chainWithMethods": {
+      "Staryu": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Starmie"
+        }
+      ],
+      "Starmie": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Defense Curl",
+      "level": 1,
+      "info": {
+        "description": "\tRaises the user's \tDefense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Water Gun",
+      "level": 4,
+      "info": {
+        "description": "\tSquirts water to \tattack.",
+        "type": "Water",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Rapid Spin",
+      "level": 7,
+      "info": {
+        "description": "\tA high-speed \tspinning attack.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Recover",
+      "level": 10,
+      "info": {
+        "description": "\tRestores HP by 1/2 \tthe max HP.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hypnosis",
+      "level": 13,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 60,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Swift",
+      "level": 16,
+      "info": {
+        "description": "\tAn attack that \tnever misses.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 60,
+        "accuracy": "--",
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Bubble Beam",
+      "level": 18,
+      "info": {
+        "description": "\tAn attack that may \tlower Speed.",
+        "type": "Water",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 22,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Gyro Ball",
+      "level": 24,
+      "info": {
+        "description": "\tDoes more damage \tat lower speed.",
+        "type": "Steel",
+        "pp": 5,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Pain Split",
+      "level": 28,
+      "info": {
+        "description": "\tAdds user & foe's \tHPs. Shares total.",
+        "type": "Ghost",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Minimize",
+      "level": 31,
+      "info": {
+        "description": "\tSharply raises the \tuser's evasiveness.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Reflect",
+      "level": 35,
+      "info": {
+        "description": "\tRaises Defense \twith a barrier.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Power Gem",
+      "level": 37,
+      "info": {
+        "description": "\tAttacks with a ray \tof gem-like light.",
+        "type": "Rock",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Confuse Ray",
+      "level": 40,
+      "info": {
+        "description": "\tA move that may \tconfuse the foe.",
+        "type": "Ghost",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Psychic M",
+      "level": 42
+    },
+    {
+      "name": "Light Screen",
+      "level": 46,
+      "info": {
+        "description": "\tRaises Sp.Def with \ta wall of light.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hydro Pump",
+      "level": 49,
+      "info": {
+        "description": "\tA powerful Water- \ttype attack.",
+        "type": "Water",
+        "pp": 5,
+        "power": 110,
+        "accuracy": 80,
+        "category": "Special"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Calm Mind",
+      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hail",
+      "description": "\tInflicts damage \tevery turn.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Ice Beam",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Blizzard",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Light Screen",
+      "description": "\tRaises Sp.Def with \ta wall of light.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Thunderbolt",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunder",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 10,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Psychic",
+      "description": "",
+      "type": "None",
+      "pp": 0,
+      "power": 0,
+      "category": "Unknown",
+      "accuracy": 0
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Flash Cannon",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Steel",
+      "pp": 10,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Dazzlingleam",
+      "description": "\tDazzles with a \tpowerful flash.",
+      "type": "Fairy",
+      "pp": 10,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Scald",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Water",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Water Pulse",
+      "description": "\tAn attack that may \tconfuse the foe.",
+      "type": "Water",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunder Wave",
+      "description": "\tparalyzes the foe.@",
+      "type": "Electric",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Gyro Ball",
+      "description": "\tDoes more damage \tat lower speed.",
+      "type": "Steel",
+      "pp": 5,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Surf",
+      "description": "\tA strong Water- \ttype attack.",
+      "type": "Water",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Whirlpool",
+      "description": "",
+      "type": "Water",
+      "pp": 15,
+      "power": 40,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Waterfall",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Water",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Rollout",
+      "description": "\tAttacks 5 turns \twith rising power.",
+      "type": "Rock",
+      "pp": 20,
+      "power": 30,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Zap Cannon",
+      "description": "\tAn attack that \talways paralyzes.",
+      "type": "Electric",
+      "pp": 5,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 50
+    }
+  ],
+  "eggMoves": [],
+  "locations": [
+    {
+      "area": "ROUTE_40",
+      "method": "water",
+      "time": null,
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_47",
+      "method": "water",
+      "time": null,
+      "level": "25",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_34_COAST",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level - 5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "STORMY_BEACH",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level - 5",
+      "chance": 30,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Star Shape",
+    "description": "When the stars twinkle at night, it floats up from the sea floor, and its body's center core flickers."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.834Z",
+  "version": "1.0.0"
+}

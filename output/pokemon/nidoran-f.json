@@ -1,0 +1,297 @@
+{
+  "name": "Nidoran F",
+  "nationalDex": 29,
+  "johtoDex": 100,
+  "types": "Unknown",
+  "updatedTypes": "Unknown",
+  "frontSpriteUrl": "/sprites/pokemon/nidoranf/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": null,
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 16,
+        "target": "Nidorina"
+      }
+    ],
+    "chain": [
+      "Nidoran F",
+      "Nidorina",
+      "Nidoqueen"
+    ],
+    "chainWithMethods": {
+      "Nidoran F": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorina"
+        }
+      ],
+      "Nidorina": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoqueen"
+        }
+      ],
+      "Nidoqueen": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Growl",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Attack.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Scratch",
+      "level": 1,
+      "info": {
+        "description": "\tScratches with \tsharp claws.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Leer",
+      "level": 7,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Defense.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Double Kick",
+      "level": 9,
+      "info": {
+        "description": "\tA double kicking \tattack.",
+        "type": "Fighting",
+        "pp": 30,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Poison Sting",
+      "level": 13,
+      "info": {
+        "description": "\tAn attack that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 35,
+        "power": 15,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Fury Strikes",
+      "level": 19,
+      "info": {
+        "description": "\tScratches or jabs \t2-5 times.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 20,
+        "accuracy": 85,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Bite",
+      "level": 21,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Dark",
+        "pp": 25,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Sweet Kiss",
+      "level": 25,
+      "info": {
+        "description": "\tA move that may \tconfuse the foe.",
+        "type": "Fairy",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Toxic Spikes",
+      "level": 31,
+      "info": {
+        "description": "\tPoisons foes when \tthey switch in.",
+        "type": "Poison",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Healinglight",
+      "level": 33,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Crunch",
+      "level": 37,
+      "info": {
+        "description": "\tAn attack that may \tlower Defense.",
+        "type": "Dark",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Charm",
+      "level": 43,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Attack.",
+        "type": "Fairy",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Poison Jab",
+      "level": 45,
+      "info": {
+        "description": "\tAn attack that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [],
+  "eggMoves": [
+    "Charm",
+    "Disable",
+    "Focus Energy",
+    "Pursuit",
+    "Supersonic",
+    "Take Down"
+  ],
+  "locations": [
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "morn",
+      "level": "13",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "day",
+      "level": "12",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "morn",
+      "level": "14",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "day",
+      "level": "14",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "morn",
+      "level": "12",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "day",
+      "level": "12",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "nite",
+      "level": "12",
+      "chance": 30,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Poison Pin",
+    "description": "Small and very docile, it protects itself with its small, poisonous horn when attacked."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.808Z",
+  "version": "1.0.0"
+}

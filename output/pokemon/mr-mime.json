@@ -1,0 +1,535 @@
+{
+  "name": "Mr Mime",
+  "nationalDex": 122,
+  "johtoDex": null,
+  "types": "Unknown",
+  "updatedTypes": "Unknown",
+  "frontSpriteUrl": "/sprites/pokemon/mrmime/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": null,
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Mr Mime",
+      "Mr  Rime"
+    ],
+    "chainWithMethods": {
+      "Mr Mime": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "Mr  Rime"
+        }
+      ],
+      "Mr  Rime": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Barrier",
+      "level": 1,
+      "info": {
+        "description": "\tSharply raises the \tuser's Defense.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Confusion",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Psychic",
+        "pp": 25,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Hypnosis",
+      "level": 4,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 60,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Calm Mind",
+      "level": 8,
+      "info": {
+        "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Double Slap",
+      "level": 11,
+      "info": {
+        "description": "",
+        "type": "None",
+        "pp": 0,
+        "power": 0,
+        "accuracy": 0,
+        "category": "Unknown"
+      }
+    },
+    {
+      "name": "Protect",
+      "level": 13,
+      "info": {
+        "description": "\tFoils attack that \tturn. It may fail.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Metronome",
+      "level": 15,
+      "info": {
+        "description": "\tRandomly uses any \t#mon move.",
+        "type": "Unknown",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Encore",
+      "level": 18,
+      "info": {
+        "description": "\tMakes the foe re- \tpeat 2-6 times.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Light Screen",
+      "level": 22,
+      "info": {
+        "description": "\tRaises Sp.Def with \ta wall of light.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Reflect",
+      "level": 22,
+      "info": {
+        "description": "\tRaises Defense \twith a barrier.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Psybeam",
+      "level": 25,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Substitute",
+      "level": 29,
+      "info": {
+        "description": "\tMakes a decoy with \t1/4 user's max HP.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Confuse Ray",
+      "level": 32,
+      "info": {
+        "description": "\tA move that may \tconfuse the foe.",
+        "type": "Ghost",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Trick",
+      "level": 36,
+      "info": {
+        "description": "\tSwaps held items \twith the foe.",
+        "type": "Psychic",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Psychic M",
+      "level": 39
+    },
+    {
+      "name": "Future Sight",
+      "level": 43,
+      "info": {
+        "description": "\tAn attack that \thits on 3rd turn.",
+        "type": "Psychic",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Baton Pass",
+      "level": 46,
+      "info": {
+        "description": "\tSwitches while \tkeeping effects.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Safeguard",
+      "level": 50,
+      "info": {
+        "description": "\tPrevents all \tstatus problems.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    }
+  ],
+  "tmHmMoves": [],
+  "eggMoves": [],
+  "locations": [],
+  "pokedexEntries": {
+    "species": "Dancing",
+    "description": "It can radiate chilliness from the bottoms of its feet. It will tap dance all day on a frozen floor."
+  },
+  "forms": {
+    " Galarian": {
+      "formName": " Galarian",
+      "types": "Unknown",
+      "moves": [
+        {
+          "name": "Recover",
+          "level": 1,
+          "info": {
+            "description": "\tRestores HP by 1/2 \tthe max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Encore",
+          "level": 1,
+          "info": {
+            "description": "\tMakes the foe re- \tpeat 2-6 times.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 1,
+          "info": {
+            "description": "\tFoils attack that \tturn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 1,
+          "info": {
+            "description": "\tRaises Sp.Def with \ta wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 1,
+          "info": {
+            "description": "\tRaises Defense \twith a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 1,
+          "info": {
+            "description": "\tPrevents all \tstatus problems.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Dazzlingleam",
+          "level": 1,
+          "info": {
+            "description": "\tDazzles with a \tpowerful flash.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 1,
+          "info": {
+            "description": "\tA high-speed \tspinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 1,
+          "info": {
+            "description": "\tSwitches while \tkeeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ice Shard",
+          "level": 1,
+          "info": {
+            "description": "\tHurls icy shards. \tAlways goes first.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 12,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Metronome",
+          "level": 16,
+          "info": {
+            "description": "\tRandomly uses any \t#mon move.",
+            "type": "Unknown",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "level": 20,
+          "info": {
+            "description": "\tAn icy attack that \tlowers Speed.",
+            "type": "Ice",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 24,
+          "info": {
+            "description": "\tA double kicking \tattack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 28,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hypnosis",
+          "level": 32,
+          "info": {
+            "description": "\tMay cause the foe \tto fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 36,
+          "info": {
+            "description": "\tReturns a special \tattack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 40,
+          "info": {
+            "description": "\tAttacks before the \tfoe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "level": 44,
+          "info": {
+            "description": "\tAn attack that may \tfreeze the foe.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Psychic M",
+          "level": 48
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 52,
+          "info": {
+            "description": "\tA move that may \tconfuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        }
+      ],
+      "locations": []
+    }
+  },
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.883Z",
+  "version": "1.0.0"
+}

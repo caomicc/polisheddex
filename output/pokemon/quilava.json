@@ -1,0 +1,676 @@
+{
+  "name": "Quilava",
+  "nationalDex": 156,
+  "johtoDex": 5,
+  "types": "Fire",
+  "updatedTypes": "Fire",
+  "frontSpriteUrl": "/sprites/pokemon/quilava/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "speed": 80,
+      "specialAttack": 80,
+      "specialDefense": 65,
+      "total": 405
+    },
+    "catchRate": 45,
+    "baseExp": 142,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 87.5,
+      "female": 12.5
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "1 Spe",
+    "types": "Fire",
+    "updatedTypes": "Fire",
+    "height": 9,
+    "weight": 190,
+    "bodyShape": "Quadruped",
+    "bodyColor": "Yellow"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 36,
+        "target": "Typhlosion"
+      }
+    ],
+    "chain": [
+      "Cyndaquil",
+      "Quilava",
+      "Typhlosion"
+    ],
+    "chainWithMethods": {
+      "Cyndaquil": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 14,
+          "target": "Quilava"
+        }
+      ],
+      "Quilava": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Typhlosion"
+        }
+      ],
+      "Typhlosion": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Leer",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Defense.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Smokescreen",
+      "level": 6,
+      "info": {
+        "description": "\tAn attack that \tlowers accuracy.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Ember",
+      "level": 10,
+      "info": {
+        "description": "\tAn attack that may \tinflict a burn.",
+        "type": "Fire",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Quick Attack",
+      "level": 13,
+      "info": {
+        "description": "\tLets the user get \tin the first hit.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Defense Curl",
+      "level": 20,
+      "info": {
+        "description": "\tRaises the user's \tDefense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Flame Charge",
+      "level": 24,
+      "info": {
+        "description": "\tAn attack that may \tup user's Speed.",
+        "type": "Fire",
+        "pp": 20,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Swift",
+      "level": 31,
+      "info": {
+        "description": "\tAn attack that \tnever misses.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 60,
+        "accuracy": "--",
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Dig",
+      "level": 35,
+      "info": {
+        "description": "\t1st turn: Burrow \t2nd turn: Attack",
+        "type": "Ground",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Reversal",
+      "level": 42,
+      "info": {
+        "description": "\tStronger if the \tuser's HP is low.",
+        "type": "Fighting",
+        "pp": 15,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Flamethrower",
+      "level": 46,
+      "info": {
+        "description": "",
+        "type": "Fire",
+        "pp": 15,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Earth Power",
+      "level": 53,
+      "info": {
+        "description": "\tAn attack that may \tlower Sp.Def.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Rollout",
+      "level": 57,
+      "info": {
+        "description": "\tAttacks 5 turns \twith rising power.",
+        "type": "Rock",
+        "pp": 20,
+        "power": 30,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Double Edge",
+      "level": 64,
+      "info": {
+        "description": "\tA tackle that also \thurts the user.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Earthquake",
+      "level": 68,
+      "info": {
+        "description": "\tTough but useless \tvs. flying foes.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 100,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Flare Blitz",
+      "level": 75,
+      "info": {
+        "description": "\tA charge that also \thurts the user.",
+        "type": "Fire",
+        "pp": 15,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Roar",
+      "description": "\tScares wild foes \tto end battle.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Iron Tail",
+      "description": "\tAn attack that may \tlower Defense.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 75
+    },
+    {
+      "name": "Earthquake",
+      "description": "\tTough but useless \tvs. flying foes.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dig",
+      "description": "\t1st turn: Burrow \t2nd turn: Attack",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Flamethrower",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Fire Blast",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 85
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flame Charge",
+      "description": "\tAn attack that may \tup user's Speed.",
+      "type": "Fire",
+      "pp": 20,
+      "power": 50,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Wild Charge",
+      "description": "\tA charge that also \thurts the user.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Will O Wisp",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Cut",
+      "description": "\tCuts using claws, \tscythes, etc.",
+      "type": "Steel",
+      "pp": 30,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Strength",
+      "description": "\tA powerful physi- \tcal attack.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Defense Curl",
+      "description": "\tRaises the user's \tDefense.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rollout",
+      "description": "\tAttacks 5 turns \twith rising power.",
+      "type": "Rock",
+      "pp": 20,
+      "power": 30,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Double Kick",
+    "Extrasensory",
+    "Flare Blitz",
+    "Foresight",
+    "Fury Strikes",
+    "Reversal",
+    "Close Combat",
+    "Thrash",
+    "Quick Attack"
+  ],
+  "locations": [
+    {
+      "area": null,
+      "method": "Evolve from Cyndaquil (Level 14)",
+      "time": null,
+      "level": "",
+      "chance": 100,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Volcano",
+    "description": "Before battle, it turns its back on its opponent to demonstrate how ferociously its fire blazes."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.844Z",
+  "version": "1.0.0"
+}

@@ -1,0 +1,434 @@
+{
+  "name": "Magikarp",
+  "nationalDex": 129,
+  "johtoDex": 81,
+  "types": "Water",
+  "updatedTypes": "Water",
+  "frontSpriteUrl": "/sprites/pokemon/magikarp/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 20,
+      "attack": 10,
+      "defense": 55,
+      "speed": 80,
+      "specialAttack": 15,
+      "specialDefense": 20,
+      "total": 200
+    },
+    "catchRate": 255,
+    "baseExp": 20,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Very Fast (1,280 steps)",
+    "abilities": [
+      {
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Slow",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "1 Spe",
+    "types": "Water",
+    "updatedTypes": "Water",
+    "height": 9,
+    "weight": 100,
+    "bodyShape": "Fins",
+    "bodyColor": "Red"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 20,
+        "target": "Gyarados",
+        "form": "No Form"
+      }
+    ],
+    "chain": [
+      "Magikarp",
+      "Gyarados"
+    ],
+    "chainWithMethods": {
+      "Magikarp": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Gyarados",
+          "form": "No Form"
+        }
+      ],
+      "Gyarados": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Splash",
+      "level": 1,
+      "info": {
+        "description": "\tHas no effect \twhatsoever.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Tackle",
+      "level": 15,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Reversal",
+      "level": 30,
+      "info": {
+        "description": "\tStronger if the \tuser's HP is low.",
+        "type": "Fighting",
+        "pp": 15,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [],
+  "eggMoves": [],
+  "locations": [
+    {
+      "area": "DARK_CAVE_VIOLET_ENTRANCE",
+      "method": "water",
+      "time": null,
+      "level": "15",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "DARK_CAVE_VIOLET_ENTRANCE",
+      "method": "water",
+      "time": null,
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DARK_CAVE_VIOLET_ENTRANCE",
+      "method": "water",
+      "time": null,
+      "level": "5",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+      "method": "water",
+      "time": null,
+      "level": "15",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+      "method": "water",
+      "time": null,
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+      "method": "water",
+      "time": null,
+      "level": "5",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "DRAGONS_DEN_B1F",
+      "method": "water",
+      "time": null,
+      "level": "25",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "DRAGONS_DEN_B1F",
+      "method": "water",
+      "time": null,
+      "level": "30",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_43",
+      "method": "water",
+      "time": null,
+      "level": "25",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_43",
+      "method": "water",
+      "time": null,
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_43",
+      "method": "water",
+      "time": null,
+      "level": "10",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_45",
+      "method": "water",
+      "time": null,
+      "level": "20",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_45",
+      "method": "water",
+      "time": null,
+      "level": "15",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_45",
+      "method": "water",
+      "time": null,
+      "level": "5",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "LAKE_OF_RAGE",
+      "method": "water",
+      "time": null,
+      "level": "25",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "LAKE_OF_RAGE",
+      "method": "water",
+      "time": null,
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "BLACKTHORN_CITY",
+      "method": "water",
+      "time": null,
+      "level": "15",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "BLACKTHORN_CITY",
+      "method": "water",
+      "time": null,
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "BLACKTHORN_CITY",
+      "method": "water",
+      "time": null,
+      "level": "5",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B1F",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level - 10",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B1F",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level - 5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B2F",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level - 10",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B2F",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level - 5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B3F",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level - 10",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B3F",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level - 5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_22",
+      "method": "water",
+      "time": null,
+      "level": "54",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_24",
+      "method": "water",
+      "time": null,
+      "level": "48",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_25",
+      "method": "water",
+      "time": null,
+      "level": "48",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "FUCHSIA_CITY",
+      "method": "water",
+      "time": null,
+      "level": "55",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "FUCHSIA_CITY",
+      "method": "water",
+      "time": null,
+      "level": "50",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "FUCHSIA_CITY",
+      "method": "water",
+      "time": null,
+      "level": "55",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAPE",
+      "method": "water",
+      "time": null,
+      "level": "48",
+      "chance": 60,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Fish",
+    "description": "This weak and pathetic #mon gets easily pushed along rivers when there are strong currents."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.837Z",
+  "version": "1.0.0"
+}

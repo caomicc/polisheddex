@@ -1,0 +1,990 @@
+{
+  "name": "Psyduck",
+  "nationalDex": 54,
+  "johtoDex": 151,
+  "types": "Water",
+  "updatedTypes": "Water",
+  "frontSpriteUrl": "/sprites/pokemon/psyduck/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 50,
+      "attack": 52,
+      "defense": 48,
+      "speed": 55,
+      "specialAttack": 65,
+      "specialDefense": 50,
+      "total": 320
+    },
+    "catchRate": 190,
+    "baseExp": 80,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Cloud Nine",
+        "description": "\tEliminates effects \tof weather.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Cloud Nine",
+        "description": "\tEliminates effects \tof weather.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "1 SAt",
+    "types": "Water",
+    "updatedTypes": "Water",
+    "height": 8,
+    "weight": 196,
+    "bodyShape": "Bipedal Tail",
+    "bodyColor": "Yellow"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 33,
+        "target": "Golduck"
+      }
+    ],
+    "chain": [
+      "Psyduck",
+      "Golduck"
+    ],
+    "chainWithMethods": {
+      "Psyduck": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Golduck"
+        }
+      ],
+      "Golduck": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Scratch",
+      "level": 1,
+      "info": {
+        "description": "\tScratches with \tsharp claws.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Leer",
+      "level": 4,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Defense.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Water Gun",
+      "level": 7,
+      "info": {
+        "description": "\tSquirts water to \tattack.",
+        "type": "Water",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Confusion",
+      "level": 10,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Psychic",
+        "pp": 25,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Fury Strikes",
+      "level": 13,
+      "info": {
+        "description": "\tScratches or jabs \t2-5 times.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 20,
+        "accuracy": 85,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Water Pulse",
+      "level": 16,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Water",
+        "pp": 20,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Disable",
+      "level": 19,
+      "info": {
+        "description": "\tDisables the foe's \tmost recent move.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Screech",
+      "level": 22,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Defense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 85,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Zen Headbutt",
+      "level": 25,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Psychic",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Aqua Tail",
+      "level": 28,
+      "info": {
+        "description": "\tSwings tail like a \twave in a storm.",
+        "type": "Water",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Rain Dance",
+      "level": 31,
+      "info": {
+        "description": "\tBoosts Water-type \tmoves for 5 turns.",
+        "type": "Water",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Psybeam",
+      "level": 34,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Amnesia",
+      "level": 37,
+      "info": {
+        "description": "\tSharply raises the \tuser's Sp.Def.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hydro Pump",
+      "level": 40,
+      "info": {
+        "description": "\tA powerful Water- \ttype attack.",
+        "type": "Water",
+        "pp": 5,
+        "power": 110,
+        "accuracy": 80,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Nasty Plot",
+      "level": 43,
+      "info": {
+        "description": "\tSharply raises the \tuser's Sp.Atk.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Psychic M",
+      "level": 46
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Dynamicpunch",
+      "description": "\tAn attack that \tconfuses the foe.",
+      "type": "Fighting",
+      "pp": 5,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 50
+    },
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Calm Mind",
+      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hail",
+      "description": "\tInflicts damage \tevery turn.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Hone Claws",
+      "description": "\tRaises the user's \tAtk and accuracy.",
+      "type": "Dark",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Ice Beam",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Blizzard",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Light Screen",
+      "description": "\tRaises Sp.Def with \ta wall of light.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Iron Tail",
+      "description": "\tAn attack that may \tlower Defense.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 75
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dig",
+      "description": "\t1st turn: Burrow \t2nd turn: Attack",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Psychic",
+      "description": "",
+      "type": "None",
+      "pp": 0,
+      "power": 0,
+      "category": "Unknown",
+      "accuracy": 0
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Scald",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Water",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Water Pulse",
+      "description": "\tAn attack that may \tconfuse the foe.",
+      "type": "Water",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Shadow Claw",
+      "description": "",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Surf",
+      "description": "\tA strong Water- \ttype attack.",
+      "type": "Water",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Strength",
+      "description": "\tA powerful physi- \tcal attack.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Whirlpool",
+      "description": "",
+      "type": "Water",
+      "pp": 15,
+      "power": 40,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Waterfall",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Water",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Aqua Tail",
+      "description": "\tSwings tail like a \twave in a storm.",
+      "type": "Water",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Counter",
+      "description": "\tReturns a physical \tattack double.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Ice Punch",
+      "description": "\tAn icy punch. May \tcause freezing.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Pay Day",
+      "description": "\tThrows coins. Gets \tthem back later.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Seismic Toss",
+      "description": "\tDamage equals the \tuser's level.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Zen Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 90
+    }
+  ],
+  "eggMoves": [
+    "Confuse Ray",
+    "Cross Chop",
+    "Encore",
+    "Foresight",
+    "Future Sight",
+    "Hypnosis",
+    "Psybeam",
+    "Ice Beam",
+    "Light Screen",
+    "Psychic M"
+  ],
+  "locations": [
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "nite",
+      "level": "12",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "nite",
+      "level": "10",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "nite",
+      "level": "14",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "YELLOW_FOREST",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 0",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "water",
+      "time": null,
+      "level": "15",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "water",
+      "time": null,
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "GOLDENROD_HARBOR",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level + 0",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "GOLDENROD_HARBOR",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level - 5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "water",
+      "time": null,
+      "level": "20",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "water",
+      "time": null,
+      "level": "15",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "GOLDENROD_CITY",
+      "method": "water",
+      "time": null,
+      "level": "20",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "GOLDENROD_CITY",
+      "method": "water",
+      "time": null,
+      "level": "15",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ECRUTEAK_SHRINE_OUTSIDE",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level - 5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "YELLOW_FOREST",
+      "method": "water",
+      "time": null,
+      "level": "Badge Level - 4",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_6",
+      "method": "grass",
+      "time": "nite",
+      "level": "47",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "57",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "57",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "57",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "59",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "61",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B3F",
+      "method": "grass",
+      "time": "day",
+      "level": "61",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "61",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "morn",
+      "level": "64",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "day",
+      "level": "64",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "nite",
+      "level": "64",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_SOUTH",
+      "method": "water",
+      "time": null,
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_6",
+      "method": "water",
+      "time": null,
+      "level": "45",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_6",
+      "method": "water",
+      "time": null,
+      "level": "45",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "Ilex Forest",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "9",
+      "chance": 15,
+      "rareItem": "Leaf Stone",
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Duck",
+    "description": "The only time it can use its psychic power is when its sleeping brain cells happen to wake."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.815Z",
+  "version": "1.0.0"
+}

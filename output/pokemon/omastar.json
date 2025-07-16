@@ -1,0 +1,698 @@
+{
+  "name": "Omastar",
+  "nationalDex": 139,
+  "johtoDex": 258,
+  "types": [
+    "Rock",
+    "Water"
+  ],
+  "updatedTypes": [
+    "Rock",
+    "Water"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/omastar/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 70,
+      "attack": 60,
+      "defense": 125,
+      "speed": 55,
+      "specialAttack": 115,
+      "specialDefense": 70,
+      "total": 495
+    },
+    "catchRate": 45,
+    "baseExp": 199,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 87.5,
+      "female": 12.5
+    },
+    "hatchRate": "Slow (8,960 steps)",
+    "abilities": [
+      {
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "2 Def",
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "updatedTypes": [
+      "Rock",
+      "Water"
+    ],
+    "height": 10,
+    "weight": 350,
+    "bodyShape": "Tentacles",
+    "bodyColor": "Blue"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Omanyte",
+      "Omastar"
+    ],
+    "chainWithMethods": {
+      "Omanyte": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Omastar"
+        }
+      ],
+      "Omastar": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Wrap",
+      "level": 1,
+      "info": {
+        "description": "\tTraps the foe for \t2-5 turns.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 15,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Defense Curl",
+      "level": 1,
+      "info": {
+        "description": "\tRaises the user's \tDefense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Icicle Spear",
+      "level": 1,
+      "info": {
+        "description": "\tFires icicles to \thit 2-5 times.",
+        "type": "Ice",
+        "pp": 30,
+        "power": 25,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Bite",
+      "level": 7,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Dark",
+        "pp": 25,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Water Gun",
+      "level": 10,
+      "info": {
+        "description": "\tSquirts water to \tattack.",
+        "type": "Water",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Rock Throw",
+      "level": 16,
+      "info": {
+        "description": "\tDrops rocks on the \tenemy.",
+        "type": "Rock",
+        "pp": 15,
+        "power": 50,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Leer",
+      "level": 19,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Defense.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Rollout",
+      "level": 25,
+      "info": {
+        "description": "\tAttacks 5 turns \twith rising power.",
+        "type": "Rock",
+        "pp": 20,
+        "power": 30,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Bubble Beam",
+      "level": 28,
+      "info": {
+        "description": "\tAn attack that may \tlower Speed.",
+        "type": "Water",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Protect",
+      "level": 34,
+      "info": {
+        "description": "\tFoils attack that \tturn. It may fail.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Ancientpower",
+      "level": 37,
+      "info": {
+        "description": "\tAn attack that may \traise all stats.",
+        "type": "Rock",
+        "pp": 5,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Spikes",
+      "level": 48,
+      "info": {
+        "description": "\tHurts foes when \tthey switch in.",
+        "type": "Ground",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Rock Blast",
+      "level": 56,
+      "info": {
+        "description": "\tHurls boulders to \thit 2-5 times.",
+        "type": "Rock",
+        "pp": 25,
+        "power": 25,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Shell Smash",
+      "level": 67,
+      "info": {
+        "description": "\tLowers defenses, \traises offenses.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hydro Pump",
+      "level": 75,
+      "info": {
+        "description": "\tA powerful Water- \ttype attack.",
+        "type": "Water",
+        "pp": 5,
+        "power": 110,
+        "accuracy": 80,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Power Gem",
+      "level": 86,
+      "info": {
+        "description": "\tAttacks with a ray \tof gem-like light.",
+        "type": "Rock",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hail",
+      "description": "\tInflicts damage \tevery turn.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Ice Beam",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Blizzard",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sandstorm",
+      "description": "",
+      "type": "Rock",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Slide",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Rock",
+      "pp": 10,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Scald",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Water",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Water Pulse",
+      "description": "\tAn attack that may \tconfuse the foe.",
+      "type": "Water",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Stone Edge",
+      "description": "\tHas a high criti- \tcal hit ratio.",
+      "type": "Rock",
+      "pp": 5,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 80
+    },
+    {
+      "name": "Gyro Ball",
+      "description": "\tDoes more damage \tat lower speed.",
+      "type": "Steel",
+      "pp": 5,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Surf",
+      "description": "\tA strong Water- \ttype attack.",
+      "type": "Water",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Whirlpool",
+      "description": "",
+      "type": "Water",
+      "pp": 15,
+      "power": 40,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Waterfall",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Water",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Earth Power",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Knock Off",
+      "description": "\tSlaps down the \tfoe's held item.",
+      "type": "Dark",
+      "pp": 20,
+      "power": 65,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rollout",
+      "description": "\tAttacks 5 turns \twith rising power.",
+      "type": "Rock",
+      "pp": 20,
+      "power": 30,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Seismic Toss",
+      "description": "\tDamage equals the \tuser's level.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Aurora Beam",
+    "Bubble Beam",
+    "Haze",
+    "Spikes",
+    "Toxic Spikes",
+    "Supersonic",
+    "Water Pulse",
+    "Knock Off"
+  ],
+  "locations": [
+    {
+      "area": null,
+      "method": "Evolve from Omanyte (Level 40)",
+      "time": null,
+      "level": "",
+      "chance": 100,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Spiral",
+    "description": "Its heavy shell allowed it to reach only nearby food. This could be the reason it is extinct."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.839Z",
+  "version": "1.0.0"
+}

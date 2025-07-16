@@ -1,0 +1,277 @@
+{
+  "name": "Weedle",
+  "nationalDex": 13,
+  "johtoDex": 27,
+  "types": [
+    "Bug",
+    "Poison"
+  ],
+  "updatedTypes": [
+    "Bug",
+    "Poison"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/weedle/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "speed": 50,
+      "specialAttack": 20,
+      "specialDefense": 20,
+      "total": 195
+    },
+    "catchRate": 255,
+    "baseExp": 52,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Bug",
+      "Bug"
+    ],
+    "evYield": "1 Spe",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "updatedTypes": [
+      "Bug",
+      "Poison"
+    ],
+    "height": 3,
+    "weight": 32,
+    "bodyShape": "Insectoid",
+    "bodyColor": "Brown"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 7,
+        "target": "Kakuna"
+      }
+    ],
+    "chain": [
+      "Weedle",
+      "Kakuna",
+      "Beedrill"
+    ],
+    "chainWithMethods": {
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ],
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Poison Sting",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 35,
+        "power": 15,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "String Shot",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Speed.",
+        "type": "Bug",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 95,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Bug Bite",
+      "level": 9,
+      "info": {
+        "description": "\tBites the foe and \teats a held Berry.",
+        "type": "Bug",
+        "pp": 20,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [],
+  "eggMoves": [],
+  "locations": [
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "morn",
+      "level": "12",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "morn",
+      "level": "12",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "day",
+      "level": "12",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "day",
+      "level": "12",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "morn",
+      "level": "9",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "day",
+      "level": "9",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "morn",
+      "level": "3",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "day",
+      "level": "3",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_31",
+      "method": "grass",
+      "time": "morn",
+      "level": "4",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_31",
+      "method": "grass",
+      "time": "day",
+      "level": "4",
+      "chance": 5,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Hairy Bug",
+    "description": "The barb on top of its head secretes a strong poison. It uses this toxic barb to protect itself."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.804Z",
+  "version": "1.0.0"
+}

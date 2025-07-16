@@ -1,0 +1,267 @@
+{
+  "name": "Wynaut",
+  "nationalDex": 253,
+  "johtoDex": 65,
+  "types": "Psychic",
+  "updatedTypes": "Psychic",
+  "frontSpriteUrl": "/sprites/pokemon/wynaut/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 95,
+      "attack": 23,
+      "defense": 48,
+      "speed": 23,
+      "specialAttack": 23,
+      "specialDefense": 48,
+      "total": 260
+    },
+    "catchRate": 125,
+    "baseExp": 44,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Undiscovered",
+      "Undiscovered"
+    ],
+    "evYield": "1 HP",
+    "types": "Psychic",
+    "updatedTypes": "Psychic",
+    "height": 6,
+    "weight": 140,
+    "bodyShape": "Bipedal Tail",
+    "bodyColor": "Blue"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 15,
+        "target": "Wobbuffet"
+      }
+    ],
+    "chain": [
+      "Wynaut",
+      "Wobbuffet"
+    ],
+    "chainWithMethods": {
+      "Wynaut": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Wobbuffet"
+        }
+      ],
+      "Wobbuffet": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Splash",
+      "level": 1,
+      "info": {
+        "description": "\tHas no effect \twhatsoever.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Charm",
+      "level": 1,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Attack.",
+        "type": "Fairy",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Encore",
+      "level": 1,
+      "info": {
+        "description": "\tMakes the foe re- \tpeat 2-6 times.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Amnesia",
+      "level": 1,
+      "info": {
+        "description": "\tSharply raises the \tuser's Sp.Def.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Counter",
+      "level": 1,
+      "info": {
+        "description": "\tReturns a physical \tattack double.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 1,
+        "accuracy": "--",
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Mirror Coat",
+      "level": 1,
+      "info": {
+        "description": "\tReturns a special \tattack double.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 1,
+        "accuracy": "--",
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Safeguard",
+      "level": 1,
+      "info": {
+        "description": "\tPrevents all \tstatus problems.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Destiny Bond",
+      "level": 1,
+      "info": {
+        "description": "\tThe foe faints if \tthe user does.",
+        "type": "Ghost",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Safeguard",
+      "description": "\tPrevents all \tstatus problems.",
+      "type": "Normal",
+      "pp": 25,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Charm",
+      "description": "\tSharply lowers the \tfoe's Attack.",
+      "type": "Fairy",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Counter",
+      "description": "\tReturns a physical \tattack double.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": "--"
+    }
+  ],
+  "eggMoves": [
+    "Charm",
+    "Encore"
+  ],
+  "locations": [],
+  "pokedexEntries": {
+    "species": "Bright",
+    "description": "It tends to move in a pack. Individuals squash against one another to toughen their spirits."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.874Z",
+  "version": "1.0.0"
+}

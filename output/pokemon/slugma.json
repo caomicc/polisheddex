@@ -1,0 +1,745 @@
+{
+  "name": "Slugma",
+  "nationalDex": 218,
+  "johtoDex": 243,
+  "types": "Fire",
+  "updatedTypes": "Fire",
+  "frontSpriteUrl": "/sprites/pokemon/slugma/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 40,
+      "attack": 40,
+      "defense": 40,
+      "speed": 20,
+      "specialAttack": 70,
+      "specialDefense": 40,
+      "total": 250
+    },
+    "catchRate": 190,
+    "baseExp": 78,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Magma Armor",
+        "description": "\tPrevents it from \tbecoming frozen.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Magma Armor",
+        "description": "\tPrevents it from \tbecoming frozen.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Amorphous",
+      "Amorphous"
+    ],
+    "evYield": "1 SAt",
+    "types": "Fire",
+    "updatedTypes": "Fire",
+    "height": 7,
+    "weight": 350,
+    "bodyShape": "Serpentine",
+    "bodyColor": "Red"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 38,
+        "target": "Magcargo"
+      }
+    ],
+    "chain": [
+      "Slugma",
+      "Magcargo"
+    ],
+    "chainWithMethods": {
+      "Slugma": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 38,
+          "target": "Magcargo"
+        }
+      ],
+      "Magcargo": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Mud Slap",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that \tlowers accuracy.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Ember",
+      "level": 6,
+      "info": {
+        "description": "\tAn attack that may \tinflict a burn.",
+        "type": "Fire",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Rock Throw",
+      "level": 8,
+      "info": {
+        "description": "\tDrops rocks on the \tenemy.",
+        "type": "Rock",
+        "pp": 15,
+        "power": 50,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Defense Curl",
+      "level": 13,
+      "info": {
+        "description": "\tRaises the user's \tDefense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Fire Spin",
+      "level": 15,
+      "info": {
+        "description": "",
+        "type": "Fire",
+        "pp": 15,
+        "power": 40,
+        "accuracy": 90,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Smokescreen",
+      "level": 20,
+      "info": {
+        "description": "\tAn attack that \tlowers accuracy.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Ancientpower",
+      "level": 22,
+      "info": {
+        "description": "\tAn attack that may \traise all stats.",
+        "type": "Rock",
+        "pp": 5,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Flame Charge",
+      "level": 27,
+      "info": {
+        "description": "\tAn attack that may \tup user's Speed.",
+        "type": "Fire",
+        "pp": 20,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Rock Slide",
+      "level": 29,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Rock",
+        "pp": 10,
+        "power": 75,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Pain Split",
+      "level": 34,
+      "info": {
+        "description": "\tAdds user & foe's \tHPs. Shares total.",
+        "type": "Ghost",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Amnesia",
+      "level": 36,
+      "info": {
+        "description": "\tSharply raises the \tuser's Sp.Def.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Body Slam",
+      "level": 41,
+      "info": {
+        "description": "\tAn attack that may \tcause paralysis.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 85,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Recover",
+      "level": 43,
+      "info": {
+        "description": "\tRestores HP by 1/2 \tthe max HP.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Flamethrower",
+      "level": 48,
+      "info": {
+        "description": "",
+        "type": "Fire",
+        "pp": 15,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Earth Power",
+      "level": 50,
+      "info": {
+        "description": "\tAn attack that may \tlower Sp.Def.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Calm Mind",
+      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Light Screen",
+      "description": "\tRaises Sp.Def with \ta wall of light.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Flamethrower",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Fire Blast",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 85
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flame Charge",
+      "description": "\tAn attack that may \tup user's Speed.",
+      "type": "Fire",
+      "pp": 20,
+      "power": 50,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Slide",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Rock",
+      "pp": 10,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Will O Wisp",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Defense Curl",
+      "description": "\tRaises the user's \tDefense.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Earth Power",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rollout",
+      "description": "\tAttacks 5 turns \twith rising power.",
+      "type": "Rock",
+      "pp": 20,
+      "power": 30,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Smokescreen",
+    "Curse"
+  ],
+  "locations": [
+    {
+      "area": "BURNED_TOWER_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "12",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "BURNED_TOWER_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "15",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "BURNED_TOWER_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "12",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "BURNED_TOWER_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "15",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "BURNED_TOWER_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "12",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "BURNED_TOWER_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "15",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_16_WEST",
+      "method": "grass",
+      "time": "morn",
+      "level": "54",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_16_WEST",
+      "method": "grass",
+      "time": "day",
+      "level": "54",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_16_NORTHWEST",
+      "method": "grass",
+      "time": "morn",
+      "level": "54",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_16_NORTHWEST",
+      "method": "grass",
+      "time": "day",
+      "level": "54",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_17",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_17",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "CINNABAR_VOLCANO_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "57",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "CINNABAR_VOLCANO_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "57",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "CINNABAR_VOLCANO_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "59",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "CINNABAR_VOLCANO_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "61",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "CINNABAR_VOLCANO_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "61",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "FIRE_ISLAND",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "FIRE_ISLAND",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "FIRE_ISLAND",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "FIRE_ISLAND",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Lava",
+    "description": "These group together in areas that are hotter than normal. If it cools off, its skin hardens."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.862Z",
+  "version": "1.0.0"
+}

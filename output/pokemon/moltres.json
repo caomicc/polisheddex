@@ -1,0 +1,873 @@
+{
+  "name": "Moltres",
+  "nationalDex": 146,
+  "johtoDex": 275,
+  "types": [
+    "Fire",
+    "Flying"
+  ],
+  "updatedTypes": [
+    "Fire",
+    "Flying"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/moltres/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 90,
+      "speed": 90,
+      "specialAttack": 125,
+      "specialDefense": 85,
+      "total": 580
+    },
+    "catchRate": 3,
+    "baseExp": 217,
+    "heldItems": [
+      "ALWAYS_ITEM_"
+    ],
+    "genderRatio": {
+      "male": 0,
+      "female": 0
+    },
+    "hatchRate": "Unknown",
+    "abilities": [
+      {
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "growthRate": "Slow",
+    "eggGroups": [
+      "Undiscovered",
+      "Undiscovered"
+    ],
+    "evYield": "3 SAt",
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Fire",
+      "Flying"
+    ],
+    "height": 20,
+    "weight": 660,
+    "bodyShape": "Wings",
+    "bodyColor": "Red"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Moltres"
+    ],
+    "chainWithMethods": {
+      "Moltres": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Wing Attack",
+      "level": 1,
+      "info": {
+        "description": "\tStrikes the foe \twith wings.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Ember",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tinflict a burn.",
+        "type": "Fire",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Leer",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Defense.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Fire Spin",
+      "level": 8,
+      "info": {
+        "description": "",
+        "type": "Fire",
+        "pp": 15,
+        "power": 40,
+        "accuracy": 90,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Safeguard",
+      "level": 15,
+      "info": {
+        "description": "\tPrevents all \tstatus problems.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Extrasensory",
+      "level": 22,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Ancientpower",
+      "level": 29,
+      "info": {
+        "description": "\tAn attack that may \traise all stats.",
+        "type": "Rock",
+        "pp": 5,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 36,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Flamethrower",
+      "level": 43,
+      "info": {
+        "description": "",
+        "type": "Fire",
+        "pp": 15,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Air Slash",
+      "level": 50,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Flying",
+        "pp": 15,
+        "power": 75,
+        "accuracy": 95,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Sunny Day",
+      "level": 57,
+      "info": {
+        "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+        "type": "Fire",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Will O Wisp",
+      "level": 64,
+      "info": {
+        "description": "",
+        "type": "Fire",
+        "pp": 15,
+        "power": 0,
+        "accuracy": 85,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Fire Blast",
+      "level": 71,
+      "info": {
+        "description": "\tAn attack that may \tinflict a burn.",
+        "type": "Fire",
+        "pp": 5,
+        "power": 110,
+        "accuracy": 85,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Brave Bird",
+      "level": 78,
+      "info": {
+        "description": "\tA charge that also \thurts the user.",
+        "type": "Flying",
+        "pp": 15,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Roost",
+      "level": 85,
+      "info": {
+        "description": "\tLands to restore \t1/2 the max HP.",
+        "type": "Flying",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hurricane",
+      "level": 92,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Flying",
+        "pp": 10,
+        "power": 110,
+        "accuracy": 70,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Solar Beam",
+      "level": 99,
+      "info": {
+        "description": "\t1st turn: Prepare \t2nd turn: Attack",
+        "type": "Grass",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Roar",
+      "description": "\tScares wild foes \tto end battle.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Safeguard",
+      "description": "\tPrevents all \tstatus problems.",
+      "type": "Normal",
+      "pp": 25,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Flamethrower",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sandstorm",
+      "description": "",
+      "type": "Rock",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Fire Blast",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 85
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flame Charge",
+      "description": "\tAn attack that may \tup user's Speed.",
+      "type": "Fire",
+      "pp": 20,
+      "power": 50,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Steel Wing",
+      "description": "\tAn attack that may \tup user's Defense.",
+      "type": "Steel",
+      "pp": 25,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Roost",
+      "description": "\tLands to restore \t1/2 the max HP.",
+      "type": "Flying",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Will O Wisp",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "U Turn",
+      "description": "",
+      "type": "Bug",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Fly",
+      "description": "\t1st turn: Fly \t2nd turn: Attack",
+      "type": "Flying",
+      "pp": 15,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [],
+  "locations": [],
+  "pokedexEntries": {
+    "species": "Malevolent",
+    "description": "The sinister aura that blazes like molten fire around this #mon is what inspired the name Moltres."
+  },
+  "forms": {
+    " Galarian": {
+      "formName": " Galarian",
+      "types": "Unknown",
+      "moves": [
+        {
+          "name": "Gust",
+          "level": 1,
+          "info": {
+            "description": "\tWhips up a strong \tgust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 1,
+          "info": {
+            "description": "\tHeavily strikes \tswitching #mon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 8,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 15,
+          "info": {
+            "description": "\tPrevents all \tstatus problems.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wing Attack",
+          "level": 22,
+          "info": {
+            "description": "\tStrikes the foe \twith wings.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 29,
+          "info": {
+            "description": "\tAn attack that may \traise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 36,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 43,
+          "info": {
+            "description": "\tAttacks before the \tfoe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 50,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Nasty Plot",
+          "level": 57,
+          "info": {
+            "description": "\tSharply raises the \tuser's Sp.Atk.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "level": 64,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hex",
+          "level": 71,
+          "info": {
+            "description": "\tDamage doubles if \tfoe has status.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 78,
+          "info": {
+            "description": "\tA charge that also \thurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pain Split",
+          "level": 85,
+          "info": {
+            "description": "\tAdds user & foe's \tHPs. Shares total.",
+            "type": "Ghost",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 92,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Night Slash",
+          "level": 99,
+          "info": {
+            "description": "",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "locations": []
+    }
+  },
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.841Z",
+  "version": "1.0.0"
+}

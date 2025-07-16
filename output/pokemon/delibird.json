@@ -1,0 +1,749 @@
+{
+  "name": "Delibird",
+  "nationalDex": 225,
+  "johtoDex": 217,
+  "types": [
+    "Ice",
+    "Flying"
+  ],
+  "updatedTypes": [
+    "Ice",
+    "Flying"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/delibird/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 45,
+      "attack": 55,
+      "defense": 45,
+      "speed": 75,
+      "specialAttack": 65,
+      "specialDefense": 45,
+      "total": 330
+    },
+    "catchRate": 45,
+    "baseExp": 183,
+    "heldItems": [
+      "NEVERMELTICE"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Fast",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "1 Spe",
+    "types": [
+      "Ice",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Ice",
+      "Flying"
+    ],
+    "height": 9,
+    "weight": 160,
+    "bodyShape": "Wings",
+    "bodyColor": "Red"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Delibird"
+    ],
+    "chainWithMethods": {
+      "Delibird": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Peck",
+      "level": 1,
+      "info": {
+        "description": "\tJabs the foe with \ta beak, etc.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 35,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Growl",
+      "level": 5,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Attack.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Pay Day",
+      "level": 9,
+      "info": {
+        "description": "\tThrows coins. Gets \tthem back later.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Sing",
+      "level": 13,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Icy Wind",
+      "level": 17,
+      "info": {
+        "description": "\tAn icy attack that \tlowers Speed.",
+        "type": "Ice",
+        "pp": 15,
+        "power": 55,
+        "accuracy": 95,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Wing Attack",
+      "level": 21,
+      "info": {
+        "description": "\tStrikes the foe \twith wings.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Hail",
+      "level": 25,
+      "info": {
+        "description": "\tInflicts damage \tevery turn.",
+        "type": "Ice",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Drill Peck",
+      "level": 29,
+      "info": {
+        "description": "\tA strong, spin- \tning-peck attack.",
+        "type": "Flying",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Aurora Beam",
+      "level": 33,
+      "info": {
+        "description": "\tAn attack that may \tlower Attack.",
+        "type": "Ice",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Body Slam",
+      "level": 37,
+      "info": {
+        "description": "\tAn attack that may \tcause paralysis.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 85,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Roost",
+      "level": 41,
+      "info": {
+        "description": "\tLands to restore \t1/2 the max HP.",
+        "type": "Flying",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Fly",
+      "level": 45,
+      "info": {
+        "description": "\t1st turn: Fly \t2nd turn: Attack",
+        "type": "Flying",
+        "pp": 15,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Belly Drum",
+      "level": 49,
+      "info": {
+        "description": "\tSacrifices HP to \tmaximize Attack.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hurricane",
+      "level": 53,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Flying",
+        "pp": 10,
+        "power": 110,
+        "accuracy": 70,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Blizzard",
+      "level": 57,
+      "info": {
+        "description": "\tAn attack that may \tfreeze the foe.",
+        "type": "Ice",
+        "pp": 5,
+        "power": 110,
+        "accuracy": 70,
+        "category": "Special"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hail",
+      "description": "\tInflicts damage \tevery turn.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Ice Beam",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Blizzard",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Steel Wing",
+      "description": "\tAn attack that may \tup user's Defense.",
+      "type": "Steel",
+      "pp": 25,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Roost",
+      "description": "\tLands to restore \t1/2 the max HP.",
+      "type": "Flying",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Water Pulse",
+      "description": "\tAn attack that may \tconfuse the foe.",
+      "type": "Water",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Avalanche",
+      "description": "\tDamage doubles if \tuser is hit first.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Fly",
+      "description": "\t1st turn: Fly \t2nd turn: Attack",
+      "type": "Flying",
+      "pp": 15,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Baton Pass",
+      "description": "\tSwitches while \tkeeping effects.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Counter",
+      "description": "\tReturns a physical \tattack double.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Ice Punch",
+      "description": "\tAn icy punch. May \tcause freezing.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Rollout",
+      "description": "\tAttacks 5 turns \twith rising power.",
+      "type": "Rock",
+      "pp": 20,
+      "power": 30,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Seed Bomb",
+      "description": "\tSlams a barrage of \tseeds at the foe.",
+      "type": "Grass",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Seismic Toss",
+      "description": "\tDamage equals the \tuser's level.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Aurora Beam",
+    "Destiny Bond",
+    "Ice Punch",
+    "Icy Wind",
+    "Quick Attack",
+    "Rapid Spin",
+    "Splash"
+  ],
+  "locations": [
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "30",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "32",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SNOWTOP_MOUNTAIN_INSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SNOWTOP_MOUNTAIN_INSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SNOWTOP_MOUNTAIN_INSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "Snowtop Mountain Inside",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "Badge Level + 4",
+      "chance": 15,
+      "rareItem": "Ice Stone",
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Delivery",
+    "description": "It always carries its food with it, wherever it goes. If attacked, it throws its food at the opponent."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.864Z",
+  "version": "1.0.0"
+}

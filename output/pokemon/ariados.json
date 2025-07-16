@@ -1,0 +1,797 @@
+{
+  "name": "Ariados",
+  "nationalDex": 168,
+  "johtoDex": 33,
+  "types": [
+    "Bug",
+    "Poison"
+  ],
+  "updatedTypes": [
+    "Bug",
+    "Poison"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/ariados/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 70,
+      "attack": 90,
+      "defense": 70,
+      "speed": 40,
+      "specialAttack": 60,
+      "specialDefense": 70,
+      "total": 400
+    },
+    "catchRate": 90,
+    "baseExp": 134,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Fast",
+    "eggGroups": [
+      "Bug",
+      "Bug"
+    ],
+    "evYield": "2 Atk",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "updatedTypes": [
+      "Bug",
+      "Poison"
+    ],
+    "height": 11,
+    "weight": 335,
+    "bodyShape": "Insectoid",
+    "bodyColor": "Red"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Spinarak",
+      "Ariados"
+    ],
+    "chainWithMethods": {
+      "Spinarak": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Ariados"
+        }
+      ],
+      "Ariados": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Bug Bite",
+      "level": 1,
+      "info": {
+        "description": "\tBites the foe and \teats a held Berry.",
+        "type": "Bug",
+        "pp": 20,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Focus Energy",
+      "level": 1,
+      "info": {
+        "description": "\tRaises the criti- \tcal hit ratio.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Poison Sting",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 35,
+        "power": 15,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "String Shot",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Speed.",
+        "type": "Bug",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 95,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Wrap",
+      "level": 1,
+      "info": {
+        "description": "\tTraps the foe for \t2-5 turns.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 15,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Absorb",
+      "level": 5,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Glare",
+      "level": 8,
+      "info": {
+        "description": "\tA move that may \tparalyze the foe.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Scary Face",
+      "level": 12,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Speed.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Night Shade",
+      "level": 15,
+      "info": {
+        "description": "\tDamage equals the \tuser's level.",
+        "type": "Ghost",
+        "pp": 15,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Growth",
+      "level": 19,
+      "info": {
+        "description": "\tRaises the user's \tAtk and Sp.Atk.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Fury Strikes",
+      "level": 23,
+      "info": {
+        "description": "\tScratches or jabs \t2-5 times.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 20,
+        "accuracy": 85,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Sucker Punch",
+      "level": 28,
+      "info": {
+        "description": "\tAttacks before the \tfoe does.",
+        "type": "Dark",
+        "pp": 5,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Mean Look",
+      "level": 32,
+      "info": {
+        "description": "\tPrevents fleeing \tor switching.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 37,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Pin Missile",
+      "level": 41,
+      "info": {
+        "description": "\tFires pins that \tstrike 2-5 times.",
+        "type": "Bug",
+        "pp": 20,
+        "power": 25,
+        "accuracy": 95,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Psychic M",
+      "level": 46
+    },
+    {
+      "name": "Poison Jab",
+      "level": 50,
+      "info": {
+        "description": "\tAn attack that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Leech Life",
+      "level": 55,
+      "info": {
+        "description": "",
+        "type": "Bug",
+        "pp": 10,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Feint Attack",
+      "level": 58,
+      "info": {
+        "description": "\tAn attack that \tnever misses.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 60,
+        "accuracy": "--",
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Venoshock",
+      "description": "\tDamage doubles if \tfoe is poisoned.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 65,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hone Claws",
+      "description": "\tRaises the user's \tAtk and accuracy.",
+      "type": "Dark",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Giga Drain",
+      "description": "",
+      "type": "Grass",
+      "pp": 10,
+      "power": 75,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dig",
+      "description": "\t1st turn: Burrow \t2nd turn: Attack",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Psychic",
+      "description": "",
+      "type": "None",
+      "pp": 0,
+      "power": 0,
+      "category": "Unknown",
+      "accuracy": 0
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sludge Bomb",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Leech Life",
+      "description": "",
+      "type": "Bug",
+      "pp": 10,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "X Scissor",
+      "description": "",
+      "type": "Bug",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dark Pulse",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Dark",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Poison Jab",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 20,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swords Dance",
+      "description": "\tSharply raises the \tuser's Attack.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Baton Pass",
+      "description": "\tSwitches while \tkeeping effects.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Sucker Punch",
+      "description": "\tAttacks before the \tfoe does.",
+      "type": "Dark",
+      "pp": 5,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Baton Pass",
+    "Disable",
+    "Megahorn",
+    "Psybeam",
+    "Pursuit",
+    "Sonic Boom",
+    "Poison Jab",
+    "Night Slash",
+    "Toxic Spikes"
+  ],
+  "locations": [
+    {
+      "area": "ROUTE_37",
+      "method": "grass",
+      "time": "nite",
+      "level": "16",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_NORTH",
+      "method": "grass",
+      "time": "nite",
+      "level": "54",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_NORTH",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_SOUTH",
+      "method": "grass",
+      "time": "nite",
+      "level": "54",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_SOUTH",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "VIRIDIAN_FOREST",
+      "method": "grass",
+      "time": "nite",
+      "level": "57",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "VIRIDIAN_FOREST",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "BEAUTIFUL_BEACH",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "WARM_BEACH",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROCKY_BEACH",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "NOISY_FOREST",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "NOISY_FOREST",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SHAMOUTI_SHRINE_RUINS",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Long Leg",
+    "description": "Rather than making a nest in one specific spot, it wanders in search of food after darkness falls."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.847Z",
+  "version": "1.0.0"
+}

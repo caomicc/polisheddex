@@ -1,0 +1,542 @@
+{
+  "name": "Victreebel",
+  "nationalDex": 71,
+  "johtoDex": 71,
+  "types": [
+    "Grass",
+    "Poison"
+  ],
+  "updatedTypes": [
+    "Grass",
+    "Poison"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/victreebel/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 65,
+      "speed": 70,
+      "specialAttack": 100,
+      "specialDefense": 70,
+      "total": 490
+    },
+    "catchRate": 45,
+    "baseExp": 191,
+    "heldItems": [
+      "ALWAYS_ITEM_"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Gluttony",
+        "description": "\tEncourages early \tBerry use.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Gluttony",
+        "description": "\tEncourages early \tBerry use.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Grass",
+      "Grass"
+    ],
+    "evYield": "3 Atk",
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "updatedTypes": [
+      "Grass",
+      "Poison"
+    ],
+    "height": 17,
+    "weight": 155,
+    "bodyShape": "Head Base",
+    "bodyColor": "Green"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Bellsprout",
+      "Weepinbell",
+      "Victreebel"
+    ],
+    "chainWithMethods": {
+      "Bellsprout": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Weepinbell"
+        }
+      ],
+      "Weepinbell": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Victreebel"
+        }
+      ],
+      "Victreebel": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Vine Whip",
+      "level": 1,
+      "info": {
+        "description": "\tWhips the foe with \tslender vines.",
+        "type": "Grass",
+        "pp": 25,
+        "power": 45,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Sleep Powder",
+      "level": 1,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Grass",
+        "pp": 15,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Healinglight",
+      "level": 1,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Razor Leaf",
+      "level": 1,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 55,
+        "accuracy": 95,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Sucker Punch",
+      "level": 32,
+      "info": {
+        "description": "\tAttacks before the \tfoe does.",
+        "type": "Dark",
+        "pp": 5,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Swords Dance",
+      "level": 44,
+      "info": {
+        "description": "\tSharply raises the \tuser's Attack.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Venoshock",
+      "description": "\tDamage doubles if \tfoe is poisoned.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 65,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Giga Drain",
+      "description": "",
+      "type": "Grass",
+      "pp": 10,
+      "power": 75,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sludge Bomb",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Leech Life",
+      "description": "",
+      "type": "Bug",
+      "pp": 10,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Energy Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Grass",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Poison Jab",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 20,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swords Dance",
+      "description": "\tSharply raises the \tuser's Attack.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Cut",
+      "description": "\tCuts using claws, \tscythes, etc.",
+      "type": "Steel",
+      "pp": 30,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Earth Power",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Knock Off",
+      "description": "\tSlaps down the \tfoe's held item.",
+      "type": "Dark",
+      "pp": 20,
+      "power": 65,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Seed Bomb",
+      "description": "\tSlams a barrage of \tseeds at the foe.",
+      "type": "Grass",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Sucker Punch",
+      "description": "\tAttacks before the \tfoe does.",
+      "type": "Dark",
+      "pp": 5,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Encore",
+    "Leech Life",
+    "Swords Dance",
+    "Reflect",
+    "Healinglight",
+    "Power Whip"
+  ],
+  "locations": [],
+  "pokedexEntries": {
+    "species": "Flycatcher",
+    "description": "Once ingested into this #mon's body, even the hardest object will melt into nothing."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.820Z",
+  "version": "1.0.0"
+}

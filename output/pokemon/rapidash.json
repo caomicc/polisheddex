@@ -1,0 +1,882 @@
+{
+  "name": "Rapidash",
+  "nationalDex": 78,
+  "johtoDex": 232,
+  "types": "Fire",
+  "updatedTypes": [
+    "Fire",
+    "Fairy"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/rapidash/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 65,
+      "attack": 100,
+      "defense": 70,
+      "speed": 105,
+      "specialAttack": 80,
+      "specialDefense": 80,
+      "total": 500
+    },
+    "catchRate": 60,
+    "baseExp": 192,
+    "heldItems": [
+      "MARANGABERRY"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "2 Spe",
+    "types": "Fire",
+    "updatedTypes": [
+      "Fire",
+      "Fairy"
+    ],
+    "height": 17,
+    "weight": 800,
+    "bodyShape": "Quadruped",
+    "bodyColor": "White"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Ponyta",
+      "Rapidash"
+    ],
+    "chainWithMethods": {
+      "Ponyta": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Rapidash",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 40,
+          "target": "Rapidash",
+          "form": "Galarian Form"
+        }
+      ],
+      "Rapidash": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Play Rough",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tlower Attack.",
+        "type": "Fairy",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Poison Jab",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Megahorn",
+      "level": 1,
+      "info": {
+        "description": "\tA powerful charge \tattack.",
+        "type": "Bug",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 85,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Growl",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Attack.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Leer",
+      "level": 4,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Defense.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Ember",
+      "level": 9,
+      "info": {
+        "description": "\tAn attack that may \tinflict a burn.",
+        "type": "Fire",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Stomp",
+      "level": 13,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Flame Charge",
+      "level": 17,
+      "info": {
+        "description": "\tAn attack that may \tup user's Speed.",
+        "type": "Fire",
+        "pp": 20,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Low Kick",
+      "level": 21,
+      "info": {
+        "description": "\tDeals more damage \tto heavier foes.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Fire Spin",
+      "level": 25,
+      "info": {
+        "description": "",
+        "type": "Fire",
+        "pp": 15,
+        "power": 40,
+        "accuracy": 90,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Take Down",
+      "level": 29,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 15,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Double Kick",
+      "level": 33,
+      "info": {
+        "description": "\tA double kicking \tattack.",
+        "type": "Fighting",
+        "pp": 30,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 37,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Fire Blast",
+      "level": 41,
+      "info": {
+        "description": "\tAn attack that may \tinflict a burn.",
+        "type": "Fire",
+        "pp": 5,
+        "power": 110,
+        "accuracy": 85,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Extremespeed",
+      "level": 45,
+      "info": {
+        "description": "\tA powerful first- \tstrike attack.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Flare Blitz",
+      "level": 49,
+      "info": {
+        "description": "\tA charge that also \thurts the user.",
+        "type": "Fire",
+        "pp": 15,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Iron Tail",
+      "description": "\tAn attack that may \tlower Defense.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 75
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Flamethrower",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Fire Blast",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 85
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flame Charge",
+      "description": "\tAn attack that may \tup user's Speed.",
+      "type": "Fire",
+      "pp": 20,
+      "power": 50,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Wild Charge",
+      "description": "\tA charge that also \thurts the user.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Will O Wisp",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Poison Jab",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 20,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Swords Dance",
+      "description": "\tSharply raises the \tuser's Attack.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Strength",
+      "description": "\tA powerful physi- \tcal attack.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Baton Pass",
+      "description": "\tSwitches while \tkeeping effects.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Charm",
+      "description": "\tSharply lowers the \tfoe's Attack.",
+      "type": "Fairy",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Pay Day",
+      "description": "\tThrows coins. Gets \tthem back later.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Charm",
+    "Double Kick",
+    "Hypnosis",
+    "Healinglight",
+    "Thrash",
+    "Quick Attack",
+    "Psybeam",
+    "Psychic M",
+    "Extremespeed",
+    "Play Rough"
+  ],
+  "locations": [
+    {
+      "area": "Silver Cave",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "70",
+      "chance": 40,
+      "rareItem": "Fire Stone",
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Unique Horn",
+    "description": "A psychic attack unleashed from Rapidash's horn can punch a hole right through a thick metal sheet."
+  },
+  "forms": {
+    " Galarian": {
+      "formName": " Galarian",
+      "types": "Unknown",
+      "moves": [
+        {
+          "name": "Play Rough",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tlower Attack.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Megahorn",
+          "level": 1,
+          "info": {
+            "description": "\tA powerful charge \tattack.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 4,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 9,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Disarm Voice",
+          "level": 13,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Fairy",
+            "pp": 15,
+            "power": 40,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Stomp",
+          "level": 17,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 21,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 25,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 29,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dazzlingleam",
+          "level": 33,
+          "info": {
+            "description": "\tDazzles with a \tpowerful flash.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 37,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psychic M",
+          "level": 41
+        },
+        {
+          "name": "Extremespeed",
+          "level": 45,
+          "info": {
+            "description": "\tA powerful first- \tstrike attack.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Moonblast",
+          "level": 49,
+          "info": {
+            "description": "\tAn attack that may \tlower Sp.Atk.",
+            "type": "Fairy",
+            "pp": 15,
+            "power": 95,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "locations": []
+    }
+  },
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.821Z",
+  "version": "1.0.0"
+}

@@ -1,0 +1,664 @@
+{
+  "name": "Hitmonlee",
+  "nationalDex": 106,
+  "johtoDex": 157,
+  "types": "Fighting",
+  "updatedTypes": "Fighting",
+  "frontSpriteUrl": "/sprites/pokemon/hitmonlee/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 50,
+      "attack": 120,
+      "defense": 53,
+      "speed": 87,
+      "specialAttack": 35,
+      "specialDefense": 110,
+      "total": 455
+    },
+    "catchRate": 45,
+    "baseExp": 139,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 100,
+      "female": 0
+    },
+    "hatchRate": "Medium-Slow (6,400 steps)",
+    "abilities": [
+      {
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Reckless",
+        "description": "\tPowers up moves \tthat recoil.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Unburden",
+        "description": "\tBoosts Speed when \theld item is lost.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Reckless",
+        "description": "\tPowers up moves \tthat recoil.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Unburden",
+        "description": "\tBoosts Speed when \theld item is lost.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Human-Like",
+      "Human-Like"
+    ],
+    "evYield": "2 Atk",
+    "types": "Fighting",
+    "updatedTypes": "Fighting",
+    "height": 15,
+    "weight": 498,
+    "bodyShape": "Bipedal",
+    "bodyColor": "Brown"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Hitmonlee"
+    ],
+    "chainWithMethods": {
+      "Hitmonlee": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Double Kick",
+      "level": 1,
+      "info": {
+        "description": "\tA double kicking \tattack.",
+        "type": "Fighting",
+        "pp": 30,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Bulk Up",
+      "level": 1,
+      "info": {
+        "description": "\tRaises the user's \tAtk and Def.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 5,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Pursuit",
+      "level": 9,
+      "info": {
+        "description": "\tHeavily strikes \tswitching #mon.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Low Kick",
+      "level": 13,
+      "info": {
+        "description": "\tDeals more damage \tto heavier foes.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Stomp",
+      "level": 17,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Endure",
+      "level": 21,
+      "info": {
+        "description": "\tEndures any hit \twith at least 1HP.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Rock Smash",
+      "level": 21,
+      "info": {
+        "description": "\tRemoves Reflect \tand Light Screen.",
+        "type": "Fighting",
+        "pp": 15,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Aerial Ace",
+      "level": 25,
+      "info": {
+        "description": "\tAn attack that \tnever misses.",
+        "type": "Flying",
+        "pp": 20,
+        "power": 60,
+        "accuracy": "--",
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Hi Jump Kick",
+      "level": 29,
+      "info": {
+        "description": "\tMay miss and hurt \tthe user.",
+        "type": "Fighting",
+        "pp": 10,
+        "power": 130,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Double Team",
+      "level": 33,
+      "info": {
+        "description": "\tRaises the user's \tevasiveness.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Foresight",
+      "level": 37,
+      "info": {
+        "description": "\tNegates foe's eva- \tsion and immunity.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Focus Energy",
+      "level": 41,
+      "info": {
+        "description": "\tRaises the criti- \tcal hit ratio.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Reversal",
+      "level": 45,
+      "info": {
+        "description": "\tStronger if the \tuser's HP is low.",
+        "type": "Fighting",
+        "pp": 15,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Endure",
+      "level": 49,
+      "info": {
+        "description": "\tEndures any hit \twith at least 1HP.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Focus Blast",
+      "level": 53,
+      "info": {
+        "description": "\tAn attack that may \tlower Sp.Def.",
+        "type": "Fighting",
+        "pp": 5,
+        "power": 120,
+        "accuracy": 70,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Close Combat",
+      "level": 57,
+      "info": {
+        "description": "\tLowers the user's \tDef and Sp.Def.",
+        "type": "Fighting",
+        "pp": 5,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Counter",
+      "level": 61,
+      "info": {
+        "description": "\tReturns a physical \tattack double.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 1,
+        "accuracy": "--",
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Dynamicpunch",
+      "description": "\tAn attack that \tconfuses the foe.",
+      "type": "Fighting",
+      "pp": 5,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 50
+    },
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Bulk Up",
+      "description": "\tRaises the user's \tAtk and Def.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Bulldoze",
+      "description": "\tA Ground attack \tthat lowers Speed.",
+      "type": "Ground",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Earthquake",
+      "description": "\tTough but useless \tvs. flying foes.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Slide",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Rock",
+      "pp": 10,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Focus Blast",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Fighting",
+      "pp": 5,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Poison Jab",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 20,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Stone Edge",
+      "description": "\tHas a high criti- \tcal hit ratio.",
+      "type": "Rock",
+      "pp": 5,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 80
+    },
+    {
+      "name": "Strength",
+      "description": "\tA powerful physi- \tcal attack.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Counter",
+      "description": "\tReturns a physical \tattack double.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Knock Off",
+      "description": "\tSlaps down the \tfoe's held item.",
+      "type": "Dark",
+      "pp": 20,
+      "power": 65,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Seismic Toss",
+      "description": "\tDamage equals the \tuser's level.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Sucker Punch",
+      "description": "\tAttacks before the \tfoe does.",
+      "type": "Dark",
+      "pp": 5,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Bullet Punch",
+    "Hi Jump Kick",
+    "Mach Punch",
+    "Pursuit",
+    "Rapid Spin"
+  ],
+  "locations": [],
+  "pokedexEntries": {
+    "species": "Kicking",
+    "description": "It is also called the Kick Master. It uses its elastic legs to execute every known kick."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.829Z",
+  "version": "1.0.0"
+}

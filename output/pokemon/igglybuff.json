@@ -1,0 +1,640 @@
+{
+  "name": "Igglybuff",
+  "nationalDex": 174,
+  "johtoDex": 43,
+  "types": [
+    "Normal",
+    "Fairy"
+  ],
+  "updatedTypes": [
+    "Normal",
+    "Fairy"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/igglybuff/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 90,
+      "attack": 30,
+      "defense": 15,
+      "speed": 15,
+      "specialAttack": 40,
+      "specialDefense": 20,
+      "total": 210
+    },
+    "catchRate": 150,
+    "baseExp": 39,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 25,
+      "female": 75
+    },
+    "hatchRate": "Fast (2,560 steps)",
+    "abilities": [
+      {
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Competitive",
+        "description": "\tBoosts Sp.Atk on \tstat reduction.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Frisk",
+        "description": "\tChecks the foe's \theld item.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Competitive",
+        "description": "\tBoosts Sp.Atk on \tstat reduction.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Frisk",
+        "description": "\tChecks the foe's \theld item.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Competitive",
+        "description": "\tBoosts Sp.Atk on \tstat reduction.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "growthRate": "Fast",
+    "eggGroups": [
+      "Undiscovered",
+      "Undiscovered"
+    ],
+    "evYield": "1 HP",
+    "types": [
+      "Normal",
+      "Fairy"
+    ],
+    "updatedTypes": [
+      "Normal",
+      "Fairy"
+    ],
+    "height": 3,
+    "weight": 10,
+    "bodyShape": "Bipedal",
+    "bodyColor": "Pink"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_HAPPINESS",
+        "parameter": "TR_ANYTIME",
+        "target": "Jigglypuff"
+      }
+    ],
+    "chain": [
+      "Igglybuff",
+      "Jigglypuff",
+      "Wigglytuff"
+    ],
+    "chainWithMethods": {
+      "Igglybuff": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Jigglypuff"
+        }
+      ],
+      "Jigglypuff": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Wigglytuff"
+        }
+      ],
+      "Wigglytuff": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Sing",
+      "level": 1,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Defense Curl",
+      "level": 1,
+      "info": {
+        "description": "\tRaises the user's \tDefense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Rollout",
+      "level": 4,
+      "info": {
+        "description": "\tAttacks 5 turns \twith rising power.",
+        "type": "Rock",
+        "pp": 20,
+        "power": 30,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Sweet Kiss",
+      "level": 8,
+      "info": {
+        "description": "\tA move that may \tconfuse the foe.",
+        "type": "Fairy",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Disarm Voice",
+      "level": 12,
+      "info": {
+        "description": "\tAn attack that \tnever misses.",
+        "type": "Fairy",
+        "pp": 15,
+        "power": 40,
+        "accuracy": "--",
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Disable",
+      "level": 16,
+      "info": {
+        "description": "\tDisables the foe's \tmost recent move.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Charm",
+      "level": 20,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Attack.",
+        "type": "Fairy",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Light Screen",
+      "description": "\tRaises Sp.Def with \ta wall of light.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Safeguard",
+      "description": "\tPrevents all \tstatus problems.",
+      "type": "Normal",
+      "pp": 25,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dig",
+      "description": "\t1st turn: Burrow \t2nd turn: Attack",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Psychic",
+      "description": "",
+      "type": "None",
+      "pp": 0,
+      "power": 0,
+      "category": "Unknown",
+      "accuracy": 0
+    },
+    {
+      "name": "Shadow Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Flamethrower",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Fire Blast",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 85
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Wild Charge",
+      "description": "\tA charge that also \thurts the user.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Water Pulse",
+      "description": "\tAn attack that may \tconfuse the foe.",
+      "type": "Water",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunder Wave",
+      "description": "\tparalyzes the foe.@",
+      "type": "Electric",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Charm",
+      "description": "\tSharply lowers the \tfoe's Attack.",
+      "type": "Fairy",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Counter",
+      "description": "\tReturns a physical \tattack double.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Defense Curl",
+      "description": "\tRaises the user's \tDefense.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dream Eater",
+      "description": "\tSteals HP from a \tsleeping victim.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 100,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Hyper Voice",
+      "description": "\tAttack the foe \twith sound waves.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Rollout",
+      "description": "\tAttacks 5 turns \twith rising power.",
+      "type": "Rock",
+      "pp": 20,
+      "power": 30,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Seismic Toss",
+      "description": "\tDamage equals the \tuser's level.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Zap Cannon",
+      "description": "\tAn attack that \talways paralyzes.",
+      "type": "Electric",
+      "pp": 5,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 50
+    }
+  ],
+  "eggMoves": [
+    "Feint Attack",
+    "Perish Song",
+    "Moonblast"
+  ],
+  "locations": [],
+  "pokedexEntries": {
+    "species": "Balloon",
+    "description": "Instead of walking with its short legs, it moves around by bouncing on its soft, tender body."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.849Z",
+  "version": "1.0.0"
+}

@@ -1,0 +1,1225 @@
+{
+  "name": "Gastly",
+  "nationalDex": 92,
+  "johtoDex": 61,
+  "types": [
+    "Ghost",
+    "Poison"
+  ],
+  "updatedTypes": [
+    "Ghost",
+    "Poison"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/gastly/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 30,
+      "attack": 35,
+      "defense": 30,
+      "speed": 80,
+      "specialAttack": 100,
+      "specialDefense": 35,
+      "total": 310
+    },
+    "catchRate": 190,
+    "baseExp": 95,
+    "heldItems": [
+      "SPELL_TAG"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Amorphous",
+      "Amorphous"
+    ],
+    "evYield": "1 SAt",
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "updatedTypes": [
+      "Ghost",
+      "Poison"
+    ],
+    "height": 13,
+    "weight": 1,
+    "bodyShape": "Head",
+    "bodyColor": "Purple"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 25,
+        "target": "Haunter"
+      }
+    ],
+    "chain": [
+      "Gastly",
+      "Haunter",
+      "Gengar"
+    ],
+    "chainWithMethods": {
+      "Gastly": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Haunter"
+        }
+      ],
+      "Haunter": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Gengar"
+        }
+      ],
+      "Gengar": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Hypnosis",
+      "level": 1,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 60,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Lick",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tcause paralysis.",
+        "type": "Ghost",
+        "pp": 30,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Disable",
+      "level": 5,
+      "info": {
+        "description": "\tDisables the foe's \tmost recent move.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Mean Look",
+      "level": 8,
+      "info": {
+        "description": "\tPrevents fleeing \tor switching.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Curse",
+      "level": 12,
+      "info": {
+        "description": "\tWorks differently \tfor Ghost-types.",
+        "type": "Ghost",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Night Shade",
+      "level": 15,
+      "info": {
+        "description": "\tDamage equals the \tuser's level.",
+        "type": "Ghost",
+        "pp": 15,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Confuse Ray",
+      "level": 19,
+      "info": {
+        "description": "\tA move that may \tconfuse the foe.",
+        "type": "Ghost",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Sucker Punch",
+      "level": 22,
+      "info": {
+        "description": "\tAttacks before the \tfoe does.",
+        "type": "Dark",
+        "pp": 5,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Pain Split",
+      "level": 26,
+      "info": {
+        "description": "\tAdds user & foe's \tHPs. Shares total.",
+        "type": "Ghost",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Shadow Ball",
+      "level": 29,
+      "info": {
+        "description": "\tAn attack that may \tlower Sp.Def.",
+        "type": "Ghost",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Dream Eater",
+      "level": 33,
+      "info": {
+        "description": "\tSteals HP from a \tsleeping victim.",
+        "type": "Psychic",
+        "pp": 15,
+        "power": 100,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Dark Pulse",
+      "level": 36,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Dark",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Destiny Bond",
+      "level": 40,
+      "info": {
+        "description": "\tThe foe faints if \tthe user does.",
+        "type": "Ghost",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hex",
+      "level": 43,
+      "info": {
+        "description": "\tDamage doubles if \tfoe has status.",
+        "type": "Ghost",
+        "pp": 10,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Perish Song",
+      "level": 47,
+      "info": {
+        "description": "\tBoth user and foe \tfaint in 3 turns.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Venoshock",
+      "description": "\tDamage doubles if \tfoe is poisoned.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 65,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Giga Drain",
+      "description": "",
+      "type": "Grass",
+      "pp": 10,
+      "power": 75,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunderbolt",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunder",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 10,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Psychic",
+      "description": "",
+      "type": "None",
+      "pp": 0,
+      "power": 0,
+      "category": "Unknown",
+      "accuracy": 0
+    },
+    {
+      "name": "Shadow Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sludge Bomb",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dazzlingleam",
+      "description": "\tDazzles with a \tpowerful flash.",
+      "type": "Fairy",
+      "pp": 10,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Leech Life",
+      "description": "",
+      "type": "Bug",
+      "pp": 10,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Energy Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Grass",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Dark Pulse",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Dark",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Will O Wisp",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Explosion",
+      "description": "\tVery powerful but \tmakes user faint.",
+      "type": "Normal",
+      "pp": 5,
+      "power": 250,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dream Eater",
+      "description": "\tSteals HP from a \tsleeping victim.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 100,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Fire Punch",
+      "description": "\tA fiery punch. May \tcause a burn.",
+      "type": "Fire",
+      "pp": 15,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Ice Punch",
+      "description": "\tAn icy punch. May \tcause freezing.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Knock Off",
+      "description": "\tSlaps down the \tfoe's held item.",
+      "type": "Dark",
+      "pp": 20,
+      "power": 65,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Skill Swap",
+      "description": "\tSwaps abilities \twith the foe.",
+      "type": "Psychic",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Sucker Punch",
+      "description": "\tAttacks before the \tfoe does.",
+      "type": "Dark",
+      "pp": 5,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Thunderpunch",
+      "description": "\tAn electric punch. \tIt may paralyze.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Trick",
+      "description": "\tSwaps held items \twith the foe.",
+      "type": "Psychic",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Trick Room",
+      "description": "\tSlow #mon move \tfirst for 5 turns.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Zap Cannon",
+      "description": "\tAn attack that \talways paralyzes.",
+      "type": "Electric",
+      "pp": 5,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 50
+    }
+  ],
+  "eggMoves": [
+    "Astonish",
+    "Disable",
+    "Haze",
+    "Perish Song",
+    "Scary Face",
+    "Nasty Plot",
+    "Feint Attack"
+  ],
+  "locations": [
+    {
+      "area": "SPROUT_TOWER_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "5",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SPROUT_TOWER_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "6",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SPROUT_TOWER_3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "6",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SPROUT_TOWER_3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "7",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "22",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "22",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_4F",
+      "method": "grass",
+      "time": "nite",
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_4F",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_4F",
+      "method": "grass",
+      "time": "nite",
+      "level": "22",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_5F",
+      "method": "grass",
+      "time": "nite",
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_5F",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_5F",
+      "method": "grass",
+      "time": "nite",
+      "level": "22",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_6F",
+      "method": "grass",
+      "time": "nite",
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_6F",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_6F",
+      "method": "grass",
+      "time": "nite",
+      "level": "22",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_7F",
+      "method": "grass",
+      "time": "nite",
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_7F",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_8F",
+      "method": "grass",
+      "time": "nite",
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_8F",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_9F",
+      "method": "grass",
+      "time": "nite",
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_9F",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_10F",
+      "method": "grass",
+      "time": "nite",
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TIN_TOWER_10F",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "BURNED_TOWER_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "15",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "BURNED_TOWER_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "15",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "BURNED_TOWER_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "14",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SLOWPOKE_WELL_ENTRANCE",
+      "method": "grass",
+      "time": "nite",
+      "level": "6",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_31",
+      "method": "grass",
+      "time": "nite",
+      "level": "5",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_31",
+      "method": "grass",
+      "time": "nite",
+      "level": "5",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_32",
+      "method": "grass",
+      "time": "nite",
+      "level": "7",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_32",
+      "method": "grass",
+      "time": "nite",
+      "level": "7",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "nite",
+      "level": "7",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "nite",
+      "level": "7",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "VIOLET_OUTSKIRTS",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "CHERRYGROVE_BAY",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 0",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "CHERRYGROVE_BAY",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 1",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_32_COAST",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 1",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 0",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "STORMY_BEACH",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 1",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "MURKY_SWAMP",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "47",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "47",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "47",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B3F",
+      "method": "grass",
+      "time": "day",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "CINNABAR_VOLCANO_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "58",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "5",
+      "chance": 5,
+      "rareItem": "Everstone",
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Gas",
+    "description": "It wraps its opponent in its gaslike body, slowly weakening its prey by poisoning it through the skin."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.825Z",
+  "version": "1.0.0"
+}

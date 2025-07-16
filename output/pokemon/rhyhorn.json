@@ -1,0 +1,895 @@
+{
+  "name": "Rhyhorn",
+  "nationalDex": 111,
+  "johtoDex": 236,
+  "types": [
+    "Ground",
+    "Rock"
+  ],
+  "updatedTypes": [
+    "Ground",
+    "Rock"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/rhyhorn/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 80,
+      "attack": 85,
+      "defense": 95,
+      "speed": 25,
+      "specialAttack": 30,
+      "specialDefense": 30,
+      "total": 345
+    },
+    "catchRate": 120,
+    "baseExp": 135,
+    "heldItems": [
+      "PROTECTOR"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Reckless",
+        "description": "\tPowers up moves \tthat recoil.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Reckless",
+        "description": "\tPowers up moves \tthat recoil.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Solid Rock",
+        "description": "\tReduces super \teffective damage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Reckless",
+        "description": "\tPowers up moves \tthat recoil.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "growthRate": "Slow",
+    "eggGroups": [
+      "Monster",
+      "Field"
+    ],
+    "evYield": "1 Def",
+    "types": [
+      "Ground",
+      "Rock"
+    ],
+    "updatedTypes": [
+      "Ground",
+      "Rock"
+    ],
+    "height": 10,
+    "weight": 1150,
+    "bodyShape": "Quadruped",
+    "bodyColor": "Gray"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 42,
+        "target": "Rhydon"
+      }
+    ],
+    "chain": [
+      "Rhyhorn",
+      "Rhydon",
+      "Rhyperior"
+    ],
+    "chainWithMethods": {
+      "Rhyhorn": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "Rhydon"
+        }
+      ],
+      "Rhydon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "PROTECTOR",
+          "target": "Rhyperior"
+        }
+      ],
+      "Rhyperior": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Mud Slap",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that \tlowers accuracy.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Leer",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Defense.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Horn Attack",
+      "level": 3,
+      "info": {
+        "description": "\tAn attack using a \thorn to jab.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Fury Strikes",
+      "level": 6,
+      "info": {
+        "description": "\tScratches or jabs \t2-5 times.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 20,
+        "accuracy": 85,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Scary Face",
+      "level": 9,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Speed.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Magnitude",
+      "level": 13,
+      "info": {
+        "description": "\tA Ground attack \twith random power.",
+        "type": "Ground",
+        "pp": 30,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Stomp",
+      "level": 17,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Bulldoze",
+      "level": 21,
+      "info": {
+        "description": "\tA Ground attack \tthat lowers Speed.",
+        "type": "Ground",
+        "pp": 20,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Ancientpower",
+      "level": 25,
+      "info": {
+        "description": "\tAn attack that may \traise all stats.",
+        "type": "Rock",
+        "pp": 5,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Rock Blast",
+      "level": 29,
+      "info": {
+        "description": "\tHurls boulders to \thit 2-5 times.",
+        "type": "Rock",
+        "pp": 25,
+        "power": 25,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Take Down",
+      "level": 33,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 15,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Stone Edge",
+      "level": 37,
+      "info": {
+        "description": "\tHas a high criti- \tcal hit ratio.",
+        "type": "Rock",
+        "pp": 5,
+        "power": 100,
+        "accuracy": 80,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Double Edge",
+      "level": 41,
+      "info": {
+        "description": "\tA tackle that also \thurts the user.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Earthquake",
+      "level": 45,
+      "info": {
+        "description": "\tTough but useless \tvs. flying foes.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 100,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Close Combat",
+      "level": 49,
+      "info": {
+        "description": "\tLowers the user's \tDef and Sp.Def.",
+        "type": "Fighting",
+        "pp": 5,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Megahorn",
+      "level": 53,
+      "info": {
+        "description": "\tA powerful charge \tattack.",
+        "type": "Bug",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 85,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Roar",
+      "description": "\tScares wild foes \tto end battle.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Ice Beam",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Blizzard",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Bulldoze",
+      "description": "\tA Ground attack \tthat lowers Speed.",
+      "type": "Ground",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Iron Tail",
+      "description": "\tAn attack that may \tlower Defense.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 75
+    },
+    {
+      "name": "Thunderbolt",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunder",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 10,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Earthquake",
+      "description": "\tTough but useless \tvs. flying foes.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dig",
+      "description": "\t1st turn: Burrow \t2nd turn: Attack",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Flamethrower",
+      "description": "",
+      "type": "Fire",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sandstorm",
+      "description": "",
+      "type": "Rock",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Fire Blast",
+      "description": "\tAn attack that may \tinflict a burn.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 85
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Slide",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Rock",
+      "pp": 10,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Dragon Pulse",
+      "description": "\tAttacks foe with \ta shock wave.",
+      "type": "Dragon",
+      "pp": 10,
+      "power": 85,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Poison Jab",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 20,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Stone Edge",
+      "description": "\tHas a high criti- \tcal hit ratio.",
+      "type": "Rock",
+      "pp": 5,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 80
+    },
+    {
+      "name": "Swords Dance",
+      "description": "\tSharply raises the \tuser's Attack.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Strength",
+      "description": "\tA powerful physi- \tcal attack.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Aqua Tail",
+      "description": "\tSwings tail like a \twave in a storm.",
+      "type": "Water",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Counter",
+      "description": "\tReturns a physical \tattack double.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Earth Power",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Rollout",
+      "description": "\tAttacks 5 turns \twith rising power.",
+      "type": "Rock",
+      "pp": 20,
+      "power": 30,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Zap Cannon",
+      "description": "\tAn attack that \talways paralyzes.",
+      "type": "Electric",
+      "pp": 5,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 50
+    }
+  ],
+  "eggMoves": [
+    "Crunch",
+    "Magnitude",
+    "Pursuit",
+    "Reversal",
+    "Thrash",
+    "Rock Slide",
+    "Counter"
+  ],
+  "locations": [
+    {
+      "area": "VICTORY_ROAD_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "42",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "42",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "45",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_2F",
+      "method": "grass",
+      "time": "day",
+      "level": "45",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "47",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_3F",
+      "method": "grass",
+      "time": "day",
+      "level": "47",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_NORTH",
+      "method": "grass",
+      "time": "morn",
+      "level": "56",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_NORTH",
+      "method": "grass",
+      "time": "day",
+      "level": "56",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_NORTH",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SHAMOUTI_TUNNEL",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SHAMOUTI_TUNNEL",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SHAMOUTI_TUNNEL",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SHAMOUTI_TUNNEL",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 0",
+      "chance": 5,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Spikes",
+    "description": "It can remember only one thing at a time. Once it starts rushing, it forgets why it started."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.831Z",
+  "version": "1.0.0"
+}

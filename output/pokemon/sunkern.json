@@ -1,0 +1,660 @@
+{
+  "name": "Sunkern",
+  "nationalDex": 191,
+  "johtoDex": 108,
+  "types": "Grass",
+  "updatedTypes": "Grass",
+  "frontSpriteUrl": "/sprites/pokemon/sunkern/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 30,
+      "attack": 30,
+      "defense": 30,
+      "speed": 30,
+      "specialAttack": 30,
+      "specialDefense": 30,
+      "total": 180
+    },
+    "catchRate": 235,
+    "baseExp": 52,
+    "heldItems": [
+      "STARF_BERRY"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Grass",
+      "Grass"
+    ],
+    "evYield": "1 SAt",
+    "types": "Grass",
+    "updatedTypes": "Grass",
+    "height": 3,
+    "weight": 18,
+    "bodyShape": "Head",
+    "bodyColor": "Yellow"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "SUN_STONE",
+        "target": "Sunflora"
+      }
+    ],
+    "chain": [
+      "Sunkern",
+      "Sunflora"
+    ],
+    "chainWithMethods": {
+      "Sunkern": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Sunflora"
+        }
+      ],
+      "Sunflora": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Splash",
+      "level": 1,
+      "info": {
+        "description": "\tHas no effect \twhatsoever.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Absorb",
+      "level": 1,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Growth",
+      "level": 4,
+      "info": {
+        "description": "\tRaises the user's \tAtk and Sp.Atk.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Defense Curl",
+      "level": 7,
+      "info": {
+        "description": "\tRaises the user's \tDefense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Mega Drain",
+      "level": 10,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 15,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Leech Seed",
+      "level": 13,
+      "info": {
+        "description": "\tSteals HP from the \tfoe on every turn.",
+        "type": "Grass",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 90,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Razor Leaf",
+      "level": 16,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 55,
+        "accuracy": 95,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Protect",
+      "level": 19,
+      "info": {
+        "description": "\tFoils attack that \tturn. It may fail.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Giga Drain",
+      "level": 22,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 10,
+        "power": 75,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 25,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Healinglight",
+      "level": 28,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Earth Power",
+      "level": 31,
+      "info": {
+        "description": "\tAn attack that may \tlower Sp.Def.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Solar Beam",
+      "level": 34,
+      "info": {
+        "description": "\t1st turn: Prepare \t2nd turn: Attack",
+        "type": "Grass",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Double Edge",
+      "level": 37,
+      "info": {
+        "description": "\tA tackle that also \thurts the user.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Sunny Day",
+      "level": 40,
+      "info": {
+        "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+        "type": "Fire",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Seed Bomb",
+      "level": 43,
+      "info": {
+        "description": "\tSlams a barrage of \tseeds at the foe.",
+        "type": "Grass",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Light Screen",
+      "description": "\tRaises Sp.Def with \ta wall of light.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Giga Drain",
+      "description": "",
+      "type": "Grass",
+      "pp": 10,
+      "power": 75,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Safeguard",
+      "description": "\tPrevents all \tstatus problems.",
+      "type": "Normal",
+      "pp": 25,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sludge Bomb",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Energy Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Grass",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swords Dance",
+      "description": "\tSharply raises the \tuser's Attack.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Cut",
+      "description": "\tCuts using claws, \tscythes, etc.",
+      "type": "Steel",
+      "pp": 30,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Defense Curl",
+      "description": "\tRaises the user's \tDefense.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Earth Power",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rollout",
+      "description": "\tAttacks 5 turns \twith rising power.",
+      "type": "Rock",
+      "pp": 20,
+      "power": 30,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Seed Bomb",
+      "description": "\tSlams a barrage of \tseeds at the foe.",
+      "type": "Grass",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [],
+  "locations": [
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "day",
+      "level": "14",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_33",
+      "method": "grass",
+      "time": "morn",
+      "level": "9",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_33",
+      "method": "grass",
+      "time": "morn",
+      "level": "10",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_33",
+      "method": "grass",
+      "time": "day",
+      "level": "9",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_33",
+      "method": "grass",
+      "time": "day",
+      "level": "10",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "CHERRYGROVE_BAY",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 0",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "CHERRYGROVE_BAY",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 1",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "CHERRYGROVE_BAY",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 0",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "CHERRYGROVE_BAY",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 1",
+      "chance": 2,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Seed",
+    "description": "It is very weak. Its only means of defense is to shake its leaves desperately at its attacker."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.854Z",
+  "version": "1.0.0"
+}

@@ -1,0 +1,716 @@
+{
+  "name": "Exeggcute",
+  "nationalDex": 102,
+  "johtoDex": 110,
+  "types": [
+    "Grass",
+    "Psychic"
+  ],
+  "updatedTypes": [
+    "Grass",
+    "Psychic"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/exeggcute/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 60,
+      "attack": 40,
+      "defense": 80,
+      "speed": 40,
+      "specialAttack": 60,
+      "specialDefense": 45,
+      "total": 325
+    },
+    "catchRate": 90,
+    "baseExp": 98,
+    "heldItems": [
+      "MARANGABERRY"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Harvest",
+        "description": "\tMay recreate a \tBerry after use.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Harvest",
+        "description": "\tMay recreate a \tBerry after use.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Slow",
+    "eggGroups": [
+      "Grass",
+      "Grass"
+    ],
+    "evYield": "1 Def",
+    "types": [
+      "Grass",
+      "Psychic"
+    ],
+    "updatedTypes": [
+      "Grass",
+      "Psychic"
+    ],
+    "height": 4,
+    "weight": 25,
+    "bodyShape": "Multibody",
+    "bodyColor": "Pink"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "LEAF_STONE",
+        "target": "Exeggutor",
+        "form": "Plain Form"
+      },
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "ODD_SOUVENIR",
+        "target": "Exeggutor",
+        "form": "Alolan Form"
+      }
+    ],
+    "chain": [
+      "Exeggcute",
+      "Exeggutor"
+    ],
+    "chainWithMethods": {
+      "Exeggcute": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Exeggutor",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Exeggutor",
+          "form": "Alolan Form"
+        }
+      ],
+      "Exeggutor": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Hypnosis",
+      "level": 1,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 60,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Reflect",
+      "level": 7,
+      "info": {
+        "description": "\tRaises Defense \twith a barrier.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Leech Seed",
+      "level": 11,
+      "info": {
+        "description": "\tSteals HP from the \tfoe on every turn.",
+        "type": "Grass",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 90,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Confusion",
+      "level": 14,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Psychic",
+        "pp": 25,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Rage",
+      "level": 17,
+      "info": {
+        "description": "\tRaises Attack if \tthe user is hit.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Stun Spore",
+      "level": 19,
+      "info": {
+        "description": "\tA move that may \tparalyze the foe.",
+        "type": "Grass",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Poisonpowder",
+      "level": 21,
+      "info": {
+        "description": "\tA move that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 35,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Sleep Powder",
+      "level": 23,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Grass",
+        "pp": 15,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Psybeam",
+      "level": 27,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Ancientpower",
+      "level": 33,
+      "info": {
+        "description": "\tAn attack that may \traise all stats.",
+        "type": "Rock",
+        "pp": 5,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Healinglight",
+      "level": 37,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Solar Beam",
+      "level": 43,
+      "info": {
+        "description": "\t1st turn: Prepare \t2nd turn: Attack",
+        "type": "Grass",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Extrasensory",
+      "level": 47,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Psychic M",
+      "level": 50
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Light Screen",
+      "description": "\tRaises Sp.Def with \ta wall of light.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Giga Drain",
+      "description": "",
+      "type": "Grass",
+      "pp": 10,
+      "power": 75,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Psychic",
+      "description": "",
+      "type": "None",
+      "pp": 0,
+      "power": 0,
+      "category": "Unknown",
+      "accuracy": 0
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sludge Bomb",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Energy Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Grass",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Explosion",
+      "description": "\tVery powerful but \tmakes user faint.",
+      "type": "Normal",
+      "pp": 5,
+      "power": 250,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swords Dance",
+      "description": "\tSharply raises the \tuser's Attack.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Strength",
+      "description": "\tA powerful physi- \tcal attack.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dream Eater",
+      "description": "\tSteals HP from a \tsleeping victim.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 100,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rollout",
+      "description": "\tAttacks 5 turns \twith rising power.",
+      "type": "Rock",
+      "pp": 20,
+      "power": 30,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Seed Bomb",
+      "description": "\tSlams a barrage of \tseeds at the foe.",
+      "type": "Grass",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Skill Swap",
+      "description": "\tSwaps abilities \twith the foe.",
+      "type": "Psychic",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Trick Room",
+      "description": "\tSlow #mon move \tfirst for 5 turns.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    }
+  ],
+  "eggMoves": [
+    "Mega Drain",
+    "Healinglight",
+    "Ancientpower",
+    "Reflect"
+  ],
+  "locations": [
+    {
+      "area": "SAFARI_ZONE_HUB",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_HUB",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_HUB",
+      "method": "grass",
+      "time": "nite",
+      "level": "55",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_49",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_49",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 2",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_49",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_49",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 2",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_49",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_49",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 2",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "Cherrygrove Bay",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level + 0",
+      "chance": 40,
+      "rareItem": "Shiny Stone",
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Egg",
+    "description": "If even one is separated from the group, the energy bond between the six will make them rejoin instantly."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.828Z",
+  "version": "1.0.0"
+}

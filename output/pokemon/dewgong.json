@@ -1,0 +1,795 @@
+{
+  "name": "Dewgong",
+  "nationalDex": 87,
+  "johtoDex": 198,
+  "types": [
+    "Water",
+    "Ice"
+  ],
+  "updatedTypes": [
+    "Water",
+    "Ice"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/dewgong/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 90,
+      "attack": 70,
+      "defense": 80,
+      "speed": 70,
+      "specialAttack": 70,
+      "specialDefense": 95,
+      "total": 475
+    },
+    "catchRate": 75,
+    "baseExp": 176,
+    "heldItems": [
+      "RAWST_BERRY",
+      "NEVERMELTICE"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Ice Body",
+        "description": "\tGradually regains \tHP in hail.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Ice Body",
+        "description": "\tGradually regains \tHP in hail.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "2 SDf",
+    "types": [
+      "Water",
+      "Ice"
+    ],
+    "updatedTypes": [
+      "Water",
+      "Ice"
+    ],
+    "height": 17,
+    "weight": 1200,
+    "bodyShape": "Fins",
+    "bodyColor": "White"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Seel",
+      "Dewgong"
+    ],
+    "chainWithMethods": {
+      "Seel": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 34,
+          "target": "Dewgong"
+        }
+      ],
+      "Dewgong": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Icicle Spear",
+      "level": 1,
+      "info": {
+        "description": "\tFires icicles to \thit 2-5 times.",
+        "type": "Ice",
+        "pp": 30,
+        "power": 25,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Headbutt",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Growl",
+      "level": 3,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Attack.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Water Gun",
+      "level": 7,
+      "info": {
+        "description": "\tSquirts water to \tattack.",
+        "type": "Water",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Icy Wind",
+      "level": 11,
+      "info": {
+        "description": "\tAn icy attack that \tlowers Speed.",
+        "type": "Ice",
+        "pp": 15,
+        "power": 55,
+        "accuracy": 95,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Encore",
+      "level": 13,
+      "info": {
+        "description": "\tMakes the foe re- \tpeat 2-6 times.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Ice Shard",
+      "level": 17,
+      "info": {
+        "description": "\tHurls icy shards. \tAlways goes first.",
+        "type": "Ice",
+        "pp": 30,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Rest",
+      "level": 21,
+      "info": {
+        "description": "\tSleep for 2 turns \tto fully recover.",
+        "type": "Psychic",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Sleep Talk",
+      "level": 23,
+      "info": {
+        "description": "\tRandomly attacks \twhile asleep.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Aurora Beam",
+      "level": 27,
+      "info": {
+        "description": "\tAn attack that may \tlower Attack.",
+        "type": "Ice",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Aqua Jet",
+      "level": 31,
+      "info": {
+        "description": "\tA speedy lunge. \tAlways goes first.",
+        "type": "Water",
+        "pp": 20,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Bubble Beam",
+      "level": 33,
+      "info": {
+        "description": "\tAn attack that may \tlower Speed.",
+        "type": "Water",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Take Down",
+      "level": 39,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 15,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Perish Song",
+      "level": 45,
+      "info": {
+        "description": "\tBoth user and foe \tfaint in 3 turns.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Aqua Tail",
+      "level": 49,
+      "info": {
+        "description": "\tSwings tail like a \twave in a storm.",
+        "type": "Water",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Ice Beam",
+      "level": 55,
+      "info": {
+        "description": "\tAn attack that may \tfreeze the foe.",
+        "type": "Ice",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Safeguard",
+      "level": 61,
+      "info": {
+        "description": "\tPrevents all \tstatus problems.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hail",
+      "level": 65,
+      "info": {
+        "description": "\tInflicts damage \tevery turn.",
+        "type": "Ice",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Megahorn",
+      "level": 69,
+      "info": {
+        "description": "\tA powerful charge \tattack.",
+        "type": "Bug",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 85,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hail",
+      "description": "\tInflicts damage \tevery turn.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Ice Beam",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Blizzard",
+      "description": "\tAn attack that may \tfreeze the foe.",
+      "type": "Ice",
+      "pp": 5,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Safeguard",
+      "description": "\tPrevents all \tstatus problems.",
+      "type": "Normal",
+      "pp": 25,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Iron Tail",
+      "description": "\tAn attack that may \tlower Defense.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 75
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Water Pulse",
+      "description": "\tAn attack that may \tconfuse the foe.",
+      "type": "Water",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Avalanche",
+      "description": "\tDamage doubles if \tuser is hit first.",
+      "type": "Ice",
+      "pp": 10,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Surf",
+      "description": "\tA strong Water- \ttype attack.",
+      "type": "Water",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Whirlpool",
+      "description": "",
+      "type": "Water",
+      "pp": 15,
+      "power": 40,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Waterfall",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Water",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Aqua Tail",
+      "description": "\tSwings tail like a \twave in a storm.",
+      "type": "Water",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Pay Day",
+      "description": "\tThrows coins. Gets \tthem back later.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Disable",
+    "Lick",
+    "Peck",
+    "Perish Song",
+    "Encore",
+    "Water Pulse",
+    "Icicle Spear"
+  ],
+  "locations": [
+    {
+      "area": "SEAFOAM_ISLANDS_B3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "62",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "65",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B3F",
+      "method": "grass",
+      "time": "day",
+      "level": "62",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "62",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "morn",
+      "level": "63",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "morn",
+      "level": "66",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "day",
+      "level": "63",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "day",
+      "level": "66",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "nite",
+      "level": "63",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "nite",
+      "level": "66",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ICE_ISLAND",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ICE_ISLAND",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ICE_ISLAND",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ICE_ISLAND",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 1",
+      "chance": 10,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Sea Lion",
+    "description": "It sleeps under shallow ocean waters during the day, then looks for food at night when it's cold."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.824Z",
+  "version": "1.0.0"
+}

@@ -1,0 +1,842 @@
+{
+  "name": "Butterfree",
+  "nationalDex": 12,
+  "johtoDex": 26,
+  "types": [
+    "Bug",
+    "Flying"
+  ],
+  "updatedTypes": [
+    "Bug",
+    "Flying"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/butterfree/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 60,
+      "attack": 45,
+      "defense": 50,
+      "speed": 70,
+      "specialAttack": 90,
+      "specialDefense": 80,
+      "total": 395
+    },
+    "catchRate": 45,
+    "baseExp": 160,
+    "heldItems": [
+      "SHED_SHELL",
+      "SILVERPOWDER"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Compound Eyes",
+        "description": "\tBoosts the Poké- \tmon's accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Compound Eyes",
+        "description": "\tBoosts the Poké- \tmon's accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Tinted Lens",
+        "description": "\tPowers up not very \teffective moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Compound Eyes",
+        "description": "\tBoosts the Poké- \tmon's accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Compound Eyes",
+        "description": "\tBoosts the Poké- \tmon's accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Tinted Lens",
+        "description": "\tPowers up not very \teffective moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Compound Eyes",
+        "description": "\tBoosts the Poké- \tmon's accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Tinted Lens",
+        "description": "\tPowers up not very \teffective moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Bug",
+      "Bug"
+    ],
+    "evYield": "2 SAt",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Bug",
+      "Flying"
+    ],
+    "height": 11,
+    "weight": 320,
+    "bodyShape": "Multiwings",
+    "bodyColor": "White"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Caterpie",
+      "Metapod",
+      "Butterfree"
+    ],
+    "chainWithMethods": {
+      "Caterpie": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Metapod"
+        }
+      ],
+      "Metapod": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Butterfree"
+        }
+      ],
+      "Butterfree": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "String Shot",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Speed.",
+        "type": "Bug",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 95,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Gust",
+      "level": 1,
+      "info": {
+        "description": "\tWhips up a strong \tgust of wind.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Confusion",
+      "level": 11,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Psychic",
+        "pp": 25,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Poisonpowder",
+      "level": 13,
+      "info": {
+        "description": "\tA move that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 35,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Stun Spore",
+      "level": 15,
+      "info": {
+        "description": "\tA move that may \tparalyze the foe.",
+        "type": "Grass",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Sleep Powder",
+      "level": 17,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Grass",
+        "pp": 15,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Psybeam",
+      "level": 19,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Supersonic",
+      "level": 23,
+      "info": {
+        "description": "\tA move that may \tconfuse the foe.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 65,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Safeguard",
+      "level": 25,
+      "info": {
+        "description": "\tPrevents all \tstatus problems.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hypnosis",
+      "level": 29,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 60,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Bug Buzz",
+      "level": 31,
+      "info": {
+        "description": "\tAn attack that may \tlower Sp.Def.",
+        "type": "Bug",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Reflect",
+      "level": 35,
+      "info": {
+        "description": "\tRaises Defense \twith a barrier.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 37,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Healinglight",
+      "level": 41,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Air Slash",
+      "level": 43,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Flying",
+        "pp": 15,
+        "power": 75,
+        "accuracy": 95,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Psychic M",
+      "level": 47
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Venoshock",
+      "description": "\tDamage doubles if \tfoe is poisoned.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 65,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Giga Drain",
+      "description": "",
+      "type": "Grass",
+      "pp": 10,
+      "power": 75,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Safeguard",
+      "description": "\tPrevents all \tstatus problems.",
+      "type": "Normal",
+      "pp": 25,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Psychic",
+      "description": "",
+      "type": "None",
+      "pp": 0,
+      "power": 0,
+      "category": "Unknown",
+      "accuracy": 0
+    },
+    {
+      "name": "Shadow Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Roost",
+      "description": "\tLands to restore \t1/2 the max HP.",
+      "type": "Flying",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Energy Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Grass",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Acrobatics",
+      "description": "\tDamage doubles if \tuser has no item.",
+      "type": "Flying",
+      "pp": 15,
+      "power": 55,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "U Turn",
+      "description": "",
+      "type": "Bug",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Baton Pass",
+      "description": "\tSwitches while \tkeeping effects.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dream Eater",
+      "description": "\tSteals HP from a \tsleeping victim.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 100,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Skill Swap",
+      "description": "\tSwaps abilities \twith the foe.",
+      "type": "Psychic",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [],
+  "locations": [
+    {
+      "area": "ROUTE_2_NORTH",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_NORTH",
+      "method": "grass",
+      "time": "morn",
+      "level": "57",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_NORTH",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_NORTH",
+      "method": "grass",
+      "time": "day",
+      "level": "57",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_SOUTH",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_SOUTH",
+      "method": "grass",
+      "time": "morn",
+      "level": "57",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_SOUTH",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_2_SOUTH",
+      "method": "grass",
+      "time": "day",
+      "level": "57",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "VIRIDIAN_FOREST",
+      "method": "grass",
+      "time": "morn",
+      "level": "57",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "VIRIDIAN_FOREST",
+      "method": "grass",
+      "time": "day",
+      "level": "57",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_24",
+      "method": "grass",
+      "time": "morn",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_24",
+      "method": "grass",
+      "time": "day",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_25",
+      "method": "grass",
+      "time": "morn",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_25",
+      "method": "grass",
+      "time": "day",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAPE",
+      "method": "grass",
+      "time": "morn",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAPE",
+      "method": "grass",
+      "time": "day",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "NOISY_FOREST",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "NOISY_FOREST",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 1",
+      "chance": 20,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Butterfly",
+    "description": "It flits from flower to flower, collecting nectar. It can even identify distant flowers in bloom."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.804Z",
+  "version": "1.0.0"
+}

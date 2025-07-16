@@ -1,0 +1,734 @@
+{
+  "name": "Paras",
+  "nationalDex": 46,
+  "johtoDex": 75,
+  "types": [
+    "Bug",
+    "Grass"
+  ],
+  "updatedTypes": [
+    "Bug",
+    "Grass"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/paras/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 35,
+      "attack": 70,
+      "defense": 55,
+      "speed": 25,
+      "specialAttack": 45,
+      "specialDefense": 55,
+      "total": 285
+    },
+    "catchRate": 190,
+    "baseExp": 70,
+    "heldItems": [
+      "TINYMUSHROOM",
+      "BIG_MUSHROOM"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Effect Spore",
+        "description": "\tContact may cause \tPar, Psn, or Slp.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Effect Spore",
+        "description": "\tContact may cause \tPar, Psn, or Slp.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Bug",
+      "Grass"
+    ],
+    "evYield": "1 Atk",
+    "types": [
+      "Bug",
+      "Grass"
+    ],
+    "updatedTypes": [
+      "Bug",
+      "Grass"
+    ],
+    "height": 3,
+    "weight": 54,
+    "bodyShape": "Insectoid",
+    "bodyColor": "Red"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 24,
+        "target": "Parasect"
+      }
+    ],
+    "chain": [
+      "Paras",
+      "Parasect"
+    ],
+    "chainWithMethods": {
+      "Paras": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 24,
+          "target": "Parasect"
+        }
+      ],
+      "Parasect": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Scratch",
+      "level": 1,
+      "info": {
+        "description": "\tScratches with \tsharp claws.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Sleep Powder",
+      "level": 2,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Grass",
+        "pp": 15,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Stun Spore",
+      "level": 4,
+      "info": {
+        "description": "\tA move that may \tparalyze the foe.",
+        "type": "Grass",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Poisonpowder",
+      "level": 6,
+      "info": {
+        "description": "\tA move that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 35,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Absorb",
+      "level": 11,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Bug Bite",
+      "level": 17,
+      "info": {
+        "description": "\tBites the foe and \teats a held Berry.",
+        "type": "Bug",
+        "pp": 20,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Spore",
+      "level": 22,
+      "info": {
+        "description": "\tA move that puts \tthe foe to sleep.",
+        "type": "Grass",
+        "pp": 15,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Slash",
+      "level": 27,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 20,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Growth",
+      "level": 33,
+      "info": {
+        "description": "\tRaises the user's \tAtk and Sp.Atk.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Giga Drain",
+      "level": 38,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 10,
+        "power": 75,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Leech Life",
+      "level": 43,
+      "info": {
+        "description": "",
+        "type": "Bug",
+        "pp": 10,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Healinglight",
+      "level": 49,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "X Scissor",
+      "level": 54,
+      "info": {
+        "description": "",
+        "type": "Bug",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Venoshock",
+      "description": "\tDamage doubles if \tfoe is poisoned.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 65,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hone Claws",
+      "description": "\tRaises the user's \tAtk and accuracy.",
+      "type": "Dark",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Light Screen",
+      "description": "\tRaises Sp.Def with \ta wall of light.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Giga Drain",
+      "description": "",
+      "type": "Grass",
+      "pp": 10,
+      "power": 75,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dig",
+      "description": "\t1st turn: Burrow \t2nd turn: Attack",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sludge Bomb",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Leech Life",
+      "description": "",
+      "type": "Bug",
+      "pp": 10,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Energy Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Grass",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "False Swipe",
+      "description": "\tLeaves the foe \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "X Scissor",
+      "description": "",
+      "type": "Bug",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swords Dance",
+      "description": "\tSharply raises the \tuser's Attack.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Cut",
+      "description": "\tCuts using claws, \tscythes, etc.",
+      "type": "Steel",
+      "pp": 30,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Counter",
+      "description": "\tReturns a physical \tattack double.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Knock Off",
+      "description": "\tSlaps down the \tfoe's held item.",
+      "type": "Dark",
+      "pp": 20,
+      "power": 65,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Seed Bomb",
+      "description": "\tSlams a barrage of \tseeds at the foe.",
+      "type": "Grass",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Agility",
+    "Leech Seed",
+    "Metal Claw",
+    "Psybeam",
+    "Pursuit",
+    "Screech",
+    "Shadow Claw"
+  ],
+  "locations": [
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "morn",
+      "level": "9",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "morn",
+      "level": "10",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "day",
+      "level": "9",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "nite",
+      "level": "9",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "nite",
+      "level": "10",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "YELLOW_FOREST",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "YELLOW_FOREST",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_EAST",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_EAST",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_EAST",
+      "method": "grass",
+      "time": "nite",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "Ilex Forest",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "9",
+      "chance": 40,
+      "rareItem": "Leaf Stone",
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Mushroom",
+    "description": "The tochukaso growing on this #mon's back orders it to extract juice from tree trunks."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.813Z",
+  "version": "1.0.0"
+}

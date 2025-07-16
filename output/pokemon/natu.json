@@ -1,0 +1,806 @@
+{
+  "name": "Natu",
+  "nationalDex": 177,
+  "johtoDex": 178,
+  "types": [
+    "Psychic",
+    "Flying"
+  ],
+  "updatedTypes": [
+    "Psychic",
+    "Flying"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/natu/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 40,
+      "attack": 50,
+      "defense": 45,
+      "speed": 70,
+      "specialAttack": 70,
+      "specialDefense": 45,
+      "total": 320
+    },
+    "catchRate": 190,
+    "baseExp": 73,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Synchronize",
+        "description": "\tPasses Psn, Par, \tor Brn to foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Magic Bounce",
+        "description": "\tReflects status- \tchanging moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Synchronize",
+        "description": "\tPasses Psn, Par, \tor Brn to foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Magic Bounce",
+        "description": "\tReflects status- \tchanging moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Flying",
+      "Flying"
+    ],
+    "evYield": "1 SAt",
+    "types": [
+      "Psychic",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Psychic",
+      "Flying"
+    ],
+    "height": 2,
+    "weight": 20,
+    "bodyShape": "Wings",
+    "bodyColor": "Green"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 25,
+        "target": "Xatu"
+      }
+    ],
+    "chain": [
+      "Natu",
+      "Xatu"
+    ],
+    "chainWithMethods": {
+      "Natu": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Xatu"
+        }
+      ],
+      "Xatu": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Peck",
+      "level": 1,
+      "info": {
+        "description": "\tJabs the foe with \ta beak, etc.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 35,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Leer",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Defense.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Night Shade",
+      "level": 6,
+      "info": {
+        "description": "\tDamage equals the \tuser's level.",
+        "type": "Ghost",
+        "pp": 15,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Teleport",
+      "level": 9,
+      "info": {
+        "description": "\tA move for fleeing \tfrom battle.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Safeguard",
+      "level": 12,
+      "info": {
+        "description": "\tPrevents all \tstatus problems.",
+        "type": "Normal",
+        "pp": 25,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hypnosis",
+      "level": 17,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 60,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Pain Split",
+      "level": 20,
+      "info": {
+        "description": "\tAdds user & foe's \tHPs. Shares total.",
+        "type": "Ghost",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Confuse Ray",
+      "level": 23,
+      "info": {
+        "description": "\tA move that may \tconfuse the foe.",
+        "type": "Ghost",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Recover",
+      "level": 28,
+      "info": {
+        "description": "\tRestores HP by 1/2 \tthe max HP.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Psychic M",
+      "level": 33
+    },
+    {
+      "name": "Roost",
+      "level": 36,
+      "info": {
+        "description": "\tLands to restore \t1/2 the max HP.",
+        "type": "Flying",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Haze",
+      "level": 39,
+      "info": {
+        "description": "\tEliminates all \tstat changes.",
+        "type": "Ice",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Future Sight",
+      "level": 44,
+      "info": {
+        "description": "\tAn attack that \thits on 3rd turn.",
+        "type": "Psychic",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Hex",
+      "level": 47,
+      "info": {
+        "description": "\tDamage doubles if \tfoe has status.",
+        "type": "Ghost",
+        "pp": 10,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Sucker Punch",
+      "level": 50,
+      "info": {
+        "description": "\tAttacks before the \tfoe does.",
+        "type": "Dark",
+        "pp": 5,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Calm Mind",
+      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Light Screen",
+      "description": "\tRaises Sp.Def with \ta wall of light.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Giga Drain",
+      "description": "",
+      "type": "Grass",
+      "pp": 10,
+      "power": 75,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Psychic",
+      "description": "",
+      "type": "None",
+      "pp": 0,
+      "power": 0,
+      "category": "Unknown",
+      "accuracy": 0
+    },
+    {
+      "name": "Shadow Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Steel Wing",
+      "description": "\tAn attack that may \tup user's Defense.",
+      "type": "Steel",
+      "pp": 25,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Dazzlingleam",
+      "description": "\tDazzles with a \tpowerful flash.",
+      "type": "Fairy",
+      "pp": 10,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Roost",
+      "description": "\tLands to restore \t1/2 the max HP.",
+      "type": "Flying",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "U Turn",
+      "description": "",
+      "type": "Bug",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunder Wave",
+      "description": "\tparalyzes the foe.@",
+      "type": "Electric",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Baton Pass",
+      "description": "\tSwitches while \tkeeping effects.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dream Eater",
+      "description": "\tSteals HP from a \tsleeping victim.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 100,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Skill Swap",
+      "description": "\tSwaps abilities \twith the foe.",
+      "type": "Psychic",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Sucker Punch",
+      "description": "\tAttacks before the \tfoe does.",
+      "type": "Dark",
+      "pp": 5,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Trick",
+      "description": "\tSwaps held items \twith the foe.",
+      "type": "Psychic",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Trick Room",
+      "description": "\tSlow #mon move \tfirst for 5 turns.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Zen Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 90
+    }
+  ],
+  "eggMoves": [
+    "Drill Peck",
+    "Feint Attack",
+    "Haze",
+    "Quick Attack",
+    "Steel Wing",
+    "Zen Headbutt",
+    "Roost"
+  ],
+  "locations": [
+    {
+      "area": "RUINS_OF_ALPH_OUTSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "RUINS_OF_ALPH_OUTSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "22",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "RUINS_OF_ALPH_OUTSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "18",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "RUINS_OF_ALPH_OUTSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "24",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "RUINS_OF_ALPH_OUTSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "20",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "RUINS_OF_ALPH_OUTSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "22",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "RUINS_OF_ALPH_OUTSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "18",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "RUINS_OF_ALPH_OUTSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "24",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "RUINS_OF_ALPH_OUTSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "22",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "RUINS_OF_ALPH_OUTSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "24",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "RUINS_OF_ALPH_OUTSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "20",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "Ruins of Alph",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "25",
+      "chance": 40,
+      "rareItem": "Moon Stone",
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Little Bird",
+    "description": "It is extremely good at climbing tree trunks and likes to eat the new sprouts on the trees."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.850Z",
+  "version": "1.0.0"
+}

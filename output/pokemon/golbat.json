@@ -1,0 +1,2565 @@
+{
+  "name": "Golbat",
+  "nationalDex": 42,
+  "johtoDex": 38,
+  "types": [
+    "Poison",
+    "Flying"
+  ],
+  "updatedTypes": [
+    "Poison",
+    "Flying"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/golbat/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 70,
+      "speed": 90,
+      "specialAttack": 65,
+      "specialDefense": 75,
+      "total": 455
+    },
+    "catchRate": 90,
+    "baseExp": 171,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Anticipation",
+        "description": "\tSenses the foe's \tdangerous moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Flying",
+      "Flying"
+    ],
+    "evYield": "2 Spe",
+    "types": [
+      "Poison",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Poison",
+      "Flying"
+    ],
+    "height": 16,
+    "weight": 550,
+    "bodyShape": "Wings",
+    "bodyColor": "Purple"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_HAPPINESS",
+        "parameter": "TR_ANYTIME",
+        "target": "Crobat"
+      }
+    ],
+    "chain": [
+      "Zubat",
+      "Golbat",
+      "Crobat"
+    ],
+    "chainWithMethods": {
+      "Zubat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Golbat"
+        }
+      ],
+      "Golbat": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Crobat"
+        }
+      ],
+      "Crobat": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Screech",
+      "level": 1,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Defense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 85,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Absorb",
+      "level": 1,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Crunch",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tlower Defense.",
+        "type": "Dark",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Supersonic",
+      "level": 5,
+      "info": {
+        "description": "\tA move that may \tconfuse the foe.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 65,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Astonish",
+      "level": 7,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Ghost",
+        "pp": 15,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Bite",
+      "level": 11,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Dark",
+        "pp": 25,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Gust",
+      "level": 13,
+      "info": {
+        "description": "\tWhips up a strong \tgust of wind.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Confuse Ray",
+      "level": 17,
+      "info": {
+        "description": "\tA move that may \tconfuse the foe.",
+        "type": "Ghost",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Wing Attack",
+      "level": 19,
+      "info": {
+        "description": "\tStrikes the foe \twith wings.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Swift",
+      "level": 24,
+      "info": {
+        "description": "\tAn attack that \tnever misses.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 60,
+        "accuracy": "--",
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Super Fang",
+      "level": 27,
+      "info": {
+        "description": "\tCuts the foe's HP \tby 1/2.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 1,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Mean Look",
+      "level": 32,
+      "info": {
+        "description": "\tPrevents fleeing \tor switching.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Leech Life",
+      "level": 35,
+      "info": {
+        "description": "",
+        "type": "Bug",
+        "pp": 10,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Haze",
+      "level": 40,
+      "info": {
+        "description": "\tEliminates all \tstat changes.",
+        "type": "Ice",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Venoshock",
+      "level": 43,
+      "info": {
+        "description": "\tDamage doubles if \tfoe is poisoned.",
+        "type": "Poison",
+        "pp": 10,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Air Slash",
+      "level": 48,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Flying",
+        "pp": 15,
+        "power": 75,
+        "accuracy": 95,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Pursuit",
+      "level": 51,
+      "info": {
+        "description": "\tHeavily strikes \tswitching #mon.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Venoshock",
+      "description": "\tDamage doubles if \tfoe is poisoned.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 65,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Giga Drain",
+      "description": "",
+      "type": "Grass",
+      "pp": 10,
+      "power": 75,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Shadow Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sludge Bomb",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Steel Wing",
+      "description": "\tAn attack that may \tup user's Defense.",
+      "type": "Steel",
+      "pp": 25,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Leech Life",
+      "description": "",
+      "type": "Bug",
+      "pp": 10,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Roost",
+      "description": "\tLands to restore \t1/2 the max HP.",
+      "type": "Flying",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Acrobatics",
+      "description": "\tDamage doubles if \tuser has no item.",
+      "type": "Flying",
+      "pp": 15,
+      "power": 55,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Poison Jab",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 20,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "U Turn",
+      "description": "",
+      "type": "Bug",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Fly",
+      "description": "\t1st turn: Fly \t2nd turn: Attack",
+      "type": "Flying",
+      "pp": 15,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Zen Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 90
+    }
+  ],
+  "eggMoves": [
+    "Feint Attack",
+    "Gust",
+    "Hypnosis",
+    "Nasty Plot",
+    "Pursuit",
+    "Quick Attack",
+    "Zen Headbutt",
+    "Brave Bird"
+  ],
+  "locations": [
+    {
+      "area": "UNION_CAVE_B1F_SOUTH",
+      "method": "grass",
+      "time": "morn",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "UNION_CAVE_B1F_SOUTH",
+      "method": "grass",
+      "time": "day",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "UNION_CAVE_B1F_SOUTH",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "UNION_CAVE_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "22",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "UNION_CAVE_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "22",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "UNION_CAVE_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "22",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SLOWPOKE_WELL_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "23",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SLOWPOKE_WELL_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "23",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SLOWPOKE_WELL_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "23",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_1F_OUTSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "21",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_1F_OUTSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "21",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_1F_OUTSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "21",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_1F_INSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "25",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_1F_INSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "25",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_1F_INSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "25",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_1F_INSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "25",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_1F_INSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "25",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_1F_INSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "25",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_2F_INSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "33",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_2F_INSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "33",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_2F_INSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "33",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_2F_INSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "33",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_2F_INSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_2F_INSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_2F_INSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "17",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "17",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MORTAR_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "17",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "32",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "32",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "32",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "32",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "32",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "33",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ICE_PATH_B3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_NW",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_NW",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_NW",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_NW",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_NW",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_NE",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_NE",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_NE",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_NE",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_NE",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_SW",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_SW",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_SW",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_SW",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_SW",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_CAVE",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_CAVE",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_CAVE",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_CAVE",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_CAVE",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_SE",
+      "method": "grass",
+      "time": "morn",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_SE",
+      "method": "grass",
+      "time": "day",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_SE",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_SE",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_SE",
+      "method": "grass",
+      "time": "nite",
+      "level": "34",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "36",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "36",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "36",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "35",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "37",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "37",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "37",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "36",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "36",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_LUGIA_CHAMBER",
+      "method": "grass",
+      "time": "morn",
+      "level": "38",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_LUGIA_CHAMBER",
+      "method": "grass",
+      "time": "day",
+      "level": "38",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_LUGIA_CHAMBER",
+      "method": "grass",
+      "time": "nite",
+      "level": "38",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_LUGIA_CHAMBER",
+      "method": "grass",
+      "time": "nite",
+      "level": "37",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "WHIRL_ISLAND_LUGIA_CHAMBER",
+      "method": "grass",
+      "time": "nite",
+      "level": "37",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_1",
+      "method": "grass",
+      "time": "morn",
+      "level": "74",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_1",
+      "method": "grass",
+      "time": "day",
+      "level": "74",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_1",
+      "method": "grass",
+      "time": "nite",
+      "level": "72",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_1",
+      "method": "grass",
+      "time": "nite",
+      "level": "74",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_1",
+      "method": "grass",
+      "time": "nite",
+      "level": "75",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_1",
+      "method": "grass",
+      "time": "nite",
+      "level": "75",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_2",
+      "method": "grass",
+      "time": "morn",
+      "level": "74",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_2",
+      "method": "grass",
+      "time": "day",
+      "level": "74",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_2",
+      "method": "grass",
+      "time": "nite",
+      "level": "74",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_2",
+      "method": "grass",
+      "time": "nite",
+      "level": "72",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ITEM_ROOMS",
+      "method": "grass",
+      "time": "morn",
+      "level": "72",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ITEM_ROOMS",
+      "method": "grass",
+      "time": "morn",
+      "level": "72",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ITEM_ROOMS",
+      "method": "grass",
+      "time": "day",
+      "level": "72",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ITEM_ROOMS",
+      "method": "grass",
+      "time": "day",
+      "level": "72",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ITEM_ROOMS",
+      "method": "grass",
+      "time": "nite",
+      "level": "72",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+      "method": "grass",
+      "time": "morn",
+      "level": "23",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+      "method": "grass",
+      "time": "day",
+      "level": "25",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+      "method": "grass",
+      "time": "day",
+      "level": "23",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+      "method": "grass",
+      "time": "nite",
+      "level": "23",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_42",
+      "method": "grass",
+      "time": "nite",
+      "level": "23",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "CLIFF_CAVE",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "CLIFF_CAVE",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "CLIFF_CAVE",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_OUTSIDE",
+      "method": "grass",
+      "time": "nite",
+      "level": "71",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 0",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 0",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 0",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B3F",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "QUIET_CAVE_B3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MOON_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MOON_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MOON_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MOON_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MOON_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MOON_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MOON_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MOON_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "MOUNT_MOON_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "55",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROCK_TUNNEL_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "51",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROCK_TUNNEL_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "51",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROCK_TUNNEL_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "51",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROCK_TUNNEL_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "51",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROCK_TUNNEL_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "52",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROCK_TUNNEL_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "52",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROCK_TUNNEL_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "55",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROCK_TUNNEL_2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "52",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROCK_TUNNEL_2F",
+      "method": "grass",
+      "time": "day",
+      "level": "52",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROCK_TUNNEL_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "52",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROCK_TUNNEL_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "55",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "42",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "42",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "43",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "45",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_2F",
+      "method": "grass",
+      "time": "day",
+      "level": "45",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "46",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "47",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_3F",
+      "method": "grass",
+      "time": "day",
+      "level": "47",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "VICTORY_ROAD_3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "48",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "TOHJO_FALLS",
+      "method": "grass",
+      "time": "morn",
+      "level": "24",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "TOHJO_FALLS",
+      "method": "grass",
+      "time": "day",
+      "level": "24",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "TOHJO_FALLS",
+      "method": "grass",
+      "time": "nite",
+      "level": "24",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_3",
+      "method": "grass",
+      "time": "nite",
+      "level": "55",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_4",
+      "method": "grass",
+      "time": "nite",
+      "level": "57",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_9",
+      "method": "grass",
+      "time": "nite",
+      "level": "50",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_10_NORTH",
+      "method": "grass",
+      "time": "nite",
+      "level": "49",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_28",
+      "method": "grass",
+      "time": "nite",
+      "level": "67",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "50",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "50",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "51",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "51",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_2F",
+      "method": "grass",
+      "time": "day",
+      "level": "51",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "51",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "52",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "55",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "54",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_3F",
+      "method": "grass",
+      "time": "day",
+      "level": "54",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "52",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "52",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "56",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_4F",
+      "method": "grass",
+      "time": "morn",
+      "level": "51",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_4F",
+      "method": "grass",
+      "time": "day",
+      "level": "51",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_4F",
+      "method": "grass",
+      "time": "nite",
+      "level": "50",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_4F",
+      "method": "grass",
+      "time": "nite",
+      "level": "55",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_5F",
+      "method": "grass",
+      "time": "morn",
+      "level": "50",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_5F",
+      "method": "grass",
+      "time": "day",
+      "level": "50",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_5F",
+      "method": "grass",
+      "time": "nite",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_5F",
+      "method": "grass",
+      "time": "nite",
+      "level": "51",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "59",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "57",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "57",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "57",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_SHIPWRECK",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_SHIPWRECK",
+      "method": "grass",
+      "time": "morn",
+      "level": "61",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_SHIPWRECK",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_SHIPWRECK",
+      "method": "grass",
+      "time": "day",
+      "level": "61",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_SHIPWRECK",
+      "method": "grass",
+      "time": "nite",
+      "level": "59",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SCARY_CAVE_SHIPWRECK",
+      "method": "grass",
+      "time": "nite",
+      "level": "61",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "59",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "60",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "62",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "63",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "60",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "62",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "63",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "60",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "62",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "63",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "61",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "63",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "64",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "61",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "63",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "day",
+      "level": "64",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "61",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "63",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "64",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B3F",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "59",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "morn",
+      "level": "60",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "day",
+      "level": "60",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "grass",
+      "time": "nite",
+      "level": "60",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SHAMOUTI_TUNNEL",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 3",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SHAMOUTI_TUNNEL",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 2",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SHAMOUTI_TUNNEL",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 3",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SHAMOUTI_TUNNEL",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 2",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SHAMOUTI_TUNNEL",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "Stormy Beach",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "Badge Level + 3",
+      "chance": 15,
+      "rareItem": "Water Stone",
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Bat",
+    "description": "However hard its victim's hide may be, it punctures with sharp fangs and gorges itself with blood."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.812Z",
+  "version": "1.0.0"
+}

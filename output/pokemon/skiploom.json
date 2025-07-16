@@ -1,0 +1,750 @@
+{
+  "name": "Skiploom",
+  "nationalDex": 188,
+  "johtoDex": 73,
+  "types": [
+    "Grass",
+    "Flying"
+  ],
+  "updatedTypes": [
+    "Grass",
+    "Flying"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/skiploom/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 55,
+      "attack": 45,
+      "defense": 50,
+      "speed": 80,
+      "specialAttack": 45,
+      "specialDefense": 65,
+      "total": 340
+    },
+    "catchRate": 120,
+    "baseExp": 136,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Infiltrator",
+        "description": "\tAttacks bypass the \tfoe's barriers.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Fairy",
+      "Grass"
+    ],
+    "evYield": "2 Spe",
+    "types": [
+      "Grass",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Grass",
+      "Flying"
+    ],
+    "height": 6,
+    "weight": 10,
+    "bodyShape": "Bipedal Tail",
+    "bodyColor": "Green"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 27,
+        "target": "Jumpluff"
+      }
+    ],
+    "chain": [
+      "Hoppip",
+      "Skiploom",
+      "Jumpluff"
+    ],
+    "chainWithMethods": {
+      "Hoppip": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Skiploom"
+        }
+      ],
+      "Skiploom": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 27,
+          "target": "Jumpluff"
+        }
+      ],
+      "Jumpluff": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Absorb",
+      "level": 1,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Splash",
+      "level": 1,
+      "info": {
+        "description": "\tHas no effect \twhatsoever.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Healinglight",
+      "level": 4,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Defense Curl",
+      "level": 6,
+      "info": {
+        "description": "\tRaises the user's \tDefense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Tackle",
+      "level": 8,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Confusion",
+      "level": 10,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Psychic",
+        "pp": 25,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Poisonpowder",
+      "level": 12,
+      "info": {
+        "description": "\tA move that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 35,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Stun Spore",
+      "level": 14,
+      "info": {
+        "description": "\tA move that may \tparalyze the foe.",
+        "type": "Grass",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Sleep Powder",
+      "level": 16,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Grass",
+        "pp": 15,
+        "power": 0,
+        "accuracy": 75,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Headbutt",
+      "level": 20,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Leech Seed",
+      "level": 24,
+      "info": {
+        "description": "\tSteals HP from the \tfoe on every turn.",
+        "type": "Grass",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 90,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Mega Drain",
+      "level": 28,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 15,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Acrobatics",
+      "level": 32,
+      "info": {
+        "description": "\tDamage doubles if \tuser has no item.",
+        "type": "Flying",
+        "pp": 15,
+        "power": 55,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Encore",
+      "level": 36,
+      "info": {
+        "description": "\tMakes the foe re- \tpeat 2-6 times.",
+        "type": "Normal",
+        "pp": 5,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 40,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "U Turn",
+      "level": 44,
+      "info": {
+        "description": "",
+        "type": "Bug",
+        "pp": 20,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Amnesia",
+      "level": 48,
+      "info": {
+        "description": "\tSharply raises the \tuser's Sp.Def.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Giga Drain",
+      "level": 52,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 10,
+        "power": 75,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Dazzlingleam",
+      "level": 56,
+      "info": {
+        "description": "\tDazzles with a \tpowerful flash.",
+        "type": "Fairy",
+        "pp": 10,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Energy Ball",
+      "level": 60,
+      "info": {
+        "description": "\tAn attack that may \tlower Sp.Def.",
+        "type": "Grass",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Giga Drain",
+      "description": "",
+      "type": "Grass",
+      "pp": 10,
+      "power": 75,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Dazzlingleam",
+      "description": "\tDazzles with a \tpowerful flash.",
+      "type": "Fairy",
+      "pp": 10,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Energy Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Grass",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Acrobatics",
+      "description": "\tDamage doubles if \tuser has no item.",
+      "type": "Flying",
+      "pp": 15,
+      "power": 55,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "U Turn",
+      "description": "",
+      "type": "Bug",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swords Dance",
+      "description": "\tSharply raises the \tuser's Attack.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Baton Pass",
+      "description": "\tSwitches while \tkeeping effects.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Charm",
+      "description": "\tSharply lowers the \tfoe's Attack.",
+      "type": "Fairy",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Defense Curl",
+      "description": "\tRaises the user's \tDefense.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Pay Day",
+      "description": "\tThrows coins. Gets \tthem back later.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Seed Bomb",
+      "description": "\tSlams a barrage of \tseeds at the foe.",
+      "type": "Grass",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Encore",
+    "Seed Bomb"
+  ],
+  "locations": [
+    {
+      "area": "ROUTE_32_COAST",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 1",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_32_COAST",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 3",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_32_COAST",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 1",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_32_COAST",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 3",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_11",
+      "method": "grass",
+      "time": "morn",
+      "level": "53",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_11",
+      "method": "grass",
+      "time": "day",
+      "level": "53",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "Cherrygrove Bay",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level + 0",
+      "chance": 40,
+      "rareItem": "Shiny Stone",
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Cottonweed",
+    "description": "As soon as it rains, it closes its flower and hides in the shade of a tree to avoid getting wet."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.853Z",
+  "version": "1.0.0"
+}

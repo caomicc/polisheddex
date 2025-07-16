@@ -1,0 +1,866 @@
+{
+  "name": "Hoothoot",
+  "nationalDex": 163,
+  "johtoDex": 15,
+  "types": [
+    "Normal",
+    "Flying"
+  ],
+  "updatedTypes": [
+    "Normal",
+    "Flying"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/hoothoot/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 60,
+      "attack": 30,
+      "defense": 30,
+      "speed": 50,
+      "specialAttack": 36,
+      "specialDefense": 56,
+      "total": 262
+    },
+    "catchRate": 255,
+    "baseExp": 58,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Tinted Lens",
+        "description": "\tPowers up not very \teffective moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Tinted Lens",
+        "description": "\tPowers up not very \teffective moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Flying",
+      "Flying"
+    ],
+    "evYield": "1 HP",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Normal",
+      "Flying"
+    ],
+    "height": 7,
+    "weight": 212,
+    "bodyShape": "Wings",
+    "bodyColor": "Brown"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 20,
+        "target": "Noctowl"
+      }
+    ],
+    "chain": [
+      "Hoothoot",
+      "Noctowl"
+    ],
+    "chainWithMethods": {
+      "Hoothoot": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Noctowl"
+        }
+      ],
+      "Noctowl": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "\tA full-body charge \tattack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Growl",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Attack.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Foresight",
+      "level": 1,
+      "info": {
+        "description": "\tNegates foe's eva- \tsion and immunity.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hypnosis",
+      "level": 4,
+      "info": {
+        "description": "\tMay cause the foe \tto fall asleep.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 60,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Peck",
+      "level": 7,
+      "info": {
+        "description": "\tJabs the foe with \ta beak, etc.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 35,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Confusion",
+      "level": 10,
+      "info": {
+        "description": "\tAn attack that may \tconfuse the foe.",
+        "type": "Psychic",
+        "pp": 25,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Night Shade",
+      "level": 13,
+      "info": {
+        "description": "\tDamage equals the \tuser's level.",
+        "type": "Ghost",
+        "pp": 15,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Zen Headbutt",
+      "level": 16,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Psychic",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Hex",
+      "level": 19,
+      "info": {
+        "description": "\tDamage doubles if \tfoe has status.",
+        "type": "Ghost",
+        "pp": 10,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Wing Attack",
+      "level": 22,
+      "info": {
+        "description": "\tStrikes the foe \twith wings.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Take Down",
+      "level": 25,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 15,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Reflect",
+      "level": 28,
+      "info": {
+        "description": "\tRaises Defense \twith a barrier.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Air Slash",
+      "level": 31,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Flying",
+        "pp": 15,
+        "power": 75,
+        "accuracy": 95,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Extrasensory",
+      "level": 34,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Roost",
+      "level": 37,
+      "info": {
+        "description": "\tLands to restore \t1/2 the max HP.",
+        "type": "Flying",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Hyper Voice",
+      "level": 40,
+      "info": {
+        "description": "\tAttack the foe \twith sound waves.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Moonblast",
+      "level": 43,
+      "info": {
+        "description": "\tAn attack that may \tlower Sp.Atk.",
+        "type": "Fairy",
+        "pp": 15,
+        "power": 95,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Dream Eater",
+      "level": 46,
+      "info": {
+        "description": "\tSteals HP from a \tsleeping victim.",
+        "type": "Psychic",
+        "pp": 15,
+        "power": 100,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Calm Mind",
+      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Psychic",
+      "description": "",
+      "type": "None",
+      "pp": 0,
+      "power": 0,
+      "category": "Unknown",
+      "accuracy": 0
+    },
+    {
+      "name": "Shadow Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Swift",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 60,
+      "category": "Special",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Steel Wing",
+      "description": "\tAn attack that may \tup user's Defense.",
+      "type": "Steel",
+      "pp": 25,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Roost",
+      "description": "\tLands to restore \t1/2 the max HP.",
+      "type": "Flying",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Fly",
+      "description": "\t1st turn: Fly \t2nd turn: Attack",
+      "type": "Flying",
+      "pp": 15,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dream Eater",
+      "description": "\tSteals HP from a \tsleeping victim.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 100,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hyper Voice",
+      "description": "\tAttack the foe \twith sound waves.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Zen Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 90
+    }
+  ],
+  "eggMoves": [
+    "Agility",
+    "Feint Attack",
+    "Night Shade",
+    "Supersonic",
+    "Wing Attack",
+    "Brave Bird",
+    "Hurricane"
+  ],
+  "locations": [
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "nite",
+      "level": "13",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "NATIONAL_PARK",
+      "method": "grass",
+      "time": "nite",
+      "level": "14",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ILEX_FOREST",
+      "method": "grass",
+      "time": "nite",
+      "level": "10",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_29",
+      "method": "grass",
+      "time": "nite",
+      "level": "2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_29",
+      "method": "grass",
+      "time": "nite",
+      "level": "3",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_29",
+      "method": "grass",
+      "time": "nite",
+      "level": "3",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_29",
+      "method": "grass",
+      "time": "nite",
+      "level": "3",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "nite",
+      "level": "3",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "nite",
+      "level": "4",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "nite",
+      "level": "4",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_30",
+      "method": "grass",
+      "time": "nite",
+      "level": "4",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_31",
+      "method": "grass",
+      "time": "nite",
+      "level": "5",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_32",
+      "method": "grass",
+      "time": "nite",
+      "level": "8",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_34",
+      "method": "grass",
+      "time": "nite",
+      "level": "13",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "nite",
+      "level": "14",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "nite",
+      "level": "14",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "nite",
+      "level": "5",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_36",
+      "method": "grass",
+      "time": "nite",
+      "level": "6",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_37",
+      "method": "grass",
+      "time": "nite",
+      "level": "14",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "VIOLET_OUTSKIRTS",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "CHERRYGROVE_BAY",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level + 1",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_32_COAST",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "YELLOW_FOREST",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "STORMY_BEACH",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_35",
+      "method": "grass",
+      "time": "nite",
+      "level": "14",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "Bellchime Trail",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "20",
+      "chance": 40,
+      "rareItem": "Sun Stone",
+      "formName": null
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Owl",
+    "description": "It begins to hoot at the same time every day. Some trainers use them in place of clocks."
+  },
+  "forms": {},
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.846Z",
+  "version": "1.0.0"
+}

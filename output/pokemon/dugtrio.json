@@ -1,0 +1,908 @@
+{
+  "name": "Dugtrio",
+  "nationalDex": 51,
+  "johtoDex": 144,
+  "types": "Ground",
+  "updatedTypes": "Ground",
+  "frontSpriteUrl": "/sprites/pokemon/dugtrio/front_cropped.png",
+  "baseStats": {
+    "hp": 0,
+    "attack": 0,
+    "defense": 0,
+    "speed": 0,
+    "specialAttack": 0,
+    "specialDefense": 0,
+    "total": 0
+  },
+  "detailedStats": {
+    "baseStats": {
+      "hp": 35,
+      "attack": 100,
+      "defense": 50,
+      "speed": 120,
+      "specialAttack": 50,
+      "specialDefense": 70,
+      "total": 425
+    },
+    "catchRate": 50,
+    "baseExp": 153,
+    "heldItems": [
+      "SOFT_SAND"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Arena Trap",
+        "description": "\tPrevents the foe \tfrom fleeing.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sand Force",
+        "description": "\tBoosts some moves \tin a sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Arena Trap",
+        "description": "\tPrevents the foe \tfrom fleeing.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sand Force",
+        "description": "\tBoosts some moves \tin a sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "2 Spe",
+    "types": "Ground",
+    "updatedTypes": "Ground",
+    "height": 7,
+    "weight": 666,
+    "bodyShape": "Multibody",
+    "bodyColor": "Brown"
+  },
+  "abilities": [],
+  "faithfulAbilities": [],
+  "updatedAbilities": [],
+  "catchRate": 255,
+  "baseExp": 0,
+  "growthRate": "Medium Fast",
+  "eggGroups": [],
+  "genderRatio": {
+    "male": 0,
+    "female": 0
+  },
+  "hatchRate": "Unknown",
+  "evYield": "None",
+  "heldItems": [],
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Diglett",
+      "Dugtrio"
+    ],
+    "chainWithMethods": {
+      "Diglett": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 26,
+          "target": "Dugtrio",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 26,
+          "target": "Dugtrio",
+          "form": "Alolan Form"
+        }
+      ],
+      "Dugtrio": []
+    }
+  },
+  "levelMoves": [
+    {
+      "name": "Tri Attack",
+      "level": 1,
+      "info": {
+        "description": "\tFires three kinds \tof beams at once.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Night Slash",
+      "level": 1,
+      "info": {
+        "description": "",
+        "type": "Dark",
+        "pp": 15,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Mud Slap",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that \tlowers accuracy.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Scratch",
+      "level": 1,
+      "info": {
+        "description": "\tScratches with \tsharp claws.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Charm",
+      "level": 1,
+      "info": {
+        "description": "\tSharply lowers the \tfoe's Attack.",
+        "type": "Fairy",
+        "pp": 20,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Growl",
+      "level": 4,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Attack.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Astonish",
+      "level": 7,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Ghost",
+        "pp": 15,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 10,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Magnitude",
+      "level": 14,
+      "info": {
+        "description": "\tA Ground attack \twith random power.",
+        "type": "Ground",
+        "pp": 30,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Bulldoze",
+      "level": 18,
+      "info": {
+        "description": "\tA Ground attack \tthat lowers Speed.",
+        "type": "Ground",
+        "pp": 20,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Sucker Punch",
+      "level": 22,
+      "info": {
+        "description": "\tAttacks before the \tfoe does.",
+        "type": "Dark",
+        "pp": 5,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Ancientpower",
+      "level": 25,
+      "info": {
+        "description": "\tAn attack that may \traise all stats.",
+        "type": "Rock",
+        "pp": 5,
+        "power": 60,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Earth Power",
+      "level": 30,
+      "info": {
+        "description": "\tAn attack that may \tlower Sp.Def.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Dig",
+      "level": 35,
+      "info": {
+        "description": "\t1st turn: Burrow \t2nd turn: Attack",
+        "type": "Ground",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Slash",
+      "level": 41,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 20,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Earthquake",
+      "level": 47,
+      "info": {
+        "description": "\tTough but useless \tvs. flying foes.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 100,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Night Slash",
+      "level": 53,
+      "info": {
+        "description": "",
+        "type": "Dark",
+        "pp": 15,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    }
+  ],
+  "tmHmMoves": [
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hone Claws",
+      "description": "\tRaises the user's \tAtk and accuracy.",
+      "type": "Dark",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Bulldoze",
+      "description": "\tA Ground attack \tthat lowers Speed.",
+      "type": "Ground",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Earthquake",
+      "description": "\tTough but useless \tvs. flying foes.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dig",
+      "description": "\t1st turn: Burrow \t2nd turn: Attack",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sludge Bomb",
+      "description": "\tAn attack that may \tpoison the foe.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sandstorm",
+      "description": "",
+      "type": "Rock",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Slide",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Rock",
+      "pp": 10,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Shadow Claw",
+      "description": "",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Stone Edge",
+      "description": "\tHas a high criti- \tcal hit ratio.",
+      "type": "Rock",
+      "pp": 5,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 80
+    },
+    {
+      "name": "Cut",
+      "description": "\tCuts using claws, \tscythes, etc.",
+      "type": "Steel",
+      "pp": 30,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Charm",
+      "description": "\tSharply lowers the \tfoe's Attack.",
+      "type": "Fairy",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Earth Power",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Sucker Punch",
+      "description": "\tAttacks before the \tfoe does.",
+      "type": "Dark",
+      "pp": 5,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    }
+  ],
+  "eggMoves": [
+    "Ancientpower",
+    "Feint Attack",
+    "Headbutt",
+    "Pursuit",
+    "Reversal",
+    "Screech"
+  ],
+  "locations": [
+    {
+      "area": null,
+      "method": "Evolve from Diglett (Level 26)",
+      "time": null,
+      "level": "",
+      "chance": 100,
+      "formName": "Plain Form"
+    },
+    {
+      "area": null,
+      "method": "Evolve from Diglett (Level 26)",
+      "time": null,
+      "level": "",
+      "chance": 100,
+      "formName": "Alolan Form"
+    }
+  ],
+  "pokedexEntries": {
+    "species": "Mole",
+    "description": "Its metallic whiskers are heavy, so it's not very fast, but it has the power to dig through bedrock."
+  },
+  "forms": {
+    " Alolan": {
+      "formName": " Alolan",
+      "types": "Unknown",
+      "moves": [
+        {
+          "name": "Tri Attack",
+          "level": 1,
+          "info": {
+            "description": "\tFires three kinds \tof beams at once.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Night Slash",
+          "level": 1,
+          "info": {
+            "description": "",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tup user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 1,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 4,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Astonish",
+          "level": 7,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 10,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Magnitude",
+          "level": 14,
+          "info": {
+            "description": "\tA Ground attack \twith random power.",
+            "type": "Ground",
+            "pp": 30,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "level": 18,
+          "info": {
+            "description": "\tA Ground attack \tthat lowers Speed.",
+            "type": "Ground",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 22,
+          "info": {
+            "description": "\tAttacks before the \tfoe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 25,
+          "info": {
+            "description": "\tAn attack that may \traise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "level": 30,
+          "info": {
+            "description": "\tAn attack that may \tlower Sp.Def.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 35,
+          "info": {
+            "description": "\t1st turn: Burrow \t2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "level": 41,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 47,
+          "info": {
+            "description": "\tTough but useless \tvs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Night Slash",
+          "level": 53,
+          "info": {
+            "description": "",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "locations": []
+    }
+  },
+  "formMoves": {},
+  "formLocations": {},
+  "generatedAt": "2025-07-16T17:09:15.814Z",
+  "version": "1.0.0"
+}

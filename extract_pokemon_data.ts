@@ -373,6 +373,12 @@ for (const file of baseStatsFiles) {
   const fileName = file.replace('.asm', '');
   const content = fs.readFileSync(path.join(BASE_STATS_DIR, file), 'utf8');
 
+  // Extract base Pokémon name and form name
+  const { basePokemonName, formName } = extractFormInfo(fileName);
+
+  // Enhanced debugging for specific Pokémon
+  const isDebug = DEBUG_POKEMON.includes(basePokemonName);
+
   // Initialize variables for both faithful and updated types
   let faithfulTypes: [string, string] | null = null;
   let updatedTypes: [string, string] | null = null;
@@ -382,6 +388,12 @@ for (const file of baseStatsFiles) {
   const lines = content.split(/\r?\n/);
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
+    if (isDebug) {
+      console.log(`  Line ${i}: "${line}"`);
+      if (line.startsWith('if DEF(FAITHFUL)')) {
+        console.log(`  Found conditional line at ${i}`);
+      }
+    }
     if (line.startsWith('if DEF(FAITHFUL)')) {
       // Look for type definition within the conditional block
       for (let j = i + 1; j < lines.length && !lines[j].trim().startsWith('else'); j++) {
@@ -447,15 +459,12 @@ for (const file of baseStatsFiles) {
     }
   }
 
-  // Extract base Pokémon name and form name
-  const { basePokemonName, formName } = extractFormInfo(fileName);
-
-  // Enhanced debugging for specific Pokémon
-  const isDebug = DEBUG_POKEMON.includes(basePokemonName);
   if (isDebug) {
     console.log(`1 DEBUG: Processing ${fileName} for ${basePokemonName}`);
+    console.log(`  Has conditional types: ${hasConditionalTypes}`);
     console.log(`  Faithful types: ${faithfulTypes ? faithfulTypes.join(', ') : 'None'}`);
     console.log(`  Updated types: ${updatedTypes ? updatedTypes.join(', ') : 'None'}`);
+    console.log(`  All lines in file:`, lines.slice(0, 25));
   }
 
   // Special handling for "_plain" files
@@ -464,7 +473,7 @@ for (const file of baseStatsFiles) {
     const baseTypeName = toTitleCase(basePokemonName);
     typeMap[baseTypeName] = {
       types: faithfulTypes || ['None', 'None'],
-      updatedTypes: updatedTypes || faithfulTypes || ['None', 'None']
+      updatedTypes: updatedTypes || ['None', 'None'] // Don't fall back to faithfulTypes
     };
   } else if (formName && formName !== null) {
     // Handle form-specific types
@@ -479,7 +488,7 @@ for (const file of baseStatsFiles) {
     // Add form-specific types
     formTypeMap[baseTypeName][formTypeName] = {
       types: faithfulTypes || ['None', 'None'],
-      updatedTypes: updatedTypes || faithfulTypes || ['None', 'None']
+      updatedTypes: updatedTypes || ['None', 'None'] // Don't fall back to faithfulTypes
     };
 
     if (isDebug) {
@@ -492,7 +501,7 @@ for (const file of baseStatsFiles) {
     const typeName = toTitleCase(basePokemonName);
     typeMap[typeName] = {
       types: faithfulTypes || ['None', 'None'],
-      updatedTypes: updatedTypes || faithfulTypes || ['None', 'None']
+      updatedTypes: updatedTypes || ['None', 'None'] // Don't fall back to faithfulTypes
     };
 
     if (isDebug) {
@@ -571,19 +580,19 @@ for (const mon of Object.keys(result)) {
       // Use form-specific type data from formTypeMap
       const formTypeData = formTypeMap[basePokemonName][formName];
       faithfulTypes = formTypeData.types || ['None'];
-      updatedTypes = formTypeData.updatedTypes || formTypeData.types || ['None'];
+      updatedTypes = formTypeData.updatedTypes || ['None']; // Don't fall back to faithfulTypes
     } else {
       // Fallback to base type if form type not found
       if (typeMap[basePokemonName]) {
         faithfulTypes = typeMap[basePokemonName].types || ['None'];
-        updatedTypes = typeMap[basePokemonName].updatedTypes || typeMap[basePokemonName].types || ['None'];
+        updatedTypes = typeMap[basePokemonName].updatedTypes || ['None']; // Don't fall back to faithfulTypes
       }
     }
   } else {
     // This is a base form or plain form - look up directly in typeMap
     if (typeMap[baseMonName]) {
       faithfulTypes = typeMap[baseMonName].types || ['None'];
-      updatedTypes = typeMap[baseMonName].updatedTypes || typeMap[baseMonName].types || ['None'];
+      updatedTypes = typeMap[baseMonName].updatedTypes || ['None']; // Don't fall back to faithfulTypes
     }
   }
 
@@ -831,7 +840,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     johtoDex: data.johtoDex,
     types: data.faithfulTypes || data.types || "Unknown", // Default to the main types (updated version)
     // faithfulTypes: data.faithfulTypes || data.types || "Unknown", // Include faithful types if available
-    updatedTypes: data.updatedTypes || data.types || "Unknown", // Include updated types if available
+    updatedTypes: (data.updatedTypes && !data.updatedTypes.includes('None')) ? data.updatedTypes : "Unknown", // Only use updatedTypes if they exist and aren't 'None'
     frontSpriteUrl: `/sprites/pokemon/${spriteName}/front_cropped.png`,
     baseStats: {
       hp: 0,
@@ -1464,3 +1473,149 @@ if (formMapKeys.length > 0) {
   const example = formMapKeys[0];
   console.log(`Example form type data for ${example}:`, formTypeMap[example]);
 }
+
+// --- Generate Individual Pokemon Files ---
+console.log('Generating individual Pokemon files...');
+
+const POKEMON_DIR = path.join(__dirname, 'output/pokemon');
+if (!fs.existsSync(POKEMON_DIR)) {
+  fs.mkdirSync(POKEMON_DIR, { recursive: true });
+}
+
+// Load additional data files that we've already generated
+let tmHmData: Record<string, any> = {};
+let eggMoveData: Record<string, any> = {};
+let pokedexData: Record<string, any> = {};
+let detailedStatsData: Record<string, any> = {};
+
+const TM_HM_OUTPUT = path.join(__dirname, 'output/pokemon_tm_hm_learnset.json');
+const EGG_MOVES_OUTPUT = path.join(__dirname, 'output/pokemon_egg_moves.json');
+const POKEDEX_ENTRIES_OUTPUT = path.join(__dirname, 'output/pokemon_pokedex_entries.json');
+
+if (fs.existsSync(TM_HM_OUTPUT)) {
+  tmHmData = JSON.parse(fs.readFileSync(TM_HM_OUTPUT, 'utf8'));
+}
+
+if (fs.existsSync(EGG_MOVES_OUTPUT)) {
+  eggMoveData = JSON.parse(fs.readFileSync(EGG_MOVES_OUTPUT, 'utf8'));
+}
+
+if (fs.existsSync(POKEDEX_ENTRIES_OUTPUT)) {
+  pokedexData = JSON.parse(fs.readFileSync(POKEDEX_ENTRIES_OUTPUT, 'utf8'));
+}
+
+if (fs.existsSync(DETAILED_STATS_OUTPUT)) {
+  detailedStatsData = JSON.parse(fs.readFileSync(DETAILED_STATS_OUTPUT, 'utf8'));
+}
+
+// Generate individual files for each Pokemon
+for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
+  const pokemonData = {
+    // Basic information
+    name: pokemonName,
+    nationalDex: baseData.nationalDex,
+    johtoDex: baseData.johtoDex,
+
+    // Types (faithful as primary, updated as secondary)
+    types: baseData.types,
+    updatedTypes: baseData.updatedTypes,
+
+    // Sprites
+    frontSpriteUrl: baseData.frontSpriteUrl,
+
+    // Base stats and detailed information
+    baseStats: baseData.baseStats,
+    detailedStats: detailedStatsData[pokemonName] || null,
+
+    // Abilities
+    abilities: baseData.abilities,
+    faithfulAbilities: baseData.faithfulAbilities,
+    updatedAbilities: baseData.updatedAbilities,
+
+    // Breeding and catch information
+    catchRate: baseData.catchRate,
+    baseExp: baseData.baseExp,
+    growthRate: baseData.growthRate,
+    eggGroups: baseData.eggGroups,
+    genderRatio: baseData.genderRatio,
+    hatchRate: baseData.hatchRate,
+    evYield: baseData.evYield,
+    heldItems: baseData.heldItems,
+
+    // Evolution data
+    evolution: validatedEvolutionData[pokemonName] || null,
+
+    // Move data
+    levelMoves: validatedLevelMoves[pokemonName]?.moves || [],
+    tmHmMoves: tmHmData[pokemonName] || [],
+    eggMoves: eggMoveData[pokemonName] || [],
+
+    // Location data
+    locations: validatedLocationData[pokemonName]?.locations || [],
+
+    // Pokedex entries
+    pokedexEntries: pokedexData[pokemonName] || [],
+
+    // Form data (if applicable)
+    forms: groupedPokemonData[pokemonName]?.forms || {},
+
+    // Form-specific move and location data
+    formMoves: validatedLevelMoves[pokemonName]?.forms || {},
+    formLocations: validatedLocationData[pokemonName]?.forms || {},
+
+    // Metadata
+    generatedAt: new Date().toISOString(),
+    version: '1.0.0'
+  };
+
+  // Create a safe filename
+  const safeFileName = pokemonName
+    .toLowerCase()
+    .replace(/[^a-z0-9\-]/g, '-')
+    .replace(/--+/g, '-') // Replace multiple hyphens with single hyphen
+    .replace(/^-|-$/g, '') // Remove leading/trailing hyphens
+    + '.json';
+
+  const filePath = path.join(POKEMON_DIR, safeFileName);
+
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(pokemonData, null, 2));
+    console.log(`Generated individual file for: ${pokemonName} -> ${safeFileName}`);
+  } catch (error) {
+    console.error(`Error writing file for ${pokemonName}:`, error);
+  }
+}
+
+// Generate an index file for quick Pokemon lookups
+const pokemonIndex = Object.keys(validatedBaseData).map(name => ({
+  name,
+  nationalDex: validatedBaseData[name].nationalDex,
+  johtoDex: validatedBaseData[name].johtoDex,
+  types: validatedBaseData[name].types,
+  frontSpriteUrl: validatedBaseData[name].frontSpriteUrl,
+  fileName: name
+    .toLowerCase()
+    .replace(/[^a-z0-9\-]/g, '-')
+    .replace(/--+/g, '-')
+    .replace(/^-|-$/g, '')
+    + '.json'
+})).sort((a, b) => {
+  // Sort by National Dex number, then by name
+  if (a.nationalDex && b.nationalDex) {
+    return a.nationalDex - b.nationalDex;
+  }
+  if (a.nationalDex && !b.nationalDex) return -1;
+  if (!a.nationalDex && b.nationalDex) return 1;
+  return a.name.localeCompare(b.name);
+});
+
+const indexPath = path.join(POKEMON_DIR, '_index.json');
+fs.writeFileSync(indexPath, JSON.stringify({
+  generatedAt: new Date().toISOString(),
+  totalPokemon: pokemonIndex.length,
+  pokemon: pokemonIndex
+}, null, 2));
+
+console.log(`Generated individual files for ${pokemonIndex.length} Pokemon in ${POKEMON_DIR}`);
+console.log(`Created index file at ${indexPath}`);
+console.log('Individual Pokemon file generation complete!');
