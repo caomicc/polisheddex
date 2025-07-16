@@ -25,13 +25,14 @@ async function loadLocationData(): Promise<Record<string, LocationData>> {
   }
 }
 
+
 /**
  * Determines location types based on the location name.
  * Uses a simple heuristic mapping for biome/environment.
  * @param locationName - The name of the location
  * @returns Array of type strings
  */
-export function getLocationTypes(locationName: string): string[] {
+function getLocationTypes(locationName: string): string[] {
   if (locationName.includes('Forest') || locationName.includes('Woods')) {
     return ['Grass'];
   } else if (locationName.includes('Cave') || locationName.includes('Mountain')) {
