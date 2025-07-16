@@ -160,7 +160,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // Default form is the base data
   const defaultForm: FormData = {
-    types: baseStats.types,
+    types: baseStats.types || baseStats.faithfulTypes || [], // Use faithful types if available
     updatedTypes: baseStats.updatedTypes || [],
     moves: levelMovesData[pokemonName]?.moves || [],
     locations: locationsData[pokemonName]?.locations || [],

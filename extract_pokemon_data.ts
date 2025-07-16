@@ -595,7 +595,7 @@ for (const mon of Object.keys(result)) {
     faithfulTypesFormatted = faithfulTypesFormatted[0];
   }
 
-  // Process updated types - these will also be the default "types" field
+  // Process updated types
   let updatedTypesFormatted: string | string[] = Array.from(new Set(updatedTypes)).filter(t => t !== 'None');
   if (updatedTypesFormatted.length === 0) {
     updatedTypesFormatted = 'Unknown';
@@ -603,8 +603,8 @@ for (const mon of Object.keys(result)) {
     updatedTypesFormatted = updatedTypesFormatted[0];
   }
 
-  // Set the primary types field to the updated types by default
-  const types = updatedTypesFormatted;
+  // Set the primary types field to the faithful types by default
+  const types = faithfulTypesFormatted;
 
   console.log(`Final moves for ${mon}: ${moves}`);
 
