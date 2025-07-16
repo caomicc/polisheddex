@@ -671,29 +671,19 @@
   },
   "forms": {
     "Hisuian": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Growlithe",
-          "Arcanine"
-        ],
-        "chainWithMethods": {
-          "Growlithe": [
-            {
-              "method": "EVOLVE_ITEM",
-              "parameter": "FIRE_STONE",
-              "target": "Arcanine"
-            },
-            {
-              "method": "EVOLVE_ITEM",
-              "parameter": "FIRE_STONE",
-              "target": "Arcanine",
-              "form": "Hisuian Form"
-            }
-          ],
-          "Arcanine": []
-        }
-      },
+      "name": "Growlithe hisuian",
+      "formName": "Hisuian",
+      "nationalDex": 58,
+      "johtoDex": 136,
+      "types": [
+        "Fire",
+        "Rock"
+      ],
+      "updatedTypes": [
+        "Fire",
+        "Rock"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/growlithe_hisuian/front_cropped.png",
       "moves": [
         {
           "name": "Growl",
@@ -936,356 +926,110 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 60,
+          "attack": 75,
+          "defense": 45,
+          "speed": 55,
+          "specialAttack": 65,
+          "specialDefense": 50,
+          "total": 350
+        },
+        "catchRate": 190,
+        "baseExp": 91,
+        "heldItems": [
+          "ALWAYS_ITEM_"
+        ],
+        "genderRatio": {
+          "male": 75,
+          "female": 25
+        },
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Intimidate",
+            "description": "\tLowers the foe's \tAttack stat.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Flash Fire",
+            "description": "\tBoosts Fire moves \tif hit by one.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Rock Head",
+            "description": "\tProtects it from \trecoil damage.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Intimidate",
+            "description": "\tLowers the foe's \tAttack stat.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Flash Fire",
+            "description": "\tBoosts Fire moves \tif hit by one.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Rock Head",
+            "description": "\tProtects it from \trecoil damage.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Slow",
+        "eggGroups": [
+          "Field",
+          "Field"
+        ],
+        "evYield": "1 Atk",
+        "types": [
+          "Fire",
+          "Rock"
+        ],
+        "updatedTypes": [
+          "Fire",
+          "Rock"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Growlithe plain",
+      "formName": "Plain",
       "nationalDex": 58,
       "johtoDex": 136,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Hisuian"
-    },
-    "hisuian": {
-      "baseStats": {
-        "hp": 60,
-        "attack": 75,
-        "defense": 45,
-        "speed": 55,
-        "specialAttack": 65,
-        "specialDefense": 50,
-        "total": 350
-      },
-      "catchRate": 190,
-      "baseExp": 91,
-      "heldItems": [
-        "ALWAYS_ITEM_"
-      ],
-      "genderRatio": {
-        "male": 75,
-        "female": 25
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/growlithe_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Slow",
-      "eggGroups": [
-        "Field",
-        "Field"
-      ],
-      "evYield": "1 Atk",
-      "types": [
-        "Fire",
-        "Rock"
-      ],
-      "updatedTypes": [
-        "Fire",
-        "Rock"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/growlithe_hisuian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Growl",
-          "level": 1,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Attack.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 1,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Roar",
-          "level": 1,
-          "info": {
-            "description": "\tScares wild foes \tto end battle.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Ember",
-          "level": 6,
-          "info": {
-            "description": "\tAn attack that may \tinflict a burn.",
-            "type": "Fire",
-            "pp": 25,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 8,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 10,
-          "info": {
-            "description": "\tPrevents all \tstatus problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Baton Pass",
-          "level": 12,
-          "info": {
-            "description": "\tSwitches while \tkeeping effects.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Fire Spin",
-          "level": 17,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 40,
-            "accuracy": 90,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Reversal",
-          "level": 19,
-          "info": {
-            "description": "\tStronger if the \tuser's HP is low.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Double Kick",
-          "level": 21,
-          "info": {
-            "description": "\tA double kicking \tattack.",
-            "type": "Fighting",
-            "pp": 30,
-            "power": 30,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Take Down",
-          "level": 23,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flame Charge",
-          "level": 28,
-          "info": {
-            "description": "\tAn attack that may \tup user's Speed.",
-            "type": "Fire",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 30,
-          "info": {
-            "description": "\tSharply raises the \tuser's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thrash",
-          "level": 32,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flamethrower",
-          "level": 34,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Crunch",
-          "level": 39,
-          "info": {
-            "description": "\tAn attack that may \tlower Defense.",
-            "type": "Dark",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Sunny Day",
-          "level": 41,
-          "info": {
-            "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-            "type": "Fire",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Outrage",
-          "level": 43,
-          "info": {
-            "description": "\tWorks 2-3 turns \tand confuses user.",
-            "type": "Dragon",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Play Rough",
-          "level": 45,
-          "info": {
-            "description": "\tAn attack that may \tlower Attack.",
-            "type": "Fairy",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flare Blitz",
-          "level": 49,
-          "info": {
-            "description": "\tA charge that also \thurts the user.",
-            "type": "Fire",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": "Fire",
-      "frontSpriteUrl": "/sprites/pokemon/growlithe_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

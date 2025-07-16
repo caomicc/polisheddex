@@ -785,31 +785,19 @@
   },
   "forms": {
     "Hisuian": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Cyndaquil",
-          "Quilava",
-          "Typhlosion"
-        ],
-        "chainWithMethods": {
-          "Cyndaquil": [
-            {
-              "method": "EVOLVE_LEVEL",
-              "parameter": 14,
-              "target": "Quilava"
-            }
-          ],
-          "Quilava": [
-            {
-              "method": "EVOLVE_LEVEL",
-              "parameter": 36,
-              "target": "Typhlosion"
-            }
-          ],
-          "Typhlosion": []
-        }
-      },
+      "name": "Typhlosion hisuian",
+      "formName": "Hisuian",
+      "nationalDex": 157,
+      "johtoDex": 6,
+      "types": [
+        "Fire",
+        "Ghost"
+      ],
+      "updatedTypes": [
+        "Fire",
+        "Ghost"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/typhlosion_hisuian/front_cropped.png",
       "moves": [
         {
           "name": "Shadow Claw",
@@ -1028,337 +1016,127 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 73,
+          "attack": 84,
+          "defense": 78,
+          "speed": 95,
+          "specialAttack": 119,
+          "specialDefense": 85,
+          "total": 534
+        },
+        "catchRate": 45,
+        "baseExp": 209,
+        "heldItems": [],
+        "genderRatio": {
+          "male": 87.5,
+          "female": 12.5
+        },
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Blaze",
+            "description": "\tBoosts Fire moves \tin a pinch.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Blaze",
+            "description": "\tBoosts Fire moves \tin a pinch.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Frisk",
+            "description": "\tChecks the foe's \theld item.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Blaze",
+            "description": "\tBoosts Fire moves \tin a pinch.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Blaze",
+            "description": "\tBoosts Fire moves \tin a pinch.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Frisk",
+            "description": "\tChecks the foe's \theld item.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [
+          {
+            "name": "Blaze",
+            "description": "\tBoosts Fire moves \tin a pinch.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Flame Body",
+            "description": "\tContact may burn \tthe foe.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Frisk",
+            "description": "\tChecks the foe's \theld item.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "growthRate": "Medium Slow",
+        "eggGroups": [
+          "Undiscovered",
+          "Undiscovered"
+        ],
+        "evYield": "3 SAt",
+        "types": [
+          "Fire",
+          "Ghost"
+        ],
+        "updatedTypes": [
+          "Fire",
+          "Ghost"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Typhlosion plain",
+      "formName": "Plain",
       "nationalDex": 157,
       "johtoDex": 6,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Hisuian"
-    },
-    "hisuian": {
-      "baseStats": {
-        "hp": 73,
-        "attack": 84,
-        "defense": 78,
-        "speed": 95,
-        "specialAttack": 119,
-        "specialDefense": 85,
-        "total": 534
-      },
-      "catchRate": 45,
-      "baseExp": 209,
-      "heldItems": [],
-      "genderRatio": {
-        "male": 87.5,
-        "female": 12.5
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/typhlosion_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [
-        {
-          "name": "Blaze",
-          "description": "\tBoosts Fire moves \tin a pinch.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Flame Body",
-          "description": "\tContact may burn \tthe foe.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Frisk",
-          "description": "\tChecks the foe's \theld item.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "growthRate": "Medium Slow",
-      "eggGroups": [
-        "Undiscovered",
-        "Undiscovered"
-      ],
-      "evYield": "3 SAt",
-      "types": [
-        "Fire",
-        "Ghost"
-      ],
-      "updatedTypes": [
-        "Fire",
-        "Ghost"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/typhlosion_hisuian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Fire Punch",
-          "level": 1,
-          "info": {
-            "description": "\tA fiery punch. May \tcause a burn.",
-            "type": "Fire",
-            "pp": 15,
-            "power": 75,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "\tA full-body charge \tattack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Smokescreen",
-          "level": 6,
-          "info": {
-            "description": "\tAn attack that \tlowers accuracy.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Ember",
-          "level": 10,
-          "info": {
-            "description": "\tAn attack that may \tinflict a burn.",
-            "type": "Fire",
-            "pp": 25,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 13,
-          "info": {
-            "description": "\tLets the user get \tin the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Defense Curl",
-          "level": 20,
-          "info": {
-            "description": "\tRaises the user's \tDefense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Flame Charge",
-          "level": 24,
-          "info": {
-            "description": "\tAn attack that may \tup user's Speed.",
-            "type": "Fire",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swift",
-          "level": 31,
-          "info": {
-            "description": "\tAn attack that \tnever misses.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Dig",
-          "level": 35,
-          "info": {
-            "description": "\t1st turn: Burrow \t2nd turn: Attack",
-            "type": "Ground",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Reversal",
-          "level": 43,
-          "info": {
-            "description": "\tStronger if the \tuser's HP is low.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flamethrower",
-          "level": 48,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Earth Power",
-          "level": 56,
-          "info": {
-            "description": "\tAn attack that may \tlower Sp.Def.",
-            "type": "Ground",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Rollout",
-          "level": 61,
-          "info": {
-            "description": "\tAttacks 5 turns \twith rising power.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 30,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Double Edge",
-          "level": 69,
-          "info": {
-            "description": "\tA tackle that also \thurts the user.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Earthquake",
-          "level": 74,
-          "info": {
-            "description": "\tTough but useless \tvs. flying foes.",
-            "type": "Ground",
-            "pp": 10,
-            "power": 100,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flare Blitz",
-          "level": 81,
-          "info": {
-            "description": "\tA charge that also \thurts the user.",
-            "type": "Fire",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": "Fire",
-      "frontSpriteUrl": "/sprites/pokemon/typhlosion_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

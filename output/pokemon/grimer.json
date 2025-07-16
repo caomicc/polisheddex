@@ -617,30 +617,19 @@
   },
   "forms": {
     "Alolan": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Grimer",
-          "Muk"
-        ],
-        "chainWithMethods": {
-          "Grimer": [
-            {
-              "method": "EVOLVE_LEVEL",
-              "parameter": 38,
-              "target": "Muk",
-              "form": "Plain Form"
-            },
-            {
-              "method": "EVOLVE_LEVEL",
-              "parameter": 38,
-              "target": "Muk",
-              "form": "Alolan Form"
-            }
-          ],
-          "Muk": []
-        }
-      },
+      "name": "Grimer alolan",
+      "formName": "Alolan",
+      "nationalDex": 88,
+      "johtoDex": 123,
+      "types": [
+        "Poison",
+        "Dark"
+      ],
+      "updatedTypes": [
+        "Poison",
+        "Dark"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/grimer_alolan/front_cropped.png",
       "moves": [
         {
           "name": "Tackle",
@@ -823,297 +812,111 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 80,
+          "attack": 80,
+          "defense": 50,
+          "speed": 25,
+          "specialAttack": 40,
+          "specialDefense": 50,
+          "total": 325
+        },
+        "catchRate": 190,
+        "baseExp": 90,
+        "heldItems": [
+          "BLACK_SLUDGE",
+          "NUGGET"
+        ],
+        "genderRatio": {
+          "male": 50,
+          "female": 50
+        },
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Poison Touch",
+            "description": "\tMay poison the foe \ton contact.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Gluttony",
+            "description": "\tEncourages early \tBerry use.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Corrosion",
+            "description": "\tFoes of any type \tcan be poisoned.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Poison Touch",
+            "description": "\tMay poison the foe \ton contact.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Gluttony",
+            "description": "\tEncourages early \tBerry use.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Corrosion",
+            "description": "\tFoes of any type \tcan be poisoned.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [
+          "Amorphous",
+          "Amorphous"
+        ],
+        "evYield": "1 HP",
+        "types": [
+          "Poison",
+          "Dark"
+        ],
+        "updatedTypes": [
+          "Poison",
+          "Dark"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Grimer plain",
+      "formName": "Plain",
       "nationalDex": 88,
       "johtoDex": 123,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Alolan"
-    },
-    "alolan": {
-      "baseStats": {
-        "hp": 80,
-        "attack": 80,
-        "defense": 50,
-        "speed": 25,
-        "specialAttack": 40,
-        "specialDefense": 50,
-        "total": 325
-      },
-      "catchRate": 190,
-      "baseExp": 90,
-      "heldItems": [
-        "BLACK_SLUDGE",
-        "NUGGET"
-      ],
-      "genderRatio": {
-        "male": 50,
-        "female": 50
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Poison Touch",
-          "description": "\tMay poison the foe \ton contact.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/grimer_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Corrosion",
-          "description": "\tFoes of any type \tcan be poisoned.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Poison Touch",
-          "description": "\tMay poison the foe \ton contact.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Corrosion",
-          "description": "\tFoes of any type \tcan be poisoned.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [
-        "Amorphous",
-        "Amorphous"
-      ],
-      "evYield": "1 HP",
-      "types": [
-        "Poison",
-        "Dark"
-      ],
-      "updatedTypes": [
-        "Poison",
-        "Dark"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/grimer_alolan/front_cropped.png",
-      "moves": [
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "\tA full-body charge \tattack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Acid",
-          "level": 1,
-          "info": {
-            "description": "\tAn attack that may \tlower Sp.Def.",
-            "type": "Poison",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Defense Curl",
-          "level": 4,
-          "info": {
-            "description": "\tRaises the user's \tDefense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Mud Slap",
-          "level": 7,
-          "info": {
-            "description": "\tAn attack that \tlowers accuracy.",
-            "type": "Ground",
-            "pp": 10,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Disable",
-          "level": 12,
-          "info": {
-            "description": "\tDisables the foe's \tmost recent move.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Venoshock",
-          "level": 15,
-          "info": {
-            "description": "\tDamage doubles if \tfoe is poisoned.",
-            "type": "Poison",
-            "pp": 10,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Haze",
-          "level": 18,
-          "info": {
-            "description": "\tEliminates all \tstat changes.",
-            "type": "Ice",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Minimize",
-          "level": 21,
-          "info": {
-            "description": "\tSharply raises the \tuser's evasiveness.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 26,
-          "info": {
-            "description": "\tAn attack that \tnever misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Sludge Bomb",
-          "level": 29,
-          "info": {
-            "description": "\tAn attack that may \tpoison the foe.",
-            "type": "Poison",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Scary Face",
-          "level": 32,
-          "info": {
-            "description": "\tSharply lowers the \tfoe's Speed.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Screech",
-          "level": 37,
-          "info": {
-            "description": "\tSharply lowers the \tfoe's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Gunk Shot",
-          "level": 40,
-          "info": {
-            "description": "\tAn attack that may \tpoison the foe.",
-            "type": "Poison",
-            "pp": 5,
-            "power": 120,
-            "accuracy": 80,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Pain Split",
-          "level": 43,
-          "info": {
-            "description": "\tAdds user & foe's \tHPs. Shares total.",
-            "type": "Ghost",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Toxic Spikes",
-          "level": 46,
-          "info": {
-            "description": "\tPoisons foes when \tthey switch in.",
-            "type": "Poison",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": "Poison",
-      "frontSpriteUrl": "/sprites/pokemon/grimer_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

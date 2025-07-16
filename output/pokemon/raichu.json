@@ -612,38 +612,19 @@
   },
   "forms": {
     "Alolan": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Pichu",
-          "Pikachu",
-          "Raichu"
-        ],
-        "chainWithMethods": {
-          "Pichu": [
-            {
-              "method": "EVOLVE_HAPPINESS",
-              "parameter": "TR_ANYTIME",
-              "target": "Pikachu"
-            }
-          ],
-          "Pikachu": [
-            {
-              "method": "EVOLVE_ITEM",
-              "parameter": "THUNDERSTONE",
-              "target": "Raichu",
-              "form": "Plain Form"
-            },
-            {
-              "method": "EVOLVE_ITEM",
-              "parameter": "ODD_SOUVENIR",
-              "target": "Raichu",
-              "form": "Alolan Form"
-            }
-          ],
-          "Raichu": []
-        }
-      },
+      "name": "Raichu alolan",
+      "formName": "Alolan",
+      "nationalDex": 26,
+      "johtoDex": 23,
+      "types": [
+        "Electric",
+        "Psychic"
+      ],
+      "updatedTypes": [
+        "Electric",
+        "Psychic"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/raichu_alolan/front_cropped.png",
       "moves": [
         {
           "name": "Thundershock",
@@ -710,177 +691,111 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 60,
+          "attack": 85,
+          "defense": 50,
+          "speed": 110,
+          "specialAttack": 95,
+          "specialDefense": 80,
+          "total": 480
+        },
+        "catchRate": 75,
+        "baseExp": 122,
+        "heldItems": [
+          "ORAN_BERRY",
+          "LIGHT_BALL"
+        ],
+        "genderRatio": {
+          "male": 50,
+          "female": 50
+        },
+        "hatchRate": "Fast (2,560 steps)",
+        "abilities": [
+          {
+            "name": "Static",
+            "description": "\tContact may cause \tparalysis.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Static",
+            "description": "\tContact may cause \tparalysis.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Motor Drive",
+            "description": "\tElectric moves \tboost Speed.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Static",
+            "description": "\tContact may cause \tparalysis.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Static",
+            "description": "\tContact may cause \tparalysis.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Motor Drive",
+            "description": "\tElectric moves \tboost Speed.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [
+          "Field",
+          "Fairy"
+        ],
+        "evYield": "3 Spe",
+        "types": [
+          "Electric",
+          "Psychic"
+        ],
+        "updatedTypes": [
+          "Electric",
+          "Psychic"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Raichu plain",
+      "formName": "Plain",
       "nationalDex": 26,
       "johtoDex": 23,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Alolan"
-    },
-    "alolan": {
-      "baseStats": {
-        "hp": 60,
-        "attack": 85,
-        "defense": 50,
-        "speed": 110,
-        "specialAttack": 95,
-        "specialDefense": 80,
-        "total": 480
-      },
-      "catchRate": 75,
-      "baseExp": 122,
-      "heldItems": [
-        "ORAN_BERRY",
-        "LIGHT_BALL"
-      ],
-      "genderRatio": {
-        "male": 50,
-        "female": 50
-      },
-      "hatchRate": "Fast (2,560 steps)",
-      "abilities": [
-        {
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/raichu_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Motor Drive",
-          "description": "\tElectric moves \tboost Speed.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Static",
-          "description": "\tContact may cause \tparalysis.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Motor Drive",
-          "description": "\tElectric moves \tboost Speed.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [
-        "Field",
-        "Fairy"
-      ],
-      "evYield": "3 Spe",
-      "types": [
-        "Electric",
-        "Psychic"
-      ],
-      "updatedTypes": [
-        "Electric",
-        "Psychic"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/raichu_alolan/front_cropped.png",
-      "moves": [
-        {
-          "name": "Thundershock",
-          "level": 1,
-          "info": {
-            "description": "\tAn attack that may \tcause paralysis.",
-            "type": "Electric",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 1,
-          "info": {
-            "description": "\tLets the user get \tin the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Thunderbolt",
-          "level": 1,
-          "info": {
-            "description": "\tAn attack that may \tcause paralysis.",
-            "type": "Electric",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Reversal",
-          "level": 1,
-          "info": {
-            "description": "\tStronger if the \tuser's HP is low.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": "Electric",
-      "frontSpriteUrl": "/sprites/pokemon/raichu_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

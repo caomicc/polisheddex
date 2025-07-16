@@ -659,15 +659,19 @@
   },
   "forms": {
     "Galarian": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Zapdos"
-        ],
-        "chainWithMethods": {
-          "Zapdos": []
-        }
-      },
+      "name": "Zapdos galarian",
+      "formName": "Galarian",
+      "nationalDex": 145,
+      "johtoDex": 274,
+      "types": [
+        "Fighting",
+        "Flying"
+      ],
+      "updatedTypes": [
+        "Fighting",
+        "Flying"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/zapdos_galarian/front_cropped.png",
       "moves": [
         {
           "name": "Peck",
@@ -874,323 +878,110 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 90,
+          "attack": 125,
+          "defense": 90,
+          "speed": 100,
+          "specialAttack": 85,
+          "specialDefense": 90,
+          "total": 580
+        },
+        "catchRate": 3,
+        "baseExp": 216,
+        "heldItems": [
+          "ALWAYS_ITEM_"
+        ],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
+        },
+        "hatchRate": "Unknown",
+        "abilities": [
+          {
+            "name": "Defiant",
+            "description": "\tBoosts Attack when \tstats are lowered.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Defiant",
+            "description": "\tBoosts Attack when \tstats are lowered.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Defiant",
+            "description": "\tBoosts Attack when \tstats are lowered.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Defiant",
+            "description": "\tBoosts Attack when \tstats are lowered.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Defiant",
+            "description": "\tBoosts Attack when \tstats are lowered.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Defiant",
+            "description": "\tBoosts Attack when \tstats are lowered.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Slow",
+        "eggGroups": [
+          "Undiscovered",
+          "Undiscovered"
+        ],
+        "evYield": "3 Atk",
+        "types": [
+          "Fighting",
+          "Flying"
+        ],
+        "updatedTypes": [
+          "Fighting",
+          "Flying"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Zapdos plain",
+      "formName": "Plain",
       "nationalDex": 145,
       "johtoDex": 274,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Galarian"
-    },
-    "galarian": {
-      "baseStats": {
-        "hp": 90,
-        "attack": 125,
-        "defense": 90,
-        "speed": 100,
-        "specialAttack": 85,
-        "specialDefense": 90,
-        "total": 580
-      },
-      "catchRate": 3,
-      "baseExp": 216,
-      "heldItems": [
-        "ALWAYS_ITEM_"
-      ],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "abilities": [
-        {
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/zapdos_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Defiant",
-          "description": "\tBoosts Attack when \tstats are lowered.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Slow",
-      "eggGroups": [
-        "Undiscovered",
-        "Undiscovered"
-      ],
-      "evYield": "3 Atk",
-      "types": [
-        "Fighting",
-        "Flying"
-      ],
-      "updatedTypes": [
-        "Fighting",
-        "Flying"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/zapdos_galarian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Peck",
-          "level": 1,
-          "info": {
-            "description": "\tJabs the foe with \ta beak, etc.",
-            "type": "Flying",
-            "pp": 35,
-            "power": 35,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Thundershock",
-          "level": 1,
-          "info": {
-            "description": "\tAn attack that may \tcause paralysis.",
-            "type": "Electric",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thunder Wave",
-          "level": 8,
-          "info": {
-            "description": "\tparalyzes the foe.@",
-            "type": "Electric",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 90,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Protect",
-          "level": 15,
-          "info": {
-            "description": "\tFoils attack that \tturn. It may fail.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Extrasensory",
-          "level": 22,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Ancientpower",
-          "level": 29,
-          "info": {
-            "description": "\tAn attack that may \traise all stats.",
-            "type": "Rock",
-            "pp": 5,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 36,
-          "info": {
-            "description": "\tSharply raises the \tuser's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thunderbolt",
-          "level": 43,
-          "info": {
-            "description": "\tAn attack that may \tcause paralysis.",
-            "type": "Electric",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Drill Peck",
-          "level": 50,
-          "info": {
-            "description": "\tA strong, spin- \tning-peck attack.",
-            "type": "Flying",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rain Dance",
-          "level": 57,
-          "info": {
-            "description": "\tBoosts Water-type \tmoves for 5 turns.",
-            "type": "Water",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Light Screen",
-          "level": 64,
-          "info": {
-            "description": "\tRaises Sp.Def with \ta wall of light.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thunder",
-          "level": 71,
-          "info": {
-            "description": "\tAn attack that may \tcause paralysis.",
-            "type": "Electric",
-            "pp": 10,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Brave Bird",
-          "level": 78,
-          "info": {
-            "description": "\tA charge that also \thurts the user.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Roost",
-          "level": 85,
-          "info": {
-            "description": "\tLands to restore \t1/2 the max HP.",
-            "type": "Flying",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Hurricane",
-          "level": 92,
-          "info": {
-            "description": "\tAn attack that may \tconfuse the foe.",
-            "type": "Flying",
-            "pp": 10,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Zap Cannon",
-          "level": 99,
-          "info": {
-            "description": "\tAn attack that \talways paralyzes.",
-            "type": "Electric",
-            "pp": 5,
-            "power": 120,
-            "accuracy": 50,
-            "category": "Special"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": [
-        "Electric",
-        "Flying"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/zapdos_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

@@ -913,269 +913,119 @@
     "description": "With its defenses bolstered and its psychic attacks amplified by its armor, Mewtwo's power is unstoppable."
   },
   "forms": {
-    "armored": {
-      "baseStats": {
-        "hp": 106,
-        "attack": 110,
-        "defense": 90,
-        "speed": 130,
-        "specialAttack": 154,
-        "specialDefense": 90,
-        "total": 680
-      },
-      "catchRate": 3,
-      "baseExp": 220,
-      "heldItems": [
-        "ALWAYS_ITEM_"
-      ],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "abilities": [
-        {
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Insomnia",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Unnerve",
-          "description": "\tPrevents foes from \teating Berries.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Pressure",
-          "description": "\tRaises the foe's \tPP usage.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Insomnia",
-          "description": "",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Unnerve",
-          "description": "\tPrevents foes from \teating Berries.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Slow",
-      "eggGroups": [
-        "Undiscovered",
-        "Undiscovered"
-      ],
-      "evYield": "3 SAt",
+    "Armored": {
+      "name": "Mewtwo armored",
+      "formName": "Armored",
+      "nationalDex": 150,
+      "johtoDex": 287,
       "types": [
         "Psychic",
         "Psychic"
       ],
-      "updatedTypes": "Psychic",
+      "updatedTypes": [
+        "Psychic",
+        "Psychic"
+      ],
       "frontSpriteUrl": "/sprites/pokemon/mewtwo_armored/front_cropped.png",
-      "moves": [
-        {
-          "name": "Teleport",
-          "level": 1,
-          "info": {
-            "description": "\tA move for fleeing \tfrom battle.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
+      "moves": [],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 106,
+          "attack": 110,
+          "defense": 90,
+          "speed": 130,
+          "specialAttack": 154,
+          "specialDefense": 90,
+          "total": 680
         },
-        {
-          "name": "Agility",
-          "level": 1,
-          "info": {
-            "description": "\tSharply raises the \tuser's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
+        "catchRate": 3,
+        "baseExp": 220,
+        "heldItems": [
+          "ALWAYS_ITEM_"
+        ],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Focus Energy",
-          "level": 1,
-          "info": {
-            "description": "\tRaises the criti- \tcal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
+        "hatchRate": "Unknown",
+        "abilities": [
+          {
+            "name": "Pressure",
+            "description": "\tRaises the foe's \tPP usage.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Insomnia",
+            "description": "",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Unnerve",
+            "description": "\tPrevents foes from \teating Berries.",
+            "isHidden": true,
+            "abilityType": "hidden"
           }
-        },
-        {
-          "name": "Confusion",
-          "level": 1,
-          "info": {
-            "description": "\tAn attack that may \tconfuse the foe.",
-            "type": "Psychic",
-            "pp": 25,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Special"
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Pressure",
+            "description": "\tRaises the foe's \tPP usage.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Insomnia",
+            "description": "",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Unnerve",
+            "description": "\tPrevents foes from \teating Berries.",
+            "isHidden": true,
+            "abilityType": "hidden"
           }
-        },
-        {
-          "name": "Disable",
-          "level": 1,
-          "info": {
-            "description": "\tDisables the foe's \tmost recent move.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 10,
-          "info": {
-            "description": "\tPrevents all \tstatus problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Swift",
-          "level": 19,
-          "info": {
-            "description": "\tAn attack that \tnever misses.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Future Sight",
-          "level": 28,
-          "info": {
-            "description": "\tAn attack that \thits on 3rd turn.",
-            "type": "Psychic",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Barrier",
-          "level": 37,
-          "info": {
-            "description": "\tSharply raises the \tuser's Defense.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Recover",
-          "level": 46,
-          "info": {
-            "description": "\tRestores HP by 1/2 \tthe max HP.",
-            "type": "Normal",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Psychic M",
-          "level": 55
-        },
-        {
-          "name": "Power Gem",
-          "level": 64,
-          "info": {
-            "description": "\tAttacks with a ray \tof gem-like light.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Aura Sphere",
-          "level": 73,
-          "info": {
-            "description": "\tAn attack that \tnever misses.",
-            "type": "Fighting",
-            "pp": 20,
-            "power": 80,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Amnesia",
-          "level": 82,
-          "info": {
-            "description": "\tSharply raises the \tuser's Sp.Def.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Nasty Plot",
-          "level": 91,
-          "info": {
-            "description": "\tSharply raises the \tuser's Sp.Atk.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Psystrike",
-          "level": 100,
-          "info": {
-            "description": "\tA wave that does \tphysical damage.",
-            "type": "Psychic",
-            "pp": 10,
-            "power": 100,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        }
-      ]
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Slow",
+        "eggGroups": [
+          "Undiscovered",
+          "Undiscovered"
+        ],
+        "evYield": "3 SAt",
+        "types": "Psychic",
+        "updatedTypes": "Psychic",
+        "locations": []
+      }
     },
-    "plain": {
-      "types": "Psychic",
-      "frontSpriteUrl": "/sprites/pokemon/mewtwo_plain/front_cropped.png"
+    "Plain": {
+      "name": "Mewtwo plain",
+      "formName": "Plain",
+      "nationalDex": 150,
+      "johtoDex": 287,
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/mewtwo_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
+        },
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

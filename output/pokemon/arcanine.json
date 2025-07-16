@@ -568,29 +568,19 @@
   },
   "forms": {
     "Hisuian": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Growlithe",
-          "Arcanine"
-        ],
-        "chainWithMethods": {
-          "Growlithe": [
-            {
-              "method": "EVOLVE_ITEM",
-              "parameter": "FIRE_STONE",
-              "target": "Arcanine"
-            },
-            {
-              "method": "EVOLVE_ITEM",
-              "parameter": "FIRE_STONE",
-              "target": "Arcanine",
-              "form": "Hisuian Form"
-            }
-          ],
-          "Arcanine": []
-        }
-      },
+      "name": "Arcanine hisuian",
+      "formName": "Hisuian",
+      "nationalDex": 59,
+      "johtoDex": 137,
+      "types": [
+        "Fire",
+        "Rock"
+      ],
+      "updatedTypes": [
+        "Fire",
+        "Rock"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/arcanine_hisuian/front_cropped.png",
       "moves": [
         {
           "name": "Bulk Up",
@@ -677,200 +667,110 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 95,
+          "attack": 115,
+          "defense": 80,
+          "speed": 90,
+          "specialAttack": 95,
+          "specialDefense": 80,
+          "total": 555
+        },
+        "catchRate": 75,
+        "baseExp": 213,
+        "heldItems": [
+          "ASPEAR_BERRY"
+        ],
+        "genderRatio": {
+          "male": 75,
+          "female": 25
+        },
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Intimidate",
+            "description": "\tLowers the foe's \tAttack stat.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Flash Fire",
+            "description": "\tBoosts Fire moves \tif hit by one.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Rock Head",
+            "description": "\tProtects it from \trecoil damage.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Intimidate",
+            "description": "\tLowers the foe's \tAttack stat.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Flash Fire",
+            "description": "\tBoosts Fire moves \tif hit by one.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Rock Head",
+            "description": "\tProtects it from \trecoil damage.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Slow",
+        "eggGroups": [
+          "Field",
+          "Field"
+        ],
+        "evYield": "2 Atk",
+        "types": [
+          "Fire",
+          "Rock"
+        ],
+        "updatedTypes": [
+          "Fire",
+          "Rock"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Arcanine plain",
+      "formName": "Plain",
       "nationalDex": 59,
       "johtoDex": 137,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Hisuian"
-    },
-    "hisuian": {
-      "baseStats": {
-        "hp": 95,
-        "attack": 115,
-        "defense": 80,
-        "speed": 90,
-        "specialAttack": 95,
-        "specialDefense": 80,
-        "total": 555
-      },
-      "catchRate": 75,
-      "baseExp": 213,
-      "heldItems": [
-        "ASPEAR_BERRY"
-      ],
-      "genderRatio": {
-        "male": 75,
-        "female": 25
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/arcanine_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Flash Fire",
-          "description": "\tBoosts Fire moves \tif hit by one.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Slow",
-      "eggGroups": [
-        "Field",
-        "Field"
-      ],
-      "evYield": "2 Atk",
-      "types": [
-        "Fire",
-        "Rock"
-      ],
-      "updatedTypes": [
-        "Fire",
-        "Rock"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/arcanine_hisuian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Dragon Dance",
-          "level": 1,
-          "info": {
-            "description": "\tRaises the user's \tAttack and Speed.",
-            "type": "Dragon",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Growl",
-          "level": 1,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Attack.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 1,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Roar",
-          "level": 1,
-          "info": {
-            "description": "\tScares wild foes \tto end battle.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Flame Charge",
-          "level": 1,
-          "info": {
-            "description": "\tAn attack that may \tup user's Speed.",
-            "type": "Fire",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Take Down",
-          "level": 1,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Extremespeed",
-          "level": 1,
-          "info": {
-            "description": "\tA powerful first- \tstrike attack.",
-            "type": "Normal",
-            "pp": 5,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": "Fire",
-      "frontSpriteUrl": "/sprites/pokemon/arcanine_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

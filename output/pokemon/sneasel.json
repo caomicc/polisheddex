@@ -800,50 +800,19 @@
   },
   "forms": {
     "Hisuian": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Sneasel",
-          "Tr Evenite",
-          "Tr Mornday",
-          "Gligar",
-          "Happiny"
-        ],
-        "chainWithMethods": {
-          "Sneasel": [
-            {
-              "method": "EVOLVE_HOLDING",
-              "parameter": "RAZOR_CLAW",
-              "target": "Tr Evenite",
-              "form": "Weavile"
-            },
-            {
-              "method": "EVOLVE_HOLDING",
-              "parameter": "RAZOR_CLAW",
-              "target": "Tr Mornday",
-              "form": "Sneasler"
-            }
-          ],
-          "Tr Evenite": [],
-          "Tr Mornday": [],
-          "Gligar": [
-            {
-              "method": "EVOLVE_HOLDING",
-              "parameter": "RAZOR_FANG",
-              "target": "Tr Evenite",
-              "form": "Gliscor"
-            }
-          ],
-          "Happiny": [
-            {
-              "method": "EVOLVE_HOLDING",
-              "parameter": "OVAL_STONE",
-              "target": "Tr Mornday",
-              "form": "Chansey"
-            }
-          ]
-        }
-      },
+      "name": "Sneasel hisuian",
+      "formName": "Hisuian",
+      "nationalDex": 215,
+      "johtoDex": 245,
+      "types": [
+        "Poison",
+        "Fighting"
+      ],
+      "updatedTypes": [
+        "Poison",
+        "Fighting"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/sneasel_hisuian/front_cropped.png",
       "moves": [
         {
           "name": "Scratch",
@@ -1050,312 +1019,111 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 55,
+          "attack": 95,
+          "defense": 55,
+          "speed": 115,
+          "specialAttack": 35,
+          "specialDefense": 75,
+          "total": 430
+        },
+        "catchRate": 60,
+        "baseExp": 132,
+        "heldItems": [
+          "GRIP_CLAW",
+          "QUICK_CLAW"
+        ],
+        "genderRatio": {
+          "male": 50,
+          "female": 50
+        },
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Inner Focus",
+            "description": "\tProtects it from \tflinching.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Keen Eye",
+            "description": "\tPrevents foes from \tlowering accuracy.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Pickpocket",
+            "description": "\tSteals foe's item \twhen contacted.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Inner Focus",
+            "description": "\tProtects it from \tflinching.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Keen Eye",
+            "description": "\tPrevents foes from \tlowering accuracy.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Pickpocket",
+            "description": "\tSteals foe's item \twhen contacted.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Medium Slow",
+        "eggGroups": [
+          "Field",
+          "Field"
+        ],
+        "evYield": "1 Spe",
+        "types": [
+          "Poison",
+          "Fighting"
+        ],
+        "updatedTypes": [
+          "Poison",
+          "Fighting"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Sneasel plain",
+      "formName": "Plain",
       "nationalDex": 215,
       "johtoDex": 245,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Hisuian"
-    },
-    "hisuian": {
-      "baseStats": {
-        "hp": 55,
-        "attack": 95,
-        "defense": 55,
-        "speed": 115,
-        "specialAttack": 35,
-        "specialDefense": 75,
-        "total": 430
-      },
-      "catchRate": 60,
-      "baseExp": 132,
-      "heldItems": [
-        "GRIP_CLAW",
-        "QUICK_CLAW"
-      ],
-      "genderRatio": {
-        "male": 50,
-        "female": 50
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/sneasel_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Keen Eye",
-          "description": "\tPrevents foes from \tlowering accuracy.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Pickpocket",
-          "description": "\tSteals foe's item \twhen contacted.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Inner Focus",
-          "description": "\tProtects it from \tflinching.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Keen Eye",
-          "description": "\tPrevents foes from \tlowering accuracy.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Pickpocket",
-          "description": "\tSteals foe's item \twhen contacted.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Medium Slow",
-      "eggGroups": [
-        "Field",
-        "Field"
-      ],
-      "evYield": "1 Spe",
-      "types": [
-        "Poison",
-        "Fighting"
-      ],
-      "updatedTypes": [
-        "Poison",
-        "Fighting"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/sneasel_hisuian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Scratch",
-          "level": 1,
-          "info": {
-            "description": "\tScratches with \tsharp claws.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 1,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 8,
-          "info": {
-            "description": "\tLets the user get \tin the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 10,
-          "info": {
-            "description": "\tAn attack that \tnever misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Ice Shard",
-          "level": 14,
-          "info": {
-            "description": "\tHurls icy shards. \tAlways goes first.",
-            "type": "Ice",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Fury Strikes",
-          "level": 16,
-          "info": {
-            "description": "\tScratches or jabs \t2-5 times.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 20,
-            "accuracy": 85,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 20,
-          "info": {
-            "description": "\tSharply raises the \tuser's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Metal Claw",
-          "level": 22,
-          "info": {
-            "description": "\tAn attack that may \tup user's Attack.",
-            "type": "Steel",
-            "pp": 35,
-            "power": 50,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Hone Claws",
-          "level": 25,
-          "info": {
-            "description": "\tRaises the user's \tAtk and accuracy.",
-            "type": "Dark",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Icicle Crash",
-          "level": 28,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Ice",
-            "pp": 10,
-            "power": 85,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Screech",
-          "level": 32,
-          "info": {
-            "description": "\tSharply lowers the \tfoe's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Slash",
-          "level": 35,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Healinglight",
-          "level": 40,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "X Scissor",
-          "level": 44,
-          "info": {
-            "description": "",
-            "type": "Bug",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Crunch",
-          "level": 47,
-          "info": {
-            "description": "\tAn attack that may \tlower Defense.",
-            "type": "Dark",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": [
-        "Dark",
-        "Ice"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/sneasel_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

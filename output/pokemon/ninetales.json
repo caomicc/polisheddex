@@ -560,30 +560,19 @@
   },
   "forms": {
     "Alolan": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Vulpix",
-          "Ninetales"
-        ],
-        "chainWithMethods": {
-          "Vulpix": [
-            {
-              "method": "EVOLVE_ITEM",
-              "parameter": "FIRE_STONE",
-              "target": "Ninetales",
-              "form": "Plain Form"
-            },
-            {
-              "method": "EVOLVE_ITEM",
-              "parameter": "ICE_STONE",
-              "target": "Ninetales",
-              "form": "Alolan Form"
-            }
-          ],
-          "Ninetales": []
-        }
-      },
+      "name": "Ninetales alolan",
+      "formName": "Alolan",
+      "nationalDex": 38,
+      "johtoDex": 135,
+      "types": [
+        "Ice",
+        "Fairy"
+      ],
+      "updatedTypes": [
+        "Ice",
+        "Fairy"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/ninetales_alolan/front_cropped.png",
       "moves": [
         {
           "name": "Dazzlingleam",
@@ -658,176 +647,110 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 73,
+          "attack": 67,
+          "defense": 75,
+          "speed": 109,
+          "specialAttack": 81,
+          "specialDefense": 100,
+          "total": 505
+        },
+        "catchRate": 75,
+        "baseExp": 178,
+        "heldItems": [
+          "ALWAYS_ITEM_"
+        ],
+        "genderRatio": {
+          "male": 25,
+          "female": 75
+        },
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Snow Cloak",
+            "description": "\tBoosts evasion in \thailstorms.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Snow Cloak",
+            "description": "\tBoosts evasion in \thailstorms.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Snow Warning",
+            "description": "\tSummons hailstorm \twhen switched in.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Snow Cloak",
+            "description": "\tBoosts evasion in \thailstorms.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Snow Cloak",
+            "description": "\tBoosts evasion in \thailstorms.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Snow Warning",
+            "description": "\tSummons hailstorm \twhen switched in.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [
+          "Field",
+          "Field"
+        ],
+        "evYield": "1 Spe",
+        "types": [
+          "Ice",
+          "Fairy"
+        ],
+        "updatedTypes": [
+          "Ice",
+          "Fairy"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Ninetales plain",
+      "formName": "Plain",
       "nationalDex": 38,
       "johtoDex": 135,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Alolan"
-    },
-    "alolan": {
-      "baseStats": {
-        "hp": 73,
-        "attack": 67,
-        "defense": 75,
-        "speed": 109,
-        "specialAttack": 81,
-        "specialDefense": 100,
-        "total": 505
-      },
-      "catchRate": 75,
-      "baseExp": 178,
-      "heldItems": [
-        "ALWAYS_ITEM_"
-      ],
-      "genderRatio": {
-        "male": 25,
-        "female": 75
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/ninetales_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Snow Warning",
-          "description": "\tSummons hailstorm \twhen switched in.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Snow Warning",
-          "description": "\tSummons hailstorm \twhen switched in.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [
-        "Field",
-        "Field"
-      ],
-      "evYield": "1 Spe",
-      "types": [
-        "Ice",
-        "Fairy"
-      ],
-      "updatedTypes": [
-        "Ice",
-        "Fairy"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/ninetales_alolan/front_cropped.png",
-      "moves": [
-        {
-          "name": "Nasty Plot",
-          "level": 1,
-          "info": {
-            "description": "\tSharply raises the \tuser's Sp.Atk.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Flamethrower",
-          "level": 1,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 1,
-          "info": {
-            "description": "\tLets the user get \tin the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Confuse Ray",
-          "level": 1,
-          "info": {
-            "description": "\tA move that may \tconfuse the foe.",
-            "type": "Ghost",
-            "pp": 10,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 1,
-          "info": {
-            "description": "\tPrevents all \tstatus problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": "Fire",
-      "frontSpriteUrl": "/sprites/pokemon/ninetales_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

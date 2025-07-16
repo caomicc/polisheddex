@@ -696,15 +696,19 @@
   },
   "forms": {
     "Paldean": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Tauros"
-        ],
-        "chainWithMethods": {
-          "Tauros": []
-        }
-      },
+      "name": "Tauros paldean",
+      "formName": "Paldean",
+      "nationalDex": 128,
+      "johtoDex": 162,
+      "types": [
+        "Fighting",
+        "Fighting"
+      ],
+      "updatedTypes": [
+        "Fighting",
+        "Fighting"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/tauros_paldean/front_cropped.png",
       "moves": [
         {
           "name": "Tackle",
@@ -899,835 +903,187 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 75,
+          "attack": 110,
+          "defense": 105,
+          "speed": 100,
+          "specialAttack": 30,
+          "specialDefense": 70,
+          "total": 490
+        },
+        "catchRate": 45,
+        "baseExp": 211,
+        "heldItems": [],
+        "genderRatio": {
+          "male": 100,
+          "female": 0
+        },
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Intimidate",
+            "description": "\tLowers the foe's \tAttack stat.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Anger Point",
+            "description": "\tMaxes Attack after \ta critical hit.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Cud Chew",
+            "description": "\tEats a Berry again \tafter first use.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Intimidate",
+            "description": "\tLowers the foe's \tAttack stat.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Anger Point",
+            "description": "\tMaxes Attack after \ta critical hit.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Cud Chew",
+            "description": "\tEats a Berry again \tafter first use.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Slow",
+        "eggGroups": [
+          "Field",
+          "Field"
+        ],
+        "evYield": "1 Atk",
+        "types": "Fighting",
+        "updatedTypes": "Fighting",
+        "locations": []
+      }
+    },
+    "": {
+      "name": "Tauros paldean_water",
+      "formName": "",
       "nationalDex": 128,
       "johtoDex": 162,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Paldean"
-    },
-    "paldean": {
-      "baseStats": {
-        "hp": 75,
-        "attack": 110,
-        "defense": 105,
-        "speed": 100,
-        "specialAttack": 30,
-        "specialDefense": 70,
-        "total": 490
-      },
-      "catchRate": 45,
-      "baseExp": 211,
-      "heldItems": [],
-      "genderRatio": {
-        "male": 100,
-        "female": 0
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Anger Point",
-          "description": "\tMaxes Attack after \ta critical hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Cud Chew",
-          "description": "\tEats a Berry again \tafter first use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Anger Point",
-          "description": "\tMaxes Attack after \ta critical hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Cud Chew",
-          "description": "\tEats a Berry again \tafter first use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Slow",
-      "eggGroups": [
-        "Field",
-        "Field"
-      ],
-      "evYield": "1 Atk",
-      "types": [
-        "Fighting",
-        "Fighting"
-      ],
-      "updatedTypes": "Fighting",
-      "frontSpriteUrl": "/sprites/pokemon/tauros_paldean/front_cropped.png",
-      "moves": [
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "\tA full-body charge \tattack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 3,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Rage",
-          "level": 5,
-          "info": {
-            "description": "\tRaises Attack if \tthe user is hit.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Horn Attack",
-          "level": 8,
-          "info": {
-            "description": "\tAn attack using a \thorn to jab.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Scary Face",
-          "level": 11,
-          "info": {
-            "description": "\tSharply lowers the \tfoe's Speed.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Pursuit",
-          "level": 15,
-          "info": {
-            "description": "\tHeavily strikes \tswitching #mon.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rest",
-          "level": 19,
-          "info": {
-            "description": "\tSleep for 2 turns \tto fully recover.",
-            "type": "Psychic",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 24,
-          "info": {
-            "description": "\tLets the user get \tin the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Focus Energy",
-          "level": 29,
-          "info": {
-            "description": "\tRaises the criti- \tcal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Take Down",
-          "level": 35,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Zen Headbutt",
-          "level": 41,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Psychic",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swagger",
-          "level": 48,
-          "info": {
-            "description": "\tCauses confusion \tbut raises Attack.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thrash",
-          "level": 55,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Double Edge",
-          "level": 63,
-          "info": {
-            "description": "\tA tackle that also \thurts the user.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Giga Impact",
-          "level": 71,
-          "info": {
-            "description": "\t1st turn: Attack \t2nd turn: Rest",
-            "type": "Normal",
-            "pp": 5,
-            "power": 150,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Outrage",
-          "level": 80,
-          "info": {
-            "description": "\tWorks 2-3 turns \tand confuses user.",
-            "type": "Dragon",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ]
-    },
-    "paldean_fire": {
-      "baseStats": {
-        "hp": 75,
-        "attack": 110,
-        "defense": 105,
-        "speed": 100,
-        "specialAttack": 30,
-        "specialDefense": 70,
-        "total": 490
-      },
-      "catchRate": 45,
-      "baseExp": 211,
-      "heldItems": [],
-      "genderRatio": {
-        "male": 100,
-        "female": 0
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Anger Point",
-          "description": "\tMaxes Attack after \ta critical hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Cud Chew",
-          "description": "\tEats a Berry again \tafter first use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Anger Point",
-          "description": "\tMaxes Attack after \ta critical hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Cud Chew",
-          "description": "\tEats a Berry again \tafter first use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Slow",
-      "eggGroups": [
-        "Field",
-        "Field"
-      ],
-      "evYield": "1 Atk",
       "types": [
         "Fighting",
         "Water"
       ],
-      "updatedTypes": "Unknown",
-      "frontSpriteUrl": "/sprites/pokemon/tauros_paldean_fire/front_cropped.png",
-      "moves": [
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "\tA full-body charge \tattack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 3,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Rage",
-          "level": 5,
-          "info": {
-            "description": "\tRaises Attack if \tthe user is hit.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Horn Attack",
-          "level": 8,
-          "info": {
-            "description": "\tAn attack using a \thorn to jab.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Scary Face",
-          "level": 11,
-          "info": {
-            "description": "\tSharply lowers the \tfoe's Speed.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Pursuit",
-          "level": 15,
-          "info": {
-            "description": "\tHeavily strikes \tswitching #mon.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rest",
-          "level": 19,
-          "info": {
-            "description": "\tSleep for 2 turns \tto fully recover.",
-            "type": "Psychic",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 24,
-          "info": {
-            "description": "\tLets the user get \tin the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Focus Energy",
-          "level": 29,
-          "info": {
-            "description": "\tRaises the criti- \tcal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Take Down",
-          "level": 35,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Zen Headbutt",
-          "level": 41,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Psychic",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swagger",
-          "level": 48,
-          "info": {
-            "description": "\tCauses confusion \tbut raises Attack.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thrash",
-          "level": 55,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Double Edge",
-          "level": 63,
-          "info": {
-            "description": "\tA tackle that also \thurts the user.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Giga Impact",
-          "level": 71,
-          "info": {
-            "description": "\t1st turn: Attack \t2nd turn: Rest",
-            "type": "Normal",
-            "pp": 5,
-            "power": 150,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Outrage",
-          "level": 80,
-          "info": {
-            "description": "\tWorks 2-3 turns \tand confuses user.",
-            "type": "Dragon",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ]
-    },
-    "paldean_water": {
-      "baseStats": {
-        "hp": 75,
-        "attack": 110,
-        "defense": 105,
-        "speed": 100,
-        "specialAttack": 30,
-        "specialDefense": 70,
-        "total": 490
-      },
-      "catchRate": 45,
-      "baseExp": 211,
-      "heldItems": [],
-      "genderRatio": {
-        "male": 100,
-        "female": 0
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Anger Point",
-          "description": "\tMaxes Attack after \ta critical hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Cud Chew",
-          "description": "\tEats a Berry again \tafter first use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Intimidate",
-          "description": "\tLowers the foe's \tAttack stat.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Anger Point",
-          "description": "\tMaxes Attack after \ta critical hit.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Cud Chew",
-          "description": "\tEats a Berry again \tafter first use.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Slow",
-      "eggGroups": [
-        "Field",
-        "Field"
-      ],
-      "evYield": "1 Atk",
-      "types": [
+      "updatedTypes": [
         "Fighting",
         "Water"
       ],
-      "updatedTypes": "Unknown",
       "frontSpriteUrl": "/sprites/pokemon/tauros_paldean_water/front_cropped.png",
-      "moves": [
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "\tA full-body charge \tattack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
+      "moves": [],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 75,
+          "attack": 110,
+          "defense": 105,
+          "speed": 100,
+          "specialAttack": 30,
+          "specialDefense": 70,
+          "total": 490
         },
-        {
-          "name": "Leer",
-          "level": 3,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
+        "catchRate": 45,
+        "baseExp": 211,
+        "heldItems": [],
+        "genderRatio": {
+          "male": 100,
+          "female": 0
         },
-        {
-          "name": "Rage",
-          "level": 5,
-          "info": {
-            "description": "\tRaises Attack if \tthe user is hit.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Physical"
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Intimidate",
+            "description": "\tLowers the foe's \tAttack stat.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Anger Point",
+            "description": "\tMaxes Attack after \ta critical hit.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Cud Chew",
+            "description": "\tEats a Berry again \tafter first use.",
+            "isHidden": true,
+            "abilityType": "hidden"
           }
-        },
-        {
-          "name": "Horn Attack",
-          "level": 8,
-          "info": {
-            "description": "\tAn attack using a \thorn to jab.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Physical"
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Intimidate",
+            "description": "\tLowers the foe's \tAttack stat.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Anger Point",
+            "description": "\tMaxes Attack after \ta critical hit.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Cud Chew",
+            "description": "\tEats a Berry again \tafter first use.",
+            "isHidden": true,
+            "abilityType": "hidden"
           }
-        },
-        {
-          "name": "Scary Face",
-          "level": 11,
-          "info": {
-            "description": "\tSharply lowers the \tfoe's Speed.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Pursuit",
-          "level": 15,
-          "info": {
-            "description": "\tHeavily strikes \tswitching #mon.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rest",
-          "level": 19,
-          "info": {
-            "description": "\tSleep for 2 turns \tto fully recover.",
-            "type": "Psychic",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 24,
-          "info": {
-            "description": "\tLets the user get \tin the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Focus Energy",
-          "level": 29,
-          "info": {
-            "description": "\tRaises the criti- \tcal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Take Down",
-          "level": 35,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Zen Headbutt",
-          "level": 41,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Psychic",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swagger",
-          "level": 48,
-          "info": {
-            "description": "\tCauses confusion \tbut raises Attack.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thrash",
-          "level": 55,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Double Edge",
-          "level": 63,
-          "info": {
-            "description": "\tA tackle that also \thurts the user.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Giga Impact",
-          "level": 71,
-          "info": {
-            "description": "\t1st turn: Attack \t2nd turn: Rest",
-            "type": "Normal",
-            "pp": 5,
-            "power": 150,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Outrage",
-          "level": 80,
-          "info": {
-            "description": "\tWorks 2-3 turns \tand confuses user.",
-            "type": "Dragon",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ]
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Slow",
+        "eggGroups": [
+          "Field",
+          "Field"
+        ],
+        "evYield": "1 Atk",
+        "types": "Unknown",
+        "updatedTypes": "Unknown",
+        "locations": []
+      }
     },
-    "plain": {
-      "types": "Normal",
-      "frontSpriteUrl": "/sprites/pokemon/tauros_plain/front_cropped.png"
+    "Plain": {
+      "name": "Tauros plain",
+      "formName": "Plain",
+      "nationalDex": 128,
+      "johtoDex": 162,
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/tauros_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
+        },
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

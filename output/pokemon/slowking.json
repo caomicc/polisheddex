@@ -883,44 +883,19 @@
   },
   "forms": {
     "Galarian": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Slowpoke",
-          "Slowking",
-          "Slowbro"
-        ],
-        "chainWithMethods": {
-          "Slowpoke": [
-            {
-              "method": "EVOLVE_TRADE",
-              "parameter": "KINGS_ROCK",
-              "target": "Slowking",
-              "form": "Plain Form"
-            },
-            {
-              "method": "EVOLVE_LEVEL",
-              "parameter": 37,
-              "target": "Slowbro",
-              "form": "Plain Form"
-            },
-            {
-              "method": "EVOLVE_TRADE",
-              "parameter": "KINGS_ROCK",
-              "target": "Slowking",
-              "form": "Galarian Form"
-            },
-            {
-              "method": "EVOLVE_LEVEL",
-              "parameter": 37,
-              "target": "Slowbro",
-              "form": "Galarian Form"
-            }
-          ],
-          "Slowking": [],
-          "Slowbro": []
-        }
-      },
+      "name": "Slowking galarian",
+      "formName": "Galarian",
+      "nationalDex": 199,
+      "johtoDex": 87,
+      "types": [
+        "Poison",
+        "Psychic"
+      ],
+      "updatedTypes": [
+        "Poison",
+        "Psychic"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/slowking_galarian/front_cropped.png",
       "moves": [
         {
           "name": "Hex",
@@ -1131,315 +1106,110 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 95,
+          "attack": 65,
+          "defense": 80,
+          "speed": 30,
+          "specialAttack": 110,
+          "specialDefense": 110,
+          "total": 490
+        },
+        "catchRate": 70,
+        "baseExp": 164,
+        "heldItems": [
+          "KINGS_ROCK"
+        ],
+        "genderRatio": {
+          "male": 50,
+          "female": 50
+        },
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Gluttony",
+            "description": "\tEncourages early \tBerry use.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Own Tempo",
+            "description": "\tPrevents it from \tbecoming confused.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Regenerator",
+            "description": "\tRestores HP when \twithdrawn.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Gluttony",
+            "description": "\tEncourages early \tBerry use.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Own Tempo",
+            "description": "\tPrevents it from \tbecoming confused.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Regenerator",
+            "description": "\tRestores HP when \twithdrawn.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [
+          "Monster",
+          "Undiscovered"
+        ],
+        "evYield": "3 SDf",
+        "types": [
+          "Poison",
+          "Psychic"
+        ],
+        "updatedTypes": [
+          "Poison",
+          "Psychic"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Slowking plain",
+      "formName": "Plain",
       "nationalDex": 199,
       "johtoDex": 87,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Galarian"
-    },
-    "galarian": {
-      "baseStats": {
-        "hp": 95,
-        "attack": 65,
-        "defense": 80,
-        "speed": 30,
-        "specialAttack": 110,
-        "specialDefense": 110,
-        "total": 490
-      },
-      "catchRate": 70,
-      "baseExp": 164,
-      "heldItems": [
-        "KINGS_ROCK"
-      ],
-      "genderRatio": {
-        "male": 50,
-        "female": 50
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/slowking_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Own Tempo",
-          "description": "\tPrevents it from \tbecoming confused.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Regenerator",
-          "description": "\tRestores HP when \twithdrawn.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Gluttony",
-          "description": "\tEncourages early \tBerry use.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Own Tempo",
-          "description": "\tPrevents it from \tbecoming confused.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Regenerator",
-          "description": "\tRestores HP when \twithdrawn.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [
-        "Monster",
-        "Undiscovered"
-      ],
-      "evYield": "3 SDf",
-      "types": [
-        "Poison",
-        "Psychic"
-      ],
-      "updatedTypes": [
-        "Poison",
-        "Psychic"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/slowking_galarian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Power Gem",
-          "level": 1,
-          "info": {
-            "description": "\tAttacks with a ray \tof gem-like light.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Hidden Power",
-          "level": 1,
-          "info": {
-            "description": "\tThe type varies \twith the #mon.",
-            "type": "Unknown",
-            "pp": 15,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Curse",
-          "level": 1,
-          "info": {
-            "description": "\tWorks differently \tfor Ghost-types.",
-            "type": "Ghost",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "\tA full-body charge \tattack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Growl",
-          "level": 5,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Attack.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Water Gun",
-          "level": 9,
-          "info": {
-            "description": "\tSquirts water to \tattack.",
-            "type": "Water",
-            "pp": 25,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Confusion",
-          "level": 14,
-          "info": {
-            "description": "\tAn attack that may \tconfuse the foe.",
-            "type": "Psychic",
-            "pp": 25,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Disable",
-          "level": 19,
-          "info": {
-            "description": "\tDisables the foe's \tmost recent move.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Headbutt",
-          "level": 23,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Water Pulse",
-          "level": 28,
-          "info": {
-            "description": "\tAn attack that may \tconfuse the foe.",
-            "type": "Water",
-            "pp": 20,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Zen Headbutt",
-          "level": 32,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Psychic",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Nasty Plot",
-          "level": 36,
-          "info": {
-            "description": "\tSharply raises the \tuser's Sp.Atk.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Swagger",
-          "level": 41,
-          "info": {
-            "description": "\tCauses confusion \tbut raises Attack.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Psychic M",
-          "level": 45
-        },
-        {
-          "name": "Rain Dance",
-          "level": 49,
-          "info": {
-            "description": "\tBoosts Water-type \tmoves for 5 turns.",
-            "type": "Water",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Belly Drum",
-          "level": 54,
-          "info": {
-            "description": "\tSacrifices HP to \tmaximize Attack.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Recover",
-          "level": 58,
-          "info": {
-            "description": "\tRestores HP by 1/2 \tthe max HP.",
-            "type": "Normal",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": [
-        "Water",
-        "Psychic"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/slowking_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

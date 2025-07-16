@@ -641,15 +641,19 @@
   },
   "forms": {
     "Galarian": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Articuno"
-        ],
-        "chainWithMethods": {
-          "Articuno": []
-        }
-      },
+      "name": "Articuno galarian",
+      "formName": "Galarian",
+      "nationalDex": 144,
+      "johtoDex": 273,
+      "types": [
+        "Psychic",
+        "Flying"
+      ],
+      "updatedTypes": [
+        "Psychic",
+        "Flying"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/articuno_galarian/front_cropped.png",
       "moves": [
         {
           "name": "Gust",
@@ -848,323 +852,110 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 90,
+          "attack": 85,
+          "defense": 85,
+          "speed": 95,
+          "specialAttack": 125,
+          "specialDefense": 100,
+          "total": 580
+        },
+        "catchRate": 3,
+        "baseExp": 215,
+        "heldItems": [
+          "ALWAYS_ITEM_"
+        ],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
+        },
+        "hatchRate": "Unknown",
+        "abilities": [
+          {
+            "name": "Competitive",
+            "description": "\tBoosts Sp.Atk on \tstat reduction.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Competitive",
+            "description": "\tBoosts Sp.Atk on \tstat reduction.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Competitive",
+            "description": "\tBoosts Sp.Atk on \tstat reduction.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Competitive",
+            "description": "\tBoosts Sp.Atk on \tstat reduction.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Competitive",
+            "description": "\tBoosts Sp.Atk on \tstat reduction.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Competitive",
+            "description": "\tBoosts Sp.Atk on \tstat reduction.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Slow",
+        "eggGroups": [
+          "Undiscovered",
+          "Undiscovered"
+        ],
+        "evYield": "3 SAt",
+        "types": [
+          "Psychic",
+          "Flying"
+        ],
+        "updatedTypes": [
+          "Psychic",
+          "Flying"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Articuno plain",
+      "formName": "Plain",
       "nationalDex": 144,
       "johtoDex": 273,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Galarian"
-    },
-    "galarian": {
-      "baseStats": {
-        "hp": 90,
-        "attack": 85,
-        "defense": 85,
-        "speed": 95,
-        "specialAttack": 125,
-        "specialDefense": 100,
-        "total": 580
-      },
-      "catchRate": 3,
-      "baseExp": 215,
-      "heldItems": [
-        "ALWAYS_ITEM_"
-      ],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "abilities": [
-        {
-          "name": "Competitive",
-          "description": "\tBoosts Sp.Atk on \tstat reduction.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/articuno_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Competitive",
-          "description": "\tBoosts Sp.Atk on \tstat reduction.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Competitive",
-          "description": "\tBoosts Sp.Atk on \tstat reduction.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Competitive",
-          "description": "\tBoosts Sp.Atk on \tstat reduction.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Competitive",
-          "description": "\tBoosts Sp.Atk on \tstat reduction.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Competitive",
-          "description": "\tBoosts Sp.Atk on \tstat reduction.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Slow",
-      "eggGroups": [
-        "Undiscovered",
-        "Undiscovered"
-      ],
-      "evYield": "3 SAt",
-      "types": [
-        "Psychic",
-        "Flying"
-      ],
-      "updatedTypes": [
-        "Psychic",
-        "Flying"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/articuno_galarian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Gust",
-          "level": 1,
-          "info": {
-            "description": "\tWhips up a strong \tgust of wind.",
-            "type": "Flying",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Icy Wind",
-          "level": 1,
-          "info": {
-            "description": "\tAn icy attack that \tlowers Speed.",
-            "type": "Ice",
-            "pp": 15,
-            "power": 55,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Ice Shard",
-          "level": 8,
-          "info": {
-            "description": "\tHurls icy shards. \tAlways goes first.",
-            "type": "Ice",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 15,
-          "info": {
-            "description": "\tPrevents all \tstatus problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Extrasensory",
-          "level": 22,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Ancientpower",
-          "level": 29,
-          "info": {
-            "description": "\tAn attack that may \traise all stats.",
-            "type": "Rock",
-            "pp": 5,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 36,
-          "info": {
-            "description": "\tSharply raises the \tuser's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Ice Beam",
-          "level": 43,
-          "info": {
-            "description": "\tAn attack that may \tfreeze the foe.",
-            "type": "Ice",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Air Slash",
-          "level": 50,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 75,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Hail",
-          "level": 57,
-          "info": {
-            "description": "\tInflicts damage \tevery turn.",
-            "type": "Ice",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Reflect",
-          "level": 64,
-          "info": {
-            "description": "\tRaises Defense \twith a barrier.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Blizzard",
-          "level": 71,
-          "info": {
-            "description": "\tAn attack that may \tfreeze the foe.",
-            "type": "Ice",
-            "pp": 5,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Brave Bird",
-          "level": 78,
-          "info": {
-            "description": "\tA charge that also \thurts the user.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Roost",
-          "level": 85,
-          "info": {
-            "description": "\tLands to restore \t1/2 the max HP.",
-            "type": "Flying",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Hurricane",
-          "level": 92,
-          "info": {
-            "description": "\tAn attack that may \tconfuse the foe.",
-            "type": "Flying",
-            "pp": 10,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Aeroblast",
-          "level": 99,
-          "info": {
-            "description": "",
-            "type": "Flying",
-            "pp": 5,
-            "power": 100,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": [
-        "Ice",
-        "Flying"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/articuno_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

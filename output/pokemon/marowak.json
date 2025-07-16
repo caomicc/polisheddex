@@ -760,30 +760,19 @@
   },
   "forms": {
     "Alolan": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Cubone",
-          "Marowak"
-        ],
-        "chainWithMethods": {
-          "Cubone": [
-            {
-              "method": "EVOLVE_LEVEL",
-              "parameter": 28,
-              "target": "Marowak",
-              "form": "Plain Form"
-            },
-            {
-              "method": "EVOLVE_ITEM",
-              "parameter": "ODD_SOUVENIR",
-              "target": "Marowak",
-              "form": "Alolan Form"
-            }
-          ],
-          "Marowak": []
-        }
-      },
+      "name": "Marowak alolan",
+      "formName": "Alolan",
+      "nationalDex": 105,
+      "johtoDex": 234,
+      "types": [
+        "Fire",
+        "Ghost"
+      ],
+      "updatedTypes": [
+        "Fire",
+        "Ghost"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/marowak_alolan/front_cropped.png",
       "moves": [
         {
           "name": "Swords Dance",
@@ -990,320 +979,110 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 60,
+          "attack": 80,
+          "defense": 110,
+          "speed": 45,
+          "specialAttack": 50,
+          "specialDefense": 80,
+          "total": 425
+        },
+        "catchRate": 75,
+        "baseExp": 124,
+        "heldItems": [
+          "THICK_CLUB"
+        ],
+        "genderRatio": {
+          "male": 50,
+          "female": 50
+        },
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Cursed Body",
+            "description": "\tMay disable a move \tused on it.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Lightning Rod",
+            "description": "\tElectric moves \tboost Sp.Atk.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Rock Head",
+            "description": "\tProtects it from \trecoil damage.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Cursed Body",
+            "description": "\tMay disable a move \tused on it.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Lightning Rod",
+            "description": "\tElectric moves \tboost Sp.Atk.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Rock Head",
+            "description": "\tProtects it from \trecoil damage.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [
+          "Monster",
+          "Monster"
+        ],
+        "evYield": "2 Def",
+        "types": [
+          "Fire",
+          "Ghost"
+        ],
+        "updatedTypes": [
+          "Fire",
+          "Ghost"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Marowak plain",
+      "formName": "Plain",
       "nationalDex": 105,
       "johtoDex": 234,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Alolan"
-    },
-    "alolan": {
-      "baseStats": {
-        "hp": 60,
-        "attack": 80,
-        "defense": 110,
-        "speed": 45,
-        "specialAttack": 50,
-        "specialDefense": 80,
-        "total": 425
-      },
-      "catchRate": 75,
-      "baseExp": 124,
-      "heldItems": [
-        "THICK_CLUB"
-      ],
-      "genderRatio": {
-        "male": 50,
-        "female": 50
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Cursed Body",
-          "description": "\tMay disable a move \tused on it.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/marowak_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Cursed Body",
-          "description": "\tMay disable a move \tused on it.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Lightning Rod",
-          "description": "\tElectric moves \tboost Sp.Atk.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Rock Head",
-          "description": "\tProtects it from \trecoil damage.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [
-        "Monster",
-        "Monster"
-      ],
-      "evYield": "2 Def",
-      "types": [
-        "Fire",
-        "Ghost"
-      ],
-      "updatedTypes": [
-        "Fire",
-        "Ghost"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/marowak_alolan/front_cropped.png",
-      "moves": [
-        {
-          "name": "Swords Dance",
-          "level": 1,
-          "info": {
-            "description": "\tSharply raises the \tuser's Attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Growl",
-          "level": 1,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Attack.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Tackle",
-          "level": 3,
-          "info": {
-            "description": "\tA full-body charge \tattack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Mud Slap",
-          "level": 7,
-          "info": {
-            "description": "\tAn attack that \tlowers accuracy.",
-            "type": "Ground",
-            "pp": 10,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Headbutt",
-          "level": 11,
-          "info": {
-            "description": "\tAn attack that may \tcause flinching.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 13,
-          "info": {
-            "description": "\tA move that lowers \tthe foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Focus Energy",
-          "level": 17,
-          "info": {
-            "description": "\tRaises the criti- \tcal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bonemerang",
-          "level": 21,
-          "info": {
-            "description": "\tAn attack that \tstrikes twice.",
-            "type": "Ground",
-            "pp": 10,
-            "power": 50,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rage",
-          "level": 23,
-          "info": {
-            "description": "\tRaises Attack if \tthe user is hit.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Low Kick",
-          "level": 27,
-          "info": {
-            "description": "\tDeals more damage \tto heavier foes.",
-            "type": "Fighting",
-            "pp": 20,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Thrash",
-          "level": 33,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Knock Off",
-          "level": 37,
-          "info": {
-            "description": "\tSlaps down the \tfoe's held item.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Magnitude",
-          "level": 43,
-          "info": {
-            "description": "\tA Ground attack \twith random power.",
-            "type": "Ground",
-            "pp": 30,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rock Smash",
-          "level": 49,
-          "info": {
-            "description": "\tRemoves Reflect \tand Light Screen.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Double Edge",
-          "level": 53,
-          "info": {
-            "description": "\tA tackle that also \thurts the user.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Reversal",
-          "level": 59,
-          "info": {
-            "description": "\tStronger if the \tuser's HP is low.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Outrage",
-          "level": 65,
-          "info": {
-            "description": "\tWorks 2-3 turns \tand confuses user.",
-            "type": "Dragon",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": "Ground",
-      "frontSpriteUrl": "/sprites/pokemon/marowak_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

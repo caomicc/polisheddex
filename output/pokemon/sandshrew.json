@@ -733,30 +733,19 @@
   },
   "forms": {
     "Alolan": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Sandshrew",
-          "Sandslash"
-        ],
-        "chainWithMethods": {
-          "Sandshrew": [
-            {
-              "method": "EVOLVE_LEVEL",
-              "parameter": 22,
-              "target": "Sandslash",
-              "form": "Plain Form"
-            },
-            {
-              "method": "EVOLVE_ITEM",
-              "parameter": "ICE_STONE",
-              "target": "Sandslash",
-              "form": "Alolan Form"
-            }
-          ],
-          "Sandslash": []
-        }
-      },
+      "name": "Sandshrew alolan",
+      "formName": "Alolan",
+      "nationalDex": 27,
+      "johtoDex": 49,
+      "types": [
+        "Ice",
+        "Steel"
+      ],
+      "updatedTypes": [
+        "Ice",
+        "Steel"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/sandshrew_alolan/front_cropped.png",
       "moves": [
         {
           "name": "Scratch",
@@ -963,320 +952,110 @@
           }
         }
       ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 50,
+          "attack": 75,
+          "defense": 90,
+          "speed": 40,
+          "specialAttack": 10,
+          "specialDefense": 35,
+          "total": 300
+        },
+        "catchRate": 255,
+        "baseExp": 93,
+        "heldItems": [
+          "GRIP_CLAW"
+        ],
+        "genderRatio": {
+          "male": 50,
+          "female": 50
+        },
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Snow Cloak",
+            "description": "\tBoosts evasion in \thailstorms.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Snow Cloak",
+            "description": "\tBoosts evasion in \thailstorms.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Slush Rush",
+            "description": "\tBoosts Speed in \ta hailstorm.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Snow Cloak",
+            "description": "\tBoosts evasion in \thailstorms.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Snow Cloak",
+            "description": "\tBoosts evasion in \thailstorms.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Slush Rush",
+            "description": "\tBoosts Speed in \ta hailstorm.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [
+          "Field",
+          "Field"
+        ],
+        "evYield": "1 Def",
+        "types": [
+          "Ice",
+          "Steel"
+        ],
+        "updatedTypes": [
+          "Ice",
+          "Steel"
+        ],
+        "locations": []
+      }
+    },
+    "Plain": {
+      "name": "Sandshrew plain",
+      "formName": "Plain",
       "nationalDex": 27,
       "johtoDex": 49,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Alolan"
-    },
-    "alolan": {
-      "baseStats": {
-        "hp": 50,
-        "attack": 75,
-        "defense": 90,
-        "speed": 40,
-        "specialAttack": 10,
-        "specialDefense": 35,
-        "total": 300
-      },
-      "catchRate": 255,
-      "baseExp": 93,
-      "heldItems": [
-        "GRIP_CLAW"
-      ],
-      "genderRatio": {
-        "male": 50,
-        "female": 50
-      },
-      "hatchRate": "Medium-Fast (5,120 steps)",
-      "abilities": [
-        {
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "primary"
+      "types": [],
+      "updatedTypes": [],
+      "frontSpriteUrl": "/sprites/pokemon/sandshrew_plain/front_cropped.png",
+      "moves": [],
+      "detailedStats": {
+        "catchRate": 255,
+        "baseExp": 0,
+        "heldItems": [],
+        "abilities": [],
+        "faithfulAbilities": [],
+        "updatedAbilities": [],
+        "growthRate": "Medium Fast",
+        "eggGroups": [],
+        "genderRatio": {
+          "male": 0,
+          "female": 0
         },
-        {
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Slush Rush",
-          "description": "\tBoosts Speed in \ta hailstorm.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "faithfulAbilities": [
-        {
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "primary"
-        },
-        {
-          "name": "Snow Cloak",
-          "description": "\tBoosts evasion in \thailstorms.",
-          "isHidden": false,
-          "abilityType": "secondary"
-        },
-        {
-          "name": "Slush Rush",
-          "description": "\tBoosts Speed in \ta hailstorm.",
-          "isHidden": true,
-          "abilityType": "hidden"
-        }
-      ],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [
-        "Field",
-        "Field"
-      ],
-      "evYield": "1 Def",
-      "types": [
-        "Ice",
-        "Steel"
-      ],
-      "updatedTypes": [
-        "Ice",
-        "Steel"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/sandshrew_alolan/front_cropped.png",
-      "moves": [
-        {
-          "name": "Scratch",
-          "level": 1,
-          "info": {
-            "description": "\tScratches with \tsharp claws.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Defense Curl",
-          "level": 1,
-          "info": {
-            "description": "\tRaises the user's \tDefense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Mud Slap",
-          "level": 3,
-          "info": {
-            "description": "\tAn attack that \tlowers accuracy.",
-            "type": "Ground",
-            "pp": 10,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Poison Sting",
-          "level": 5,
-          "info": {
-            "description": "\tAn attack that may \tpoison the foe.",
-            "type": "Poison",
-            "pp": 35,
-            "power": 15,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rollout",
-          "level": 7,
-          "info": {
-            "description": "\tAttacks 5 turns \twith rising power.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 30,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rapid Spin",
-          "level": 9,
-          "info": {
-            "description": "\tA high-speed \tspinning attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Pin Missile",
-          "level": 11,
-          "info": {
-            "description": "\tFires pins that \tstrike 2-5 times.",
-            "type": "Bug",
-            "pp": 20,
-            "power": 25,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Magnitude",
-          "level": 14,
-          "info": {
-            "description": "\tA Ground attack \twith random power.",
-            "type": "Ground",
-            "pp": 30,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swift",
-          "level": 17,
-          "info": {
-            "description": "\tAn attack that \tnever misses.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Fury Strikes",
-          "level": 20,
-          "info": {
-            "description": "\tScratches or jabs \t2-5 times.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 20,
-            "accuracy": 85,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Metal Claw",
-          "level": 23,
-          "info": {
-            "description": "\tAn attack that may \tup user's Attack.",
-            "type": "Steel",
-            "pp": 35,
-            "power": 50,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Slash",
-          "level": 26,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Dig",
-          "level": 30,
-          "info": {
-            "description": "\t1st turn: Burrow \t2nd turn: Attack",
-            "type": "Ground",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Gyro Ball",
-          "level": 34,
-          "info": {
-            "description": "\tDoes more damage \tat lower speed.",
-            "type": "Steel",
-            "pp": 5,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swords Dance",
-          "level": 38,
-          "info": {
-            "description": "\tSharply raises the \tuser's Attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Sandstorm",
-          "level": 42,
-          "info": {
-            "description": "",
-            "type": "Rock",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Earthquake",
-          "level": 46,
-          "info": {
-            "description": "\tTough but useless \tvs. flying foes.",
-            "type": "Ground",
-            "pp": 10,
-            "power": 100,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ]
-    },
-    "plain": {
-      "types": "Ground",
-      "frontSpriteUrl": "/sprites/pokemon/sandshrew_plain/front_cropped.png"
+        "hatchRate": "Unknown",
+        "evYield": "None",
+        "locations": []
+      }
     }
   }
 }

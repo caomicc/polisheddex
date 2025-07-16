@@ -1187,15 +1187,16 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     for (const [formName, formData] of Object.entries(data.forms)) {
       if (Array.isArray(formData.moves) && formData.moves.length > 0) {
         if (!levelMoves[mon].forms) levelMoves[mon].forms = {};
-        console.log(`Adding form ${formName} moves for ${mon}`);
+        console.log(`Adding form ${formName.trim()} moves for ${mon}`);
         console.log(`Form moves:`, formData.moves);
-        levelMoves[mon].forms[formName] = {
+        levelMoves[mon].forms[formName.trim()] = {
           moves: formData.moves.map(m => ({
             name: m.name,
             level: m.level,
             ...(m.info ? { info: m.info } : {})
           }))
         };
+        console.log(`Added form ${formName.trim()} moves for ${mon}`, levelMoves[mon].forms[formName.trim()]);
       }
     }
   }
@@ -1611,46 +1612,61 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
   for (const formFile of formFiles) {
     const formName = formFile.replace(baseName + '_', '').replace('.asm', '');
     const normKey = formName.trim().toLowerCase();
+    const titleCaseFormName = toTitleCase(formName.trim());
 
-    console.log('building form', formName, 'for', pokemonName, 'from file', formFile);
+    console.log(`Processing form file: ${formFile}, ${formName} for ${pokemonName} (${normKey}), titleCase: ${titleCaseFormName}`);
 
-    // Only add if not already present
-    let formTypeData = (formTypeMap[pokemonName] && formTypeMap[pokemonName][toTitleCase(formName)])
-      ? formTypeMap[pokemonName][toTitleCase(formName)].types
-      : baseData.types;
+    console.log('levelMoves[pokemonName].forms[formName.trim()].moves', pokemonName, formName, levelMoves[pokemonName]?.forms?.[titleCaseFormName]?.moves);
 
-    console.log(`formTypeMap[${pokemonName}] && formTypeMap[${pokemonName}][toTitleCase(${formName})]`, formTypeMap[pokemonName] && formTypeMap[pokemonName][toTitleCase(formName)]);
-    console.log('Form Type Data:', pokemonName, formName, formTypeData);
-    let formMoves: Move[] = [];
+    // Only use moves if explicitly defined for this form
+    let formMoves: Move[] | undefined = undefined;
     if (
-      validatedLevelMoves[pokemonName]?.forms &&
-      validatedLevelMoves[pokemonName].forms[formName] &&
-      Array.isArray(validatedLevelMoves[pokemonName].forms[formName].moves)
+      levelMoves[pokemonName]?.forms &&
+      levelMoves[pokemonName].forms[titleCaseFormName] &&
+      Array.isArray(levelMoves[pokemonName]?.forms?.[titleCaseFormName]?.moves)
     ) {
-      formMoves = validatedLevelMoves[pokemonName].forms[formName].moves;
-    } else if (validatedLevelMoves[pokemonName]?.moves) {
-      formMoves = validatedLevelMoves[pokemonName].moves;
+      formMoves = levelMoves[pokemonName]?.forms?.[titleCaseFormName]?.moves;
     }
+
+    console.log(`Processing form ${titleCaseFormName} for ${pokemonName} (${normKey})`, formMoves);
+
     // Merge in detailed stats for this form if available
+    const formTypeData = (formTypeMap[pokemonName] && formTypeMap[pokemonName][titleCaseFormName])
+      ? formTypeMap[pokemonName][titleCaseFormName].types
+      : [];
     const formStats = detailedStatsData[`${pokemonName} ${formName}`] || {};
-    if (formName.toLowerCase() === 'plain' || formName === undefined) {
-      forms[formName.trim()] = {
+    // Compose a full DetailedStats-like object for the form, but nest under detailedStats
+    forms[titleCaseFormName] = {
+      name: `${pokemonName} ${formName}`,
+      formName: titleCaseFormName,
+      nationalDex: baseData.nationalDex,
+      johtoDex: baseData.johtoDex,
+      types: formTypeData,
+      updatedTypes: formTypeData,
+      frontSpriteUrl: `/sprites/pokemon/${baseName}_${formName}/front_cropped.png`,
+      moves: formMoves ?? [],
+      detailedStats: {
         ...formStats,
-        ...(forms[formName.trim()] || {}),
-        types: formTypeData,
-        frontSpriteUrl: `/sprites/pokemon/${baseName}_${formName}/front_cropped.png`
-      };
-    } else {
-      forms[formName.trim()] = {
-        ...formStats,
-        ...(forms[formName.trim()] || {}),
-        types: formTypeData,
-        frontSpriteUrl: `/sprites/pokemon/${baseName}_${formName}/front_cropped.png`,
-        moves: formMoves
-      };
-    }
+        catchRate: formStats.catchRate ?? 255,
+        baseExp: formStats.baseExp ?? 0,
+        heldItems: formStats.heldItems ?? [],
+        abilities: formStats.abilities ?? [],
+        faithfulAbilities: formStats.faithfulAbilities ?? [],
+        updatedAbilities: formStats.updatedAbilities ?? [],
+        growthRate: formStats.growthRate ?? "Medium Fast",
+        eggGroups: formStats.eggGroups ?? [],
+        genderRatio: formStats.genderRatio ?? { male: 0, female: 0 },
+        hatchRate: formStats.hatchRate ?? "Unknown",
+        evYield: formStats.evYield ?? "None",
+        locations: formStats.locations ?? [],
+        // add any other fields from DetailedStats as needed
+      }
+    };
     seenForms[normKey] = formName.trim();
   }
+
+  console.log(`Final forms for ${pokemonName}:`, Object.keys(forms), forms);
+
   // Build minimal root object
   const pokemonData: Record<string, any> = {
     name: pokemonName,
@@ -1689,13 +1705,18 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     delete pokemonData.heldItems;
   }
 
+  // Remove duplicate declarations if they exist
+  // (This block should only declare safeFileName and filePath once)
+
   // Create a safe filename
-  const safeFileName = pokemonName
-    .toLowerCase()
-    .replace(/[^a-z0-9\-]/g, '-')
-    .replace(/--+/g, '-') // Replace multiple hyphens with single hyphen
-    .replace(/^-|-$/g, '') // Remove leading/trailing hyphens
-    + '.json';
+  const safeFileName = (
+    pokemonName
+      .toLowerCase()
+      .replace(/[^a-z0-9\-]/g, '-')
+      .replace(/--+/g, '-') // Replace multiple hyphens with single hyphen
+      .replace(/^-|-$/g, '') // Remove leading/trailing hyphens
+    + '.json'
+  );
 
   const filePath = path.join(POKEMON_DIR, safeFileName);
 
@@ -1722,6 +1743,7 @@ const pokemonIndex = Object.keys(validatedBaseData).map(name => ({
     + '.json'
 })).sort((a, b) => {
   // Sort by National Dex number, then by name
+
   if (a.nationalDex && b.nationalDex) {
     return a.nationalDex - b.nationalDex;
   }
