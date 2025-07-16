@@ -3,7 +3,7 @@ import path from 'path';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
-import { MoveDescription, FormData } from '@/types/types';
+import { MoveDescription, FormData, PokemonDataV3 } from '@/types/types';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -26,11 +26,11 @@ async function loadJsonData<T>(filePath: string): Promise<T | null> {
 
 export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
-  let pokemonName = decodeURIComponent(nameParam);
+  const pokemonName = decodeURIComponent(nameParam);
 
   // Build the path to the individual Pokémon file
   const pokemonFile = path.join(process.cwd(), `output/pokemon/${pokemonName.toLowerCase()}.json`);
-  const pokemonData = await loadJsonData<any>(pokemonFile);
+  const pokemonData = await loadJsonData<PokemonDataV3>(pokemonFile);
   if (!pokemonData) return notFound();
 
   // Map the loaded data to the expected structure for the client component
@@ -43,40 +43,37 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // Default form
   allFormData['default'] = {
-    ...pokemonData.detailedStats,
-    moves: pokemonData.levelMoves || [],
-    tmHmLearnset: pokemonData.tmHmMoves || [],
+    ...pokemonData,
+    moves: pokemonData.moves || [],
+    tmHmLearnset: (pokemonData as FormData).tmHmLearnset || [], // fallback for legacy data
     locations: pokemonData.locations || [],
-    eggMoves: pokemonData.eggMoves || [],
-    evolution: pokemonData.evolution || null,
+    eggMoves: (pokemonData as FormData).eggMoves || [], // fallback for legacy data
+    evolution: (pokemonData as FormData).evolution || null,
     nationalDex: pokemonData.nationalDex || null,
     frontSpriteUrl: pokemonData.frontSpriteUrl,
     johtoDex: pokemonData.johtoDex || null,
-    species: pokemonData.pokedexEntries?.default.species || '',
-    description: pokemonData.pokedexEntries?.default.description || '',
+    species: (pokemonData as FormData).species || '',
+    description: (pokemonData as FormData).description || '',
   };
 
   // Add any additional forms
   if (pokemonData.forms) {
-    Object.entries(pokemonData.forms).forEach(([formKey, formValue]: [string, any]) => {
-      console.log(`Processing form: ${formKey} for ${pokemonName}`);
-      console.log('Form value:', formValue);
+    Object.entries(pokemonData.forms).forEach(([formKey, formValue]) => {
       allFormData[formKey] = {
-        ...formValue.detailedStats,
+        ...formValue,
         moves: formValue.moves || [],
-        frontSpriteUrl: formValue.frontSpriteUrl,
+        tmHmLearnset:
+          (formValue as FormData).tmHmLearnset || (pokemonData as FormData).tmHmLearnset || [],
+        locations: formValue.locations || pokemonData.locations || [],
+        eggMoves: (formValue as FormData).eggMoves || (pokemonData as FormData).eggMoves || [],
+        evolution: (formValue as FormData).evolution || (pokemonData as FormData).evolution || null,
         nationalDex: formValue.nationalDex || pokemonData.nationalDex || null,
+        frontSpriteUrl: formValue.frontSpriteUrl,
         johtoDex: formValue.johtoDex || pokemonData.johtoDex || null,
+        species: (formValue as FormData).species || (pokemonData as FormData).species || '',
         description:
-          formValue.pokedexEntries?.[formKey]?.description ||
-          pokemonData.pokedexEntries?.[formKey]?.description ||
-          '',
-        species:
-          formValue.pokedexEntries?.[formKey]?.species ||
-          pokemonData.pokedexEntries?.[formKey]?.species ||
-          '',
+          (formValue as FormData).description || (pokemonData as FormData).description || '',
       };
-      console.log(`Added form ${formKey} data for ${pokemonName}`, allFormData[formKey]);
     });
   }
 

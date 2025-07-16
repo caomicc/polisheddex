@@ -246,7 +246,7 @@ export function extractPokedexEntries() {
   // Clean up and format the entries
   const formattedEntries: Record<string, Record<string, PokemonDexEntry>> = {};
 
-  for (let [mon, data] of Object.entries(pokedexEntries)) {
+  for (const [mon, data] of Object.entries(pokedexEntries)) {
     const description = data.entries.join(' ')
       .replace(/@/g, '')
       .replace(/\s*-\s*(?=\w)/g, '')

@@ -30,7 +30,7 @@ export function PokemonAbilities({
           <h3
             className={cn('italic font-bold text-sm mb-4 text-left', showUpdated ? '' : 'hidden')}
           >
-            Updated:
+            Polished:
           </h3>
           <div className={cn('flex flex-col gap-2', className)}>
             {updatedAbilities?.map((ability, idx) => (
@@ -43,7 +43,11 @@ export function PokemonAbilities({
   );
 }
 
-function AbilityRow({ ability }: { ability: DetailedStats['abilities'][number] }) {
+function AbilityRow({
+  ability,
+}: {
+  ability: NonNullable<DetailedStats['faithfulAbilities']>[number];
+}) {
   return (
     <div className="w-full flex flex-col items-start justify-start">
       <span className="text-sm text-foreground">

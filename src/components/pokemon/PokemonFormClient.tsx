@@ -112,45 +112,59 @@ export default function PokemonFormClient({
             <p className="text-sm md:text-4xl font-bold capitalize text-gray-900 dark:text-gray-50">
               {pokemonName}
             </p>
-            <div className="flex flex-wrap gap-2 mt-2" aria-label="Pokemon Types" role="group">
-              {formData.types ? (
-                Array.isArray(formData.types) ? (
-                  formData.types.map((type: string) => (
-                    <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                      {type}
+            <div
+              className="flex flex-col mt-2 spacing-y-2 gap-1"
+              aria-label="Pokemon Faithful Types"
+              role="group"
+            >
+              <label className="leading-none text-xs w-[50px]">Faithful:</label>
+              <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
+                {formData.types ? (
+                  Array.isArray(formData.types) ? (
+                    formData.types.map((type: string) => (
+                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                        {type}
+                      </Badge>
+                    ))
+                  ) : (
+                    <Badge
+                      key={formData.types}
+                      variant={formData.types.toLowerCase() as PokemonType['name']}
+                    >
+                      {formData.types}
                     </Badge>
-                  ))
+                  )
                 ) : (
-                  <Badge
-                    key={formData.types}
-                    variant={formData.types.toLowerCase() as PokemonType['name']}
-                  >
-                    {formData.types}
-                  </Badge>
-                )
-              ) : (
-                <Badge variant="secondary">Unknown</Badge>
-              )}
+                  <Badge variant="secondary">Unknown</Badge>
+                )}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-2 mt-2" aria-label="Pokemon Types" role="group">
-              {formData.updatedTypes ? (
-                Array.isArray(formData.updatedTypes) ? (
-                  formData.updatedTypes.map((type: string) => (
-                    <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                      {type}
+            <div
+              className="flex flex-col mt-2 spacing-y-2 gap-1"
+              aria-label="Pokemon Polished Types"
+              role="group"
+            >
+              <label className="leading-none text-xs w-[50px]">Polished:</label>
+              <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
+                {formData.updatedTypes ? (
+                  Array.isArray(formData.updatedTypes) ? (
+                    formData.updatedTypes.map((type: string) => (
+                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                        {type}
+                      </Badge>
+                    ))
+                  ) : (
+                    <Badge
+                      key={formData.updatedTypes}
+                      variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
+                    >
+                      {formData.types}
                     </Badge>
-                  ))
+                  )
                 ) : (
-                  <Badge
-                    key={formData.updatedTypes}
-                    variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
-                  >
-                    {formData.types}
-                  </Badge>
-                )
-              ) : (
-                <></>
-              )}
+                  <></>
+                )}
+              </div>
             </div>
           </div>{' '}
           <div className="w-36 p-1 md:p-0 md:w-36 md:h-auto md:mx-[initial] mx-auto">
@@ -271,28 +285,66 @@ export default function PokemonFormClient({
               <p className="text-sm md:text-md text-foreground">{formData.species} Pokémon</p>
               <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
               <div
-                className="flex flex-wrap justify-center gap-2 md:my-4"
+                className="grid grid-col-1 md:grid-cols-2 my-4 max-w-[400px] mx-auto"
                 aria-label="Pokemon Types"
                 role="group"
               >
-                {formData.types ? (
-                  Array.isArray(formData.types) ? (
-                    formData.types.map((type: string) => (
-                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                        {type}
-                      </Badge>
-                    ))
-                  ) : (
-                    <Badge
-                      key={formData.types}
-                      variant={formData.types.toLowerCase() as PokemonType['name']}
-                    >
-                      {formData.types}
-                    </Badge>
-                  )
-                ) : (
-                  <Badge variant="secondary">Unknown</Badge>
-                )}
+                {/* Faithful Types */}
+                <div className="flex flex-wrap flex-col gap-2 items-center text-center">
+                  <label className="leading-none text-xs w-[50px]">Faithful:</label>
+                  <div className="flex flex-wrap gap-2">
+                    {formData.types ? (
+                      Array.isArray(formData.types) ? (
+                        formData.types.map((type: string) => (
+                          <Badge
+                            key={`faithful-${type}`}
+                            variant={type.toLowerCase() as PokemonType['name']}
+                          >
+                            {type}
+                          </Badge>
+                        ))
+                      ) : (
+                        <Badge
+                          key={`faithful-${formData.types}`}
+                          variant={formData.types.toLowerCase() as PokemonType['name']}
+                        >
+                          {formData.types}
+                        </Badge>
+                      )
+                    ) : (
+                      <Badge variant="secondary">Unknown</Badge>
+                    )}
+                  </div>
+                </div>
+                {/* Updated Types */}
+                <div
+                  className={cn(
+                    'flex flex-wrap flex-col gap-2 items-center text-center',
+                    formData.updatedTypes ? 'mt-4 md:mt-0' : 'hidden',
+                  )}
+                >
+                  <label className="leading-none text-xs w-[50px]">Polished:</label>
+                  <div className="flex flex-wrap gap-2">
+                    {formData.updatedTypes &&
+                      (Array.isArray(formData.updatedTypes) ? (
+                        formData.updatedTypes.map((type: string) => (
+                          <Badge
+                            key={`updated-${type}`}
+                            variant={type.toLowerCase() as PokemonType['name']}
+                          >
+                            {type}
+                          </Badge>
+                        ))
+                      ) : (
+                        <Badge
+                          key={`updated-${formData.updatedTypes}`}
+                          variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
+                        >
+                          {formData.updatedTypes}
+                        </Badge>
+                      ))}
+                  </div>
+                </div>
               </div>
               <div className="mt-8 flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
                 <div className="flex w-full flex-wrap justify-center items-center gap-0 mb-2">
@@ -315,7 +367,7 @@ export default function PokemonFormClient({
                       <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-2">
                         <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
                           <div className="text-xs  items-center flex">
-                            <div className="aspect-square w-4 inline-block relative mr-1">
+                            <div className="aspect-square w-3 md:w-4 inline-block relative mr-1">
                               <Image
                                 src={'/icons/genderless-solid.svg'}
                                 alt={''}
@@ -331,10 +383,10 @@ export default function PokemonFormClient({
                         </div>
                       </div>
                     ) : formData.genderRatio ? (
-                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-2 w-full">
+                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-1 md:gap-2 w-full">
                         <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
-                          <div className="text-[10px]  items-center flex">
-                            <div className="aspect-square w-4 inline-block relative mr-1">
+                          <div className="text-[10px] items-center flex">
+                            <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
                               <Image
                                 src={'/icons/mars-solid.svg'}
                                 alt={''}
@@ -345,7 +397,7 @@ export default function PokemonFormClient({
                             {formData.genderRatio.male}%
                           </div>
                           <div className="text-[10px]  items-center flex">
-                            <div className="aspect-square w-4 inline-block relative items-center mr-1">
+                            <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
                               <Image
                                 src={'/icons/venus-solid.svg'}
                                 alt={''}
