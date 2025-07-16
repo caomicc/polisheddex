@@ -161,6 +161,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // Default form is the base data
   const defaultForm: FormData = {
     types: baseStats.types,
+    updatedTypes: baseStats.updatedTypes || [],
     moves: levelMovesData[pokemonName]?.moves || [],
     locations: locationsData[pokemonName]?.locations || [],
     eggMoves: eggMovesData[pokemonName] || [],
@@ -209,10 +210,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       }
 
       if (baseStats.forms && baseStats.forms[formKey]?.frontSpriteUrl) {
-        // console.log(
-        //   `Using front sprite URL for form ${formKey}:`,
-        //   baseStats.forms[formKey].frontSpriteUrl,
-        // );
         allFormData[formKey].frontSpriteUrl = baseStats.forms[formKey].frontSpriteUrl;
       }
 
@@ -236,6 +233,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   variantKeys.forEach((variantKey) => {
     const formType = variantKey.replace(pokemonName, '').trim();
 
+    console.log(`Processing regional variant: ${variantKey} as form type: ${formType}`);
+
     if (detailedStatData[variantKey] && !processedForms.has(formType)) {
       allFormData[formType] = { ...defaultForm };
 
@@ -246,6 +245,9 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         if (variantData.evYield) allFormData[formType].evYield = variantData.evYield;
         if (variantData.bodyColor) allFormData[formType].bodyColor = variantData.bodyColor;
         if (variantData.abilities) allFormData[formType].abilities = variantData.abilities;
+        if (variantData.types) allFormData[formType].types = variantData.types;
+        if (variantData.updatedTypes)
+          allFormData[formType].updatedTypes = variantData.updatedTypes;
         if (variantData.faithfulAbilities)
           allFormData[formType].faithfulAbilities = variantData.faithfulAbilities;
         if (variantData.updatedAbilities)

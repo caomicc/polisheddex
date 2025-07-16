@@ -30,7 +30,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
     // Get the appropriate types based on user preference
     const selectedTypes = showUpdatedTypes
       ? p.updatedTypes || p.types
-      : p.faithfulTypes || p.types;
+      : p.types;
 
     // Check if any type matches
     const types = Array.isArray(selectedTypes) ? selectedTypes : [selectedTypes];

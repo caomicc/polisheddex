@@ -20,7 +20,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
   // Get the appropriate types based on preference
   const displayTypes = showUpdatedTypes
     ? pokemon.updatedTypes || pokemon.types
-    : pokemon.faithfulTypes || pokemon.types;
+    : pokemon.types;
 
   // Get the primary type for styling
   const primaryType = displayTypes
