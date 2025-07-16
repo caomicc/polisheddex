@@ -70,6 +70,8 @@ export interface PokemonDataV2 {
 export interface PokemonForm {
   formName: string;
   types?: string | string[];
+  faithfulTypes?: string | string[]; // Types in faithful version
+  updatedTypes?: string | string[]; // Types in updated/polished version
   moves?: Move[];
   locations?: LocationEntry[];
 };
@@ -78,6 +80,8 @@ export interface PokemonDataV3 extends PokemonDataV2 {
   nationalDex: number | null;
   johtoDex: number | null;
   types: string | string[];
+  faithfulTypes?: string | string[]; // Types in faithful version
+  updatedTypes?: string | string[]; // Types in updated/polished version
   locations: LocationEntry[];
   forms?: Record<string, PokemonForm>;
   name?: string;
@@ -157,14 +161,17 @@ export interface FormData extends DetailedStats {
 }
 
 export interface BaseData extends DetailedStats {
-
   name: string;
   nationalDex: number | null;
   johtoDex: number | null;
-  types: string[] | string;
+  types: string[] | string; // Current displayed types (default to updated)
+  faithfulTypes?: string[] | string; // Types in the faithful version
+  updatedTypes?: string[] | string; // Types in the polished/updated version
   frontSpriteUrl?: string;
   forms?: Record<string, DetailedStats & {
-    types: string[] | string;
+    types: string[] | string; // Current displayed types (default to updated)
+    faithfulTypes?: string[] | string; // Types in the faithful version
+    updatedTypes?: string[] | string; // Types in the polished/updated version
     frontSpriteUrl?: string;
   }>;
 }

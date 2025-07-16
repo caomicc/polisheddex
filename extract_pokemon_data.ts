@@ -373,16 +373,79 @@ for (const file of baseStatsFiles) {
   const fileName = file.replace('.asm', '');
   const content = fs.readFileSync(path.join(BASE_STATS_DIR, file), 'utf8');
 
-  // Extract type information from the file
-  const typeLine = content.split(/\r?\n/).find(l => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
-  if (!typeLine) continue;
+  // Initialize variables for both faithful and updated types
+  let faithfulTypes: [string, string] | null = null;
+  let updatedTypes: [string, string] | null = null;
+  let hasConditionalTypes = false;
 
-  const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
-  if (!match) continue;
+  // First check if there are conditional types based on FAITHFUL
+  const lines = content.split(/\r?\n/);
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (line.startsWith('if DEF(FAITHFUL)')) {
+      // Look for type definition within the conditional block
+      for (let j = i + 1; j < lines.length && !lines[j].trim().startsWith('else'); j++) {
+        const typeLine = lines[j].trim();
+        if (typeLine.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/)) {
+          const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+          if (match) {
+            // Convert type enums to proper type names for faithful version
+            faithfulTypes = [
+              typeEnumToName[match[1]] || 'None',
+              typeEnumToName[match[2]] || 'None'
+            ];
+            hasConditionalTypes = true;
+          }
+          break;
+        }
+      }
 
-  // Convert type enums to proper type names
-  const t1 = typeEnumToName[match[1]] || 'None';
-  const t2 = typeEnumToName[match[2]] || 'None';
+      // Look for the else block with updated types
+      let foundElse = false;
+      for (let j = i + 1; j < lines.length; j++) {
+        if (lines[j].trim() === 'else') {
+          foundElse = true;
+          // Look for type definition in the else block
+          for (let k = j + 1; k < lines.length && !lines[k].trim().startsWith('endc'); k++) {
+            const typeLine = lines[k].trim();
+            if (typeLine.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/)) {
+              const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+              if (match) {
+                // Convert type enums to proper type names for updated version
+                updatedTypes = [
+                  typeEnumToName[match[1]] || 'None',
+                  typeEnumToName[match[2]] || 'None'
+                ];
+              }
+              break;
+            }
+          }
+        }
+        if (foundElse && lines[j].trim().startsWith('endc')) {
+          break;
+        }
+      }
+
+      break; // We've found and processed the conditional block
+    }
+  }
+
+  // If no conditional types were found, look for a standard type declaration
+  if (!hasConditionalTypes) {
+    const typeLine = lines.find(l => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
+    if (typeLine) {
+      const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+      if (match) {
+        // Use the same types for both faithful and updated
+        const t1 = typeEnumToName[match[1]] || 'None';
+        const t2 = typeEnumToName[match[2]] || 'None';
+        faithfulTypes = [t1, t2];
+        updatedTypes = [t1, t2];
+      }
+    } else {
+      continue; // Skip this file if no type info found
+    }
+  }
 
   // Extract base Pokémon name and form name
   const { basePokemonName, formName } = extractFormInfo(fileName);
@@ -390,38 +453,63 @@ for (const file of baseStatsFiles) {
   // Enhanced debugging for specific Pokémon
   const isDebug = DEBUG_POKEMON.includes(basePokemonName);
   if (isDebug) {
-    console.log(`DEBUG ${fileName}: basePokemonName=${basePokemonName}, formName=${formName}, types=${t1},${t2}`);
+    console.log(`DEBUG: Processing ${fileName} for ${basePokemonName}`);
+    console.log(`  Faithful types: ${faithfulTypes ? faithfulTypes.join(', ') : 'None'}`);
+    console.log(`  Updated types: ${updatedTypes ? updatedTypes.join(', ') : 'None'}`);
   }
 
   // Special handling for "_plain" files
   if (fileName.endsWith('_plain')) {
-    // For "_plain" files, we want to store the type under the base name without "_plain"
-    const baseNameWithoutPlain = toTitleCase(fileName.replace(/_plain$/, ''));
-
-    typeMap[baseNameWithoutPlain] = [t1, t2];
-
-    if (isDebug) {
-      console.log(`DEBUG: Setting typeMap['${baseNameWithoutPlain}'] = [${t1}, ${t2}]`);
-    }
+    // Handle plain form types
+    const baseTypeName = toTitleCase(basePokemonName);
+    typeMap[baseTypeName] = {
+      faithfulTypes: faithfulTypes || ['None', 'None'],
+      updatedTypes: updatedTypes || faithfulTypes || ['None', 'None']
+    };
   } else if (formName && formName !== null) {
-    // This is a non-plain form (e.g., raichu_alolan.asm)
-    if (!formTypeMap[basePokemonName]) {
-      formTypeMap[basePokemonName] = {};
+    // Handle form-specific types
+    const baseTypeName = toTitleCase(basePokemonName);
+    const formTypeName = toTitleCase(formName);
+
+    // If the base type doesn't exist in the map yet, initialize it
+    if (!formTypeMap[baseTypeName]) {
+      formTypeMap[baseTypeName] = {};
     }
+
+    // Add form-specific types
+    formTypeMap[baseTypeName][formTypeName] = {
+      faithfulTypes: faithfulTypes || ['None', 'None'],
+      updatedTypes: updatedTypes || faithfulTypes || ['None', 'None']
+    };
+
     if (isDebug) {
-      console.log(`DEBUG: Processing ${fileName} as special form ${formName} for ${basePokemonName}, types: ${t1}, ${t2}`);
+      console.log(`DEBUG: Processing ${fileName} as special form ${formName} for ${basePokemonName}`);
+      console.log(`  Faithful types: ${faithfulTypes?.join(', ')}`);
+      console.log(`  Updated types: ${updatedTypes?.join(', ')}`);
     }
-    formTypeMap[basePokemonName][formName] = [t1, t2];
   } else {
-    // This is a regular base Pokémon file (e.g., raichu.asm)
+    // Handle regular Pokémon types
+    const typeName = toTitleCase(basePokemonName);
+    typeMap[typeName] = {
+      faithfulTypes: faithfulTypes || ['None', 'None'],
+      updatedTypes: updatedTypes || faithfulTypes || ['None', 'None']
+    };
+
     if (isDebug) {
-      console.log(`DEBUG: Processing ${fileName} as base Pokémon ${basePokemonName}, types: ${t1}, ${t2}`);
+      console.log(`DEBUG: Processing ${fileName} as base Pokémon ${basePokemonName}`);
+      console.log(`  Faithful types: ${faithfulTypes?.join(', ')}`);
+      console.log(`  Updated types: ${updatedTypes?.join(', ')}`);
     }
-    typeMap[basePokemonName] = [t1, t2];
   }
 }
+const finalResult: Record<string, PokemonDataV2 & {
+  nationalDex: number | null,
+  johtoDex: number | null,
+  types: string | string[],
+  faithfulTypes?: string | string[],
+  updatedTypes?: string | string[]
+}> = {};
 
-const finalResult: Record<string, PokemonDataV2 & { nationalDex: number | null, johtoDex: number | null, types: string | string[] }> = {};
 for (const mon of Object.keys(result)) {
 
   console.log(`Processing Pokémon: ${mon}`);
@@ -474,35 +562,62 @@ for (const mon of Object.keys(result)) {
   }
 
   // Get types based on whether this is a base form or a special form
-  let types: string | string[];
+  let faithfulTypes: string[] = ['None'];
+  let updatedTypes: string[] = ['None'];
 
   if (formName && formName !== KNOWN_FORMS.PLAIN) {
     // This is a special form like alolan, galarian, etc.
     if (formTypeMap[basePokemonName] && formTypeMap[basePokemonName][formName]) {
       // Use form-specific type data from formTypeMap
-      types = formTypeMap[basePokemonName][formName];
+      const formTypeData = formTypeMap[basePokemonName][formName];
+      faithfulTypes = formTypeData.faithfulTypes || ['None'];
+      updatedTypes = formTypeData.updatedTypes || formTypeData.faithfulTypes || ['None'];
     } else {
       // Fallback to base type if form type not found
-      types = typeMap[basePokemonName] || ['None', 'None'];
+      if (typeMap[basePokemonName]) {
+        faithfulTypes = typeMap[basePokemonName].faithfulTypes || ['None'];
+        updatedTypes = typeMap[basePokemonName].updatedTypes || typeMap[basePokemonName].faithfulTypes || ['None'];
+      }
     }
   } else {
     // This is a base form or plain form - look up directly in typeMap
-    types = typeMap[baseMonName] || ['None', 'None'];
+    if (typeMap[baseMonName]) {
+      faithfulTypes = typeMap[baseMonName].faithfulTypes || ['None'];
+      updatedTypes = typeMap[baseMonName].updatedTypes || typeMap[baseMonName].faithfulTypes || ['None'];
+    }
   }
 
-  // Remove duplicates and handle 'None'
-  types = Array.from(new Set(types)).filter(t => t !== 'None');
-
-  if (types.length === 0) {
-    types = 'Unknown';
-  } else if (types.length === 1) {
-    types = types[0];
+  // Process faithful types
+  let faithfulTypesFormatted: string | string[] = Array.from(new Set(faithfulTypes)).filter(t => t !== 'None');
+  if (faithfulTypesFormatted.length === 0) {
+    faithfulTypesFormatted = 'Unknown';
+  } else if (faithfulTypesFormatted.length === 1) {
+    faithfulTypesFormatted = faithfulTypesFormatted[0];
   }
+
+  // Process updated types - these will also be the default "types" field
+  let updatedTypesFormatted: string | string[] = Array.from(new Set(updatedTypes)).filter(t => t !== 'None');
+  if (updatedTypesFormatted.length === 0) {
+    updatedTypesFormatted = 'Unknown';
+  } else if (updatedTypesFormatted.length === 1) {
+    updatedTypesFormatted = updatedTypesFormatted[0];
+  }
+
+  // Set the primary types field to the updated types by default
+  const types = updatedTypesFormatted;
 
   console.log(`Final moves for ${mon}: ${moves}`);
 
-  // Create the final result with the correct types
-  finalResult[mon] = { evolution, moves, nationalDex, johtoDex, types };
+  // Create the final result with both faithful and updated types
+  finalResult[mon] = {
+    evolution,
+    moves,
+    nationalDex,
+    johtoDex,
+    types,
+    faithfulTypes: faithfulTypesFormatted,
+    updatedTypes: updatedTypesFormatted
+  };
 }
 
 // --- Wild Pokémon Location Extraction ---
@@ -664,16 +779,9 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
   if (!typeData || typeData === 'None' || (Array.isArray(typeData) && typeData.includes('None'))) {
     // Try to get type from our typeMap
     if (typeMap[trimmedMon]) {
-      const types = typeMap[trimmedMon];
-      // Handle single type cases
-      if (types.length === 1 || (types.length === 2 && types[1] === 'None')) {
-        typeData = types[0];
-      } else {
-        typeData = Array.from(new Set(types)).filter(t => t !== 'None'); // Remove duplicates and 'None'
-        if (typeData.length === 1) {
-          typeData = typeData[0]; // Convert to string if only one type
-        }
-      }
+      const typesData = typeMap[trimmedMon];
+      // Process the types using our helper function
+      typeData = processTypeArray(typesData.updatedTypes || typesData.faithfulTypes || ['None']);
     }
     // Check for _plain file types if we still don't have valid type data
     else {
@@ -718,7 +826,9 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     name: trimmedMon,
     nationalDex: data.nationalDex,
     johtoDex: data.johtoDex,
-    types: typeData || "Unknown",
+    types: data.faithfulTypes || data.types || "Unknown", // Default to the main types (updated version)
+    // faithfulTypes: data.faithfulTypes || data.types || "Unknown", // Include faithful types if available
+    updatedTypes: data.updatedTypes || data.types || "Unknown", // Include updated types if available
     frontSpriteUrl: `/sprites/pokemon/${spriteName}/front_cropped.png`,
     baseStats: {
       hp: 0,
@@ -744,63 +854,135 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     hatchRate: "Unknown", // default value
     evYield: "None", // default value
     forms: {} // Ensure forms are initialized as an empty object
-  }  // Add form-specific type data and sprite URL if available
+  }
 
+  // Add form-specific type data and sprite URL if available
   if (data.forms && Object.keys(data.forms).length > 0) {
     // forms is already initialized as an empty object in baseData[trimmedMon]
     for (const [formName, formData] of Object.entries(data.forms)) {
       // Get form type data, with fallbacks
       let formTypeData = formData.types;
+      let formFaithfulTypeData = formData.types;  // Default to regular types
+      let formUpdatedTypeData = formData.types;   // Default to regular types
+
       if (!formTypeData || formTypeData === 'None' || (Array.isArray(formTypeData) && formTypeData.includes('None'))) {
         // Try to get from formTypeMap
         if (formTypeMap[trimmedMon] && formTypeMap[trimmedMon][formName]) {
-          const formTypes = formTypeMap[mon][formName];
-          if (formTypes.length === 1 || (formTypes.length === 2 && formTypes[1] === 'None')) {
-            formTypeData = formTypes[0];
-          } else {
-            formTypeData = formTypes;
-          }
+          const formTypes = formTypeMap[trimmedMon][formName];
+          formFaithfulTypeData = processTypeArray(formTypes.faithfulTypes);
+          formUpdatedTypeData = processTypeArray(formTypes.updatedTypes);
+          formTypeData = formUpdatedTypeData; // Default to updated types
         }
-        // If still not found, check directly in the ASM file
-        else {
-          // Construct the filename pattern for this form
-          const formFileName = `${mon.toLowerCase()}_${formName.toLowerCase()}`;
+      }
+      // If still not found, check directly in the ASM file
+      else {
+        // Construct the filename pattern for this form
+        const formFileName = `${trimmedMon.toLowerCase()}_${formName.toLowerCase()}`;
 
-          // Look for any base stats files that match this pattern
-          const matchingFormFiles = baseStatsFiles.filter(f =>
-            f.toLowerCase().startsWith(formFileName) && f.endsWith('.asm')
-          );
+        // Look for any base stats files that match this pattern
+        const matchingFormFiles = baseStatsFiles.filter(f =>
+          f.toLowerCase().startsWith(formFileName) && f.endsWith('.asm')
+        );
 
-          if (matchingFormFiles.length > 0) {
+        if (matchingFormFiles.length > 0) {
+          // Get the file content
+          const formFile = matchingFormFiles[0];
+          const formFileContent = fs.readFileSync(path.join(BASE_STATS_DIR, formFile), 'utf8');
+          const formLines = formFileContent.split(/\r?\n/);
 
-            // Extract type information from the file
-            const formContent = fs.readFileSync(path.join(BASE_STATS_DIR, matchingFormFiles[0]), 'utf8');
-            const formTypeLine = formContent.split(/\r?\n/).find(l =>
-              l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/)
-            );
+          // Check for conditional types
+          let faithfulFormTypes: [string, string] | null = null;
+          let updatedFormTypes: [string, string] | null = null;
+          let hasConditionalFormTypes = false;
 
+          // First check for conditional types (FAITHFUL)
+          for (let i = 0; i < formLines.length; i++) {
+            const line = formLines[i].trim();
+            if (line.startsWith('if DEF(FAITHFUL)')) {
+              // Look for type definition within the conditional block
+              for (let j = i + 1; j < formLines.length && !formLines[j].trim().startsWith('else'); j++) {
+                const typeLine = formLines[j].trim();
+                if (typeLine.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/)) {
+                  const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+                  if (match) {
+                    // Convert type enums to proper type names for faithful version
+                    faithfulFormTypes = [
+                      typeEnumToName[match[1]] || 'None',
+                      typeEnumToName[match[2]] || 'None'
+                    ];
+                    hasConditionalFormTypes = true;
+                  }
+                  break;
+                }
+              }
+
+              // Look for the else block with updated types
+              let foundElse = false;
+              for (let j = i + 1; j < formLines.length; j++) {
+                if (formLines[j].trim() === 'else') {
+                  foundElse = true;
+                  // Look for type definition in the else block
+                  for (let k = j + 1; k < formLines.length && !formLines[k].trim().startsWith('endc'); k++) {
+                    const typeLine = formLines[k].trim();
+                    if (typeLine.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/)) {
+                      const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+                      if (match) {
+                        // Convert type enums to proper type names for updated version
+                        updatedFormTypes = [
+                          typeEnumToName[match[1]] || 'None',
+                          typeEnumToName[match[2]] || 'None'
+                        ];
+                      }
+                      break;
+                    }
+                  }
+                }
+                if (foundElse && formLines[j].trim().startsWith('endc')) {
+                  break;
+                }
+              }
+
+              break; // We've found and processed the conditional block
+            }
+          }
+
+          // If no conditional types, look for standard type line
+          if (!hasConditionalFormTypes) {
+            const formTypeLine = formLines.find(l => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
             if (formTypeLine) {
               const formMatch = formTypeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
               if (formMatch) {
+                // Convert to proper type names
                 const t1 = typeEnumToName[formMatch[1]] || 'None';
                 const t2 = typeEnumToName[formMatch[2]] || 'None';
 
-                // Update the type data
-                if (t1 === t2 || t2 === 'None') {
-                  formTypeData = t1;
-                } else {
-                  formTypeData = [t1, t2];
-                }
+                // Use the same types for both faithful and updated
+                faithfulFormTypes = [t1, t2];
+                updatedFormTypes = [t1, t2];
               }
             }
+          }
+
+          // Process the faithful and updated types
+          if (faithfulFormTypes) {
+            formFaithfulTypeData = processTypeArray(faithfulFormTypes);
+          }
+
+          if (updatedFormTypes) {
+            formUpdatedTypeData = processTypeArray(updatedFormTypes);
+            formTypeData = formUpdatedTypeData; // Default to updated types
+          } else if (faithfulFormTypes) {
+            formTypeData = processTypeArray(faithfulFormTypes);
           }
         }
       }
 
       // Special case for Alolan Raichu
-      if (mon === 'Raichu' && formName === 'alolan' && (!formTypeData || formTypeData === 'Unknown')) {
+      if (trimmedMon === 'Raichu' && formName === 'alolan' && (!formTypeData || formTypeData === 'Unknown')) {
         console.log('Setting Alolan Raichu types to Electric, Psychic');
         formTypeData = ['Electric', 'Psychic'];
+        formFaithfulTypeData = ['Electric', 'Psychic'];
+        formUpdatedTypeData = ['Electric', 'Psychic'];
       }
 
       // Create directory-style sprite path for form variants
@@ -809,7 +991,9 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
       // Add the form data to the baseData
       // @ts-expect-error // TypeScript doesn't know about the dynamic structure of baseData[trimmedMon].forms
       baseData[trimmedMon].forms[formName] = {
-        types: formTypeData || 'Unknown',
+        types: formFaithfulTypeData || formTypeData || 'Unknown',
+        // faithfulTypes: formFaithfulTypeData || formTypeData || 'Unknown',
+        updatedTypes: formUpdatedTypeData || formTypeData || 'Unknown',
         frontSpriteUrl: `/sprites/pokemon/${formSpritePath}/front_cropped.png`,
         baseStats: {
           hp: 0,
@@ -1216,3 +1400,15 @@ function exportDetailedStats() {
 //     console.log(`Replaced "Ho Oh" with "Ho-Oh" in ${file}`);
 //   }
 // }
+
+// Function to process type arrays into the proper format
+function processTypeArray(types: string[]): string | string[] {
+  if (!types || types.length === 0) return 'Unknown';
+
+  // Remove duplicates and 'None' values
+  const filteredTypes = Array.from(new Set(types)).filter(t => t !== 'None');
+
+  if (filteredTypes.length === 0) return 'Unknown';
+  if (filteredTypes.length === 1) return filteredTypes[0];
+  return filteredTypes;
+}

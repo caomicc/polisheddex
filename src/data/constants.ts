@@ -19,9 +19,14 @@ export const KNOWN_FORMS = {
 // Debug flag for tracking Pokémon type processing
 export const DEBUG_POKEMON = ['Growlithe', 'Raichu', 'Arcanine', 'Diglett', 'Dugtrio', 'Meowth', 'Persian', 'Exeggutor', 'Marowak', 'Slowbro', 'Slowking', 'Qwilfish', 'Dudunsparce'];
 
-export const typeMap: Record<string, string[]> = {};
+export interface TypeData {
+  faithfulTypes: string[];
+  updatedTypes: string[];
+}
 
-export const formTypeMap: Record<string, Record<string, string[]>> = {};
+export const typeMap: Record<string, TypeData> = {};
+
+export const formTypeMap: Record<string, Record<string, TypeData>> = {};
 
 
 export const evoMap: Record<string, EvoRaw[]> = {};
