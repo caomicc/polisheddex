@@ -113,8 +113,7 @@ export function extractPokedexEntries() {
   const lines = entriesData.split(/\r?\n/);
 
   // Store the entries as { pokemon: { species: string, entries: string[] } }
-  const pokedexEntries: Record<string, { species: string, entries: string[] }> = {};
-
+  const pokedexEntries: Record<string, { species: string, entries: string[], forms?: Record<string, { species: string, entries: string[] }> }> = {};
   let currentMon: string | null = null;
   let currentSpecies: string | null = null;
   let currentEntries: string[] = [];
@@ -128,15 +127,47 @@ export function extractPokedexEntries() {
     if (sectionMatch) {
       // Save previous entry if we were processing one
       if (currentMon && currentSpecies && currentEntries.length > 0) {
-        // Convert to title case for consistency with other data files
         const standardizedMon = standardizePokemonKey(currentMon);
-        console.log(`Saving entry for ${standardizedMon}:`, currentSpecies, currentEntries);
-        pokedexEntries[standardizedMon] = {
-          species: currentSpecies,
-          entries: currentEntries
-        };
+        // Trim the last camelcased piece from currentMon (e.g., "TaurosPaldeanFire" -> "TaurosPaldean")
+        // Extract the regional form from the currentMon (e.g., TyphlosionHisuian -> Hisuian)
+        const regionalFormMatch = currentMon.match(/([A-Z][a-z]+)$/);
+        const regionalForm = regionalFormMatch ? regionalFormMatch[1] : '';
+        console.log(`Processing Pokémon: ${currentMon}`, 'regionalForm:', regionalForm);
+        if (Object.values(KNOWN_FORMS).some(form => form.toLowerCase().includes(regionalForm.toLowerCase()))) {
+          console.log('currentMon:', currentMon, 'standardizedMon:', standardizedMon, 'currentSpecies:', currentSpecies, 'currentEntries:', currentEntries);
+        }
+        if (pokedexEntries[standardizedMon]) {
+          console.log(`Duplicate entry for ${standardizedMon}`);
+          const currentData = pokedexEntries[standardizedMon];
+          const updatedData = {
+            ...currentData,
+            forms: {
+              ...currentData.forms,
+              [regionalForm]: {
+                species: currentSpecies,
+                entries: currentEntries
+              }
+            }
+          };
+          console.log('Updating existing entry:', standardizedMon, 'with new form:', regionalForm, 'currentData:', currentData, 'updatedData:', updatedData);
+          pokedexEntries[standardizedMon] = updatedData;
+        } else {
+          pokedexEntries[standardizedMon] = {
+            species: currentSpecies,
+            entries: currentEntries,
+          };
+        }
+        // If this is a form (contains a hyphen), also add the entry for the base mon if not present
+        if (Object.values(KNOWN_FORMS).some(form => regionalForm.includes(form.toLowerCase()))) {
+          const baseMon = standardizedMon.split('-')[0];
+          if (!pokedexEntries[baseMon]) {
+            pokedexEntries[baseMon] = {
+              species: currentSpecies,
+              entries: currentEntries
+            };
+          }
+        }
       }
-
       // Start a new entry
       currentMon = sectionMatch[1];
       currentSpecies = null;
@@ -146,60 +177,46 @@ export function extractPokedexEntries() {
       skipConditional = false;
       continue;
     }
-
     // Check for entry start
     if (line.includes('::')) {
       collectingEntry = true;
       collectingSpecies = true;
       continue;
     }
-
     // Handle conditional species entries (like Blastoise)
     if (collectingSpecies && line.includes('if DEF')) {
-      // We're in a conditional block, get the species from the non-FAITHFUL branch if available
       skipConditional = true;
       continue;
     }
-
     if (skipConditional && line.includes('else')) {
-      // Now we're in the else part, we can collect the species
       skipConditional = false;
       continue;
     }
-
     if (skipConditional && line.includes('endc')) {
-      // End of conditional, go back to normal processing
       skipConditional = false;
       collectingSpecies = false;
       continue;
     }
-
-    // Skip lines while in a conditional we want to ignore
     if (skipConditional) continue;
-
     // Species line (e.g., db "Seed@")
     if (collectingEntry && line.trim().startsWith('db "') && line.includes('@"')) {
       currentSpecies = line.trim().replace('db "', '').replace('@"', '');
       collectingSpecies = false;
       continue;
     }
-
     // Entry text lines
     if (collectingEntry && currentSpecies) {
-      // Extract the text content between the quotes
       if (line.trim().startsWith('db ')) {
         const textMatch = line.match(/db\s+"([^"]+)"/);
         if (textMatch) {
           currentEntries.push(textMatch[1]);
         }
       } else if (line.trim().startsWith('next ')) {
-        // Handle lines with 'next' keyword
         const nextMatch = line.match(/next\s+"([^"]+)"/);
         if (nextMatch) {
           currentEntries.push(nextMatch[1]);
         }
       } else if (line.trim().startsWith('page ')) {
-        // Handle lines with 'page' keyword - indicates a new page in the Pokédex
         const pageMatch = line.match(/page\s+"([^"]+)"/);
         if (pageMatch) {
           currentEntries.push(pageMatch[1]);
@@ -207,15 +224,23 @@ export function extractPokedexEntries() {
       }
     }
   }
-
   // Don't forget the last entry
   if (currentMon && currentSpecies && currentEntries.length > 0) {
     const standardizedMon = standardizePokemonKey(currentMon);
-
     pokedexEntries[standardizedMon] = {
       species: currentSpecies,
       entries: currentEntries
     };
+    // If this is a form (contains a hyphen), also add the entry for the base mon if not present
+    if (standardizedMon.includes('-')) {
+      const baseMon = standardizedMon.split('-')[0];
+      if (!pokedexEntries[baseMon]) {
+        pokedexEntries[baseMon] = {
+          species: currentSpecies,
+          entries: currentEntries
+        };
+      }
+    }
   }
 
   // Clean up and format the entries
@@ -226,22 +251,38 @@ export function extractPokedexEntries() {
       .replace(/@/g, '')
       .replace(/\s*-\s*(?=\w)/g, '')
       .replace(/\s+/g, ' ');
+
+    console.log(data)
+
     const entry = {
       species: data.species,
       description: description.trim()
     };
-    // Build formattedEntries in the new format
-    const formMatch = mon.match(/^(.*?)-(\w+)$/);
-    if (formMatch) {
-      const base = formMatch[1];
-      const formKey = formMatch[2][0].toUpperCase() + formMatch[2].slice(1).toLowerCase();
-      if (!formattedEntries[base]) formattedEntries[base] = {};
-      formattedEntries[base][formKey] = entry;
-    } else {
-      if (!formattedEntries[mon]) formattedEntries[mon] = {};
-      formattedEntries[mon].default = entry;
+
+
+    if (!formattedEntries[mon]) formattedEntries[mon] = {};
+    formattedEntries[mon].default = entry;
+
+    const hasForms = data.forms && Object.keys(data.forms).length > 0;
+
+    if (hasForms) {
+      const forms = data.forms;
+      for (const formKey in forms) {
+        const formData = forms[formKey];
+        const formDescription = formData.entries.join(' ')
+          .replace(/@/g, '')
+          .replace(/\s*-\s*(?=\w)/g, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+
+        // Create the entry for this form
+        formattedEntries[mon] = formattedEntries[mon] || {};
+        formattedEntries[mon][formKey] = {
+          species: formData.species,
+          description: formDescription
+        };
+      }
     }
-    // Update the respective Pokémon JSON file
     updatePokemonJsonWithDexEntry(mon, entry);
   }
 

@@ -52,8 +52,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     nationalDex: pokemonData.nationalDex || null,
     frontSpriteUrl: pokemonData.frontSpriteUrl,
     johtoDex: pokemonData.johtoDex || null,
-    species: pokemonData.pokedexEntries?.species || '',
-    description: pokemonData.pokedexEntries?.description || '',
+    species: pokemonData.pokedexEntries?.default.species || '',
+    description: pokemonData.pokedexEntries?.default.description || '',
   };
 
   // Add any additional forms
@@ -68,8 +68,13 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         nationalDex: formValue.nationalDex || pokemonData.nationalDex || null,
         johtoDex: formValue.johtoDex || pokemonData.johtoDex || null,
         description:
-          formValue.pokedexEntries?.description || pokemonData.pokedexEntries?.description || '',
-        species: formValue.pokedexEntries?.species || pokemonData.pokedexEntries?.species || '',
+          formValue.pokedexEntries?.[formKey]?.description ||
+          pokemonData.pokedexEntries?.[formKey]?.description ||
+          '',
+        species:
+          formValue.pokedexEntries?.[formKey]?.species ||
+          pokemonData.pokedexEntries?.[formKey]?.species ||
+          '',
       };
       console.log(`Added form ${formKey} data for ${pokemonName}`, allFormData[formKey]);
     });
