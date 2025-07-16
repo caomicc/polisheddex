@@ -72,10 +72,14 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
     if (!baseTypes || baseTypes === 'None' || (Array.isArray(baseTypes) && baseTypes.includes('None'))) {
       if (typeMap[baseName]) {
         const types = typeMap[baseName];
-        if (types.length === 1 || (types.length === 2 && types[1] === 'None')) {
-          baseTypes = types[0];
+        if (Array.isArray(types)) {
+          if (types.length === 1 || (types.length === 2 && types[1] === 'None')) {
+            baseTypes = types[0];
+          } else {
+            baseTypes = Array.isArray(types) ? types : [types];
+          }
         } else {
-          baseTypes = types;
+          baseTypes = Array.isArray(types) ? types : [types.toString()];
         }
       }
     }
@@ -99,10 +103,12 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
             // Use the form-specific type data
             const formTypeArray = formTypeMap[baseName][formName];
             // Handle single type (remove duplicates or 'None')
-            if (formTypeArray.length === 1 || (formTypeArray.length === 2 && formTypeArray[1] === 'None')) {
+            if (Array.isArray(formTypeArray) && (formTypeArray.length === 1 || (formTypeArray.length === 2 && formTypeArray[1] === 'None'))) {
               formTypes = formTypeArray[0];
             } else {
-              formTypes = formTypeArray;
+              formTypes = Array.isArray(formTypeArray)
+                ? formTypeArray.map(String)
+                : [String(formTypeArray)];
             }
           }
         }
