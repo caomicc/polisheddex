@@ -595,7 +595,7 @@
     "description": "When excited, it discharges the electric current stored in its belly, then lets out a laugh."
   },
   "forms": {
-    " Hisuian": {
+    "Hisuian": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -866,7 +866,75 @@
       "formName": " Hisuian"
     },
     "hisuian": {
+      "baseStats": {
+        "hp": 40,
+        "attack": 30,
+        "defense": 50,
+        "speed": 100,
+        "specialAttack": 55,
+        "specialDefense": 55,
+        "total": 330
+      },
+      "catchRate": 190,
+      "baseExp": 103,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Aftermath",
+          "description": "\tDamages the foe on \tfainting.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Aftermath",
+          "description": "\tDamages the foe on \tfainting.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Mineral",
+        "Mineral"
+      ],
+      "evYield": "1 Spe",
       "types": [
+        "Electric",
+        "Grass"
+      ],
+      "updatedTypes": [
         "Electric",
         "Grass"
       ],

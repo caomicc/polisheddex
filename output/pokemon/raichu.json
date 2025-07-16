@@ -611,7 +611,7 @@
     "description": "When you rub its cheeks, a sweet fragrance comes wafting out. However, you'll also get a light shock!"
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -739,7 +739,78 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 60,
+        "attack": 85,
+        "defense": 50,
+        "speed": 110,
+        "specialAttack": 95,
+        "specialDefense": 80,
+        "total": 480
+      },
+      "catchRate": 75,
+      "baseExp": 122,
+      "heldItems": [
+        "ORAN_BERRY",
+        "LIGHT_BALL"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Fast (2,560 steps)",
+      "abilities": [
+        {
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Fairy"
+      ],
+      "evYield": "3 Spe",
       "types": [
+        "Electric",
+        "Psychic"
+      ],
+      "updatedTypes": [
         "Electric",
         "Psychic"
       ],

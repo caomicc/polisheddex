@@ -658,7 +658,7 @@
     "description": "When its feathers rub together, they produce a crackling sound like the zapping of electricity."
   },
   "forms": {
-    " Galarian": {
+    "Galarian": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -903,7 +903,77 @@
       "formName": " Galarian"
     },
     "galarian": {
+      "baseStats": {
+        "hp": 90,
+        "attack": 125,
+        "defense": 90,
+        "speed": 100,
+        "specialAttack": 85,
+        "specialDefense": 90,
+        "total": 580
+      },
+      "catchRate": 3,
+      "baseExp": 216,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "abilities": [
+        {
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "3 Atk",
       "types": [
+        "Fighting",
+        "Flying"
+      ],
+      "updatedTypes": [
         "Fighting",
         "Flying"
       ],

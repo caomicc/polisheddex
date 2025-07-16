@@ -688,7 +688,77 @@
   },
   "forms": {
     "alolan": {
+      "baseStats": {
+        "hp": 75,
+        "attack": 71,
+        "defense": 70,
+        "speed": 77,
+        "specialAttack": 40,
+        "specialDefense": 80,
+        "total": 413
+      },
+      "catchRate": 90,
+      "baseExp": 116,
+      "heldItems": [
+        "PECHA_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 Spe",
       "types": [
+        "Dark",
+        "Normal"
+      ],
+      "updatedTypes": [
         "Dark",
         "Normal"
       ],

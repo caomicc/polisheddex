@@ -710,7 +710,7 @@
     "description": "If you observe its curly hairs through a microscope, you'll see small ice particles springing up."
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -1018,10 +1018,77 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 38,
+        "attack": 41,
+        "defense": 40,
+        "speed": 65,
+        "specialAttack": 50,
+        "specialDefense": 65,
+        "total": 299
+      },
+      "catchRate": 190,
+      "baseExp": 63,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 25,
+        "female": 75
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Snow Warning",
+          "description": "\tSummons hailstorm \twhen switched in.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Snow Warning",
+          "description": "\tSummons hailstorm \twhen switched in.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Spe",
       "types": [
         "Ice",
         "Ice"
       ],
+      "updatedTypes": "Ice",
       "frontSpriteUrl": "/sprites/pokemon/vulpix_alolan/front_cropped.png",
       "moves": [
         {

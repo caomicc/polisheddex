@@ -666,7 +666,7 @@
     "description": "Its metallic whiskers are heavy, so it's not very fast, but it has the power to dig through bedrock."
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -926,7 +926,77 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 35,
+        "attack": 100,
+        "defense": 60,
+        "speed": 110,
+        "specialAttack": 50,
+        "specialDefense": 70,
+        "total": 425
+      },
+      "catchRate": 50,
+      "baseExp": 153,
+      "heldItems": [
+        "SOFT_SAND"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Tangling Hair",
+          "description": "\tContact may lower \tthe foe's Speed.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Sand Force",
+          "description": "\tBoosts some moves \tin a sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Tangling Hair",
+          "description": "\tContact may lower \tthe foe's Speed.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Sand Force",
+          "description": "\tBoosts some moves \tin a sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 Spe",
       "types": [
+        "Ground",
+        "Steel"
+      ],
+      "updatedTypes": [
         "Ground",
         "Steel"
       ],

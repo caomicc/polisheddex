@@ -1085,7 +1085,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
       baseData[trimmedMon].forms[formName] = {
         types: formFaithfulTypeData || formTypeData || 'Unknown', // Main types should be faithful types
         // faithfulTypes: formFaithfulTypeData || 'Unknown',
-        updatedTypes: formUpdatedTypeData || formTypeData || 'Unknown',
+        updatedTypes: formUpdatedTypeData || undefined,
         frontSpriteUrl: `/sprites/pokemon/${formSpritePath}/front_cropped.png`,
         baseStats: {
           hp: 0,
@@ -1182,9 +1182,13 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
   // Add form-specific moves if available
   if (data.forms && Object.keys(data.forms).length > 0) {
     levelMoves[mon].forms = {};
+    console.log(`Found forms for ${mon}, processing...`);
+    console.log(`Forms data:`, data.forms);
     for (const [formName, formData] of Object.entries(data.forms)) {
       if (Array.isArray(formData.moves) && formData.moves.length > 0) {
         if (!levelMoves[mon].forms) levelMoves[mon].forms = {};
+        console.log(`Adding form ${formName} moves for ${mon}`);
+        console.log(`Form moves:`, formData.moves);
         levelMoves[mon].forms[formName] = {
           moves: formData.moves.map(m => ({
             name: m.name,
@@ -1589,65 +1593,64 @@ if (fs.existsSync(DETAILED_STATS_OUTPUT)) {
 for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
   // --- Ensure all forms are included in individual Pokemon files ---
   const groupedData = groupedPokemonData[pokemonName] || {};
-  const forms = { ...(groupedData.forms || {}) };
+  // Deduplicate and normalize form keys
+  const forms: Record<string, any> = {};
+  const seenForms: Record<string, string> = {};
+  if (groupedData.forms) {
+    for (const [formKey, formData] of Object.entries(groupedData.forms)) {
+      const normKey = formKey.trim().toLowerCase();
+      // If this normalized key is new, or this formData is more complete, use it
+      if (!seenForms[normKey] || isMoreCompleteForm(formData, groupedData.forms[seenForms[normKey]])) {
+        forms[formKey.trim()] = formData;
+        seenForms[normKey] = formKey.trim();
+      }
+    }
+  }
   const baseName = pokemonName.toLowerCase();
   const formFiles = baseStatsFiles.filter(f => f.toLowerCase().startsWith(baseName + '_') && f.endsWith('.asm'));
   for (const formFile of formFiles) {
     const formName = formFile.replace(baseName + '_', '').replace('.asm', '');
-    // Normalize form name for lookup
-    const normalizedFormName = Object.keys(validatedLevelMoves[pokemonName]?.forms || {}).find(
-      k => k.toLowerCase() === formName.toLowerCase()
-    ) || formName;
+    const normKey = formName.trim().toLowerCase();
+
+    console.log('building form', formName, 'for', pokemonName, 'from file', formFile);
+
+    // Only add if not already present
     let formTypeData = (formTypeMap[pokemonName] && formTypeMap[pokemonName][toTitleCase(formName)])
       ? formTypeMap[pokemonName][toTitleCase(formName)].types
       : baseData.types;
-    // Try to get moves for this form, fallback to base moves if missing
+
+    console.log(`formTypeMap[${pokemonName}] && formTypeMap[${pokemonName}][toTitleCase(${formName})]`, formTypeMap[pokemonName] && formTypeMap[pokemonName][toTitleCase(formName)]);
+    console.log('Form Type Data:', pokemonName, formName, formTypeData);
     let formMoves: Move[] = [];
     if (
       validatedLevelMoves[pokemonName]?.forms &&
-      validatedLevelMoves[pokemonName].forms[normalizedFormName] &&
-      Array.isArray(validatedLevelMoves[pokemonName].forms[normalizedFormName].moves)
+      validatedLevelMoves[pokemonName].forms[formName] &&
+      Array.isArray(validatedLevelMoves[pokemonName].forms[formName].moves)
     ) {
-      formMoves = validatedLevelMoves[pokemonName].forms[normalizedFormName].moves;
+      formMoves = validatedLevelMoves[pokemonName].forms[formName].moves;
     } else if (validatedLevelMoves[pokemonName]?.moves) {
-      console.warn(`Warning: No specific moves found for form '${formName}'`, validatedLevelMoves[pokemonName]);
       formMoves = validatedLevelMoves[pokemonName].moves;
-      if (formMoves.length > 0) {
-        console.warn(`Warning: No moves found for form '${formName}' of ${pokemonName}, falling back to base moves.`);
-      }
-    } else {
-      console.warn(`Warning: No moves found for form '${formName}' of ${pokemonName}.`);
     }
-    // Do not include moves for 'plain' form
+    // Merge in detailed stats for this form if available
+    const formStats = detailedStatsData[`${pokemonName} ${formName}`] || {};
     if (formName.toLowerCase() === 'plain' || formName === undefined) {
-      // Only update types/frontSpriteUrl if not already present, do not add moves
-      forms[formName] = {
-        ...(forms[formName] || {}),
-        types: forms[formName]?.types ?? formTypeData,
-        frontSpriteUrl: forms[formName]?.frontSpriteUrl ?? `/sprites/pokemon/${baseName}_${formName}/front_cropped.png`
+      forms[formName.trim()] = {
+        ...formStats,
+        ...(forms[formName.trim()] || {}),
+        types: formTypeData,
+        frontSpriteUrl: `/sprites/pokemon/${baseName}_${formName}/front_cropped.png`
       };
     } else {
-      forms[formName] = {
+      forms[formName.trim()] = {
+        ...formStats,
+        ...(forms[formName.trim()] || {}),
         types: formTypeData,
         frontSpriteUrl: `/sprites/pokemon/${baseName}_${formName}/front_cropped.png`,
         moves: formMoves
       };
     }
+    seenForms[normKey] = formName.trim();
   }
-
-  // Always include all forms, even if empty
-  const allFormMoves: Record<string, { moves: Move[] }> = {};
-  if (validatedLevelMoves[pokemonName]?.forms) {
-    for (const [formName, formMoveObj] of Object.entries(validatedLevelMoves[pokemonName].forms)) {
-      allFormMoves[formName] = { moves: formMoveObj.moves || [] };
-    }
-  }
-  for (const formName of Object.keys(forms)) {
-    if (!allFormMoves[formName]) {
-      allFormMoves[formName] = { moves: forms[formName].moves || [] };
-    }
-  }
-
   // Build minimal root object
   const pokemonData: Record<string, any> = {
     name: pokemonName,
@@ -1737,3 +1740,11 @@ fs.writeFileSync(indexPath, JSON.stringify({
 console.log(`Generated individual files for ${pokemonIndex.length} Pokemon in ${POKEMON_DIR}`);
 console.log(`Created index file at ${indexPath}`);
 console.log('Individual Pokemon file generation complete!');
+
+// Helper: prefer form with more data
+function isMoreCompleteForm(a: any, b: any) {
+  // Prefer the one with types and frontSpriteUrl
+  const aScore = (a.types ? 1 : 0) + (a.frontSpriteUrl ? 1 : 0);
+  const bScore = (b.types ? 1 : 0) + (b.frontSpriteUrl ? 1 : 0);
+  return aScore > bScore;
+}

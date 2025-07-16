@@ -660,7 +660,7 @@
     "description": "A psychic attack unleashed from Rapidash's horn can punch a hole right through a thick metal sheet."
   },
   "forms": {
-    " Galarian": {
+    "Galarian": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -900,7 +900,77 @@
       "formName": " Galarian"
     },
     "galarian": {
+      "baseStats": {
+        "hp": 65,
+        "attack": 100,
+        "defense": 70,
+        "speed": 105,
+        "specialAttack": 80,
+        "specialDefense": 80,
+        "total": 500
+      },
+      "catchRate": 60,
+      "baseExp": 192,
+      "heldItems": [
+        "MARANGABERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Pastel Veil",
+          "description": "\tPrevents it from \tgetting poisoned.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Pastel Veil",
+          "description": "\tPrevents it from \tgetting poisoned.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 Spe",
       "types": [
+        "Psychic",
+        "Fairy"
+      ],
+      "updatedTypes": [
         "Psychic",
         "Fairy"
       ],

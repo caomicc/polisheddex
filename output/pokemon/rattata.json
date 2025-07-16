@@ -608,7 +608,7 @@
     "description": "It has no interest in anything that's not fresh. If you take it shopping with you, it'll help pick ingredients."
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -819,7 +819,77 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 30,
+        "attack": 56,
+        "defense": 35,
+        "speed": 72,
+        "specialAttack": 25,
+        "specialDefense": 35,
+        "total": 253
+      },
+      "catchRate": 255,
+      "baseExp": 57,
+      "heldItems": [
+        "PECHA_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Spe",
       "types": [
+        "Dark",
+        "Normal"
+      ],
+      "updatedTypes": [
         "Dark",
         "Normal"
       ],

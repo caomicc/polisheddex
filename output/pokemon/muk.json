@@ -690,7 +690,7 @@
     "description": "Muk's coloration becomes increasingly vivid the more it feasts on its favorite dish-trash."
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -938,7 +938,78 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 105,
+        "attack": 105,
+        "defense": 75,
+        "speed": 50,
+        "specialAttack": 65,
+        "specialDefense": 100,
+        "total": 500
+      },
+      "catchRate": 75,
+      "baseExp": 157,
+      "heldItems": [
+        "BLACK_SLUDGE",
+        "NUGGET"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Corrosion",
+          "description": "\tFoes of any type \tcan be poisoned.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Corrosion",
+          "description": "\tFoes of any type \tcan be poisoned.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Amorphous",
+        "Amorphous"
+      ],
+      "evYield": "1 HP",
       "types": [
+        "Poison",
+        "Dark"
+      ],
+      "updatedTypes": [
         "Poison",
         "Dark"
       ],

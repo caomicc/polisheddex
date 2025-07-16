@@ -30,10 +30,41 @@ export default function PokemonFormClient({
   const formData = allFormData[selectedForm] || allFormData['default'];
 
   console.log('Form Data:', formData);
-  console.log('selectedForm', selectedForm)
+  console.log('selectedForm', selectedForm);
+
+  // Deduplicate and normalize forms for dropdown
+  const uniqueForms = Array.from(
+    new Set(forms.map((f) => f.trim().toLowerCase()).filter((f) => f !== 'default')),
+  );
 
   return (
     <div className="space-y-6">
+      {process.env.NODE_ENV === 'development' && (
+        <div className="rounded-lg border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/60 p-4 mb-4 text-xs text-left overflow-x-auto">
+          <details>
+            <summary className="cursor-pointer font-semibold text-gray-700 dark:text-gray-200">
+              Debug Panel
+            </summary>
+            <div className="mt-2 space-y-2">
+              <div>
+                <span className="font-bold">Selected Form:</span> {selectedForm}
+              </div>
+              <div>
+                <span className="font-bold">Form Data:</span>
+                <pre className="whitespace-pre-wrap break-all bg-gray-100 dark:bg-gray-800 rounded p-2 mt-1">
+                  {JSON.stringify(formData, null, 2)}
+                </pre>
+              </div>
+              <div>
+                <span className="font-bold">All Forms:</span>
+                <pre className="whitespace-pre-wrap break-all bg-gray-100 dark:bg-gray-800 rounded p-2 mt-1">
+                  {JSON.stringify(Object.keys(allFormData), null, 2)}
+                </pre>
+              </div>
+            </div>
+          </details>
+        </div>
+      )}
       <div className="max-w-4xl mx-auto rounded-xl overflow-hidden">
         <div
           className={cn(
@@ -124,18 +155,25 @@ export default function PokemonFormClient({
           <div className="text-left hidden md:block">
             <div className="text-xs md:text-sm text-gray-800 dark:text-gray-200 mb-1 flex gap-3 flex-row">
               <span>
-                National <span className='font-bold'>#{String(formData.nationalDex).padStart(3, '0')}</span>
+                National{' '}
+                <span className="font-bold">#{String(formData.nationalDex).padStart(3, '0')}</span>
               </span>
               {formData.johtoDex && (
-                <span>Johto <span className='font-bold'>#{formData.johtoDex}</span></span>
+                <span>
+                  Johto <span className="font-bold">#{formData.johtoDex}</span>
+                </span>
               )}
             </div>
             <p className="text-sm md:text-xl font-bold capitalize text-gray-900 dark:text-gray-50">
               {pokemonName}
             </p>
-            <div className="flex flex-col mt-2 spacing-y-2 md:gap-1" aria-label="Pokemon Faithful Types" role="group">
-              <label className='leading-none text-xs w-[50px]'>Faithful:</label>
-              <div className='gap-2 flex flex-wrap'>
+            <div
+              className="flex flex-col mt-2 spacing-y-2 md:gap-1"
+              aria-label="Pokemon Faithful Types"
+              role="group"
+            >
+              <label className="leading-none text-xs w-[50px]">Faithful:</label>
+              <div className="gap-2 flex flex-wrap">
                 {formData.types ? (
                   Array.isArray(formData.types) ? (
                     formData.types.map((type: string) => (
@@ -156,22 +194,31 @@ export default function PokemonFormClient({
                 )}
               </div>
             </div>
-            <div className="flex flex-col mt-2 spacing-y-0 md:gap-1" aria-label="Pokemon Polished Types" role="group">
-              {formData.updatedTypes && Array.isArray(formData.updatedTypes) && formData.updatedTypes.length > 0 && (
-                <>
-                  <label className='leading-none text-xs w-[50px]'>Polished:</label>
-                  <div className='gap-2 flex flex-wrap'>
-                  {formData.updatedTypes.map((type: string) => (
-                    <Badge key={`polished-${type}`} variant={type.toLowerCase() as PokemonType['name']}>
-                      {type}
-                    </Badge>
-                  ))}
-                  </div>
-                </>
-              )}
+            <div
+              className="flex flex-col mt-2 spacing-y-0 md:gap-1"
+              aria-label="Pokemon Polished Types"
+              role="group"
+            >
+              {formData.updatedTypes &&
+                Array.isArray(formData.updatedTypes) &&
+                formData.updatedTypes.length > 0 && (
+                  <>
+                    <label className="leading-none text-xs w-[50px]">Polished:</label>
+                    <div className="gap-2 flex flex-wrap">
+                      {formData.updatedTypes.map((type: string) => (
+                        <Badge
+                          key={`polished-${type}`}
+                          variant={type.toLowerCase() as PokemonType['name']}
+                        >
+                          {type}
+                        </Badge>
+                      ))}
+                    </div>
+                  </>
+                )}
             </div>
           </div>
-          {forms.length > 0 && (
+          {uniqueForms.length > 0 && (
             <div className="md:ml-auto">
               <label className="font-semibold mr-2" htmlFor="form-select">
                 Form:
@@ -181,12 +228,14 @@ export default function PokemonFormClient({
                   <SelectValue placeholder="Select form" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="default">Default</SelectItem>
-                  {forms.map((form) => (
-                    <SelectItem key={form} value={form}>
-                      {form.replace(/[-_]/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())}
-                    </SelectItem>
-                  ))}
+                  <SelectItem value="default">Plain</SelectItem>
+                  {uniqueForms
+                    .filter((form) => form !== 'plain')
+                    .map((form) => (
+                      <SelectItem key={form} value={form}>
+                        {form.charAt(0).toUpperCase() + form.slice(1)}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>
@@ -298,8 +347,8 @@ export default function PokemonFormClient({
                         </div>
                         <div className="inline-block w-14">
                           <GenderPieChart
-                            male={formData.genderRatio.male}
-                            female={formData.genderRatio.female}
+                            male={formData.genderRatio.male ?? 0}
+                            female={formData.genderRatio.female ?? 0}
                           />
                         </div>
                       </div>
@@ -383,7 +432,8 @@ export default function PokemonFormClient({
                   </p>
                   <p className="text-sm md:text-md text-muted-foreground text-center">
                     <Badge className="bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-300">
-                      {(calculateCatchChance(formData.catchRate, 'pokeball') * 100).toFixed(1)}%
+                      {(calculateCatchChance(formData.catchRate ?? 0, 'pokeball') * 100).toFixed(1)}
+                      %
                     </Badge>
                   </p>
                 </div>
@@ -400,7 +450,10 @@ export default function PokemonFormClient({
                   </p>
                   <p className="text-sm md:text-md text-muted-foreground text-center">
                     <Badge className="bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                      {(calculateCatchChance(formData.catchRate, 'greatball') * 100).toFixed(1)}%
+                      {(calculateCatchChance(formData.catchRate ?? 0, 'greatball') * 100).toFixed(
+                        1,
+                      )}
+                      %
                     </Badge>
                   </p>
                 </div>
@@ -417,7 +470,10 @@ export default function PokemonFormClient({
                   </p>
                   <p className="text-sm md:text-md text-muted-foreground text-center">
                     <Badge className="bg-yellow-200 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">
-                      {(calculateCatchChance(formData.catchRate, 'ultraball') * 100).toFixed(1)}%
+                      {(calculateCatchChance(formData.catchRate ?? 0, 'ultraball') * 100).toFixed(
+                        1,
+                      )}
+                      %
                     </Badge>
                   </p>
                 </div>
@@ -474,7 +530,9 @@ export default function PokemonFormClient({
                           formData.eggGroups.map((group, idx) => (
                             <span key={idx}>
                               {group}
-                              {idx < formData.eggGroups.length - 1 && <span>,</span>}
+                              {formData.eggGroups && idx < formData.eggGroups.length - 1 && (
+                                <span>,</span>
+                              )}
                             </span>
                           ))
                         ) : (
@@ -603,7 +661,10 @@ export default function PokemonFormClient({
                       formData.baseStats.specialAttack,
                       formData.baseStats.specialDefense,
                       formData.baseStats.speed,
-                    ].reduce((sum, stat) => (typeof stat === 'number' ? sum + stat : sum), 0)}
+                    ].reduce(
+                      (sum: number, stat) => (typeof stat === 'number' ? sum + stat : sum),
+                      0,
+                    )}
                   </span>
                 </div>
               </CardContent>
@@ -614,35 +675,40 @@ export default function PokemonFormClient({
           <Card>
             <CardHeader>Type Relations</CardHeader>
             <CardContent className="space-y-2">
-              <div className={cn('grid grid-cols-1 gap-6', formData.updatedTypes ? 'md:grid-cols-2' : '')}>
+              <div
+                className={cn(
+                  'grid grid-cols-1 gap-6',
+                  formData.updatedTypes ? 'md:grid-cols-2' : '',
+                )}
+              >
                 {formData.types && (
-                <div>
-                  <h3 className="italic font-bold text-sm mb-4 text-left">Faithful</h3>
+                  <div>
+                    <h3 className="italic font-bold text-sm mb-4 text-left">Faithful</h3>
                     <TypeRelationsChart
                       types={
                         Array.isArray(formData.types)
                           ? formData.types.map((t: string) => t.toLowerCase())
-                        : formData.types
-                        ? [formData.types.toLowerCase()]
-                        : []
+                          : formData.types
+                          ? [formData.types.toLowerCase()]
+                          : []
                       }
                     />
                   </div>
                 )}
-              {formData.updatedTypes && (
-              <div>
-                <h3 className="italic font-bold text-sm mb-4 text-left">Updated</h3>
-                <TypeRelationsChart
-                  types={
-                    Array.isArray(formData.updatedTypes)
-                      ? formData.updatedTypes.map((t: string) => t.toLowerCase())
-                      : formData.updatedTypes
-                      ? [formData.updatedTypes.toLowerCase()]
-                      : []
-                  }
-                />
-                </div>
-              )}
+                {formData.updatedTypes && (
+                  <div>
+                    <h3 className="italic font-bold text-sm mb-4 text-left">Updated</h3>
+                    <TypeRelationsChart
+                      types={
+                        Array.isArray(formData.updatedTypes)
+                          ? formData.updatedTypes.map((t: string) => t.toLowerCase())
+                          : formData.updatedTypes
+                          ? [formData.updatedTypes.toLowerCase()]
+                          : []
+                      }
+                    />
+                  </div>
+                )}
               </div>
             </CardContent>
           </Card>

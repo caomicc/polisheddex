@@ -779,7 +779,7 @@
     "description": "Many people climb snowy mountains, hoping to see the icy spikes of this #mon glisten in the light of dawn."
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -955,7 +955,77 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 75,
+        "attack": 100,
+        "defense": 120,
+        "speed": 65,
+        "specialAttack": 25,
+        "specialDefense": 65,
+        "total": 450
+      },
+      "catchRate": 90,
+      "baseExp": 163,
+      "heldItems": [
+        "GRIP_CLAW"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Slush Rush",
+          "description": "\tBoosts Speed in \ta hailstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Slush Rush",
+          "description": "\tBoosts Speed in \ta hailstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 Def",
       "types": [
+        "Ice",
+        "Steel"
+      ],
+      "updatedTypes": [
         "Ice",
         "Steel"
       ],

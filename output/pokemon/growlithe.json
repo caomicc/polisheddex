@@ -670,7 +670,7 @@
     "description": "They patrol their territory in pairs. Their fur has igneous rock components from volcanic activity."
   },
   "forms": {
-    " Hisuian": {
+    "Hisuian": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -965,7 +965,77 @@
       "formName": " Hisuian"
     },
     "hisuian": {
+      "baseStats": {
+        "hp": 60,
+        "attack": 75,
+        "defense": 45,
+        "speed": 55,
+        "specialAttack": 65,
+        "specialDefense": 50,
+        "total": 350
+      },
+      "catchRate": 190,
+      "baseExp": 91,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 75,
+        "female": 25
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Atk",
       "types": [
+        "Fire",
+        "Rock"
+      ],
+      "updatedTypes": [
         "Fire",
         "Rock"
       ],

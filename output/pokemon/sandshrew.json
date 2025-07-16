@@ -732,7 +732,7 @@
     "description": "It lives on snowy mountains. Its steel shell is so hard, it can't roll its body up into a ball."
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -992,7 +992,77 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 50,
+        "attack": 75,
+        "defense": 90,
+        "speed": 40,
+        "specialAttack": 10,
+        "specialDefense": 35,
+        "total": 300
+      },
+      "catchRate": 255,
+      "baseExp": 93,
+      "heldItems": [
+        "GRIP_CLAW"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Slush Rush",
+          "description": "\tBoosts Speed in \ta hailstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Slush Rush",
+          "description": "\tBoosts Speed in \ta hailstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Def",
       "types": [
+        "Ice",
+        "Steel"
+      ],
+      "updatedTypes": [
         "Ice",
         "Steel"
       ],

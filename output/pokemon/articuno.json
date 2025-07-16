@@ -640,7 +640,7 @@
     "description": "Known as Articuno, this #mon fires beams that can immobilize opponents as if they had been frozen solid."
   },
   "forms": {
-    " Galarian": {
+    "Galarian": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -877,7 +877,77 @@
       "formName": " Galarian"
     },
     "galarian": {
+      "baseStats": {
+        "hp": 90,
+        "attack": 85,
+        "defense": 85,
+        "speed": 95,
+        "specialAttack": 125,
+        "specialDefense": 100,
+        "total": 580
+      },
+      "catchRate": 3,
+      "baseExp": 215,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "abilities": [
+        {
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "3 SAt",
       "types": [
+        "Psychic",
+        "Flying"
+      ],
+      "updatedTypes": [
         "Psychic",
         "Flying"
       ],

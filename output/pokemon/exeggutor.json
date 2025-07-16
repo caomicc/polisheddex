@@ -551,7 +551,7 @@
     "description": "It swings its long neck like a whip and smacks its opponents. This makes Exeggutor itself dizzy, too."
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -703,7 +703,77 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 95,
+        "attack": 105,
+        "defense": 85,
+        "speed": 45,
+        "specialAttack": 125,
+        "specialDefense": 75,
+        "total": 530
+      },
+      "catchRate": 45,
+      "baseExp": 212,
+      "heldItems": [
+        "SITRUS_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Harvest",
+          "description": "\tMay recreate a \tBerry after use.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Harvest",
+          "description": "\tMay recreate a \tBerry after use.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Grass",
+        "Grass"
+      ],
+      "evYield": "2 SAt",
       "types": [
+        "Grass",
+        "Dragon"
+      ],
+      "updatedTypes": [
         "Grass",
         "Dragon"
       ],

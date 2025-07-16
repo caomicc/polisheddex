@@ -563,7 +563,7 @@
     "description": "It will look into your eyes and read the contents of your heart. If it finds evil there, it hides away."
   },
   "forms": {
-    " Galarian": {
+    "Galarian": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -779,10 +779,77 @@
       "formName": " Galarian"
     },
     "galarian": {
+      "baseStats": {
+        "hp": 50,
+        "attack": 85,
+        "defense": 55,
+        "speed": 90,
+        "specialAttack": 65,
+        "specialDefense": 65,
+        "total": 410
+      },
+      "catchRate": 190,
+      "baseExp": 152,
+      "heldItems": [
+        "MARANGABERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Pastel Veil",
+          "description": "\tPrevents it from \tgetting poisoned.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Pastel Veil",
+          "description": "\tPrevents it from \tgetting poisoned.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Spe",
       "types": [
         "Psychic",
         "Psychic"
       ],
+      "updatedTypes": "Psychic",
       "frontSpriteUrl": "/sprites/pokemon/ponyta_galarian/front_cropped.png",
       "moves": [
         {

@@ -759,7 +759,7 @@
     "description": "It sets the bone it holds on fire and dances through through the night as a way to mourn its fallen allies."
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -1019,7 +1019,77 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 60,
+        "attack": 80,
+        "defense": 110,
+        "speed": 45,
+        "specialAttack": 50,
+        "specialDefense": 80,
+        "total": 425
+      },
+      "catchRate": 75,
+      "baseExp": 124,
+      "heldItems": [
+        "THICK_CLUB"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Lightning Rod",
+          "description": "\tElectric moves \tboost Sp.Atk.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Monster",
+        "Monster"
+      ],
+      "evYield": "2 Def",
       "types": [
+        "Fire",
+        "Ghost"
+      ],
+      "updatedTypes": [
         "Fire",
         "Ghost"
       ],

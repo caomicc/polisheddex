@@ -761,7 +761,7 @@
     "description": "Sudden climate change wiped out this #mon. It absorbs others' lifeforce through its branches."
   },
   "forms": {
-    " Galarian": {
+    "Galarian": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -967,9 +967,76 @@
       "formName": " Galarian"
     },
     "galarian": {
+      "baseStats": {
+        "hp": 60,
+        "attack": 55,
+        "defense": 100,
+        "speed": 30,
+        "specialAttack": 65,
+        "specialDefense": 100,
+        "total": 410
+      },
+      "catchRate": 60,
+      "baseExp": 113,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 25,
+        "female": 75
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Weak Armor",
+          "description": "\tPhysical attacks \ttrade Def for Spe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Cursed Body",
+          "description": "\tMay disable a move \tused on it.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Fast",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Def",
       "types": [
         "Ghost",
         "Ghost"
+      ],
+      "updatedTypes": [
+        "Ghost",
+        "Rock"
       ],
       "frontSpriteUrl": "/sprites/pokemon/corsola_galarian/front_cropped.png",
       "moves": [

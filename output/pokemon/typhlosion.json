@@ -784,7 +784,7 @@
     "description": "Said to purify lost, forsaken souls with its flames and guide them to the afterlife."
   },
   "forms": {
-    " Hisuian": {
+    "Hisuian": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -1057,7 +1057,94 @@
       "formName": " Hisuian"
     },
     "hisuian": {
+      "baseStats": {
+        "hp": 73,
+        "attack": 84,
+        "defense": 78,
+        "speed": 95,
+        "specialAttack": 119,
+        "specialDefense": 85,
+        "total": 534
+      },
+      "catchRate": 45,
+      "baseExp": 209,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 87.5,
+        "female": 12.5
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Frisk",
+          "description": "\tChecks the foe's \theld item.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "3 SAt",
       "types": [
+        "Fire",
+        "Ghost"
+      ],
+      "updatedTypes": [
         "Fire",
         "Ghost"
       ],

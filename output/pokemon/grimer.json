@@ -616,7 +616,7 @@
     "description": "A Grimer which had been brought in to solve a problem with garbage developed into this form."
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -852,7 +852,78 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 80,
+        "attack": 80,
+        "defense": 50,
+        "speed": 25,
+        "specialAttack": 40,
+        "specialDefense": 50,
+        "total": 325
+      },
+      "catchRate": 190,
+      "baseExp": 90,
+      "heldItems": [
+        "BLACK_SLUDGE",
+        "NUGGET"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Corrosion",
+          "description": "\tFoes of any type \tcan be poisoned.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Poison Touch",
+          "description": "\tMay poison the foe \ton contact.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Corrosion",
+          "description": "\tFoes of any type \tcan be poisoned.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Amorphous",
+        "Amorphous"
+      ],
+      "evYield": "1 HP",
       "types": [
+        "Poison",
+        "Dark"
+      ],
+      "updatedTypes": [
         "Poison",
         "Dark"
       ],

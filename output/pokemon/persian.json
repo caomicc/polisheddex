@@ -772,7 +772,7 @@
     "description": "It has the classiest coat. The rippling of its fur in the heat of battle has a beauty all its own."
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -1052,10 +1052,77 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 65,
+        "attack": 60,
+        "defense": 60,
+        "speed": 115,
+        "specialAttack": 75,
+        "specialDefense": 65,
+        "total": 440
+      },
+      "catchRate": 90,
+      "baseExp": 148,
+      "heldItems": [
+        "QUICK_CLAW"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Fur Coat",
+          "description": "\tHalves damage from \tphysical moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Fur Coat",
+          "description": "\tHalves damage from \tphysical moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "2 Spe",
       "types": [
         "Dark",
         "Dark"
       ],
+      "updatedTypes": "Dark",
       "frontSpriteUrl": "/sprites/pokemon/persian_alolan/front_cropped.png",
       "moves": [
         {

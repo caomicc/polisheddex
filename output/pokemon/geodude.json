@@ -677,7 +677,7 @@
     "description": "Its body is a magnetic stone. Iron sand attaches to the portions of its body that are the most magnetic."
   },
   "forms": {
-    " Alolan": {
+    "Alolan": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -940,7 +940,77 @@
       "formName": " Alolan"
     },
     "alolan": {
+      "baseStats": {
+        "hp": 40,
+        "attack": 80,
+        "defense": 100,
+        "speed": 20,
+        "specialAttack": 30,
+        "specialDefense": 30,
+        "total": 300
+      },
+      "catchRate": 255,
+      "baseExp": 86,
+      "heldItems": [
+        "EVERSTONE"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Galvanize",
+          "description": "\tNormal-type moves \tbecome Electric.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Magnet Pull",
+          "description": "\tPrevents escape by \tSteel-type foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Galvanize",
+          "description": "\tNormal-type moves \tbecome Electric.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Mineral",
+        "Mineral"
+      ],
+      "evYield": "1 Def",
       "types": [
+        "Rock",
+        "Electric"
+      ],
+      "updatedTypes": [
         "Rock",
         "Electric"
       ],

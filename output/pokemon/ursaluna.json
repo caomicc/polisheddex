@@ -855,7 +855,7 @@
     "description": "It can see in the dark with its left eye, and protects itself with mud that is as hard as iron."
   },
   "forms": {
-    " Bloodmoon": {
+    "Bloodmoon": {
       "evolution": {
         "methods": [],
         "chain": [
@@ -1150,7 +1150,77 @@
       "formName": " Bloodmoon"
     },
     "bloodmoon": {
+      "baseStats": {
+        "hp": 113,
+        "attack": 70,
+        "defense": 120,
+        "speed": 52,
+        "specialAttack": 135,
+        "specialDefense": 65,
+        "total": 555
+      },
+      "catchRate": 20,
+      "baseExp": 239,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 100,
+        "female": 0
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "abilities": [
+        {
+          "name": "Minds Eye",
+          "description": "\tBypass evasion and \tGhost immunity.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Minds Eye",
+          "description": "\tBypass evasion and \tGhost immunity.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Minds Eye",
+          "description": "\tBypass evasion and \tGhost immunity.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "name": "Minds Eye",
+          "description": "\tBypass evasion and \tGhost immunity.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "name": "Minds Eye",
+          "description": "\tBypass evasion and \tGhost immunity.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "name": "Minds Eye",
+          "description": "\tBypass evasion and \tGhost immunity.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "3 SAt",
       "types": [
+        "Ground",
+        "Normal"
+      ],
+      "updatedTypes": [
         "Ground",
         "Normal"
       ],
