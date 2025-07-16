@@ -67,26 +67,50 @@ export interface PokemonDataV2 {
 }
 
 // Define a type for Pokemon forms
-export interface PokemonForm {
-  formName: string;
-  types?: string | string[];
-  faithfulTypes?: string | string[]; // Types in faithful version
-  updatedTypes?: string | string[]; // Types in updated/polished version
-  moves?: Move[];
-  locations?: LocationEntry[];
-};
 
-export interface PokemonDataV3 extends PokemonDataV2 {
-  nationalDex: number | null;
-  johtoDex: number | null;
-  types: string | string[];
-  faithfulTypes?: string | string[]; // Types in faithful version
-  updatedTypes?: string | string[]; // Types in updated/polished version
-  locations: LocationEntry[];
-  forms?: Record<string, PokemonForm>;
+// Type definitions for the detailed stats
+export interface DetailedStats {
+  moves: Move[];
   name?: string;
-};
-
+  formName?: string;
+  frontSpriteUrl?: string;
+  johtoDex?: number | null;
+  nationalDex?: number | null;
+  baseStats?: {
+    hp?: number;
+    attack?: number;
+    defense?: number;
+    speed?: number;
+    specialAttack?: number;
+    specialDefense?: number;
+    total?: number;
+  };
+  catchRate?: number;
+  baseExp?: number;
+  heldItems?: string[];
+  genderRatio?: {
+    male?: number;
+    female?: number;
+    genderless?: number; // Percentage for genderless Pokémon
+  };
+  hatchRate?: string;
+  abilities?: Ability[]; // The combined list of abilities (for backward compatibility)
+  faithfulAbilities?: Ability[]; // Abilities in the faithful version
+  updatedAbilities?: Ability[]; // Abilities in the updated (non-faithful) version
+  growthRate?: string;
+  eggGroups?: string[];
+  evYield?: string;
+  height?: number | string; // Height can be a number or a string (e.g., "1.2 m")
+  weight?: number | string; // Weight can be a number or a string (e.g., "60 kg");
+  bodyShape?: string;
+  bodyColor?: string;
+  types?: string[] | string;
+  faithfulTypes?: string[] | string; // Types in the faithful version
+  locations?: LocationEntry[];
+  updatedTypes?: string[] | string; // Types in the polished/updated version
+  forms?: Record<string, Omit<DetailedStats, 'moves'> & { moves?: Move[] }>
+}
+export type PokemonDataV3 = PokemonDataV2 & DetailedStats;
 
 export interface MoveDetail {
   level: string;
@@ -106,40 +130,6 @@ export interface Evolution {
   chainWithMethods: Record<string, EvolutionMethod[]>;
 }
 
-
-// Type definitions for the detailed stats
-export interface DetailedStats {
-  baseStats: {
-    hp: number;
-    attack: number;
-    defense: number;
-    speed: number;
-    specialAttack: number;
-    specialDefense: number;
-    total: number;
-  };
-  catchRate: number;
-  baseExp: number;
-  heldItems: string[];
-  genderRatio: {
-    male: number;
-    female: number;
-    genderless?: number; // Percentage for genderless Pokémon
-  };
-  hatchRate: string;
-  abilities: Ability[]; // The combined list of abilities (for backward compatibility)
-  faithfulAbilities: Ability[]; // Abilities in the faithful version
-  updatedAbilities: Ability[]; // Abilities in the updated (non-faithful) version
-  growthRate: string;
-  eggGroups: string[];
-  evYield: string;
-  height?: number | string; // Height can be a number or a string (e.g., "1.2 m")
-  weight?: number | string; // Weight can be a number or a string (e.g., "60 kg");
-  bodyShape?: string;
-  bodyColor?: string;
-  types: string[] | string;
-  updatedTypes?: string[] | string; // Types in the polished/updated version
-}
 
 export interface Ability {
   name: string;

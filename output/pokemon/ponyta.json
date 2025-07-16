@@ -5,15 +5,6 @@
   "types": "Fire",
   "updatedTypes": "Fire",
   "frontSpriteUrl": "/sprites/pokemon/ponyta/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 50,
@@ -88,20 +79,6 @@
     "bodyShape": "Quadruped",
     "bodyColor": "White"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -587,8 +564,30 @@
   },
   "forms": {
     " Galarian": {
-      "formName": " Galarian",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Ponyta",
+          "Rapidash"
+        ],
+        "chainWithMethods": {
+          "Ponyta": [
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 40,
+              "target": "Rapidash",
+              "form": "Plain Form"
+            },
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 40,
+              "target": "Rapidash",
+              "form": "Galarian Form"
+            }
+          ],
+          "Rapidash": []
+        }
+      },
       "moves": [
         {
           "name": "Growl",
@@ -751,11 +750,214 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 77,
+      "johtoDex": 231,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Galarian"
+    },
+    "galarian": {
+      "types": [
+        "Psychic",
+        "Psychic"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/ponyta_galarian/front_cropped.png",
+      "moves": [
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 4,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 9,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Stomp",
+          "level": 13,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 17,
+          "info": {
+            "description": "\tAn attack that may \tup user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 21,
+          "info": {
+            "description": "\tDeals more damage \tto heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 25,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 29,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 33,
+          "info": {
+            "description": "\tA double kicking \tattack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 37,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "level": 41,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 85,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Extremespeed",
+          "level": 45,
+          "info": {
+            "description": "\tA powerful first- \tstrike attack.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 49,
+          "info": {
+            "description": "\tA charge that also \thurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": "Fire",
+      "frontSpriteUrl": "/sprites/pokemon/ponyta_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.821Z",
-  "version": "1.0.0"
+  }
 }

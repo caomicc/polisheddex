@@ -11,15 +11,6 @@
     "Flying"
   ],
   "frontSpriteUrl": "/sprites/pokemon/moltres/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 90,
@@ -119,20 +110,6 @@
     "bodyShape": "Wings",
     "bodyColor": "Red"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -655,8 +632,15 @@
   },
   "forms": {
     " Galarian": {
-      "formName": " Galarian",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Moltres"
+        ],
+        "chainWithMethods": {
+          "Moltres": []
+        }
+      },
       "moves": [
         {
           "name": "Gust",
@@ -863,11 +847,253 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 146,
+      "johtoDex": 275,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Galarian"
+    },
+    "galarian": {
+      "types": [
+        "Dark",
+        "Flying"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/moltres_galarian/front_cropped.png",
+      "moves": [
+        {
+          "name": "Wing Attack",
+          "level": 1,
+          "info": {
+            "description": "\tStrikes the foe \twith wings.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 8,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 15,
+          "info": {
+            "description": "\tPrevents all \tstatus problems.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Extrasensory",
+          "level": 22,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 29,
+          "info": {
+            "description": "\tAn attack that may \traise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 36,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 43,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 50,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "level": 57,
+          "info": {
+            "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+            "type": "Fire",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Will O Wisp",
+          "level": 64,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "level": 71,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 85,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 78,
+          "info": {
+            "description": "\tA charge that also \thurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roost",
+          "level": 85,
+          "info": {
+            "description": "\tLands to restore \t1/2 the max HP.",
+            "type": "Flying",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 92,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Solar Beam",
+          "level": 99,
+          "info": {
+            "description": "\t1st turn: Prepare \t2nd turn: Attack",
+            "type": "Grass",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": [
+        "Fire",
+        "Flying"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/moltres_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.841Z",
-  "version": "1.0.0"
+  }
 }

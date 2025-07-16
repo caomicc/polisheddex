@@ -11,15 +11,6 @@
     "Flying"
   ],
   "frontSpriteUrl": "/sprites/pokemon/zapdos/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 90,
@@ -119,20 +110,6 @@
     "bodyShape": "Wings",
     "bodyColor": "Yellow"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -682,8 +659,15 @@
   },
   "forms": {
     " Galarian": {
-      "formName": " Galarian",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Zapdos"
+        ],
+        "chainWithMethods": {
+          "Zapdos": []
+        }
+      },
       "moves": [
         {
           "name": "Peck",
@@ -890,11 +874,253 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 145,
+      "johtoDex": 274,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Galarian"
+    },
+    "galarian": {
+      "types": [
+        "Fighting",
+        "Flying"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/zapdos_galarian/front_cropped.png",
+      "moves": [
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "\tJabs the foe with \ta beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 8,
+          "info": {
+            "description": "\tparalyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 15,
+          "info": {
+            "description": "\tFoils attack that \tturn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Extrasensory",
+          "level": 22,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 29,
+          "info": {
+            "description": "\tAn attack that may \traise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 36,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 43,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Drill Peck",
+          "level": 50,
+          "info": {
+            "description": "\tA strong, spin- \tning-peck attack.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 57,
+          "info": {
+            "description": "\tBoosts Water-type \tmoves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 64,
+          "info": {
+            "description": "\tRaises Sp.Def with \ta wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 71,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 78,
+          "info": {
+            "description": "\tA charge that also \thurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roost",
+          "level": 85,
+          "info": {
+            "description": "\tLands to restore \t1/2 the max HP.",
+            "type": "Flying",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 92,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "level": 99,
+          "info": {
+            "description": "\tAn attack that \talways paralyzes.",
+            "type": "Electric",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 50,
+            "category": "Special"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": [
+        "Electric",
+        "Flying"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/zapdos_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.841Z",
-  "version": "1.0.0"
+  }
 }

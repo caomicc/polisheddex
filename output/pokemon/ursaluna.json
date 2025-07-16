@@ -11,15 +11,6 @@
     "Normal"
   ],
   "frontSpriteUrl": "/sprites/pokemon/ursaluna/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 130,
@@ -100,20 +91,6 @@
     "bodyShape": "Bipedal Tail",
     "bodyColor": "Brown"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -879,8 +856,41 @@
   },
   "forms": {
     " Bloodmoon": {
-      "formName": " Bloodmoon",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Teddiursa",
+          "Ursaring",
+          "Ursaluna"
+        ],
+        "chainWithMethods": {
+          "Teddiursa": [
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 30,
+              "target": "Ursaring"
+            }
+          ],
+          "Ursaring": [
+            {
+              "method": "EVOLVE_ITEM",
+              "parameter": "MOON_STONE",
+              "target": "Ursaluna"
+            },
+            {
+              "method": "EVOLVE_LOCATION",
+              "parameter": "SINJOH_RUINS",
+              "target": "Ursaluna"
+            },
+            {
+              "method": "EVOLVE_LOCATION",
+              "parameter": "MYSTRI_STAGE",
+              "target": "Ursaluna"
+            }
+          ],
+          "Ursaluna": []
+        }
+      },
       "moves": [
         {
           "name": "Bulldoze",
@@ -1111,11 +1121,277 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 283,
+      "johtoDex": 223,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Bloodmoon"
+    },
+    "bloodmoon": {
+      "types": [
+        "Ground",
+        "Normal"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/ursaluna_bloodmoon/front_cropped.png",
+      "moves": [
+        {
+          "name": "Bulldoze",
+          "level": 1,
+          "info": {
+            "description": "\tA Ground attack \tthat lowers Speed.",
+            "type": "Ground",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gunk Shot",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tpoison the foe.",
+            "type": "Poison",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thief",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tsteal a held item.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "\tScratches with \tsharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Lick",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Ghost",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 1,
+          "info": {
+            "description": "\tRaises the criti- \tcal hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 8,
+          "info": {
+            "description": "\tScratches or jabs \t2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 15,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Belly Drum",
+          "level": 22,
+          "info": {
+            "description": "\tSacrifices HP to \tmaximize Attack.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Play Rough",
+          "level": 25,
+          "info": {
+            "description": "\tAn attack that may \tlower Attack.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 29,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 38,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rest",
+          "level": 47,
+          "info": {
+            "description": "\tSleep for 2 turns \tto fully recover.",
+            "type": "Psychic",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 49,
+          "info": {
+            "description": "\tTough but useless \tvs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 58,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 67,
+          "info": {
+            "description": "\tLowers the user's \tDef and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 76,
+          "info": {
+            "description": "\tA tackle that also \thurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gunk Shot",
+          "level": 85,
+          "info": {
+            "description": "\tAn attack that may \tpoison the foe.",
+            "type": "Poison",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": [
+        "Ground",
+        "Normal"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/ursaluna_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.884Z",
-  "version": "1.0.0"
+  }
 }

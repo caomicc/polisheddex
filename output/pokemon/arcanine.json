@@ -5,15 +5,6 @@
   "types": "Fire",
   "updatedTypes": "Fire",
   "frontSpriteUrl": "/sprites/pokemon/arcanine/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 90,
@@ -88,20 +79,6 @@
     "bodyShape": "Quadruped",
     "bodyColor": "Red"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -591,8 +568,29 @@
   },
   "forms": {
     " Hisuian": {
-      "formName": " Hisuian",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Growlithe",
+          "Arcanine"
+        ],
+        "chainWithMethods": {
+          "Growlithe": [
+            {
+              "method": "EVOLVE_ITEM",
+              "parameter": "FIRE_STONE",
+              "target": "Arcanine"
+            },
+            {
+              "method": "EVOLVE_ITEM",
+              "parameter": "FIRE_STONE",
+              "target": "Arcanine",
+              "form": "Hisuian Form"
+            }
+          ],
+          "Arcanine": []
+        }
+      },
       "moves": [
         {
           "name": "Bulk Up",
@@ -679,11 +677,130 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 59,
+      "johtoDex": 137,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Hisuian"
+    },
+    "hisuian": {
+      "types": [
+        "Fire",
+        "Rock"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/arcanine_hisuian/front_cropped.png",
+      "moves": [
+        {
+          "name": "Dragon Dance",
+          "level": 1,
+          "info": {
+            "description": "\tRaises the user's \tAttack and Speed.",
+            "type": "Dragon",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roar",
+          "level": 1,
+          "info": {
+            "description": "\tScares wild foes \tto end battle.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tup user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 1,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Extremespeed",
+          "level": 1,
+          "info": {
+            "description": "\tA powerful first- \tstrike attack.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": "Fire",
+      "frontSpriteUrl": "/sprites/pokemon/arcanine_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.816Z",
-  "version": "1.0.0"
+  }
 }

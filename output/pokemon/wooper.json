@@ -11,15 +11,6 @@
     "Ground"
   ],
   "frontSpriteUrl": "/sprites/pokemon/wooper/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 55,
@@ -99,20 +90,6 @@
     "bodyShape": "Head Legs",
     "bodyColor": "Brown"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -680,8 +657,30 @@
   },
   "forms": {
     " Paldean": {
-      "formName": " Paldean",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Wooper",
+          "Quagsire",
+          "Clodsire"
+        ],
+        "chainWithMethods": {
+          "Wooper": [
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 20,
+              "target": "Quagsire"
+            },
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 20,
+              "target": "Clodsire"
+            }
+          ],
+          "Quagsire": [],
+          "Clodsire": []
+        }
+      },
       "moves": [
         {
           "name": "Mud Slap",
@@ -828,11 +827,193 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 194,
+      "johtoDex": 58,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Paldean"
+    },
+    "paldean": {
+      "types": [
+        "Poison",
+        "Ground"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/wooper_paldean/front_cropped.png",
+      "moves": [
+        {
+          "name": "Water Gun",
+          "level": 1,
+          "info": {
+            "description": "\tSquirts water to \tattack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 5,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 9,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "level": 15,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 19,
+          "info": {
+            "description": "\tRestores HP by 1/2 \tthe max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Amnesia",
+          "level": 23,
+          "info": {
+            "description": "\tSharply raises the \tuser's Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Belly Drum",
+          "level": 29,
+          "info": {
+            "description": "\tSacrifices HP to \tmaximize Attack.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 33,
+          "info": {
+            "description": "\tTough but useless \tvs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 37,
+          "info": {
+            "description": "\tBoosts Water-type \tmoves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Haze",
+          "level": 43,
+          "info": {
+            "description": "\tEliminates all \tstat changes.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 47,
+          "info": {
+            "description": "\tSwings tail like a \twave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": [
+        "Water",
+        "Ground"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/wooper_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.855Z",
-  "version": "1.0.0"
+  }
 }

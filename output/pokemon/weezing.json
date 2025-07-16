@@ -5,15 +5,6 @@
   "types": "Poison",
   "updatedTypes": "Poison",
   "frontSpriteUrl": "/sprites/pokemon/weezing/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 65,
@@ -88,20 +79,6 @@
     "bodyShape": "Multibody",
     "bodyColor": "Gray"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -608,8 +585,30 @@
   },
   "forms": {
     " Galarian": {
-      "formName": " Galarian",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Koffing",
+          "Weezing"
+        ],
+        "chainWithMethods": {
+          "Koffing": [
+            {
+              "method": "EVOLVE_TRADE",
+              "parameter": "CHARCOAL",
+              "target": "Weezing",
+              "form": "Galarian Form"
+            },
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 35,
+              "target": "Weezing",
+              "form": "Plain Form"
+            }
+          ],
+          "Weezing": []
+        }
+      },
       "moves": [
         {
           "name": "Safeguard",
@@ -792,11 +791,214 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 110,
+      "johtoDex": 122,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Galarian"
+    },
+    "galarian": {
+      "types": [
+        "Poison",
+        "Fairy"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/weezing_galarian/front_cropped.png",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Acid",
+          "level": 4,
+          "info": {
+            "description": "\tAn attack that may \tlower Sp.Def.",
+            "type": "Poison",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Smokescreen",
+          "level": 7,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Endure",
+          "level": 12,
+          "info": {
+            "description": "\tEndures any hit \twith at least 1HP.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Will O Wisp",
+          "level": 15,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "level": 18,
+          "info": {
+            "description": "\tDamage doubles if \tfoe is poisoned.",
+            "type": "Poison",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 23,
+          "info": {
+            "description": "\tRaises Attack if \tthe user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Haze",
+          "level": 26,
+          "info": {
+            "description": "\tEliminates all \tstat changes.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 29,
+          "info": {
+            "description": "\tDoes more damage \tat lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sludge Bomb",
+          "level": 34,
+          "info": {
+            "description": "\tAn attack that may \tpoison the foe.",
+            "type": "Poison",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 40,
+          "info": {
+            "description": "\tVery powerful but \tmakes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Destiny Bond",
+          "level": 46,
+          "info": {
+            "description": "\tThe foe faints if \tthe user does.",
+            "type": "Ghost",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pain Split",
+          "level": 51,
+          "info": {
+            "description": "\tAdds user & foe's \tHPs. Shares total.",
+            "type": "Ghost",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "level": 57,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 85,
+            "category": "Special"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": "Poison",
+      "frontSpriteUrl": "/sprites/pokemon/weezing_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.831Z",
-  "version": "1.0.0"
+  }
 }

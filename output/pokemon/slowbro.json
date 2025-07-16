@@ -11,15 +11,6 @@
     "Psychic"
   ],
   "frontSpriteUrl": "/sprites/pokemon/slowbro/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 95,
@@ -100,20 +91,6 @@
     "bodyShape": "Bipedal Tail",
     "bodyColor": "Pink"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -920,8 +897,44 @@
   },
   "forms": {
     " Galarian": {
-      "formName": " Galarian",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Slowpoke",
+          "Slowbro",
+          "Slowking"
+        ],
+        "chainWithMethods": {
+          "Slowpoke": [
+            {
+              "method": "EVOLVE_TRADE",
+              "parameter": "KINGS_ROCK",
+              "target": "Slowking",
+              "form": "Plain Form"
+            },
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 37,
+              "target": "Slowbro",
+              "form": "Plain Form"
+            },
+            {
+              "method": "EVOLVE_TRADE",
+              "parameter": "KINGS_ROCK",
+              "target": "Slowking",
+              "form": "Galarian Form"
+            },
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 37,
+              "target": "Slowbro",
+              "form": "Galarian Form"
+            }
+          ],
+          "Slowbro": [],
+          "Slowking": []
+        }
+      },
       "moves": [
         {
           "name": "Gunk Shot",
@@ -1108,11 +1121,233 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 80,
+      "johtoDex": 86,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Galarian"
+    },
+    "galarian": {
+      "types": [
+        "Poison",
+        "Psychic"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/slowbro_galarian/front_cropped.png",
+      "moves": [
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "\tRaises the user's \tDefense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Curse",
+          "level": 1,
+          "info": {
+            "description": "\tWorks differently \tfor Ghost-types.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 5,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Water Gun",
+          "level": 9,
+          "info": {
+            "description": "\tSquirts water to \tattack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 14,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Disable",
+          "level": 19,
+          "info": {
+            "description": "\tDisables the foe's \tmost recent move.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "level": 23,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "level": 28,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Water",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "level": 32,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 36,
+          "info": {
+            "description": "\tPrevents all \tstatus problems.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Amnesia",
+          "level": 43,
+          "info": {
+            "description": "\tSharply raises the \tuser's Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psychic M",
+          "level": 49
+        },
+        {
+          "name": "Rain Dance",
+          "level": 55,
+          "info": {
+            "description": "\tBoosts Water-type \tmoves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Belly Drum",
+          "level": 62,
+          "info": {
+            "description": "\tSacrifices HP to \tmaximize Attack.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 68,
+          "info": {
+            "description": "\tRestores HP by 1/2 \tthe max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": [
+        "Water",
+        "Psychic"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/slowbro_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.822Z",
-  "version": "1.0.0"
+  }
 }

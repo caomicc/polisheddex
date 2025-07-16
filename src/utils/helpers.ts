@@ -114,10 +114,23 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
         }
 
         groupedData[baseName].forms![formName] = {
+          ...formData,
           formName,
           types: formTypes,
           moves: formData.moves,
-          locations: formData.locations
+          locations: formData.locations,
+          baseStats: formData.baseStats,
+          catchRate: formData.catchRate,
+          baseExp: formData.baseExp,
+          heldItems: formData.heldItems,
+          abilities: formData.abilities,
+          genderRatio: formData.genderRatio,
+          height: formData.height,
+          weight: formData.weight,
+          bodyColor: formData.bodyColor,
+          bodyShape: formData.bodyShape,
+          // habitat: formData.habitat,
+          // generation: formData.generation
         };
       }
     }

@@ -11,15 +11,6 @@
     "Psychic"
   ],
   "frontSpriteUrl": "/sprites/pokemon/exeggutor/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 95,
@@ -100,20 +91,6 @@
     "bodyShape": "Head Legs",
     "bodyColor": "Yellow"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -575,8 +552,30 @@
   },
   "forms": {
     " Alolan": {
-      "formName": " Alolan",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Exeggcute",
+          "Exeggutor"
+        ],
+        "chainWithMethods": {
+          "Exeggcute": [
+            {
+              "method": "EVOLVE_ITEM",
+              "parameter": "LEAF_STONE",
+              "target": "Exeggutor",
+              "form": "Plain Form"
+            },
+            {
+              "method": "EVOLVE_ITEM",
+              "parameter": "ODD_SOUVENIR",
+              "target": "Exeggutor",
+              "form": "Alolan Form"
+            }
+          ],
+          "Exeggutor": []
+        }
+      },
       "moves": [
         {
           "name": "Tackle",
@@ -675,11 +674,145 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 103,
+      "johtoDex": 111,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Alolan"
+    },
+    "alolan": {
+      "types": [
+        "Grass",
+        "Dragon"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/exeggutor_alolan/front_cropped.png",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hypnosis",
+          "level": 1,
+          "info": {
+            "description": "\tMay cause the foe \tto fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Stomp",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 17,
+          "info": {
+            "description": "\tDeals more damage \tto heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "level": 27,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Power Whip",
+          "level": 37,
+          "info": {
+            "description": "\tA violent lash \tattack.",
+            "type": "Grass",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Petal Dance",
+          "level": 47,
+          "info": {
+            "description": "",
+            "type": "Grass",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": [
+        "Grass",
+        "Psychic"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/exeggutor_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.828Z",
-  "version": "1.0.0"
+  }
 }

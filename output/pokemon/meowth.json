@@ -5,15 +5,6 @@
   "types": "Normal",
   "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/meowth/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 40,
@@ -88,20 +79,6 @@
     "bodyShape": "Bipedal Tail",
     "bodyColor": "Brown"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -726,8 +703,38 @@
   },
   "forms": {
     " Alolan": {
-      "formName": " Alolan",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Meowth",
+          "Persian",
+          "Perrserker"
+        ],
+        "chainWithMethods": {
+          "Meowth": [
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 28,
+              "target": "Persian",
+              "form": "Plain Form"
+            },
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 28,
+              "target": "Persian",
+              "form": "Alolan Form"
+            },
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 28,
+              "target": "Perrserker",
+              "form": "Plain Form"
+            }
+          ],
+          "Persian": [],
+          "Perrserker": []
+        }
+      },
       "moves": [
         {
           "name": "Scratch",
@@ -910,11 +917,67 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 52,
+      "johtoDex": 148,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Alolan"
     },
     " Galarian": {
-      "formName": " Galarian",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Meowth",
+          "Persian",
+          "Perrserker"
+        ],
+        "chainWithMethods": {
+          "Meowth": [
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 28,
+              "target": "Persian",
+              "form": "Plain Form"
+            },
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 28,
+              "target": "Persian",
+              "form": "Alolan Form"
+            },
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 28,
+              "target": "Perrserker",
+              "form": "Plain Form"
+            }
+          ],
+          "Persian": [],
+          "Perrserker": []
+        }
+      },
       "moves": [
         {
           "name": "Astonish",
@@ -1073,11 +1136,391 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 52,
+      "johtoDex": 148,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Galarian"
+    },
+    "alolan": {
+      "types": [
+        "Dark",
+        "Dark"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/meowth_alolan/front_cropped.png",
+      "moves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "\tScratches with \tsharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 6,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Astonish",
+          "level": 9,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 14,
+          "info": {
+            "description": "\tScratches or jabs \t2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 17,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 22,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 25,
+          "info": {
+            "description": "\tHeavily strikes \tswitching #mon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pay Day",
+          "level": 30,
+          "info": {
+            "description": "\tThrows coins. Gets \tthem back later.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 33,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Nasty Plot",
+          "level": 38,
+          "info": {
+            "description": "\tSharply raises the \tuser's Sp.Atk.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thief",
+          "level": 41,
+          "info": {
+            "description": "\tAn attack that may \tsteal a held item.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 46,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Night Slash",
+          "level": 49,
+          "info": {
+            "description": "",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "galarian": {
+      "types": [
+        "Steel",
+        "Steel"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/meowth_galarian/front_cropped.png",
+      "moves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "\tScratches with \tsharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 6,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Astonish",
+          "level": 9,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 14,
+          "info": {
+            "description": "\tScratches or jabs \t2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 17,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 22,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 25,
+          "info": {
+            "description": "\tHeavily strikes \tswitching #mon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pay Day",
+          "level": 30,
+          "info": {
+            "description": "\tThrows coins. Gets \tthem back later.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 33,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Nasty Plot",
+          "level": 38,
+          "info": {
+            "description": "\tSharply raises the \tuser's Sp.Atk.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thief",
+          "level": 41,
+          "info": {
+            "description": "\tAn attack that may \tsteal a held item.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 46,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Night Slash",
+          "level": 49,
+          "info": {
+            "description": "",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": "Normal",
+      "frontSpriteUrl": "/sprites/pokemon/meowth_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.815Z",
-  "version": "1.0.0"
+  }
 }

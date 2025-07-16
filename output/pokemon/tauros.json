@@ -5,15 +5,6 @@
   "types": "Normal",
   "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/tauros/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 75,
@@ -86,20 +77,6 @@
     "bodyShape": "Quadruped",
     "bodyColor": "Black"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -719,8 +696,15 @@
   },
   "forms": {
     " Paldean": {
-      "formName": " Paldean",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Tauros"
+        ],
+        "chainWithMethods": {
+          "Tauros": []
+        }
+      },
       "moves": [
         {
           "name": "Tackle",
@@ -915,11 +899,640 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 128,
+      "johtoDex": 162,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Paldean"
+    },
+    "paldean": {
+      "types": [
+        "Fighting",
+        "Fighting"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/tauros_paldean/front_cropped.png",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 3,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 5,
+          "info": {
+            "description": "\tRaises Attack if \tthe user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Horn Attack",
+          "level": 8,
+          "info": {
+            "description": "\tAn attack using a \thorn to jab.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 11,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 15,
+          "info": {
+            "description": "\tHeavily strikes \tswitching #mon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rest",
+          "level": 19,
+          "info": {
+            "description": "\tSleep for 2 turns \tto fully recover.",
+            "type": "Psychic",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 24,
+          "info": {
+            "description": "\tLets the user get \tin the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 29,
+          "info": {
+            "description": "\tRaises the criti- \tcal hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 35,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "level": 41,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swagger",
+          "level": 48,
+          "info": {
+            "description": "\tCauses confusion \tbut raises Attack.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 55,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 63,
+          "info": {
+            "description": "\tA tackle that also \thurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "level": 71,
+          "info": {
+            "description": "\t1st turn: Attack \t2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 80,
+          "info": {
+            "description": "\tWorks 2-3 turns \tand confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "paldean_fire": {
+      "types": [
+        "Fighting",
+        "Water"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/tauros_paldean_fire/front_cropped.png",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 3,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 5,
+          "info": {
+            "description": "\tRaises Attack if \tthe user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Horn Attack",
+          "level": 8,
+          "info": {
+            "description": "\tAn attack using a \thorn to jab.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 11,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 15,
+          "info": {
+            "description": "\tHeavily strikes \tswitching #mon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rest",
+          "level": 19,
+          "info": {
+            "description": "\tSleep for 2 turns \tto fully recover.",
+            "type": "Psychic",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 24,
+          "info": {
+            "description": "\tLets the user get \tin the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 29,
+          "info": {
+            "description": "\tRaises the criti- \tcal hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 35,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "level": 41,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swagger",
+          "level": 48,
+          "info": {
+            "description": "\tCauses confusion \tbut raises Attack.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 55,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 63,
+          "info": {
+            "description": "\tA tackle that also \thurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "level": 71,
+          "info": {
+            "description": "\t1st turn: Attack \t2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 80,
+          "info": {
+            "description": "\tWorks 2-3 turns \tand confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "paldean_water": {
+      "types": [
+        "Fighting",
+        "Water"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/tauros_paldean_water/front_cropped.png",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 3,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 5,
+          "info": {
+            "description": "\tRaises Attack if \tthe user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Horn Attack",
+          "level": 8,
+          "info": {
+            "description": "\tAn attack using a \thorn to jab.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 11,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 15,
+          "info": {
+            "description": "\tHeavily strikes \tswitching #mon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rest",
+          "level": 19,
+          "info": {
+            "description": "\tSleep for 2 turns \tto fully recover.",
+            "type": "Psychic",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 24,
+          "info": {
+            "description": "\tLets the user get \tin the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 29,
+          "info": {
+            "description": "\tRaises the criti- \tcal hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 35,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "level": 41,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swagger",
+          "level": 48,
+          "info": {
+            "description": "\tCauses confusion \tbut raises Attack.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 55,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 63,
+          "info": {
+            "description": "\tA tackle that also \thurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "level": 71,
+          "info": {
+            "description": "\t1st turn: Attack \t2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 80,
+          "info": {
+            "description": "\tWorks 2-3 turns \tand confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": "Normal",
+      "frontSpriteUrl": "/sprites/pokemon/tauros_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.836Z",
-  "version": "1.0.0"
+  }
 }

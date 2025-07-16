@@ -5,15 +5,6 @@
   "types": "Ground",
   "updatedTypes": "Ground",
   "frontSpriteUrl": "/sprites/pokemon/diglett/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 10,
@@ -88,20 +79,6 @@
     "bodyShape": "Head Base",
     "bodyColor": "Brown"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -622,8 +599,30 @@
   },
   "forms": {
     " Alolan": {
-      "formName": " Alolan",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Diglett",
+          "Dugtrio"
+        ],
+        "chainWithMethods": {
+          "Diglett": [
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 26,
+              "target": "Dugtrio",
+              "form": "Plain Form"
+            },
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 26,
+              "target": "Dugtrio",
+              "form": "Alolan Form"
+            }
+          ],
+          "Dugtrio": []
+        }
+      },
       "moves": [
         {
           "name": "Mud Slap",
@@ -806,11 +805,226 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 50,
+      "johtoDex": 143,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Alolan"
+    },
+    "alolan": {
+      "types": [
+        "Ground",
+        "Steel"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/diglett_alolan/front_cropped.png",
+      "moves": [
+        {
+          "name": "Mud Slap",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "\tScratches with \tsharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 1,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 4,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Astonish",
+          "level": 7,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 10,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Magnitude",
+          "level": 14,
+          "info": {
+            "description": "\tA Ground attack \twith random power.",
+            "type": "Ground",
+            "pp": 30,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "level": 18,
+          "info": {
+            "description": "\tA Ground attack \tthat lowers Speed.",
+            "type": "Ground",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 22,
+          "info": {
+            "description": "\tAttacks before the \tfoe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 25,
+          "info": {
+            "description": "\tAn attack that may \traise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "level": 28,
+          "info": {
+            "description": "\tAn attack that may \tlower Sp.Def.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 31,
+          "info": {
+            "description": "\t1st turn: Burrow \t2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 35,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 39,
+          "info": {
+            "description": "\tTough but useless \tvs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Night Slash",
+          "level": 43,
+          "info": {
+            "description": "",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": "Ground",
+      "frontSpriteUrl": "/sprites/pokemon/diglett_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.814Z",
-  "version": "1.0.0"
+  }
 }

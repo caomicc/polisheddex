@@ -511,13 +511,7 @@ for (const file of baseStatsFiles) {
     }
   }
 }
-const finalResult: Record<string, PokemonDataV2 & {
-  nationalDex: number | null,
-  johtoDex: number | null,
-  types: string | string[],
-  faithfulTypes?: string | string[],
-  updatedTypes?: string | string[]
-}> = {};
+const finalResult: Record<string, PokemonDataV3> = {};
 
 for (const mon of Object.keys(result)) {
 
@@ -621,11 +615,11 @@ for (const mon of Object.keys(result)) {
   finalResult[mon] = {
     evolution,
     moves,
-    nationalDex,
-    johtoDex,
-    types,
-    faithfulTypes: faithfulTypesFormatted,
-    updatedTypes: updatedTypesFormatted
+    ...(nationalDex !== null ? { nationalDex } : {}),
+    ...(johtoDex !== null ? { johtoDex } : {}),
+    ...(types && types !== 'Unknown' ? { types } : {}),
+    ...(faithfulTypesFormatted && faithfulTypesFormatted !== 'Unknown' ? { faithfulTypes: faithfulTypesFormatted } : {}),
+    ...(updatedTypesFormatted && updatedTypesFormatted !== 'Unknown' ? { updatedTypes: updatedTypesFormatted } : {}),
   };
 }
 
@@ -762,13 +756,90 @@ for (const file of wildFiles) {
 // Using the previously defined PokemonDataV3 type
 const finalResultV3: Record<string, PokemonDataV3> = {};
 for (const mon of Object.keys(finalResult)) {
+  // Provide default values for all DetailedStats fields to satisfy PokemonDataV3
   finalResultV3[mon] = {
     ...finalResult[mon],
+    // Add all required DetailedStats fields with default values if not present
+    baseStats: {
+      hp: finalResult[mon].baseStats?.hp || 0,
+      attack: 0,
+      defense: 0,
+      speed: 0,
+      specialAttack: 0,
+      specialDefense: 0,
+      total: 0
+    },
+    catchRate: 255,
+    baseExp: 0,
+    heldItems: [],
+    abilities: [],
+    faithfulAbilities: [],
+    updatedAbilities: [],
+    growthRate: "Medium Fast",
+    eggGroups: [],
+    genderRatio: {
+      male: 0,
+      female: 0
+    },
+    hatchRate: "Unknown",
+    evYield: "None",
     locations: locationsByMon[mon] || []
   };
 }
 
-// Now that finalResultV3 is defined, we can call exportDetailedStats
+// --- Add missing form entries for Pokemon with base stats files but no moveset entries ---
+console.log('Checking for missing form entries...');
+
+// Get all base stats files that represent forms
+const baseStatsFormFiles = baseStatsFiles.filter(f => {
+  const fileName = f.replace('.asm', '');
+  const { basePokemonName, formName } = extractFormInfo(fileName);
+  return formName && formName !== 'Plain'; // Only non-plain forms
+});
+
+for (const formFile of baseStatsFormFiles) {
+  const fileName = formFile.replace('.asm', '');
+  const { basePokemonName, formName } = extractFormInfo(fileName);
+
+  if (!basePokemonName || !formName) continue;
+
+  const basePokemonKey = toTitleCase(basePokemonName);
+  const fullFormKey = `${basePokemonKey}${formName}`;
+
+  console.log(`Checking form: ${fullFormKey} (base: ${basePokemonKey}, form: ${formName})`);
+
+  // Check if this form already exists in our results
+  if (!finalResultV3[fullFormKey]) {
+    console.log(`Missing form entry for ${fullFormKey}, creating from base ${basePokemonKey}...`);
+
+    // Check if the base Pokemon exists
+    if (finalResultV3[basePokemonKey]) {
+      // Create a form entry that inherits from the base Pokemon
+      finalResultV3[fullFormKey] = {
+        // Copy all data from base Pokemon
+        ...finalResultV3[basePokemonKey],
+
+        // But give it a different evolution chain if it has different evolution methods
+        evolution: {
+          methods: [], // Forms typically don't evolve further
+          chain: [fullFormKey], // Single member chain for now
+          chainWithMethods: { [fullFormKey]: [] }
+        },
+
+        // Locations will be empty for now (could be populated from location data later)
+        locations: []
+      };
+
+      console.log(`Created form entry for ${fullFormKey} based on ${basePokemonKey}`);
+    } else {
+      console.log(`Base Pokemon ${basePokemonKey} not found, cannot create form ${fullFormKey}`);
+    }
+  } else {
+    console.log(`Form ${fullFormKey} already exists`);
+  }
+}
+
+// Now that finalResultV3 is defined and potentially has more forms, we can call exportDetailedStats
 exportDetailedStats();
 
 // Group all Pokemon data
@@ -836,8 +907,9 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
 
   baseData[trimmedMon] = {
     name: trimmedMon,
-    nationalDex: data.nationalDex,
-    johtoDex: data.johtoDex,
+    moves: data.moves || [],
+    nationalDex: data.nationalDex ?? null,
+    johtoDex: data.johtoDex ?? null,
     types: data.faithfulTypes || data.types || "Unknown", // Default to the main types (updated version)
     // faithfulTypes: data.faithfulTypes || data.types || "Unknown", // Include faithful types if available
     updatedTypes: (data.updatedTypes && !data.updatedTypes.includes('None')) ? data.updatedTypes : "Unknown", // Only use updatedTypes if they exist and aren't 'None'
@@ -1103,11 +1175,15 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
 
   levelMoves[mon] = { moves: data.moves };
 
+  console.log(`Processing level moves for ${mon}`);
+  console.log(`Data:`, data);
+  console.log(`levelMoves[mon]:`, levelMoves[mon]);
+
   // Add form-specific moves if available
   if (data.forms && Object.keys(data.forms).length > 0) {
     levelMoves[mon].forms = {};
     for (const [formName, formData] of Object.entries(data.forms)) {
-      if (formData.moves && formData.moves.length > 0) {
+      if (Array.isArray(formData.moves) && formData.moves.length > 0) {
         if (!levelMoves[mon].forms) levelMoves[mon].forms = {};
         levelMoves[mon].forms[formName] = {
           moves: formData.moves.map(m => ({
@@ -1121,6 +1197,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
   }
 }
 const validatedLevelMoves = validatePokemonKeys(levelMoves);
+
 fs.writeFileSync(LEVEL_MOVES_OUTPUT, JSON.stringify(validatedLevelMoves, null, 2));
 
 // Extract and save location data (including hidden grottoes)
@@ -1151,7 +1228,7 @@ for (const [mon, data] of Object.entries(finalResultV3)) {
   }
 
   // Add form name to each location entry
-  const locationsWithForms = data.locations.map(loc => ({
+  const locationsWithForms = (data.locations ?? []).map(loc => ({
     ...loc,
     formName: formName
   }));
@@ -1510,63 +1587,104 @@ if (fs.existsSync(DETAILED_STATS_OUTPUT)) {
 
 // Generate individual files for each Pokemon
 for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
-  const pokemonData = {
-    // Basic information
+  // --- Ensure all forms are included in individual Pokemon files ---
+  const groupedData = groupedPokemonData[pokemonName] || {};
+  const forms = { ...(groupedData.forms || {}) };
+  const baseName = pokemonName.toLowerCase();
+  const formFiles = baseStatsFiles.filter(f => f.toLowerCase().startsWith(baseName + '_') && f.endsWith('.asm'));
+  for (const formFile of formFiles) {
+    const formName = formFile.replace(baseName + '_', '').replace('.asm', '');
+    // Normalize form name for lookup
+    const normalizedFormName = Object.keys(validatedLevelMoves[pokemonName]?.forms || {}).find(
+      k => k.toLowerCase() === formName.toLowerCase()
+    ) || formName;
+    let formTypeData = (formTypeMap[pokemonName] && formTypeMap[pokemonName][toTitleCase(formName)])
+      ? formTypeMap[pokemonName][toTitleCase(formName)].types
+      : baseData.types;
+    // Try to get moves for this form, fallback to base moves if missing
+    let formMoves: Move[] = [];
+    if (
+      validatedLevelMoves[pokemonName]?.forms &&
+      validatedLevelMoves[pokemonName].forms[normalizedFormName] &&
+      Array.isArray(validatedLevelMoves[pokemonName].forms[normalizedFormName].moves)
+    ) {
+      formMoves = validatedLevelMoves[pokemonName].forms[normalizedFormName].moves;
+    } else if (validatedLevelMoves[pokemonName]?.moves) {
+      console.warn(`Warning: No specific moves found for form '${formName}'`, validatedLevelMoves[pokemonName]);
+      formMoves = validatedLevelMoves[pokemonName].moves;
+      if (formMoves.length > 0) {
+        console.warn(`Warning: No moves found for form '${formName}' of ${pokemonName}, falling back to base moves.`);
+      }
+    } else {
+      console.warn(`Warning: No moves found for form '${formName}' of ${pokemonName}.`);
+    }
+    // Do not include moves for 'plain' form
+    if (formName.toLowerCase() === 'plain' || formName === undefined) {
+      // Only update types/frontSpriteUrl if not already present, do not add moves
+      forms[formName] = {
+        ...(forms[formName] || {}),
+        types: forms[formName]?.types ?? formTypeData,
+        frontSpriteUrl: forms[formName]?.frontSpriteUrl ?? `/sprites/pokemon/${baseName}_${formName}/front_cropped.png`
+      };
+    } else {
+      forms[formName] = {
+        types: formTypeData,
+        frontSpriteUrl: `/sprites/pokemon/${baseName}_${formName}/front_cropped.png`,
+        moves: formMoves
+      };
+    }
+  }
+
+  // Always include all forms, even if empty
+  const allFormMoves: Record<string, { moves: Move[] }> = {};
+  if (validatedLevelMoves[pokemonName]?.forms) {
+    for (const [formName, formMoveObj] of Object.entries(validatedLevelMoves[pokemonName].forms)) {
+      allFormMoves[formName] = { moves: formMoveObj.moves || [] };
+    }
+  }
+  for (const formName of Object.keys(forms)) {
+    if (!allFormMoves[formName]) {
+      allFormMoves[formName] = { moves: forms[formName].moves || [] };
+    }
+  }
+
+  // Build minimal root object
+  const pokemonData: Record<string, any> = {
     name: pokemonName,
     nationalDex: baseData.nationalDex,
     johtoDex: baseData.johtoDex,
-
-    // Types (faithful as primary, updated as secondary)
     types: baseData.types,
     updatedTypes: baseData.updatedTypes,
-
-    // Sprites
     frontSpriteUrl: baseData.frontSpriteUrl,
-
-    // Base stats and detailed information
-    baseStats: baseData.baseStats,
     detailedStats: detailedStatsData[pokemonName] || null,
-
-    // Abilities
-    abilities: baseData.abilities,
-    faithfulAbilities: baseData.faithfulAbilities,
-    updatedAbilities: baseData.updatedAbilities,
-
-    // Breeding and catch information
-    catchRate: baseData.catchRate,
-    baseExp: baseData.baseExp,
-    growthRate: baseData.growthRate,
-    eggGroups: baseData.eggGroups,
-    genderRatio: baseData.genderRatio,
-    hatchRate: baseData.hatchRate,
-    evYield: baseData.evYield,
-    heldItems: baseData.heldItems,
-
-    // Evolution data
     evolution: validatedEvolutionData[pokemonName] || null,
-
-    // Move data
     levelMoves: validatedLevelMoves[pokemonName]?.moves || [],
     tmHmMoves: tmHmData[pokemonName] || [],
     eggMoves: eggMoveData[pokemonName] || [],
-
-    // Location data
-    locations: validatedLocationData[pokemonName]?.locations || [],
-
-    // Pokedex entries
+    locations: validatedLocationData[pokemonName]?.locations || validatedLocationData[pokemonName]?.forms || [],
     pokedexEntries: pokedexData[pokemonName] || [],
-
-    // Form data (if applicable)
-    forms: groupedPokemonData[pokemonName]?.forms || {},
-
-    // Form-specific move and location data
-    formMoves: validatedLevelMoves[pokemonName]?.forms || {},
-    formLocations: validatedLocationData[pokemonName]?.forms || {},
-
-    // Metadata
-    generatedAt: new Date().toISOString(),
-    version: '1.0.0'
+    forms,
+    // formMoves: allFormMoves,
+    // formLocations:  || {},
+    // generatedAt: new Date().toISOString(),
+    // version: '1.0.0'
   };
+
+  // Remove redundant root fields if detailedStats is present
+  if (pokemonData.detailedStats) {
+    delete pokemonData.baseStats;
+    delete pokemonData.abilities;
+    delete pokemonData.faithfulAbilities;
+    delete pokemonData.updatedAbilities;
+    delete pokemonData.catchRate;
+    delete pokemonData.baseExp;
+    delete pokemonData.growthRate;
+    delete pokemonData.eggGroups;
+    delete pokemonData.genderRatio;
+    delete pokemonData.hatchRate;
+    delete pokemonData.evYield;
+    delete pokemonData.heldItems;
+  }
 
   // Create a safe filename
   const safeFileName = pokemonName

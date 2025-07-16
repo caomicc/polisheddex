@@ -11,15 +11,6 @@
     "Ground"
   ],
   "frontSpriteUrl": "/sprites/pokemon/geodude/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 40,
@@ -100,20 +91,6 @@
     "bodyShape": "Head Arms",
     "bodyColor": "Gray"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -701,8 +678,45 @@
   },
   "forms": {
     " Alolan": {
-      "formName": " Alolan",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Geodude",
+          "Graveler",
+          "Golem"
+        ],
+        "chainWithMethods": {
+          "Geodude": [
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 25,
+              "target": "Graveler",
+              "form": "Plain Form"
+            },
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 25,
+              "target": "Graveler",
+              "form": "Alolan Form"
+            }
+          ],
+          "Graveler": [
+            {
+              "method": "EVOLVE_TRADE",
+              "parameter": "LINKING_CORD",
+              "target": "Golem",
+              "form": "Plain Form"
+            },
+            {
+              "method": "EVOLVE_TRADE",
+              "parameter": "LINKING_CORD",
+              "target": "Golem",
+              "form": "Alolan Form"
+            }
+          ],
+          "Golem": []
+        }
+      },
       "moves": [
         {
           "name": "Tackle",
@@ -897,11 +911,241 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 74,
+      "johtoDex": 34,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Alolan"
+    },
+    "alolan": {
+      "types": [
+        "Rock",
+        "Electric"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/geodude_alolan/front_cropped.png",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "\tRaises the user's \tDefense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 4,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 6,
+          "info": {
+            "description": "\tA high-speed \tspinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 10,
+          "info": {
+            "description": "\tAttacks 5 turns \twith rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Magnitude",
+          "level": 12,
+          "info": {
+            "description": "\tA Ground attack \twith random power.",
+            "type": "Ground",
+            "pp": 30,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 16,
+          "info": {
+            "description": "\tDrops rocks on the \tenemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 18,
+          "info": {
+            "description": "\tAn attack that may \traise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "level": 22,
+          "info": {
+            "description": "\tA Ground attack \tthat lowers Speed.",
+            "type": "Ground",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 24,
+          "info": {
+            "description": "\tHurls boulders to \thit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 28,
+          "info": {
+            "description": "",
+            "type": "Rock",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 30,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 34,
+          "info": {
+            "description": "\tTough but useless \tvs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 36,
+          "info": {
+            "description": "\tVery powerful but \tmakes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 40,
+          "info": {
+            "description": "\tA tackle that also \thurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 42,
+          "info": {
+            "description": "\tHas a high criti- \tcal hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": [
+        "Rock",
+        "Ground"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/geodude_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.821Z",
-  "version": "1.0.0"
+  }
 }

@@ -5,15 +5,6 @@
   "types": "Electric",
   "updatedTypes": "Electric",
   "frontSpriteUrl": "/sprites/pokemon/raichu/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 60,
@@ -89,20 +80,6 @@
     "bodyShape": "Bipedal Tail",
     "bodyColor": "Brown"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -635,8 +612,38 @@
   },
   "forms": {
     " Alolan": {
-      "formName": " Alolan",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Pichu",
+          "Pikachu",
+          "Raichu"
+        ],
+        "chainWithMethods": {
+          "Pichu": [
+            {
+              "method": "EVOLVE_HAPPINESS",
+              "parameter": "TR_ANYTIME",
+              "target": "Pikachu"
+            }
+          ],
+          "Pikachu": [
+            {
+              "method": "EVOLVE_ITEM",
+              "parameter": "THUNDERSTONE",
+              "target": "Raichu",
+              "form": "Plain Form"
+            },
+            {
+              "method": "EVOLVE_ITEM",
+              "parameter": "ODD_SOUVENIR",
+              "target": "Raichu",
+              "form": "Alolan Form"
+            }
+          ],
+          "Raichu": []
+        }
+      },
       "moves": [
         {
           "name": "Thundershock",
@@ -703,11 +710,106 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 26,
+      "johtoDex": 23,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Alolan"
+    },
+    "alolan": {
+      "types": [
+        "Electric",
+        "Psychic"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/raichu_alolan/front_cropped.png",
+      "moves": [
+        {
+          "name": "Thundershock",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 1,
+          "info": {
+            "description": "\tLets the user get \tin the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 1,
+          "info": {
+            "description": "\tStronger if the \tuser's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": "Electric",
+      "frontSpriteUrl": "/sprites/pokemon/raichu_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.807Z",
-  "version": "1.0.0"
+  }
 }

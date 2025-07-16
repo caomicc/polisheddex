@@ -8,15 +8,6 @@
     "Ground"
   ],
   "frontSpriteUrl": "/sprites/pokemon/typhlosion/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 78,
@@ -111,20 +102,6 @@
     "bodyShape": "Quadruped",
     "bodyColor": "Yellow"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -808,8 +785,31 @@
   },
   "forms": {
     " Hisuian": {
-      "formName": " Hisuian",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Cyndaquil",
+          "Quilava",
+          "Typhlosion"
+        ],
+        "chainWithMethods": {
+          "Cyndaquil": [
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 14,
+              "target": "Quilava"
+            }
+          ],
+          "Quilava": [
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 36,
+              "target": "Typhlosion"
+            }
+          ],
+          "Typhlosion": []
+        }
+      },
       "moves": [
         {
           "name": "Shadow Claw",
@@ -1028,11 +1028,250 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 157,
+      "johtoDex": 6,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Hisuian"
+    },
+    "hisuian": {
+      "types": [
+        "Fire",
+        "Ghost"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/typhlosion_hisuian/front_cropped.png",
+      "moves": [
+        {
+          "name": "Fire Punch",
+          "level": 1,
+          "info": {
+            "description": "\tA fiery punch. May \tcause a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Smokescreen",
+          "level": 6,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 10,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 13,
+          "info": {
+            "description": "\tLets the user get \tin the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 20,
+          "info": {
+            "description": "\tRaises the user's \tDefense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 24,
+          "info": {
+            "description": "\tAn attack that may \tup user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 31,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 35,
+          "info": {
+            "description": "\t1st turn: Burrow \t2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 43,
+          "info": {
+            "description": "\tStronger if the \tuser's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 48,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "level": 56,
+          "info": {
+            "description": "\tAn attack that may \tlower Sp.Def.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 61,
+          "info": {
+            "description": "\tAttacks 5 turns \twith rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 69,
+          "info": {
+            "description": "\tA tackle that also \thurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 74,
+          "info": {
+            "description": "\tTough but useless \tvs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 81,
+          "info": {
+            "description": "\tA charge that also \thurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": "Fire",
+      "frontSpriteUrl": "/sprites/pokemon/typhlosion_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.845Z",
-  "version": "1.0.0"
+  }
 }

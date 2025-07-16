@@ -5,15 +5,6 @@
   "types": "Electric",
   "updatedTypes": "Electric",
   "frontSpriteUrl": "/sprites/pokemon/voltorb/front_cropped.png",
-  "baseStats": {
-    "hp": 0,
-    "attack": 0,
-    "defense": 0,
-    "speed": 0,
-    "specialAttack": 0,
-    "specialDefense": 0,
-    "total": 0
-  },
   "detailedStats": {
     "baseStats": {
       "hp": 40,
@@ -86,20 +77,6 @@
     "bodyShape": "Head",
     "bodyColor": "Brown"
   },
-  "abilities": [],
-  "faithfulAbilities": [],
-  "updatedAbilities": [],
-  "catchRate": 255,
-  "baseExp": 0,
-  "growthRate": "Medium Fast",
-  "eggGroups": [],
-  "genderRatio": {
-    "male": 0,
-    "female": 0
-  },
-  "hatchRate": "Unknown",
-  "evYield": "None",
-  "heldItems": [],
   "evolution": {
     "methods": [],
     "chain": [
@@ -619,8 +596,29 @@
   },
   "forms": {
     " Hisuian": {
-      "formName": " Hisuian",
-      "types": "Unknown",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Voltorb",
+          "Electrode"
+        ],
+        "chainWithMethods": {
+          "Voltorb": [
+            {
+              "method": "EVOLVE_LEVEL",
+              "parameter": 30,
+              "target": "Electrode"
+            },
+            {
+              "method": "EVOLVE_ITEM",
+              "parameter": "LEAF_STONE",
+              "target": "Electrode",
+              "form": "Hisuian Form"
+            }
+          ],
+          "Electrode": []
+        }
+      },
       "moves": [
         {
           "name": "Tackle",
@@ -839,11 +837,250 @@
           }
         }
       ],
-      "locations": []
+      "nationalDex": 100,
+      "johtoDex": 128,
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": " Hisuian"
+    },
+    "hisuian": {
+      "types": [
+        "Electric",
+        "Grass"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/voltorb_hisuian/front_cropped.png",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Sonic Boom",
+          "level": 4,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 6,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 9,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 11,
+          "info": {
+            "description": "\tAttacks 5 turns \twith rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 13,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 16,
+          "info": {
+            "description": "\tparalyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 20,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 22,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 26,
+          "info": {
+            "description": "\tRaises Defense \twith a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 29,
+          "info": {
+            "description": "\tRaises Sp.Def with \ta wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 34,
+          "info": {
+            "description": "\tVery powerful but \tmakes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 37,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bug Buzz",
+          "level": 41,
+          "info": {
+            "description": "\tAn attack that may \tlower Sp.Def.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 46,
+          "info": {
+            "description": "\tDoes more damage \tat lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 48,
+          "info": {
+            "description": "\tReturns a special \tattack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        }
+      ]
+    },
+    "plain": {
+      "types": "Electric",
+      "frontSpriteUrl": "/sprites/pokemon/voltorb_plain/front_cropped.png"
     }
-  },
-  "formMoves": {},
-  "formLocations": {},
-  "generatedAt": "2025-07-16T17:09:15.827Z",
-  "version": "1.0.0"
+  }
 }
