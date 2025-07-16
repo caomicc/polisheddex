@@ -614,20 +614,36 @@ export default function PokemonFormClient({
           <Card>
             <CardHeader>Type Relations</CardHeader>
             <CardContent className="space-y-2">
-              <p className="text-sm md:text-md text-muted-foreground">
-                Type relations determine how effective moves are against this Pokémon.
-              </p>
-              {formData.types && (
+              <div className={cn('grid grid-cols-1 gap-6', formData.updatedTypes ? 'md:grid-cols-2' : '')}>
+                {formData.types && (
+                <div>
+                  <h3 className="italic font-bold text-sm mb-4 text-left">Faithful</h3>
+                    <TypeRelationsChart
+                      types={
+                        Array.isArray(formData.types)
+                          ? formData.types.map((t: string) => t.toLowerCase())
+                        : formData.types
+                        ? [formData.types.toLowerCase()]
+                        : []
+                      }
+                    />
+                  </div>
+                )}
+              {formData.updatedTypes && (
+              <div>
+                <h3 className="italic font-bold text-sm mb-4 text-left">Updated</h3>
                 <TypeRelationsChart
                   types={
-                    Array.isArray(formData.types)
-                      ? formData.types.map((t: string) => t.toLowerCase())
-                      : formData.types
-                      ? [formData.types.toLowerCase()]
+                    Array.isArray(formData.updatedTypes)
+                      ? formData.updatedTypes.map((t: string) => t.toLowerCase())
+                      : formData.updatedTypes
+                      ? [formData.updatedTypes.toLowerCase()]
                       : []
                   }
                 />
+                </div>
               )}
+              </div>
             </CardContent>
           </Card>
         </TabsContent>

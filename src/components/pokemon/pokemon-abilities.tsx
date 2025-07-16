@@ -30,7 +30,7 @@ export function PokemonAbilities({
           <h3
             className={cn('italic font-bold text-sm mb-4 text-left', showUpdated ? '' : 'hidden')}
           >
-            Polished:
+            Updated:
           </h3>
           <div className={cn('flex flex-col gap-2', className)}>
             {updatedAbilities?.map((ability, idx) => (
