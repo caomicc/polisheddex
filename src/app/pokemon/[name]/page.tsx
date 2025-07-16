@@ -65,6 +65,11 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         ...formValue.detailedStats,
         moves: formValue.moves || [],
         frontSpriteUrl: formValue.frontSpriteUrl,
+        nationalDex: formValue.nationalDex || pokemonData.nationalDex || null,
+        johtoDex: formValue.johtoDex || pokemonData.johtoDex || null,
+        description:
+          formValue.pokedexEntries?.description || pokemonData.pokedexEntries?.description || '',
+        species: formValue.pokedexEntries?.species || pokemonData.pokedexEntries?.species || '',
       };
       console.log(`Added form ${formKey} data for ${pokemonName}`, allFormData[formKey]);
     });

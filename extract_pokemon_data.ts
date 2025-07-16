@@ -1635,6 +1635,9 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
       ? formTypeMap[pokemonName][titleCaseFormName].types
       : [];
     const formStats = detailedStatsData[`${pokemonName} ${formName}`] || {};
+    const baseStats = detailedStatsData[pokemonName] || {};
+
+    console.log(`formStats data for ${titleCaseFormName}:`, formStats);
     // Compose a full DetailedStats-like object for the form, but nest under detailedStats
     forms[titleCaseFormName] = {
       name: `${pokemonName} ${formName}`,
@@ -1659,6 +1662,10 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
         hatchRate: formStats.hatchRate ?? "Unknown",
         evYield: formStats.evYield ?? "None",
         locations: formStats.locations ?? [],
+        height: formStats.height ?? baseStats.height,
+        weight: formStats.weight ?? baseStats.weight,
+        bodyColor: formStats.bodyColor ?? baseStats.bodyColor,
+        bodyShape: formStats.bodyShape ?? baseStats.bodyShape,
         // add any other fields from DetailedStats as needed
       }
     };
