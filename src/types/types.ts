@@ -70,7 +70,7 @@ export interface PokemonDataV2 {
 
 // Type definitions for the detailed stats
 export interface DetailedStats {
-  moves: Move[];
+  moves?: Move[];
   name?: string;
   formName?: string;
   frontSpriteUrl?: string;
