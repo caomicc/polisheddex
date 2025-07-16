@@ -76,6 +76,37 @@ export function getFullPokemonName(name: string, form: string | null): string {
 }
 
 
+/**
+ * Update the respective Pokémon's JSON file with the extracted Pokédex entry.
+ * Handles both base and regional forms, and always uses the { default: {...}, regionalform: {...} } format.
+ */
+function updatePokemonJsonWithDexEntry(mon: string, entry: PokemonDexEntry) {
+  const baseName = extractBasePokemonName(mon).toLowerCase().replace(/[^a-z0-9]/g, '');
+  const filePath = path.join(__dirname, `../../../output/pokemon/${baseName}.json`);
+  if (!fs.existsSync(filePath)) {
+    console.warn(`No JSON file found for ${mon} (${filePath})`);
+    return;
+  }
+  const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+  // Always use the { default: {...}, regionalform: {...} } format
+  if (!data.pokedexEntries || typeof data.pokedexEntries !== 'object' || Array.isArray(data.pokedexEntries)) {
+    data.pokedexEntries = {};
+  }
+
+  const formMatch = mon.match(/^(.*?)-(\w+)$/);
+  if (formMatch) {
+    // It's a form: update the correct key in pokedexEntries
+    const formKey = formMatch[2][0].toUpperCase() + formMatch[2].slice(1).toLowerCase();
+    data.pokedexEntries[formKey] = entry;
+  } else {
+    // Base form: update 'default'
+    data.pokedexEntries.default = entry;
+  }
+
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+}
+
 export function extractPokedexEntries() {
   const pokedexEntriesPath = path.join(__dirname, '../../../rom/data/pokemon/dex_entries.asm');
   const entriesData = fs.readFileSync(pokedexEntriesPath, 'utf8');
@@ -188,23 +219,30 @@ export function extractPokedexEntries() {
   }
 
   // Clean up and format the entries
-  const formattedEntries: Record<string, PokemonDexEntry> = {};
+  const formattedEntries: Record<string, Record<string, PokemonDexEntry>> = {};
 
-  // eslint-disable-next-line prefer-const
   for (let [mon, data] of Object.entries(pokedexEntries)) {
-
-    // Join the entries into a single description, handling line breaks
-    // We'll preserve some formatting by adding spaces between entries
-    // and replacing @ with an empty string (end of entry marker)
     const description = data.entries.join(' ')
       .replace(/@/g, '')
-      .replace(/\s*-\s*(?=\w)/g, '') // Remove hyphens at end of lines
-      .replace(/\s+/g, ' ');        // Normalize multiple spaces
-
-    formattedEntries[mon] = {
+      .replace(/\s*-\s*(?=\w)/g, '')
+      .replace(/\s+/g, ' ');
+    const entry = {
       species: data.species,
       description: description.trim()
     };
+    // Build formattedEntries in the new format
+    const formMatch = mon.match(/^(.*?)-(\w+)$/);
+    if (formMatch) {
+      const base = formMatch[1];
+      const formKey = formMatch[2][0].toUpperCase() + formMatch[2].slice(1).toLowerCase();
+      if (!formattedEntries[base]) formattedEntries[base] = {};
+      formattedEntries[base][formKey] = entry;
+    } else {
+      if (!formattedEntries[mon]) formattedEntries[mon] = {};
+      formattedEntries[mon].default = entry;
+    }
+    // Update the respective Pokémon JSON file
+    updatePokemonJsonWithDexEntry(mon, entry);
   }
 
   fs.writeFileSync(POKEDEX_ENTRIES_OUTPUT, JSON.stringify(formattedEntries, null, 2));
