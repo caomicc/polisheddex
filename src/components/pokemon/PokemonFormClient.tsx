@@ -90,6 +90,26 @@ export default function PokemonFormClient({
                 <Badge variant="secondary">Unknown</Badge>
               )}
             </div>
+            <div className="flex flex-wrap gap-2 mt-2" aria-label="Pokemon Types" role="group">
+              {formData.updatedTypes ? (
+                Array.isArray(formData.updatedTypes) ? (
+                  formData.updatedTypes.map((type: string) => (
+                    <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                      {type}
+                    </Badge>
+                  ))
+                ) : (
+                  <Badge
+                    key={formData.updatedTypes}
+                    variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
+                  >
+                    {formData.types}
+                  </Badge>
+                )
+              ) : (
+                <></>
+              )}
+            </div>
           </div>{' '}
           <div className="w-36 p-1 md:p-0 md:w-36 md:h-auto md:mx-[initial] mx-auto">
             <Image
@@ -110,29 +130,31 @@ export default function PokemonFormClient({
                 <span>Johto <span className='font-bold'>#{formData.johtoDex}</span></span>
               )}
             </div>
-            <p className="text-sm md:text-3xl font-bold capitalize text-gray-900 dark:text-gray-50">
+            <p className="text-sm md:text-xl font-bold capitalize text-gray-900 dark:text-gray-50">
               {pokemonName}
             </p>
             <div className="flex flex-col mt-2 spacing-y-2 md:gap-1" aria-label="Pokemon Faithful Types" role="group">
               <label className='leading-none text-xs w-[50px]'>Faithful:</label>
-              {formData.types ? (
-                Array.isArray(formData.types) ? (
-                  formData.types.map((type: string) => (
-                    <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                      {type}
+              <div className='gap-2 flex flex-wrap'>
+                {formData.types ? (
+                  Array.isArray(formData.types) ? (
+                    formData.types.map((type: string) => (
+                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                        {type}
+                      </Badge>
+                    ))
+                  ) : (
+                    <Badge
+                      key={formData.types}
+                      variant={formData.types.toLowerCase() as PokemonType['name']}
+                    >
+                      {formData.types}
                     </Badge>
-                  ))
+                  )
                 ) : (
-                  <Badge
-                    key={formData.types}
-                    variant={formData.types.toLowerCase() as PokemonType['name']}
-                  >
-                    {formData.types}
-                  </Badge>
-                )
-              ) : (
-                <></>
-              )}
+                  <></>
+                )}
+              </div>
             </div>
             <div className="flex flex-col mt-2 spacing-y-0 md:gap-1" aria-label="Pokemon Polished Types" role="group">
               {formData.updatedTypes && Array.isArray(formData.updatedTypes) && formData.updatedTypes.length > 0 && (
@@ -226,11 +248,11 @@ export default function PokemonFormClient({
                       {((formData.height as number) / 10).toFixed(1)} m
                     </p>
                   </div>
-                  <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
+                  <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1 relative flex items-center justify-center">
                     {formData.genderRatio &&
                     formData.genderRatio.male === 0 &&
                     formData.genderRatio.female === 0 ? (
-                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center">
+                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-2">
                         <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
                           <div className="text-xs  items-center flex">
                             <div className="aspect-square w-4 inline-block relative mr-1">
@@ -249,9 +271,9 @@ export default function PokemonFormClient({
                         </div>
                       </div>
                     ) : formData.genderRatio ? (
-                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center">
+                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-2 w-full">
                         <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
-                          <div className="text-xs  items-center flex">
+                          <div className="text-[10px]  items-center flex">
                             <div className="aspect-square w-4 inline-block relative mr-1">
                               <Image
                                 src={'/icons/mars-solid.svg'}
@@ -262,7 +284,7 @@ export default function PokemonFormClient({
                             </div>{' '}
                             {formData.genderRatio.male}%
                           </div>
-                          <div className="text-xs  items-center flex">
+                          <div className="text-[10px]  items-center flex">
                             <div className="aspect-square w-4 inline-block relative items-center mr-1">
                               <Image
                                 src={'/icons/venus-solid.svg'}
@@ -274,7 +296,7 @@ export default function PokemonFormClient({
                             {formData.genderRatio.female}%
                           </div>
                         </div>
-                        <div className="inline-block w-14 h-14">
+                        <div className="inline-block w-14">
                           <GenderPieChart
                             male={formData.genderRatio.male}
                             female={formData.genderRatio.female}

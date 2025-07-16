@@ -17,10 +17,10 @@ export const KNOWN_FORMS = {
 };
 
 // Debug flag for tracking Pokémon type processing
-export const DEBUG_POKEMON = ['Growlithe', 'Raichu', 'Arcanine', 'Diglett', 'Dugtrio', 'Meowth', 'Persian', 'Exeggutor', 'Marowak', 'Slowbro', 'Slowking', 'Qwilfish', 'Dudunsparce'];
+export const DEBUG_POKEMON = ['Growlithe', 'Raichu', 'Arcanine', 'Diglett', 'Dugtrio', 'Meowth', 'Persian', 'Exeggutor', 'Marowak', 'Slowbro', 'Slowking', 'Qwilfish', 'Dudunsparce', 'Typhlosion', 'Feraligatr'];
 
 export interface TypeData {
-  faithfulTypes: string[];
+  types: string[];
   updatedTypes: string[];
 }
 

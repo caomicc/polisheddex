@@ -46,7 +46,7 @@ export function GenderPieChart({ male, female, genderless }: GenderPieChartProps
 
   return (
     <ChartContainer config={chartConfig} className="mx-auto aspect-square">
-      <PieChart>
+      <PieChart margin={{ top: 0, right: 0, bottom: 0, left: 0 }} >
         <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
         <Pie data={data} dataKey="value" nameKey="label" innerRadius={6} />
       </PieChart>

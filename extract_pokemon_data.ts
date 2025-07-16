@@ -453,7 +453,7 @@ for (const file of baseStatsFiles) {
   // Enhanced debugging for specific Pokémon
   const isDebug = DEBUG_POKEMON.includes(basePokemonName);
   if (isDebug) {
-    console.log(`DEBUG: Processing ${fileName} for ${basePokemonName}`);
+    console.log(`1 DEBUG: Processing ${fileName} for ${basePokemonName}`);
     console.log(`  Faithful types: ${faithfulTypes ? faithfulTypes.join(', ') : 'None'}`);
     console.log(`  Updated types: ${updatedTypes ? updatedTypes.join(', ') : 'None'}`);
   }
@@ -463,7 +463,7 @@ for (const file of baseStatsFiles) {
     // Handle plain form types
     const baseTypeName = toTitleCase(basePokemonName);
     typeMap[baseTypeName] = {
-      faithfulTypes: faithfulTypes || ['None', 'None'],
+      types: faithfulTypes || ['None', 'None'],
       updatedTypes: updatedTypes || faithfulTypes || ['None', 'None']
     };
   } else if (formName && formName !== null) {
@@ -478,12 +478,12 @@ for (const file of baseStatsFiles) {
 
     // Add form-specific types
     formTypeMap[baseTypeName][formTypeName] = {
-      faithfulTypes: faithfulTypes || ['None', 'None'],
+      types: faithfulTypes || ['None', 'None'],
       updatedTypes: updatedTypes || faithfulTypes || ['None', 'None']
     };
 
     if (isDebug) {
-      console.log(`DEBUG: Processing ${fileName} as special form ${formName} for ${basePokemonName}`);
+      console.log(`2 DEBUG: Processing ${fileName} as special form ${formName} for ${basePokemonName}`);
       console.log(`  Faithful types: ${faithfulTypes?.join(', ')}`);
       console.log(`  Updated types: ${updatedTypes?.join(', ')}`);
     }
@@ -491,12 +491,12 @@ for (const file of baseStatsFiles) {
     // Handle regular Pokémon types
     const typeName = toTitleCase(basePokemonName);
     typeMap[typeName] = {
-      faithfulTypes: faithfulTypes || ['None', 'None'],
+      types: faithfulTypes || ['None', 'None'],
       updatedTypes: updatedTypes || faithfulTypes || ['None', 'None']
     };
 
     if (isDebug) {
-      console.log(`DEBUG: Processing ${fileName} as base Pokémon ${basePokemonName}`);
+      console.log(`3 DEBUG: Processing ${fileName} as base Pokémon ${basePokemonName}`);
       console.log(`  Faithful types: ${faithfulTypes?.join(', ')}`);
       console.log(`  Updated types: ${updatedTypes?.join(', ')}`);
     }
@@ -570,20 +570,20 @@ for (const mon of Object.keys(result)) {
     if (formTypeMap[basePokemonName] && formTypeMap[basePokemonName][formName]) {
       // Use form-specific type data from formTypeMap
       const formTypeData = formTypeMap[basePokemonName][formName];
-      faithfulTypes = formTypeData.faithfulTypes || ['None'];
-      updatedTypes = formTypeData.updatedTypes || formTypeData.faithfulTypes || ['None'];
+      faithfulTypes = formTypeData.types || ['None'];
+      updatedTypes = formTypeData.updatedTypes || formTypeData.types || ['None'];
     } else {
       // Fallback to base type if form type not found
       if (typeMap[basePokemonName]) {
-        faithfulTypes = typeMap[basePokemonName].faithfulTypes || ['None'];
-        updatedTypes = typeMap[basePokemonName].updatedTypes || typeMap[basePokemonName].faithfulTypes || ['None'];
+        faithfulTypes = typeMap[basePokemonName].types || ['None'];
+        updatedTypes = typeMap[basePokemonName].updatedTypes || typeMap[basePokemonName].types || ['None'];
       }
     }
   } else {
     // This is a base form or plain form - look up directly in typeMap
     if (typeMap[baseMonName]) {
-      faithfulTypes = typeMap[baseMonName].faithfulTypes || ['None'];
-      updatedTypes = typeMap[baseMonName].updatedTypes || typeMap[baseMonName].faithfulTypes || ['None'];
+      faithfulTypes = typeMap[baseMonName].types || ['None'];
+      updatedTypes = typeMap[baseMonName].updatedTypes || typeMap[baseMonName].types || ['None'];
     }
   }
 
@@ -784,7 +784,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     if (typeMap[trimmedMon]) {
       const typesData = typeMap[trimmedMon];
       // Process the types using our helper function
-      typeData = processTypeArray(typesData.updatedTypes || typesData.faithfulTypes || ['None']);
+      typeData = processTypeArray(typesData.updatedTypes || typesData.types || ['None']);
     }
     // Check for _plain file types if we still don't have valid type data
     else {
@@ -872,7 +872,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
         // Try to get from formTypeMap
         if (formTypeMap[trimmedMon] && formTypeMap[trimmedMon][formName]) {
           const formTypes = formTypeMap[trimmedMon][formName];
-          formFaithfulTypeData = processTypeArray(formTypes.faithfulTypes);
+          formFaithfulTypeData = processTypeArray(formTypes.types);
           formUpdatedTypeData = processTypeArray(formTypes.updatedTypes);
           formTypeData = formUpdatedTypeData; // Default to updated types
         }
@@ -968,11 +968,14 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
 
           // Process the faithful and updated types
           if (faithfulFormTypes) {
+            console.log(`Found faithful types for ${trimmedMon} - form ${formName}:`, faithfulFormTypes);
             formFaithfulTypeData = processTypeArray(faithfulFormTypes);
           }
 
           if (updatedFormTypes) {
+            console.log(`Found updated types for ${trimmedMon} - form ${formName}:`, updatedFormTypes);
             formUpdatedTypeData = processTypeArray(updatedFormTypes);
+            console.log(`Using updated types for ${trimmedMon} - form ${formName}:`, formUpdatedTypeData);
             formTypeData = formUpdatedTypeData; // Default to updated types
           } else if (faithfulFormTypes) {
             formTypeData = processTypeArray(faithfulFormTypes);
@@ -991,11 +994,16 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
       // Create directory-style sprite path for form variants
       const formSpritePath = `${spriteName}_${formName.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
 
-      // Add the form data to the baseData
+      // Add the form data to the baseData with clear debug information
+      console.log(`Adding form data for ${trimmedMon} - form ${formName}`);
+      console.log(`  Form types: ${formTypeData}`);
+      console.log(`  Form faithful types: ${formFaithfulTypeData}`);
+      console.log(`  Form updated types: ${formUpdatedTypeData}`);
+
       // @ts-expect-error // TypeScript doesn't know about the dynamic structure of baseData[trimmedMon].forms
       baseData[trimmedMon].forms[formName] = {
-        types: formFaithfulTypeData || formTypeData || 'Unknown',
-        // faithfulTypes: formFaithfulTypeData || formTypeData || 'Unknown',
+        types: formFaithfulTypeData || formTypeData || 'Unknown', // Main types should be faithful types
+        // faithfulTypes: formFaithfulTypeData || 'Unknown',
         updatedTypes: formUpdatedTypeData || formTypeData || 'Unknown',
         frontSpriteUrl: `/sprites/pokemon/${formSpritePath}/front_cropped.png`,
         baseStats: {
@@ -1300,19 +1308,22 @@ function exportDetailedStats() {
     // Add types from finalResultV3 to the detailed stats
     for (const [pokemonName, stats] of Object.entries(detailedStats)) {
       if (finalResultV3[pokemonName]) {
+        console.log(`Adding types for ${pokemonName} from finalResultV3`, stats.types);
         // Copy types from finalResultV3
         stats.types = finalResultV3[pokemonName].types || 'Unknown';
         stats.updatedTypes = finalResultV3[pokemonName].updatedTypes || finalResultV3[pokemonName].types || 'Unknown';
       } else {
+        console.log(`No direct match for ${pokemonName} in finalResultV3, trying to find a match...`);
         // If pokemon not found in finalResultV3, try looking for a match
         const matchingKey = Object.keys(finalResultV3).find(key =>
           key.toLowerCase() === pokemonName.toLowerCase() ||
           standardizePokemonKey(key) === standardizePokemonKey(pokemonName)
         );
+        console.log(`Matching key found: ${matchingKey}`, stats.types);
 
         if (matchingKey) {
-          stats.types = finalResultV3[matchingKey].types || 'Unknown';
-          stats.updatedTypes = finalResultV3[matchingKey].updatedTypes || finalResultV3[matchingKey].types || 'Unknown';
+          // stats.types = finalResultV3[matchingKey].types || 'Unknown';
+          // stats.updatedTypes = finalResultV3[matchingKey].updatedTypes || finalResultV3[matchingKey].types || 'Unknown';
         } else {
           // If still not found, set to Unknown
           console.log(`No type data found for: ${pokemonName}`);
@@ -1441,4 +1452,15 @@ function processTypeArray(types: string[]): string | string[] {
   if (filteredTypes.length === 0) return 'Unknown';
   if (filteredTypes.length === 1) return filteredTypes[0];
   return filteredTypes;
+}
+
+// Debugging: Log the formTypeMap contents at the end of the script
+console.log('===== Form Type Map Debug =====');
+const formMapKeys = Object.keys(formTypeMap);
+console.log(`Found ${formMapKeys.length} Pokémon with form types:`);
+console.log(formMapKeys);
+// Print an example form type if available
+if (formMapKeys.length > 0) {
+  const example = formMapKeys[0];
+  console.log(`Example form type data for ${example}:`, formTypeMap[example]);
 }

@@ -403,6 +403,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
                 } else {
                   faithfulTypes = [t1, t2];
                 }
+                console.log(`abc Found faithful types for ${pokemonName}:`, faithfulTypes);
                 hasConditionalTypes = true;
               }
               break;
@@ -434,6 +435,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
                       updatedTypes = [t1, t2];
                     }
                   }
+                  console.log(`xyz Found updated types for ${pokemonName}:`, updatedTypes);
                   break;
                 }
               }
@@ -475,6 +477,8 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       if (updatedTypes === 'Unknown' && faithfulTypes !== 'Unknown') {
         updatedTypes = faithfulTypes;
       }
+
+      console.log(`Types for ${pokemonName}: faithful=${faithfulTypes}, updated=${updatedTypes}`);
 
       // Add the detailed stats to our result
       // For updatedAbilities, only use fallbacks if there are distinct abilities

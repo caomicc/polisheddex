@@ -165,9 +165,9 @@ export interface BaseData extends DetailedStats {
   name: string;
   nationalDex: number | null;
   johtoDex: number | null;
-  // types: string[] | string; // Current displayed types (default to updated)
-  // faithfulTypes?: string[] | string; // Types in the faithful version
-  // updatedTypes?: string[] | string; // Types in the polished/updated version
+  types: string[] | string; // Current displayed types (default to updated)
+  faithfulTypes?: string[] | string; // Types in the faithful version
+  updatedTypes?: string[] | string; // Types in the polished/updated version
   frontSpriteUrl?: string;
   forms?: Record<string, DetailedStats & {
     types: string[] | string; // Current displayed types (default to updated)
