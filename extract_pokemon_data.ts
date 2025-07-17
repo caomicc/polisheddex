@@ -1170,134 +1170,153 @@ console.log('✅ Pokemon key normalization completed');
 
 // Extract and save base data (dex number, types)
 const baseData: Record<string, BaseData> = {};
+// List of invalid or placeholder Pokémon names to skip (should match previous list)
+const INVALID_POKEMON_KEYS = [
+  '',
+  'egg',
+  'a',
+  'mime',
+  'mr',
+  'file',
+  'empty',
+  'undefined',
+  'null',
+  '???',
+  'missingno',
+  'poke',
+  'pkmn',
+  'pokemon',
+  'poke_mon',
+  'poke-mon',
+  'poke mon',
+  'none',
+  'unknown',
+  'test',
+  'testmon',
+  'test_mon',
+  'test-mon',
+  'test mon',
+  'debug',
+  'debugmon',
+  'debug_mon',
+  'debug-mon',
+  'debug mon',
+  'placeholder',
+  'placeholdermon',
+  'placeholder_mon',
+  'placeholder-mon',
+  'placeholder mon',
+];
+
 for (const [mon, data] of Object.entries(normalizedGroupedData)) {
+  // Filter out invalid Pokémon keys after grouping/normalization as well
+  const monKey = mon.trim().toLowerCase();
+  if (INVALID_POKEMON_KEYS.includes(monKey)) {
+    console.log(`Skipping invalid/placeholder Pokémon key after grouping: "${mon}"`);
+    continue;
+  }
 
-  console.log(`Processing base data for Pokémon: ${mon}`);
 
-  const trimmedMon = mon.trim();
+  // --- FILTER OUT INVALID OR SPECIAL CASES BEFORE NORMALIZATION ---
+  // List of invalid or placeholder Pokémon names to skip
+  const INVALID_POKEMON = [
+    '',
+    'egg',
+    'a',
+    'mime',
+    'mr',
+    'file',
+    'empty',
+    'undefined',
+    'null',
+    '???',
+    'missingno',
+    'poke',
+    'pkmn',
+    'pokemon',
+    'poke_mon',
+    'poke-mon',
+    'poke mon',
+    'poke_mon',
+    'poke-mon',
+    'poke mon',
+    'none',
+    'unknown',
+    'test',
+    'testmon',
+    'test_mon',
+    'test-mon',
+    'test mon',
+    'debug',
+    'debugmon',
+    'debug_mon',
+    'debug-mon',
+    'debug mon',
+    'placeholder',
+    'placeholdermon',
+    'placeholder_mon',
+    'placeholder-mon',
+    'placeholder mon',
+  ];
 
-  console.log(`Trimmed Pokémon name: ${trimmedMon}`);
+  // Handle special cases before normalization
+  let trimmedMon = mon.trim();
+  let displayName = trimmedMon;
+  let spriteName = '';
 
-  console.log(`Data for ${trimmedMon}:`, data);
-
-  let spriteName = trimmedMon
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, '') // Remove non-alphanumerics
-    .replace(/_/g, '-'); // Replace underscores with hyphens
-
+  // Special case handling for displayName and spriteName
   if (trimmedMon === 'Mr Mime' || trimmedMon === 'mrmime' || trimmedMon === 'MrMimePlain' || trimmedMon === 'mr-mime') {
-    // Special case for Mr. Mime
+    displayName = 'Mr-Mime';
     spriteName = 'mr__mime';
-  }
-
-  if (trimmedMon === 'Ho Oh' || trimmedMon === 'Ho-Oh' || trimmedMon === 'ho-oh') {
-    // Special case for Ho-Oh
-    spriteName = 'ho_oh';
-  }
-
-  if (trimmedMon === 'Tauros Paldean Water') {
-    // Special case for Tauros Paldean Water
-    spriteName = 'tauros_paldean_water';
-  }
-
-  if (trimmedMon === 'Tauros Paldean Fire') {
-    // Special case for Tauros Paldean Fire
-    spriteName = 'tauros_paldean_fire';
-  }
-
-  if (trimmedMon === 'Mime Jr' || trimmedMon === 'MimeJr' || trimmedMon === 'Mime-Jr' || trimmedMon === 'mime-jr') {
-    // Special case for Mime Jr.
+  } else if (trimmedMon === 'Mime Jr' || trimmedMon === 'MimeJr' || trimmedMon === 'Mime-Jr' || trimmedMon === 'mime-jr') {
+    displayName = 'Mime-Jr';
     spriteName = 'mime_jr_';
-  }
-
-  if (trimmedMon === 'Farfetch D' || trimmedMon === 'Farfetch\'d') {
-    // Special case for Mr. Mime
+  } else if (trimmedMon === 'Ho Oh' || trimmedMon === 'Ho-Oh' || trimmedMon === 'ho-oh') {
+    displayName = 'Ho-Oh';
+    spriteName = 'ho_oh';
+  } else if (trimmedMon === 'Tauros Paldean Water') {
+    spriteName = 'tauros_paldean_water';
+  } else if (trimmedMon === 'Tauros Paldean Fire') {
+    spriteName = 'tauros_paldean_fire';
+  } else if (trimmedMon === "Farfetch D" || trimmedMon === "Farfetch'd") {
     spriteName = 'farfetch_d';
-  }
-
-  if (trimmedMon === 'Sirfetch D' || trimmedMon === 'Sirfetch\'d' || trimmedMon === 'Sirfetchd' || trimmedMon === 'Sirfetch-d') {
+  } else if (trimmedMon === 'Sirfetch D' || trimmedMon === "Sirfetch'd" || trimmedMon === 'Sirfetchd' || trimmedMon === 'Sirfetch-d') {
     spriteName = 'sirfetch_d';
-  }
-
-  if (trimmedMon === 'Nidoran-F') {
+  } else if (trimmedMon === 'Nidoran-F') {
     spriteName = 'nidoran_f';
-  }
-
-  if (trimmedMon === 'Nidoran-M') {
+  } else if (trimmedMon === 'Nidoran-M') {
     spriteName = 'nidoran_m';
+  } else {
+    // Default normalization for spriteName
+    spriteName = trimmedMon
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, '') // Remove non-alphanumerics
+      .replace(/_/g, '-'); // Replace underscores with hyphens
   }
 
+  // Filter out invalid Pokémon before writing to baseData
+  if (
+    INVALID_POKEMON.includes(trimmedMon.toLowerCase()) ||
+    INVALID_POKEMON.includes(spriteName.toLowerCase()) ||
+    !trimmedMon ||
+    !spriteName ||
+    trimmedMon.length < 2 ||
+    spriteName.length < 2
+  ) {
+    console.log(`Skipping invalid or placeholder Pokémon: "${trimmedMon}" (spriteName: "${spriteName}")`);
+    continue;
+  }
 
-  console.log(`Processing Pokémon: ${trimmedMon}, sprite name: ${spriteName}`);
-
+  // ...existing code...
   let typeData = data.types;
 
-  console.log(`Initial type data for ${trimmedMon}:`, typeData);
-
-  if (!typeData || typeData === 'None' || (Array.isArray(typeData) && typeData.includes('None'))) {
-    // Try to get type from our typeMap
-    if (typeMap[trimmedMon]) {
-      const typesData = typeMap[trimmedMon];
-      // Process the types using our helper function
-      typeData = processTypeArray(typesData.updatedTypes || typesData.types || ['None']);
-    }
-    // Check for _plain file types if we still don't have valid type data
-    else {
-      console.log(`No type data found for ${trimmedMon}, checking for _plain file...`);
-      // The Pokémon might only have a _plain file (like Growlithe) but no direct entry in typeMap
-      // Construct the filename pattern and check for it in all processed files
-      const plainFileName = `${trimmedMon.toLowerCase()}_plain`;
-
-      // Look for any base stats files that match this pattern
-      const matchingPlainFiles = baseStatsFiles.filter(f =>
-        f.toLowerCase().startsWith(plainFileName) && f.endsWith('.asm')
-      );
-
-      if (matchingPlainFiles.length > 0) {
-        console.log(`Found _plain file for ${trimmedMon}: ${matchingPlainFiles[0]}`);
-
-        // Extract type information from the first matching file
-        const plainContent = fs.readFileSync(path.join(BASE_STATS_DIR, matchingPlainFiles[0]), 'utf8');
-        const plainTypeLine = plainContent.split(/\r?\n/).find(l =>
-          l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/)
-        );
-
-        if (plainTypeLine) {
-          const plainMatch = plainTypeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
-          if (plainMatch) {
-            const t1 = typeEnumToName[plainMatch[1]] || 'None';
-            const t2 = typeEnumToName[plainMatch[2]] || 'None';
-
-            // Update the type data
-            if (t1 === t2 || t2 === 'None') {
-              typeData = t1;
-            } else {
-              typeData = [t1, t2];
-            }
-          }
-        }
-      }
-    }
-  }
-
-  let displayName = trimmedMon;
-
-  if (trimmedMon === 'Mr Mime') {
-    displayName = 'Mr-Mime'; // Special case for Mr. Mime
-  }
-
-  if (trimmedMon === 'Mime Jr') {
-    displayName = 'Mime-Jr'; // Special case for Mime Jr.
-  }
-
-
+  // ...existing code...
   baseData[trimmedMon] = {
     name: displayName,
     moves: data.moves || [],
     nationalDex: data.nationalDex ?? null,
     johtoDex: data.johtoDex ?? null,
     types: data.faithfulTypes || data.types || "Unknown", // Default to the main types (updated version)
-    // faithfulTypes: data.faithfulTypes || data.types || "Unknown", // Include faithful types if available
     updatedTypes: (data.updatedTypes && !data.updatedTypes.includes('None')) ? data.updatedTypes : "Unknown", // Only use updatedTypes if they exist and aren't 'None'
     frontSpriteUrl: `/sprites/pokemon/${spriteName}/front_cropped.png`,
     baseStats: {
