@@ -100,19 +100,64 @@ if (fs.existsSync(MOVE_DESCRIPTIONS_OUTPUT)) {
   moveDescriptions = JSON.parse(fs.readFileSync(MOVE_DESCRIPTIONS_OUTPUT, 'utf8'));
 }
 
-const result: Record<string, { moves: Move[] }> = {};
+const result: Record<string, { moves: Move[], forms?: Record<string, { moves: Move[] }> }> = {};
 
 let currentMonV2: string | null = null;
 let movesV2: Move[] = [];
 let evoMethods: EvoRaw[] = [];
 
+// Helper function to extract base Pokemon name and form from evos_attacks entries
+function parseFormName(pokemonName: string): { baseName: string, formName: string | null } {
+  // Handle patterns like TyphlosionHisuian, TyphlosionPlain, MrMimeGalarian, etc.
+  const formPatterns = [
+    { suffix: 'Plain', form: null }, // Plain forms are considered base forms
+    { suffix: 'Hisuian', form: 'hisuian' },
+    { suffix: 'Galarian', form: 'galarian' },
+    { suffix: 'Alolan', form: 'alolan' },
+    { suffix: 'Paldean', form: 'paldean' },
+    { suffix: 'PaldeanFire', form: 'paldean-fire' },
+    { suffix: 'PaldeanWater', form: 'paldean-water' },
+    { suffix: 'Armored', form: 'armored' },
+    { suffix: 'BloodMoon', form: 'bloodmoon' },
+  ];
+
+  for (const pattern of formPatterns) {
+    if (pokemonName.endsWith(pattern.suffix)) {
+      const baseName = pokemonName.slice(0, -pattern.suffix.length);
+      console.log(`DEBUG: parseFormName - ${pokemonName} -> baseName: ${baseName}, formName: ${pattern.form}`);
+      return { baseName: normalizeMoveString(baseName), formName: pattern.form };
+    }
+  }
+
+  // No form pattern found, treat as base form
+  return { baseName: normalizeMoveString(pokemonName), formName: null };
+}
+
 for (const lineRaw of lines) {
   const line = lineRaw.trim();
   if (line.startsWith('evos_attacks ')) {
     if (currentMonV2) {
-      result[normalizeMoveString(currentMonV2)] = {
-        moves: movesV2
-      };
+      console.log(`DEBUG: Processing evos_attacks for: ${currentMonV2}`);
+      const { baseName, formName } = parseFormName(currentMonV2);
+
+      if (formName) {
+        // This is a form-specific moveset
+        if (!result[baseName]) {
+          result[baseName] = { moves: [] };
+        }
+        if (!result[baseName].forms) {
+          result[baseName].forms = {};
+        }
+        console.log(`DEBUG: Storing form ${formName} moves for ${baseName}:`, movesV2.slice(0, 3));
+        result[baseName].forms[formName] = { moves: movesV2 };
+      } else {
+        // This is a base form moveset
+        result[baseName] = {
+          moves: movesV2,
+          ...(result[baseName]?.forms ? { forms: result[baseName].forms } : {})
+        };
+      }
+
       if (evoMethods.length) {
         evoMap[normalizeMoveString(currentMonV2)] = evoMethods.map(e => ({
           ...e,
@@ -173,9 +218,25 @@ for (const lineRaw of lines) {
   }
 }
 if (currentMonV2) {
-  result[toTitleCase(currentMonV2)] = {
-    moves: movesV2
-  };
+  const { baseName, formName } = parseFormName(currentMonV2);
+
+  if (formName) {
+    // This is a form-specific moveset
+    if (!result[baseName]) {
+      result[baseName] = { moves: [] };
+    }
+    if (!result[baseName].forms) {
+      result[baseName].forms = {};
+    }
+    console.log(`DEBUG: Final - Storing form ${formName} moves for ${baseName}:`, movesV2.slice(0, 3));
+    result[baseName].forms[formName] = { moves: movesV2 };
+  } else {
+    // This is a base form moveset
+    result[baseName] = {
+      moves: movesV2,
+      ...(result[baseName]?.forms ? { forms: result[baseName].forms } : {})
+    };
+  }
   if (evoMethods.length) {
     evoMap[toTitleCase(currentMonV2)] = evoMethods.map(e => ({
       ...e,
@@ -1492,8 +1553,34 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
   console.log(`Data:`, data);
   console.log(`levelMoves[mon]:`, levelMoves[mon]);
 
-  // Add form-specific moves if available
-  if (data.forms && Object.keys(data.forms).length > 0) {
+  // Use the forms from evos_attacks result instead of normalizedGroupedData
+  // since evos_attacks has the correct form-specific movesets
+  const normalizedMon = normalizePokemonUrlKey(mon);
+  const moveStringNormalizedMon = normalizeMoveString(mon);
+  console.log(`DEBUG: Checking evos_attacks result for ${mon} (urlNormalized: ${normalizedMon}, moveStringNormalized: ${moveStringNormalizedMon}), has forms:`, !!result[mon]?.forms || !!result[normalizedMon]?.forms || !!result[moveStringNormalizedMon]?.forms);
+  const evosAttacksEntry = result[mon] || result[normalizedMon] || result[moveStringNormalizedMon];
+  if (evosAttacksEntry?.forms && Object.keys(evosAttacksEntry.forms).length > 0) {
+    levelMoves[mon].forms = {};
+    console.log(`Found forms in evos_attacks result for ${mon}, using those instead...`);
+    console.log(`Forms data from evos_attacks:`, evosAttacksEntry.forms);
+    for (const [formName, formData] of Object.entries(evosAttacksEntry.forms)) {
+      if (Array.isArray(formData.moves) && formData.moves.length > 0) {
+        if (!levelMoves[mon].forms) levelMoves[mon].forms = {};
+        console.log(`Adding form ${formName.trim()} moves for ${mon} from evos_attacks`);
+        console.log(`Form moves:`, formData.moves.slice(0, 3));
+        levelMoves[mon].forms[formName.trim()] = {
+          moves: formData.moves.map(m => ({
+            name: m.name,
+            level: m.level,
+            ...(m.info ? { info: m.info } : {})
+          }))
+        };
+        console.log(`Added form ${formName.trim()} moves for ${mon}`, levelMoves[mon].forms[formName.trim()]);
+      }
+    }
+  }
+  // Fallback to normalizedGroupedData forms if no evos_attacks forms found
+  else if (data.forms && Object.keys(data.forms).length > 0) {
     levelMoves[mon].forms = {};
     console.log(`Found forms for ${mon}, processing...`);
     console.log(`Forms data:`, data.forms);
@@ -1931,16 +2018,7 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
   // Deduplicate and normalize form keys
   const forms: Record<string, any> = {};
   const seenForms: Record<string, string> = {};
-  if (groupedData.forms) {
-    for (const [formKey, formData] of Object.entries(groupedData.forms)) {
-      const normKey = formKey.trim().toLowerCase();
-      // If this normalized key is new, or this formData is more complete, use it
-      if (!seenForms[normKey] || (formData && isMoreCompleteForm(formData, groupedData.forms[seenForms[normKey]]))) {
-        forms[formKey.trim()] = formData;
-        seenForms[normKey] = formKey.trim();
-      }
-    }
-  }
+  // Skip groupedData.forms processing since we'll handle forms properly from base stat files below
   const baseName = pokemonName.toLowerCase();
   const formFiles = baseStatsFiles.filter(f => f.toLowerCase().startsWith(baseName + '_') && f.endsWith('.asm'));
   for (const formFile of formFiles) {
@@ -1950,28 +2028,36 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
 
     console.log(`Processing form file: ${formFile}, ${formName} for ${pokemonName} (${normKey}), titleCase: ${titleCaseFormName}`);
 
-    console.log('levelMoves[pokemonName].forms[formName.trim()].moves', pokemonName, formName, levelMoves[pokemonName]?.forms?.[titleCaseFormName]?.moves);
+    console.log('levelMoves[pokemonName].forms[formName.trim()].moves', pokemonName, formName, levelMoves[pokemonName]?.forms?.[formName.toLowerCase()]?.moves);
 
-    // Only use moves if explicitly defined for this form
+    // Only use moves if explicitly defined for this form, otherwise inherit from base
     let formMoves: Move[] | undefined = undefined;
     if (
       levelMoves[pokemonName]?.forms &&
-      levelMoves[pokemonName].forms[titleCaseFormName] &&
-      Array.isArray(levelMoves[pokemonName]?.forms?.[titleCaseFormName]?.moves)
+      levelMoves[pokemonName].forms[formName.toLowerCase()] &&
+      Array.isArray(levelMoves[pokemonName]?.forms?.[formName.toLowerCase()]?.moves)
     ) {
-      formMoves = levelMoves[pokemonName]?.forms?.[titleCaseFormName]?.moves;
+      formMoves = levelMoves[pokemonName]?.forms?.[formName.toLowerCase()]?.moves;
+    } else if (levelMoves[pokemonName]?.moves && Array.isArray(levelMoves[pokemonName].moves)) {
+      // Fall back to base Pokémon's moves if form doesn't have specific moves
+      formMoves = levelMoves[pokemonName].moves;
     }
 
-    console.log(`Processing form ${titleCaseFormName} for ${pokemonName} (${normKey})`, formMoves);
+    console.log(`Processing form ${titleCaseFormName} for ${pokemonName} (${normKey}), found form-specific moves:`, !!levelMoves[pokemonName]?.forms?.[formName.toLowerCase()]?.moves);
 
-    // Merge in detailed stats for this form if available
-    const formTypeData = (formTypeMap[pokemonName] && formTypeMap[pokemonName][titleCaseFormName])
-      ? formTypeMap[pokemonName][titleCaseFormName].types
-      : [];
     // Convert pokemonName (URL key) to display name format used in detailedStatsData
     const displayNameForLookup = normalizePokemonDisplayName(pokemonName);
-    const formStats = detailedStatsData[`${displayNameForLookup} ${formName}`] || {};
+    const formStats = detailedStatsData[`${displayNameForLookup} ${formName.toLowerCase()}`] || {};
     const baseStats = detailedStatsData[displayNameForLookup] || {};
+
+    // Get form type data, with fallbacks to detailed stats
+    let formTypeData = [];
+    if (formTypeMap[pokemonName] && formTypeMap[pokemonName][titleCaseFormName]) {
+      formTypeData = formTypeMap[pokemonName][titleCaseFormName].types;
+    } else if (formStats.types) {
+      // Fall back to types from detailed stats if not in formTypeMap
+      formTypeData = Array.isArray(formStats.types) ? formStats.types : [formStats.types];
+    }
 
     console.log(`formStats data for ${titleCaseFormName}:`, formStats);
     // Compose a full DetailedStats-like object for the form, but nest under detailedStats

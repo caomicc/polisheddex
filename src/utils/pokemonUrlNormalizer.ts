@@ -1,7 +1,7 @@
 // Define known forms locally to avoid potential circular dependency issues
 const KNOWN_FORMS = {
   ALOLAN: 'alolan',
-  GALARIAN: 'galarian', 
+  GALARIAN: 'galarian',
   HISUIAN: 'hisuian',
   GALAR: 'galar',
   HISUI: 'hisui',
@@ -56,6 +56,19 @@ export function normalizePokemonUrlKey(name: string): string {
 
   // Trim whitespace
   name = name.trim();
+
+  // Handle special cases for names without hyphens that should have them
+  if (name.toLowerCase() === 'nidoranf') return 'nidoran-f';
+  if (name.toLowerCase() === 'nidoranm') return 'nidoran-m';
+  if (name.toLowerCase() === 'mrmime') return 'mr-mime';
+  if (name.toLowerCase() === 'mr.mime') return 'mr-mime';
+  if (name.toLowerCase() === 'mrrime') return 'mr-rime';
+  if (name.toLowerCase() === 'mr.rime') return 'mr-rime';
+  if (name.toLowerCase() === 'mimejr') return 'mime-jr';
+  if (name.toLowerCase() === 'mime.jr') return 'mime-jr';
+  if (name.toLowerCase() === 'farfetchd') return 'farfetch-d';
+  if (name.toLowerCase() === 'hooh') return 'ho-oh';
+  if (name.toLowerCase() === 'sirfetchd') return 'sirfetch-d';
 
   // Check if this is a known hyphenated Pokemon name
   const isHyphenatedPokemon = HYPHENATED_POKEMON_NAMES.some(hyphenated =>

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 // Simple Node.js test runner to check if the functions work without Vitest
-import { 
-  normalizePokemonUrlKey, 
-  normalizePokemonDisplayName, 
+import {
+  normalizePokemonUrlKey,
+  normalizePokemonDisplayName,
   urlKeyToStandardKey,
   getPokemonFileName,
-  validatePokemonHyphenation 
+  validatePokemonHyphenation,
 } from './pokemonUrlNormalizer.js';
 
 console.log('Running simple Pokemon URL Normalizer tests...\n');

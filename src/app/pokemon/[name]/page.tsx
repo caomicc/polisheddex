@@ -31,7 +31,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // Convert the URL key to a standardized key for file lookup
   const standardKey = urlKeyToStandardKey(pokemonName);
-  
+
   // Build the path to the individual Pokémon file using the URL-safe filename
   const pokemonFile = path.join(process.cwd(), `output/pokemon/${getPokemonFileName(standardKey)}`);
   const pokemonData = await loadJsonData<PokemonDataV3>(pokemonFile);
@@ -119,18 +119,32 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         // Provide safe defaults for missing detailedStats fields
         height: formValue.detailedStats?.height ?? pokemonData.detailedStats?.height ?? 0,
         weight: formValue.detailedStats?.weight ?? pokemonData.detailedStats?.weight ?? 0,
-        bodyColor: formValue.detailedStats?.bodyColor ?? pokemonData.detailedStats?.bodyColor ?? 'Unknown',
-        bodyShape: formValue.detailedStats?.bodyShape ?? pokemonData.detailedStats?.bodyShape ?? 'Unknown',
-        genderRatio: formValue.detailedStats?.genderRatio ?? pokemonData.detailedStats?.genderRatio ?? { male: 50, female: 50 },
-        catchRate: formValue.detailedStats?.catchRate ?? pokemonData.detailedStats?.catchRate ?? 255,
+        bodyColor:
+          formValue.detailedStats?.bodyColor ?? pokemonData.detailedStats?.bodyColor ?? 'Unknown',
+        bodyShape:
+          formValue.detailedStats?.bodyShape ?? pokemonData.detailedStats?.bodyShape ?? 'Unknown',
+        genderRatio: formValue.detailedStats?.genderRatio ??
+          pokemonData.detailedStats?.genderRatio ?? { male: 50, female: 50 },
+        catchRate:
+          formValue.detailedStats?.catchRate ?? pokemonData.detailedStats?.catchRate ?? 255,
         baseExp: formValue.detailedStats?.baseExp ?? pokemonData.detailedStats?.baseExp ?? 0,
-        hatchRate: formValue.detailedStats?.hatchRate ?? pokemonData.detailedStats?.hatchRate ?? 'Unknown',
-        growthRate: formValue.detailedStats?.growthRate ?? pokemonData.detailedStats?.growthRate ?? 'Medium Fast',
+        hatchRate:
+          formValue.detailedStats?.hatchRate ?? pokemonData.detailedStats?.hatchRate ?? 'Unknown',
+        growthRate:
+          formValue.detailedStats?.growthRate ??
+          pokemonData.detailedStats?.growthRate ??
+          'Medium Fast',
         eggGroups: formValue.detailedStats?.eggGroups ?? pokemonData.detailedStats?.eggGroups ?? [],
         evYield: formValue.detailedStats?.evYield ?? pokemonData.detailedStats?.evYield ?? 'None',
         abilities: formValue.detailedStats?.abilities ?? pokemonData.detailedStats?.abilities ?? [],
-        faithfulAbilities: formValue.detailedStats?.faithfulAbilities ?? pokemonData.detailedStats?.faithfulAbilities ?? [],
-        updatedAbilities: formValue.detailedStats?.updatedAbilities ?? pokemonData.detailedStats?.updatedAbilities ?? [],
+        faithfulAbilities:
+          formValue.detailedStats?.faithfulAbilities ??
+          pokemonData.detailedStats?.faithfulAbilities ??
+          [],
+        updatedAbilities:
+          formValue.detailedStats?.updatedAbilities ??
+          pokemonData.detailedStats?.updatedAbilities ??
+          [],
         // description:
         //   (formValue as FormData).description || (pokemonData as FormData).description || '',
       };
