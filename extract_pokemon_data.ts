@@ -119,6 +119,17 @@ function parseFormName(pokemonName: string): { baseName: string, formName: strin
     { suffix: 'PaldeanWater', form: 'paldean-water' },
     { suffix: 'Armored', form: 'armored' },
     { suffix: 'BloodMoon', form: 'bloodmoon' },
+    { suffix: 'plain', form: null },
+    { suffix: 'hisui', form: 'hisui' },
+    { suffix: 'galarian', form: 'galarian' },
+    { suffix: 'alolan', form: 'alolan' },
+    { suffix: 'paldean', form: 'paldean' },
+    { suffix: 'galar', form: 'galar' },
+    { suffix: 'hisui', form: 'hisui' },
+    { suffix: 'red', form: 'red' },
+    { suffix: 'bloodmoon', form: 'bloodmoon' },
+    { suffix: 'paldean_fire', form: 'paldean-fire' },
+    { suffix: 'paldean_water', form: 'paldean-water' }
   ];
 
   for (const pattern of formPatterns) {
@@ -1618,134 +1629,99 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
     }
   }
 }
+
+// --- FINAL OUTPUT SECTION ---
+
+// Exported objects for use in the final output section
+// These must be defined at the top-level for use in the output index and other files
 const validatedLevelMoves = validatePokemonKeys(levelMoves);
 
+// Write level-up moves to file
 fs.writeFileSync(LEVEL_MOVES_OUTPUT, JSON.stringify(validatedLevelMoves, null, 2));
 
-// Extract and save location data (including hidden grottoes)
-const locationData: Record<string, LocationEntry[]> = {};
+// --- Extract and save location data (including hidden grottoes) ---
+// Always use the base name as the key, and group form locations under a "forms" property
+const locationData: Record<string, { locations: LocationEntry[], forms?: Record<string, { locations: LocationEntry[] }> }> = {};
+for (const mon of Object.keys(finalResultV3)) {
+  // Parse base name and form name
+  const { baseName, formName } = parseFormName(mon);
 
-// Use the normalized location data
+  const normalizePokemonUrlKeynormalizePokemonUrlKey = normalizePokemonUrlKey(mon);
 
-// Normalize all locationData keys to use normalized Pokemon keys
-for (const [mon, locations] of Object.entries(normalizedLocationsByMon)) {
-  const normalizedMon = normalizePokemonUrlKey(mon);
-  locationData[normalizedMon] = locations;
-}
+  console.log(`Processing locations for Pokémon: ${mon} (base: ${baseName}, form: ${formName})`, normalizePokemonUrlKeynormalizePokemonUrlKey);
 
-// Group pokemon by their base form
-const formsByBaseName: Record<string, Record<string, LocationEntry[]>> = {};
+  const normalizedBase = normalizePokemonUrlKey(baseName);
+  // Always use the base name as the key for output
+  const locations = normalizedLocationsByMon[normalizePokemonUrlKey(mon)] || [];
 
-// First, process wild encounter locations
-for (const [mon, data] of Object.entries(finalResultV3)) {
-  const baseName = extractBasePokemonName(mon);
+  console.log(`Processing locations for ${mon} (base: ${baseName}, form: ${formName})`);
 
-  // Initialize the base Pokemon if needed
-  if (!formsByBaseName[baseName]) {
-    formsByBaseName[baseName] = {};
+  if (!locationData[normalizedBase]) {
+    locationData[normalizedBase] = { locations: [] };
   }
 
-  // Extract form name from the full name
-  let formName = null;
-  if (mon !== baseName) {
-    formName = mon.substring(baseName.length);
-  }
-
-  // Add the locations to the appropriate form
-  const formKey = formName || 'default';
-  if (!formsByBaseName[baseName][formKey]) {
-    formsByBaseName[baseName][formKey] = [];
-  }
-
-  // Add form name to each location entry
-  const locationsWithForms = (data.locations ?? []).map(loc => ({
-    ...loc,
-    formName: formName
-  }));
-
-  formsByBaseName[baseName][formKey].push(...locationsWithForms);
-}
-
-// Then process hidden grotto locations
-const grottoLocations = extractHiddenGrottoes();
-
-for (const [pokemonName, locations] of Object.entries(grottoLocations)) {
-  const baseName = extractBasePokemonName(pokemonName);
-
-  // Initialize the base Pokemon if needed
-  if (!formsByBaseName[baseName]) {
-    formsByBaseName[baseName] = {};
-  }
-
-  // Extract form name from the full name
-  let formName = null;
-  if (pokemonName !== baseName) {
-    formName = pokemonName.substring(baseName.length);
-  }
-
-  // Add the locations to the appropriate form
-  const formKey = formName || 'default';
-  if (!formsByBaseName[baseName][formKey]) {
-    formsByBaseName[baseName][formKey] = [];
-  }
-
-  formsByBaseName[baseName][formKey].push(...locations);
-}
-
-// Now convert the grouped data back to the format expected by the rest of the code
-for (const [baseName, forms] of Object.entries(formsByBaseName)) {
-  locationData[baseName] = [];
-
-  // Start with the default form
-  if (forms['default']) {
-    locationData[baseName].push(...forms['default']);
-  }
-
-  // Add all other forms
-  for (const [formName, locations] of Object.entries(forms)) {
-    if (formName !== 'default') {
-      // Add all form locations to the base Pokemon
-      locationData[baseName].push(...locations);
+  if (formName) {
+    // Group form locations under forms property of the base
+    if (!locationData[normalizedBase].forms) {
+      locationData[normalizedBase].forms = {};
     }
+    // Overwrite (not push) to avoid duplicate/accumulating locations
+    locationData[normalizedBase].forms[formName] = { locations };
+  } else {
+    // Overwrite (not push) to avoid duplicate/accumulating locations
+    locationData[normalizedBase].locations = locations;
   }
 }
+
+// Also add hidden grotto locations for each normalized key
+const grottoLocations = extractHiddenGrottoes();
+for (const [pokemonName, locations] of Object.entries(grottoLocations)) {
+  const { baseName, formName } = parseFormName(pokemonName);
+  const normalizedBase = normalizePokemonUrlKey(baseName);
+  if (formName) {
+    if (!locationData[normalizedBase]) {
+      locationData[normalizedBase] = { locations: [] };
+    }
+    if (!locationData[normalizedBase].forms) {
+      locationData[normalizedBase].forms = {};
+    }
+    if (!locationData[normalizedBase].forms![formName]) {
+      locationData[normalizedBase].forms![formName] = { locations: [] };
+    }
+    locationData[normalizedBase].forms![formName].locations.push(...locations);
+  } else {
+    if (!locationData[normalizedBase]) {
+      locationData[normalizedBase] = { locations: [] };
+    }
+    locationData[normalizedBase].locations.push(...locations);
+  }
+}
+
+// --- OUTPUT INDEX GENERATION ---
+
+// Helper: Validate and fix moves array (removes null/undefined, ensures correct structure)
+// ...implementation moved to end of file...
+
+// Helper: Default evolution object
+const defaultEvolution: Evolution = {
+  methods: [],
+  chain: [],
+  chainWithMethods: {}
+};
+
+// ...duplicate index generation removed...
+
+// Write the main output for each Pokémon (moved to after POKEMON_DIR declaration)
+// ...existing code...
 
 // Process location data to group by forms
 const groupedLocationData: Record<string, { locations: LocationEntry[], forms?: Record<string, { locations: LocationEntry[] }> }> = {};
 
-for (const [mon, locations] of Object.entries(locationData)) {
-  // Initialize if needed
-  if (!groupedLocationData[mon]) {
-    groupedLocationData[mon] = { locations: [] };
-  }
-
-  // Group locations by form
-  const locationsByForm: Record<string, LocationEntry[]> = { default: [] };
-
-  for (const loc of locations) {
-    const formKey = loc.formName || 'default';
-    if (!locationsByForm[formKey]) {
-      locationsByForm[formKey] = [];
-    }
-    locationsByForm[formKey].push(loc);
-  }
-
-  // Add default locations
-  groupedLocationData[mon].locations = locationsByForm.default;
-
-  // Add form-specific locations
-  for (const [formName, formLocations] of Object.entries(locationsByForm)) {
-    if (formName !== 'default') {
-      if (!groupedLocationData[mon].forms) {
-        groupedLocationData[mon].forms = {};
-      }
-      groupedLocationData[mon].forms[formName] = { locations: formLocations };
-    }
-  }
-
-  // Clean up empty forms object
-  if (groupedLocationData[mon].forms && Object.keys(groupedLocationData[mon].forms).length === 0) {
-    delete groupedLocationData[mon].forms;
+// locationData is now already grouped by base and forms, so just copy
+for (const [mon, data] of Object.entries(locationData)) {
+  groupedLocationData[mon] = { locations: data.locations };
+  if (data.forms) {
+    groupedLocationData[mon].forms = data.forms;
   }
 }
 
@@ -2175,18 +2151,25 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     locations: embeddedLocations
   };
 
-  // Enhance forms with their location data
+  // Enhance forms with their location data (normalize form keys for lookup)
   const enhancedForms = { ...forms };
   for (const [formKey, formData] of Object.entries(enhancedForms)) {
-    if (embeddedFormLocations[formKey]) {
+    // Try to find the normalized form key in embeddedFormLocations
+    // e.g., 'Alolan' -> 'alolan', 'Galarian' -> 'galarian'
+    const normalizedFormKey = formKey.trim().toLowerCase();
+    let formLoc = embeddedFormLocations[normalizedFormKey];
+    // Fallback: try also with original key if not found
+    if (!formLoc && embeddedFormLocations[formKey]) {
+      formLoc = embeddedFormLocations[formKey];
+    }
+    if (formLoc) {
       enhancedForms[formKey] = {
         ...formData,
-        locations: embeddedFormLocations[formKey].locations || []
+        // locations: formLoc.locations || []
       };
-
       // Also add to detailedStats if present
       if (enhancedForms[formKey].detailedStats) {
-        enhancedForms[formKey].detailedStats.locations = embeddedFormLocations[formKey].locations || [];
+        enhancedForms[formKey].detailedStats.locations = formLoc.locations || [];
       }
     }
   }
@@ -2289,12 +2272,12 @@ function isMoreCompleteForm(formA: any, formB: any): boolean {
 }
 
 // Helper function to validate and fix moves
-function validateAndFixMoves(moves: any[]): any[] {
-  if (!Array.isArray(moves)) return [];
-
-  return moves.filter(move => {
-    if (!move || typeof move !== 'object') return false;
-    // Ensure the move has at least a name
-    return move.name && typeof move.name === 'string';
-  });
+function validateAndFixMoves(moves: any[]): Move[] {
+  return Array.isArray(moves)
+    ? moves.filter(Boolean).map(m => ({
+      name: m.name,
+      level: m.level,
+      ...(m.info ? { info: m.info } : {})
+    }))
+    : [];
 }

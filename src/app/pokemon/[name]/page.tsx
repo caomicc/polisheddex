@@ -104,7 +104,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           levelMoves: formValue.moves || [],
           tmHmLearnset:
             (formValue as FormData).tmHmLearnset || (pokemonData as FormData).tmHmLearnset || [],
-          locations: formValue.locations || pokemonData.locations || [],
+          locations: formValue.detailedStats?.locations || pokemonData.locations || [],
           eggMoves: (formValue as FormData).eggMoves || (pokemonData as FormData).eggMoves || [],
           evolution:
             (formValue as FormData).evolution || (pokemonData as FormData).evolution || null,
