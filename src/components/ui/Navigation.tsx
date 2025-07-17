@@ -1,32 +1,32 @@
-import * as React from "react";
-import { NavigationMenu } from "radix-ui";
-import classNames from "clsx";
+import * as React from 'react';
+import { NavigationMenu } from 'radix-ui';
+import classNames from 'clsx';
 // import { CaretDownIcon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 const NavigationMenuDemo = () => {
-	return (
-		<div className="w-full bg-slate-100 py-3 px-4 shadow-lg shadow-slate-300 fixed top-0 left-0 z-50">
-			<div className="max-w-4xl mx-auto flex items-center justify-between">
-				<div className="flex items-center gap-2">
-					<Link href="/" className="flex items-center gap-2" aria-label="Home">
-						{/* Replace with your logo SVG or image if available */}
-						<div className="aspect-square w-8 relative">
-							<Image
-								src="/25.png"
-								alt="PolishedDex Logo"
-								fill
-								sizes="64px"
-								className="object-contain"
-							/>
-						</div>
-						<span className="font-bold text-xl text-slate-900">PolishedDex</span>
-					</Link>
-				</div>
-				<NavigationMenu.Root className="NavigationMenuRoot justify-end! w-full!">
-					<NavigationMenu.List className="NavigationMenuList">
-						{/* <NavigationMenu.Item>
+  return (
+    <div className="w-full bg-slate-100 py-3 px-4 shadow-lg shadow-slate-300 fixed top-0 left-0 z-50">
+      <div className="max-w-4xl mx-auto flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2" aria-label="Home">
+            {/* Replace with your logo SVG or image if available */}
+            <div className="aspect-square w-8 relative">
+              <Image
+                src="/25.png"
+                alt="PolishedDex Logo"
+                fill
+                sizes="64px"
+                className="object-contain"
+              />
+            </div>
+            <span className="font-bold text-sm md:text-xl text-slate-900">PolishedDex</span>
+          </Link>
+        </div>
+        <NavigationMenu.Root className="NavigationMenuRoot justify-end! w-full!">
+          <NavigationMenu.List className="NavigationMenuList">
+            {/* <NavigationMenu.Item>
 							<NavigationMenu.Trigger className="NavigationMenuTrigger">
 								Database <CaretDownIcon className="CaretDown" aria-hidden />
 							</NavigationMenu.Trigger>
@@ -112,62 +112,52 @@ const NavigationMenuDemo = () => {
 							</NavigationMenu.Content>
 						</NavigationMenu.Item> */}
 
-						<NavigationMenu.Item>
-							<NavigationMenu.Link
-								className="NavigationMenuLink"
-								href="/pokemon"
-							>
-								Pokedex
-							</NavigationMenu.Link>
-						</NavigationMenu.Item>
+            <NavigationMenu.Item>
+              <NavigationMenu.Link className="NavigationMenuLink" href="/pokemon">
+                Pokedex
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
 
-						<NavigationMenu.Item>
-							<NavigationMenu.Link
-								className="NavigationMenuLink"
-								href="/locations"
-							>
-								Locations
-							</NavigationMenu.Link>
-						</NavigationMenu.Item>
+            <NavigationMenu.Item>
+              <NavigationMenu.Link className="NavigationMenuLink" href="/locations">
+                Locations
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
 
-						<NavigationMenu.Indicator className="NavigationMenuIndicator">
-							<div className="Arrow" />
-						</NavigationMenu.Indicator>
-					</NavigationMenu.List>
+            <NavigationMenu.Indicator className="NavigationMenuIndicator">
+              <div className="Arrow" />
+            </NavigationMenu.Indicator>
+          </NavigationMenu.List>
 
-					<div className="ViewportPosition">
-						<NavigationMenu.Viewport className="NavigationMenuViewport" />
-					</div>
-				</NavigationMenu.Root>
-			</div>
-		</div>
-	);
+          <div className="ViewportPosition">
+            <NavigationMenu.Viewport className="NavigationMenuViewport" />
+          </div>
+        </NavigationMenu.Root>
+      </div>
+    </div>
+  );
 };
 
 type ListItemProps = {
-	className?: string;
-	children: React.ReactNode;
-	title: string;
-	href: string;
+  className?: string;
+  children: React.ReactNode;
+  title: string;
+  href: string;
 };
 
 const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
-	({ className, children, title, href, ...props }) => (
-		<li>
-			<NavigationMenu.Link asChild>
-				<Link
-					className={classNames("ListItemLink", className)}
-					href={href}
-					{...props}
-				>
-					<div className="ListItemHeading">{title}</div>
-					<p className="ListItemText">{children}</p>
-				</Link>
-			</NavigationMenu.Link>
-		</li>
-	),
+  ({ className, children, title, href, ...props }) => (
+    <li>
+      <NavigationMenu.Link asChild>
+        <Link className={classNames('ListItemLink', className)} href={href} {...props}>
+          <div className="ListItemHeading">{title}</div>
+          <p className="ListItemText">{children}</p>
+        </Link>
+      </NavigationMenu.Link>
+    </li>
+  ),
 );
 
-ListItem.displayName = "ListItem";
+ListItem.displayName = 'ListItem';
 
 export default NavigationMenuDemo;

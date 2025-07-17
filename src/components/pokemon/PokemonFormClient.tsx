@@ -166,6 +166,26 @@ export default function PokemonFormClient({
                 )}
               </div>
             </div>
+            <div className="block md:hidden md:ml-auto">
+              <label className="leading-none text-xs" htmlFor="form-select">
+                Form:
+              </label>
+              <Select value={selectedForm} onValueChange={setSelectedForm}>
+                <SelectTrigger id="form-select" className="min-w-[180px] bg-white">
+                  <SelectValue placeholder="Select form" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="default">Plain</SelectItem>
+                  {uniqueForms
+                    .filter((form) => form !== 'plain')
+                    .map((form) => (
+                      <SelectItem key={form} value={form}>
+                        {form.charAt(0).toUpperCase() + form.slice(1)}
+                      </SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>{' '}
           <div className="w-36 p-1 md:p-0 md:w-36 md:h-auto md:mx-[initial] mx-auto">
             <Image
@@ -244,8 +264,8 @@ export default function PokemonFormClient({
             </div>
           </div>
           {uniqueForms.length > 0 && (
-            <div className="md:ml-auto">
-              <label className="font-semibold mr-2" htmlFor="form-select">
+            <div className="hidden md:block md:ml-auto">
+              <label className="leading-none text-xs" htmlFor="form-select">
                 Form:
               </label>
               <Select value={selectedForm} onValueChange={setSelectedForm}>
@@ -781,7 +801,12 @@ export default function PokemonFormClient({
           className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
         >
           <Card>
-            <CardHeader>Moves</CardHeader>
+            <CardHeader>
+              Moves*{' '}
+              <span className="text-muted-foreground italic text-xs">
+                *Faithful vs. Polished movesets coming soon!
+              </span>
+            </CardHeader>
             <CardContent className="space-y-2 px-0 md:px-6">
               <Tabs defaultValue="level-up" className="w-full">
                 <div className="px-4 md:px-0">
