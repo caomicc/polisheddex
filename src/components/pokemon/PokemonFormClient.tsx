@@ -166,26 +166,28 @@ export default function PokemonFormClient({
                 )}
               </div>
             </div>
-            <div className="block md:hidden md:ml-auto">
-              <label className="leading-none text-xs" htmlFor="form-select">
-                Form:
-              </label>
-              <Select value={selectedForm} onValueChange={setSelectedForm}>
-                <SelectTrigger id="form-select" className="min-w-[180px] bg-white">
-                  <SelectValue placeholder="Select form" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="default">Plain</SelectItem>
-                  {uniqueForms
-                    .filter((form) => form !== 'plain')
-                    .map((form) => (
-                      <SelectItem key={form} value={form}>
-                        {form.charAt(0).toUpperCase() + form.slice(1)}
-                      </SelectItem>
-                    ))}
-                </SelectContent>
-              </Select>
-            </div>
+            {uniqueForms.length > 0 && (
+              <div className="block md:hidden md:ml-auto">
+                <label className="leading-none text-xs" htmlFor="form-select">
+                  Form:
+                </label>
+                <Select value={selectedForm} onValueChange={setSelectedForm}>
+                  <SelectTrigger id="form-select" className="min-w-[180px] bg-white">
+                    <SelectValue placeholder="Select form" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="default">Plain</SelectItem>
+                    {uniqueForms
+                      .filter((form) => form !== 'plain')
+                      .map((form) => (
+                        <SelectItem key={form} value={form}>
+                          {form.charAt(0).toUpperCase() + form.slice(1)}
+                        </SelectItem>
+                      ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            )}
           </div>{' '}
           <div className="w-36 p-1 md:p-0 md:w-36 md:h-auto md:mx-[initial] mx-auto">
             <Image
