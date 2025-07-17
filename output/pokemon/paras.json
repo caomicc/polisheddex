@@ -1,5 +1,5 @@
 {
-  "name": "Paras",
+  "name": "paras",
   "nationalDex": 46,
   "johtoDex": 75,
   "types": [
@@ -90,7 +90,89 @@
     "height": 3,
     "weight": 54,
     "bodyShape": "Insectoid",
-    "bodyColor": "Red"
+    "bodyColor": "Red",
+    "locations": [
+      {
+        "area": "ILEX_FOREST",
+        "method": "grass",
+        "time": "morn",
+        "level": "9",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ILEX_FOREST",
+        "method": "grass",
+        "time": "morn",
+        "level": "10",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ILEX_FOREST",
+        "method": "grass",
+        "time": "day",
+        "level": "9",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ILEX_FOREST",
+        "method": "grass",
+        "time": "nite",
+        "level": "9",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ILEX_FOREST",
+        "method": "grass",
+        "time": "nite",
+        "level": "10",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "YELLOW_FOREST",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 2",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "YELLOW_FOREST",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_EAST",
+        "method": "grass",
+        "time": "morn",
+        "level": "55",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_EAST",
+        "method": "grass",
+        "time": "day",
+        "level": "55",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_EAST",
+        "method": "grass",
+        "time": "nite",
+        "level": "55",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -688,22 +770,10 @@
       "level": "55",
       "chance": 30,
       "formName": null
-    },
-    {
-      "area": "Ilex Forest",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "9",
-      "chance": 40,
-      "rareItem": "Leaf Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Mushroom",
-      "description": "The tochukaso growing on this #mon's back orders it to extract juice from tree trunks."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.902Z",
+  "version": "2.0.0"
 }

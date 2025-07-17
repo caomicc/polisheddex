@@ -1,5 +1,5 @@
 {
-  "name": "Dratini",
+  "name": "dratini",
   "nationalDex": 147,
   "johtoDex": 279,
   "types": "Dragon",
@@ -76,7 +76,17 @@
     "height": 18,
     "weight": 33,
     "bodyShape": "Serpentine",
-    "bodyColor": "Blue"
+    "bodyColor": "Blue",
+    "locations": [
+      {
+        "area": "DRAGONS_DEN_B1F",
+        "method": "water",
+        "time": null,
+        "level": "20",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -658,11 +668,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Dragon",
-      "description": "It sheds many layers of skin as it grows larger. During this process, it is protected by a rapid waterfall."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.961Z",
+  "version": "2.0.0"
 }

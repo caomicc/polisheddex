@@ -1,5 +1,5 @@
 {
-  "name": "Typhlosion",
+  "name": "typhlosion",
   "nationalDex": 157,
   "johtoDex": 6,
   "types": "Fire",
@@ -100,7 +100,8 @@
     "height": 16,
     "weight": 698,
     "bodyShape": "Quadruped",
-    "bodyColor": "Yellow"
+    "bodyColor": "Yellow",
+    "locations": []
   },
   "evolution": {
     "methods": [],
@@ -769,29 +770,11 @@
     "Thrash",
     "Quick Attack"
   ],
-  "locations": [
-    {
-      "area": null,
-      "method": "Evolve from Quilava (Level 36)",
-      "time": null,
-      "level": "",
-      "chance": 100,
-      "formName": null
-    }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Volcano",
-      "description": "When heat from its body causes the air around it to shimmer, this is a sign that it is ready to battle."
-    },
-    "Hisuian": {
-      "species": "Ghost Flame",
-      "description": "Said to purify lost, forsaken souls with its flames and guide them to the afterlife."
-    }
-  },
+  "locations": [],
+  "pokedexEntries": [],
   "forms": {
     "Hisuian": {
-      "name": "Typhlosion hisuian",
+      "name": "typhlosion hisuian",
       "formName": "Hisuian",
       "nationalDex": 157,
       "johtoDex": 6,
@@ -1121,60 +1104,220 @@
         "bodyShape": "Quadruped"
       }
     },
-    "hisuian": {
-      "moves": [],
-      "nationalDex": 157,
-      "johtoDex": 6,
-      "types": "Fire",
-      "updatedTypes": [
-        "Fire",
-        "Ground"
-      ],
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Typhlosionhisuian"
-        ],
-        "chainWithMethods": {
-          "Typhlosionhisuian": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "hisuian"
-    },
     "Plain": {
-      "name": "Typhlosion plain",
+      "name": "typhlosion plain",
       "formName": "Plain",
       "nationalDex": 157,
       "johtoDex": 6,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/typhlosion_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Fire Punch",
+          "level": 1,
+          "info": {
+            "description": "\tA fiery punch. May \tcause a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Smokescreen",
+          "level": 6,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 10,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 13,
+          "info": {
+            "description": "\tLets the user get \tin the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 20,
+          "info": {
+            "description": "\tRaises the user's \tDefense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 24,
+          "info": {
+            "description": "\tAn attack that may \tup user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 31,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 35,
+          "info": {
+            "description": "\t1st turn: Burrow \t2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 43,
+          "info": {
+            "description": "\tStronger if the \tuser's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 48,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "level": 56,
+          "info": {
+            "description": "\tAn attack that may \tlower Sp.Def.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 61,
+          "info": {
+            "description": "\tAttacks 5 turns \twith rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 69,
+          "info": {
+            "description": "\tA tackle that also \thurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 74,
+          "info": {
+            "description": "\tTough but useless \tvs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 81,
+          "info": {
+            "description": "\tA charge that also \thurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1197,5 +1340,7 @@
         "bodyShape": "Quadruped"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.966Z",
+  "version": "2.0.0"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Sylveon",
+  "name": "sylveon",
   "nationalDex": 276,
   "johtoDex": 211,
   "types": "Fairy",
@@ -96,20 +96,21 @@
     "height": 10,
     "weight": 235,
     "bodyShape": "Quadruped",
-    "bodyColor": "Pink"
+    "bodyColor": "Pink",
+    "locations": []
   },
   "evolution": {
     "methods": [],
     "chain": [
       "Eevee",
+      "Sylveon",
       "Jolteon",
       "Vaporeon",
       "Flareon",
       "Espeon",
       "Umbreon",
       "Leafeon",
-      "Glaceon",
-      "Sylveon"
+      "Glaceon"
     ],
     "chainWithMethods": {
       "Eevee": [
@@ -174,14 +175,14 @@
           "target": "Umbreon"
         }
       ],
+      "Sylveon": [],
       "Jolteon": [],
       "Vaporeon": [],
       "Flareon": [],
       "Espeon": [],
       "Umbreon": [],
       "Leafeon": [],
-      "Glaceon": [],
-      "Sylveon": []
+      "Glaceon": []
     }
   },
   "levelMoves": [
@@ -283,15 +284,7 @@
     },
     {
       "name": "Draining Kiss",
-      "level": 20,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 20
     },
     {
       "name": "Skill Swap",
@@ -651,11 +644,8 @@
     "Charm"
   ],
   "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Intertwined",
-      "description": "It wraps its ribbonlike feelers around the arm of its beloved trainer and walks with them."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.028Z",
+  "version": "2.0.0"
 }

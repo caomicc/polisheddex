@@ -1,5 +1,5 @@
 {
-  "name": "Sandshrew",
+  "name": "sandshrew",
   "nationalDex": 27,
   "johtoDex": 49,
   "types": "Ground",
@@ -77,7 +77,25 @@
     "height": 7,
     "weight": 400,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "White"
+    "bodyColor": "White",
+    "locations": [
+      {
+        "area": "UNION_CAVE_1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "8",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "UNION_CAVE_1F",
+        "method": "grass",
+        "time": "day",
+        "level": "8",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -732,30 +750,12 @@
       "level": "8",
       "chance": 30,
       "formName": null
-    },
-    {
-      "area": "Ruins of Alph",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "25",
-      "chance": 40,
-      "rareItem": "Moon Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Mouse",
-      "description": "It prefers dry, sandy places because it uses the sand to protect itself when threatened."
-    },
-    "Alolan": {
-      "species": "Mouse",
-      "description": "It lives on snowy mountains. Its steel shell is so hard, it can't roll its body up into a ball."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Alolan": {
-      "name": "Sandshrew alolan",
+      "name": "sandshrew alolan",
       "formName": "Alolan",
       "nationalDex": 27,
       "johtoDex": 49,
@@ -1056,57 +1056,220 @@
         "bodyShape": "Bipedal Tail"
       }
     },
-    "alolan": {
-      "moves": [],
-      "nationalDex": 27,
-      "johtoDex": 49,
-      "types": "Ground",
-      "updatedTypes": "Ground",
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Sandshrewalolan"
-        ],
-        "chainWithMethods": {
-          "Sandshrewalolan": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "alolan"
-    },
     "Plain": {
-      "name": "Sandshrew plain",
+      "name": "sandshrew plain",
       "formName": "Plain",
       "nationalDex": 27,
       "johtoDex": 49,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/sandshrew_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "\tScratches with \tsharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "\tRaises the user's \tDefense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 3,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Poison Sting",
+          "level": 5,
+          "info": {
+            "description": "\tAn attack that may \tpoison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 7,
+          "info": {
+            "description": "\tAttacks 5 turns \twith rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 9,
+          "info": {
+            "description": "\tA high-speed \tspinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 11,
+          "info": {
+            "description": "\tFires pins that \tstrike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Magnitude",
+          "level": 14,
+          "info": {
+            "description": "\tA Ground attack \twith random power.",
+            "type": "Ground",
+            "pp": 30,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 17,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 20,
+          "info": {
+            "description": "\tScratches or jabs \t2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 23,
+          "info": {
+            "description": "\tAn attack that may \tup user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 26,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 30,
+          "info": {
+            "description": "\t1st turn: Burrow \t2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 34,
+          "info": {
+            "description": "\tDoes more damage \tat lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 38,
+          "info": {
+            "description": "\tSharply raises the \tuser's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 42,
+          "info": {
+            "description": "",
+            "type": "Rock",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 46,
+          "info": {
+            "description": "\tTough but useless \tvs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1129,5 +1292,7 @@
         "bodyShape": "Bipedal Tail"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.893Z",
+  "version": "2.0.0"
 }

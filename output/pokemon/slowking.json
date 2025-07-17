@@ -1,5 +1,5 @@
 {
-  "name": "Slowking",
+  "name": "slowking",
   "nationalDex": 199,
   "johtoDex": 87,
   "types": [
@@ -89,7 +89,17 @@
     "height": 18,
     "weight": 795,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Pink"
+    "bodyColor": "Pink",
+    "locations": [
+      {
+        "area": "CERULEAN_CAVE_B1F",
+        "method": "water",
+        "time": null,
+        "level": "60",
+        "chance": 60,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -288,15 +298,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 45,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 45
     },
     {
       "name": "Rain Dance",
@@ -894,19 +896,10 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Royal",
-      "description": "Every time it yawns, Shellder injects more poison into it. The poison makes it more intelligent."
-    },
-    "Galarian": {
-      "species": "Hexpert",
-      "description": "A combination of toxins and the shock of evolving has caused Shellder to take control of Slowking."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Galarian": {
-      "name": "Slowking galarian",
+      "name": "slowking galarian",
       "formName": "Galarian",
       "nationalDex": 199,
       "johtoDex": 87,
@@ -1090,15 +1083,7 @@
         },
         {
           "name": "Psychic M",
-          "level": 45,
-          "info": {
-            "description": "No description available.",
-            "type": "Unknown",
-            "pp": 0,
-            "power": 0,
-            "accuracy": 0,
-            "category": "Unknown"
-          }
+          "level": 45
         },
         {
           "name": "Rain Dance",
@@ -1219,63 +1204,212 @@
         "bodyShape": "Bipedal Tail"
       }
     },
-    "galarian": {
-      "moves": [],
-      "nationalDex": 199,
-      "johtoDex": 87,
-      "types": [
-        "Water",
-        "Psychic"
-      ],
-      "updatedTypes": [
-        "Water",
-        "Psychic"
-      ],
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Slowkinggalarian"
-        ],
-        "chainWithMethods": {
-          "Slowkinggalarian": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "galarian"
-    },
     "Plain": {
-      "name": "Slowking plain",
+      "name": "slowking plain",
       "formName": "Plain",
       "nationalDex": 199,
       "johtoDex": 87,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/slowking_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Power Gem",
+          "level": 1,
+          "info": {
+            "description": "\tAttacks with a ray \tof gem-like light.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "\tThe type varies \twith the #mon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Curse",
+          "level": 1,
+          "info": {
+            "description": "\tWorks differently \tfor Ghost-types.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 5,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Water Gun",
+          "level": 9,
+          "info": {
+            "description": "\tSquirts water to \tattack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 14,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Disable",
+          "level": 19,
+          "info": {
+            "description": "\tDisables the foe's \tmost recent move.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "level": 23,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "level": 28,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Water",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "level": 32,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Nasty Plot",
+          "level": 36,
+          "info": {
+            "description": "\tSharply raises the \tuser's Sp.Atk.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swagger",
+          "level": 41,
+          "info": {
+            "description": "\tCauses confusion \tbut raises Attack.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psychic M",
+          "level": 45
+        },
+        {
+          "name": "Rain Dance",
+          "level": 49,
+          "info": {
+            "description": "\tBoosts Water-type \tmoves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Belly Drum",
+          "level": 54,
+          "info": {
+            "description": "\tSacrifices HP to \tmaximize Attack.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 58,
+          "info": {
+            "description": "\tRestores HP by 1/2 \tthe max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1298,5 +1432,7 @@
         "bodyShape": "Bipedal Tail"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.993Z",
+  "version": "2.0.0"
 }

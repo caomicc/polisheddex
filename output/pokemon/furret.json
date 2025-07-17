@@ -1,5 +1,5 @@
 {
-  "name": "Furret",
+  "name": "furret",
   "nationalDex": 162,
   "johtoDex": 20,
   "types": "Normal",
@@ -78,7 +78,41 @@
     "height": 18,
     "weight": 325,
     "bodyShape": "Quadruped",
-    "bodyColor": "Brown"
+    "bodyColor": "Brown",
+    "locations": [
+      {
+        "area": "ROUTE_1",
+        "method": "grass",
+        "time": "morn",
+        "level": "57",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_1",
+        "method": "grass",
+        "time": "morn",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_1",
+        "method": "grass",
+        "time": "day",
+        "level": "57",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_1",
+        "method": "grass",
+        "time": "day",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -828,11 +862,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Long Body",
-      "description": "It lives in narrow burrows that fit its slim body. The deeper the nests go, the more mazelike they become."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.967Z",
+  "version": "2.0.0"
 }

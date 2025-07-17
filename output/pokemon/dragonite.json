@@ -1,5 +1,5 @@
 {
-  "name": "Dragonite",
+  "name": "dragonite",
   "nationalDex": 149,
   "johtoDex": 281,
   "types": [
@@ -107,7 +107,57 @@
     "height": 22,
     "weight": 2100,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Brown"
+    "bodyColor": "Brown",
+    "locations": [
+      {
+        "area": "NAVEL_ROCK_INSIDE",
+        "method": "grass",
+        "time": "morn",
+        "level": "84",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "NAVEL_ROCK_INSIDE",
+        "method": "grass",
+        "time": "morn",
+        "level": "85",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "NAVEL_ROCK_INSIDE",
+        "method": "grass",
+        "time": "day",
+        "level": "84",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "NAVEL_ROCK_INSIDE",
+        "method": "grass",
+        "time": "day",
+        "level": "85",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "NAVEL_ROCK_INSIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "84",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "NAVEL_ROCK_INSIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "85",
+        "chance": 2,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -1017,11 +1067,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Dragon",
-      "description": "It is said that somewhere in the ocean lies an island where these gather. Only they live there."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.962Z",
+  "version": "2.0.0"
 }

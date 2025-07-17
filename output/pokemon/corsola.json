@@ -1,5 +1,5 @@
 {
-  "name": "Corsola",
+  "name": "corsola",
   "nationalDex": 222,
   "johtoDex": 191,
   "types": [
@@ -88,7 +88,41 @@
     "height": 6,
     "weight": 5,
     "bodyShape": "Insectoid",
-    "bodyColor": "White"
+    "bodyColor": "White",
+    "locations": [
+      {
+        "area": "CHERRYGROVE_BAY",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level + 0",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_32_COAST",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level + 0",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35_COAST_SOUTH",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level + 0",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35_COAST_NORTH",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level + 0",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -777,39 +811,19 @@
       "level": "Badge Level + 0",
       "chance": 10,
       "formName": null
-    },
-    {
-      "area": "Cherrygrove Bay",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "Badge Level + 0",
-      "chance": 5,
-      "rareItem": "Shiny Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Coral",
-      "description": "The points on its head absorb nutrients from clean water. They cannot survive in polluted water."
-    },
-    "Galarian": {
-      "species": "Coral",
-      "description": "Sudden climate change wiped out this #mon. It absorbs others' lifeforce through its branches."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Galarian": {
-      "name": "Corsola galarian",
+      "name": "corsola galarian",
       "formName": "Galarian",
       "nationalDex": 222,
       "johtoDex": 191,
       "types": [
-        "Ghost",
         "Ghost"
       ],
       "updatedTypes": [
-        "Ghost",
         "Ghost"
       ],
       "frontSpriteUrl": "/sprites/pokemon/corsola_galarian/front_cropped.png",
@@ -1047,63 +1061,232 @@
         "bodyShape": "Insectoid"
       }
     },
-    "galarian": {
-      "moves": [],
-      "nationalDex": 222,
-      "johtoDex": 191,
-      "types": [
-        "Water",
-        "Rock"
-      ],
-      "updatedTypes": [
-        "Water",
-        "Rock"
-      ],
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Corsolagalarian"
-        ],
-        "chainWithMethods": {
-          "Corsolagalarian": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "galarian"
-    },
     "Plain": {
-      "name": "Corsola plain",
+      "name": "corsola plain",
       "formName": "Plain",
       "nationalDex": 222,
       "johtoDex": 191,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/corsola_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "\tRaises the user's \tDefense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Water Gun",
+          "level": 4,
+          "info": {
+            "description": "\tSquirts water to \tattack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 8,
+          "info": {
+            "description": "\tAttacks 5 turns \twith rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bubble Beam",
+          "level": 10,
+          "info": {
+            "description": "\tAn attack that may \tlower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 13,
+          "info": {
+            "description": "\tPrevents all \tstatus problems.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 17,
+          "info": {
+            "description": "\tAn attack that may \traise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Icicle Spear",
+          "level": 20,
+          "info": {
+            "description": "\tFires icicles to \thit 2-5 times.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 25,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 23,
+          "info": {
+            "description": "\tA move that may \tconfuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Endure",
+          "level": 27,
+          "info": {
+            "description": "\tEndures any hit \twith at least 1HP.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Barrier",
+          "level": 29,
+          "info": {
+            "description": "\tSharply raises the \tuser's Defense.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 31,
+          "info": {
+            "description": "\tHurls boulders to \thit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 35,
+          "info": {
+            "description": "\tRestores HP by 1/2 \tthe max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 38,
+          "info": {
+            "description": "\tA powerful Water- \ttype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Power Gem",
+          "level": 41,
+          "info": {
+            "description": "\tAttacks with a ray \tof gem-like light.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 45,
+          "info": {
+            "description": "\tReturns a special \tattack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "level": 47,
+          "info": {
+            "description": "\tAn attack that may \tlower Sp.Def.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 50,
+          "info": {
+            "description": "\tStronger if the \tuser's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1126,5 +1309,7 @@
         "bodyShape": "Insectoid"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:25.007Z",
+  "version": "2.0.0"
 }

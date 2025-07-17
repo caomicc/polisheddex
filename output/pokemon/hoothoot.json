@@ -1,5 +1,5 @@
 {
-  "name": "Hoothoot",
+  "name": "hoothoot",
   "nationalDex": 163,
   "johtoDex": 15,
   "types": [
@@ -87,7 +87,209 @@
     "height": 7,
     "weight": 212,
     "bodyShape": "Wings",
-    "bodyColor": "Brown"
+    "bodyColor": "Brown",
+    "locations": [
+      {
+        "area": "NATIONAL_PARK",
+        "method": "grass",
+        "time": "nite",
+        "level": "13",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "NATIONAL_PARK",
+        "method": "grass",
+        "time": "nite",
+        "level": "14",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ILEX_FOREST",
+        "method": "grass",
+        "time": "nite",
+        "level": "10",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_29",
+        "method": "grass",
+        "time": "nite",
+        "level": "2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_29",
+        "method": "grass",
+        "time": "nite",
+        "level": "3",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_29",
+        "method": "grass",
+        "time": "nite",
+        "level": "3",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_29",
+        "method": "grass",
+        "time": "nite",
+        "level": "3",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_30",
+        "method": "grass",
+        "time": "nite",
+        "level": "3",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_30",
+        "method": "grass",
+        "time": "nite",
+        "level": "4",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_30",
+        "method": "grass",
+        "time": "nite",
+        "level": "4",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_30",
+        "method": "grass",
+        "time": "nite",
+        "level": "4",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_31",
+        "method": "grass",
+        "time": "nite",
+        "level": "5",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_32",
+        "method": "grass",
+        "time": "nite",
+        "level": "8",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_34",
+        "method": "grass",
+        "time": "nite",
+        "level": "13",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "nite",
+        "level": "14",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "nite",
+        "level": "14",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_36",
+        "method": "grass",
+        "time": "nite",
+        "level": "5",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_36",
+        "method": "grass",
+        "time": "nite",
+        "level": "6",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_37",
+        "method": "grass",
+        "time": "nite",
+        "level": "14",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "VIOLET_OUTSKIRTS",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "CHERRYGROVE_BAY",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 1",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_32_COAST",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "YELLOW_FOREST",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 1",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "STORMY_BEACH",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "nite",
+        "level": "14",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -820,22 +1022,10 @@
       "level": "14",
       "chance": 5,
       "formName": null
-    },
-    {
-      "area": "Bellchime Trail",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "20",
-      "chance": 40,
-      "rareItem": "Sun Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Owl",
-      "description": "It begins to hoot at the same time every day. Some trainers use them in place of clocks."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.968Z",
+  "version": "2.0.0"
 }

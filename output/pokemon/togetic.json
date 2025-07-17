@@ -1,5 +1,5 @@
 {
-  "name": "Togetic",
+  "name": "togetic",
   "nationalDex": 176,
   "johtoDex": 47,
   "types": [
@@ -87,7 +87,33 @@
     "height": 6,
     "weight": 32,
     "bodyShape": "Bipedal",
-    "bodyColor": "White"
+    "bodyColor": "White",
+    "locations": [
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 1",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 1",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 1",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -800,11 +826,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Happiness",
-      "description": "Although it does not flap its wings very much, it can stay up in the air as it tags along after its trainer."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.971Z",
+  "version": "2.0.0"
 }

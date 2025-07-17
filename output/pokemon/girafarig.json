@@ -1,5 +1,5 @@
 {
-  "name": "Girafarig",
+  "name": "girafarig",
   "nationalDex": 203,
   "johtoDex": 160,
   "types": [
@@ -89,7 +89,81 @@
     "height": 15,
     "weight": 415,
     "bodyShape": "Quadruped",
-    "bodyColor": "Yellow"
+    "bodyColor": "Yellow",
+    "locations": [
+      {
+        "area": "ROUTE_43",
+        "method": "grass",
+        "time": "morn",
+        "level": "23",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_43",
+        "method": "grass",
+        "time": "day",
+        "level": "23",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_43",
+        "method": "grass",
+        "time": "nite",
+        "level": "23",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_48",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 4",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_48",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 4",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_48",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 4",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_48",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 4",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_48",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 4",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_48",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 4",
+        "chance": 2,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -285,15 +359,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 50,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 50
     },
     {
       "name": "Dark Pulse",
@@ -815,22 +881,10 @@
       "level": "Badge Level - 4",
       "chance": 2,
       "formName": null
-    },
-    {
-      "area": "Lake of Rage",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "26",
-      "chance": 40,
-      "rareItem": "Water Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Long Neck",
-      "description": "When it is in danger, its tail uses some sort of mysterious powers to drive away the enemy."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.993Z",
+  "version": "2.0.0"
 }

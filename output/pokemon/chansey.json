@@ -1,5 +1,5 @@
 {
-  "name": "Chansey",
+  "name": "chansey",
   "nationalDex": 113,
   "johtoDex": 254,
   "types": "Normal",
@@ -78,7 +78,73 @@
     "height": 11,
     "weight": 346,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Pink"
+    "bodyColor": "Pink",
+    "locations": [
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level + 0",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level + 0",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 0",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_NORTH",
+        "method": "grass",
+        "time": "morn",
+        "level": "60",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_NORTH",
+        "method": "grass",
+        "time": "day",
+        "level": "60",
+        "chance": 2,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -929,11 +995,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Egg",
-      "description": "People try to catch it for its extremely nutritious eggs, but it rarely can be found."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.941Z",
+  "version": "2.0.0"
 }

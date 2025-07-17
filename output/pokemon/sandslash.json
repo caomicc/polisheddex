@@ -1,5 +1,5 @@
 {
-  "name": "Sandslash",
+  "name": "sandslash",
   "nationalDex": 28,
   "johtoDex": 50,
   "types": "Ground",
@@ -77,7 +77,217 @@
     "height": 12,
     "weight": 550,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Blue"
+    "bodyColor": "Blue",
+    "locations": [
+      {
+        "area": "MOUNT_MOON_1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "56",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_1F",
+        "method": "grass",
+        "time": "day",
+        "level": "56",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "56",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B1F",
+        "method": "grass",
+        "time": "day",
+        "level": "56",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B2F",
+        "method": "grass",
+        "time": "morn",
+        "level": "56",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B2F",
+        "method": "grass",
+        "time": "day",
+        "level": "56",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "VICTORY_ROAD_1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "44",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "VICTORY_ROAD_1F",
+        "method": "grass",
+        "time": "day",
+        "level": "44",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "VICTORY_ROAD_2F",
+        "method": "grass",
+        "time": "morn",
+        "level": "47",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "VICTORY_ROAD_2F",
+        "method": "grass",
+        "time": "day",
+        "level": "47",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "VICTORY_ROAD_3F",
+        "method": "grass",
+        "time": "morn",
+        "level": "48",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "VICTORY_ROAD_3F",
+        "method": "grass",
+        "time": "day",
+        "level": "48",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_3",
+        "method": "grass",
+        "time": "morn",
+        "level": "55",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_3",
+        "method": "grass",
+        "time": "day",
+        "level": "55",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_4",
+        "method": "grass",
+        "time": "morn",
+        "level": "57",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_4",
+        "method": "grass",
+        "time": "day",
+        "level": "57",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_11",
+        "method": "grass",
+        "time": "morn",
+        "level": "51",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_11",
+        "method": "grass",
+        "time": "day",
+        "level": "51",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_23",
+        "method": "grass",
+        "time": "morn",
+        "level": "38",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_23",
+        "method": "grass",
+        "time": "morn",
+        "level": "39",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_23",
+        "method": "grass",
+        "time": "morn",
+        "level": "40",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_23",
+        "method": "grass",
+        "time": "day",
+        "level": "38",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_23",
+        "method": "grass",
+        "time": "day",
+        "level": "39",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_23",
+        "method": "grass",
+        "time": "day",
+        "level": "40",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_26",
+        "method": "grass",
+        "time": "morn",
+        "level": "38",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_26",
+        "method": "grass",
+        "time": "day",
+        "level": "38",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -974,19 +1184,10 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Mouse",
-      "description": "Adept at climbing trees, it rolls into a spiny ball, then attacks its enemies from above."
-    },
-    "Alolan": {
-      "species": "Mouse",
-      "description": "Many people climb snowy mountains, hoping to see the icy spikes of this #mon glisten in the light of dawn."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Alolan": {
-      "name": "Sandslash alolan",
+      "name": "sandslash alolan",
       "formName": "Alolan",
       "nationalDex": 28,
       "johtoDex": 50,
@@ -1203,57 +1404,232 @@
         "bodyShape": "Bipedal Tail"
       }
     },
-    "alolan": {
-      "moves": [],
-      "nationalDex": 28,
-      "johtoDex": 50,
-      "types": "Ground",
-      "updatedTypes": "Ground",
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Sandslashalolan"
-        ],
-        "chainWithMethods": {
-          "Sandslashalolan": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "alolan"
-    },
     "Plain": {
-      "name": "Sandslash plain",
+      "name": "sandslash plain",
       "formName": "Plain",
       "nationalDex": 28,
       "johtoDex": 50,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/sandslash_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "\tScratches with \tsharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 1,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "\tRaises the user's \tDefense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 3,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Poison Sting",
+          "level": 5,
+          "info": {
+            "description": "\tAn attack that may \tpoison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 7,
+          "info": {
+            "description": "\tAttacks 5 turns \twith rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 9,
+          "info": {
+            "description": "\tA high-speed \tspinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 11,
+          "info": {
+            "description": "\tFires pins that \tstrike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Magnitude",
+          "level": 14,
+          "info": {
+            "description": "\tA Ground attack \twith random power.",
+            "type": "Ground",
+            "pp": 30,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 17,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 20,
+          "info": {
+            "description": "\tScratches or jabs \t2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Super Fang",
+          "level": 24,
+          "info": {
+            "description": "\tCuts the foe's HP \tby 1/2.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 1,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 28,
+          "info": {
+            "description": "\tAn attack that may \tup user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 33,
+          "info": {
+            "description": "\t1st turn: Burrow \t2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 38,
+          "info": {
+            "description": "\tDoes more damage \tat lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 43,
+          "info": {
+            "description": "\tSharply raises the \tuser's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 48,
+          "info": {
+            "description": "",
+            "type": "Rock",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 53,
+          "info": {
+            "description": "\tTough but useless \tvs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1276,5 +1652,7 @@
         "bodyShape": "Bipedal Tail"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.895Z",
+  "version": "2.0.0"
 }

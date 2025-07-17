@@ -1,5 +1,5 @@
 {
-  "name": "Alakazam",
+  "name": "alakazam",
   "nationalDex": 65,
   "johtoDex": 96,
   "types": "Psychic",
@@ -77,7 +77,41 @@
     "height": 15,
     "weight": 480,
     "bodyShape": "Bipedal",
-    "bodyColor": "Brown"
+    "bodyColor": "Brown",
+    "locations": [
+      {
+        "area": "CERULEAN_CAVE_2F",
+        "method": "grass",
+        "time": "morn",
+        "level": "70",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_2F",
+        "method": "grass",
+        "time": "day",
+        "level": "70",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_B1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "72",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_B1F",
+        "method": "grass",
+        "time": "day",
+        "level": "72",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -251,15 +285,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 38,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 38
     },
     {
       "name": "Calm Mind",
@@ -772,11 +798,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Psi",
-      "description": "It has an IQ of 5000. It calculates many things in order to gain the edge in every battle."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.914Z",
+  "version": "2.0.0"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Smeargle",
+  "name": "smeargle",
   "nationalDex": 235,
   "johtoDex": 175,
   "types": "Normal",
@@ -75,7 +75,73 @@
     "height": 12,
     "weight": 580,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "White"
+    "bodyColor": "White",
+    "locations": [
+      {
+        "area": "RUINS_OF_ALPH_OUTSIDE",
+        "method": "grass",
+        "time": "morn",
+        "level": "20",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "RUINS_OF_ALPH_OUTSIDE",
+        "method": "grass",
+        "time": "morn",
+        "level": "22",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "RUINS_OF_ALPH_OUTSIDE",
+        "method": "grass",
+        "time": "morn",
+        "level": "22",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "RUINS_OF_ALPH_OUTSIDE",
+        "method": "grass",
+        "time": "day",
+        "level": "20",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "RUINS_OF_ALPH_OUTSIDE",
+        "method": "grass",
+        "time": "day",
+        "level": "22",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "RUINS_OF_ALPH_OUTSIDE",
+        "method": "grass",
+        "time": "day",
+        "level": "22",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_37",
+        "method": "grass",
+        "time": "morn",
+        "level": "14",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_37",
+        "method": "grass",
+        "time": "day",
+        "level": "14",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -274,22 +340,10 @@
       "level": "14",
       "chance": 5,
       "formName": null
-    },
-    {
-      "area": "Ruins of Alph",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "25",
-      "chance": 5,
-      "rareItem": "Moon Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Painter",
-      "description": "The color of the mysterious fluid secreted from its tail is predetermined for each Smeargle."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.011Z",
+  "version": "2.0.0"
 }

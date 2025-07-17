@@ -1,5 +1,5 @@
 {
-  "name": "Lickitung",
+  "name": "lickitung",
   "nationalDex": 108,
   "johtoDex": 199,
   "types": "Normal",
@@ -77,7 +77,73 @@
     "height": 12,
     "weight": 655,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Pink"
+    "bodyColor": "Pink",
+    "locations": [
+      {
+        "area": "ROUTE_44",
+        "method": "grass",
+        "time": "morn",
+        "level": "29",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "grass",
+        "time": "morn",
+        "level": "32",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "grass",
+        "time": "morn",
+        "level": "34",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "grass",
+        "time": "morn",
+        "level": "34",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "grass",
+        "time": "day",
+        "level": "29",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "grass",
+        "time": "day",
+        "level": "32",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "grass",
+        "time": "day",
+        "level": "34",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "grass",
+        "time": "day",
+        "level": "34",
+        "chance": 2,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -848,22 +914,10 @@
       "level": "34",
       "chance": 2,
       "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "34",
-      "chance": 40,
-      "rareItem": "Leaf Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Licking",
-      "description": "Its tongue has welldeveloped nerves that run to the very tip, so it can be deftly manipulated."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.938Z",
+  "version": "2.0.0"
 }

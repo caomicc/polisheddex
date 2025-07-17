@@ -1,5 +1,5 @@
 {
-  "name": "Kingdra",
+  "name": "kingdra",
   "nationalDex": 230,
   "johtoDex": 214,
   "types": [
@@ -88,7 +88,17 @@
     "height": 18,
     "weight": 1520,
     "bodyShape": "Head Base",
-    "bodyColor": "Blue"
+    "bodyColor": "Blue",
+    "locations": [
+      {
+        "area": "SILVER_CAVE_ROOM_2",
+        "method": "water",
+        "time": null,
+        "level": "75",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -592,11 +602,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Dragon",
-      "description": "It stores energy by sleeping at underwater depths at which no other life forms can survive."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.010Z",
+  "version": "2.0.0"
 }

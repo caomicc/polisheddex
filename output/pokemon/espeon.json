@@ -1,5 +1,5 @@
 {
-  "name": "Espeon",
+  "name": "espeon",
   "nationalDex": 196,
   "johtoDex": 207,
   "types": "Psychic",
@@ -94,16 +94,17 @@
     "height": 9,
     "weight": 265,
     "bodyShape": "Quadruped",
-    "bodyColor": "Purple"
+    "bodyColor": "Purple",
+    "locations": []
   },
   "evolution": {
     "methods": [],
     "chain": [
       "Eevee",
+      "Espeon",
       "Jolteon",
       "Vaporeon",
       "Flareon",
-      "Espeon",
       "Umbreon",
       "Leafeon",
       "Glaceon",
@@ -172,10 +173,10 @@
           "target": "Umbreon"
         }
       ],
+      "Espeon": [],
       "Jolteon": [],
       "Vaporeon": [],
       "Flareon": [],
-      "Espeon": [],
       "Umbreon": [],
       "Leafeon": [],
       "Glaceon": [],
@@ -329,15 +330,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 37,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 37
     },
     {
       "name": "Double Edge",
@@ -739,11 +732,8 @@
     "Charm"
   ],
   "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Sun",
-      "description": "The tip of its forked tail quivers when it is predicting its opponent's next move."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.992Z",
+  "version": "2.0.0"
 }

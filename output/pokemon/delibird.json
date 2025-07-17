@@ -1,5 +1,5 @@
 {
-  "name": "Delibird",
+  "name": "delibird",
   "nationalDex": 225,
   "johtoDex": 217,
   "types": [
@@ -88,7 +88,105 @@
     "height": 9,
     "weight": 160,
     "bodyShape": "Wings",
-    "bodyColor": "Red"
+    "bodyColor": "Red",
+    "locations": [
+      {
+        "area": "ICE_PATH_1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "30",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "33",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "32",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "34",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "33",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "35",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "33",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "35",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B3F",
+        "method": "grass",
+        "time": "nite",
+        "level": "34",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "SNOWTOP_MOUNTAIN_INSIDE",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 1",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "SNOWTOP_MOUNTAIN_INSIDE",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 1",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "SNOWTOP_MOUNTAIN_INSIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 1",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -703,22 +801,10 @@
       "level": "Badge Level - 1",
       "chance": 10,
       "formName": null
-    },
-    {
-      "area": "Snowtop Mountain Inside",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "Badge Level + 4",
-      "chance": 15,
-      "rareItem": "Ice Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Delivery",
-      "description": "It always carries its food with it, wherever it goes. If attacked, it throws its food at the opponent."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.008Z",
+  "version": "2.0.0"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Porygon",
+  "name": "porygon",
   "nationalDex": 137,
   "johtoDex": 250,
   "types": "Normal",
@@ -77,7 +77,8 @@
     "height": 8,
     "weight": 365,
     "bodyShape": "Head Legs",
-    "bodyColor": "Pink"
+    "bodyColor": "Pink",
+    "locations": []
   },
   "evolution": {
     "methods": [
@@ -617,22 +618,186 @@
   ],
   "eggMoves": [],
   "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Virtual",
-      "description": "An artificial #mon created due to extensive research, it can perform only what is in its program."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Z": {
-      "name": "Porygon z",
+      "name": "porygon z",
       "formName": "Z",
       "nationalDex": 137,
       "johtoDex": 250,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/porygon_z/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Conversion",
+          "level": 1,
+          "info": {
+            "description": "\tChange user's type \tto a move's type.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Teleport",
+          "level": 1,
+          "info": {
+            "description": "\tA move for fleeing \tfrom battle.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 7,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 12,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 18,
+          "info": {
+            "description": "\tRestores HP by 1/2 \tthe max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Growth",
+          "level": 23,
+          "info": {
+            "description": "\tRaises the user's \tAtk and Sp.Atk.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 29,
+          "info": {
+            "description": "\tAn attack that may \tlower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 34,
+          "info": {
+            "description": "\tparalyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Barrier",
+          "level": 40,
+          "info": {
+            "description": "\tSharply raises the \tuser's Defense.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 45,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Tri Attack",
+          "level": 50,
+          "info": {
+            "description": "\tFires three kinds \tof beams at once.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 56,
+          "info": {
+            "description": "\tReturns a special \tattack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "level": 62,
+          "info": {
+            "description": "\tAn attack that \talways paralyzes.",
+            "type": "Electric",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 50,
+            "category": "Special"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -655,5 +820,7 @@
         "bodyShape": "Head Legs"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.954Z",
+  "version": "2.0.0"
 }

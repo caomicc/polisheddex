@@ -1,5 +1,5 @@
 {
-  "name": "Umbreon",
+  "name": "umbreon",
   "nationalDex": 197,
   "johtoDex": 208,
   "types": "Dark",
@@ -94,17 +94,18 @@
     "height": 10,
     "weight": 270,
     "bodyShape": "Quadruped",
-    "bodyColor": "Black"
+    "bodyColor": "Black",
+    "locations": []
   },
   "evolution": {
     "methods": [],
     "chain": [
       "Eevee",
+      "Umbreon",
       "Jolteon",
       "Vaporeon",
       "Flareon",
       "Espeon",
-      "Umbreon",
       "Leafeon",
       "Glaceon",
       "Sylveon"
@@ -172,11 +173,11 @@
           "target": "Umbreon"
         }
       ],
+      "Umbreon": [],
       "Jolteon": [],
       "Vaporeon": [],
       "Flareon": [],
       "Espeon": [],
-      "Umbreon": [],
       "Leafeon": [],
       "Glaceon": [],
       "Sylveon": []
@@ -694,11 +695,8 @@
     "Charm"
   ],
   "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Moonlight",
-      "description": "On the night of a full moon, or when it gets excited, the ring patterns on its body glow yellow."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.992Z",
+  "version": "2.0.0"
 }

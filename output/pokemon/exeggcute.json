@@ -1,5 +1,5 @@
 {
-  "name": "Exeggcute",
+  "name": "exeggcute",
   "nationalDex": 102,
   "johtoDex": 110,
   "types": [
@@ -89,7 +89,81 @@
     "height": 4,
     "weight": 25,
     "bodyShape": "Multibody",
-    "bodyColor": "Pink"
+    "bodyColor": "Pink",
+    "locations": [
+      {
+        "area": "SAFARI_ZONE_HUB",
+        "method": "grass",
+        "time": "morn",
+        "level": "55",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_HUB",
+        "method": "grass",
+        "time": "day",
+        "level": "55",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_HUB",
+        "method": "grass",
+        "time": "nite",
+        "level": "55",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_49",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level + 0",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_49",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level + 2",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_49",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level + 0",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_49",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level + 2",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_49",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 0",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_49",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 2",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -299,15 +373,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 50,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 50
     }
   ],
   "tmHmMoves": [
@@ -678,22 +744,10 @@
       "level": "Badge Level + 2",
       "chance": 5,
       "formName": null
-    },
-    {
-      "area": "Cherrygrove Bay",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Badge Level + 0",
-      "chance": 40,
-      "rareItem": "Shiny Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Egg",
-      "description": "If even one is separated from the group, the energy bond between the six will make them rejoin instantly."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.932Z",
+  "version": "2.0.0"
 }

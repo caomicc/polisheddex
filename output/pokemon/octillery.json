@@ -1,5 +1,5 @@
 {
-  "name": "Octillery",
+  "name": "octillery",
   "nationalDex": 224,
   "johtoDex": 194,
   "types": "Water",
@@ -80,7 +80,33 @@
     "height": 9,
     "weight": 285,
     "bodyShape": "Tentacles",
-    "bodyColor": "Red"
+    "bodyColor": "Red",
+    "locations": [
+      {
+        "area": "WHIRL_ISLAND_SW",
+        "method": "water",
+        "time": null,
+        "level": "30",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "WHIRL_ISLAND_B2F",
+        "method": "water",
+        "time": null,
+        "level": "30",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "WHIRL_ISLAND_LUGIA_CHAMBER",
+        "method": "water",
+        "time": null,
+        "level": "30",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -710,11 +736,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Jet",
-      "description": "Its instinct is to bury itself in holes. It often steals the nesting holes of others to sleep in them."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.008Z",
+  "version": "2.0.0"
 }

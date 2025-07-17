@@ -1,5 +1,5 @@
 {
-  "name": "Growlithe",
+  "name": "growlithe",
   "nationalDex": 58,
   "johtoDex": 136,
   "types": "Fire",
@@ -77,7 +77,89 @@
     "height": 8,
     "weight": 227,
     "bodyShape": "Quadruped",
-    "bodyColor": "Red"
+    "bodyColor": "Red",
+    "locations": [
+      {
+        "area": "ROUTE_36",
+        "method": "grass",
+        "time": "morn",
+        "level": "7",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_36",
+        "method": "grass",
+        "time": "day",
+        "level": "7",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_37",
+        "method": "grass",
+        "time": "morn",
+        "level": "16",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_37",
+        "method": "grass",
+        "time": "day",
+        "level": "14",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_37",
+        "method": "grass",
+        "time": "day",
+        "level": "16",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_48",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 2",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "VIOLET_OUTSKIRTS",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 3",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "VIOLET_OUTSKIRTS",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 3",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_8",
+        "method": "grass",
+        "time": "morn",
+        "level": "53",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_8",
+        "method": "grass",
+        "time": "day",
+        "level": "53",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -734,30 +816,12 @@
       "level": "53",
       "chance": 10,
       "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "16",
-      "chance": 40,
-      "rareItem": "Fire Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Puppy",
-      "description": "It controls a big territory. If it detects an unknown smell, it roars loudly to force out the intruder."
-    },
-    "Hisuian": {
-      "species": "Scout",
-      "description": "They patrol their territory in pairs. Their fur has igneous rock components from volcanic activity."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Hisuian": {
-      "name": "Growlithe hisuian",
+      "name": "growlithe hisuian",
       "formName": "Hisuian",
       "nationalDex": 58,
       "johtoDex": 136,
@@ -1094,57 +1158,256 @@
         "bodyShape": "Quadruped"
       }
     },
-    "hisuian": {
-      "moves": [],
-      "nationalDex": 58,
-      "johtoDex": 136,
-      "types": "Fire",
-      "updatedTypes": "Fire",
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Growlithehisuian"
-        ],
-        "chainWithMethods": {
-          "Growlithehisuian": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "hisuian"
-    },
     "Plain": {
-      "name": "Growlithe plain",
+      "name": "growlithe plain",
       "formName": "Plain",
       "nationalDex": 58,
       "johtoDex": 136,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/growlithe_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roar",
+          "level": 1,
+          "info": {
+            "description": "\tScares wild foes \tto end battle.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 6,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 8,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 10,
+          "info": {
+            "description": "\tPrevents all \tstatus problems.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 12,
+          "info": {
+            "description": "\tSwitches while \tkeeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 17,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 19,
+          "info": {
+            "description": "\tStronger if the \tuser's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 21,
+          "info": {
+            "description": "\tA double kicking \tattack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 23,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 28,
+          "info": {
+            "description": "\tAn attack that may \tup user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 30,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 32,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 34,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "\tAn attack that may \tlower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "level": 41,
+          "info": {
+            "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+            "type": "Fire",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 43,
+          "info": {
+            "description": "\tWorks 2-3 turns \tand confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Play Rough",
+          "level": 45,
+          "info": {
+            "description": "\tAn attack that may \tlower Attack.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 49,
+          "info": {
+            "description": "\tA charge that also \thurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1167,5 +1430,7 @@
         "bodyShape": "Quadruped"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.909Z",
+  "version": "2.0.0"
 }

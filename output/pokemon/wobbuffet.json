@@ -1,5 +1,5 @@
 {
-  "name": "Wobbuffet",
+  "name": "wobbuffet",
   "nationalDex": 202,
   "johtoDex": 66,
   "types": "Psychic",
@@ -75,7 +75,25 @@
     "height": 13,
     "weight": 285,
     "bodyShape": "Head Base",
-    "bodyColor": "Blue"
+    "bodyColor": "Blue",
+    "locations": [
+      {
+        "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+        "method": "grass",
+        "time": "nite",
+        "level": "20",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+        "method": "grass",
+        "time": "nite",
+        "level": "25",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -255,11 +273,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Patient",
-      "description": "In order to conceal its black tail, it lives in a dark cave and only moves about at night."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.993Z",
+  "version": "2.0.0"
 }

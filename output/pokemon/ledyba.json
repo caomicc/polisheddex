@@ -1,5 +1,5 @@
 {
-  "name": "Ledyba",
+  "name": "ledyba",
   "nationalDex": 165,
   "johtoDex": 30,
   "types": [
@@ -87,7 +87,57 @@
     "height": 10,
     "weight": 108,
     "bodyShape": "Wings",
-    "bodyColor": "Red"
+    "bodyColor": "Red",
+    "locations": [
+      {
+        "area": "NATIONAL_PARK",
+        "method": "grass",
+        "time": "morn",
+        "level": "14",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_30",
+        "method": "grass",
+        "time": "morn",
+        "level": "3",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_31",
+        "method": "grass",
+        "time": "morn",
+        "level": "4",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_36",
+        "method": "grass",
+        "time": "morn",
+        "level": "5",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_37",
+        "method": "grass",
+        "time": "morn",
+        "level": "13",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "YELLOW_FOREST",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 2",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -692,22 +742,10 @@
       "level": "Badge Level - 2",
       "chance": 10,
       "formName": null
-    },
-    {
-      "area": "Yellow Forest",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Badge Level + 0",
-      "chance": 40,
-      "rareItem": "THUNDERSTONE",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Five Star",
-      "description": "It is timid and clusters together with others. The fluid secreted by its feet indicates its location."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.968Z",
+  "version": "2.0.0"
 }

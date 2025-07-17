@@ -1,5 +1,5 @@
 {
-  "name": "Venomoth",
+  "name": "venomoth",
   "nationalDex": 49,
   "johtoDex": 115,
   "types": [
@@ -90,7 +90,209 @@
     "height": 15,
     "weight": 125,
     "bodyShape": "Multiwings",
-    "bodyColor": "Purple"
+    "bodyColor": "Purple",
+    "locations": [
+      {
+        "area": "ROUTE_43",
+        "method": "grass",
+        "time": "nite",
+        "level": "23",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "MURKY_SWAMP",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 5",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_9",
+        "method": "grass",
+        "time": "nite",
+        "level": "47",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_9",
+        "method": "grass",
+        "time": "nite",
+        "level": "50",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_10_NORTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "47",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_12_SOUTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "50",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_12_SOUTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "53",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_13_EAST",
+        "method": "grass",
+        "time": "nite",
+        "level": "50",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_13_EAST",
+        "method": "grass",
+        "time": "nite",
+        "level": "54",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_14",
+        "method": "grass",
+        "time": "nite",
+        "level": "52",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_14",
+        "method": "grass",
+        "time": "nite",
+        "level": "56",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_15",
+        "method": "grass",
+        "time": "nite",
+        "level": "52",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_15",
+        "method": "grass",
+        "time": "nite",
+        "level": "57",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_24",
+        "method": "grass",
+        "time": "nite",
+        "level": "48",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_24",
+        "method": "grass",
+        "time": "nite",
+        "level": "48",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_25",
+        "method": "grass",
+        "time": "nite",
+        "level": "48",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_25",
+        "method": "grass",
+        "time": "nite",
+        "level": "48",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAPE",
+        "method": "grass",
+        "time": "nite",
+        "level": "48",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAPE",
+        "method": "grass",
+        "time": "nite",
+        "level": "48",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_NORTH",
+        "method": "grass",
+        "time": "morn",
+        "level": "58",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_NORTH",
+        "method": "grass",
+        "time": "day",
+        "level": "58",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_NORTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "58",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_WEST",
+        "method": "grass",
+        "time": "morn",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_WEST",
+        "method": "grass",
+        "time": "day",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_WEST",
+        "method": "grass",
+        "time": "nite",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -292,15 +494,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 55,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 55
     },
     {
       "name": "Bug Buzz",
@@ -848,22 +1042,10 @@
       "level": "59",
       "chance": 5,
       "formName": null
-    },
-    {
-      "area": "Stormy Beach",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "Badge Level + 3",
-      "chance": 5,
-      "rareItem": "Water Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Poison Moth",
-      "description": "The scales it scatters will paralyze anyone who touches them, making that person unable to stand."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.903Z",
+  "version": "2.0.0"
 }

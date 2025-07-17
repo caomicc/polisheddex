@@ -1,5 +1,5 @@
 {
-  "name": "Spearow",
+  "name": "spearow",
   "nationalDex": 21,
   "johtoDex": 13,
   "types": [
@@ -89,7 +89,57 @@
     "height": 3,
     "weight": 20,
     "bodyShape": "Wings",
-    "bodyColor": "Brown"
+    "bodyColor": "Brown",
+    "locations": [
+      {
+        "area": "ROUTE_33",
+        "method": "grass",
+        "time": "morn",
+        "level": "9",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_33",
+        "method": "grass",
+        "time": "day",
+        "level": "9",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_42",
+        "method": "grass",
+        "time": "morn",
+        "level": "21",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_42",
+        "method": "grass",
+        "time": "day",
+        "level": "21",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_46",
+        "method": "grass",
+        "time": "morn",
+        "level": "2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_46",
+        "method": "grass",
+        "time": "day",
+        "level": "2",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -553,11 +603,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Tiny Bird",
-      "description": "To protect its territory, it flies around ceaselessly, making highpitched cries."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.891Z",
+  "version": "2.0.0"
 }

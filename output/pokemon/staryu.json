@@ -1,5 +1,5 @@
 {
-  "name": "Staryu",
+  "name": "staryu",
   "nationalDex": 120,
   "johtoDex": 187,
   "types": "Water",
@@ -77,7 +77,41 @@
     "height": 8,
     "weight": 345,
     "bodyShape": "Head Base",
-    "bodyColor": "Brown"
+    "bodyColor": "Brown",
+    "locations": [
+      {
+        "area": "ROUTE_40",
+        "method": "water",
+        "time": null,
+        "level": "20",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_47",
+        "method": "water",
+        "time": null,
+        "level": "25",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_34_COAST",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level - 5",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "STORMY_BEACH",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level - 5",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -285,15 +319,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 42,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 42
     },
     {
       "name": "Light Screen",
@@ -690,11 +716,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Star Shape",
-      "description": "When the stars twinkle at night, it floats up from the sea floor, and its body's center core flickers."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.943Z",
+  "version": "2.0.0"
 }

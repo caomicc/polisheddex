@@ -1,5 +1,5 @@
 {
-  "name": "Happiny",
+  "name": "happiny",
   "nationalDex": 259,
   "johtoDex": 253,
   "types": "Normal",
@@ -78,7 +78,41 @@
     "height": 6,
     "weight": 244,
     "bodyShape": "Bipedal",
-    "bodyColor": "Pink"
+    "bodyColor": "Pink",
+    "locations": [
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 3",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 3",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 3",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 3",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -90,22 +124,22 @@
       }
     ],
     "chain": [
-      "Gligar",
-      "Tr Evenite",
-      "Sneasel",
+      "Happiny",
       "Tr Mornday",
-      "Happiny"
+      "Sneasel",
+      "Tr Evenite",
+      "Gligar"
     ],
     "chainWithMethods": {
-      "Gligar": [
+      "Happiny": [
         {
           "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_FANG",
-          "target": "Tr Evenite",
-          "form": "Gliscor"
+          "parameter": "OVAL_STONE",
+          "target": "Tr Mornday",
+          "form": "Chansey"
         }
       ],
-      "Tr Evenite": [],
+      "Tr Mornday": [],
       "Sneasel": [
         {
           "method": "EVOLVE_HOLDING",
@@ -120,13 +154,13 @@
           "form": "Sneasler"
         }
       ],
-      "Tr Mornday": [],
-      "Happiny": [
+      "Tr Evenite": [],
+      "Gligar": [
         {
           "method": "EVOLVE_HOLDING",
-          "parameter": "OVAL_STONE",
-          "target": "Tr Mornday",
-          "form": "Chansey"
+          "parameter": "RAZOR_FANG",
+          "target": "Tr Evenite",
+          "form": "Gliscor"
         }
       ]
     }
@@ -592,11 +626,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Playhouse",
-      "description": "It carries a round, eggshaped rock in its belly pouch and gives the rock to its friends."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.019Z",
+  "version": "2.0.0"
 }

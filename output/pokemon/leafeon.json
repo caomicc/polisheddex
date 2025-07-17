@@ -1,5 +1,5 @@
 {
-  "name": "Leafeon",
+  "name": "leafeon",
   "nationalDex": 271,
   "johtoDex": 209,
   "types": "Grass",
@@ -94,18 +94,19 @@
     "height": 10,
     "weight": 255,
     "bodyShape": "Quadruped",
-    "bodyColor": "Green"
+    "bodyColor": "Green",
+    "locations": []
   },
   "evolution": {
     "methods": [],
     "chain": [
       "Eevee",
+      "Leafeon",
       "Jolteon",
       "Vaporeon",
       "Flareon",
       "Espeon",
       "Umbreon",
-      "Leafeon",
       "Glaceon",
       "Sylveon"
     ],
@@ -172,12 +173,12 @@
           "target": "Umbreon"
         }
       ],
+      "Leafeon": [],
       "Jolteon": [],
       "Vaporeon": [],
       "Flareon": [],
       "Espeon": [],
       "Umbreon": [],
-      "Leafeon": [],
       "Glaceon": [],
       "Sylveon": []
     }
@@ -739,11 +740,8 @@
     "Charm"
   ],
   "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Verdant",
-      "description": "Just like a plant, it uses photosynthesis. As a result, it is always enveloped in clear air."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.022Z",
+  "version": "2.0.0"
 }

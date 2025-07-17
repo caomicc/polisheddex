@@ -1,5 +1,5 @@
 {
-  "name": "Farfetch",
+  "name": "farfetch",
   "nationalDex": 83,
   "johtoDex": 176,
   "types": [
@@ -46,187 +46,500 @@
     "height": 0,
     "weight": 0,
     "bodyShape": "Unknown",
-    "bodyColor": "Unknown"
+    "bodyColor": "Unknown",
+    "locations": []
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Farfetch-d"
+      "Farfetch-d",
+      "Sirfetch-d"
     ],
     "chainWithMethods": {
-      "Farfetch-d": []
+      "Farfetch-d": [
+        {
+          "method": "EVOLVE_CRIT",
+          "parameter": "TR_ANYTIME",
+          "target": "Sirfetch-d",
+          "form": "Plain Form"
+        }
+      ],
+      "Sirfetch-d": []
     }
   },
-  "levelMoves": [],
-  "tmHmMoves": [],
-  "eggMoves": [],
-  "locations": [
+  "levelMoves": [
     {
-      "area": "Lake of Rage",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "26",
-      "chance": 15,
-      "rareItem": "Water Stone",
-      "formName": null
+      "name": "Poison Jab",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that may \tpoison the foe.",
+        "type": "Poison",
+        "pp": 20,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Baton Pass",
+      "level": 1,
+      "info": {
+        "description": "\tSwitches while \tkeeping effects.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Peck",
+      "level": 1,
+      "info": {
+        "description": "\tJabs the foe with \ta beak, etc.",
+        "type": "Flying",
+        "pp": 35,
+        "power": 35,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Mud Slap",
+      "level": 1,
+      "info": {
+        "description": "\tAn attack that \tlowers accuracy.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Leer",
+      "level": 1,
+      "info": {
+        "description": "\tA move that lowers \tthe foe's Defense.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Fury Strikes",
+      "level": 7,
+      "info": {
+        "description": "\tScratches or jabs \t2-5 times.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 20,
+        "accuracy": 85,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Aerial Ace",
+      "level": 9,
+      "info": {
+        "description": "\tAn attack that \tnever misses.",
+        "type": "Flying",
+        "pp": 20,
+        "power": 60,
+        "accuracy": "--",
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Knock Off",
+      "level": 13,
+      "info": {
+        "description": "\tSlaps down the \tfoe's held item.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Razor Leaf",
+      "level": 15,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 55,
+        "accuracy": 95,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Slash",
+      "level": 19,
+      "info": {
+        "description": "",
+        "type": "Normal",
+        "pp": 20,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Karate Chop",
+      "level": 21,
+      "info": {
+        "description": "",
+        "type": "Fighting",
+        "pp": 25,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Swords Dance",
+      "level": 25,
+      "info": {
+        "description": "\tSharply raises the \tuser's Attack.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 31,
+      "info": {
+        "description": "\tSharply raises the \tuser's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Night Slash",
+      "level": 33,
+      "info": {
+        "description": "",
+        "type": "Dark",
+        "pp": 15,
+        "power": 70,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Acrobatics",
+      "level": 37,
+      "info": {
+        "description": "\tDamage doubles if \tuser has no item.",
+        "type": "Flying",
+        "pp": 15,
+        "power": 55,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Hi Jump Kick",
+      "level": 43,
+      "info": {
+        "description": "\tMay miss and hurt \tthe user.",
+        "type": "Fighting",
+        "pp": 10,
+        "power": 130,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "False Swipe",
+      "level": 45,
+      "info": {
+        "description": "\tLeaves the foe \twith at least 1HP.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Air Slash",
+      "level": 49,
+      "info": {
+        "description": "\tAn attack that may \tcause flinching.",
+        "type": "Flying",
+        "pp": 15,
+        "power": 75,
+        "accuracy": 95,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Brave Bird",
+      "level": 55,
+      "info": {
+        "description": "\tA charge that also \thurts the user.",
+        "type": "Flying",
+        "pp": 15,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
     }
   ],
+  "tmHmMoves": [],
+  "eggMoves": [],
+  "locations": [],
   "pokedexEntries": [],
   "forms": {
-    "-d": {
-      "moves": [],
-      "nationalDex": 83,
-      "johtoDex": 176,
-      "types": [
-        "Normal",
-        "Flying"
-      ],
-      "updatedTypes": [
-        "Normal",
-        "Flying"
-      ],
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Farfetch-d"
-        ],
-        "chainWithMethods": {
-          "Farfetch-d": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [
-        {
-          "area": "ROUTE_43",
-          "method": "grass",
-          "time": "morn",
-          "level": "24",
-          "chance": 10,
-          "formName": null
-        },
-        {
-          "area": "ROUTE_43",
-          "method": "grass",
-          "time": "day",
-          "level": "24",
-          "chance": 10,
-          "formName": null
-        },
-        {
-          "area": "ROUTE_12_SOUTH",
-          "method": "grass",
-          "time": "morn",
-          "level": "52",
-          "chance": 3,
-          "formName": null
-        },
-        {
-          "area": "ROUTE_12_SOUTH",
-          "method": "grass",
-          "time": "morn",
-          "level": "54",
-          "chance": 2,
-          "formName": null
-        },
-        {
-          "area": "ROUTE_12_SOUTH",
-          "method": "grass",
-          "time": "day",
-          "level": "52",
-          "chance": 3,
-          "formName": null
-        },
-        {
-          "area": "ROUTE_12_SOUTH",
-          "method": "grass",
-          "time": "day",
-          "level": "54",
-          "chance": 2,
-          "formName": null
-        }
-      ],
-      "formName": "-d"
-    },
-    "-dgalarian": {
-      "moves": [],
-      "nationalDex": 83,
-      "johtoDex": 176,
-      "types": [
-        "Normal",
-        "Flying"
-      ],
-      "updatedTypes": [
-        "Normal",
-        "Flying"
-      ],
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Farfetch-dgalarian"
-        ],
-        "chainWithMethods": {
-          "Farfetch-dgalarian": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "-dgalarian"
-    },
     "": {
-      "name": "Farfetch d_plain",
+      "name": "farfetch d_plain",
       "formName": "",
       "nationalDex": 83,
       "johtoDex": 176,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/farfetch_d_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Poison Jab",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tpoison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 1,
+          "info": {
+            "description": "\tSwitches while \tkeeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "\tJabs the foe with \ta beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 7,
+          "info": {
+            "description": "\tScratches or jabs \t2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "level": 9,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "level": 13,
+          "info": {
+            "description": "\tSlaps down the \tfoe's held item.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Razor Leaf",
+          "level": 15,
+          "info": {
+            "description": "",
+            "type": "Grass",
+            "pp": 25,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 19,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Karate Chop",
+          "level": 21,
+          "info": {
+            "description": "",
+            "type": "Fighting",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 25,
+          "info": {
+            "description": "\tSharply raises the \tuser's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 31,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Night Slash",
+          "level": 33,
+          "info": {
+            "description": "",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Acrobatics",
+          "level": 37,
+          "info": {
+            "description": "\tDamage doubles if \tuser has no item.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hi Jump Kick",
+          "level": 43,
+          "info": {
+            "description": "\tMay miss and hurt \tthe user.",
+            "type": "Fighting",
+            "pp": 10,
+            "power": 130,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "False Swipe",
+          "level": 45,
+          "info": {
+            "description": "\tLeaves the foe \twith at least 1HP.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 49,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 55,
+          "info": {
+            "description": "\tA charge that also \thurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -245,5 +558,7 @@
         "locations": []
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.925Z",
+  "version": "2.0.0"
 }

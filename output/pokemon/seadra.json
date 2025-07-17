@@ -1,5 +1,5 @@
 {
-  "name": "Seadra",
+  "name": "seadra",
   "nationalDex": 117,
   "johtoDex": 213,
   "types": "Water",
@@ -76,7 +76,41 @@
     "height": 12,
     "weight": 250,
     "bodyShape": "Head Base",
-    "bodyColor": "Blue"
+    "bodyColor": "Blue",
+    "locations": [
+      {
+        "area": "WHIRL_ISLAND_LUGIA_CHAMBER",
+        "method": "water",
+        "time": null,
+        "level": "30",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_ROOM_2",
+        "method": "water",
+        "time": null,
+        "level": "75",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "WARM_BEACH",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level - 2",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "WARM_BEACH",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level + 0",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -580,11 +614,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Dragon",
-      "description": "The male raises the young. If it is approached, it uses its toxic spikes to fend off the intruder."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.942Z",
+  "version": "2.0.0"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Lanturn",
+  "name": "lanturn",
   "nationalDex": 171,
   "johtoDex": 196,
   "types": [
@@ -88,7 +88,41 @@
     "height": 12,
     "weight": 225,
     "bodyShape": "Fins",
-    "bodyColor": "Blue"
+    "bodyColor": "Blue",
+    "locations": [
+      {
+        "area": "SCARY_CAVE_1F",
+        "method": "water",
+        "time": null,
+        "level": "58",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "SCARY_CAVE_B1F",
+        "method": "water",
+        "time": null,
+        "level": "58",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "SCARY_CAVE_SHIPWRECK",
+        "method": "water",
+        "time": null,
+        "level": "58",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "NAVEL_ROCK_OUTSIDE",
+        "method": "water",
+        "time": null,
+        "level": "80",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -687,11 +721,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Light",
-      "description": "This #mon uses the bright part of its body, which changed from a dorsal fin, to lure prey."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.969Z",
+  "version": "2.0.0"
 }

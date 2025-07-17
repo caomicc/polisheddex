@@ -1,5 +1,5 @@
 {
-  "name": "Blissey",
+  "name": "blissey",
   "nationalDex": 242,
   "johtoDex": 255,
   "types": "Normal",
@@ -78,7 +78,25 @@
     "height": 15,
     "weight": 468,
     "bodyShape": "Bipedal",
-    "bodyColor": "Pink"
+    "bodyColor": "Pink",
+    "locations": [
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level + 2",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level + 2",
+        "chance": 2,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -893,11 +911,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Happiness",
-      "description": "Biting into one of the delicious eggs that Blissey provides will make everyone around smile with joy."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.015Z",
+  "version": "2.0.0"
 }

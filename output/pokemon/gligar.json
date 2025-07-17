@@ -1,5 +1,5 @@
 {
-  "name": "Gligar",
+  "name": "gligar",
   "nationalDex": 207,
   "johtoDex": 215,
   "types": [
@@ -89,7 +89,73 @@
     "height": 11,
     "weight": 648,
     "bodyShape": "Wings",
-    "bodyColor": "Purple"
+    "bodyColor": "Purple",
+    "locations": [
+      {
+        "area": "ROUTE_42",
+        "method": "grass",
+        "time": "nite",
+        "level": "24",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_42",
+        "method": "grass",
+        "time": "nite",
+        "level": "24",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "grass",
+        "time": "nite",
+        "level": "34",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "grass",
+        "time": "nite",
+        "level": "34",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_45",
+        "method": "grass",
+        "time": "nite",
+        "level": "34",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_45",
+        "method": "grass",
+        "time": "nite",
+        "level": "34",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "RUGGED_ROAD_SOUTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 1",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "RUGGED_ROAD_SOUTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 0",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -839,31 +905,10 @@
       "level": "Badge Level + 0",
       "chance": 5,
       "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "34",
-      "chance": 15,
-      "rareItem": "Leaf Stone",
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "36",
-      "chance": 15,
-      "rareItem": "Moon Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "FlyScorpion",
-      "description": "It builds its nest on a steep cliff. When it is done gliding, it hops along the ground back to its nest."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.994Z",
+  "version": "2.0.0"
 }

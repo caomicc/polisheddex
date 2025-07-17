@@ -1,5 +1,5 @@
 {
-  "name": "Electrode",
+  "name": "electrode",
   "nationalDex": 101,
   "johtoDex": 129,
   "types": "Electric",
@@ -75,7 +75,145 @@
     "height": 12,
     "weight": 710,
     "bodyShape": "Head",
-    "bodyColor": "Brown"
+    "bodyColor": "Brown",
+    "locations": [
+      {
+        "area": "ROUTE_10_NORTH",
+        "method": "grass",
+        "time": "morn",
+        "level": "49",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_10_NORTH",
+        "method": "grass",
+        "time": "day",
+        "level": "49",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_10_NORTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "49",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "67",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_1F",
+        "method": "grass",
+        "time": "day",
+        "level": "67",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "67",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_2F",
+        "method": "grass",
+        "time": "morn",
+        "level": "69",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_2F",
+        "method": "grass",
+        "time": "day",
+        "level": "69",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_2F",
+        "method": "grass",
+        "time": "nite",
+        "level": "69",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "DIM_CAVE_4F",
+        "method": "grass",
+        "time": "morn",
+        "level": "55",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "DIM_CAVE_4F",
+        "method": "grass",
+        "time": "day",
+        "level": "55",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "DIM_CAVE_5F",
+        "method": "grass",
+        "time": "morn",
+        "level": "51",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "DIM_CAVE_5F",
+        "method": "grass",
+        "time": "day",
+        "level": "51",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "LIGHTNING_ISLAND",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level + 0",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "LIGHTNING_ISLAND",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level + 1",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "LIGHTNING_ISLAND",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level + 0",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "LIGHTNING_ISLAND",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level + 1",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -735,19 +873,10 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Ball",
-      "description": "The more energy it charges up, the faster it gets. But this also makes it more likely to explode."
-    },
-    "Hisuian": {
-      "species": "Sphere",
-      "description": "The tissue on the surface of its body is curiously similar in composition to an Apricorn."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Hisuian": {
-      "name": "Electrode hisuian",
+      "name": "electrode hisuian",
       "formName": "Hisuian",
       "nationalDex": 101,
       "johtoDex": 129,
@@ -1058,57 +1187,220 @@
         "bodyShape": "Head"
       }
     },
-    "hisuian": {
-      "moves": [],
-      "nationalDex": 101,
-      "johtoDex": 129,
-      "types": "Electric",
-      "updatedTypes": "Electric",
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Electrodehisuian"
-        ],
-        "chainWithMethods": {
-          "Electrodehisuian": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "hisuian"
-    },
     "Plain": {
-      "name": "Electrode plain",
+      "name": "electrode plain",
       "formName": "Plain",
       "nationalDex": 101,
       "johtoDex": 129,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/electrode_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Sonic Boom",
+          "level": 4,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 6,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 9,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 11,
+          "info": {
+            "description": "\tAttacks 5 turns \twith rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 13,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 16,
+          "info": {
+            "description": "\tparalyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 20,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 22,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 26,
+          "info": {
+            "description": "\tRaises Defense \twith a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 29,
+          "info": {
+            "description": "\tRaises Sp.Def with \ta wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 36,
+          "info": {
+            "description": "\tVery powerful but \tmakes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 41,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bug Buzz",
+          "level": 47,
+          "info": {
+            "description": "\tAn attack that may \tlower Sp.Def.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 54,
+          "info": {
+            "description": "\tDoes more damage \tat lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 58,
+          "info": {
+            "description": "\tReturns a special \tattack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1131,5 +1423,7 @@
         "bodyShape": "Head"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.932Z",
+  "version": "2.0.0"
 }

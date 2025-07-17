@@ -1,5 +1,5 @@
 {
-  "name": "Houndoom",
+  "name": "houndoom",
   "nationalDex": 229,
   "johtoDex": 242,
   "types": [
@@ -87,7 +87,57 @@
     "height": 14,
     "weight": 350,
     "bodyShape": "Quadruped",
-    "bodyColor": "Black"
+    "bodyColor": "Black",
+    "locations": [
+      {
+        "area": "SILVER_CAVE_OUTSIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "73",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_28",
+        "method": "grass",
+        "time": "nite",
+        "level": "68",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "59",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_B1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "FIRE_ISLAND",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 0",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "FIRE_ISLAND",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 1",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -703,11 +753,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Dark",
-      "description": "The pungentsmelling flame that shoots from its mouth results from toxins burning in its body."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.009Z",
+  "version": "2.0.0"
 }

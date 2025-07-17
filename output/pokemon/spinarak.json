@@ -1,5 +1,5 @@
 {
-  "name": "Spinarak",
+  "name": "spinarak",
   "nationalDex": 167,
   "johtoDex": 32,
   "types": [
@@ -87,7 +87,57 @@
     "height": 5,
     "weight": 85,
     "bodyShape": "Insectoid",
-    "bodyColor": "Green"
+    "bodyColor": "Green",
+    "locations": [
+      {
+        "area": "NATIONAL_PARK",
+        "method": "grass",
+        "time": "nite",
+        "level": "14",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_30",
+        "method": "grass",
+        "time": "nite",
+        "level": "3",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_31",
+        "method": "grass",
+        "time": "nite",
+        "level": "4",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_36",
+        "method": "grass",
+        "time": "nite",
+        "level": "5",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_37",
+        "method": "grass",
+        "time": "nite",
+        "level": "13",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "YELLOW_FOREST",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 1",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -271,15 +321,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 40,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 40
     },
     {
       "name": "Poison Jab",
@@ -667,22 +709,10 @@
       "level": "Badge Level - 1",
       "chance": 10,
       "formName": null
-    },
-    {
-      "area": "Yellow Forest",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Badge Level + 0",
-      "chance": 40,
-      "rareItem": "THUNDERSTONE",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "String Spit",
-      "description": "If prey becomes ensnared in its nest of spun string, it waits motionlessly until it becomes dark."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.968Z",
+  "version": "2.0.0"
 }

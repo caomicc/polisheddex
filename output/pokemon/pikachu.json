@@ -1,5 +1,5 @@
 {
-  "name": "Pikachu",
+  "name": "pikachu",
   "nationalDex": 25,
   "johtoDex": 22,
   "types": "Electric",
@@ -78,7 +78,89 @@
     "height": 4,
     "weight": 60,
     "bodyShape": "Quadruped",
-    "bodyColor": "Yellow"
+    "bodyColor": "Yellow",
+    "locations": [
+      {
+        "area": "YELLOW_FOREST",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 4",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "YELLOW_FOREST",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 4",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_2_NORTH",
+        "method": "grass",
+        "time": "morn",
+        "level": "59",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_2_NORTH",
+        "method": "grass",
+        "time": "day",
+        "level": "59",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_2_SOUTH",
+        "method": "grass",
+        "time": "morn",
+        "level": "59",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_2_SOUTH",
+        "method": "grass",
+        "time": "day",
+        "level": "59",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "VIRIDIAN_FOREST",
+        "method": "grass",
+        "time": "morn",
+        "level": "59",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "VIRIDIAN_FOREST",
+        "method": "grass",
+        "time": "morn",
+        "level": "60",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "VIRIDIAN_FOREST",
+        "method": "grass",
+        "time": "day",
+        "level": "59",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "VIRIDIAN_FOREST",
+        "method": "grass",
+        "time": "day",
+        "level": "60",
+        "chance": 2,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -818,22 +900,10 @@
       "level": "60",
       "chance": 2,
       "formName": null
-    },
-    {
-      "area": "Yellow Forest",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "Badge Level + 0",
-      "chance": 5,
-      "rareItem": "THUNDERSTONE",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Mouse",
-      "description": "When it is angered, it immediately discharges the energy stored in the pouches in its cheeks."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.892Z",
+  "version": "2.0.0"
 }

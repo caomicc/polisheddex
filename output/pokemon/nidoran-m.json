@@ -1,10 +1,10 @@
 {
-  "name": "Nidoran-M",
+  "name": "nidoran-m",
   "nationalDex": 32,
   "johtoDex": 103,
   "types": "Poison",
   "updatedTypes": "Poison",
-  "frontSpriteUrl": "/sprites/pokemon/nidoran_m/front_cropped.png",
+  "frontSpriteUrl": "/sprites/pokemon/nidoranm/front_cropped.png",
   "detailedStats": {
     "baseStats": {
       "hp": 46,
@@ -75,7 +75,65 @@
     "height": 5,
     "weight": 90,
     "bodyShape": "Quadruped",
-    "bodyColor": "Purple"
+    "bodyColor": "Purple",
+    "locations": [
+      {
+        "area": "NATIONAL_PARK",
+        "method": "grass",
+        "time": "morn",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "NATIONAL_PARK",
+        "method": "grass",
+        "time": "day",
+        "level": "13",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "morn",
+        "level": "14",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "day",
+        "level": "14",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "morn",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "day",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "nite",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -668,11 +726,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Poison Pin",
-      "description": "It constantly moves its large ears in many directions in order to detect danger right away."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.896Z",
+  "version": "2.0.0"
 }

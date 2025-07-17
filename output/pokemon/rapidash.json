@@ -1,5 +1,5 @@
 {
-  "name": "Rapidash",
+  "name": "rapidash",
   "nationalDex": 78,
   "johtoDex": 232,
   "types": "Fire",
@@ -83,7 +83,129 @@
     "height": 17,
     "weight": 800,
     "bodyShape": "Quadruped",
-    "bodyColor": "White"
+    "bodyColor": "White",
+    "locations": [
+      {
+        "area": "SILVER_CAVE_OUTSIDE",
+        "method": "grass",
+        "time": "morn",
+        "level": "74",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_OUTSIDE",
+        "method": "grass",
+        "time": "day",
+        "level": "74",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_28",
+        "method": "grass",
+        "time": "morn",
+        "level": "70",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_28",
+        "method": "grass",
+        "time": "day",
+        "level": "70",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "60",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "60",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "day",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "day",
+        "level": "60",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "day",
+        "level": "60",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "60",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "60",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_B1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_B1F",
+        "method": "grass",
+        "time": "day",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -764,30 +886,12 @@
       "level": "59",
       "chance": 5,
       "formName": null
-    },
-    {
-      "area": "Silver Cave",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "70",
-      "chance": 40,
-      "rareItem": "Fire Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Fire Horse",
-      "description": "It just loves to gallop. The faster it goes, the longer the swaying flames of its mane will become."
-    },
-    "Galarian": {
-      "species": "Unique Horn",
-      "description": "A psychic attack unleashed from Rapidash's horn can punch a hole right through a thick metal sheet."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Galarian": {
-      "name": "Rapidash galarian",
+      "name": "rapidash galarian",
       "formName": "Galarian",
       "nationalDex": 78,
       "johtoDex": 232,
@@ -959,15 +1063,7 @@
         },
         {
           "name": "Psychic M",
-          "level": 41,
-          "info": {
-            "description": "No description available.",
-            "type": "Unknown",
-            "pp": 0,
-            "power": 0,
-            "accuracy": 0,
-            "category": "Unknown"
-          }
+          "level": 41
         },
         {
           "name": "Extremespeed",
@@ -1076,60 +1172,220 @@
         "bodyShape": "Quadruped"
       }
     },
-    "galarian": {
-      "moves": [],
-      "nationalDex": 78,
-      "johtoDex": 232,
-      "types": "Fire",
-      "updatedTypes": [
-        "Fire",
-        "Fairy"
-      ],
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Rapidashgalarian"
-        ],
-        "chainWithMethods": {
-          "Rapidashgalarian": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "galarian"
-    },
     "Plain": {
-      "name": "Rapidash plain",
+      "name": "rapidash plain",
       "formName": "Plain",
       "nationalDex": 78,
       "johtoDex": 232,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/rapidash_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Play Rough",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tlower Attack.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tpoison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Megahorn",
+          "level": 1,
+          "info": {
+            "description": "\tA powerful charge \tattack.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 4,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 9,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Stomp",
+          "level": 13,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 17,
+          "info": {
+            "description": "\tAn attack that may \tup user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 21,
+          "info": {
+            "description": "\tDeals more damage \tto heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 25,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 29,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 33,
+          "info": {
+            "description": "\tA double kicking \tattack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 37,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "level": 41,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 85,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Extremespeed",
+          "level": 45,
+          "info": {
+            "description": "\tA powerful first- \tstrike attack.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 49,
+          "info": {
+            "description": "\tA charge that also \thurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1152,5 +1408,7 @@
         "bodyShape": "Quadruped"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.922Z",
+  "version": "2.0.0"
 }

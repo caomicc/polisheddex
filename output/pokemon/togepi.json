@@ -1,5 +1,5 @@
 {
-  "name": "Togepi",
+  "name": "togepi",
   "nationalDex": 175,
   "johtoDex": 46,
   "types": "Fairy",
@@ -75,7 +75,25 @@
     "height": 3,
     "weight": 15,
     "bodyShape": "Bipedal",
-    "bodyColor": "White"
+    "bodyColor": "White",
+    "locations": [
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 3",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "LUCKY_ISLAND",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 3",
+        "chance": 3,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -705,11 +723,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Spike Ball",
-      "description": "It is considered to be a symbol of good luck. Its shell is said to be filled with happiness."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.970Z",
+  "version": "2.0.0"
 }

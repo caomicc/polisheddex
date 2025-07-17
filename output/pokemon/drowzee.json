@@ -1,5 +1,5 @@
 {
-  "name": "Drowzee",
+  "name": "drowzee",
   "nationalDex": 96,
   "johtoDex": 92,
   "types": "Psychic",
@@ -75,7 +75,33 @@
     "height": 10,
     "weight": 324,
     "bodyShape": "Bipedal",
-    "bodyColor": "Yellow"
+    "bodyColor": "Yellow",
+    "locations": [
+      {
+        "area": "ROUTE_34",
+        "method": "grass",
+        "time": "nite",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "nite",
+        "level": "13",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_11",
+        "method": "grass",
+        "time": "nite",
+        "level": "53",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -259,15 +285,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 49,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 49
     },
     {
       "name": "Nasty Plot",
@@ -717,11 +735,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Hypnosis",
-      "description": "When it twitches its nose, it can tell where someone is sleeping and what that person is dreaming about."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.930Z",
+  "version": "2.0.0"
 }

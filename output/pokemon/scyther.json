@@ -1,5 +1,5 @@
 {
-  "name": "Scyther",
+  "name": "scyther",
   "nationalDex": 123,
   "johtoDex": 116,
   "types": [
@@ -87,7 +87,57 @@
     "height": 15,
     "weight": 560,
     "bodyShape": "Multiwings",
-    "bodyColor": "Green"
+    "bodyColor": "Green",
+    "locations": [
+      {
+        "area": "SAFARI_ZONE_HUB",
+        "method": "grass",
+        "time": "morn",
+        "level": "50",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_HUB",
+        "method": "grass",
+        "time": "day",
+        "level": "50",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_HUB",
+        "method": "grass",
+        "time": "nite",
+        "level": "50",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "NOISY_FOREST",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level + 3",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "NOISY_FOREST",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level + 3",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "NOISY_FOREST",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 3",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -714,11 +764,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Mantis",
-      "description": "It's very proud of its speed. It moves so fast that its opponent does not even know what knocked it down."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.951Z",
+  "version": "2.0.0"
 }

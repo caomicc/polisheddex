@@ -1,5 +1,5 @@
 {
-  "name": "Wooper",
+  "name": "wooper",
   "nationalDex": 194,
   "johtoDex": 58,
   "types": [
@@ -88,7 +88,153 @@
     "height": 4,
     "weight": 110,
     "bodyShape": "Head Legs",
-    "bodyColor": "Brown"
+    "bodyColor": "Brown",
+    "locations": [
+      {
+        "area": "RUINS_OF_ALPH_OUTSIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "18",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "UNION_CAVE_1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "7",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "UNION_CAVE_B1F_NORTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "8",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_32",
+        "method": "grass",
+        "time": "nite",
+        "level": "5",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "CLIFF_CAVE",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 6",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "CHERRYGROVE_BAY",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_32_COAST",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 1",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "STORMY_BEACH",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 1",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "STORMY_BEACH",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 1",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "STORMY_BEACH",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 1",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "RUINS_OF_ALPH_OUTSIDE",
+        "method": "water",
+        "time": null,
+        "level": "15",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "UNION_CAVE_1F",
+        "method": "water",
+        "time": null,
+        "level": "15",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "UNION_CAVE_B1F_NORTH",
+        "method": "water",
+        "time": null,
+        "level": "15",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "UNION_CAVE_B1F_SOUTH",
+        "method": "water",
+        "time": null,
+        "level": "15",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "CLIFF_EDGE_GATE",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level - 4",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "CLIFF_EDGE_GATE",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level - 4",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "MURKY_SWAMP",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level - 5",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "MAGNET_TUNNEL_INSIDE",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level - 5",
+        "chance": 60,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -784,30 +930,12 @@
       "level": "Badge Level - 5",
       "chance": 60,
       "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "5",
-      "chance": 40,
-      "rareItem": "Everstone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Water Fish",
-      "description": "A mucous membrane covers its body. Touching it barehanded will cause a shooting pain."
-    },
-    "Paldean": {
-      "species": "Poison Fish",
-      "description": "They line up in groups of three or four and help each other as they walk across the dangerous wetlands."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Paldean": {
-      "name": "Wooper paldean",
+      "name": "wooper paldean",
       "formName": "Paldean",
       "nationalDex": 194,
       "johtoDex": 58,
@@ -1047,63 +1175,160 @@
         "bodyShape": "Head Legs"
       }
     },
-    "paldean": {
-      "moves": [],
-      "nationalDex": 194,
-      "johtoDex": 58,
-      "types": [
-        "Water",
-        "Ground"
-      ],
-      "updatedTypes": [
-        "Water",
-        "Ground"
-      ],
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Wooperpaldean"
-        ],
-        "chainWithMethods": {
-          "Wooperpaldean": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "paldean"
-    },
     "Plain": {
-      "name": "Wooper plain",
+      "name": "wooper plain",
       "formName": "Plain",
       "nationalDex": 194,
       "johtoDex": 58,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/wooper_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Water Gun",
+          "level": 1,
+          "info": {
+            "description": "\tSquirts water to \tattack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 5,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 9,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "level": 15,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 19,
+          "info": {
+            "description": "\tRestores HP by 1/2 \tthe max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Amnesia",
+          "level": 23,
+          "info": {
+            "description": "\tSharply raises the \tuser's Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Belly Drum",
+          "level": 29,
+          "info": {
+            "description": "\tSacrifices HP to \tmaximize Attack.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 33,
+          "info": {
+            "description": "\tTough but useless \tvs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 37,
+          "info": {
+            "description": "\tBoosts Water-type \tmoves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Haze",
+          "level": 43,
+          "info": {
+            "description": "\tEliminates all \tstat changes.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 47,
+          "info": {
+            "description": "\tSwings tail like a \twave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1126,5 +1351,7 @@
         "bodyShape": "Head Legs"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.991Z",
+  "version": "2.0.0"
 }

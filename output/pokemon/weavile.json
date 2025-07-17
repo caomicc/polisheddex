@@ -1,5 +1,5 @@
 {
-  "name": "Weavile",
+  "name": "weavile",
   "nationalDex": 262,
   "johtoDex": 246,
   "types": [
@@ -109,7 +109,25 @@
     "height": 11,
     "weight": 340,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Black"
+    "bodyColor": "Black",
+    "locations": [
+      {
+        "area": "ICE_ISLAND",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 0",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ICE_ISLAND",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 1",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -802,11 +820,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Sharp Claw",
-      "description": "It lives in snowy regions. It carves patterns in trees with its claws as a signal to others."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.020Z",
+  "version": "2.0.0"
 }

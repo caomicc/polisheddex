@@ -1,5 +1,5 @@
 {
-  "name": "Remoraid",
+  "name": "remoraid",
   "nationalDex": 223,
   "johtoDex": 193,
   "types": "Water",
@@ -74,7 +74,33 @@
     "height": 6,
     "weight": 120,
     "bodyShape": "Fins",
-    "bodyColor": "Gray"
+    "bodyColor": "Gray",
+    "locations": [
+      {
+        "area": "ROUTE_41",
+        "method": "water",
+        "time": null,
+        "level": "20",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "CIANWOOD_CITY",
+        "method": "water",
+        "time": null,
+        "level": "20",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "SHAMOUTI_COAST",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level - 2",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -617,11 +643,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Jet",
-      "description": "To escape from an attacker, it may shoot water out of its mouth, then use that force to swim backward."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.008Z",
+  "version": "2.0.0"
 }

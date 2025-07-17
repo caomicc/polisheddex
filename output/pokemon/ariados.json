@@ -1,5 +1,5 @@
 {
-  "name": "Ariados",
+  "name": "ariados",
   "nationalDex": 168,
   "johtoDex": 33,
   "types": [
@@ -87,7 +87,113 @@
     "height": 11,
     "weight": 335,
     "bodyShape": "Insectoid",
-    "bodyColor": "Red"
+    "bodyColor": "Red",
+    "locations": [
+      {
+        "area": "ROUTE_37",
+        "method": "grass",
+        "time": "nite",
+        "level": "16",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_2_NORTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "54",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_2_NORTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "56",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_2_SOUTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "54",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_2_SOUTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "56",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "VIRIDIAN_FOREST",
+        "method": "grass",
+        "time": "nite",
+        "level": "57",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "VIRIDIAN_FOREST",
+        "method": "grass",
+        "time": "nite",
+        "level": "56",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "BEAUTIFUL_BEACH",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "WARM_BEACH",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROCKY_BEACH",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "NOISY_FOREST",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 1",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "NOISY_FOREST",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 1",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "SHAMOUTI_SHRINE_RUINS",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -289,15 +395,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 46,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 46
     },
     {
       "name": "Poison Jab",
@@ -770,11 +868,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Long Leg",
-      "description": "Rather than making a nest in one specific spot, it wanders in search of food after darkness falls."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.969Z",
+  "version": "2.0.0"
 }

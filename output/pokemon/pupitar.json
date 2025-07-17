@@ -1,5 +1,5 @@
 {
-  "name": "Pupitar",
+  "name": "pupitar",
   "nationalDex": 247,
   "johtoDex": 283,
   "types": [
@@ -106,7 +106,73 @@
     "height": 12,
     "weight": 1520,
     "bodyShape": "Serpentine",
-    "bodyColor": "Gray"
+    "bodyColor": "Gray",
+    "locations": [
+      {
+        "area": "SILVER_CAVE_ROOM_1",
+        "method": "grass",
+        "time": "morn",
+        "level": "75",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_ROOM_1",
+        "method": "grass",
+        "time": "morn",
+        "level": "75",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_ROOM_1",
+        "method": "grass",
+        "time": "day",
+        "level": "75",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_ROOM_1",
+        "method": "grass",
+        "time": "day",
+        "level": "75",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_ROOM_2",
+        "method": "grass",
+        "time": "morn",
+        "level": "77",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_ROOM_2",
+        "method": "grass",
+        "time": "day",
+        "level": "77",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_ROOM_3",
+        "method": "grass",
+        "time": "morn",
+        "level": "79",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_ROOM_3",
+        "method": "grass",
+        "time": "day",
+        "level": "79",
+        "chance": 3,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -702,22 +768,10 @@
       "level": "79",
       "chance": 3,
       "formName": null
-    },
-    {
-      "area": "Silver Cave",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "70",
-      "chance": 5,
-      "rareItem": "Fire Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Hard Shell",
-      "description": "It will not stay still, even while it's a pupa. It already has arms and legs under its solid shell."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.017Z",
+  "version": "2.0.0"
 }

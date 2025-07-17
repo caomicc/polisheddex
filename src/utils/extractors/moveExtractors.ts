@@ -5,6 +5,7 @@ import { sharedDescriptionGroups } from '../../data/constants.ts';
 import type { MoveDescription } from '../../types/types.ts';
 import { extractFormInfo } from './formExtractors.ts';
 import { normalizeMoveString } from '../stringNormalizer/index.ts';
+import { normalizePokemonUrlKey } from '../pokemonUrlNormalizer.ts';
 import { fileURLToPath } from 'node:url';
 
 // Use this workaround for __dirname in ES modules
@@ -225,7 +226,9 @@ export function extractEggMoves() {
   const eggMoves: Record<string, string[]> = {};
   // eslint-disable-next-line prefer-const
   for (let [species, pointer] of Object.entries(speciesToPointer)) {
-    eggMoves[toTitleCase(species)] = pointerToMoves[pointer] || [];
+    // Use normalized URL key for consistency with other data files
+    const normalizedSpecies = normalizePokemonUrlKey(species);
+    eggMoves[normalizedSpecies] = pointerToMoves[pointer] || [];
   }
 
   console.log('Egg moves extracted:', eggMoves);
@@ -252,7 +255,11 @@ export function extractTmHmLearnset() {
   for (const file of detailedStatsFiles) {
     const fileName = file.replace('.asm', '');
     const { basePokemonName, formName } = extractFormInfo(fileName);
-    const pokemonName = formName ? `${basePokemonName} ${formName}` : basePokemonName;
+
+    // Use normalized URL key for consistency with other data files
+    const normalizedBaseName = normalizePokemonUrlKey(basePokemonName);
+    const pokemonName = formName ? `${normalizedBaseName}-${formName.toLowerCase()}` : normalizedBaseName;
+
     const content = fs.readFileSync(path.join(detailedStatsDir, file), 'utf8');
     const lines = content.split(/\r?\n/);
 

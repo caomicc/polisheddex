@@ -1,5 +1,5 @@
 {
-  "name": "Poliwrath",
+  "name": "poliwrath",
   "nationalDex": 62,
   "johtoDex": 79,
   "types": [
@@ -88,15 +88,33 @@
     "height": 13,
     "weight": 540,
     "bodyShape": "Bipedal",
-    "bodyColor": "Blue"
+    "bodyColor": "Blue",
+    "locations": [
+      {
+        "area": "SILVER_CAVE_OUTSIDE",
+        "method": "water",
+        "time": null,
+        "level": "75",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_28",
+        "method": "water",
+        "time": null,
+        "level": "65",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
     "chain": [
       "Poliwag",
       "Poliwhirl",
-      "Politoed",
-      "Poliwrath"
+      "Poliwrath",
+      "Politoed"
     ],
     "chainWithMethods": {
       "Poliwag": [
@@ -118,8 +136,8 @@
           "target": "Poliwrath"
         }
       ],
-      "Politoed": [],
-      "Poliwrath": []
+      "Poliwrath": [],
+      "Politoed": []
     }
   },
   "levelMoves": [
@@ -658,11 +676,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Tadpole",
-      "description": "It can use its welldeveloped arms and legs to run on the surface of the water for a split second."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.914Z",
+  "version": "2.0.0"
 }

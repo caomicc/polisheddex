@@ -1,5 +1,5 @@
 {
-  "name": "Sneasel",
+  "name": "sneasel",
   "nationalDex": 215,
   "johtoDex": 245,
   "types": [
@@ -90,7 +90,121 @@
     "height": 9,
     "weight": 270,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Gray"
+    "bodyColor": "Gray",
+    "locations": [
+      {
+        "area": "ICE_PATH_B1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "32",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "32",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "34",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "32",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "34",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B3F",
+        "method": "grass",
+        "time": "nite",
+        "level": "32",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B3F",
+        "method": "grass",
+        "time": "nite",
+        "level": "34",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ICE_PATH_B3F",
+        "method": "grass",
+        "time": "nite",
+        "level": "36",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_OUTSIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "75",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_OUTSIDE",
+        "method": "grass",
+        "time": "nite",
+        "level": "75",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_28",
+        "method": "grass",
+        "time": "nite",
+        "level": "71",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_28",
+        "method": "grass",
+        "time": "nite",
+        "level": "71",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ICE_ISLAND",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ICE_ISLAND",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 1",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -886,39 +1000,12 @@
       "level": "Badge Level - 1",
       "chance": 30,
       "formName": null
-    },
-    {
-      "area": "Snowtop Mountain Inside",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "Badge Level + 4",
-      "chance": 5,
-      "rareItem": "Ice Stone",
-      "formName": null
-    },
-    {
-      "area": "Silver Cave",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "70",
-      "chance": 40,
-      "rareItem": "Fire Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Sharp Claw",
-      "description": "This cunning #mon hides under the cover of darkness, waiting to attack its prey."
-    },
-    "Hisuian": {
-      "species": "Sharp Claw",
-      "description": "Its sturdy claws are ideal for traversing cliffs. These claws drip venom that infiltrates its prey."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Hisuian": {
-      "name": "Sneasel hisuian",
+      "name": "sneasel hisuian",
       "formName": "Hisuian",
       "nationalDex": 215,
       "johtoDex": 245,
@@ -1220,63 +1307,208 @@
         "bodyShape": "Bipedal Tail"
       }
     },
-    "hisuian": {
-      "moves": [],
-      "nationalDex": 215,
-      "johtoDex": 245,
-      "types": [
-        "Dark",
-        "Ice"
-      ],
-      "updatedTypes": [
-        "Dark",
-        "Ice"
-      ],
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Sneaselhisuian"
-        ],
-        "chainWithMethods": {
-          "Sneaselhisuian": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "hisuian"
-    },
     "Plain": {
-      "name": "Sneasel plain",
+      "name": "sneasel plain",
       "formName": "Plain",
       "nationalDex": 215,
       "johtoDex": 245,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/sneasel_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "\tScratches with \tsharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 8,
+          "info": {
+            "description": "\tLets the user get \tin the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 10,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ice Shard",
+          "level": 14,
+          "info": {
+            "description": "\tHurls icy shards. \tAlways goes first.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 16,
+          "info": {
+            "description": "\tScratches or jabs \t2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 20,
+          "info": {
+            "description": "\tSharply raises the \tuser's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 22,
+          "info": {
+            "description": "\tAn attack that may \tup user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "level": 25,
+          "info": {
+            "description": "\tRaises the user's \tAtk and accuracy.",
+            "type": "Dark",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icicle Crash",
+          "level": 28,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 85,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 32,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 35,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 40,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 44,
+          "info": {
+            "description": "",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 47,
+          "info": {
+            "description": "\tAn attack that may \tlower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1299,5 +1531,7 @@
         "bodyShape": "Bipedal Tail"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.998Z",
+  "version": "2.0.0"
 }

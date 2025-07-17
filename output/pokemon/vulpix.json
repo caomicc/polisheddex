@@ -1,5 +1,5 @@
 {
-  "name": "Vulpix",
+  "name": "vulpix",
   "nationalDex": 37,
   "johtoDex": 134,
   "types": "Fire",
@@ -96,7 +96,105 @@
     "height": 6,
     "weight": 99,
     "bodyShape": "Quadruped",
-    "bodyColor": "White"
+    "bodyColor": "White",
+    "locations": [
+      {
+        "area": "ROUTE_36",
+        "method": "grass",
+        "time": "nite",
+        "level": "7",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_48",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "VIOLET_OUTSKIRTS",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 3",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_7",
+        "method": "grass",
+        "time": "morn",
+        "level": "54",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_7",
+        "method": "grass",
+        "time": "day",
+        "level": "54",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_7",
+        "method": "grass",
+        "time": "nite",
+        "level": "54",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_8",
+        "method": "grass",
+        "time": "morn",
+        "level": "53",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_8",
+        "method": "grass",
+        "time": "day",
+        "level": "53",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_8",
+        "method": "grass",
+        "time": "nite",
+        "level": "53",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "SOUL_HOUSE_B3F",
+        "method": "grass",
+        "time": "morn",
+        "level": "49",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "SOUL_HOUSE_B3F",
+        "method": "grass",
+        "time": "day",
+        "level": "49",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "SOUL_HOUSE_B3F",
+        "method": "grass",
+        "time": "nite",
+        "level": "49",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -790,39 +888,19 @@
       "level": "49",
       "chance": 10,
       "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "16",
-      "chance": 15,
-      "rareItem": "Fire Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Fox",
-      "description": "As its body grows larger, its six warm tails become more beautiful, with a more luxurious coat of fur."
-    },
-    "Alolan": {
-      "species": "Fox",
-      "description": "If you observe its curly hairs through a microscope, you'll see small ice particles springing up."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Alolan": {
-      "name": "Vulpix alolan",
+      "name": "vulpix alolan",
       "formName": "Alolan",
       "nationalDex": 37,
       "johtoDex": 134,
       "types": [
-        "Ice",
         "Ice"
       ],
       "updatedTypes": [
-        "Ice",
         "Ice"
       ],
       "frontSpriteUrl": "/sprites/pokemon/vulpix_alolan/front_cropped.png",
@@ -1156,57 +1234,268 @@
         "bodyShape": "Quadruped"
       }
     },
-    "alolan": {
-      "moves": [],
-      "nationalDex": 37,
-      "johtoDex": 134,
-      "types": "Fire",
-      "updatedTypes": "Fire",
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Vulpixalolan"
-        ],
-        "chainWithMethods": {
-          "Vulpixalolan": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "alolan"
-    },
     "Plain": {
-      "name": "Vulpix plain",
+      "name": "vulpix plain",
       "formName": "Plain",
       "nationalDex": 37,
       "johtoDex": 134,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/vulpix_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Ember",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 4,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Astonish",
+          "level": 7,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 9,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 10,
+          "info": {
+            "description": "\tLets the user get \tin the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 12,
+          "info": {
+            "description": "\tA move that may \tconfuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 15,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Night Shade",
+          "level": 18,
+          "info": {
+            "description": "\tDamage equals the \tuser's level.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Will O Wisp",
+          "level": 20,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 23,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hex",
+          "level": 26,
+          "info": {
+            "description": "\tDamage doubles if \tfoe has status.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Pain Split",
+          "level": 28,
+          "info": {
+            "description": "\tAdds user & foe's \tHPs. Shares total.",
+            "type": "Ghost",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Extrasensory",
+          "level": 31,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 34,
+          "info": {
+            "description": "\tPrevents all \tstatus problems.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 36,
+          "info": {
+            "description": "",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hypnosis",
+          "level": 39,
+          "info": {
+            "description": "\tMay cause the foe \tto fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "level": 42,
+          "info": {
+            "description": "\tAn attack that may \tinflict a burn.",
+            "type": "Fire",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 85,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "level": 44,
+          "info": {
+            "description": "\tAn attack that may \tlower Sp.Def.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Disable",
+          "level": 47,
+          "info": {
+            "description": "\tDisables the foe's \tmost recent move.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 50,
+          "info": {
+            "description": "\tA charge that also \thurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 53,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1229,5 +1518,7 @@
         "bodyShape": "Quadruped"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.897Z",
+  "version": "2.0.0"
 }

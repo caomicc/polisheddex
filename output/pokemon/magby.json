@@ -1,5 +1,5 @@
 {
-  "name": "Magby",
+  "name": "magby",
   "nationalDex": 240,
   "johtoDex": 164,
   "types": "Fire",
@@ -78,7 +78,33 @@
     "height": 7,
     "weight": 214,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Red"
+    "bodyColor": "Red",
+    "locations": [
+      {
+        "area": "BURNED_TOWER_B1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "15",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "BURNED_TOWER_B1F",
+        "method": "grass",
+        "time": "day",
+        "level": "15",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "BURNED_TOWER_B1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "15",
+        "chance": 2,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -587,22 +613,10 @@
       "level": "15",
       "chance": 2,
       "formName": null
-    },
-    {
-      "area": "Bellchime Trail",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "20",
-      "chance": 15,
-      "rareItem": "Sun Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Live Coal",
-      "description": "It naturally spits an 1100degree flame. It is said when many appear, it heralds a volcanic eruption."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.014Z",
+  "version": "2.0.0"
 }

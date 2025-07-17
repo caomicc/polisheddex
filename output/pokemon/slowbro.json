@@ -1,5 +1,5 @@
 {
-  "name": "Slowbro",
+  "name": "slowbro",
   "nationalDex": 80,
   "johtoDex": 86,
   "types": [
@@ -89,7 +89,57 @@
     "height": 16,
     "weight": 705,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Pink"
+    "bodyColor": "Pink",
+    "locations": [
+      {
+        "area": "SLOWPOKE_WELL_B2F",
+        "method": "water",
+        "time": null,
+        "level": "20",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_1F",
+        "method": "water",
+        "time": null,
+        "level": "60",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_HUB",
+        "method": "water",
+        "time": null,
+        "level": "55",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_EAST",
+        "method": "water",
+        "time": null,
+        "level": "55",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_NORTH",
+        "method": "water",
+        "time": null,
+        "level": "55",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "SEAFOAM_ISLANDS_B4F",
+        "method": "water",
+        "time": null,
+        "level": "60",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -276,15 +326,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 49,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 49
     },
     {
       "name": "Rain Dance",
@@ -931,19 +973,10 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Squatter",
-      "description": "An attached Shellder won't let go because of the tasty flavor that oozes out of its tail."
-    },
-    "Galarian": {
-      "species": "Squatter",
-      "description": "A Shellder bite set off a chemical reaction with Slowbro's body, making Slowbro a Poisontype."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Galarian": {
-      "name": "Slowbro galarian",
+      "name": "slowbro galarian",
       "formName": "Galarian",
       "nationalDex": 80,
       "johtoDex": 86,
@@ -1103,15 +1136,7 @@
         },
         {
           "name": "Psychic M",
-          "level": 49,
-          "info": {
-            "description": "No description available.",
-            "type": "Unknown",
-            "pp": 0,
-            "power": 0,
-            "accuracy": 0,
-            "category": "Unknown"
-          }
+          "level": 49
         },
         {
           "name": "Rain Dance",
@@ -1232,63 +1257,200 @@
         "bodyShape": "Bipedal Tail"
       }
     },
-    "galarian": {
-      "moves": [],
-      "nationalDex": 80,
-      "johtoDex": 86,
-      "types": [
-        "Water",
-        "Psychic"
-      ],
-      "updatedTypes": [
-        "Water",
-        "Psychic"
-      ],
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Slowbrogalarian"
-        ],
-        "chainWithMethods": {
-          "Slowbrogalarian": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "galarian"
-    },
     "Plain": {
-      "name": "Slowbro plain",
+      "name": "slowbro plain",
       "formName": "Plain",
       "nationalDex": 80,
       "johtoDex": 86,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/slowbro_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "\tRaises the user's \tDefense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Curse",
+          "level": 1,
+          "info": {
+            "description": "\tWorks differently \tfor Ghost-types.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 5,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Water Gun",
+          "level": 9,
+          "info": {
+            "description": "\tSquirts water to \tattack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 14,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Disable",
+          "level": 19,
+          "info": {
+            "description": "\tDisables the foe's \tmost recent move.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "level": 23,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "level": 28,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Water",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "level": 32,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 36,
+          "info": {
+            "description": "\tPrevents all \tstatus problems.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Amnesia",
+          "level": 43,
+          "info": {
+            "description": "\tSharply raises the \tuser's Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psychic M",
+          "level": 49
+        },
+        {
+          "name": "Rain Dance",
+          "level": 55,
+          "info": {
+            "description": "\tBoosts Water-type \tmoves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Belly Drum",
+          "level": 62,
+          "info": {
+            "description": "\tSacrifices HP to \tmaximize Attack.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 68,
+          "info": {
+            "description": "\tRestores HP by 1/2 \tthe max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1311,5 +1473,7 @@
         "bodyShape": "Bipedal Tail"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.923Z",
+  "version": "2.0.0"
 }

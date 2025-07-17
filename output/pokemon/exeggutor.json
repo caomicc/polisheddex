@@ -1,5 +1,5 @@
 {
-  "name": "Exeggutor",
+  "name": "exeggutor",
   "nationalDex": 103,
   "johtoDex": 111,
   "types": [
@@ -89,7 +89,33 @@
     "height": 109,
     "weight": 4156,
     "bodyShape": "Head Legs",
-    "bodyColor": "Yellow"
+    "bodyColor": "Yellow",
+    "locations": [
+      {
+        "area": "SAFARI_ZONE_HUB",
+        "method": "grass",
+        "time": "morn",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_HUB",
+        "method": "grass",
+        "time": "day",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_HUB",
+        "method": "grass",
+        "time": "nite",
+        "level": "59",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -571,19 +597,10 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Coconut",
-      "description": "Living in a good environment makes it grow lots of heads. A head that drops off becomes an Exeggcute."
-    },
-    "Alolan": {
-      "species": "Coconut",
-      "description": "It swings its long neck like a whip and smacks its opponents. This makes Exeggutor itself dizzy, too."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Alolan": {
-      "name": "Exeggutor alolan",
+      "name": "exeggutor alolan",
       "formName": "Alolan",
       "nationalDex": 103,
       "johtoDex": 111,
@@ -776,63 +793,112 @@
         "bodyShape": "Head Legs"
       }
     },
-    "alolan": {
-      "moves": [],
-      "nationalDex": 103,
-      "johtoDex": 111,
-      "types": [
-        "Grass",
-        "Psychic"
-      ],
-      "updatedTypes": [
-        "Grass",
-        "Psychic"
-      ],
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Exeggutoralolan"
-        ],
-        "chainWithMethods": {
-          "Exeggutoralolan": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "alolan"
-    },
     "Plain": {
-      "name": "Exeggutor plain",
+      "name": "exeggutor plain",
       "formName": "Plain",
       "nationalDex": 103,
       "johtoDex": 111,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/exeggutor_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hypnosis",
+          "level": 1,
+          "info": {
+            "description": "\tMay cause the foe \tto fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Stomp",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 17,
+          "info": {
+            "description": "\tDeals more damage \tto heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "level": 27,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Power Whip",
+          "level": 37,
+          "info": {
+            "description": "\tA violent lash \tattack.",
+            "type": "Grass",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Petal Dance",
+          "level": 47,
+          "info": {
+            "description": "",
+            "type": "Grass",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -855,5 +921,7 @@
         "bodyShape": "Head Legs"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.933Z",
+  "version": "2.0.0"
 }

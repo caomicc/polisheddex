@@ -1,5 +1,5 @@
 {
-  "name": "Teddiursa",
+  "name": "teddiursa",
   "nationalDex": 216,
   "johtoDex": 221,
   "types": "Normal",
@@ -77,7 +77,25 @@
     "height": 6,
     "weight": 88,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Brown"
+    "bodyColor": "Brown",
+    "locations": [
+      {
+        "area": "DARK_CAVE_VIOLET_ENTRANCE",
+        "method": "grass",
+        "time": "morn",
+        "level": "2",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "DARK_CAVE_BLACKTHORN_ENTRANCE",
+        "method": "grass",
+        "time": "morn",
+        "level": "20",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -760,22 +778,10 @@
       "level": "20",
       "chance": 5,
       "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "24",
-      "chance": 40,
-      "rareItem": "Leaf Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Little Bear",
-      "description": "It always licks honey. Its palm tastes sweet because of all the honey it has absorbed."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.005Z",
+  "version": "2.0.0"
 }

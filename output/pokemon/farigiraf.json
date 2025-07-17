@@ -1,5 +1,5 @@
 {
-  "name": "Farigiraf",
+  "name": "farigiraf",
   "nationalDex": 287,
   "johtoDex": 161,
   "types": [
@@ -89,22 +89,15 @@
     "height": 32,
     "weight": 1600,
     "bodyShape": "Quadruped",
-    "bodyColor": "Yellow"
+    "bodyColor": "Yellow",
+    "locations": []
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Girafarig",
       "Farigiraf"
     ],
     "chainWithMethods": {
-      "Girafarig": [
-        {
-          "method": "EVOLVE_MOVE",
-          "parameter": "ZEN_HEADBUTT",
-          "target": "Farigiraf"
-        }
-      ],
       "Farigiraf": []
     }
   },
@@ -545,11 +538,8 @@
     "Calm Mind"
   ],
   "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Long Neck",
-      "description": "Now that the brain waves from its head and tail are synced up, its psychic power is 10 times stronger."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.033Z",
+  "version": "2.0.0"
 }

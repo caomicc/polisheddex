@@ -1,5 +1,5 @@
 {
-  "name": "Kangaskhan",
+  "name": "kangaskhan",
   "nationalDex": 115,
   "johtoDex": 235,
   "types": "Normal",
@@ -94,7 +94,73 @@
     "height": 22,
     "weight": 800,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Brown"
+    "bodyColor": "Brown",
+    "locations": [
+      {
+        "area": "ROCK_TUNNEL_2F",
+        "method": "grass",
+        "time": "morn",
+        "level": "55",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROCK_TUNNEL_2F",
+        "method": "grass",
+        "time": "morn",
+        "level": "56",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROCK_TUNNEL_2F",
+        "method": "grass",
+        "time": "day",
+        "level": "55",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROCK_TUNNEL_2F",
+        "method": "grass",
+        "time": "day",
+        "level": "56",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_NORTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "60",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_WEST",
+        "method": "grass",
+        "time": "morn",
+        "level": "60",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_WEST",
+        "method": "grass",
+        "time": "day",
+        "level": "60",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_WEST",
+        "method": "grass",
+        "time": "nite",
+        "level": "60",
+        "chance": 3,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -893,11 +959,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Parent",
-      "description": "To avoid crushing the baby it carries in its pouch, it always sleeps standing up."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.941Z",
+  "version": "2.0.0"
 }

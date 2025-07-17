@@ -1,5 +1,5 @@
 {
-  "name": "Glaceon",
+  "name": "glaceon",
   "nationalDex": 272,
   "johtoDex": 210,
   "types": "Ice",
@@ -94,19 +94,20 @@
     "height": 8,
     "weight": 259,
     "bodyShape": "Quadruped",
-    "bodyColor": "Blue"
+    "bodyColor": "Blue",
+    "locations": []
   },
   "evolution": {
     "methods": [],
     "chain": [
       "Eevee",
+      "Glaceon",
       "Jolteon",
       "Vaporeon",
       "Flareon",
       "Espeon",
       "Umbreon",
       "Leafeon",
-      "Glaceon",
       "Sylveon"
     ],
     "chainWithMethods": {
@@ -172,13 +173,13 @@
           "target": "Umbreon"
         }
       ],
+      "Glaceon": [],
       "Jolteon": [],
       "Vaporeon": [],
       "Flareon": [],
       "Espeon": [],
       "Umbreon": [],
       "Leafeon": [],
-      "Glaceon": [],
       "Sylveon": []
     }
   },
@@ -712,11 +713,8 @@
     "Charm"
   ],
   "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Fresh Snow",
-      "description": "It causes small ice crystals to form by lowering the temperature of the surrounding atmosphere."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.023Z",
+  "version": "2.0.0"
 }

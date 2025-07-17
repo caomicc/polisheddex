@@ -1,5 +1,5 @@
 {
-  "name": "Raichu",
+  "name": "raichu",
   "nationalDex": 26,
   "johtoDex": 23,
   "types": "Electric",
@@ -78,7 +78,33 @@
     "height": 7,
     "weight": 210,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Brown"
+    "bodyColor": "Brown",
+    "locations": [
+      {
+        "area": "CERULEAN_CAVE_B1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "71",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_B1F",
+        "method": "grass",
+        "time": "day",
+        "level": "71",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_B1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "71",
+        "chance": 3,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -631,19 +657,10 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Mouse",
-      "description": "If its electric pouches run empty, it raises its tail to gather electricity from the atmosphere."
-    },
-    "Alolan": {
-      "species": "Mouse",
-      "description": "When you rub its cheeks, a sweet fragrance comes wafting out. However, you'll also get a light shock!"
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Alolan": {
-      "name": "Raichu alolan",
+      "name": "raichu alolan",
       "formName": "Alolan",
       "nationalDex": 26,
       "johtoDex": 23,
@@ -707,15 +724,7 @@
         },
         {
           "name": "Psychic M",
-          "level": 1,
-          "info": {
-            "description": "No description available.",
-            "type": "Unknown",
-            "pp": 0,
-            "power": 0,
-            "accuracy": 0,
-            "category": "Unknown"
-          }
+          "level": 1
         },
         {
           "name": "Reversal",
@@ -813,57 +822,76 @@
         "bodyShape": "Bipedal Tail"
       }
     },
-    "alolan": {
-      "moves": [],
-      "nationalDex": 26,
-      "johtoDex": 23,
-      "types": "Electric",
-      "updatedTypes": "Electric",
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Raichualolan"
-        ],
-        "chainWithMethods": {
-          "Raichualolan": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "alolan"
-    },
     "Plain": {
-      "name": "Raichu plain",
+      "name": "raichu plain",
       "formName": "Plain",
       "nationalDex": 26,
       "johtoDex": 23,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/raichu_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Thundershock",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 1,
+          "info": {
+            "description": "\tLets the user get \tin the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 1,
+          "info": {
+            "description": "\tStronger if the \tuser's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -886,5 +914,7 @@
         "bodyShape": "Bipedal Tail"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.892Z",
+  "version": "2.0.0"
 }

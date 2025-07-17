@@ -1,48 +1,175 @@
 {
-  "name": "Mr Mime",
-  "nationalDex": 122,
+  "name": "mr-mime",
+  "nationalDex": null,
   "johtoDex": null,
-  "types": "Unknown",
-  "updatedTypes": "Unknown",
-  "frontSpriteUrl": "/sprites/pokemon/mr__mime/front_cropped.png",
+  "types": [
+    "Psychic",
+    "Fairy"
+  ],
+  "updatedTypes": [
+    "Psychic",
+    "Fairy"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/mrmime/front_cropped.png",
   "detailedStats": {
     "baseStats": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "speed": 0,
-      "specialAttack": 0,
-      "specialDefense": 0,
-      "total": 0
+      "hp": 40,
+      "attack": 45,
+      "defense": 65,
+      "speed": 90,
+      "specialAttack": 100,
+      "specialDefense": 120,
+      "total": 460
     },
-    "catchRate": 255,
-    "baseExp": 0,
-    "heldItems": [],
-    "abilities": [],
-    "faithfulAbilities": [],
-    "updatedAbilities": [],
-    "growthRate": "Medium Fast",
-    "eggGroups": [],
+    "catchRate": 45,
+    "baseExp": 136,
+    "heldItems": [
+      "PERSIM_BERRY",
+      "PERSIM_BERRY"
+    ],
     "genderRatio": {
       "male": 50,
       "female": 50
     },
-    "hatchRate": "Unknown",
-    "evYield": "None",
-    "types": "Unknown",
-    "updatedTypes": "Unknown",
-    "height": 0,
-    "weight": 0,
-    "bodyShape": "Unknown",
-    "bodyColor": "Unknown"
+    "hatchRate": "Medium-Slow (6,400 steps)",
+    "abilities": [
+      {
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Filter",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Filter",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Human-Like",
+      "Human-Like"
+    ],
+    "evYield": "2 SDf",
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "updatedTypes": [
+      "Psychic",
+      "Fairy"
+    ],
+    "height": 14,
+    "weight": 568,
+    "bodyShape": "Bipedal",
+    "bodyColor": "White",
+    "locations": [
+      {
+        "area": "ROUTE_21",
+        "method": "grass",
+        "time": "morn",
+        "level": "58",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_21",
+        "method": "grass",
+        "time": "morn",
+        "level": "59",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_21",
+        "method": "grass",
+        "time": "morn",
+        "level": "60",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_21",
+        "method": "grass",
+        "time": "day",
+        "level": "58",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_21",
+        "method": "grass",
+        "time": "day",
+        "level": "59",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_21",
+        "method": "grass",
+        "time": "day",
+        "level": "60",
+        "chance": 2,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Mr- Mime"
+      "Mime-Jr",
+      "Mr-Mime"
     ],
     "chainWithMethods": {
-      "Mr- Mime": []
+      "Mime-Jr": [
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Mr-Mime",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Mr-Mime",
+          "form": "Galarian Form"
+        }
+      ],
+      "Mr-Mime": []
     }
   },
   "levelMoves": [
@@ -216,15 +343,7 @@
     },
     {
       "name": "Psychic M",
-      "level": 39,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 39
     },
     {
       "name": "Future Sight",
@@ -263,305 +382,544 @@
       }
     }
   ],
-  "tmHmMoves": [],
-  "eggMoves": [],
-  "locations": [],
-  "pokedexEntries": [],
-  "forms": {
-    "Galarian": {
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Mr- Mime"
-        ],
-        "chainWithMethods": {
-          "Mr- Mime": []
-        }
-      },
-      "moves": [
-        {
-          "name": "Recover",
-          "level": 1,
-          "info": {
-            "description": "\tRestores HP by 1/2 \tthe max HP.",
-            "type": "Normal",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Encore",
-          "level": 1,
-          "info": {
-            "description": "\tMakes the foe re- \tpeat 2-6 times.",
-            "type": "Normal",
-            "pp": 5,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Protect",
-          "level": 1,
-          "info": {
-            "description": "\tFoils attack that \tturn. It may fail.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Light Screen",
-          "level": 1,
-          "info": {
-            "description": "\tRaises Sp.Def with \ta wall of light.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Reflect",
-          "level": 1,
-          "info": {
-            "description": "\tRaises Defense \twith a barrier.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 1,
-          "info": {
-            "description": "\tPrevents all \tstatus problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Dazzlingleam",
-          "level": 1,
-          "info": {
-            "description": "\tDazzles with a \tpowerful flash.",
-            "type": "Fairy",
-            "pp": 10,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "\tA full-body charge \tattack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rapid Spin",
-          "level": 1,
-          "info": {
-            "description": "\tA high-speed \tspinning attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Baton Pass",
-          "level": 1,
-          "info": {
-            "description": "\tSwitches while \tkeeping effects.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Ice Shard",
-          "level": 1,
-          "info": {
-            "description": "\tHurls icy shards. \tAlways goes first.",
-            "type": "Ice",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Confusion",
-          "level": 12,
-          "info": {
-            "description": "\tAn attack that may \tconfuse the foe.",
-            "type": "Psychic",
-            "pp": 25,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Metronome",
-          "level": 16,
-          "info": {
-            "description": "\tRandomly uses any \t#mon move.",
-            "type": "Unknown",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Icy Wind",
-          "level": 20,
-          "info": {
-            "description": "\tAn icy attack that \tlowers Speed.",
-            "type": "Ice",
-            "pp": 15,
-            "power": 55,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Double Kick",
-          "level": 24,
-          "info": {
-            "description": "\tA double kicking \tattack.",
-            "type": "Fighting",
-            "pp": 30,
-            "power": 30,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Psybeam",
-          "level": 28,
-          "info": {
-            "description": "\tAn attack that may \tconfuse the foe.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Hypnosis",
-          "level": 32,
-          "info": {
-            "description": "\tMay cause the foe \tto fall asleep.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 60,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Mirror Coat",
-          "level": 36,
-          "info": {
-            "description": "\tReturns a special \tattack double.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 1,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Sucker Punch",
-          "level": 40,
-          "info": {
-            "description": "\tAttacks before the \tfoe does.",
-            "type": "Dark",
-            "pp": 5,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Ice Beam",
-          "level": 44,
-          "info": {
-            "description": "\tAn attack that may \tfreeze the foe.",
-            "type": "Ice",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Psychic M",
-          "level": 48
-        },
-        {
-          "name": "Confuse Ray",
-          "level": 52,
-          "info": {
-            "description": "\tA move that may \tconfuse the foe.",
-            "type": "Ghost",
-            "pp": 10,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        }
-      ],
-      "nationalDex": 122,
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": " Galarian"
+  "tmHmMoves": [
+    {
+      "name": "Dynamicpunch",
+      "description": "\tAn attack that \tconfuses the foe.",
+      "type": "Fighting",
+      "pp": 5,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 50
+    },
+    {
+      "name": "Curse",
+      "description": "\tWorks differently \tfor Ghost-types.",
+      "type": "Ghost",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Calm Mind",
+      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Toxic",
+      "description": "\tA Poison move with \tincreasing damage.",
+      "type": "Poison",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Hidden Power",
+      "description": "\tThe type varies \twith the #mon.",
+      "type": "Unknown",
+      "pp": 15,
+      "power": 70,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Sunny Day",
+      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
+      "type": "Fire",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Hyper Beam",
+      "description": "",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Special",
+      "accuracy": 90
+    },
+    {
+      "name": "Light Screen",
+      "description": "\tRaises Sp.Def with \ta wall of light.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Protect",
+      "description": "\tFoils attack that \tturn. It may fail.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Rain Dance",
+      "description": "\tBoosts Water-type \tmoves for 5 turns.",
+      "type": "Water",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Safeguard",
+      "description": "\tPrevents all \tstatus problems.",
+      "type": "Normal",
+      "pp": 25,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Solar Beam",
+      "description": "\t1st turn: Prepare \t2nd turn: Attack",
+      "type": "Grass",
+      "pp": 10,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunderbolt",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunder",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 10,
+      "power": 110,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Return",
+      "description": "\tAn attack that is \tbased on loyalty.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Psychic",
+      "description": "",
+      "type": "None",
+      "pp": 0,
+      "power": 0,
+      "category": "Unknown",
+      "accuracy": 0
+    },
+    {
+      "name": "Shadow Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Ghost",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Double Team",
+      "description": "\tRaises the user's \tevasiveness.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Reflect",
+      "description": "\tRaises Defense \twith a barrier.",
+      "type": "Psychic",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Aerial Ace",
+      "description": "\tAn attack that \tnever misses.",
+      "type": "Flying",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Substitute",
+      "description": "\tMakes a decoy with \t1/4 user's max HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Facade",
+      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Rest",
+      "description": "\tSleep for 2 turns \tto fully recover.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Attract",
+      "description": "\tMakes the opposite \tgender infatuated.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thief",
+      "description": "\tAn attack that may \tsteal a held item.",
+      "type": "Dark",
+      "pp": 25,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dazzlingleam",
+      "description": "\tDazzles with a \tpowerful flash.",
+      "type": "Fairy",
+      "pp": 10,
+      "power": 80,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Focus Blast",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Fighting",
+      "pp": 5,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Energy Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Grass",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Drain Punch",
+      "description": "\tSteals 1/2 of the \tdamage inflicted.",
+      "type": "Fighting",
+      "pp": 10,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Giga Impact",
+      "description": "\t1st turn: Attack \t2nd turn: Rest",
+      "type": "Normal",
+      "pp": 5,
+      "power": 150,
+      "category": "Physical",
+      "accuracy": 90
+    },
+    {
+      "name": "Flash",
+      "description": "\tA move that lowers \tthe foe's accuracy.",
+      "type": "Normal",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Thunder Wave",
+      "description": "\tparalyzes the foe.@",
+      "type": "Electric",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 90
+    },
+    {
+      "name": "Baton Pass",
+      "description": "\tSwitches while \tkeeping effects.",
+      "type": "Normal",
+      "pp": 40,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Charm",
+      "description": "\tSharply lowers the \tfoe's Attack.",
+      "type": "Fairy",
+      "pp": 20,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Counter",
+      "description": "\tReturns a physical \tattack double.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": "--"
+    },
+    {
+      "name": "Double Edge",
+      "description": "\tA tackle that also \thurts the user.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 120,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Dream Eater",
+      "description": "\tSteals HP from a \tsleeping victim.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 100,
+      "category": "Special",
+      "accuracy": 100
+    },
+    {
+      "name": "Endure",
+      "description": "\tEndures any hit \twith at least 1HP.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Fire Punch",
+      "description": "\tA fiery punch. May \tcause a burn.",
+      "type": "Fire",
+      "pp": 15,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Ice Punch",
+      "description": "\tAn icy punch. May \tcause freezing.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Icy Wind",
+      "description": "\tAn icy attack that \tlowers Speed.",
+      "type": "Ice",
+      "pp": 15,
+      "power": 55,
+      "category": "Special",
+      "accuracy": 95
+    },
+    {
+      "name": "Seismic Toss",
+      "description": "\tDamage equals the \tuser's level.",
+      "type": "Fighting",
+      "pp": 20,
+      "power": 1,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Skill Swap",
+      "description": "\tSwaps abilities \twith the foe.",
+      "type": "Psychic",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Sleep Talk",
+      "description": "\tRandomly attacks \twhile asleep.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Swagger",
+      "description": "\tCauses confusion \tbut raises Attack.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 85
+    },
+    {
+      "name": "Thunderpunch",
+      "description": "\tAn electric punch. \tIt may paralyze.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 75,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Trick",
+      "description": "\tSwaps held items \twith the foe.",
+      "type": "Psychic",
+      "pp": 10,
+      "power": 0,
+      "category": "Status",
+      "accuracy": 100
+    },
+    {
+      "name": "Trick Room",
+      "description": "\tSlow #mon move \tfirst for 5 turns.",
+      "type": "Psychic",
+      "pp": 5,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
+    },
+    {
+      "name": "Zap Cannon",
+      "description": "\tAn attack that \talways paralyzes.",
+      "type": "Electric",
+      "pp": 5,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 50
+    },
+    {
+      "name": "Zen Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Psychic",
+      "pp": 15,
+      "power": 80,
+      "category": "Physical",
+      "accuracy": 90
     }
-  }
+  ],
+  "eggMoves": [
+    "Confuse Ray",
+    "Future Sight",
+    "Hypnosis",
+    "Nasty Plot",
+    "Trick"
+  ],
+  "locations": [
+    {
+      "area": "ROUTE_21",
+      "method": "grass",
+      "time": "morn",
+      "level": "58",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_21",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_21",
+      "method": "grass",
+      "time": "morn",
+      "level": "60",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_21",
+      "method": "grass",
+      "time": "day",
+      "level": "58",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_21",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_21",
+      "method": "grass",
+      "time": "day",
+      "level": "60",
+      "chance": 2,
+      "formName": null
+    }
+  ],
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.950Z",
+  "version": "2.0.0"
 }

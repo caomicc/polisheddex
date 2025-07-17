@@ -1,5 +1,5 @@
 {
-  "name": "Grimer",
+  "name": "grimer",
   "nationalDex": 88,
   "johtoDex": 123,
   "types": "Poison",
@@ -78,7 +78,145 @@
     "height": 7,
     "weight": 420,
     "bodyShape": "Head Arms",
-    "bodyColor": "Green"
+    "bodyColor": "Green",
+    "locations": [
+      {
+        "area": "ROUTE_16_WEST",
+        "method": "grass",
+        "time": "morn",
+        "level": "53",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_16_WEST",
+        "method": "grass",
+        "time": "day",
+        "level": "53",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_16_WEST",
+        "method": "grass",
+        "time": "nite",
+        "level": "53",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_16_WEST",
+        "method": "grass",
+        "time": "nite",
+        "level": "50",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_16_WEST",
+        "method": "grass",
+        "time": "nite",
+        "level": "54",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_16_NORTHWEST",
+        "method": "grass",
+        "time": "morn",
+        "level": "53",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_16_NORTHWEST",
+        "method": "grass",
+        "time": "day",
+        "level": "53",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_16_NORTHWEST",
+        "method": "grass",
+        "time": "nite",
+        "level": "53",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_16_NORTHWEST",
+        "method": "grass",
+        "time": "nite",
+        "level": "50",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_16_NORTHWEST",
+        "method": "grass",
+        "time": "nite",
+        "level": "54",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_17",
+        "method": "grass",
+        "time": "morn",
+        "level": "55",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_17",
+        "method": "grass",
+        "time": "day",
+        "level": "55",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_17",
+        "method": "grass",
+        "time": "nite",
+        "level": "51",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_17",
+        "method": "grass",
+        "time": "nite",
+        "level": "55",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_17",
+        "method": "grass",
+        "time": "nite",
+        "level": "55",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "CELADON_CITY",
+        "method": "water",
+        "time": null,
+        "level": "55",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "CELADON_CITY",
+        "method": "water",
+        "time": null,
+        "level": "50",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -748,19 +886,10 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Sludge",
-      "description": "When two of these #mon's bodies are combined together, new poisons are created."
-    },
-    "Alolan": {
-      "species": "Sludge",
-      "description": "A Grimer which had been brought in to solve a problem with garbage developed into this form."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Alolan": {
-      "name": "Grimer alolan",
+      "name": "grimer alolan",
       "formName": "Alolan",
       "nationalDex": 88,
       "johtoDex": 123,
@@ -1038,57 +1167,196 @@
         "bodyShape": "Head Arms"
       }
     },
-    "alolan": {
-      "moves": [],
-      "nationalDex": 88,
-      "johtoDex": 123,
-      "types": "Poison",
-      "updatedTypes": "Poison",
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Grimeralolan"
-        ],
-        "chainWithMethods": {
-          "Grimeralolan": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "alolan"
-    },
     "Plain": {
-      "name": "Grimer plain",
+      "name": "grimer plain",
       "formName": "Plain",
       "nationalDex": 88,
       "johtoDex": 123,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/grimer_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Acid",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tlower Sp.Def.",
+            "type": "Poison",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 4,
+          "info": {
+            "description": "\tRaises the user's \tDefense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 7,
+          "info": {
+            "description": "\tAn attack that \tlowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Disable",
+          "level": 12,
+          "info": {
+            "description": "\tDisables the foe's \tmost recent move.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "level": 15,
+          "info": {
+            "description": "\tDamage doubles if \tfoe is poisoned.",
+            "type": "Poison",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Haze",
+          "level": 18,
+          "info": {
+            "description": "\tEliminates all \tstat changes.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Minimize",
+          "level": 21,
+          "info": {
+            "description": "\tSharply raises the \tuser's evasiveness.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 26,
+          "info": {
+            "description": "\tAn attack that \tnever misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sludge Bomb",
+          "level": 29,
+          "info": {
+            "description": "\tAn attack that may \tpoison the foe.",
+            "type": "Poison",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 32,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 37,
+          "info": {
+            "description": "\tSharply lowers the \tfoe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Gunk Shot",
+          "level": 40,
+          "info": {
+            "description": "\tAn attack that may \tpoison the foe.",
+            "type": "Poison",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pain Split",
+          "level": 43,
+          "info": {
+            "description": "\tAdds user & foe's \tHPs. Shares total.",
+            "type": "Ghost",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Toxic Spikes",
+          "level": 46,
+          "info": {
+            "description": "\tPoisons foes when \tthey switch in.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1111,5 +1379,7 @@
         "bodyShape": "Head Arms"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.926Z",
+  "version": "2.0.0"
 }

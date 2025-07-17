@@ -1,5 +1,5 @@
 {
-  "name": "Arcanine",
+  "name": "arcanine",
   "nationalDex": 59,
   "johtoDex": 137,
   "types": "Fire",
@@ -77,7 +77,41 @@
     "height": 20,
     "weight": 1680,
     "bodyShape": "Quadruped",
-    "bodyColor": "Red"
+    "bodyColor": "Red",
+    "locations": [
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "59",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_1F",
+        "method": "grass",
+        "time": "day",
+        "level": "59",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_B1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "59",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "POKEMON_MANSION_B1F",
+        "method": "grass",
+        "time": "day",
+        "level": "59",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -595,19 +629,10 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Legendary",
-      "description": "An ancient picture scroll shows that people were attracted to its movement as it ran through prairies."
-    },
-    "Hisuian": {
-      "species": "Legendary",
-      "description": "Despite its bulk, it deftly feints every which way, leading opponents on a chase as it dances past them."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Hisuian": {
-      "name": "Arcanine hisuian",
+      "name": "arcanine hisuian",
       "formName": "Hisuian",
       "nationalDex": 59,
       "johtoDex": 137,
@@ -788,57 +813,100 @@
         "bodyShape": "Quadruped"
       }
     },
-    "hisuian": {
-      "moves": [],
-      "nationalDex": 59,
-      "johtoDex": 137,
-      "types": "Fire",
-      "updatedTypes": "Fire",
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Arcaninehisuian"
-        ],
-        "chainWithMethods": {
-          "Arcaninehisuian": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "hisuian"
-    },
     "Plain": {
-      "name": "Arcanine plain",
+      "name": "arcanine plain",
       "formName": "Plain",
       "nationalDex": 59,
       "johtoDex": 137,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/arcanine_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Dragon Dance",
+          "level": 1,
+          "info": {
+            "description": "\tRaises the user's \tAttack and Speed.",
+            "type": "Dragon",
+            "pp": 20,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "\tA move that lowers \tthe foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tcause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roar",
+          "level": 1,
+          "info": {
+            "description": "\tScares wild foes \tto end battle.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tup user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 1,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Extremespeed",
+          "level": 1,
+          "info": {
+            "description": "\tA powerful first- \tstrike attack.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -861,5 +929,7 @@
         "bodyShape": "Quadruped"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.913Z",
+  "version": "2.0.0"
 }

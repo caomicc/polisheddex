@@ -1,5 +1,5 @@
 {
-  "name": "Houndour",
+  "name": "houndour",
   "nationalDex": 228,
   "johtoDex": 241,
   "types": [
@@ -87,7 +87,81 @@
     "height": 6,
     "weight": 108,
     "bodyShape": "Quadruped",
-    "bodyColor": "Black"
+    "bodyColor": "Black",
+    "locations": [
+      {
+        "area": "ROUTE_37",
+        "method": "grass",
+        "time": "nite",
+        "level": "15",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_37",
+        "method": "grass",
+        "time": "nite",
+        "level": "16",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_48",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 2",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_48",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 1",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "RUGGED_ROAD_SOUTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level + 1",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "RUGGED_ROAD_SOUTH",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 1",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_7",
+        "method": "grass",
+        "time": "nite",
+        "level": "51",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "FIRE_ISLAND",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 2",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "FIRE_ISLAND",
+        "method": "grass",
+        "time": "nite",
+        "level": "Badge Level - 1",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -704,22 +778,10 @@
       "level": "Badge Level - 1",
       "chance": 30,
       "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "16",
-      "chance": 5,
-      "rareItem": "Fire Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Dark",
-      "description": "Around dawn, its ominous howl echoes through the area to announce that this is its territory."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.009Z",
+  "version": "2.0.0"
 }

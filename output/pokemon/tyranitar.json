@@ -1,5 +1,5 @@
 {
-  "name": "Tyranitar",
+  "name": "tyranitar",
   "nationalDex": 248,
   "johtoDex": 284,
   "types": [
@@ -106,7 +106,33 @@
     "height": 20,
     "weight": 2020,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Green"
+    "bodyColor": "Green",
+    "locations": [
+      {
+        "area": "SILVER_CAVE_ROOM_3",
+        "method": "grass",
+        "time": "morn",
+        "level": "80",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_ROOM_3",
+        "method": "grass",
+        "time": "day",
+        "level": "80",
+        "chance": 2,
+        "formName": null
+      },
+      {
+        "area": "SILVER_CAVE_ROOM_3",
+        "method": "grass",
+        "time": "nite",
+        "level": "80",
+        "chance": 2,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -934,11 +960,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Armor",
-      "description": "In just one of its mighty hands, it has the power to make the ground shake and mountains crumble."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.017Z",
+  "version": "2.0.0"
 }

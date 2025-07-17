@@ -1,5 +1,5 @@
 {
-  "name": "Tangrowth",
+  "name": "tangrowth",
   "nationalDex": 266,
   "johtoDex": 202,
   "types": "Grass",
@@ -75,7 +75,33 @@
     "height": 20,
     "weight": 1286,
     "bodyShape": "Bipedal",
-    "bodyColor": "Blue"
+    "bodyColor": "Blue",
+    "locations": [
+      {
+        "area": "CERULEAN_CAVE_1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "67",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_1F",
+        "method": "grass",
+        "time": "day",
+        "level": "67",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "67",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -696,11 +722,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Vine",
-      "description": "It ensnares prey by extending arms made of vines. Losing arms to predators do not trouble it."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.021Z",
+  "version": "2.0.0"
 }

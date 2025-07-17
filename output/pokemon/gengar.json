@@ -1,5 +1,5 @@
 {
-  "name": "Gengar",
+  "name": "gengar",
   "nationalDex": 94,
   "johtoDex": 63,
   "types": [
@@ -108,7 +108,41 @@
     "height": 15,
     "weight": 405,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Purple"
+    "bodyColor": "Purple",
+    "locations": [
+      {
+        "area": "CERULEAN_CAVE_2F",
+        "method": "grass",
+        "time": "nite",
+        "level": "70",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_B1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "72",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "CINNABAR_VOLCANO_B2F",
+        "method": "grass",
+        "time": "nite",
+        "level": "65",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "CINNABAR_VOLCANO_B2F",
+        "method": "grass",
+        "time": "nite",
+        "level": "66",
+        "chance": 2,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -860,11 +894,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Shadow",
-      "description": "Hiding in people's shadows at night, it absorbs their heat. The chill it causes makes the victims shake."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.929Z",
+  "version": "2.0.0"
 }

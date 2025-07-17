@@ -1,5 +1,5 @@
 {
-  "name": "Qwilfish",
+  "name": "qwilfish",
   "nationalDex": 211,
   "johtoDex": 180,
   "types": [
@@ -88,7 +88,8 @@
     "height": 5,
     "weight": 39,
     "bodyShape": "Fins",
-    "bodyColor": "Black"
+    "bodyColor": "Black",
+    "locations": []
   },
   "evolution": {
     "methods": [],
@@ -683,19 +684,10 @@
   ],
   "eggMoves": [],
   "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Balloon",
-      "description": "When faced with a larger opponent, it swallows as much water as it can to match the opponent's size."
-    },
-    "Hisuian": {
-      "species": "Balloon",
-      "description": "Fishers detest it because it sprays poison from its spines, getting it everywhere."
-    }
-  },
+  "pokedexEntries": [],
   "forms": {
     "Hisuian": {
-      "name": "Qwilfish hisuian",
+      "name": "qwilfish hisuian",
       "formName": "Hisuian",
       "nationalDex": 211,
       "johtoDex": 180,
@@ -1019,63 +1011,244 @@
         "bodyShape": "Fins"
       }
     },
-    "hisuian": {
-      "moves": [],
-      "nationalDex": 211,
-      "johtoDex": 180,
-      "types": [
-        "Water",
-        "Poison"
-      ],
-      "updatedTypes": [
-        "Water",
-        "Poison"
-      ],
-      "evolution": {
-        "methods": [],
-        "chain": [
-          "Qwilfishhisuian"
-        ],
-        "chainWithMethods": {
-          "Qwilfishhisuian": []
-        }
-      },
-      "forms": {},
-      "baseStats": {
-        "hp": 0,
-        "attack": 0,
-        "defense": 0,
-        "speed": 0,
-        "specialAttack": 0,
-        "specialDefense": 0,
-        "total": 0
-      },
-      "catchRate": 255,
-      "baseExp": 0,
-      "heldItems": [],
-      "abilities": [],
-      "faithfulAbilities": [],
-      "updatedAbilities": [],
-      "growthRate": "Medium Fast",
-      "eggGroups": [],
-      "genderRatio": {
-        "male": 0,
-        "female": 0
-      },
-      "hatchRate": "Unknown",
-      "evYield": "None",
-      "locations": [],
-      "formName": "hisuian"
-    },
     "Plain": {
-      "name": "Qwilfish plain",
+      "name": "qwilfish plain",
       "formName": "Plain",
       "nationalDex": 211,
       "johtoDex": 180,
       "types": [],
       "updatedTypes": [],
       "frontSpriteUrl": "/sprites/pokemon/qwilfish_plain/front_cropped.png",
-      "moves": [],
+      "moves": [
+        {
+          "name": "Water Gun",
+          "level": 1,
+          "info": {
+            "description": "\tSquirts water to \tattack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Spikes",
+          "level": 1,
+          "info": {
+            "description": "\tHurts foes when \tthey switch in.",
+            "type": "Ground",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "\tA full-body charge \tattack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Sting",
+          "level": 1,
+          "info": {
+            "description": "\tAn attack that may \tpoison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 5,
+          "info": {
+            "description": "\tRaises the user's \tDefense.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Minimize",
+          "level": 9,
+          "info": {
+            "description": "\tSharply raises the \tuser's evasiveness.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bubble Beam",
+          "level": 13,
+          "info": {
+            "description": "\tAn attack that may \tlower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 17,
+          "info": {
+            "description": "\tAttacks 5 turns \twith rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Toxic Spikes",
+          "level": 21,
+          "info": {
+            "description": "\tPoisons foes when \tthey switch in.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pain Split",
+          "level": 25,
+          "info": {
+            "description": "\tAdds user & foe's \tHPs. Shares total.",
+            "type": "Ghost",
+            "pp": 20,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 29,
+          "info": {
+            "description": "\tStronger if the \tuser's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "level": 33,
+          "info": {
+            "description": "\tAn attack that may \tconfuse the foe.",
+            "type": "Water",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 37,
+          "info": {
+            "description": "\tFires pins that \tstrike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 41,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 45,
+          "info": {
+            "description": "\tSwings tail like a \twave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 49,
+          "info": {
+            "description": "\tAn attack that may \tpoison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Destiny Bond",
+          "level": 53,
+          "info": {
+            "description": "\tThe foe faints if \tthe user does.",
+            "type": "Ghost",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 57,
+          "info": {
+            "description": "\tA powerful Water- \ttype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 60,
+          "info": {
+            "description": "\tA tackle that also \thurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
       "detailedStats": {
         "catchRate": 255,
         "baseExp": 0,
@@ -1098,5 +1271,7 @@
         "bodyShape": "Fins"
       }
     }
-  }
+  },
+  "generatedAt": "2025-07-17T16:17:24.996Z",
+  "version": "2.0.0"
 }

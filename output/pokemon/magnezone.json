@@ -1,5 +1,5 @@
 {
-  "name": "Magnezone",
+  "name": "magnezone",
   "nationalDex": 263,
   "johtoDex": 127,
   "types": [
@@ -108,7 +108,57 @@
     "height": 12,
     "weight": 1800,
     "bodyShape": "Head Arms",
-    "bodyColor": "Gray"
+    "bodyColor": "Gray",
+    "locations": [
+      {
+        "area": "CERULEAN_CAVE_2F",
+        "method": "grass",
+        "time": "morn",
+        "level": "69",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_2F",
+        "method": "grass",
+        "time": "day",
+        "level": "69",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_2F",
+        "method": "grass",
+        "time": "nite",
+        "level": "69",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_B1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "69",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_B1F",
+        "method": "grass",
+        "time": "day",
+        "level": "69",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_B1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "69",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -749,11 +799,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Magnet Area",
-      "description": "It evolved from exposure to a special magnetic field. Three units generate magnetism."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.021Z",
+  "version": "2.0.0"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Mantine",
+  "name": "mantine",
   "nationalDex": 226,
   "johtoDex": 227,
   "types": [
@@ -86,7 +86,33 @@
     "height": 21,
     "weight": 2200,
     "bodyShape": "Wings",
-    "bodyColor": "Purple"
+    "bodyColor": "Purple",
+    "locations": [
+      {
+        "area": "ROUTE_41",
+        "method": "water",
+        "time": null,
+        "level": "20",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "CIANWOOD_CITY",
+        "method": "water",
+        "time": null,
+        "level": "20",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "SHAMOUTI_COAST",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level + 0",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -694,11 +720,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Kite",
-      "description": "It swims along freely, eating things that swim into its mouth. Its whole body is very coarse."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:25.008Z",
+  "version": "2.0.0"
 }

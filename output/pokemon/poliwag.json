@@ -1,5 +1,5 @@
 {
-  "name": "Poliwag",
+  "name": "poliwag",
   "nationalDex": 60,
   "johtoDex": 77,
   "types": "Water",
@@ -74,7 +74,161 @@
     "height": 6,
     "weight": 124,
     "bodyShape": "Head Legs",
-    "bodyColor": "Blue"
+    "bodyColor": "Blue",
+    "locations": [
+      {
+        "area": "SLOWPOKE_WELL_ENTRANCE",
+        "method": "grass",
+        "time": "morn",
+        "level": "6",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "SLOWPOKE_WELL_ENTRANCE",
+        "method": "grass",
+        "time": "day",
+        "level": "6",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_30",
+        "method": "grass",
+        "time": "nite",
+        "level": "4",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_31",
+        "method": "grass",
+        "time": "nite",
+        "level": "4",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "grass",
+        "time": "nite",
+        "level": "29",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_30",
+        "method": "water",
+        "time": null,
+        "level": "20",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_30",
+        "method": "water",
+        "time": null,
+        "level": "15",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_31",
+        "method": "water",
+        "time": null,
+        "level": "20",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_31",
+        "method": "water",
+        "time": null,
+        "level": "15",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "water",
+        "time": null,
+        "level": "25",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_44",
+        "method": "water",
+        "time": null,
+        "level": "30",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "VIOLET_CITY",
+        "method": "water",
+        "time": null,
+        "level": "20",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "VIOLET_CITY",
+        "method": "water",
+        "time": null,
+        "level": "15",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ECRUTEAK_CITY",
+        "method": "water",
+        "time": null,
+        "level": "20",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "ECRUTEAK_CITY",
+        "method": "water",
+        "time": null,
+        "level": "15",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ECRUTEAK_SHRINE_OUTSIDE",
+        "method": "water",
+        "time": null,
+        "level": "Badge Level + 0",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_22",
+        "method": "water",
+        "time": null,
+        "level": "56",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "VIRIDIAN_CITY",
+        "method": "water",
+        "time": null,
+        "level": "55",
+        "chance": 60,
+        "formName": null
+      },
+      {
+        "area": "VIRIDIAN_CITY",
+        "method": "water",
+        "time": null,
+        "level": "50",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -726,11 +880,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Tadpole",
-      "description": "The swirl on its belly is its insides showing through the skin. It looks clearer after it eats."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.913Z",
+  "version": "2.0.0"
 }

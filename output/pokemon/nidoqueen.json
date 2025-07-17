@@ -1,5 +1,5 @@
 {
-  "name": "Nidoqueen",
+  "name": "nidoqueen",
   "nationalDex": 31,
   "johtoDex": 102,
   "types": [
@@ -87,7 +87,33 @@
     "height": 13,
     "weight": 600,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Blue"
+    "bodyColor": "Blue",
+    "locations": [
+      {
+        "area": "SAFARI_ZONE_EAST",
+        "method": "grass",
+        "time": "morn",
+        "level": "60",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_EAST",
+        "method": "grass",
+        "time": "day",
+        "level": "60",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "SAFARI_ZONE_EAST",
+        "method": "grass",
+        "time": "nite",
+        "level": "60",
+        "chance": 3,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -827,11 +853,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Drill",
-      "description": "The hard scales that cover its strong body serve as excellent protection from any attack."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.896Z",
+  "version": "2.0.0"
 }

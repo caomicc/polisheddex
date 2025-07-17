@@ -1,5 +1,5 @@
 {
-  "name": "Snubbull",
+  "name": "snubbull",
   "nationalDex": 209,
   "johtoDex": 132,
   "types": "Fairy",
@@ -75,7 +75,57 @@
     "height": 6,
     "weight": 78,
     "bodyShape": "Bipedal",
-    "bodyColor": "Pink"
+    "bodyColor": "Pink",
+    "locations": [
+      {
+        "area": "ROUTE_34",
+        "method": "grass",
+        "time": "morn",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_34",
+        "method": "grass",
+        "time": "day",
+        "level": "12",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "morn",
+        "level": "13",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_35",
+        "method": "grass",
+        "time": "day",
+        "level": "13",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "YELLOW_FOREST",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level + 0",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "YELLOW_FOREST",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level + 0",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -738,22 +788,10 @@
       "level": "Badge Level + 0",
       "chance": 30,
       "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "15",
-      "chance": 40,
-      "rareItem": "Sun Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Fairy",
-      "description": "In truth, it is a cowardly #mon. It growls eagerly in order to hide its fear from its opponent."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.995Z",
+  "version": "2.0.0"
 }

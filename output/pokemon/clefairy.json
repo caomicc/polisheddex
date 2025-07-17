@@ -1,5 +1,5 @@
 {
-  "name": "Clefairy",
+  "name": "clefairy",
   "nationalDex": 35,
   "johtoDex": 41,
   "types": "Fairy",
@@ -78,7 +78,121 @@
     "height": 6,
     "weight": 75,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Pink"
+    "bodyColor": "Pink",
+    "locations": [
+      {
+        "area": "MOUNT_MOON_1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "58",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_1F",
+        "method": "grass",
+        "time": "day",
+        "level": "58",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "56",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "58",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "58",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B1F",
+        "method": "grass",
+        "time": "day",
+        "level": "58",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "56",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B1F",
+        "method": "grass",
+        "time": "nite",
+        "level": "58",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B2F",
+        "method": "grass",
+        "time": "morn",
+        "level": "58",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B2F",
+        "method": "grass",
+        "time": "day",
+        "level": "58",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B2F",
+        "method": "grass",
+        "time": "nite",
+        "level": "56",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MOON_B2F",
+        "method": "grass",
+        "time": "nite",
+        "level": "58",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_3",
+        "method": "grass",
+        "time": "nite",
+        "level": "57",
+        "chance": 3,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_4",
+        "method": "grass",
+        "time": "nite",
+        "level": "58",
+        "chance": 3,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -246,15 +360,7 @@
     },
     {
       "name": "Draining Kiss",
-      "level": 28,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
+      "level": 28
     },
     {
       "name": "Metronome",
@@ -1001,11 +1107,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Fairy",
-      "description": "Though rarely seen, it becomes easier to spot, for some reason, on the night of a full moon."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.896Z",
+  "version": "2.0.0"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Starmie",
+  "name": "starmie",
   "nationalDex": 121,
   "johtoDex": 188,
   "types": [
@@ -89,7 +89,17 @@
     "height": 11,
     "weight": 800,
     "bodyShape": "Head Base",
-    "bodyColor": "Purple"
+    "bodyColor": "Purple",
+    "locations": [
+      {
+        "area": "NAVEL_ROCK_OUTSIDE",
+        "method": "water",
+        "time": null,
+        "level": "80",
+        "chance": 30,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -684,11 +694,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Mysterious",
-      "description": "It is said that it uses the sevencolored core of its body to send electric waves into outer space."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.944Z",
+  "version": "2.0.0"
 }

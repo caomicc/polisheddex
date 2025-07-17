@@ -1,5 +1,5 @@
 {
-  "name": "Machop",
+  "name": "machop",
   "nationalDex": 66,
   "johtoDex": 153,
   "types": "Fighting",
@@ -77,7 +77,113 @@
     "height": 8,
     "weight": 195,
     "bodyShape": "Bipedal Tail",
-    "bodyColor": "Gray"
+    "bodyColor": "Gray",
+    "locations": [
+      {
+        "area": "MOUNT_MORTAR_1F_OUTSIDE",
+        "method": "grass",
+        "time": "morn",
+        "level": "22",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MORTAR_1F_OUTSIDE",
+        "method": "grass",
+        "time": "day",
+        "level": "22",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MORTAR_1F_INSIDE",
+        "method": "grass",
+        "time": "morn",
+        "level": "23",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MORTAR_1F_INSIDE",
+        "method": "grass",
+        "time": "day",
+        "level": "23",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MORTAR_2F_INSIDE",
+        "method": "grass",
+        "time": "morn",
+        "level": "31",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MORTAR_2F_INSIDE",
+        "method": "grass",
+        "time": "day",
+        "level": "31",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MORTAR_B1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "16",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "MOUNT_MORTAR_B1F",
+        "method": "grass",
+        "time": "day",
+        "level": "16",
+        "chance": 30,
+        "formName": null
+      },
+      {
+        "area": "CLIFF_CAVE",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 5",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "QUIET_CAVE_1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level - 2",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "QUIET_CAVE_1F",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level - 2",
+        "chance": 20,
+        "formName": null
+      },
+      {
+        "area": "QUIET_CAVE_B1F",
+        "method": "grass",
+        "time": "morn",
+        "level": "Badge Level + 0",
+        "chance": 5,
+        "formName": null
+      },
+      {
+        "area": "QUIET_CAVE_B1F",
+        "method": "grass",
+        "time": "day",
+        "level": "Badge Level + 0",
+        "chance": 5,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -782,31 +888,10 @@
       "level": "Badge Level + 0",
       "chance": 5,
       "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "Badge Level + 0",
-      "chance": 15,
-      "rareItem": "Shiny Stone",
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "25",
-      "chance": 15,
-      "rareItem": "Dusk Stone",
-      "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Superpower",
-      "description": "It trains by lifting rocks in the mountains. It can even pick up a Graveler with ease."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.915Z",
+  "version": "2.0.0"
 }

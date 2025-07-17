@@ -1,5 +1,5 @@
 {
-  "name": "Gyarados",
+  "name": "gyarados",
   "nationalDex": 130,
   "johtoDex": 82,
   "types": [
@@ -86,7 +86,41 @@
     "height": 65,
     "weight": 2350,
     "bodyShape": "Serpentine",
-    "bodyColor": "Red"
+    "bodyColor": "Red",
+    "locations": [
+      {
+        "area": "LAKE_OF_RAGE",
+        "method": "water",
+        "time": null,
+        "level": "25",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "ROUTE_23",
+        "method": "water",
+        "time": null,
+        "level": "35",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_1F",
+        "method": "water",
+        "time": null,
+        "level": "66",
+        "chance": 10,
+        "formName": null
+      },
+      {
+        "area": "CERULEAN_CAVE_B1F",
+        "method": "water",
+        "time": null,
+        "level": "66",
+        "chance": 10,
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [],
@@ -793,15 +827,8 @@
       "formName": null
     }
   ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Atrocious",
-      "description": "It appears whenever there is world conflict, burning down any place it travels through."
-    },
-    "Red": {
-      "species": "Atrocious",
-      "description": "Due to how rapidly it was forced to undergo evolution, this Gyarados retained its red Magikarp scales."
-    }
-  },
-  "forms": {}
+  "pokedexEntries": [],
+  "forms": {},
+  "generatedAt": "2025-07-17T16:17:24.952Z",
+  "version": "2.0.0"
 }
