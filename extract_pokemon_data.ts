@@ -1216,6 +1216,7 @@ const INVALID_POKEMON_KEYS = [
   'undefined',
   'null',
   '???',
+  'mewtwoarmo',
   'missingno',
   'poke',
   'pkmn',
