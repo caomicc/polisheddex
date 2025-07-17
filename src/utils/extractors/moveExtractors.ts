@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from "node:path";
-import { normalizeMoveKey, toCapitalCaseWithSpaces, toTitleCase } from '../stringUtils.ts';
+import { normalizeMoveKey, toCapitalCaseWithSpaces } from '../stringUtils.ts';
 import { sharedDescriptionGroups } from '../../data/constants.ts';
 import type { MoveDescription } from '../../types/types.ts';
 import { extractFormInfo } from './formExtractors.ts';
