@@ -444,15 +444,27 @@ for (const file of baseStatsFiles) {
 
   // If no conditional types were found, look for a standard type declaration
   if (!hasConditionalTypes) {
-    const typeLine = lines.find(l => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
-    if (typeLine) {
-      const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
-      if (match) {
-        // Use the same types for both faithful and updated
-        const t1 = typeEnumToName[match[1]] || 'None';
-        const t2 = typeEnumToName[match[2]] || 'None';
+    // Find all type lines outside of any conditional blocks
+    const typeLines = lines.filter(l => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
+    // Use the first type line as faithful, second (if exists) as updated
+    if (typeLines.length > 0) {
+      // Faithful types from the first type line
+      const matchFaithful = typeLines[0].match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+      if (matchFaithful) {
+        const t1 = typeEnumToName[matchFaithful[1]] || 'None';
+        const t2 = typeEnumToName[matchFaithful[2]] || 'None';
         faithfulTypes = [t1, t2];
-        updatedTypes = [t1, t2];
+      }
+      // Updated types from the second type line, if present
+      if (typeLines.length > 1) {
+        const matchUpdated = typeLines[1].match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+        if (matchUpdated) {
+          const t1 = typeEnumToName[matchUpdated[1]] || 'None';
+          const t2 = typeEnumToName[matchUpdated[2]] || 'None';
+          updatedTypes = [t1, t2];
+        }
+      } else {
+        updatedTypes = faithfulTypes;
       }
     } else {
       continue; // Skip this file if no type info found
