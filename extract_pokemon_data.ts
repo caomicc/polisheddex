@@ -1185,12 +1185,12 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
     .replace(/[^a-z0-9]/g, '') // Remove non-alphanumerics
     .replace(/_/g, '-'); // Replace underscores with hyphens
 
-  if (trimmedMon === 'Mr Mime') {
+  if (trimmedMon === 'Mr Mime' || trimmedMon === 'mrmime' || trimmedMon === 'MrMimePlain' || trimmedMon === 'mr-mime') {
     // Special case for Mr. Mime
     spriteName = 'mr__mime';
   }
 
-  if (trimmedMon === 'Ho Oh' || trimmedMon === 'Ho-Oh') {
+  if (trimmedMon === 'Ho Oh' || trimmedMon === 'Ho-Oh' || trimmedMon === 'ho-oh') {
     // Special case for Ho-Oh
     spriteName = 'ho_oh';
   }
@@ -1205,7 +1205,7 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
     spriteName = 'tauros_paldean_fire';
   }
 
-  if (trimmedMon === 'Mime Jr' || trimmedMon === 'MimeJr' || trimmedMon === 'Mime-Jr') {
+  if (trimmedMon === 'Mime Jr' || trimmedMon === 'MimeJr' || trimmedMon === 'Mime-Jr' || trimmedMon === 'mime-jr') {
     // Special case for Mime Jr.
     spriteName = 'mime_jr_';
   }
@@ -1226,6 +1226,7 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
   if (trimmedMon === 'Nidoran-M') {
     spriteName = 'nidoran_m';
   }
+
 
   console.log(`Processing Pokémon: ${trimmedMon}, sprite name: ${spriteName}`);
 
