@@ -690,13 +690,20 @@ for (const mon of Object.keys(result)) {
   // First get the base name by removing any form suffixes
   let baseMonName = standardizePokemonKey(mon);
 
+
   if (baseMonName === 'Mr- Mime') {
     baseMonName = 'Mr-Mime'; // Special case for Mr. Mime
   }
-
-  // if (baseMonName === 'Mime- Jr') {
-  //   baseMonName = 'mime-jr'; // Special case for Mime Jr.
-  // }
+  // Special case for Mime Jr. and its variants
+  if (
+    baseMonName === 'Mime- Jr' ||
+    baseMonName === 'Mime Jr' ||
+    baseMonName === 'Mime-Jr' ||
+    baseMonName === 'MimeJr' ||
+    baseMonName.toLowerCase() === 'mime-jr'
+  ) {
+    baseMonName = 'Mime-Jr';
+  }
 
   console.log(`DEBUG: Processing Pokémon: ${mon} (base: ${baseMonName})`);
 
