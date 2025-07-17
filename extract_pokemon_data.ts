@@ -1506,19 +1506,36 @@ const chainCache: Record<string, Evolution> = {};
 const processed = new Set<string>();
 
 // Second pass: ensure all members of the same chain have the same chain data
+
+// Helper to normalize a Pokemon key for evolution chains
+function normalizeEvolutionKey(key: string): string {
+  return normalizePokemonUrlKey(key);
+}
+
 for (const [mon, evolutionInfo] of Object.entries(evolutionData)) {
   if (!evolutionInfo || processed.has(mon)) continue;
 
-  // Get the chain members as a string for caching
-  const chainKey = evolutionInfo.chain.join(',');
+  // Normalize all keys in the chain and chainWithMethods
+  const normalizedChain = evolutionInfo.chain.map(normalizeEvolutionKey);
+  const normalizedChainWithMethods: Record<string, EvolutionMethod[]> = {};
+  for (const [k, v] of Object.entries(evolutionInfo.chainWithMethods)) {
+    normalizedChainWithMethods[normalizeEvolutionKey(k)] = v;
+  }
+
+  // Get the chain members as a string for caching (use normalized keys)
+  const chainKey = normalizedChain.join(',');
 
   // Store this chain in the cache if not already present
   if (!chainCache[chainKey]) {
-    chainCache[chainKey] = evolutionInfo;
+    chainCache[chainKey] = {
+      ...evolutionInfo,
+      chain: normalizedChain,
+      chainWithMethods: normalizedChainWithMethods
+    };
   }
 
-  // For each member of this chain
-  for (const chainMember of evolutionInfo.chain) {
+  // For each member of this chain (normalized)
+  for (const chainMember of normalizedChain) {
     // Skip if already processed
     if (processed.has(chainMember)) continue;
 
@@ -1528,7 +1545,7 @@ for (const [mon, evolutionInfo] of Object.entries(evolutionData)) {
       evolutionData[chainMember] = {
         // Keep the member's own methods
         methods: evolutionData[chainMember].methods,
-        // Use the complete chain and chainWithMethods
+        // Use the complete chain and chainWithMethods (normalized)
         chain: chainCache[chainKey].chain,
         chainWithMethods: chainCache[chainKey].chainWithMethods
       };
@@ -1609,8 +1626,11 @@ fs.writeFileSync(LEVEL_MOVES_OUTPUT, JSON.stringify(validatedLevelMoves, null, 2
 const locationData: Record<string, LocationEntry[]> = {};
 
 // Use the normalized location data
+
+// Normalize all locationData keys to use normalized Pokemon keys
 for (const [mon, locations] of Object.entries(normalizedLocationsByMon)) {
-  locationData[mon] = locations;
+  const normalizedMon = normalizePokemonUrlKey(mon);
+  locationData[normalizedMon] = locations;
 }
 
 // Group pokemon by their base form
