@@ -136,6 +136,15 @@
         "level": "Badge Level - 2",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "Yellow Forest",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "Badge Level + 0",
+        "chance": 40,
+        "rareItem": "THUNDERSTONE",
+        "formName": null
       }
     ]
   },
@@ -148,18 +157,18 @@
       }
     ],
     "chain": [
-      "Ledyba",
-      "Ledian"
+      "ledyba",
+      "ledian"
     ],
     "chainWithMethods": {
-      "Ledyba": [
+      "ledyba": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 18,
           "target": "Ledian"
         }
       ],
-      "Ledian": []
+      "ledian": []
     }
   },
   "levelMoves": [
@@ -741,6 +750,15 @@
       "time": "morn",
       "level": "Badge Level - 2",
       "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "Yellow Forest",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level + 0",
+      "chance": 40,
+      "rareItem": "THUNDERSTONE",
       "formName": null
     }
   ],

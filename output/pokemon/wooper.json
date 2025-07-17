@@ -233,18 +233,27 @@
         "level": "Badge Level - 5",
         "chance": 60,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "5",
+        "chance": 40,
+        "rareItem": "Everstone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Wooper",
-      "Quagsire",
-      "Clodsire"
+      "wooper",
+      "quagsire",
+      "clodsire"
     ],
     "chainWithMethods": {
-      "Wooper": [
+      "wooper": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
@@ -256,8 +265,8 @@
           "target": "Clodsire"
         }
       ],
-      "Quagsire": [],
-      "Clodsire": []
+      "quagsire": [],
+      "clodsire": []
     }
   },
   "levelMoves": [
@@ -930,6 +939,15 @@
       "level": "Badge Level - 5",
       "chance": 60,
       "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "5",
+      "chance": 40,
+      "rareItem": "Everstone",
+      "formName": null
     }
   ],
   "pokedexEntries": {
@@ -1177,7 +1195,24 @@
           "Poison",
           "Ground"
         ],
-        "locations": [],
+        "locations": [
+          {
+            "area": "MURKY_SWAMP",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level - 2",
+            "chance": 30,
+            "formName": "paldean"
+          },
+          {
+            "area": "MURKY_SWAMP",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level - 2",
+            "chance": 30,
+            "formName": "paldean"
+          }
+        ],
         "height": 4,
         "weight": 110,
         "bodyColor": "Brown",

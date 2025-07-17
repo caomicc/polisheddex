@@ -1403,6 +1403,15 @@
         "level": "2",
         "chance": 20,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "24",
+        "chance": 15,
+        "rareItem": "Leaf Stone",
+        "formName": null
       }
     ]
   },
@@ -1415,26 +1424,26 @@
       }
     ],
     "chain": [
-      "Zubat",
-      "Golbat",
-      "Crobat"
+      "zubat",
+      "golbat",
+      "crobat"
     ],
     "chainWithMethods": {
-      "Zubat": [
+      "zubat": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 22,
           "target": "Golbat"
         }
       ],
-      "Golbat": [
+      "golbat": [
         {
           "method": "EVOLVE_HAPPINESS",
           "parameter": "TR_ANYTIME",
           "target": "Crobat"
         }
       ],
-      "Crobat": []
+      "crobat": []
     }
   },
   "levelMoves": [
@@ -3214,6 +3223,15 @@
       "time": "nite",
       "level": "2",
       "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "24",
+      "chance": 15,
+      "rareItem": "Leaf Stone",
       "formName": null
     }
   ],

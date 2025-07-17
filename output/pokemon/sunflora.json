@@ -234,24 +234,33 @@
         "level": "Badge Level - 2",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "Cherrygrove Bay",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "Badge Level + 0",
+        "chance": 15,
+        "rareItem": "Shiny Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Sunkern",
-      "Sunflora"
+      "sunkern",
+      "sunflora"
     ],
     "chainWithMethods": {
-      "Sunkern": [
+      "sunkern": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "SUN_STONE",
           "target": "Sunflora"
         }
       ],
-      "Sunflora": []
+      "sunflora": []
     }
   },
   "levelMoves": [
@@ -938,6 +947,15 @@
       "time": "day",
       "level": "Badge Level - 2",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "Cherrygrove Bay",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "Badge Level + 0",
+      "chance": 15,
+      "rareItem": "Shiny Stone",
       "formName": null
     }
   ],

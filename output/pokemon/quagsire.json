@@ -457,18 +457,27 @@
         "level": "53",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "Ruins of Alph",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "25",
+        "chance": 15,
+        "rareItem": "Moon Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Wooper",
-      "Quagsire",
-      "Clodsire"
+      "wooper",
+      "quagsire",
+      "clodsire"
     ],
     "chainWithMethods": {
-      "Wooper": [
+      "wooper": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
@@ -480,8 +489,8 @@
           "target": "Clodsire"
         }
       ],
-      "Quagsire": [],
-      "Clodsire": []
+      "quagsire": [],
+      "clodsire": []
     }
   },
   "levelMoves": [
@@ -1470,6 +1479,15 @@
       "time": null,
       "level": "53",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "Ruins of Alph",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "25",
+      "chance": 15,
+      "rareItem": "Moon Stone",
       "formName": null
     }
   ],

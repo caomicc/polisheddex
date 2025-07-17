@@ -138,6 +138,15 @@
         "level": "51",
         "chance": 20,
         "formName": null
+      },
+      {
+        "area": "Ilex Forest",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "9",
+        "chance": 40,
+        "rareItem": "Leaf Stone",
+        "formName": null
       }
     ]
   },
@@ -150,20 +159,20 @@
       }
     ],
     "chain": [
-      "Oddish",
-      "Gloom",
-      "Vileplume",
-      "Bellossom"
+      "oddish",
+      "gloom",
+      "vileplume",
+      "bellossom"
     ],
     "chainWithMethods": {
-      "Oddish": [
+      "oddish": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 21,
           "target": "Gloom"
         }
       ],
-      "Gloom": [
+      "gloom": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
@@ -175,8 +184,8 @@
           "target": "Bellossom"
         }
       ],
-      "Vileplume": [],
-      "Bellossom": []
+      "vileplume": [],
+      "bellossom": []
     }
   },
   "levelMoves": [
@@ -671,6 +680,15 @@
       "time": "nite",
       "level": "51",
       "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "Ilex Forest",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "9",
+      "chance": 40,
+      "rareItem": "Leaf Stone",
       "formName": null
     }
   ],

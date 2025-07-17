@@ -196,11 +196,11 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "Ponyta",
-      "Rapidash"
+      "ponyta",
+      "rapidash"
     ],
     "chainWithMethods": {
-      "Ponyta": [
+      "ponyta": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
@@ -214,7 +214,7 @@
           "form": "Galarian Form"
         }
       ],
-      "Rapidash": []
+      "rapidash": []
     }
   },
   "levelMoves": [
@@ -1039,7 +1039,56 @@
         "evYield": "1 Spe",
         "types": "Psychic",
         "updatedTypes": "Psychic",
-        "locations": [],
+        "locations": [
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level + 0",
+            "chance": 20,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level + 2",
+            "chance": 5,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level + 0",
+            "chance": 20,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level + 2",
+            "chance": 5,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level + 0",
+            "chance": 20,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level + 2",
+            "chance": 5,
+            "formName": "galarian"
+          }
+        ],
         "height": 8,
         "weight": 240,
         "bodyColor": "White",

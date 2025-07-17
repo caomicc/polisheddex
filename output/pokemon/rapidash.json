@@ -204,17 +204,26 @@
         "level": "59",
         "chance": 5,
         "formName": null
+      },
+      {
+        "area": "Silver Cave",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "70",
+        "chance": 40,
+        "rareItem": "Fire Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Ponyta",
-      "Rapidash"
+      "ponyta",
+      "rapidash"
     ],
     "chainWithMethods": {
-      "Ponyta": [
+      "ponyta": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 40,
@@ -228,7 +237,7 @@
           "form": "Galarian Form"
         }
       ],
-      "Rapidash": []
+      "rapidash": []
     }
   },
   "levelMoves": [
@@ -886,6 +895,15 @@
       "level": "59",
       "chance": 5,
       "formName": null
+    },
+    {
+      "area": "Silver Cave",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "70",
+      "chance": 40,
+      "rareItem": "Fire Stone",
+      "formName": null
     }
   ],
   "pokedexEntries": {
@@ -1174,7 +1192,56 @@
           "Psychic",
           "Fairy"
         ],
-        "locations": [],
+        "locations": [
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level + 3",
+            "chance": 3,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level + 1",
+            "chance": 2,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level + 3",
+            "chance": 3,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level + 1",
+            "chance": 2,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level + 3",
+            "chance": 3,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_SHRINE_RUINS",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level + 1",
+            "chance": 2,
+            "formName": "galarian"
+          }
+        ],
         "height": 17,
         "weight": 800,
         "bodyColor": "White",

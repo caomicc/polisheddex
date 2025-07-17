@@ -124,6 +124,15 @@
         "level": "Badge Level + 0",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "15",
+        "chance": 40,
+        "rareItem": "Sun Stone",
+        "formName": null
       }
     ]
   },
@@ -136,18 +145,18 @@
       }
     ],
     "chain": [
-      "Snubbull",
-      "Granbull"
+      "snubbull",
+      "granbull"
     ],
     "chainWithMethods": {
-      "Snubbull": [
+      "snubbull": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 23,
           "target": "Granbull"
         }
       ],
-      "Granbull": []
+      "granbull": []
     }
   },
   "levelMoves": [
@@ -787,6 +796,15 @@
       "time": "day",
       "level": "Badge Level + 0",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "15",
+      "chance": 40,
+      "rareItem": "Sun Stone",
       "formName": null
     }
   ],

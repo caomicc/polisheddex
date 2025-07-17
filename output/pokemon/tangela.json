@@ -244,6 +244,15 @@
         "level": "60",
         "chance": 3,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "34",
+        "chance": 40,
+        "rareItem": "Leaf Stone",
+        "formName": null
       }
     ]
   },
@@ -256,18 +265,18 @@
       }
     ],
     "chain": [
-      "Tangela",
-      "Tangrowth"
+      "tangela",
+      "tangrowth"
     ],
     "chainWithMethods": {
-      "Tangela": [
+      "tangela": [
         {
           "method": "EVOLVE_MOVE",
           "parameter": "ANCIENTPOWER",
           "target": "Tangrowth"
         }
       ],
-      "Tangrowth": []
+      "tangrowth": []
     }
   },
   "levelMoves": [
@@ -968,6 +977,15 @@
       "time": "nite",
       "level": "60",
       "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "34",
+      "chance": 40,
+      "rareItem": "Leaf Stone",
       "formName": null
     }
   ],

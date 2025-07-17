@@ -291,24 +291,33 @@
         "level": "59",
         "chance": 5,
         "formName": null
+      },
+      {
+        "area": "Stormy Beach",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "Badge Level + 3",
+        "chance": 5,
+        "rareItem": "Water Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Venonat",
-      "Venomoth"
+      "venonat",
+      "venomoth"
     ],
     "chainWithMethods": {
-      "Venonat": [
+      "venonat": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 31,
           "target": "Venomoth"
         }
       ],
-      "Venomoth": []
+      "venomoth": []
     }
   },
   "levelMoves": [
@@ -1041,6 +1050,15 @@
       "time": "nite",
       "level": "59",
       "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "Stormy Beach",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "Badge Level + 3",
+      "chance": 5,
+      "rareItem": "Water Stone",
       "formName": null
     }
   ],

@@ -122,6 +122,15 @@
         "level": "Badge Level + 0",
         "chance": 5,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "16",
+        "chance": 40,
+        "rareItem": "Fire Stone",
+        "formName": null
       }
     ]
   },
@@ -149,11 +158,11 @@
       }
     ],
     "chain": [
-      "Stantler",
-      "Wyrdeer"
+      "stantler",
+      "wyrdeer"
     ],
     "chainWithMethods": {
-      "Stantler": [
+      "stantler": [
         {
           "method": "EVOLVE_LOCATION",
           "parameter": "RUGGED_ROAD",
@@ -175,7 +184,7 @@
           "target": "Wyrdeer"
         }
       ],
-      "Wyrdeer": []
+      "wyrdeer": []
     }
   },
   "levelMoves": [
@@ -824,6 +833,15 @@
       "time": "nite",
       "level": "Badge Level + 0",
       "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "16",
+      "chance": 40,
+      "rareItem": "Fire Stone",
       "formName": null
     }
   ],

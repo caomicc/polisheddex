@@ -121,17 +121,26 @@
         "level": "Badge Level + 0",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "Cherrygrove Bay",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "Badge Level + 0",
+        "chance": 5,
+        "rareItem": "Shiny Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Corsola",
-      "Cursola"
+      "corsola",
+      "cursola"
     ],
     "chainWithMethods": {
-      "Corsola": [
+      "corsola": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 38,
@@ -139,7 +148,7 @@
           "form": "Plain Form"
         }
       ],
-      "Cursola": []
+      "cursola": []
     }
   },
   "levelMoves": [
@@ -811,6 +820,15 @@
       "level": "Badge Level + 0",
       "chance": 10,
       "formName": null
+    },
+    {
+      "area": "Cherrygrove Bay",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "Badge Level + 0",
+      "chance": 5,
+      "rareItem": "Shiny Stone",
+      "formName": null
     }
   ],
   "pokedexEntries": {
@@ -1063,7 +1081,128 @@
           "Ghost",
           "Rock"
         ],
-        "locations": [],
+        "locations": [
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "58",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "62",
+            "chance": 2,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "day",
+            "level": "58",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "day",
+            "level": "62",
+            "chance": 2,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "58",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "62",
+            "chance": 2,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "58",
+            "chance": 20,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "59",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "day",
+            "level": "58",
+            "chance": 20,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "day",
+            "level": "59",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "58",
+            "chance": 20,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_B1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "59",
+            "chance": 10,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_SHIPWRECK",
+            "method": "grass",
+            "time": "morn",
+            "level": "60",
+            "chance": 30,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_SHIPWRECK",
+            "method": "grass",
+            "time": "day",
+            "level": "60",
+            "chance": 30,
+            "formName": "galarian"
+          },
+          {
+            "area": "SCARY_CAVE_SHIPWRECK",
+            "method": "grass",
+            "time": "nite",
+            "level": "60",
+            "chance": 30,
+            "formName": "galarian"
+          }
+        ],
         "height": 6,
         "weight": 5,
         "bodyColor": "White",

@@ -594,6 +594,15 @@
         "level": "58",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "5",
+        "chance": 5,
+        "rareItem": "Everstone",
+        "formName": null
       }
     ]
   },
@@ -606,26 +615,26 @@
       }
     ],
     "chain": [
-      "Gastly",
-      "Haunter",
-      "Gengar"
+      "gastly",
+      "haunter",
+      "gengar"
     ],
     "chainWithMethods": {
-      "Gastly": [
+      "gastly": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Haunter"
         }
       ],
-      "Haunter": [
+      "haunter": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Gengar"
         }
       ],
-      "Gengar": []
+      "gengar": []
     }
   },
   "levelMoves": [
@@ -1684,6 +1693,15 @@
       "time": "nite",
       "level": "58",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "5",
+      "chance": 5,
+      "rareItem": "Everstone",
       "formName": null
     }
   ],

@@ -135,6 +135,15 @@
         "level": "Badge Level + 0",
         "chance": 5,
         "formName": null
+      },
+      {
+        "area": "Lake of Rage",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "26",
+        "chance": 5,
+        "rareItem": "Water Stone",
+        "formName": null
       }
     ]
   },
@@ -152,19 +161,19 @@
       }
     ],
     "chain": [
-      "Mareep",
-      "Flaaffy",
-      "Ampharos"
+      "mareep",
+      "flaaffy",
+      "ampharos"
     ],
     "chainWithMethods": {
-      "Mareep": [
+      "mareep": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 15,
           "target": "Flaaffy"
         }
       ],
-      "Flaaffy": [
+      "flaaffy": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
@@ -176,7 +185,7 @@
           "target": "Ampharos"
         }
       ],
-      "Ampharos": []
+      "ampharos": []
     }
   },
   "levelMoves": [
@@ -754,6 +763,15 @@
       "time": "day",
       "level": "Badge Level + 0",
       "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "Lake of Rage",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "26",
+      "chance": 5,
+      "rareItem": "Water Stone",
       "formName": null
     }
   ],

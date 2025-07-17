@@ -142,6 +142,15 @@
         "level": "Badge Level - 2",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "Bellchime Trail",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "20",
+        "chance": 40,
+        "rareItem": "Sun Stone",
+        "formName": null
       }
     ]
   },
@@ -154,18 +163,18 @@
       }
     ],
     "chain": [
-      "Sentret",
-      "Furret"
+      "sentret",
+      "furret"
     ],
     "chainWithMethods": {
-      "Sentret": [
+      "sentret": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 15,
           "target": "Furret"
         }
       ],
-      "Furret": []
+      "furret": []
     }
   },
   "levelMoves": [
@@ -853,6 +862,15 @@
       "time": "day",
       "level": "Badge Level - 2",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "Bellchime Trail",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "20",
+      "chance": 40,
+      "rareItem": "Sun Stone",
       "formName": null
     }
   ],

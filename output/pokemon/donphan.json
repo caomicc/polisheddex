@@ -134,24 +134,33 @@
         "level": "Badge Level + 1",
         "chance": 2,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "36",
+        "chance": 40,
+        "rareItem": "Moon Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Phanpy",
-      "Donphan"
+      "phanpy",
+      "donphan"
     ],
     "chainWithMethods": {
-      "Phanpy": [
+      "phanpy": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Donphan"
         }
       ],
-      "Donphan": []
+      "donphan": []
     }
   },
   "levelMoves": [
@@ -745,6 +754,15 @@
       "time": "day",
       "level": "Badge Level + 1",
       "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "36",
+      "chance": 40,
+      "rareItem": "Moon Stone",
       "formName": null
     }
   ],

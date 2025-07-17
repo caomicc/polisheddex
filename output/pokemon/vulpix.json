@@ -193,17 +193,26 @@
         "level": "49",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "16",
+        "chance": 15,
+        "rareItem": "Fire Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Vulpix",
-      "Ninetales"
+      "vulpix",
+      "ninetales"
     ],
     "chainWithMethods": {
-      "Vulpix": [
+      "vulpix": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "FIRE_STONE",
@@ -217,7 +226,7 @@
           "form": "Alolan Form"
         }
       ],
-      "Ninetales": []
+      "ninetales": []
     }
   },
   "levelMoves": [
@@ -888,6 +897,15 @@
       "level": "49",
       "chance": 10,
       "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "16",
+      "chance": 15,
+      "rareItem": "Fire Stone",
+      "formName": null
     }
   ],
   "pokedexEntries": {
@@ -1236,7 +1254,161 @@
         "evYield": "1 Spe",
         "types": "Ice",
         "updatedTypes": "Ice",
-        "locations": [],
+        "locations": [
+          {
+            "area": "ICE_PATH_1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "32",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "34",
+            "chance": 2,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_1F",
+            "method": "grass",
+            "time": "day",
+            "level": "32",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_1F",
+            "method": "grass",
+            "time": "day",
+            "level": "34",
+            "chance": 2,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "33",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "35",
+            "chance": 3,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B1F",
+            "method": "grass",
+            "time": "day",
+            "level": "33",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B1F",
+            "method": "grass",
+            "time": "day",
+            "level": "35",
+            "chance": 3,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+            "method": "grass",
+            "time": "morn",
+            "level": "34",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+            "method": "grass",
+            "time": "morn",
+            "level": "35",
+            "chance": 5,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+            "method": "grass",
+            "time": "day",
+            "level": "34",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B2F_MAHOGANY_SIDE",
+            "method": "grass",
+            "time": "day",
+            "level": "35",
+            "chance": 5,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+            "method": "grass",
+            "time": "morn",
+            "level": "34",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+            "method": "grass",
+            "time": "morn",
+            "level": "35",
+            "chance": 5,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+            "method": "grass",
+            "time": "day",
+            "level": "34",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B2F_BLACKTHORN_SIDE",
+            "method": "grass",
+            "time": "day",
+            "level": "35",
+            "chance": 5,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B3F",
+            "method": "grass",
+            "time": "morn",
+            "level": "35",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "ICE_PATH_B3F",
+            "method": "grass",
+            "time": "day",
+            "level": "35",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "Sinjoh Ruins",
+            "method": "hidden_grotto",
+            "time": "common",
+            "level": "Badge Level + 5",
+            "chance": 40,
+            "rareItem": "Ice Stone",
+            "formName": "alolan"
+          }
+        ],
         "height": 6,
         "weight": 99,
         "bodyColor": "White",

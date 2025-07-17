@@ -159,6 +159,15 @@
         "level": "60",
         "chance": 2,
         "formName": null
+      },
+      {
+        "area": "Yellow Forest",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "Badge Level + 0",
+        "chance": 5,
+        "rareItem": "THUNDERSTONE",
+        "formName": null
       }
     ]
   },
@@ -178,19 +187,19 @@
       }
     ],
     "chain": [
-      "Pichu",
-      "Pikachu",
-      "Raichu"
+      "pichu",
+      "pikachu",
+      "raichu"
     ],
     "chainWithMethods": {
-      "Pichu": [
+      "pichu": [
         {
           "method": "EVOLVE_HAPPINESS",
           "parameter": "TR_ANYTIME",
           "target": "Pikachu"
         }
       ],
-      "Pikachu": [
+      "pikachu": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
@@ -204,7 +213,7 @@
           "form": "Alolan Form"
         }
       ],
-      "Raichu": []
+      "raichu": []
     }
   },
   "levelMoves": [
@@ -899,6 +908,15 @@
       "time": "day",
       "level": "60",
       "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "Yellow Forest",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "Badge Level + 0",
+      "chance": 5,
+      "rareItem": "THUNDERSTONE",
       "formName": null
     }
   ],

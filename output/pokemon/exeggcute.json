@@ -162,6 +162,15 @@
         "level": "Badge Level + 2",
         "chance": 5,
         "formName": null
+      },
+      {
+        "area": "Cherrygrove Bay",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "Badge Level + 0",
+        "chance": 40,
+        "rareItem": "Shiny Stone",
+        "formName": null
       }
     ]
   },
@@ -181,11 +190,11 @@
       }
     ],
     "chain": [
-      "Exeggcute",
-      "Exeggutor"
+      "exeggcute",
+      "exeggutor"
     ],
     "chainWithMethods": {
-      "Exeggcute": [
+      "exeggcute": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
@@ -199,7 +208,7 @@
           "form": "Alolan Form"
         }
       ],
-      "Exeggutor": []
+      "exeggutor": []
     }
   },
   "levelMoves": [
@@ -743,6 +752,15 @@
       "time": "nite",
       "level": "Badge Level + 2",
       "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "Cherrygrove Bay",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level + 0",
+      "chance": 40,
+      "rareItem": "Shiny Stone",
       "formName": null
     }
   ],

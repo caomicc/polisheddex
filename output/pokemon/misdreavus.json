@@ -230,6 +230,15 @@
         "level": "54",
         "chance": 60,
         "formName": null
+      },
+      {
+        "area": "Violet Outskirts",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "Badge Level - 0",
+        "chance": 5,
+        "rareItem": "Dusk Stone",
+        "formName": null
       }
     ]
   },
@@ -242,18 +251,18 @@
       }
     ],
     "chain": [
-      "Misdreavus",
-      "Mismagius"
+      "misdreavus",
+      "mismagius"
     ],
     "chainWithMethods": {
-      "Misdreavus": [
+      "misdreavus": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "DUSK_STONE",
           "target": "Mismagius"
         }
       ],
-      "Mismagius": []
+      "mismagius": []
     }
   },
   "levelMoves": [
@@ -968,6 +977,15 @@
       "time": null,
       "level": "54",
       "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "Violet Outskirts",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "Badge Level - 0",
+      "chance": 5,
+      "rareItem": "Dusk Stone",
       "formName": null
     }
   ],

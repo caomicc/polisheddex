@@ -242,6 +242,15 @@
         "level": "14",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "15",
+        "chance": 15,
+        "rareItem": "Sun Stone",
+        "formName": null
       }
     ]
   },
@@ -254,18 +263,18 @@
       }
     ],
     "chain": [
-      "Yanma",
-      "Yanmega"
+      "yanma",
+      "yanmega"
     ],
     "chainWithMethods": {
-      "Yanma": [
+      "yanma": [
         {
           "method": "EVOLVE_MOVE",
           "parameter": "ANCIENTPOWER",
           "target": "Yanmega"
         }
       ],
-      "Yanmega": []
+      "yanmega": []
     }
   },
   "levelMoves": [
@@ -917,6 +926,15 @@
       "time": "nite",
       "level": "14",
       "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "15",
+      "chance": 15,
+      "rareItem": "Sun Stone",
       "formName": null
     }
   ],

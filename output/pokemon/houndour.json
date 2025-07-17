@@ -160,6 +160,15 @@
         "level": "Badge Level - 1",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "16",
+        "chance": 5,
+        "rareItem": "Fire Stone",
+        "formName": null
       }
     ]
   },
@@ -172,18 +181,18 @@
       }
     ],
     "chain": [
-      "Houndour",
-      "Houndoom"
+      "houndour",
+      "houndoom"
     ],
     "chainWithMethods": {
-      "Houndour": [
+      "houndour": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 24,
           "target": "Houndoom"
         }
       ],
-      "Houndoom": []
+      "houndoom": []
     }
   },
   "levelMoves": [
@@ -777,6 +786,15 @@
       "time": "nite",
       "level": "Badge Level - 1",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "16",
+      "chance": 5,
+      "rareItem": "Fire Stone",
       "formName": null
     }
   ],

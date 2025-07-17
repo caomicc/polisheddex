@@ -171,6 +171,15 @@
         "level": "79",
         "chance": 3,
         "formName": null
+      },
+      {
+        "area": "Silver Cave",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "70",
+        "chance": 5,
+        "rareItem": "Fire Stone",
+        "formName": null
       }
     ]
   },
@@ -183,26 +192,26 @@
       }
     ],
     "chain": [
-      "Larvitar",
-      "Pupitar",
-      "Tyranitar"
+      "larvitar",
+      "pupitar",
+      "tyranitar"
     ],
     "chainWithMethods": {
-      "Larvitar": [
+      "larvitar": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Pupitar"
         }
       ],
-      "Pupitar": [
+      "pupitar": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 55,
           "target": "Tyranitar"
         }
       ],
-      "Tyranitar": []
+      "tyranitar": []
     }
   },
   "levelMoves": [
@@ -767,6 +776,15 @@
       "time": "day",
       "level": "79",
       "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "Silver Cave",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "70",
+      "chance": 5,
+      "rareItem": "Fire Stone",
       "formName": null
     }
   ],

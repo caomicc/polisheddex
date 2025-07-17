@@ -171,6 +171,15 @@
         "level": "Badge Level - 15",
         "chance": 2,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "Badge Level + 0",
+        "chance": 5,
+        "rareItem": "Shiny Stone",
+        "formName": null
       }
     ]
   },
@@ -183,26 +192,26 @@
       }
     ],
     "chain": [
-      "Larvitar",
-      "Pupitar",
-      "Tyranitar"
+      "larvitar",
+      "pupitar",
+      "tyranitar"
     ],
     "chainWithMethods": {
-      "Larvitar": [
+      "larvitar": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Pupitar"
         }
       ],
-      "Pupitar": [
+      "pupitar": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 55,
           "target": "Tyranitar"
         }
       ],
-      "Tyranitar": []
+      "tyranitar": []
     }
   },
   "levelMoves": [
@@ -755,6 +764,15 @@
       "time": "day",
       "level": "Badge Level - 15",
       "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "Badge Level + 0",
+      "chance": 5,
+      "rareItem": "Shiny Stone",
       "formName": null
     }
   ],

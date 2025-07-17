@@ -247,6 +247,15 @@
         "level": "Badge Level + 1",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "25",
+        "chance": 40,
+        "rareItem": "Dusk Stone",
+        "formName": null
       }
     ]
   },
@@ -259,26 +268,26 @@
       }
     ],
     "chain": [
-      "Azurill",
-      "Marill",
-      "Azumarill"
+      "azurill",
+      "marill",
+      "azumarill"
     ],
     "chainWithMethods": {
-      "Azurill": [
+      "azurill": [
         {
           "method": "EVOLVE_HAPPINESS",
           "parameter": "TR_ANYTIME",
           "target": "Marill"
         }
       ],
-      "Marill": [
+      "marill": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 18,
           "target": "Azumarill"
         }
       ],
-      "Azumarill": []
+      "azumarill": []
     }
   },
   "levelMoves": [
@@ -1003,6 +1012,15 @@
       "time": "nite",
       "level": "Badge Level + 1",
       "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "25",
+      "chance": 40,
+      "rareItem": "Dusk Stone",
       "formName": null
     }
   ],

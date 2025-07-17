@@ -253,6 +253,15 @@
         "level": "Badge Level - 1",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "Badge Level + 3",
+        "chance": 15,
+        "rareItem": "THUNDERSTONE",
+        "formName": null
       }
     ]
   },
@@ -265,19 +274,19 @@
       }
     ],
     "chain": [
-      "Magnemite",
-      "Magneton",
-      "Magnezone"
+      "magnemite",
+      "magneton",
+      "magnezone"
     ],
     "chainWithMethods": {
-      "Magnemite": [
+      "magnemite": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Magneton"
         }
       ],
-      "Magneton": [
+      "magneton": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
@@ -294,7 +303,7 @@
           "target": "Magnezone"
         }
       ],
-      "Magnezone": []
+      "magnezone": []
     }
   },
   "levelMoves": [
@@ -931,6 +940,15 @@
       "time": "nite",
       "level": "Badge Level - 1",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "Badge Level + 3",
+      "chance": 15,
+      "rareItem": "THUNDERSTONE",
       "formName": null
     }
   ],

@@ -381,11 +381,11 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "Grimer",
-      "Muk"
+      "grimer",
+      "muk"
     ],
     "chainWithMethods": {
-      "Grimer": [
+      "grimer": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 38,
@@ -399,7 +399,7 @@
           "form": "Alolan Form"
         }
       ],
-      "Muk": []
+      "muk": []
     }
   },
   "levelMoves": [
@@ -1558,7 +1558,24 @@
           "Poison",
           "Dark"
         ],
-        "locations": [],
+        "locations": [
+          {
+            "area": "MURKY_SWAMP",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level + 1",
+            "chance": 3,
+            "formName": "alolan"
+          },
+          {
+            "area": "MURKY_SWAMP",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level + 1",
+            "chance": 3,
+            "formName": "alolan"
+          }
+        ],
         "height": 10,
         "weight": 520,
         "bodyColor": "Green",

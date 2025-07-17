@@ -94,17 +94,26 @@
         "level": "8",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "Ruins of Alph",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "25",
+        "chance": 40,
+        "rareItem": "Moon Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Sandshrew",
-      "Sandslash"
+      "sandshrew",
+      "sandslash"
     ],
     "chainWithMethods": {
-      "Sandshrew": [
+      "sandshrew": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 22,
@@ -118,7 +127,7 @@
           "form": "Alolan Form"
         }
       ],
-      "Sandslash": []
+      "sandslash": []
     }
   },
   "levelMoves": [
@@ -750,6 +759,15 @@
       "level": "8",
       "chance": 30,
       "formName": null
+    },
+    {
+      "area": "Ruins of Alph",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "25",
+      "chance": 40,
+      "rareItem": "Moon Stone",
+      "formName": null
     }
   ],
   "pokedexEntries": {
@@ -1058,7 +1076,56 @@
           "Ice",
           "Steel"
         ],
-        "locations": [],
+        "locations": [
+          {
+            "area": "SEAFOAM_ISLANDS_1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "58",
+            "chance": 10,
+            "formName": "alolan"
+          },
+          {
+            "area": "SEAFOAM_ISLANDS_1F",
+            "method": "grass",
+            "time": "day",
+            "level": "58",
+            "chance": 10,
+            "formName": "alolan"
+          },
+          {
+            "area": "SEAFOAM_ISLANDS_1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "58",
+            "chance": 10,
+            "formName": "alolan"
+          },
+          {
+            "area": "SEAFOAM_ISLANDS_B1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "58",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "SEAFOAM_ISLANDS_B1F",
+            "method": "grass",
+            "time": "day",
+            "level": "58",
+            "chance": 20,
+            "formName": "alolan"
+          },
+          {
+            "area": "SEAFOAM_ISLANDS_B1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "58",
+            "chance": 20,
+            "formName": "alolan"
+          }
+        ],
         "height": 7,
         "weight": 400,
         "bodyColor": "White",

@@ -475,6 +475,15 @@
         "level": "54",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "34",
+        "chance": 5,
+        "rareItem": "Leaf Stone",
+        "formName": null
       }
     ]
   },
@@ -487,18 +496,18 @@
       }
     ],
     "chain": [
-      "Onix",
-      "Steelix"
+      "onix",
+      "steelix"
     ],
     "chainWithMethods": {
-      "Onix": [
+      "onix": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "METAL_COAT",
           "target": "Steelix"
         }
       ],
-      "Steelix": []
+      "steelix": []
     }
   },
   "levelMoves": [
@@ -1440,6 +1449,15 @@
       "time": "day",
       "level": "54",
       "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "34",
+      "chance": 5,
+      "rareItem": "Leaf Stone",
       "formName": null
     }
   ],

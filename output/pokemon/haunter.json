@@ -498,6 +498,15 @@
         "level": "56",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "Stormy Beach",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "Badge Level + 3",
+        "chance": 40,
+        "rareItem": "Water Stone",
+        "formName": null
       }
     ]
   },
@@ -510,26 +519,26 @@
       }
     ],
     "chain": [
-      "Gastly",
-      "Haunter",
-      "Gengar"
+      "gastly",
+      "haunter",
+      "gengar"
     ],
     "chainWithMethods": {
-      "Gastly": [
+      "gastly": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Haunter"
         }
       ],
-      "Haunter": [
+      "haunter": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Gengar"
         }
       ],
-      "Gengar": []
+      "gengar": []
     }
   },
   "levelMoves": [
@@ -1522,6 +1531,15 @@
       "time": null,
       "level": "56",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "Stormy Beach",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level + 3",
+      "chance": 40,
+      "rareItem": "Water Stone",
       "formName": null
     }
   ],

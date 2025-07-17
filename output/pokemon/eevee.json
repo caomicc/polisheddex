@@ -76,7 +76,17 @@
     "weight": 65,
     "bodyShape": "Quadruped",
     "bodyColor": "Brown",
-    "locations": []
+    "locations": [
+      {
+        "area": "Bellchime Trail",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "20",
+        "chance": 5,
+        "rareItem": "Sun Stone",
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -142,18 +152,18 @@
       }
     ],
     "chain": [
-      "Eevee",
-      "Jolteon",
-      "Vaporeon",
-      "Flareon",
-      "Espeon",
-      "Umbreon",
-      "Leafeon",
-      "Glaceon",
-      "Sylveon"
+      "eevee",
+      "jolteon",
+      "vaporeon",
+      "flareon",
+      "espeon",
+      "umbreon",
+      "leafeon",
+      "glaceon",
+      "sylveon"
     ],
     "chainWithMethods": {
-      "Eevee": [
+      "eevee": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
@@ -215,14 +225,14 @@
           "target": "Umbreon"
         }
       ],
-      "Jolteon": [],
-      "Vaporeon": [],
-      "Flareon": [],
-      "Espeon": [],
-      "Umbreon": [],
-      "Leafeon": [],
-      "Glaceon": [],
-      "Sylveon": []
+      "jolteon": [],
+      "vaporeon": [],
+      "flareon": [],
+      "espeon": [],
+      "umbreon": [],
+      "leafeon": [],
+      "glaceon": [],
+      "sylveon": []
     }
   },
   "levelMoves": [
@@ -685,7 +695,17 @@
   "eggMoves": [
     "Charm"
   ],
-  "locations": [],
+  "locations": [
+    {
+      "area": "Bellchime Trail",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "20",
+      "chance": 5,
+      "rareItem": "Sun Stone",
+      "formName": null
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Evolution",

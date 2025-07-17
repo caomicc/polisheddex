@@ -354,6 +354,15 @@
         "level": "Badge Level - 2",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "Badge Level + 3",
+        "chance": 40,
+        "rareItem": "Water Stone",
+        "formName": null
       }
     ]
   },
@@ -366,26 +375,26 @@
       }
     ],
     "chain": [
-      "Bellsprout",
-      "Weepinbell",
-      "Victreebel"
+      "bellsprout",
+      "weepinbell",
+      "victreebel"
     ],
     "chainWithMethods": {
-      "Bellsprout": [
+      "bellsprout": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 21,
           "target": "Weepinbell"
         }
       ],
-      "Weepinbell": [
+      "weepinbell": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Victreebel"
         }
       ],
-      "Victreebel": []
+      "victreebel": []
     }
   },
   "levelMoves": [
@@ -1101,6 +1110,15 @@
       "time": "day",
       "level": "Badge Level - 2",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level + 3",
+      "chance": 40,
+      "rareItem": "Water Stone",
       "formName": null
     }
   ],

@@ -488,24 +488,33 @@
         "level": "Badge Level + 1",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "Violet Outskirts",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "Badge Level - 0",
+        "chance": 15,
+        "rareItem": "Dusk Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Hoothoot",
-      "Noctowl"
+      "hoothoot",
+      "noctowl"
     ],
     "chainWithMethods": {
-      "Hoothoot": [
+      "hoothoot": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Noctowl"
         }
       ],
-      "Noctowl": []
+      "noctowl": []
     }
   },
   "levelMoves": [
@@ -1445,6 +1454,15 @@
       "time": "nite",
       "level": "Badge Level + 1",
       "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "Violet Outskirts",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "Badge Level - 0",
+      "chance": 15,
+      "rareItem": "Dusk Stone",
       "formName": null
     }
   ],

@@ -126,18 +126,27 @@
         "level": "48",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "Yellow Forest",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "Badge Level + 0",
+        "chance": 15,
+        "rareItem": "THUNDERSTONE",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Meowth",
-      "Persian",
-      "Perrserker"
+      "meowth",
+      "persian",
+      "perrserker"
     ],
     "chainWithMethods": {
-      "Meowth": [
+      "meowth": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
@@ -157,8 +166,8 @@
           "form": "Plain Form"
         }
       ],
-      "Persian": [],
-      "Perrserker": []
+      "persian": [],
+      "perrserker": []
     }
   },
   "levelMoves": [
@@ -784,6 +793,15 @@
       "level": "48",
       "chance": 30,
       "formName": null
+    },
+    {
+      "area": "Yellow Forest",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "Badge Level + 0",
+      "chance": 15,
+      "rareItem": "THUNDERSTONE",
+      "formName": null
     }
   ],
   "pokedexEntries": {
@@ -1064,7 +1082,32 @@
         "evYield": "1 Spe",
         "types": "Dark",
         "updatedTypes": "Dark",
-        "locations": [],
+        "locations": [
+          {
+            "area": "LUCKY_ISLAND",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level - 3",
+            "chance": 10,
+            "formName": "alolan"
+          },
+          {
+            "area": "LUCKY_ISLAND",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level - 2",
+            "chance": 5,
+            "formName": "alolan"
+          },
+          {
+            "area": "LUCKY_ISLAND",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level - 1",
+            "chance": 3,
+            "formName": "alolan"
+          }
+        ],
         "height": 4,
         "weight": 75,
         "bodyColor": "Brown",
@@ -1308,7 +1351,32 @@
         "evYield": "1 Atk",
         "types": "Steel",
         "updatedTypes": "Steel",
-        "locations": [],
+        "locations": [
+          {
+            "area": "SHAMOUTI_TUNNEL",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level + 1",
+            "chance": 20,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_TUNNEL",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level + 1",
+            "chance": 20,
+            "formName": "galarian"
+          },
+          {
+            "area": "SHAMOUTI_TUNNEL",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level + 1",
+            "chance": 20,
+            "formName": "galarian"
+          }
+        ],
         "height": 4,
         "weight": 75,
         "bodyColor": "Brown",

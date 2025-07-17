@@ -288,6 +288,15 @@
         "level": "14",
         "chance": 5,
         "formName": null
+      },
+      {
+        "area": "Bellchime Trail",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "20",
+        "chance": 40,
+        "rareItem": "Sun Stone",
+        "formName": null
       }
     ]
   },
@@ -300,18 +309,18 @@
       }
     ],
     "chain": [
-      "Hoothoot",
-      "Noctowl"
+      "hoothoot",
+      "noctowl"
     ],
     "chainWithMethods": {
-      "Hoothoot": [
+      "hoothoot": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Noctowl"
         }
       ],
-      "Noctowl": []
+      "noctowl": []
     }
   },
   "levelMoves": [
@@ -1021,6 +1030,15 @@
       "time": "nite",
       "level": "14",
       "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "Bellchime Trail",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "20",
+      "chance": 40,
+      "rareItem": "Sun Stone",
       "formName": null
     }
   ],

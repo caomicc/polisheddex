@@ -171,6 +171,15 @@
         "level": "55",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "Ilex Forest",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "9",
+        "chance": 40,
+        "rareItem": "Leaf Stone",
+        "formName": null
       }
     ]
   },
@@ -183,18 +192,18 @@
       }
     ],
     "chain": [
-      "Paras",
-      "Parasect"
+      "paras",
+      "parasect"
     ],
     "chainWithMethods": {
-      "Paras": [
+      "paras": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 24,
           "target": "Parasect"
         }
       ],
-      "Parasect": []
+      "parasect": []
     }
   },
   "levelMoves": [
@@ -769,6 +778,15 @@
       "time": "nite",
       "level": "55",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "Ilex Forest",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "9",
+      "chance": 40,
+      "rareItem": "Leaf Stone",
       "formName": null
     }
   ],

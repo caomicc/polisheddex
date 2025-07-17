@@ -200,6 +200,15 @@
         "level": "Badge Level - 2",
         "chance": 3,
         "formName": null
+      },
+      {
+        "area": "Ruins of Alph",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "25",
+        "chance": 40,
+        "rareItem": "Moon Stone",
+        "formName": null
       }
     ]
   },
@@ -212,18 +221,18 @@
       }
     ],
     "chain": [
-      "Natu",
-      "Xatu"
+      "natu",
+      "xatu"
     ],
     "chainWithMethods": {
-      "Natu": [
+      "natu": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Xatu"
         }
       ],
-      "Xatu": []
+      "xatu": []
     }
   },
   "levelMoves": [
@@ -873,6 +882,15 @@
       "time": "nite",
       "level": "Badge Level - 2",
       "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "Ruins of Alph",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "25",
+      "chance": 40,
+      "rareItem": "Moon Stone",
       "formName": null
     }
   ],

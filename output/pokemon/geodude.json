@@ -568,12 +568,12 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "Geodude",
-      "Graveler",
-      "Golem"
+      "geodude",
+      "graveler",
+      "golem"
     ],
     "chainWithMethods": {
-      "Geodude": [
+      "geodude": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
@@ -587,7 +587,7 @@
           "form": "Alolan Form"
         }
       ],
-      "Graveler": [
+      "graveler": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
@@ -601,7 +601,7 @@
           "form": "Alolan Form"
         }
       ],
-      "Golem": []
+      "golem": []
     }
   },
   "levelMoves": [
@@ -1913,7 +1913,32 @@
           "Rock",
           "Electric"
         ],
-        "locations": [],
+        "locations": [
+          {
+            "area": "MAGNET_TUNNEL_INSIDE",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level - 2",
+            "chance": 30,
+            "formName": "alolan"
+          },
+          {
+            "area": "MAGNET_TUNNEL_INSIDE",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level - 2",
+            "chance": 30,
+            "formName": "alolan"
+          },
+          {
+            "area": "MAGNET_TUNNEL_INSIDE",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level - 2",
+            "chance": 30,
+            "formName": "alolan"
+          }
+        ],
         "height": 4,
         "weight": 203,
         "bodyColor": "Gray",

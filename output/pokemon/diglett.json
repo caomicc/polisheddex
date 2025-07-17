@@ -180,11 +180,11 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "Diglett",
-      "Dugtrio"
+      "diglett",
+      "dugtrio"
     ],
     "chainWithMethods": {
-      "Diglett": [
+      "diglett": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 26,
@@ -198,7 +198,7 @@
           "form": "Alolan Form"
         }
       ],
-      "Dugtrio": []
+      "dugtrio": []
     }
   },
   "levelMoves": [
@@ -1070,7 +1070,56 @@
           "Ground",
           "Steel"
         ],
-        "locations": [],
+        "locations": [
+          {
+            "area": "CINNABAR_VOLCANO_1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "60",
+            "chance": 5,
+            "formName": "alolan"
+          },
+          {
+            "area": "CINNABAR_VOLCANO_1F",
+            "method": "grass",
+            "time": "day",
+            "level": "60",
+            "chance": 5,
+            "formName": "alolan"
+          },
+          {
+            "area": "CINNABAR_VOLCANO_1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "61",
+            "chance": 3,
+            "formName": "alolan"
+          },
+          {
+            "area": "CINNABAR_VOLCANO_B1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "61",
+            "chance": 10,
+            "formName": "alolan"
+          },
+          {
+            "area": "CINNABAR_VOLCANO_B1F",
+            "method": "grass",
+            "time": "day",
+            "level": "61",
+            "chance": 10,
+            "formName": "alolan"
+          },
+          {
+            "area": "CINNABAR_VOLCANO_B1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "62",
+            "chance": 5,
+            "formName": "alolan"
+          }
+        ],
         "height": 2,
         "weight": 10,
         "bodyColor": "Brown",

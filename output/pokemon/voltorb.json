@@ -132,17 +132,26 @@
         "level": "Badge Level - 1",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "Badge Level + 3",
+        "chance": 5,
+        "rareItem": "THUNDERSTONE",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Voltorb",
-      "Electrode"
+      "voltorb",
+      "electrode"
     ],
     "chainWithMethods": {
-      "Voltorb": [
+      "voltorb": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
@@ -155,7 +164,7 @@
           "form": "Hisuian Form"
         }
       ],
-      "Electrode": []
+      "electrode": []
     }
   },
   "levelMoves": [
@@ -692,6 +701,15 @@
       "time": "day",
       "level": "Badge Level - 1",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "Badge Level + 3",
+      "chance": 5,
+      "rareItem": "THUNDERSTONE",
       "formName": null
     }
   ],

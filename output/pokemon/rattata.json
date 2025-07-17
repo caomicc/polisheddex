@@ -1108,11 +1108,11 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "Rattata",
-      "Raticate"
+      "rattata",
+      "raticate"
     ],
     "chainWithMethods": {
-      "Rattata": [
+      "rattata": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
@@ -1125,7 +1125,7 @@
           "form": "Alolan Form"
         }
       ],
-      "Raticate": []
+      "raticate": []
     }
   },
   "levelMoves": [
@@ -2912,7 +2912,41 @@
           "Dark",
           "Normal"
         ],
-        "locations": [],
+        "locations": [
+          {
+            "area": "ROUTE_34",
+            "method": "grass",
+            "time": "morn",
+            "level": "12",
+            "chance": 30,
+            "formName": "alolan"
+          },
+          {
+            "area": "ROUTE_34",
+            "method": "grass",
+            "time": "day",
+            "level": "12",
+            "chance": 30,
+            "formName": "alolan"
+          },
+          {
+            "area": "ROUTE_34",
+            "method": "grass",
+            "time": "nite",
+            "level": "12",
+            "chance": 30,
+            "formName": "alolan"
+          },
+          {
+            "area": "Violet Outskirts",
+            "method": "hidden_grotto",
+            "time": "common",
+            "level": "Badge Level - 0",
+            "chance": 40,
+            "rareItem": "Dusk Stone",
+            "formName": "alolan"
+          }
+        ],
         "height": 3,
         "weight": 38,
         "bodyColor": "Black",

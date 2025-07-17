@@ -386,6 +386,15 @@
         "level": "51",
         "chance": 20,
         "formName": null
+      },
+      {
+        "area": "Violet Outskirts",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "Badge Level - 0",
+        "chance": 40,
+        "rareItem": "Dusk Stone",
+        "formName": null
       }
     ]
   },
@@ -398,26 +407,26 @@
       }
     ],
     "chain": [
-      "Bellsprout",
-      "Weepinbell",
-      "Victreebel"
+      "bellsprout",
+      "weepinbell",
+      "victreebel"
     ],
     "chainWithMethods": {
-      "Bellsprout": [
+      "bellsprout": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 21,
           "target": "Weepinbell"
         }
       ],
-      "Weepinbell": [
+      "weepinbell": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Victreebel"
         }
       ],
-      "Victreebel": []
+      "victreebel": []
     }
   },
   "levelMoves": [
@@ -1165,6 +1174,15 @@
       "time": "day",
       "level": "51",
       "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "Violet Outskirts",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level - 0",
+      "chance": 40,
+      "rareItem": "Dusk Stone",
       "formName": null
     }
   ],

@@ -172,16 +172,25 @@
         "level": "59",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "Badge Level + 3",
+        "chance": 40,
+        "rareItem": "THUNDERSTONE",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Tauros"
+      "tauros"
     ],
     "chainWithMethods": {
-      "Tauros": []
+      "tauros": []
     }
   },
   "levelMoves": [
@@ -873,6 +882,15 @@
       "level": "59",
       "chance": 10,
       "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level + 3",
+      "chance": 40,
+      "rareItem": "THUNDERSTONE",
+      "formName": null
     }
   ],
   "pokedexEntries": {
@@ -1159,7 +1177,32 @@
         "evYield": "1 Atk",
         "types": "Fighting",
         "updatedTypes": "Fighting",
-        "locations": [],
+        "locations": [
+          {
+            "area": "SAFARI_ZONE_EAST",
+            "method": "grass",
+            "time": "morn",
+            "level": "59",
+            "chance": 10,
+            "formName": "paldean"
+          },
+          {
+            "area": "SAFARI_ZONE_EAST",
+            "method": "grass",
+            "time": "day",
+            "level": "59",
+            "chance": 10,
+            "formName": "paldean"
+          },
+          {
+            "area": "SAFARI_ZONE_EAST",
+            "method": "grass",
+            "time": "nite",
+            "level": "59",
+            "chance": 10,
+            "formName": "paldean"
+          }
+        ],
         "height": 14,
         "weight": 1100,
         "bodyColor": "Black",

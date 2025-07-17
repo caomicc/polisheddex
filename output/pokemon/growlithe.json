@@ -158,17 +158,26 @@
         "level": "53",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "16",
+        "chance": 40,
+        "rareItem": "Fire Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Growlithe",
-      "Arcanine"
+      "growlithe",
+      "arcanine"
     ],
     "chainWithMethods": {
-      "Growlithe": [
+      "growlithe": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "FIRE_STONE",
@@ -181,7 +190,7 @@
           "form": "Hisuian Form"
         }
       ],
-      "Arcanine": []
+      "arcanine": []
     }
   },
   "levelMoves": [
@@ -815,6 +824,15 @@
       "time": "day",
       "level": "53",
       "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "16",
+      "chance": 40,
+      "rareItem": "Fire Stone",
       "formName": null
     }
   ],

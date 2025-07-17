@@ -402,24 +402,33 @@
         "level": "64",
         "chance": 5,
         "formName": null
+      },
+      {
+        "area": "Silver Cave",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "70",
+        "chance": 15,
+        "rareItem": "Fire Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Onix",
-      "Steelix"
+      "onix",
+      "steelix"
     ],
     "chainWithMethods": {
-      "Onix": [
+      "onix": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "METAL_COAT",
           "target": "Steelix"
         }
       ],
-      "Steelix": []
+      "steelix": []
     }
   },
   "levelMoves": [
@@ -1355,6 +1364,15 @@
       "time": "nite",
       "level": "64",
       "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "Silver Cave",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "70",
+      "chance": 15,
+      "rareItem": "Fire Stone",
       "formName": null
     }
   ],

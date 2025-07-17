@@ -292,11 +292,11 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "Sandshrew",
-      "Sandslash"
+      "sandshrew",
+      "sandslash"
     ],
     "chainWithMethods": {
-      "Sandshrew": [
+      "sandshrew": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 22,
@@ -310,7 +310,7 @@
           "form": "Alolan Form"
         }
       ],
-      "Sandslash": []
+      "sandslash": []
     }
   },
   "levelMoves": [
@@ -1406,7 +1406,56 @@
           "Ice",
           "Steel"
         ],
-        "locations": [],
+        "locations": [
+          {
+            "area": "SEAFOAM_ISLANDS_1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "62",
+            "chance": 2,
+            "formName": "alolan"
+          },
+          {
+            "area": "SEAFOAM_ISLANDS_1F",
+            "method": "grass",
+            "time": "day",
+            "level": "62",
+            "chance": 2,
+            "formName": "alolan"
+          },
+          {
+            "area": "SEAFOAM_ISLANDS_1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "62",
+            "chance": 2,
+            "formName": "alolan"
+          },
+          {
+            "area": "SEAFOAM_ISLANDS_B1F",
+            "method": "grass",
+            "time": "morn",
+            "level": "59",
+            "chance": 10,
+            "formName": "alolan"
+          },
+          {
+            "area": "SEAFOAM_ISLANDS_B1F",
+            "method": "grass",
+            "time": "day",
+            "level": "59",
+            "chance": 10,
+            "formName": "alolan"
+          },
+          {
+            "area": "SEAFOAM_ISLANDS_B1F",
+            "method": "grass",
+            "time": "nite",
+            "level": "59",
+            "chance": 10,
+            "formName": "alolan"
+          }
+        ],
         "height": 12,
         "weight": 550,
         "bodyColor": "Blue",

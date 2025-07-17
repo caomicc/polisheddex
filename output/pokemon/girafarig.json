@@ -162,6 +162,15 @@
         "level": "Badge Level - 4",
         "chance": 2,
         "formName": null
+      },
+      {
+        "area": "Lake of Rage",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "26",
+        "chance": 40,
+        "rareItem": "Water Stone",
+        "formName": null
       }
     ]
   },
@@ -174,18 +183,18 @@
       }
     ],
     "chain": [
-      "Girafarig",
-      "Farigiraf"
+      "girafarig",
+      "farigiraf"
     ],
     "chainWithMethods": {
-      "Girafarig": [
+      "girafarig": [
         {
           "method": "EVOLVE_MOVE",
           "parameter": "ZEN_HEADBUTT",
           "target": "Farigiraf"
         }
       ],
-      "Farigiraf": []
+      "farigiraf": []
     }
   },
   "levelMoves": [
@@ -880,6 +889,15 @@
       "time": "nite",
       "level": "Badge Level - 4",
       "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "Lake of Rage",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "26",
+      "chance": 40,
+      "rareItem": "Water Stone",
       "formName": null
     }
   ],

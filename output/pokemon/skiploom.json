@@ -136,6 +136,15 @@
         "level": "53",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "Cherrygrove Bay",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "Badge Level + 0",
+        "chance": 40,
+        "rareItem": "Shiny Stone",
+        "formName": null
       }
     ]
   },
@@ -148,26 +157,26 @@
       }
     ],
     "chain": [
-      "Hoppip",
-      "Skiploom",
-      "Jumpluff"
+      "hoppip",
+      "skiploom",
+      "jumpluff"
     ],
     "chainWithMethods": {
-      "Hoppip": [
+      "hoppip": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 18,
           "target": "Skiploom"
         }
       ],
-      "Skiploom": [
+      "skiploom": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 27,
           "target": "Jumpluff"
         }
       ],
-      "Jumpluff": []
+      "jumpluff": []
     }
   },
   "levelMoves": [
@@ -753,6 +762,15 @@
       "time": "day",
       "level": "53",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "Cherrygrove Bay",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level + 0",
+      "chance": 40,
+      "rareItem": "Shiny Stone",
       "formName": null
     }
   ],

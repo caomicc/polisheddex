@@ -94,6 +94,15 @@
         "level": "20",
         "chance": 5,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "24",
+        "chance": 40,
+        "rareItem": "Leaf Stone",
+        "formName": null
       }
     ]
   },
@@ -106,19 +115,19 @@
       }
     ],
     "chain": [
-      "Teddiursa",
-      "Ursaring",
-      "Ursaluna"
+      "teddiursa",
+      "ursaring",
+      "ursaluna"
     ],
     "chainWithMethods": {
-      "Teddiursa": [
+      "teddiursa": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Ursaring"
         }
       ],
-      "Ursaring": [
+      "ursaring": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "MOON_STONE",
@@ -135,7 +144,7 @@
           "target": "Ursaluna"
         }
       ],
-      "Ursaluna": []
+      "ursaluna": []
     }
   },
   "levelMoves": [
@@ -777,6 +786,15 @@
       "time": "morn",
       "level": "20",
       "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "24",
+      "chance": 40,
+      "rareItem": "Leaf Stone",
       "formName": null
     }
   ],

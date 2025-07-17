@@ -1662,17 +1662,26 @@
         "level": "58",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "Badge Level + 3",
+        "chance": 15,
+        "rareItem": "Water Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Rattata",
-      "Raticate"
+      "rattata",
+      "raticate"
     ],
     "chainWithMethods": {
-      "Rattata": [
+      "rattata": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
@@ -1685,7 +1694,7 @@
           "form": "Alolan Form"
         }
       ],
-      "Raticate": []
+      "raticate": []
     }
   },
   "levelMoves": [
@@ -3840,6 +3849,15 @@
       "time": "day",
       "level": "58",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "Badge Level + 3",
+      "chance": 15,
+      "rareItem": "Water Stone",
       "formName": null
     }
   ],

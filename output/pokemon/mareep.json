@@ -263,6 +263,15 @@
         "level": "Badge Level - 1",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "5",
+        "chance": 40,
+        "rareItem": "Everstone",
+        "formName": null
       }
     ]
   },
@@ -275,19 +284,19 @@
       }
     ],
     "chain": [
-      "Mareep",
-      "Flaaffy",
-      "Ampharos"
+      "mareep",
+      "flaaffy",
+      "ampharos"
     ],
     "chainWithMethods": {
-      "Mareep": [
+      "mareep": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 15,
           "target": "Flaaffy"
         }
       ],
-      "Flaaffy": [
+      "flaaffy": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
@@ -299,7 +308,7 @@
           "target": "Ampharos"
         }
       ],
-      "Ampharos": []
+      "ampharos": []
     }
   },
   "levelMoves": [
@@ -924,6 +933,15 @@
       "time": "day",
       "level": "Badge Level - 1",
       "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "5",
+      "chance": 40,
+      "rareItem": "Everstone",
       "formName": null
     }
   ],

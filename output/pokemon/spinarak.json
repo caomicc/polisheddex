@@ -136,6 +136,15 @@
         "level": "Badge Level - 1",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "Yellow Forest",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "Badge Level + 0",
+        "chance": 40,
+        "rareItem": "THUNDERSTONE",
+        "formName": null
       }
     ]
   },
@@ -148,18 +157,18 @@
       }
     ],
     "chain": [
-      "Spinarak",
-      "Ariados"
+      "spinarak",
+      "ariados"
     ],
     "chainWithMethods": {
-      "Spinarak": [
+      "spinarak": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 22,
           "target": "Ariados"
         }
       ],
-      "Ariados": []
+      "ariados": []
     }
   },
   "levelMoves": [
@@ -708,6 +717,15 @@
       "time": "nite",
       "level": "Badge Level - 1",
       "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "Yellow Forest",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level + 0",
+      "chance": 40,
+      "rareItem": "THUNDERSTONE",
       "formName": null
     }
   ],

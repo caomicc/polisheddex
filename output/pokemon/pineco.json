@@ -76,7 +76,17 @@
     "weight": 72,
     "bodyShape": "Head",
     "bodyColor": "Gray",
-    "locations": []
+    "locations": [
+      {
+        "area": "Ilex Forest",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "9",
+        "chance": 5,
+        "rareItem": "Leaf Stone",
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -87,18 +97,18 @@
       }
     ],
     "chain": [
-      "Pineco",
-      "Forretress"
+      "pineco",
+      "forretress"
     ],
     "chainWithMethods": {
-      "Pineco": [
+      "pineco": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 31,
           "target": "Forretress"
         }
       ],
-      "Forretress": []
+      "forretress": []
     }
   },
   "levelMoves": [
@@ -594,7 +604,17 @@
     "Reflect",
     "Toxic Spikes"
   ],
-  "locations": [],
+  "locations": [
+    {
+      "area": "Ilex Forest",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "9",
+      "chance": 5,
+      "rareItem": "Leaf Stone",
+      "formName": null
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Bagworm",

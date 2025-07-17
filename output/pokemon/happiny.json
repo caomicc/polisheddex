@@ -124,23 +124,23 @@
       }
     ],
     "chain": [
-      "Happiny",
-      "Tr Mornday",
-      "Sneasel",
-      "Tr Evenite",
-      "Gligar"
+      "gligar",
+      "tr-evenite",
+      "sneasel",
+      "tr-mornday",
+      "happiny"
     ],
     "chainWithMethods": {
-      "Happiny": [
+      "gligar": [
         {
           "method": "EVOLVE_HOLDING",
-          "parameter": "OVAL_STONE",
-          "target": "Tr Mornday",
-          "form": "Chansey"
+          "parameter": "RAZOR_FANG",
+          "target": "Tr Evenite",
+          "form": "Gliscor"
         }
       ],
-      "Tr Mornday": [],
-      "Sneasel": [
+      "tr-evenite": [],
+      "sneasel": [
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "RAZOR_CLAW",
@@ -154,13 +154,13 @@
           "form": "Sneasler"
         }
       ],
-      "Tr Evenite": [],
-      "Gligar": [
+      "tr-mornday": [],
+      "happiny": [
         {
           "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_FANG",
-          "target": "Tr Evenite",
-          "form": "Gliscor"
+          "parameter": "OVAL_STONE",
+          "target": "Tr Mornday",
+          "form": "Chansey"
         }
       ]
     }

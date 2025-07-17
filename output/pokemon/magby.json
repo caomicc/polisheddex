@@ -103,6 +103,15 @@
         "level": "15",
         "chance": 2,
         "formName": null
+      },
+      {
+        "area": "Bellchime Trail",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "20",
+        "chance": 15,
+        "rareItem": "Sun Stone",
+        "formName": null
       }
     ]
   },
@@ -115,26 +124,26 @@
       }
     ],
     "chain": [
-      "Magby",
-      "Magmar",
-      "Magmortar"
+      "magby",
+      "magmar",
+      "magmortar"
     ],
     "chainWithMethods": {
-      "Magby": [
+      "magby": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Magmar"
         }
       ],
-      "Magmar": [
+      "magmar": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "MAGMARIZER",
           "target": "Magmortar"
         }
       ],
-      "Magmortar": []
+      "magmortar": []
     }
   },
   "levelMoves": [
@@ -612,6 +621,15 @@
       "time": "nite",
       "level": "15",
       "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "Bellchime Trail",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "20",
+      "chance": 15,
+      "rareItem": "Sun Stone",
       "formName": null
     }
   ],

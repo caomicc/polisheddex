@@ -57,7 +57,13 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
               ? pokemon.nationalDex
               : '—'}
           </p>
-          <h2 className="text-sm md:text-xl md:mb-8 font-bold leading-none mb-2">{pokemon.name}</h2>
+          <h2 className="text-sm md:text-xl md:mb-8 font-bold leading-none mb-2">
+            {pokemon.name
+              .toLowerCase()
+              .split(' ')
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' ')}
+          </h2>
           <div className="flex md:justify-center gap-1 md:gap-2 flex-col md:flex-row">
             {(Array.isArray(displayTypes) ? displayTypes : [displayTypes]).map((type) => (
               <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>

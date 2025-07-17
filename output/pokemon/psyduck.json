@@ -315,6 +315,15 @@
         "level": "45",
         "chance": 10,
         "formName": null
+      },
+      {
+        "area": "Ilex Forest",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "9",
+        "chance": 15,
+        "rareItem": "Leaf Stone",
+        "formName": null
       }
     ]
   },
@@ -327,18 +336,18 @@
       }
     ],
     "chain": [
-      "Psyduck",
-      "Golduck"
+      "psyduck",
+      "golduck"
     ],
     "chainWithMethods": {
-      "Psyduck": [
+      "psyduck": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 33,
           "target": "Golduck"
         }
       ],
-      "Golduck": []
+      "golduck": []
     }
   },
   "levelMoves": [
@@ -1185,6 +1194,15 @@
       "time": null,
       "level": "45",
       "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "Ilex Forest",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "9",
+      "chance": 15,
+      "rareItem": "Leaf Stone",
       "formName": null
     }
   ],

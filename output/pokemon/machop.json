@@ -182,6 +182,24 @@
         "level": "Badge Level + 0",
         "chance": 5,
         "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "Badge Level + 0",
+        "chance": 15,
+        "rareItem": "Shiny Stone",
+        "formName": null
+      },
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "uncommon",
+        "level": "25",
+        "chance": 15,
+        "rareItem": "Dusk Stone",
+        "formName": null
       }
     ]
   },
@@ -194,26 +212,26 @@
       }
     ],
     "chain": [
-      "Machop",
-      "Machoke",
-      "Machamp"
+      "machop",
+      "machoke",
+      "machamp"
     ],
     "chainWithMethods": {
-      "Machop": [
+      "machop": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
           "target": "Machoke"
         }
       ],
-      "Machoke": [
+      "machoke": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Machamp"
         }
       ],
-      "Machamp": []
+      "machamp": []
     }
   },
   "levelMoves": [
@@ -887,6 +905,24 @@
       "time": "day",
       "level": "Badge Level + 0",
       "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "Badge Level + 0",
+      "chance": 15,
+      "rareItem": "Shiny Stone",
+      "formName": null
+    },
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "25",
+      "chance": 15,
+      "rareItem": "Dusk Stone",
       "formName": null
     }
   ],

@@ -76,7 +76,17 @@
     "weight": 115,
     "bodyShape": "Bipedal Tail",
     "bodyColor": "Purple",
-    "locations": []
+    "locations": [
+      {
+        "area": "ROUTE ",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "Badge Level + 3",
+        "chance": 40,
+        "rareItem": "Water Stone",
+        "formName": null
+      }
+    ]
   },
   "evolution": {
     "methods": [
@@ -87,18 +97,18 @@
       }
     ],
     "chain": [
-      "Aipom",
-      "Ambipom"
+      "aipom",
+      "ambipom"
     ],
     "chainWithMethods": {
-      "Aipom": [
+      "aipom": [
         {
           "method": "EVOLVE_MOVE",
           "parameter": "DOUBLE_SLAP",
           "target": "Ambipom"
         }
       ],
-      "Ambipom": []
+      "ambipom": []
     }
   },
   "levelMoves": [
@@ -718,7 +728,17 @@
     "Counter",
     "Pursuit"
   ],
-  "locations": [],
+  "locations": [
+    {
+      "area": "ROUTE ",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "Badge Level + 3",
+      "chance": 40,
+      "rareItem": "Water Stone",
+      "formName": null
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Long Tail",

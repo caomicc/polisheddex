@@ -203,20 +203,47 @@
         "level": "Badge Level - 1",
         "chance": 30,
         "formName": null
+      },
+      {
+        "area": "Snowtop Mountain Inside",
+        "method": "hidden_grotto",
+        "time": "rare",
+        "level": "Badge Level + 4",
+        "chance": 5,
+        "rareItem": "Ice Stone",
+        "formName": null
+      },
+      {
+        "area": "Silver Cave",
+        "method": "hidden_grotto",
+        "time": "common",
+        "level": "70",
+        "chance": 40,
+        "rareItem": "Fire Stone",
+        "formName": null
       }
     ]
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Sneasel",
-      "Tr Evenite",
-      "Tr Mornday",
-      "Gligar",
-      "Happiny"
+      "gligar",
+      "tr-evenite",
+      "sneasel",
+      "tr-mornday",
+      "happiny"
     ],
     "chainWithMethods": {
-      "Sneasel": [
+      "gligar": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_FANG",
+          "target": "Tr Evenite",
+          "form": "Gliscor"
+        }
+      ],
+      "tr-evenite": [],
+      "sneasel": [
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "RAZOR_CLAW",
@@ -230,17 +257,8 @@
           "form": "Sneasler"
         }
       ],
-      "Tr Evenite": [],
-      "Tr Mornday": [],
-      "Gligar": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_FANG",
-          "target": "Tr Evenite",
-          "form": "Gliscor"
-        }
-      ],
-      "Happiny": [
+      "tr-mornday": [],
+      "happiny": [
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "OVAL_STONE",
@@ -999,6 +1017,24 @@
       "time": "nite",
       "level": "Badge Level - 1",
       "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "Snowtop Mountain Inside",
+      "method": "hidden_grotto",
+      "time": "rare",
+      "level": "Badge Level + 4",
+      "chance": 5,
+      "rareItem": "Ice Stone",
+      "formName": null
+    },
+    {
+      "area": "Silver Cave",
+      "method": "hidden_grotto",
+      "time": "common",
+      "level": "70",
+      "chance": 40,
+      "rareItem": "Fire Stone",
       "formName": null
     }
   ],

@@ -124,12 +124,12 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "Meowth",
-      "Persian",
-      "Perrserker"
+      "meowth",
+      "persian",
+      "perrserker"
     ],
     "chainWithMethods": {
-      "Meowth": [
+      "meowth": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
@@ -149,8 +149,8 @@
           "form": "Plain Form"
         }
       ],
-      "Persian": [],
-      "Perrserker": []
+      "persian": [],
+      "perrserker": []
     }
   },
   "levelMoves": [
@@ -1143,7 +1143,16 @@
         "evYield": "2 Spe",
         "types": "Dark",
         "updatedTypes": "Dark",
-        "locations": [],
+        "locations": [
+          {
+            "area": "LUCKY_ISLAND",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level + 0",
+            "chance": 2,
+            "formName": "alolan"
+          }
+        ],
         "height": 11,
         "weight": 330,
         "bodyColor": "Blue",
