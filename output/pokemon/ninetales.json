@@ -553,7 +553,32 @@
     "Ice Beam",
     "Roar"
   ],
-  "locations": [],
+  "locations": [
+    {
+      "area": "SOUL_HOUSE_B3F",
+      "method": "grass",
+      "time": "morn",
+      "level": "52",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B3F",
+      "method": "grass",
+      "time": "day",
+      "level": "52",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "SOUL_HOUSE_B3F",
+      "method": "grass",
+      "time": "nite",
+      "level": "52",
+      "chance": 3,
+      "formName": null
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Fox",
@@ -734,6 +759,51 @@
         "bodyColor": "Blue",
         "bodyShape": "Quadruped"
       }
+    },
+    "alolan": {
+      "moves": [],
+      "nationalDex": 38,
+      "johtoDex": 135,
+      "types": "Fire",
+      "updatedTypes": [
+        "Fire",
+        "Ghost"
+      ],
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Ninetalesalolan"
+        ],
+        "chainWithMethods": {
+          "Ninetalesalolan": []
+        }
+      },
+      "forms": {},
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": "alolan"
     },
     "Plain": {
       "name": "Ninetales plain",

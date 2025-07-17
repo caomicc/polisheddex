@@ -557,7 +557,120 @@
     "Extremespeed",
     "Play Rough"
   ],
-  "locations": [],
+  "locations": [
+    {
+      "area": "SILVER_CAVE_OUTSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "70",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_OUTSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "70",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_22",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_22",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_22",
+      "method": "grass",
+      "time": "morn",
+      "level": "60",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_22",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_22",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_22",
+      "method": "grass",
+      "time": "day",
+      "level": "60",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_26",
+      "method": "grass",
+      "time": "morn",
+      "level": "41",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_26",
+      "method": "grass",
+      "time": "day",
+      "level": "41",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_27",
+      "method": "grass",
+      "time": "morn",
+      "level": "41",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_27",
+      "method": "grass",
+      "time": "day",
+      "level": "41",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_28",
+      "method": "grass",
+      "time": "morn",
+      "level": "67",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_28",
+      "method": "grass",
+      "time": "day",
+      "level": "67",
+      "chance": 30,
+      "formName": null
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Fire Horse",
@@ -718,7 +831,15 @@
         },
         {
           "name": "Psychic M",
-          "level": 41
+          "level": 41,
+          "info": {
+            "description": "No description available.",
+            "type": "Unknown",
+            "pp": 0,
+            "power": 0,
+            "accuracy": 0,
+            "category": "Unknown"
+          }
         },
         {
           "name": "Extremespeed",
@@ -820,6 +941,48 @@
         "bodyColor": "White",
         "bodyShape": "Quadruped"
       }
+    },
+    "galarian": {
+      "moves": [],
+      "nationalDex": 77,
+      "johtoDex": 231,
+      "types": "Fire",
+      "updatedTypes": "Fire",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Ponytagalarian"
+        ],
+        "chainWithMethods": {
+          "Ponytagalarian": []
+        }
+      },
+      "forms": {},
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": "galarian"
     },
     "Plain": {
       "name": "Ponyta plain",

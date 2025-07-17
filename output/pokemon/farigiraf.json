@@ -1,29 +1,31 @@
 {
-  "name": "Xatu",
-  "nationalDex": 178,
-  "johtoDex": 179,
+  "name": "Farigiraf",
+  "nationalDex": 287,
+  "johtoDex": 161,
   "types": [
-    "Psychic",
-    "Flying"
+    "Normal",
+    "Psychic"
   ],
   "updatedTypes": [
     "Psychic",
-    "Flying"
+    "Dark"
   ],
-  "frontSpriteUrl": "/sprites/pokemon/xatu/front_cropped.png",
+  "frontSpriteUrl": "/sprites/pokemon/farigiraf/front_cropped.png",
   "detailedStats": {
     "baseStats": {
-      "hp": 65,
-      "attack": 75,
+      "hp": 120,
+      "attack": 90,
       "defense": 70,
-      "speed": 95,
-      "specialAttack": 95,
+      "speed": 60,
+      "specialAttack": 110,
       "specialDefense": 70,
-      "total": 470
+      "total": 520
     },
-    "catchRate": 75,
-    "baseExp": 171,
-    "heldItems": [],
+    "catchRate": 45,
+    "baseExp": 189,
+    "heldItems": [
+      "PERSIM_BERRY"
+    ],
     "genderRatio": {
       "male": 50,
       "female": 50
@@ -31,40 +33,40 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
+        "name": "Cud Chew",
+        "description": "\tEats a Berry again \tafter first use.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
+        "name": "Armor Tail",
+        "description": "\tStops foes using \tpriority moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Magic Bounce",
-        "description": "\tReflects status- \tchanging moves.",
+        "name": "Sap Sipper",
+        "description": "\tBoosts Attack when \thit by Grass.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
     "faithfulAbilities": [
       {
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
+        "name": "Cud Chew",
+        "description": "\tEats a Berry again \tafter first use.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
+        "name": "Armor Tail",
+        "description": "\tStops foes using \tpriority moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Magic Bounce",
-        "description": "\tReflects status- \tchanging moves.",
+        "name": "Sap Sipper",
+        "description": "\tBoosts Attack when \thit by Grass.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -72,234 +74,41 @@
     "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
-      "Flying",
-      "Flying"
+      "Field",
+      "Field"
     ],
-    "evYield": "1 Spe",
+    "evYield": "3 HP",
     "types": [
-      "Psychic",
-      "Flying"
+      "Normal",
+      "Psychic"
     ],
     "updatedTypes": [
       "Psychic",
-      "Flying"
+      "Dark"
     ],
-    "height": 15,
-    "weight": 150,
-    "bodyShape": "Wings",
-    "bodyColor": "Green"
+    "height": 32,
+    "weight": 1600,
+    "bodyShape": "Quadruped",
+    "bodyColor": "Yellow"
   },
   "evolution": {
     "methods": [],
     "chain": [
-      "Natu",
-      "Xatu"
+      "Girafarig",
+      "Farigiraf"
     ],
     "chainWithMethods": {
-      "Natu": [
+      "Girafarig": [
         {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 25,
-          "target": "Xatu"
+          "method": "EVOLVE_MOVE",
+          "parameter": "ZEN_HEADBUTT",
+          "target": "Farigiraf"
         }
       ],
-      "Xatu": []
+      "Farigiraf": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Air Slash",
-      "level": 1,
-      "info": {
-        "description": "\tAn attack that may \tcause flinching.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Peck",
-      "level": 1,
-      "info": {
-        "description": "\tJabs the foe with \ta beak, etc.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 35,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "\tA move that lowers \tthe foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Night Shade",
-      "level": 6,
-      "info": {
-        "description": "\tDamage equals the \tuser's level.",
-        "type": "Ghost",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Teleport",
-      "level": 9,
-      "info": {
-        "description": "\tA move for fleeing \tfrom battle.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Safeguard",
-      "level": 12,
-      "info": {
-        "description": "\tPrevents all \tstatus problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hypnosis",
-      "level": 17,
-      "info": {
-        "description": "\tMay cause the foe \tto fall asleep.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 60,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Pain Split",
-      "level": 20,
-      "info": {
-        "description": "\tAdds user & foe's \tHPs. Shares total.",
-        "type": "Ghost",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Confuse Ray",
-      "level": 23,
-      "info": {
-        "description": "\tA move that may \tconfuse the foe.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Recover",
-      "level": 29,
-      "info": {
-        "description": "\tRestores HP by 1/2 \tthe max HP.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Psychic M",
-      "level": 35,
-      "info": {
-        "description": "No description available.",
-        "type": "Unknown",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
-    },
-    {
-      "name": "Roost",
-      "level": 39,
-      "info": {
-        "description": "\tLands to restore \t1/2 the max HP.",
-        "type": "Flying",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Haze",
-      "level": 43,
-      "info": {
-        "description": "\tEliminates all \tstat changes.",
-        "type": "Ice",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Future Sight",
-      "level": 49,
-      "info": {
-        "description": "\tAn attack that \thits on 3rd turn.",
-        "type": "Psychic",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Hex",
-      "level": 53,
-      "info": {
-        "description": "\tDamage doubles if \tfoe has status.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Sucker Punch",
-      "level": 57,
-      "info": {
-        "description": "\tAttacks before the \tfoe does.",
-        "type": "Dark",
-        "pp": 5,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
+  "levelMoves": [],
   "tmHmMoves": [
     {
       "name": "Curse",
@@ -347,15 +156,6 @@
       "accuracy": "--"
     },
     {
-      "name": "Hyper Beam",
-      "description": "",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
       "name": "Light Screen",
       "description": "\tRaises Sp.Def with \ta wall of light.",
       "type": "Psychic",
@@ -383,21 +183,48 @@
       "accuracy": "--"
     },
     {
-      "name": "Giga Drain",
-      "description": "",
-      "type": "Grass",
-      "pp": 10,
-      "power": 75,
+      "name": "Bulldoze",
+      "description": "\tA Ground attack \tthat lowers Speed.",
+      "type": "Ground",
+      "pp": 20,
+      "power": 60,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Iron Tail",
+      "description": "\tAn attack that may \tlower Defense.",
+      "type": "Steel",
+      "pp": 15,
+      "power": 100,
+      "category": "Physical",
+      "accuracy": 75
+    },
+    {
+      "name": "Thunderbolt",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
+      "pp": 15,
+      "power": 90,
       "category": "Special",
       "accuracy": 100
     },
     {
-      "name": "Solar Beam",
-      "description": "\t1st turn: Prepare \t2nd turn: Attack",
-      "type": "Grass",
+      "name": "Thunder",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Electric",
       "pp": 10,
-      "power": 120,
+      "power": 110,
       "category": "Special",
+      "accuracy": 70
+    },
+    {
+      "name": "Earthquake",
+      "description": "\tTough but useless \tvs. flying foes.",
+      "type": "Ground",
+      "pp": 10,
+      "power": 100,
+      "category": "Physical",
       "accuracy": 100
     },
     {
@@ -428,6 +255,15 @@
       "accuracy": 100
     },
     {
+      "name": "Rock Smash",
+      "description": "\tRemoves Reflect \tand Light Screen.",
+      "type": "Fighting",
+      "pp": 15,
+      "power": 40,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
       "name": "Double Team",
       "description": "\tRaises the user's \tevasiveness.",
       "type": "Normal",
@@ -452,15 +288,6 @@
       "pp": 20,
       "power": 60,
       "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Aerial Ace",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Flying",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
       "accuracy": "--"
     },
     {
@@ -509,15 +336,6 @@
       "accuracy": 100
     },
     {
-      "name": "Steel Wing",
-      "description": "\tAn attack that may \tup user's Defense.",
-      "type": "Steel",
-      "pp": 25,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
       "name": "Dazzlingleam",
       "description": "\tDazzles with a \tpowerful flash.",
       "type": "Fairy",
@@ -527,30 +345,21 @@
       "accuracy": 100
     },
     {
-      "name": "Roost",
-      "description": "\tLands to restore \t1/2 the max HP.",
-      "type": "Flying",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
+      "name": "Energy Ball",
+      "description": "\tAn attack that may \tlower Sp.Def.",
+      "type": "Grass",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
     },
     {
-      "name": "Giga Impact",
-      "description": "\t1st turn: Attack \t2nd turn: Rest",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "U Turn",
-      "description": "",
-      "type": "Bug",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
+      "name": "Dark Pulse",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Dark",
+      "pp": 15,
+      "power": 80,
+      "category": "Special",
       "accuracy": 100
     },
     {
@@ -572,13 +381,22 @@
       "accuracy": 90
     },
     {
-      "name": "Fly",
-      "description": "\t1st turn: Fly \t2nd turn: Attack",
-      "type": "Flying",
+      "name": "Strength",
+      "description": "\tA powerful physi- \tcal attack.",
+      "type": "Fighting",
       "pp": 15,
-      "power": 90,
+      "power": 80,
       "category": "Physical",
       "accuracy": 100
+    },
+    {
+      "name": "Agility",
+      "description": "\tSharply raises the \tuser's Speed.",
+      "type": "Psychic",
+      "pp": 30,
+      "power": 0,
+      "category": "Status",
+      "accuracy": "--"
     },
     {
       "name": "Baton Pass",
@@ -588,6 +406,15 @@
       "power": 0,
       "category": "Status",
       "accuracy": "--"
+    },
+    {
+      "name": "Body Slam",
+      "description": "\tAn attack that may \tcause paralysis.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 85,
+      "category": "Physical",
+      "accuracy": 100
     },
     {
       "name": "Double Edge",
@@ -615,6 +442,24 @@
       "power": 0,
       "category": "Status",
       "accuracy": "--"
+    },
+    {
+      "name": "Headbutt",
+      "description": "\tAn attack that may \tcause flinching.",
+      "type": "Normal",
+      "pp": 15,
+      "power": 70,
+      "category": "Physical",
+      "accuracy": 100
+    },
+    {
+      "name": "Hyper Voice",
+      "description": "\tAttack the foe \twith sound waves.",
+      "type": "Normal",
+      "pp": 10,
+      "power": 90,
+      "category": "Special",
+      "accuracy": 100
     },
     {
       "name": "Skill Swap",
@@ -671,6 +516,15 @@
       "accuracy": "--"
     },
     {
+      "name": "Zap Cannon",
+      "description": "\tAn attack that \talways paralyzes.",
+      "type": "Electric",
+      "pp": 5,
+      "power": 120,
+      "category": "Special",
+      "accuracy": 50
+    },
+    {
       "name": "Zen Headbutt",
       "description": "\tAn attack that may \tcause flinching.",
       "type": "Psychic",
@@ -681,68 +535,20 @@
     }
   ],
   "eggMoves": [
-    "Drill Peck",
-    "Feint Attack",
-    "Haze",
-    "Quick Attack",
-    "Steel Wing",
-    "Zen Headbutt",
-    "Roost"
+    "Double Kick",
+    "Foresight",
+    "Future Sight",
+    "Mean Look",
+    "Mirror Coat",
+    "Take Down",
+    "Amnesia",
+    "Calm Mind"
   ],
-  "locations": [
-    {
-      "area": "RUINS_OF_ALPH_OUTSIDE",
-      "method": "grass",
-      "time": "nite",
-      "level": "25",
-      "chance": 3,
-      "formName": null
-    },
-    {
-      "area": "RUINS_OF_ALPH_OUTSIDE",
-      "method": "grass",
-      "time": "nite",
-      "level": "25",
-      "chance": 2,
-      "formName": null
-    },
-    {
-      "area": "ROUTE_49",
-      "method": "grass",
-      "time": "morn",
-      "level": "Badge Level - 2",
-      "chance": 30,
-      "formName": null
-    },
-    {
-      "area": "ROUTE_49",
-      "method": "grass",
-      "time": "morn",
-      "level": "Badge Level + 1",
-      "chance": 10,
-      "formName": null
-    },
-    {
-      "area": "ROUTE_49",
-      "method": "grass",
-      "time": "day",
-      "level": "Badge Level - 2",
-      "chance": 30,
-      "formName": null
-    },
-    {
-      "area": "ROUTE_49",
-      "method": "grass",
-      "time": "day",
-      "level": "Badge Level + 1",
-      "chance": 10,
-      "formName": null
-    }
-  ],
+  "locations": [],
   "pokedexEntries": {
     "default": {
-      "species": "Mystic",
-      "description": "Once it begins to meditate at sunrise, the entire day will pass before it will move again."
+      "species": "Long Neck",
+      "description": "Now that the brain waves from its head and tail are synced up, its psychic power is 10 times stronger."
     }
   },
   "forms": {}

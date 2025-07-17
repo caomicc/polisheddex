@@ -545,7 +545,32 @@
     "Ancientpower",
     "Reflect"
   ],
-  "locations": [],
+  "locations": [
+    {
+      "area": "SAFARI_ZONE_HUB",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_HUB",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_HUB",
+      "method": "grass",
+      "time": "nite",
+      "level": "59",
+      "chance": 5,
+      "formName": null
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Coconut",
@@ -750,6 +775,54 @@
         "bodyColor": "Yellow",
         "bodyShape": "Head Legs"
       }
+    },
+    "alolan": {
+      "moves": [],
+      "nationalDex": 103,
+      "johtoDex": 111,
+      "types": [
+        "Grass",
+        "Psychic"
+      ],
+      "updatedTypes": [
+        "Grass",
+        "Psychic"
+      ],
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Exeggutoralolan"
+        ],
+        "chainWithMethods": {
+          "Exeggutoralolan": []
+        }
+      },
+      "forms": {},
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": "alolan"
     },
     "Plain": {
       "name": "Exeggutor plain",

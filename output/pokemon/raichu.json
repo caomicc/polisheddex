@@ -605,7 +605,32 @@
     "Encore",
     "Reversal"
   ],
-  "locations": [],
+  "locations": [
+    {
+      "area": "CERULEAN_CAVE_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "71",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAVE_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "71",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAVE_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "71",
+      "chance": 3,
+      "formName": null
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Mouse",
@@ -682,7 +707,15 @@
         },
         {
           "name": "Psychic M",
-          "level": 1
+          "level": 1,
+          "info": {
+            "description": "No description available.",
+            "type": "Unknown",
+            "pp": 0,
+            "power": 0,
+            "accuracy": 0,
+            "category": "Unknown"
+          }
         },
         {
           "name": "Reversal",
@@ -779,6 +812,48 @@
         "bodyColor": "Brown",
         "bodyShape": "Bipedal Tail"
       }
+    },
+    "alolan": {
+      "moves": [],
+      "nationalDex": 26,
+      "johtoDex": 23,
+      "types": "Electric",
+      "updatedTypes": "Electric",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Raichualolan"
+        ],
+        "chainWithMethods": {
+          "Raichualolan": []
+        }
+      },
+      "forms": {},
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": "alolan"
     },
     "Plain": {
       "name": "Raichu plain",

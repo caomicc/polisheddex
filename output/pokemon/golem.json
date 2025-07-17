@@ -728,7 +728,56 @@
   "eggMoves": [
     "Rock Slide"
   ],
-  "locations": [],
+  "locations": [
+    {
+      "area": "SILVER_CAVE_ROOM_3",
+      "method": "grass",
+      "time": "morn",
+      "level": "74",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_3",
+      "method": "grass",
+      "time": "day",
+      "level": "74",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_ROOM_3",
+      "method": "grass",
+      "time": "nite",
+      "level": "74",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAVE_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "71",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAVE_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "71",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAVE_B1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "71",
+      "chance": 10,
+      "formName": null
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Megaton",
@@ -1041,6 +1090,54 @@
         "bodyColor": "Gray",
         "bodyShape": "Bipedal"
       }
+    },
+    "alolan": {
+      "moves": [],
+      "nationalDex": 76,
+      "johtoDex": 36,
+      "types": [
+        "Rock",
+        "Ground"
+      ],
+      "updatedTypes": [
+        "Rock",
+        "Ground"
+      ],
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Golemalolan"
+        ],
+        "chainWithMethods": {
+          "Golemalolan": []
+        }
+      },
+      "forms": {},
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": "alolan"
     },
     "Plain": {
       "name": "Golem plain",

@@ -8,6 +8,46 @@ import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormaliz
 import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toTitleCase, typeEnumToName } from './src/utils/stringUtils.ts';
 import type { Ability, BaseData, DetailedStats, Evolution, EvolutionMethod, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
 
+/**
+ * Robust function to check if a Pokémon name matches any name in the DEBUG_POKEMON list
+ * Handles various edge cases and name formats
+ */
+function isDebugPokemon(pokemonName: string): boolean {
+  if (!pokemonName) return false;
+
+  // Normalize the input name by removing common variations
+  const normalizedInput = standardizePokemonKey(pokemonName);
+
+  // Also try with the original name and some common transformations
+  const namesToCheck = [
+    pokemonName,
+    normalizedInput,
+    toTitleCase(pokemonName),
+    pokemonName.replace(/_/g, ''),
+    pokemonName.replace(/([a-z])([A-Z])/g, '$1$2'), // Remove internal caps
+    pokemonName.toLowerCase(),
+    pokemonName.toUpperCase()
+  ];
+
+  // Remove duplicates
+  const uniqueNames = [...new Set(namesToCheck)];
+
+  // Check each variation against the debug list
+  for (const name of uniqueNames) {
+    if (DEBUG_POKEMON.includes(name)) {
+      return true;
+    }
+    // Also check if any debug Pokemon is a substring match (for partial matches)
+    if (DEBUG_POKEMON.some(debugName =>
+      name.toLowerCase().includes(debugName.toLowerCase()) ||
+      debugName.toLowerCase().includes(name.toLowerCase())
+    )) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -261,8 +301,6 @@ function buildCompleteEvolutionChain(startMon: string): {
   // Starting with the requested Pokémon
   const standardizedStartMon = standardizePokemonKey(startMon);
 
-  console.log(`Building evolution chain for: ${standardizedStartMon}`, startMon);
-
   const queue: string[] = [standardizedStartMon];
   const chain: string[] = [];
 
@@ -377,7 +415,7 @@ for (const file of baseStatsFiles) {
   const { basePokemonName, formName } = extractFormInfo(fileName);
 
   // Enhanced debugging for specific Pokémon
-  const isDebug = DEBUG_POKEMON.includes(basePokemonName);
+  const isDebug = isDebugPokemon(basePokemonName);
 
   // Initialize variables for both faithful and updated types
   let faithfulTypes: [string, string] | null = null;
@@ -527,7 +565,7 @@ const finalResult: Record<string, PokemonDataV3> = {};
 
 for (const mon of Object.keys(result)) {
 
-  console.log(`Processing Pokémon: ${mon}`);
+
 
   const moves = result[mon].moves.map(m => ({
     name: m.name,
@@ -620,8 +658,6 @@ for (const mon of Object.keys(result)) {
 
   // Set the primary types field to the faithful types by default
   const types = faithfulTypesFormatted;
-
-  console.log(`Final moves for ${mon}: ${moves}`);
 
   // Create the final result with both faithful and updated types
   finalResult[mon] = {
@@ -746,7 +782,6 @@ for (const file of wildFiles) {
         else if (currentTime === 'nite') encounterRate = encounterRates.nite;
         else if (currentTime === 'eve' && encounterRates.eve !== undefined) encounterRate = encounterRates.eve;
         else encounterRate = encounterRates.day;
-        console.log(`DEBUG: Adding wildmon ${key} at level ${normalizedLevel} with rate ${encounterRate} in area ${area} (${method}) at time ${currentTime}`);
         if (!slotEntriesByTime[currentTime || 'day']) slotEntriesByTime[currentTime || 'day'] = [];
         slotEntriesByTime[currentTime || 'day'].push({
           key,
@@ -763,6 +798,74 @@ for (const file of wildFiles) {
       continue;
     }
   }
+}
+
+// Add Pokemon that have base stats files but weren't in evos_attacks.asm
+for (const file of baseStatsFiles) {
+  const fileName = file.replace('.asm', '');
+  const { basePokemonName, formName } = extractFormInfo(fileName);
+
+  // Convert to the proper name format used in our data structures
+  const pokemonName = toTitleCase(basePokemonName);
+
+  // Skip if this Pokemon is already in finalResult (already processed from evos_attacks)
+  if (finalResult[pokemonName]) {
+    continue;
+  }
+
+  if (DEBUG_POKEMON.includes(basePokemonName)) {
+    console.log(`Adding missing Pokemon from base stats: ${pokemonName} (from ${fileName})`);
+  }
+
+  // Get the dex numbers
+  const nationalDex = nationalDexOrder.indexOf(pokemonName) >= 0 ? nationalDexOrder.indexOf(pokemonName) + 1 : null;
+  const johtoDex = johtoDexOrder.indexOf(pokemonName) >= 0 ? johtoDexOrder.indexOf(pokemonName) + 1 : null;  // Get types from our type maps
+  let faithfulTypes: string | string[] = 'Unknown';
+  let updatedTypes: string | string[] = 'Unknown';
+
+  if (typeMap[pokemonName]) {
+    faithfulTypes = processTypeArray(typeMap[pokemonName].types || ['None']);
+    updatedTypes = processTypeArray(typeMap[pokemonName].updatedTypes || ['None']);
+  }
+
+  // Create basic Pokemon data structure
+  finalResult[pokemonName] = {
+    moves: [], // No moves since it wasn't in evos_attacks
+    nationalDex,
+    johtoDex,
+    types: faithfulTypes,
+    updatedTypes: updatedTypes,
+    evolution: {
+      methods: [],
+      chain: [pokemonName], // Single Pokemon chain
+      chainWithMethods: { [pokemonName]: [] }
+    },
+    forms: {},
+    baseStats: {
+      hp: 0,
+      attack: 0,
+      defense: 0,
+      speed: 0,
+      specialAttack: 0,
+      specialDefense: 0,
+      total: 0
+    },
+    catchRate: 255,
+    baseExp: 0,
+    heldItems: [],
+    abilities: [],
+    faithfulAbilities: [],
+    updatedAbilities: [],
+    growthRate: "Medium Fast",
+    eggGroups: [],
+    genderRatio: {
+      male: 0,
+      female: 0
+    },
+    hatchRate: "Unknown",
+    evYield: "None",
+    locations: locationsByMon[pokemonName] || []
+  };
 }
 
 // Using the previously defined PokemonDataV3 type
@@ -818,11 +921,8 @@ for (const formFile of baseStatsFormFiles) {
   const basePokemonKey = toTitleCase(basePokemonName);
   const fullFormKey = `${basePokemonKey}${formName}`;
 
-  console.log(`Checking form: ${fullFormKey} (base: ${basePokemonKey}, form: ${formName})`);
-
   // Check if this form already exists in our results
   if (!finalResultV3[fullFormKey]) {
-    console.log(`Missing form entry for ${fullFormKey}, creating from base ${basePokemonKey}...`);
 
     // Check if the base Pokemon exists
     if (finalResultV3[basePokemonKey]) {
@@ -1666,6 +1766,11 @@ if (fs.existsSync(DETAILED_STATS_OUTPUT)) {
 
 // Generate individual files for each Pokemon
 for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
+  // Skip invalid Pokémon names
+  if (!pokemonName || pokemonName.trim() === '' || pokemonName === 'None') {
+    console.log(`Skipping invalid Pokémon name: "${pokemonName}"`);
+    continue;
+  }
   // --- Ensure all forms are included in individual Pokemon files ---
   const groupedData = groupedPokemonData[pokemonName] || {};
   // Deduplicate and normalize form keys
@@ -1675,7 +1780,7 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     for (const [formKey, formData] of Object.entries(groupedData.forms)) {
       const normKey = formKey.trim().toLowerCase();
       // If this normalized key is new, or this formData is more complete, use it
-      if (!seenForms[normKey] || isMoreCompleteForm(formData, groupedData.forms[seenForms[normKey]])) {
+      if (!seenForms[normKey] || (formData && isMoreCompleteForm(formData, groupedData.forms[seenForms[normKey]]))) {
         forms[formKey.trim()] = formData;
         seenForms[normKey] = formKey.trim();
       }
@@ -1721,7 +1826,7 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
       types: formTypeData,
       updatedTypes: formTypeData,
       frontSpriteUrl: `/sprites/pokemon/${baseName}_${formName}/front_cropped.png`,
-      moves: formMoves ?? [],
+      moves: validateAndFixMoves(formMoves ?? []),
       detailedStats: {
         ...formStats,
         catchRate: formStats.catchRate ?? 255,
@@ -1748,7 +1853,42 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
 
   console.log(`Final forms for ${pokemonName}:`, Object.keys(forms), forms);
 
-  // Build minimal root object
+  // Build minimal root object with safer defaults
+  const defaultDetailedStats = {
+    baseStats: {
+      hp: 0,
+      attack: 0,
+      defense: 0,
+      speed: 0,
+      specialAttack: 0,
+      specialDefense: 0,
+      total: 0
+    },
+    catchRate: 255,
+    baseExp: 0,
+    heldItems: [],
+    abilities: [],
+    faithfulAbilities: [],
+    updatedAbilities: [],
+    growthRate: "Medium Fast",
+    eggGroups: [],
+    genderRatio: { male: 50, female: 50 },
+    hatchRate: "Unknown",
+    evYield: "None",
+    types: baseData.types,
+    updatedTypes: baseData.updatedTypes,
+    height: 0,
+    weight: 0,
+    bodyShape: "Unknown",
+    bodyColor: "Unknown"
+  };
+
+  const defaultEvolution = {
+    methods: [],
+    chain: [pokemonName],
+    chainWithMethods: { [pokemonName]: [] }
+  };
+
   const pokemonData: Record<string, any> = {
     name: pokemonName,
     nationalDex: baseData.nationalDex,
@@ -1756,9 +1896,9 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     types: baseData.types,
     updatedTypes: baseData.updatedTypes,
     frontSpriteUrl: baseData.frontSpriteUrl,
-    detailedStats: detailedStatsData[pokemonName] || null,
-    evolution: validatedEvolutionData[pokemonName] || null,
-    levelMoves: validatedLevelMoves[pokemonName]?.moves || [],
+    detailedStats: detailedStatsData[pokemonName] || defaultDetailedStats,
+    evolution: validatedEvolutionData[pokemonName] || defaultEvolution,
+    levelMoves: validateAndFixMoves(validatedLevelMoves[pokemonName]?.moves || []),
     tmHmMoves: tmHmData[pokemonName] || [],
     eggMoves: eggMoveData[pokemonName] || [],
     locations: validatedLocationData[pokemonName]?.locations || validatedLocationData[pokemonName]?.forms || [],
@@ -1846,8 +1986,31 @@ console.log('Individual Pokemon file generation complete!');
 
 // Helper: prefer form with more data
 function isMoreCompleteForm(a: any, b: any) {
+  // Null checks first
+  if (!a && !b) return false;
+  if (!a) return false;
+  if (!b) return true;
+
   // Prefer the one with types and frontSpriteUrl
   const aScore = (a.types ? 1 : 0) + (a.frontSpriteUrl ? 1 : 0);
   const bScore = (b.types ? 1 : 0) + (b.frontSpriteUrl ? 1 : 0);
   return aScore > bScore;
+}
+
+// Function to validate and fix move data
+function validateAndFixMoves(moves: any[]): any[] {
+  return moves.map(move => {
+    if (!move.info) {
+      console.warn(`Move "${move.name}" is missing info object, adding default`);
+      move.info = {
+        description: "No description available.",
+        type: "Unknown",
+        pp: 0,
+        power: 0,
+        accuracy: 0,
+        category: "Unknown"
+      };
+    }
+    return move;
+  });
 }

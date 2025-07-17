@@ -646,6 +646,126 @@
   ],
   "locations": [
     {
+      "area": "SILVER_CAVE_OUTSIDE",
+      "method": "grass",
+      "time": "morn",
+      "level": "74",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "SILVER_CAVE_OUTSIDE",
+      "method": "grass",
+      "time": "day",
+      "level": "74",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_28",
+      "method": "grass",
+      "time": "morn",
+      "level": "70",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_28",
+      "method": "grass",
+      "time": "day",
+      "level": "70",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "POKEMON_MANSION_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "POKEMON_MANSION_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "60",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "POKEMON_MANSION_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "60",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "POKEMON_MANSION_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "POKEMON_MANSION_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "60",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "POKEMON_MANSION_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "60",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "POKEMON_MANSION_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "59",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "POKEMON_MANSION_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "60",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "POKEMON_MANSION_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "60",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "POKEMON_MANSION_B1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "59",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "POKEMON_MANSION_B1F",
+      "method": "grass",
+      "time": "day",
+      "level": "59",
+      "chance": 5,
+      "formName": null
+    },
+    {
       "area": "Silver Cave",
       "method": "hidden_grotto",
       "time": "common",
@@ -839,7 +959,15 @@
         },
         {
           "name": "Psychic M",
-          "level": 41
+          "level": 41,
+          "info": {
+            "description": "No description available.",
+            "type": "Unknown",
+            "pp": 0,
+            "power": 0,
+            "accuracy": 0,
+            "category": "Unknown"
+          }
         },
         {
           "name": "Extremespeed",
@@ -947,6 +1075,51 @@
         "bodyColor": "White",
         "bodyShape": "Quadruped"
       }
+    },
+    "galarian": {
+      "moves": [],
+      "nationalDex": 78,
+      "johtoDex": 232,
+      "types": "Fire",
+      "updatedTypes": [
+        "Fire",
+        "Fairy"
+      ],
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Rapidashgalarian"
+        ],
+        "chainWithMethods": {
+          "Rapidashgalarian": []
+        }
+      },
+      "forms": {},
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": "galarian"
     },
     "Plain": {
       "name": "Rapidash plain",

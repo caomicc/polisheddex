@@ -751,20 +751,44 @@
   ],
   "locations": [
     {
-      "area": null,
-      "method": "Evolve from Meowth (Level 28)",
-      "time": null,
-      "level": "",
-      "chance": 100,
-      "formName": "Plain Form"
+      "area": "ROUTE_5",
+      "method": "grass",
+      "time": "nite",
+      "level": "46",
+      "chance": 30,
+      "formName": null
     },
     {
-      "area": null,
-      "method": "Evolve from Meowth (Level 28)",
-      "time": null,
-      "level": "",
-      "chance": 100,
-      "formName": "Alolan Form"
+      "area": "ROUTE_6",
+      "method": "grass",
+      "time": "nite",
+      "level": "45",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_7",
+      "method": "grass",
+      "time": "nite",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_7",
+      "method": "grass",
+      "time": "nite",
+      "level": "52",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_8",
+      "method": "grass",
+      "time": "nite",
+      "level": "48",
+      "chance": 30,
+      "formName": null
     }
   ],
   "pokedexEntries": {
@@ -1085,6 +1109,48 @@
         "bodyColor": "Blue",
         "bodyShape": "Quadruped"
       }
+    },
+    "alolan": {
+      "moves": [],
+      "nationalDex": 53,
+      "johtoDex": 149,
+      "types": "Normal",
+      "updatedTypes": "Normal",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Persianalolan"
+        ],
+        "chainWithMethods": {
+          "Persianalolan": []
+        }
+      },
+      "forms": {},
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": "alolan"
     },
     "Plain": {
       "name": "Persian plain",

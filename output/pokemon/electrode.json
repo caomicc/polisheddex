@@ -599,11 +599,139 @@
   "eggMoves": [],
   "locations": [
     {
-      "area": null,
-      "method": "Evolve from Voltorb (Level 30)",
-      "time": null,
-      "level": "",
-      "chance": 100,
+      "area": "ROUTE_10_NORTH",
+      "method": "grass",
+      "time": "morn",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_10_NORTH",
+      "method": "grass",
+      "time": "day",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ROUTE_10_NORTH",
+      "method": "grass",
+      "time": "nite",
+      "level": "49",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAVE_1F",
+      "method": "grass",
+      "time": "morn",
+      "level": "67",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAVE_1F",
+      "method": "grass",
+      "time": "day",
+      "level": "67",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAVE_1F",
+      "method": "grass",
+      "time": "nite",
+      "level": "67",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAVE_2F",
+      "method": "grass",
+      "time": "morn",
+      "level": "69",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAVE_2F",
+      "method": "grass",
+      "time": "day",
+      "level": "69",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "CERULEAN_CAVE_2F",
+      "method": "grass",
+      "time": "nite",
+      "level": "69",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_4F",
+      "method": "grass",
+      "time": "morn",
+      "level": "55",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_4F",
+      "method": "grass",
+      "time": "day",
+      "level": "55",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_5F",
+      "method": "grass",
+      "time": "morn",
+      "level": "51",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "DIM_CAVE_5F",
+      "method": "grass",
+      "time": "day",
+      "level": "51",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "LIGHTNING_ISLAND",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "LIGHTNING_ISLAND",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level + 1",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "LIGHTNING_ISLAND",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 0",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "LIGHTNING_ISLAND",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level + 1",
+      "chance": 10,
       "formName": null
     }
   ],
@@ -929,6 +1057,48 @@
         "bodyColor": "Brown",
         "bodyShape": "Head"
       }
+    },
+    "hisuian": {
+      "moves": [],
+      "nationalDex": 101,
+      "johtoDex": 129,
+      "types": "Electric",
+      "updatedTypes": "Electric",
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Electrodehisuian"
+        ],
+        "chainWithMethods": {
+          "Electrodehisuian": []
+        }
+      },
+      "forms": {},
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": "hisuian"
     },
     "Plain": {
       "name": "Electrode plain",

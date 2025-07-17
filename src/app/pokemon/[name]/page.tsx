@@ -44,7 +44,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // Default form
   allFormData['default'] = {
     ...pokemonData,
-    ...pokemonData.detailedStats,
+    ...(pokemonData.detailedStats || {}),
     moves: pokemonData.moves || pokemonData.levelMoves || [],
     tmHmLearnset: (pokemonData as FormData).tmHmLearnset || [],
     locations: pokemonData.locations || [],
@@ -60,6 +60,21 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       pokemonData.pokedexEntries?.default?.description ||
       (pokemonData as FormData).description ||
       '',
+    // Provide safe defaults for missing detailedStats fields
+    height: pokemonData.detailedStats?.height ?? 0,
+    weight: pokemonData.detailedStats?.weight ?? 0,
+    bodyColor: pokemonData.detailedStats?.bodyColor ?? 'Unknown',
+    bodyShape: pokemonData.detailedStats?.bodyShape ?? 'Unknown',
+    genderRatio: pokemonData.detailedStats?.genderRatio ?? { male: 50, female: 50 },
+    catchRate: pokemonData.detailedStats?.catchRate ?? 255,
+    baseExp: pokemonData.detailedStats?.baseExp ?? 0,
+    hatchRate: pokemonData.detailedStats?.hatchRate ?? 'Unknown',
+    growthRate: pokemonData.detailedStats?.growthRate ?? 'Medium Fast',
+    eggGroups: pokemonData.detailedStats?.eggGroups ?? [],
+    evYield: pokemonData.detailedStats?.evYield ?? 'None',
+    abilities: pokemonData.detailedStats?.abilities ?? [],
+    faithfulAbilities: pokemonData.detailedStats?.faithfulAbilities ?? [],
+    updatedAbilities: pokemonData.detailedStats?.updatedAbilities ?? [],
     // height: pokemonData.detailedStats?.height || 0,
     // weight: pokemonData.detailedStats?.weight || 0,
     // bodyColor: pokemonData.detailedStats?.bodyColor || '',
@@ -80,7 +95,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       // console.log(`Processing form: ${formKey}`, formValue),
       allFormData[formKey] = {
         ...formValue,
-        ...formValue.detailedStats,
+        ...(formValue.detailedStats || {}),
         moves: formValue.moves || [],
         tmHmLearnset:
           (formValue as FormData).tmHmLearnset || (pokemonData as FormData).tmHmLearnset || [],
@@ -97,6 +112,21 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           (pokemonData as FormData).description ||
           '',
         baseStats: formValue.detailedStats?.baseStats || pokemonData.detailedStats?.baseStats || {},
+        // Provide safe defaults for missing detailedStats fields
+        height: formValue.detailedStats?.height ?? pokemonData.detailedStats?.height ?? 0,
+        weight: formValue.detailedStats?.weight ?? pokemonData.detailedStats?.weight ?? 0,
+        bodyColor: formValue.detailedStats?.bodyColor ?? pokemonData.detailedStats?.bodyColor ?? 'Unknown',
+        bodyShape: formValue.detailedStats?.bodyShape ?? pokemonData.detailedStats?.bodyShape ?? 'Unknown',
+        genderRatio: formValue.detailedStats?.genderRatio ?? pokemonData.detailedStats?.genderRatio ?? { male: 50, female: 50 },
+        catchRate: formValue.detailedStats?.catchRate ?? pokemonData.detailedStats?.catchRate ?? 255,
+        baseExp: formValue.detailedStats?.baseExp ?? pokemonData.detailedStats?.baseExp ?? 0,
+        hatchRate: formValue.detailedStats?.hatchRate ?? pokemonData.detailedStats?.hatchRate ?? 'Unknown',
+        growthRate: formValue.detailedStats?.growthRate ?? pokemonData.detailedStats?.growthRate ?? 'Medium Fast',
+        eggGroups: formValue.detailedStats?.eggGroups ?? pokemonData.detailedStats?.eggGroups ?? [],
+        evYield: formValue.detailedStats?.evYield ?? pokemonData.detailedStats?.evYield ?? 'None',
+        abilities: formValue.detailedStats?.abilities ?? pokemonData.detailedStats?.abilities ?? [],
+        faithfulAbilities: formValue.detailedStats?.faithfulAbilities ?? pokemonData.detailedStats?.faithfulAbilities ?? [],
+        updatedAbilities: formValue.detailedStats?.updatedAbilities ?? pokemonData.detailedStats?.updatedAbilities ?? [],
         // description:
         //   (formValue as FormData).description || (pokemonData as FormData).description || '',
       };

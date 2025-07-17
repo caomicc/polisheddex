@@ -276,7 +276,15 @@
     },
     {
       "name": "Psychic M",
-      "level": 49
+      "level": 49,
+      "info": {
+        "description": "No description available.",
+        "type": "Unknown",
+        "pp": 0,
+        "power": 0,
+        "accuracy": 0,
+        "category": "Unknown"
+      }
     },
     {
       "name": "Rain Dance",
@@ -875,20 +883,52 @@
   ],
   "locations": [
     {
-      "area": null,
-      "method": "Evolve from Slowpoke (Level 37)",
+      "area": "SLOWPOKE_WELL_B2F",
+      "method": "water",
       "time": null,
-      "level": "",
-      "chance": 100,
-      "formName": "Plain Form"
+      "level": "20",
+      "chance": 10,
+      "formName": null
     },
     {
-      "area": null,
-      "method": "Evolve from Slowpoke (Level 37)",
+      "area": "CERULEAN_CAVE_1F",
+      "method": "water",
       "time": null,
-      "level": "",
-      "chance": 100,
-      "formName": "Galarian Form"
+      "level": "60",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_HUB",
+      "method": "water",
+      "time": null,
+      "level": "55",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_EAST",
+      "method": "water",
+      "time": null,
+      "level": "55",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "SAFARI_ZONE_NORTH",
+      "method": "water",
+      "time": null,
+      "level": "55",
+      "chance": 60,
+      "formName": null
+    },
+    {
+      "area": "SEAFOAM_ISLANDS_B4F",
+      "method": "water",
+      "time": null,
+      "level": "60",
+      "chance": 10,
+      "formName": null
     }
   ],
   "pokedexEntries": {
@@ -1063,7 +1103,15 @@
         },
         {
           "name": "Psychic M",
-          "level": 49
+          "level": 49,
+          "info": {
+            "description": "No description available.",
+            "type": "Unknown",
+            "pp": 0,
+            "power": 0,
+            "accuracy": 0,
+            "category": "Unknown"
+          }
         },
         {
           "name": "Rain Dance",
@@ -1183,6 +1231,54 @@
         "bodyColor": "Pink",
         "bodyShape": "Bipedal Tail"
       }
+    },
+    "galarian": {
+      "moves": [],
+      "nationalDex": 80,
+      "johtoDex": 86,
+      "types": [
+        "Water",
+        "Psychic"
+      ],
+      "updatedTypes": [
+        "Water",
+        "Psychic"
+      ],
+      "evolution": {
+        "methods": [],
+        "chain": [
+          "Slowbrogalarian"
+        ],
+        "chainWithMethods": {
+          "Slowbrogalarian": []
+        }
+      },
+      "forms": {},
+      "baseStats": {
+        "hp": 0,
+        "attack": 0,
+        "defense": 0,
+        "speed": 0,
+        "specialAttack": 0,
+        "specialDefense": 0,
+        "total": 0
+      },
+      "catchRate": 255,
+      "baseExp": 0,
+      "heldItems": [],
+      "abilities": [],
+      "faithfulAbilities": [],
+      "updatedAbilities": [],
+      "growthRate": "Medium Fast",
+      "eggGroups": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "evYield": "None",
+      "locations": [],
+      "formName": "galarian"
     },
     "Plain": {
       "name": "Slowbro plain",
