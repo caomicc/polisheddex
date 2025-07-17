@@ -73,9 +73,22 @@ const BASE_STATS_DIR = path.join(__dirname, 'rom/data/pokemon/base_stats');
 
 
 // Parse both National and Johto (New) Dex orders
+// Extract National and Johto Dex orders and write to JSON files
 const nationalDexOrder = parseDexEntries(path.join(__dirname, 'rom/data/pokemon/dex_entries.asm'));
 const johtoDexOrder = parseDexEntries(path.join(__dirname, 'rom/data/pokemon/dex_order_new.asm'));
 
+// Write dex orders to JSON files for reuse
+const NATIONAL_DEX_ORDER_OUTPUT = path.join(__dirname, 'output/national_dex_order.json');
+const JOHTO_DEX_ORDER_OUTPUT = path.join(__dirname, 'output/johto_dex_order.json');
+
+fs.writeFileSync(
+  NATIONAL_DEX_ORDER_OUTPUT,
+  JSON.stringify(nationalDexOrder.map((k: string) => k.toLowerCase()), null, 2)
+);
+fs.writeFileSync(
+  JOHTO_DEX_ORDER_OUTPUT,
+  JSON.stringify(johtoDexOrder.map((k: string) => k.toLowerCase()), null, 2)
+);
 
 extractAbilityDescriptions();
 
@@ -675,9 +688,23 @@ for (const mon of Object.keys(result)) {
   };
   // Dex numbers (1-based, null if not found)
   // First get the base name by removing any form suffixes
-  const baseMonName = standardizePokemonKey(mon);
+  let baseMonName = standardizePokemonKey(mon);
+
+  if (baseMonName === 'Mr- Mime') {
+    baseMonName = 'Mr-Mime'; // Special case for Mr. Mime
+  }
+
+  // if (baseMonName === 'Mime- Jr') {
+  //   baseMonName = 'mime-jr'; // Special case for Mime Jr.
+  // }
+
+  console.log(`DEBUG: Processing Pokémon: ${mon} (base: ${baseMonName})`);
+
   const nationalDex = nationalDexOrder.indexOf(baseMonName) >= 0 ? nationalDexOrder.indexOf(baseMonName) + 1 : null;
   const johtoDex = johtoDexOrder.indexOf(baseMonName) >= 0 ? johtoDexOrder.indexOf(baseMonName) + 1 : null;  // Types
+
+  console.log(`DEBUG: Processing Pokémon: ${mon} (base: ${baseMonName})`);
+  console.log(`DEBUG: National Dex: ${nationalDex}, Johto Dex: ${johtoDex}`);
 
   // Determine if this is a form and extract the base name and form name
   let basePokemonName = baseMonName;
