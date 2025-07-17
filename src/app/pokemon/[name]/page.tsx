@@ -44,23 +44,43 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // Default form
   allFormData['default'] = {
     ...pokemonData,
-    moves: pokemonData.moves || [],
-    tmHmLearnset: (pokemonData as FormData).tmHmLearnset || [], // fallback for legacy data
+    ...pokemonData.detailedStats,
+    moves: pokemonData.moves || pokemonData.levelMoves || [],
+    tmHmLearnset: (pokemonData as FormData).tmHmLearnset || [],
     locations: pokemonData.locations || [],
-    eggMoves: (pokemonData as FormData).eggMoves || [], // fallback for legacy data
+    eggMoves: (pokemonData as FormData).eggMoves || [],
     evolution: (pokemonData as FormData).evolution || null,
     nationalDex: pokemonData.nationalDex || null,
     frontSpriteUrl: pokemonData.frontSpriteUrl,
     johtoDex: pokemonData.johtoDex || null,
-    species: (pokemonData as FormData).species || '',
-    description: (pokemonData as FormData).description || '',
+    baseStats: pokemonData.detailedStats?.baseStats || {},
+    species:
+      pokemonData.pokedexEntries?.default?.species || (pokemonData as FormData).species || '',
+    description:
+      pokemonData.pokedexEntries?.default?.description ||
+      (pokemonData as FormData).description ||
+      '',
+    // height: pokemonData.detailedStats?.height || 0,
+    // weight: pokemonData.detailedStats?.weight || 0,
+    // bodyColor: pokemonData.detailedStats?.bodyColor || '',
+    // bodyShape: pokemonData.detailedStats?.bodyShape || '',
+    // genderRatio: pokemonData.detailedStats?.genderRatio || {},
   };
+
+  console.log(
+    `Loaded default Pokémon data for ${pokemonName}`,
+    allFormData['default'],
+    pokemonData,
+    (pokemonData as FormData).description,
+  );
 
   // Add any additional forms
   if (pokemonData.forms) {
     Object.entries(pokemonData.forms).forEach(([formKey, formValue]) => {
+      // console.log(`Processing form: ${formKey}`, formValue),
       allFormData[formKey] = {
         ...formValue,
+        ...formValue.detailedStats,
         moves: formValue.moves || [],
         tmHmLearnset:
           (formValue as FormData).tmHmLearnset || (pokemonData as FormData).tmHmLearnset || [],
@@ -70,9 +90,15 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         nationalDex: formValue.nationalDex || pokemonData.nationalDex || null,
         frontSpriteUrl: formValue.frontSpriteUrl,
         johtoDex: formValue.johtoDex || pokemonData.johtoDex || null,
-        species: (formValue as FormData).species || (pokemonData as FormData).species || '',
+        species:
+          pokemonData.pokedexEntries?.[formKey]?.species || (pokemonData as FormData).species || '',
         description:
-          (formValue as FormData).description || (pokemonData as FormData).description || '',
+          pokemonData.pokedexEntries?.[formKey]?.description ||
+          (pokemonData as FormData).description ||
+          '',
+        baseStats: formValue.detailedStats?.baseStats || pokemonData.detailedStats?.baseStats || {},
+        // description:
+        //   (formValue as FormData).description || (pokemonData as FormData).description || '',
       };
     });
   }

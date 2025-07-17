@@ -108,9 +108,17 @@ export interface DetailedStats {
   faithfulTypes?: string[] | string; // Types in the faithful version
   locations?: LocationEntry[];
   updatedTypes?: string[] | string; // Types in the polished/updated version
-  forms?: Record<string, Omit<DetailedStats, 'moves'> & { moves?: Move[] }>
+  forms?: Record<string, Omit<DetailedStats, 'moves'> & { moves?: Move[], baseStats?: DetailedStats['baseStats'], detailedStats?: DetailedStats }>;
+  levelMoves?: Move[]; // Moves learned by leveling up
+  tmHmLearnset?: Move[]; // TM/HM learnset
+  eggMoves?: string[]; // Egg moves
+  species?: string; // Species name for the Pokémon
+  pokedexEntries?: Record<string, PokemonDexEntry>;
 }
-export type PokemonDataV3 = PokemonDataV2 & DetailedStats;
+export type PokemonDataV3 = PokemonDataV2 & DetailedStats & {
+  detailedStats?: DetailedStats;
+  baseStats?: DetailedStats['baseStats'];
+};
 
 export interface MoveDetail {
   level: string;
