@@ -25,26 +25,6 @@ export function extractBasePokemonName(fullName: string): string {
     return 'Porygon-Z';
   }
 
-  if (fullName === 'Mr-Mime') {
-    return 'Mr-Mime';
-  }
-
-  if (fullName === 'Mime-Jr') {
-    return 'Mime-Jr';
-  }
-
-  if (fullName === 'Nidoran-F') {
-    return 'Nidoran-F';
-  }
-
-  if (fullName === 'Nidoran-M') {
-    return 'Nidoran-M';
-  }
-
-  if (fullName === 'Sirfetch-d') {
-    return 'Sirfetch-d';
-  }
-
   // Check if the name contains the special separator for complex forms
   if (fullName.includes('-')) {
     return fullName.split('-')[0];
@@ -101,18 +81,16 @@ export function getFullPokemonName(name: string, form: string | null): string {
  * Handles both base and regional forms, and always uses the { default: {...}, regionalform: {...} } format.
  */
 function updatePokemonJsonWithDexEntry(mon: string, entry: PokemonDexEntry) {
-  const baseName = extractBasePokemonName(mon).toLowerCase().replace(/\s/g, '-'); // Normalize base name for file naming
-  // const baseName = extractBasePokemonName(mon).toLowerCase().replace(/[^a-z0-9]/g, '');
-  console.warn(`Updating JSON for Pokémon: ${mon}, base name: ${baseName}`);
+  const baseName = extractBasePokemonName(mon)
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]/g, '')
+    .replace(/ /g, '-');
   const filePath = path.join(__dirname, `../../../output/pokemon/${baseName}.json`);
-  console.log(`File path for Pokémon JSON: ${filePath}`);
   if (!fs.existsSync(filePath)) {
     console.warn(`No JSON file found for ${mon} (${filePath})`);
     return;
   }
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-
-  console.log(`Current data for ${mon}:`, data);
 
   // Always use the { default: {...}, regionalform: {...} } format
   if (!data.pokedexEntries || typeof data.pokedexEntries !== 'object' || Array.isArray(data.pokedexEntries)) {

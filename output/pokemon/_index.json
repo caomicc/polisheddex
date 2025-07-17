@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-07-17T00:39:53.185Z",
+  "generatedAt": "2025-07-17T04:16:20.264Z",
   "totalPokemon": 290,
   "pokemon": [
     {
@@ -266,11 +266,11 @@
       "fileName": "sandslash.json"
     },
     {
-      "name": "Nidoran F",
+      "name": "Nidoran-F",
       "nationalDex": 29,
       "johtoDex": 100,
-      "types": "Unknown",
-      "frontSpriteUrl": "/sprites/pokemon/nidoranf/front_cropped.png",
+      "types": "Poison",
+      "frontSpriteUrl": "/sprites/pokemon/nidoran_f/front_cropped.png",
       "fileName": "nidoran-f.json"
     },
     {
@@ -293,11 +293,11 @@
       "fileName": "nidoqueen.json"
     },
     {
-      "name": "Nidoran M",
+      "name": "Nidoran-M",
       "nationalDex": 32,
       "johtoDex": 103,
-      "types": "Unknown",
-      "frontSpriteUrl": "/sprites/pokemon/nidoranm/front_cropped.png",
+      "types": "Poison",
+      "frontSpriteUrl": "/sprites/pokemon/nidoran_m/front_cropped.png",
       "fileName": "nidoran-m.json"
     },
     {
@@ -779,8 +779,11 @@
       "name": "Farfetch D",
       "nationalDex": 83,
       "johtoDex": 176,
-      "types": "Unknown",
-      "frontSpriteUrl": "/sprites/pokemon/farfetchd/front_cropped.png",
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/farfetch_d/front_cropped.png",
       "fileName": "farfetch-d.json"
     },
     {
@@ -1131,7 +1134,7 @@
       "nationalDex": 122,
       "johtoDex": null,
       "types": "Unknown",
-      "frontSpriteUrl": "/sprites/pokemon/mrmime/front_cropped.png",
+      "frontSpriteUrl": "/sprites/pokemon/mr__mime/front_cropped.png",
       "fileName": "mr-mime.json"
     },
     {
@@ -2415,14 +2418,6 @@
       "fileName": "bonsly.json"
     },
     {
-      "name": "Mime Jr",
-      "nationalDex": 258,
-      "johtoDex": null,
-      "types": "Unknown",
-      "frontSpriteUrl": "/sprites/pokemon/mimejr/front_cropped.png",
-      "fileName": "mime-jr.json"
-    },
-    {
       "name": "Happiny",
       "nationalDex": 259,
       "johtoDex": 253,
@@ -2579,7 +2574,7 @@
       "nationalDex": 275,
       "johtoDex": 252,
       "types": "Normal",
-      "frontSpriteUrl": "/sprites/pokemon/porygon_z/front_cropped.png",
+      "frontSpriteUrl": "/sprites/pokemon/porygonz/front_cropped.png",
       "fileName": "porygon-z.json"
     },
     {
@@ -2607,11 +2602,11 @@
       "fileName": "cursola.json"
     },
     {
-      "name": "Sirfetch D",
+      "name": "Sirfetch-d",
       "nationalDex": 279,
       "johtoDex": 177,
-      "types": "Unknown",
-      "frontSpriteUrl": "/sprites/pokemon/sirfetchd/front_cropped.png",
+      "types": "Fighting",
+      "frontSpriteUrl": "/sprites/pokemon/sirfetch_d/front_cropped.png",
       "fileName": "sirfetch-d.json"
     },
     {
@@ -2704,7 +2699,7 @@
       "nationalDex": 290,
       "johtoDex": null,
       "types": "Unknown",
-      "frontSpriteUrl": "/sprites/pokemon/taurospaldeanfire/front_cropped.png",
+      "frontSpriteUrl": "/sprites/pokemon/tauros_paldean_fire/front_cropped.png",
       "fileName": "tauros-paldean-fire.json"
     },
     {
@@ -2712,8 +2707,16 @@
       "nationalDex": 291,
       "johtoDex": null,
       "types": "Unknown",
-      "frontSpriteUrl": "/sprites/pokemon/taurospaldeanwater/front_cropped.png",
+      "frontSpriteUrl": "/sprites/pokemon/tauros_paldean_water/front_cropped.png",
       "fileName": "tauros-paldean-water.json"
+    },
+    {
+      "name": "Mime-Jr",
+      "nationalDex": null,
+      "johtoDex": null,
+      "types": "Unknown",
+      "frontSpriteUrl": "/sprites/pokemon/mime_jr_/front_cropped.png",
+      "fileName": "mime-jr.json"
     }
   ]
 }

@@ -217,9 +217,11 @@ export function EvolutionChain({
     }
 
     // Regular Pokémon
+    // If the name contains spaces, replace them with underscores for the sprite path
+    const normalized = name.includes('-') ? name.replace(/-/g, '_') : name;
     return (
       (spritesByGen && spritesByGen[name]) ||
-      `/sprites/pokemon/${name.toLowerCase()}/front_cropped.png`
+      `/sprites/pokemon/${normalized.toLowerCase()}/front_cropped.png`
     );
   };
 

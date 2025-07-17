@@ -1,38 +1,88 @@
 {
-  "name": "Mime Jr",
-  "nationalDex": 258,
+  "name": "Mime-Jr",
+  "nationalDex": null,
   "johtoDex": null,
   "types": "Unknown",
   "updatedTypes": "Unknown",
-  "frontSpriteUrl": "/sprites/pokemon/mimejr/front_cropped.png",
-  "detailedStats": null,
-  "evolution": {
-    "methods": [
+  "frontSpriteUrl": "/sprites/pokemon/mime_jr_/front_cropped.png",
+  "detailedStats": {
+    "baseStats": {
+      "hp": 20,
+      "attack": 25,
+      "defense": 45,
+      "speed": 60,
+      "specialAttack": 70,
+      "specialDefense": 90,
+      "total": 310
+    },
+    "catchRate": 145,
+    "baseExp": 78,
+    "heldItems": [
+      "LEPPA_BERRY"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Slow (6,400 steps)",
+    "abilities": [
       {
-        "method": "EVOLVE_LOCATION",
-        "parameter": "ICE_PATH",
-        "target": "Mr  Mime",
-        "form": "Galarian Form"
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": false,
+        "abilityType": "primary"
       },
       {
-        "method": "EVOLVE_LEVEL",
-        "parameter": 30,
-        "target": "Mr  Mime",
-        "form": "Plain Form"
+        "name": "Filter",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
       },
       {
-        "method": "EVOLVE_ITEM",
-        "parameter": "ICE_STONE",
-        "target": "Mr  Mime",
-        "form": "Galarian Form"
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
     ],
+    "faithfulAbilities": [
+      {
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Filter",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Undiscovered",
+      "Undiscovered"
+    ],
+    "evYield": "1 SDf",
+    "types": "Unknown",
+    "updatedTypes": "Unknown"
+  },
+  "evolution": {
+    "methods": [],
     "chain": [
-      "Mime Jr",
+      "Mime- Jr",
       "Mr  Mime"
     ],
     "chainWithMethods": {
-      "Mime Jr": [
+      "Mime- Jr": [
         {
           "method": "EVOLVE_LOCATION",
           "parameter": "ICE_PATH",
@@ -278,7 +328,13 @@
     }
   ],
   "tmHmMoves": [],
-  "eggMoves": [],
+  "eggMoves": [
+    "Confuse Ray",
+    "Future Sight",
+    "Hypnosis",
+    "Nasty Plot",
+    "Trick"
+  ],
   "locations": [],
   "pokedexEntries": {
     "default": {

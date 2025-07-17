@@ -2,26 +2,32 @@
   "name": "Farfetch D",
   "nationalDex": 83,
   "johtoDex": 176,
-  "types": "Unknown",
-  "updatedTypes": "Unknown",
-  "frontSpriteUrl": "/sprites/pokemon/farfetchd/front_cropped.png",
+  "types": [
+    "Normal",
+    "Flying"
+  ],
+  "updatedTypes": [
+    "Normal",
+    "Flying"
+  ],
+  "frontSpriteUrl": "/sprites/pokemon/farfetch_d/front_cropped.png",
   "detailedStats": null,
   "evolution": {
     "methods": [],
     "chain": [
-      "Farfetch D",
-      "Sirfetch D"
+      "Farfetch-d",
+      "Sirfetch-d"
     ],
     "chainWithMethods": {
-      "Farfetch D": [
+      "Farfetch-d": [
         {
           "method": "EVOLVE_CRIT",
           "parameter": "TR_ANYTIME",
-          "target": "Sirfetch D",
+          "target": "Sirfetch-d",
           "form": "Plain Form"
         }
       ],
-      "Sirfetch D": []
+      "Sirfetch-d": []
     }
   },
   "levelMoves": [
@@ -255,53 +261,27 @@
     }
   ],
   "tmHmMoves": [],
-  "eggMoves": [
-    "Foresight",
-    "Gust",
-    "Quick Attack",
-    "Steel Wing",
-    "Night Slash",
-    "Roost"
-  ],
-  "locations": [
-    {
-      "area": "Lake of Rage",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "26",
-      "chance": 15,
-      "rareItem": "Water Stone",
-      "formName": null
-    }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Wild Duck",
-      "description": "In order to prevent their extinction, more people have made an effort to breed these #mon."
-    },
-    "Galarian": {
-      "species": "Wild Duck",
-      "description": "These unique Farfetch'd are brave warriors, and they wield thick, tough leeks in battle."
-    }
-  },
+  "eggMoves": [],
+  "locations": [],
+  "pokedexEntries": [],
   "forms": {
     "Galarian": {
       "evolution": {
         "methods": [],
         "chain": [
-          "Farfetch D",
-          "Sirfetch D"
+          "Farfetch-d",
+          "Sirfetch-d"
         ],
         "chainWithMethods": {
-          "Farfetch D": [
+          "Farfetch-d": [
             {
               "method": "EVOLVE_CRIT",
               "parameter": "TR_ANYTIME",
-              "target": "Sirfetch D",
+              "target": "Sirfetch-d",
               "form": "Plain Form"
             }
           ],
-          "Sirfetch D": []
+          "Sirfetch-d": []
         }
       },
       "moves": [

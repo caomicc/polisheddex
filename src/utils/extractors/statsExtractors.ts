@@ -49,6 +49,16 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       pokemonName = 'Porygon-Z'; // Force the correct name format
     }
 
+    if (fileName === 'mr__mime_plain') {
+      pokemonName = 'Mr-Mime'; // Force the correct name format
+    }
+    if (fileName === 'mr__mime_galarian') {
+      pokemonName = 'Mr-Mime'; // Force the correct name format
+    }
+    if (fileName === 'mime_jr_') {
+      pokemonName = 'Mime-Jr'; // Force the correct name format
+    }
+
     try {
       // Extract base stats (first line)
       // Format: db hp, atk, def, spe, sat, sdf ; BST

@@ -64,6 +64,74 @@ export const normalizeString = (str: string): string => {
     'porygon z': 'Porygon-Z', // Lowercase with space
     'porygon_z': 'Porygon-Z', // Special case for file name format
     'PORYGON_Z': 'Porygon-Z', // Special case for ASM constant format
+    'Mr. Mime': 'Mr-Mime', // Special case for Mr. Mime
+    'Mr Mime': 'Mr-Mime', // Special case for Mr. Mime
+    'MR. MIME': 'Mr-Mime', // Uppercase variant
+    'mr. mime': 'Mr-Mime', // Lowercase with space
+    'mr mime': 'Mr-Mime', // Lowercase with space
+    'mr_mime': 'Mr-Mime', // Special case for file name format
+    'MR_MIME': 'Mr-Mime', // Special case for ASM constant format
+    'MrMime': 'Mr-Mime', // CamelCase variant
+
+    'Mime Jr.': 'Mime-Jr', // Special case for Mime Jr.
+    'Mime Jr': 'Mime-Jr', // Special case for Mime Jr.
+    'MIME JR.': 'Mime-Jr', // Uppercase variant
+    'mime jr.': 'Mime-Jr', // Lowercase with space
+    'mime jr': 'Mime-Jr', // Lowercase with space
+    'mime_jr': 'Mime-Jr', // Special case for file name format
+    'MIME_JR': 'Mime-Jr', // Special case for ASM constant format
+    'MimeJr': 'Mime-Jr', // CamelCase variant
+
+
+    // Nidoran♀ special cases
+    'nidoran F': 'Nidoran-F',
+    'Nidoran F': 'Nidoran-F',
+    'Nidoran♀': 'Nidoran-F',
+    'Nidoran♀Description': 'Nidoran-F',
+    'NIDORAN♀': 'Nidoran-F',
+    'nidoran♀': 'Nidoran-F',
+    'Nidoran-F': 'Nidoran-F',
+    'NIDORAN_F': 'Nidoran-F',
+    'nidoran_f': 'Nidoran-F',
+    'NidoranF': 'Nidoran-F',
+    'NIDORANF': 'Nidoran-F',
+    'nidoranf': 'Nidoran-F',
+
+
+    'nidoran M': 'Nidoran-M',
+    'Nidoran M': 'Nidoran-M',
+    'Nidoran♂': 'Nidoran-M',
+    'Nidoran♂Description': 'Nidoran-M',
+    'NIDORAN♂': 'Nidoran-M',
+    'nidoran♂': 'Nidoran-M',
+    'Nidoran-M': 'Nidoran-M',
+    'NIDORAN_M': 'Nidoran-M',
+    'nidoran_m': 'Nidoran-M',
+    'NidoranM': 'Nidoran-M',
+    'NIDORANM': 'Nidoran-M',
+    'nidoranm': 'Nidoran-M',
+
+    'Farfetch\'d': 'Farfetch-d', // Special case for Farfetch'd
+    'Farfetch D': 'Farfetch-d', // Special case for Farfetch'd
+    'FARFETCH\'D': 'Farfetch-d', // Uppercase variant
+    'farfetch\'d': 'Farfetch-d', // Lowercase with apostrophe
+    'farfetch d': 'Farfetch-d', // Lowercase with space
+    'farfetch_d': 'Farfetch-d', // Special case for file name format
+    'FARFETCH_D': 'Farfetch-d', // Special case for ASM constant format
+    'Farfetchd': 'Farfetch-d', // CamelCase variant
+    'FarfetchdDescription': 'Farfetch-d', // Description variant
+    'FarfetchD': 'Farfetch-d', // Another variant for Farfetch'd
+
+    'Sirfetch\'d': 'Sirfetch-d', // Special case for Sirfetch'd
+    'Sirfetch D': 'Sirfetch-d', // Special case for Sirfetch'd
+    'SIRFETCH\'D': 'Sirfetch-d', // Uppercase variant
+    'sirfetch\'d': 'Sirfetch-d', // Lowercase with apostrophe
+    'sirfetch d': 'Sirfetch-d', // Lowercase with space
+    'sirfetch_d': 'Sirfetch-d', // Special case for file name format
+    'SIRFETCH_D': 'Sirfetch-d', // Special case for ASM constant format
+    'Sirfetchd': 'Sirfetch-d', // CamelCase variant
+    'SirfetchdDescription': 'Sirfetch-d', // Description variant
+    'SirfetchD': 'Sirfetch-d', // Another variant for Sirfetch'd
   };
 
   // Check if this is a special case that needs direct mapping

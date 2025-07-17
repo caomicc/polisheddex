@@ -861,66 +861,28 @@ const groupedPokemonData = groupPokemonForms(finalResultV3);
 const baseData: Record<string, BaseData> = {};
 for (const [mon, data] of Object.entries(groupedPokemonData)) {
 
-  console.log(`Processing base data for Pokémon: ${mon}`);
+  const trimmedMon = mon.trim().replace(/\s+/g, '-');
+  // const trimmedMon = mon.trim().replace(/\s+/g, '-');
 
-  const trimmedMon = mon.trim();
-
-  console.log(`Trimmed Pokémon name: ${trimmedMon}`);
-
-  console.log(`Data for ${trimmedMon}:`, data);
+  console.log(`Processing base data for Pokémon: ${trimmedMon}`);
 
   let spriteName = trimmedMon
     .toLowerCase()
-    .replace(/[^a-z0-9]/g, '') // Remove non-alphanumerics
-    .replace(/_/g, '-'); // Replace underscores with hyphens
+    .replace(/[^a-z0-9\-]/g, '') // Remove non-alphanumerics except hyphens
+    .replace(/-/g, '_'); // Replace middle hyphens with underscores
 
-  if (trimmedMon === 'Mr Mime') {
-    // Special case for Mr. Mime
-    spriteName = 'mr__mime';
+  console.log(`  Initial sprite name: ${spriteName}`);
+
+  if (spriteName === 'mr_mime') {
+    spriteName = 'mr__mime'; // Special case for Mr. Mime
   }
 
-  if (trimmedMon === 'Ho Oh' || trimmedMon === 'Ho-Oh') {
-    // Special case for Ho-Oh
-    spriteName = 'ho_oh';
+  if (spriteName === 'mime_jr') {
+    spriteName = 'mime_jr_'; // Special case for Mime Jr.
   }
-
-  if (trimmedMon === 'Tauros Paldean Water') {
-    // Special case for Tauros Paldean Water
-    spriteName = 'tauros_paldean_water';
-  }
-
-  if (trimmedMon === 'Tauros Paldean Fire') {
-    // Special case for Tauros Paldean Fire
-    spriteName = 'tauros_paldean_fire';
-  }
-
-  if (trimmedMon === 'Mime Jr' || trimmedMon === 'MimeJr' || trimmedMon === 'Mime-Jr') {
-    // Special case for Mime Jr.
-    spriteName = 'mime_jr_';
-  }
-
-  if (trimmedMon === 'Farfetch D' || trimmedMon === 'Farfetch\'d') {
-    // Special case for Mr. Mime
-    spriteName = 'farfetch_d';
-  }
-
-  if (trimmedMon === 'Sirfetch D' || trimmedMon === 'Sirfetch\'d' || trimmedMon === 'Sirfetchd' || trimmedMon === 'Sirfetch-d') {
-    spriteName = 'sirfetch_d';
-  }
-
-  if (trimmedMon === 'Nidoran-F') {
-    spriteName = 'nidoran_f';
-  }
-
-  if (trimmedMon === 'Nidoran-M') {
-    spriteName = 'nidoran_m';
-  }
-
-  console.log(`Processing Pokémon: ${trimmedMon}, sprite name: ${spriteName}`);
 
   let typeData = data.types;
 
-  console.log(`Initial type data for ${trimmedMon}:`, typeData);
 
   if (!typeData || typeData === 'None' || (Array.isArray(typeData) && typeData.includes('None'))) {
     // Try to get type from our typeMap
@@ -968,19 +930,8 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
     }
   }
 
-  let displayName = trimmedMon;
-
-  if (trimmedMon === 'Mr Mime') {
-    displayName = 'Mr-Mime'; // Special case for Mr. Mime
-  }
-
-  if (trimmedMon === 'Mime Jr') {
-    displayName = 'Mime-Jr'; // Special case for Mime Jr.
-  }
-
-
   baseData[trimmedMon] = {
-    name: displayName,
+    name: trimmedMon.replace(/\s+/g, '-'),
     moves: data.moves || [],
     nationalDex: data.nationalDex ?? null,
     johtoDex: data.johtoDex ?? null,
@@ -1147,7 +1098,7 @@ for (const [mon, data] of Object.entries(groupedPokemonData)) {
       }
 
       // Create directory-style sprite path for form variants
-      const formSpritePath = `${spriteName}_${formName.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+      const formSpritePath = `${spriteName}_${formName.toLowerCase().replace(/[^a-z0-9]/g, '_')}`;
 
       // Add the form data to the baseData with clear debug information
       console.log(`Adding form data for ${trimmedMon} - form ${formName}`);
@@ -1666,6 +1617,11 @@ if (fs.existsSync(DETAILED_STATS_OUTPUT)) {
 
 // Generate individual files for each Pokemon
 for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
+  // Normalize the pokemonName by removing spaces (e.g., "Mr Mime" -> "MrMime")
+  const normalizedPokemonName = pokemonName.replace(/\s+/g, '-');
+
+  console.log(`Generating file for ${pokemonName} (${normalizedPokemonName})`);
+
   // --- Ensure all forms are included in individual Pokemon files ---
   const groupedData = groupedPokemonData[pokemonName] || {};
   // Deduplicate and normalize form keys
@@ -1714,13 +1670,13 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     console.log(`formStats data for ${titleCaseFormName}:`, formStats);
     // Compose a full DetailedStats-like object for the form, but nest under detailedStats
     forms[titleCaseFormName] = {
-      name: `${pokemonName} ${formName}`,
+      name: `${normalizedPokemonName} ${formName}`,
       formName: titleCaseFormName,
       nationalDex: baseData.nationalDex,
       johtoDex: baseData.johtoDex,
       types: formTypeData,
       updatedTypes: formTypeData,
-      frontSpriteUrl: `/sprites/pokemon/${baseName}_${formName}/front_cropped.png`,
+      frontSpriteUrl: `/sprites/pokemon/${normalizedPokemonName.toLowerCase()}_${formName}/front_cropped.png`,
       moves: formMoves ?? [],
       detailedStats: {
         ...formStats,
@@ -1746,11 +1702,11 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     seenForms[normKey] = formName.trim();
   }
 
-  console.log(`Final forms for ${pokemonName}:`, Object.keys(forms), forms);
+  console.log(`Final forms for ${normalizedPokemonName}:`, Object.keys(forms), forms);
 
   // Build minimal root object
   const pokemonData: Record<string, any> = {
-    name: pokemonName,
+    name: normalizedPokemonName,
     nationalDex: baseData.nationalDex,
     johtoDex: baseData.johtoDex,
     types: baseData.types,
@@ -1789,9 +1745,9 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
   // Remove duplicate declarations if they exist
   // (This block should only declare safeFileName and filePath once)
 
-  // Create a safe filename
+  // Create a safe filename using the normalized name (without spaces)
   const safeFileName = (
-    pokemonName
+    normalizedPokemonName
       .toLowerCase()
       .replace(/[^a-z0-9\-]/g, '-')
       .replace(/--+/g, '-') // Replace multiple hyphens with single hyphen
@@ -1810,19 +1766,24 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
 }
 
 // Generate an index file for quick Pokemon lookups
-const pokemonIndex = Object.keys(validatedBaseData).map(name => ({
-  name,
-  nationalDex: validatedBaseData[name].nationalDex,
-  johtoDex: validatedBaseData[name].johtoDex,
-  types: validatedBaseData[name].types,
-  frontSpriteUrl: validatedBaseData[name].frontSpriteUrl,
-  fileName: name
-    .toLowerCase()
-    .replace(/[^a-z0-9\-]/g, '-')
-    .replace(/--+/g, '-')
-    .replace(/^-|-$/g, '')
-    + '.json'
-})).sort((a, b) => {
+const pokemonIndex = Object.keys(validatedBaseData).map(name => {
+  // Normalize the name for the fileName
+  const normalizedName = name.replace(/\s+/g, '');
+
+  return {
+    name: normalizedName,
+    nationalDex: validatedBaseData[name].nationalDex,
+    johtoDex: validatedBaseData[name].johtoDex,
+    types: validatedBaseData[name].types,
+    frontSpriteUrl: validatedBaseData[name].frontSpriteUrl,
+    fileName: normalizedName
+      .toLowerCase()
+      .replace(/[^a-z0-9\-]/g, '-')
+      .replace(/--+/g, '-')
+      .replace(/^-|-$/g, '')
+      + '.json'
+  };
+}).sort((a, b) => {
   // Sort by National Dex number, then by name
 
   if (a.nationalDex && b.nationalDex) {
