@@ -70,7 +70,9 @@ export const normalizeString = (str: string): string => {
     'mr. mime': 'Mr-Mime', // Lowercase with space
     'mr mime': 'Mr-Mime', // Lowercase with space
     'mr_mime': 'Mr-Mime', // Special case for file name format
+    'mr__mime': 'Mr-Mime', // Special case for file name format with double underscore
     'MR_MIME': 'Mr-Mime', // Special case for ASM constant format
+    'MR__MIME': 'Mr-Mime', // Special case for ASM constant format with double underscore
     'MrMime': 'Mr-Mime', // CamelCase variant
 
     'Mime Jr.': 'Mime-Jr', // Special case for Mime Jr.
@@ -79,7 +81,9 @@ export const normalizeString = (str: string): string => {
     'mime jr.': 'Mime-Jr', // Lowercase with space
     'mime jr': 'Mime-Jr', // Lowercase with space
     'mime_jr': 'Mime-Jr', // Special case for file name format
+    'mime_jr_': 'Mime-Jr', // Special case for file name format with trailing underscore
     'MIME_JR': 'Mime-Jr', // Special case for ASM constant format
+    'MIME_JR_': 'Mime-Jr', // Special case for ASM constant format with trailing underscore
     'MimeJr': 'Mime-Jr', // CamelCase variant
 
 
