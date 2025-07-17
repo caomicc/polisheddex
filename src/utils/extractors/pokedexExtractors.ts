@@ -252,7 +252,7 @@ export function extractPokedexEntries() {
   }
   // Don't forget the last entry
   if (currentMon && currentSpecies && currentEntries.length > 0) {
-    const standardizedMon = standardizePokemonKey(currentMon);
+    const standardizedMon = standardizePokemonKey(currentMon).toLowerCase();
     pokedexEntries[standardizedMon] = {
       species: currentSpecies,
       entries: currentEntries
