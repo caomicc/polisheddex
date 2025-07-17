@@ -1779,7 +1779,7 @@ fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify({
   "_metadata": {
     "deprecated": true,
     "deprecationMessage": "This file is deprecated. Location data is now embedded directly in individual Pokemon files.",
-    "generatedAt": new Date().toISOString(),
+    // "generatedAt": new Date().toISOString(),
     "version": "2.0.0"
   }
 }, null, 2));
@@ -2187,8 +2187,8 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     pokedexEntries: pokedexData[pokemonName] || [],
     forms: enhancedForms,
     // Metadata
-    generatedAt: new Date().toISOString(),
-    version: '2.0.0' // Bump version to indicate embedded location data
+    // generatedAt: new Date().toISOString(),
+    // version: '2.0.0' // Bump version to indicate embedded location data
   };
 
   // Remove redundant root fields if detailedStats is present
@@ -2244,7 +2244,7 @@ const pokemonIndex = Object.keys(validatedBaseData).map(name => ({
 
 const indexPath = path.join(POKEMON_DIR, '_index.json');
 fs.writeFileSync(indexPath, JSON.stringify({
-  generatedAt: new Date().toISOString(),
+  // generatedAt: new Date().toISOString(),
   totalPokemon: pokemonIndex.length,
   pokemon: pokemonIndex
 }, null, 2));
