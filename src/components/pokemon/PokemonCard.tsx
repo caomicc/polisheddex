@@ -5,6 +5,7 @@ import { Card } from '../ui/card';
 import { Badge } from '../ui/badge';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 
 export interface PokemonCardProps {
   pokemon: BaseData;
@@ -30,7 +31,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
     : 'unknown';
 
   return (
-    <Link href={`/pokemon/${encodeURIComponent(pokemon.name)}`}>
+    <Link href={`/pokemon/${normalizePokemonUrlKey(pokemon.name)}`}>
       <Card
         className={cn(
           'shadow-sm hover:shadow-md transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pt-[48px] h-[120px] md:h-auto',

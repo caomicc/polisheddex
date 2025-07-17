@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
 import { MoveDescription, FormData, PokemonDataV3 } from '@/types/types';
+import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNormalizer';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -28,8 +29,11 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const nameParam = (await params).name;
   const pokemonName = decodeURIComponent(nameParam);
 
-  // Build the path to the individual Pokémon file
-  const pokemonFile = path.join(process.cwd(), `output/pokemon/${pokemonName.toLowerCase()}.json`);
+  // Convert the URL key to a standardized key for file lookup
+  const standardKey = urlKeyToStandardKey(pokemonName);
+  
+  // Build the path to the individual Pokémon file using the URL-safe filename
+  const pokemonFile = path.join(process.cwd(), `output/pokemon/${getPokemonFileName(standardKey)}`);
   const pokemonData = await loadJsonData<PokemonDataV3>(pokemonFile);
   if (!pokemonData) return notFound();
 
