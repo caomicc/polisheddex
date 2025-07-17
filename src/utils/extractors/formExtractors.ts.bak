@@ -53,16 +53,6 @@ export function extractFormInfo(fileName: string): { basePokemonName: string, fo
   // Form indicators in filenames
   const formPatterns = [
     // Place special forms before plain to ensure correct matching
-    { pattern: /_alolan$/, formName: KNOWN_FORMS.ALOLAN },
-    { pattern: /_galarian$/, formName: KNOWN_FORMS.GALARIAN },
-    { pattern: /_hisuian$/, formName: KNOWN_FORMS.HISUIAN },
-    { pattern: /_paldean_fire$/, formName: KNOWN_FORMS.PALDEAN_FIRE },
-    { pattern: /_paldean_water$/, formName: KNOWN_FORMS.PALDEAN_WATER },
-    { pattern: /_paldean$/, formName: KNOWN_FORMS.PALDEAN },
-    { pattern: /_armored$/, formName: KNOWN_FORMS.ARMORED },
-    { pattern: /_bloodmoon$/, formName: KNOWN_FORMS.BLOODMOON },
-    { pattern: /_plain$/, formName: null }, // Place _plain last as it's a special case
-    // Place special forms before plain to ensure correct matching
     // Support both underscore and hyphen format in file names
     { pattern: /_paldean_water$|[-]paldean[-]water$/, formName: KNOWN_FORMS.PALDEAN_WATER },
     { pattern: /_paldean_fire$|[-]paldean[-]fire$/, formName: KNOWN_FORMS.PALDEAN_FIRE },

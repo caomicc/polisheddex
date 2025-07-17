@@ -97,11 +97,27 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
         // Check if we have specific type data for this form
         let formTypes = formData.types;
 
+        // Get a clean form name - never allow empty form names
+        let cleanFormName = formName.trim();
+        if (!cleanFormName) {
+          // Try to extract form name from the data if key is empty
+          if (formData.name && typeof formData.name === 'string') {
+            const nameParts = formData.name.split(' ');
+            if (nameParts.length > 1) {
+              cleanFormName = nameParts[nameParts.length - 1]; // Use last part as form name
+            }
+          }
+          // If still empty, use a default
+          if (!cleanFormName) {
+            cleanFormName = "Unknown";
+          }
+        }
+
         // If form types are missing or set to None, try to get them from formTypeMap
         if (!formTypes || formTypes === 'None' || (Array.isArray(formTypes) && formTypes.includes('None'))) {
-          if (formTypeMap[baseName] && formTypeMap[baseName][formName]) {
+          if (formTypeMap[baseName] && formTypeMap[baseName][cleanFormName]) {
             // Use the form-specific type data
-            const formTypeArray = formTypeMap[baseName][formName];
+            const formTypeArray = formTypeMap[baseName][cleanFormName];
             // Handle single type (remove duplicates or 'None')
             if (Array.isArray(formTypeArray) && (formTypeArray.length === 1 || (formTypeArray.length === 2 && formTypeArray[1] === 'None'))) {
               formTypes = formTypeArray[0];
@@ -113,10 +129,10 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
           }
         }
 
-        groupedData[baseName].forms![formName] = {
+        groupedData[baseName].forms![cleanFormName] = {
           ...formData,
-          formName,
-          types: formTypes,
+          formName: cleanFormName,
+          types: formTypes || ["Unknown"],
           moves: formData.moves,
           locations: formData.locations,
           baseStats: formData.baseStats,
@@ -209,7 +225,9 @@ export function validatePokemonKeys<T>(jsonData: Record<string, T>): Record<stri
   const validatedData: Record<string, T> = {};
 
   for (const [key, value] of Object.entries(jsonData)) {
-    let trimmedKey = key.replace(/\s+/g, '-');
+    const trimmedKey = key.trim();
+
+    console.log(`Validating Pokémon key: x${trimmedKey}x`);
 
     // Deep clean any nested forms objects
     if (typeof value === 'object' && value !== null) {

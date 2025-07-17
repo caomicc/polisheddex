@@ -25,6 +25,34 @@ export function extractBasePokemonName(fullName: string): string {
     return 'Porygon-Z';
   }
 
+  if (fullName === 'Mr-Mime') {
+    return 'Mr-Mime';
+  }
+
+  if (fullName === 'Mime-Jr') {
+    return 'Mime-Jr';
+  }
+
+  if (fullName === 'Nidoran-F') {
+    return 'Nidoran-F';
+  }
+
+  if (fullName === 'Nidoran-M') {
+    return 'Nidoran-M';
+  }
+
+  if (fullName === 'Sirfetch-d') {
+    return 'Sirfetch-d';
+  }
+
+  console.log(`Extracting base name from full name: ${fullName}`);
+
+  if (fullName === 'tauros paldean fire') {
+    return 'tauros';
+  }
+  if (fullName === 'tauros paldean water') {
+    return 'tauros';
+  }
   // Check if the name contains the special separator for complex forms
   if (fullName.includes('-')) {
     return fullName.split('-')[0];
@@ -81,16 +109,18 @@ export function getFullPokemonName(name: string, form: string | null): string {
  * Handles both base and regional forms, and always uses the { default: {...}, regionalform: {...} } format.
  */
 function updatePokemonJsonWithDexEntry(mon: string, entry: PokemonDexEntry) {
-  const baseName = extractBasePokemonName(mon)
-    .toLowerCase()
-    .replace(/[^a-z0-9 ]/g, '')
-    .replace(/ /g, '-');
+  const baseName = extractBasePokemonName(mon).toLowerCase().replace(/\s/g, '-'); // Normalize base name for file naming
+  // const baseName = extractBasePokemonName(mon).toLowerCase().replace(/[^a-z0-9]/g, '');
+  console.warn(`Updating JSON for Pokémon: ${mon}, base name: ${baseName}`);
   const filePath = path.join(__dirname, `../../../output/pokemon/${baseName}.json`);
+  console.log(`File path for Pokémon JSON: ${filePath}`);
   if (!fs.existsSync(filePath)) {
     console.warn(`No JSON file found for ${mon} (${filePath})`);
     return;
   }
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+  console.log(`Current data for ${mon}:`, data);
 
   // Always use the { default: {...}, regionalform: {...} } format
   if (!data.pokedexEntries || typeof data.pokedexEntries !== 'object' || Array.isArray(data.pokedexEntries)) {
@@ -130,7 +160,8 @@ export function extractPokedexEntries() {
     if (sectionMatch) {
       // Save previous entry if we were processing one
       if (currentMon && currentSpecies && currentEntries.length > 0) {
-        const standardizedMon = standardizePokemonKey(currentMon);
+        // fix later to use normalizeMonName
+        const standardizedMon = standardizePokemonKey(currentMon).toLowerCase();
         // Trim the last camelcased piece from currentMon (e.g., "TaurosPaldeanFire" -> "TaurosPaldean")
         // Extract the regional form from the currentMon (e.g., TyphlosionHisuian -> Hisuian)
         const regionalFormMatch = currentMon.match(/([A-Z][a-z]+)$/);
@@ -229,7 +260,7 @@ export function extractPokedexEntries() {
   }
   // Don't forget the last entry
   if (currentMon && currentSpecies && currentEntries.length > 0) {
-    const standardizedMon = standardizePokemonKey(currentMon);
+    const standardizedMon = standardizePokemonKey(currentMon).toLowerCase();
     pokedexEntries[standardizedMon] = {
       species: currentSpecies,
       entries: currentEntries

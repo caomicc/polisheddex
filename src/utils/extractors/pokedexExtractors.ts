@@ -45,10 +45,22 @@ export function extractBasePokemonName(fullName: string): string {
     return 'Sirfetch-d';
   }
 
+  if (fullName === 'taurospaldean' || fullName === 'Taurospaldean') {
+    return 'tauros';
+  }
+
+  if (fullName === 'tauros paldean fire' || fullName === 'Taurospaldean_fire') {
+    return 'tauros';
+  }
+  if (fullName === 'tauros paldean water' || fullName === 'Taurospaldean_water') {
+    return 'tauros';
+  }
   // Check if the name contains the special separator for complex forms
   if (fullName.includes('-')) {
     return fullName.split('-')[0];
   }
+
+  console.log(`Extracting base name from full name: ${fullName}`);
 
   // Use the KNOWN_FORMS constant for consistency
   const knownForms = Object.values(KNOWN_FORMS);
