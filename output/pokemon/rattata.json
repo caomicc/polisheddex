@@ -2654,7 +2654,16 @@
       "formName": null
     }
   ],
-  "pokedexEntries": [],
+  "pokedexEntries": {
+    "default": {
+      "species": "Rat",
+      "description": "This #mon's impressive vitality allows it to live anywhere. It also multiplies very quickly."
+    },
+    "Alolan": {
+      "species": "Mouse",
+      "description": "It has no interest in anything that's not fresh. If you take it shopping with you, it'll help pick ingredients."
+    }
+  },
   "forms": {
     "Alolan": {
       "name": "rattata alolan",
@@ -3099,6 +3108,6 @@
       }
     }
   },
-  "generatedAt": "2025-07-17T16:17:24.890Z",
+  "generatedAt": "2025-07-17T16:30:04.261Z",
   "version": "2.0.0"
 }

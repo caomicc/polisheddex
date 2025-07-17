@@ -765,7 +765,16 @@
       "formName": null
     }
   ],
-  "pokedexEntries": [],
+  "pokedexEntries": {
+    "default": {
+      "species": "Poison Gas",
+      "description": "When it inhales poisonous gases from garbage, its body expands, and its insides smell much worse."
+    },
+    "Galarian": {
+      "species": "Poison Gas",
+      "description": "It consumes particles that contaminate the air. Instead of leaving droppings, it expels clean air."
+    }
+  },
   "forms": {
     "Galarian": {
       "name": "weezing galarian",
@@ -1246,6 +1255,6 @@
       }
     }
   },
-  "generatedAt": "2025-07-17T16:17:24.940Z",
+  "generatedAt": "2025-07-17T16:30:04.337Z",
   "version": "2.0.0"
 }

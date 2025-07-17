@@ -152,7 +152,8 @@ export function extractPokedexEntries() {
     if (sectionMatch) {
       // Save previous entry if we were processing one
       if (currentMon && currentSpecies && currentEntries.length > 0) {
-        const standardizedMon = standardizePokemonKey(currentMon);
+        // fix later to use normalizeMonName
+        const standardizedMon = standardizePokemonKey(currentMon).toLowerCase();
         // Trim the last camelcased piece from currentMon (e.g., "TaurosPaldeanFire" -> "TaurosPaldean")
         // Extract the regional form from the currentMon (e.g., TyphlosionHisuian -> Hisuian)
         const regionalFormMatch = currentMon.match(/([A-Z][a-z]+)$/);

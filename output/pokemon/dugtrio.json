@@ -791,7 +791,16 @@
       "formName": null
     }
   ],
-  "pokedexEntries": [],
+  "pokedexEntries": {
+    "default": {
+      "species": "Mole",
+      "description": "Its three heads bob separately up and down to loosen the soil nearby, making it easier for it to burrow."
+    },
+    "Alolan": {
+      "species": "Mole",
+      "description": "Its metallic whiskers are heavy, so it's not very fast, but it has the power to dig through bedrock."
+    }
+  },
   "forms": {
     "Alolan": {
       "name": "dugtrio alolan",
@@ -1332,6 +1341,6 @@
       }
     }
   },
-  "generatedAt": "2025-07-17T16:17:24.905Z",
+  "generatedAt": "2025-07-17T16:30:04.293Z",
   "version": "2.0.0"
 }
