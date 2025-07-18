@@ -21,6 +21,23 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
   // Get the appropriate types based on preference
   const displayTypes = showUpdatedTypes ? pokemon.updatedTypes || pokemon.types : pokemon.types;
 
+  let displayName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+
+  if (pokemon.name) {
+    // Handle special cases for names
+    if (pokemon.name === 'nidoran-f') {
+      displayName = 'Nidoran ♀';
+    } else if (pokemon.name === 'nidoran-m') {
+      displayName = 'Nidoran ♂';
+    } else if (pokemon.name === 'Mr-Mime') {
+      displayName = 'Mr. Mime';
+    } else if (pokemon.name === 'Mime-Jr') {
+      displayName = 'Mime Jr.';
+    } else if (pokemon.name === 'Farfetchd') {
+      displayName = 'Farfetch\'d';
+    }
+  }
+
   // Get the primary type for styling
   const primaryType = displayTypes
     ? typeof displayTypes === 'string'
@@ -58,11 +75,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
               : '—'}
           </p>
           <h2 className="text-sm md:text-xl md:mb-8 font-bold leading-none mb-2">
-            {pokemon.name
-              .toLowerCase()
-              .split(' ')
-              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(' ')}
+            {displayName}
           </h2>
           <div className="flex md:justify-center gap-1 md:gap-2 flex-col md:flex-row">
             {(Array.isArray(displayTypes) ? displayTypes : [displayTypes]).map((type) => (
