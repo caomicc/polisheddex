@@ -22,6 +22,9 @@ export { extractItemData } from './itemExtractors.ts';
 // Export from tmHmExtractors.ts
 export { extractTmHmItems } from './tmHmExtractors.ts';
 
+// Export from martExtractors.ts
+export { extractMartData } from './martExtractors.ts';
+
 // Re-export everything for specific use cases
 export * from './formExtractors.ts';
 export * from './locationExtractors.ts';

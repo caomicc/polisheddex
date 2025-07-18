@@ -22,9 +22,10 @@ export interface TmHmItemData {
 
 /**
  * Extracts TM/HM item data from ROM files and adds them to the items_data.json file
+ * @param itemData The existing item data to update with TM/HM information
  * @returns A record of TM/HM items with their details
  */
-export function extractTmHmItems(): Record<string, TmHmItemData> {
+export function extractTmHmItems(itemData?: Record<string, any>): Record<string, TmHmItemData> {
   // Use this workaround for __dirname in ES modules
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
@@ -152,13 +153,21 @@ export function extractTmHmItems(): Record<string, TmHmItemData> {
     };
   }
 
-  let existingItems: Record<string, ItemsDataRecord> = {};
-
-  if (fs.existsSync(itemsDataFile)) {
-    try {
-      existingItems = JSON.parse(fs.readFileSync(itemsDataFile, 'utf8'));
-    } catch (error) {
-      console.warn('Error reading items_data.json. Creating a new file.', error);
+  // Load the existing items data or use the passed itemData
+  let existingItems: Record<string, any> = {};
+  
+  if (itemData) {
+    // Use the passed itemData parameter
+    existingItems = itemData;
+    console.log('Using provided item data for TM/HM integration');
+  } else {
+    // Try to read from the items_data.json file if itemData wasn't provided
+    if (fs.existsSync(itemsDataFile)) {
+      try {
+        existingItems = JSON.parse(fs.readFileSync(itemsDataFile, 'utf8'));
+      } catch (error) {
+        console.warn('Error reading items_data.json. Creating a new file.', error);
+      }
     }
   }
 
