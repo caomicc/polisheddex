@@ -64,7 +64,7 @@ export default function Home() {
           Browse all items, their effects, and where to find them.
           </p>
           <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200">
-          Planned
+            In Progress
           </span>
         </div>
         </li>
@@ -74,7 +74,7 @@ export default function Home() {
             <p className="text-foreground/80 text-sm">
             Add details to locations, confirm & update Hidden Grottos to not have label and consolidation issues.
             </p>
-            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200">
+            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-200">
               Planned
             </span>
           </div>
@@ -85,7 +85,7 @@ export default function Home() {
             <p className="text-foreground/80 text-sm">
             Browse all moves, their effects, and type advantages vs disadvantages.
             </p>
-            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200">
+            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-200">
             Planned
             </span>
           </div>
