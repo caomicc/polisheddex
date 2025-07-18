@@ -58,6 +58,17 @@ export default function Home() {
       <div className="">
       <ol className="relative border-s border-border pl-6 space-y-8">
         <li className="flex items-start gap-4">
+          <div>
+            <h3 className="font-semibold text-lg">Polished vs Faithful checks</h3>
+            <p className="text-foreground/80 text-sm">
+              Still handling some differences between the two versions, such as movesets and naming conventions.
+            </p>
+            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200">
+              In Progress
+            </span>
+          </div>
+        </li>
+        <li className="flex items-start gap-4">
         <div>
           <h3 className="font-semibold text-lg">Item Database</h3>
           <p className="text-foreground/80 text-sm">
