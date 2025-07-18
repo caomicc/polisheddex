@@ -55,7 +55,7 @@ export default function Home() {
     </div>
     <div>
       <h2 className="text-xl mb-4 font-bold">Current Roadmap</h2>
-      <div className="bg-card rounded-lg shadow p-6">
+      <div className="">
       <ol className="relative border-s border-border pl-6 space-y-8">
         <li className="flex items-start gap-4">
         <div>
@@ -74,8 +74,8 @@ export default function Home() {
             <p className="text-foreground/80 text-sm">
             Add details to locations, confirm & update Hidden Grottos to not have label and consolidation issues.
             </p>
-            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-200">
-            In Progress
+            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200">
+              Planned
             </span>
           </div>
           </li>
