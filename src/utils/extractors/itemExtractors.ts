@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { extractMartData } from './martExtractors.ts';
 
 // Define types for item data
 export interface ItemData {
@@ -23,10 +24,6 @@ export interface ItemData {
   }>;
 }
 
-/**
- * Extracts item data from ROM files
- * @returns A record of items with their descriptions
- */
 export function extractItemData(): Record<string, ItemData> {
   // Use this workaround for __dirname in ES modules
   const __filename = fileURLToPath(import.meta.url);
@@ -287,6 +284,14 @@ export function extractItemData(): Record<string, ItemData> {
     if (unmatchedAttrs.length > 0) {
       console.log(`🔍 Sample unmatched attribute keys: ${unmatchedAttrs.slice(0, 5).join(', ')}`);
     }
+  }
+
+  // Extract mart data and add location information to items
+  try {
+    console.log('📍 Adding mart location data to items...');
+    extractMartData(items);
+  } catch (error) {
+    console.error(`❌ Error extracting mart data: ${error}`);
   }
 
   return items;
