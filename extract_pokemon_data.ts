@@ -122,17 +122,17 @@ let evoMethods: EvoRaw[] = [];
 // Helper function to extract base Pokemon name and form from evos_attacks entries
 function parseFormName(pokemonName: string): { baseName: string, formName: string | null } {
   // Directly check for Porygon-Z and similar cases that need special handling
-  if (pokemonName.toLowerCase() === 'porygonz' || 
-      pokemonName.toLowerCase() === 'porygon z' || 
-      pokemonName.toLowerCase() === 'porygon-z') {
+  if (pokemonName.toLowerCase() === 'porygonz' ||
+    pokemonName.toLowerCase() === 'porygon z' ||
+    pokemonName.toLowerCase() === 'porygon-z') {
     return { baseName: 'porygon-z', formName: null };
   }
-  
+
   // If the pokemon name is 'porygon' with something that looks like a Z suffix
   // but it should be Porygon-Z, handle it correctly
-  if (pokemonName.toLowerCase().startsWith('porygon') && 
-     (pokemonName.toLowerCase().endsWith('z') || 
-      pokemonName.toLowerCase().includes(' z') || 
+  if (pokemonName.toLowerCase().startsWith('porygon') &&
+    (pokemonName.toLowerCase().endsWith('z') ||
+      pokemonName.toLowerCase().includes(' z') ||
       pokemonName.toLowerCase().includes('-z'))) {
     console.log(`DEBUG: Special handling for Porygon-Z variant: ${pokemonName}`);
     // If it's actually meant to be Porygon-Z, return as a distinct Pokemon, not a form
