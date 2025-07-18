@@ -58,37 +58,83 @@ export default function Home() {
       </div>
     </div>
     <div>
-      <h2 className="text-xl mb-4 font-bold">Roadmap Features:</h2>
-      <ul className="w-full space-y-3 text-foreground list-disc dark:text-gray-400">
-          <li className="flex items-center text-md">
-              {/* <svg className="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-              </svg> */}
-              Item Database - Browse all items, their effects, and where to find them.
+      <h2 className="text-xl mb-4 font-bold">Roadmap</h2>
+      <div className="bg-card rounded-lg shadow p-6">
+      <ol className="relative border-s border-border pl-6 space-y-8">
+        <li className="flex items-start gap-4">
+        <div>
+          <h3 className="font-semibold text-lg">Item Database</h3>
+          <p className="text-foreground/80 text-sm">
+          Browse all items, their effects, and where to find them.
+          </p>
+          <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200">
+          Planned
+          </span>
+        </div>
+        </li>
+        <li className="flex items-start gap-4">
+          <div>
+            <h3 className="font-semibold text-lg">Better Location Handling</h3>
+            <p className="text-foreground/80 text-sm">
+            Add details to locations, confirm & update Hidden Grottos to not have label and consolidation issues.
+            </p>
+            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-200">
+            In Progress
+            </span>
+          </div>
           </li>
-          <li className="flex items-center text-md">
-              {/* <svg className="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-              </svg> */}
-              Move Database - Browse all moves, their effects, and type advantages vs disadvantages.
+          <li className="flex items-start gap-4">
+          <div>
+            <h3 className="font-semibold text-lg">Move Database</h3>
+            <p className="text-foreground/80 text-sm">
+            Browse all moves, their effects, and type advantages vs disadvantages.
+            </p>
+            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200">
+            Planned
+            </span>
+          </div>
           </li>
-          <li className="flex items-center text-md">
-              {/* <svg className="w-3.5 h-3.5 me-2 text-gray-500 dark:text-gray-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-              </svg> */}
-              <span>
-                Game Mechanics Guide - A guide to the game mechanics, including battle mechanics, breeding, and more.<span className="text-muted-foreground dark:text-muted-background text-xs block ml-4">*This may just default to wiki information instead of living on site, TBD</span>
+           <li className="flex items-start gap-4">
+            <div>
+              <h3 className="font-semibold text-lg">Team Picker for Type Match-ups</h3>
+              <p className="text-foreground/80 text-sm">
+                A tool to help you build a team based on type match-ups, weaknesses, and resistances for Pokemon and types specific to Polished Crystal.
+              </p>
+            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-200">
+                Idea
               </span>
+            </div>
+            </li>
+          <li className="flex items-start gap-4">
+          <div>
+            <h3 className="font-semibold text-lg">Game Mechanics Guide</h3>
+            <p className="text-foreground/80 text-sm">
+            A guide to the game mechanics, including battle mechanics, breeding, and more.
+            </p>
+            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-200">
+            Idea
+            </span>
+            <span className="block text-muted-foreground text-xs mt-1 ml-1">
+            *This may just default to wiki information instead of living on site, TBD
+            </span>
+          </div>
           </li>
-          <li className="flex items-center text-md">
-              {/* <svg className="w-3.5 h-3.5 me-2 text-gray-500 dark:text-gray-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
-              </svg> */}
-              <span>
-                Faithful vs. Polished - A guide to the differences between the two versions, including changes in graphics, mechanics, and more.<span className="text-muted-foreground dark:text-muted-background text-xs block ml-4">*Another instances of this may just default to wiki information instead of living on site, TBD</span>
-              </span>
+          <li className="flex items-start gap-4">
+          <div>
+            <h3 className="font-semibold text-lg">Faithful vs. Polished</h3>
+            <p className="text-foreground/80 text-sm">
+            A guide to the differences between the two versions, including changes in graphics, mechanics, and more.
+            </p>
+            <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-200">
+            Idea
+            </span>
+            <span className="block text-muted-foreground text-xs mt-1 ml-1">
+            *Another instance of this may just default to wiki information instead of living on site, TBD
+            </span>
+          </div>
           </li>
-        </ul>
+        </ol>
+        </div>
       </div>
     </div>
   );
