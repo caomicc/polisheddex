@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/table';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import TimeIcon from '@/components/pokemon/TimeIcon';
+import { getDisplayLocationName } from '@/components/utils';
 
 interface EncounterDetail {
   level: string;
@@ -109,6 +110,9 @@ export default async function LocationDetailPage({
   const { name } = await params;
   const locationName = decodeURIComponent(name);
 
+
+  const displayName = getDisplayLocationName(locationName);
+
   const locationData = await loadLocationData();
   const locationInfo = locationData[locationName];
 
@@ -192,12 +196,12 @@ export default async function LocationDetailPage({
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>{locationName}</BreadcrumbPage>
+            <BreadcrumbPage>{displayName}</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
 
-      <h1 className="text-3xl font-bold mb-2">{locationName}</h1>
+      <h1 className="text-3xl font-bold mb-2">{displayName}</h1>
 
       <p className="mb-6 text-md text-muted-foreground">
         *Badge Level pertains to the level a user can find in the wild related to current badges

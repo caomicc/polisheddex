@@ -84,7 +84,7 @@ export default function RootLayout({
       >
         <div className="flex flex-col min-h-screen pt-20 md:pt-24">
           <Navigation />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow mb-10">{children}</main>
           <Footer />
         </div>
         <SpeedInsights />
