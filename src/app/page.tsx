@@ -16,10 +16,6 @@ export default function Home() {
         <p>A companion dex for Polished Crystal</p>
       </div>
       <div>
-      <div className="mb-4 spacing-y-2">
-        <h2 className="text-xl font-bold">What are you looking for?</h2>
-      </div>
-
       <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4">
         <Link href="/pokemon" className="group">
           <Card className="">
@@ -58,7 +54,7 @@ export default function Home() {
       </div>
     </div>
     <div>
-      <h2 className="text-xl mb-4 font-bold">Roadmap</h2>
+      <h2 className="text-xl mb-4 font-bold">Current Roadmap</h2>
       <div className="bg-card rounded-lg shadow p-6">
       <ol className="relative border-s border-border pl-6 space-y-8">
         <li className="flex items-start gap-4">
