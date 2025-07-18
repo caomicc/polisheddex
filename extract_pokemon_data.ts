@@ -121,7 +121,23 @@ let evoMethods: EvoRaw[] = [];
 
 // Helper function to extract base Pokemon name and form from evos_attacks entries
 function parseFormName(pokemonName: string): { baseName: string, formName: string | null } {
-  // Handle patterns like TyphlosionHisuian, TyphlosionPlain, MrMimeGalarian, etc.
+  // List of special Pokémon with hyphens in their base names
+  const SPECIAL_HYPHENATED_POKEMON = [
+    'farfetch-d',
+    'nidoran-f',
+    'nidoran-m',
+    'mr-mime',
+    'mime-jr',
+    'ho-oh',
+    'porygon-z',
+    'sirfetch-d',
+    'type-null',
+    'jangmo-o',
+    'hakamo-o',
+    'kommo-o'
+  ];
+
+  // Form patterns for detecting variants
   const formPatterns = [
     { suffix: 'Plain', form: null }, // Plain forms are considered base forms
     { suffix: 'Hisuian', form: 'hisuian' },
@@ -145,6 +161,28 @@ function parseFormName(pokemonName: string): { baseName: string, formName: strin
     { suffix: 'paldean_water', form: 'paldean-water' }
   ];
 
+  // Handle special hyphenated Pokémon first
+  const lowerName = pokemonName.toLowerCase();
+  for (const specialName of SPECIAL_HYPHENATED_POKEMON) {
+    if (lowerName === specialName || lowerName.startsWith(specialName)) {
+      // Check if there's a form suffix after the special name
+      const formPart = lowerName.slice(specialName.length);
+      if (!formPart) {
+        return { baseName: specialName, formName: null };
+      }
+
+      // Check if the remaining part matches a known form pattern
+      for (const pattern of formPatterns) {
+        if (formPart.toLowerCase() === pattern.suffix.toLowerCase()) {
+          return { baseName: specialName, formName: pattern.form };
+        }
+      }
+
+      return { baseName: specialName, formName: null };
+    }
+  }
+
+  // Handle patterns like TyphlosionHisuian, TyphlosionPlain, MrMimeGalarian, etc.
   for (const pattern of formPatterns) {
     if (pokemonName.endsWith(pattern.suffix)) {
       const baseName = pokemonName.slice(0, -pattern.suffix.length);
@@ -906,7 +944,7 @@ for (const file of wildFiles) {
             method,
             time: currentTime,
             level: normalizedLevel,
-            chance: 0, // Will be set below
+            chance: encounterRate,
             formName
           }
         });
@@ -1220,6 +1258,8 @@ const INVALID_POKEMON_KEYS = [
   'missingno',
   'poke',
   'pkmn',
+  'sirfetch',
+  'farfetch',
   'pokemon',
   'poke_mon',
   'poke-mon',
@@ -1241,6 +1281,7 @@ const INVALID_POKEMON_KEYS = [
   'placeholder_mon',
   'placeholder-mon',
   'placeholder mon',
+  'poke_mon',
 ];
 
 for (const [mon, data] of Object.entries(normalizedGroupedData)) {
@@ -1252,47 +1293,47 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
   }
 
 
-  // --- FILTER OUT INVALID OR SPECIAL CASES BEFORE NORMALIZATION ---
-  // List of invalid or placeholder Pokémon names to skip
-  const INVALID_POKEMON = [
-    '',
-    'egg',
-    'a',
-    'mime',
-    'mr',
-    'file',
-    'empty',
-    'undefined',
-    'null',
-    '???',
-    'missingno',
-    'poke',
-    'pkmn',
-    'pokemon',
-    'poke_mon',
-    'poke-mon',
-    'poke mon',
-    'poke_mon',
-    'poke-mon',
-    'poke mon',
-    'none',
-    'unknown',
-    'test',
-    'testmon',
-    'test_mon',
-    'test-mon',
-    'test mon',
-    'debug',
-    'debugmon',
-    'debug_mon',
-    'debug-mon',
-    'debug mon',
-    'placeholder',
-    'placeholdermon',
-    'placeholder_mon',
-    'placeholder-mon',
-    'placeholder mon',
-  ];
+  // // --- FILTER OUT INVALID OR SPECIAL CASES BEFORE NORMALIZATION ---
+  // // List of invalid or placeholder Pokémon names to skip
+  // const INVALID_POKEMON = [
+  //   '',
+  //   'egg',
+  //   'a',
+  //   'mime',
+  //   'mr',
+  //   'file',
+  //   'empty',
+  //   'undefined',
+  //   'null',
+  //   '???',
+  //   'missingno',
+  //   'poke',
+  //   'pkmn',
+  //   'pokemon',
+  //   'poke_mon',
+  //   'poke-mon',
+  //   'poke mon',
+  //   'poke_mon',
+  //   'poke-mon',
+  //   'poke mon',
+  //   'none',
+  //   'unknown',
+  //   'test',
+  //   'testmon',
+  //   'test_mon',
+  //   'test-mon',
+  //   'test mon',
+  //   'debug',
+  //   'debugmon',
+  //   'debug_mon',
+  //   'debug-mon',
+  //   'debug mon',
+  //   'placeholder',
+  //   'placeholdermon',
+  //   'placeholder_mon',
+  //   'placeholder-mon',
+  //   'placeholder mon',
+  // ];
 
   // Handle special cases before normalization
   const trimmedMon = mon.trim();
@@ -1333,8 +1374,8 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
 
   // Filter out invalid Pokémon before writing to baseData
   if (
-    INVALID_POKEMON.includes(trimmedMon.toLowerCase()) ||
-    INVALID_POKEMON.includes(spriteName.toLowerCase()) ||
+    INVALID_POKEMON_KEYS.includes(trimmedMon.toLowerCase()) ||
+    INVALID_POKEMON_KEYS.includes(spriteName.toLowerCase()) ||
     !trimmedMon ||
     !spriteName ||
     trimmedMon.length < 2 ||
@@ -1345,7 +1386,6 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
   }
 
 
-  // ...existing code...
   baseData[trimmedMon] = {
     name: displayName,
     moves: data.moves || [],
@@ -2201,9 +2241,10 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
   // Also embed location data in the detailedStats if present
   // Convert pokemonName (URL key) to display name format used in detailedStatsData
   const displayNameForLookup = normalizePokemonDisplayName(pokemonName);
+  // Don't duplicate locations in detailedStats since they're already at the root level
   const enhancedDetailedStats = {
-    ...(detailedStatsData[displayNameForLookup] || defaultDetailedStats),
-    locations: embeddedLocations
+    ...(detailedStatsData[displayNameForLookup] || defaultDetailedStats)
+    // Removed: locations: embeddedLocations
   };
 
   // Enhance forms with their location data (normalize form keys for lookup)
@@ -2222,10 +2263,10 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
         ...formData,
         // locations: formLoc.locations || []
       };
-      // Also add to detailedStats if present
-      if (enhancedForms[formKey].detailedStats) {
-        enhancedForms[formKey].detailedStats.locations = formLoc.locations || [];
-      }
+      // We don't need to add locations to detailedStats since they're already at the root level
+      // if (enhancedForms[formKey].detailedStats) {
+      //   enhancedForms[formKey].detailedStats.locations = formLoc.locations || [];
+      // }
     }
   }
 

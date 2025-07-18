@@ -4,6 +4,7 @@ import { PokemonType } from '@/types/types';
 import typeChartData from '../../../output/type_chart.json';
 import TypeIcon from './TypeIcon';
 import { Table, TableBody, TableCell, TableHeader, TableRow } from '../ui/table';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 
 const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as Record<
   string,
@@ -36,7 +37,17 @@ const relationLabels = [
   { label: '4x', value: 4 },
 ];
 
-export function TypeRelationsChart({ types }: { types: string[] }) {
+interface TypeRelationsChartProps {
+  types: string[];
+  updatedTypes?: string[];
+}
+
+export function TypeRelationsChart({ types, updatedTypes }: TypeRelationsChartProps) {
+  const hasUpdatedTypes =
+    updatedTypes &&
+    updatedTypes.length > 0 &&
+    JSON.stringify(types) !== JSON.stringify(updatedTypes);
+
   const effectiveness = getTypeEffectiveness(types);
   const relations: Record<string, string[]> = {};
 
@@ -47,7 +58,21 @@ export function TypeRelationsChart({ types }: { types: string[] }) {
     (type) => !relationLabels.some(({ value }) => effectiveness[type] === value),
   );
 
-  return (
+  let updatedEffectiveness: Record<string, number> | null = null;
+  const updatedRelations: Record<string, string[]> = {};
+
+  if (hasUpdatedTypes) {
+    updatedEffectiveness = getTypeEffectiveness(updatedTypes);
+
+    relationLabels.forEach(({ label, value }) => {
+      updatedRelations[label] = ALL_TYPES.filter((type) => updatedEffectiveness?.[type] === value);
+    });
+    updatedRelations['None'] = ALL_TYPES.filter(
+      (type) => !relationLabels.some(({ value }) => updatedEffectiveness?.[type] === value),
+    );
+  }
+
+  const TypeEffectivenessTable = ({ relations }: { relations: Record<string, string[]> }) => (
     <Table>
       <TableHeader className="sr-only">
         <TableRow>
@@ -71,7 +96,6 @@ export function TypeRelationsChart({ types }: { types: string[] }) {
                       aria-label={`${type} relation: ${label}`}
                     >
                       <TypeIcon className="w-6 h-6 p-[6px]" type={type as PokemonType['name']} />
-                      {/* <span>{effectiveness[type]}x</span> */}
                     </div>
                   ))
                 )}
@@ -81,5 +105,24 @@ export function TypeRelationsChart({ types }: { types: string[] }) {
         ))}
       </TableBody>
     </Table>
+  );
+
+  if (!hasUpdatedTypes) {
+    return <TypeEffectivenessTable relations={relations} />;
+  }
+
+  return (
+    <Tabs defaultValue="original" className="w-full">
+      <TabsList className="grid w-full grid-cols-2">
+        <TabsTrigger value="original">Original Types</TabsTrigger>
+        <TabsTrigger value="updated">Updated Types</TabsTrigger>
+      </TabsList>
+      <TabsContent value="original">
+        <TypeEffectivenessTable relations={relations} />
+      </TabsContent>
+      <TabsContent value="updated">
+        <TypeEffectivenessTable relations={updatedRelations} />
+      </TabsContent>
+    </Tabs>
   );
 }

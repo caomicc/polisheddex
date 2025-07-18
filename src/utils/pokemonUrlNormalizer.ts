@@ -18,7 +18,7 @@ const KNOWN_FORMS = {
  * Special cases for Pokemon names that have hyphens as part of their actual name
  * These should NOT be converted to underscores or other URL-safe characters
  */
-const HYPHENATED_POKEMON_NAMES = [
+export const HYPHENATED_POKEMON_NAMES = [
   'Nidoran-F',
   'Nidoran-M',
   'Mr-Mime',
@@ -34,8 +34,20 @@ const HYPHENATED_POKEMON_NAMES = [
   'Tapu Lele',
   'Tapu Bulu',
   'Tapu Fini',
-  // Add more as needed
+  'farfetch-d',
+  'nidoran-f',
+  'nidoran-m',
+  'mr-mime',
+  'mime-jr',
+  'ho-oh',
+  'porygon-z',
+  'sirfetch-d',
+  'type-null',
+  'jangmo-o',
+  'hakamo-o',
+  'kommo-o'
 ];
+
 
 /**
  * Normalizes a Pokemon name to a URL-safe format while preserving essential hyphens

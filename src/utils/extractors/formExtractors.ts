@@ -3,11 +3,13 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { toTitleCase } from '../stringUtils.ts';
 import { fileURLToPath } from 'node:url';
+import { HYPHENATED_POKEMON_NAMES } from '../pokemonUrlNormalizer.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// List of special Pokémon with hyphens in their base names
 
 // --- Type Chart Extraction ---
 export function extractTypeChart() {
@@ -50,6 +52,15 @@ export function extractTypeChart() {
 
 // Helper function to extract form and base name information from a file name
 export function extractFormInfo(fileName: string): { basePokemonName: string, formName: string | null } {
+  // Check if the filename is a special hyphenated Pokémon name
+  const normalizedFileName = fileName.toLowerCase();
+  if (HYPHENATED_POKEMON_NAMES.includes(normalizedFileName)) {
+    return {
+      basePokemonName: toTitleCase(normalizedFileName).trimEnd(),
+      formName: null
+    };
+  }
+
   // Form indicators in filenames
   const formPatterns = [
     // Place special forms before plain to ensure correct matching
