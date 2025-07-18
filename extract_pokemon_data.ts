@@ -2533,7 +2533,7 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     if (formLoc) {
       enhancedForms[formKey] = {
         ...formData,
-        // locations: formLoc.locations || []
+        locations: formLoc.locations || []
       };
       // We don't need to add locations to detailedStats since they're already at the root level
       // if (enhancedForms[formKey].detailedStats) {
