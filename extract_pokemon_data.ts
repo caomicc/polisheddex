@@ -1258,8 +1258,6 @@ const INVALID_POKEMON_KEYS = [
   'missingno',
   'poke',
   'pkmn',
-  'sirfetch',
-  'farfetch',
   'pokemon',
   'poke_mon',
   'poke-mon',
