@@ -108,7 +108,7 @@ export interface DetailedStats {
   faithfulTypes?: string[] | string; // Types in the faithful version
   locations?: LocationEntry[];
   updatedTypes?: string[] | string; // Types in the polished/updated version
-  forms?: Record<string, Omit<DetailedStats, 'moves'> & { moves?: Move[], baseStats?: DetailedStats['baseStats'], detailedStats?: DetailedStats }>;
+  forms?: Record<string, Omit<DetailedStats, 'moves'> & { name: string, moves?: Move[], baseStats?: DetailedStats['baseStats'], detailedStats?: DetailedStats }>;
   levelMoves?: Move[]; // Moves learned by leveling up
   tmHmLearnset?: Move[]; // TM/HM learnset
   eggMoves?: string[]; // Egg moves
@@ -172,6 +172,7 @@ export interface BaseData extends DetailedStats {
     faithfulTypes?: string[] | string; // Types in the faithful version
     updatedTypes?: string[] | string; // Types in the polished/updated version
     frontSpriteUrl?: string;
+    name: string;
   }>;
 }
 

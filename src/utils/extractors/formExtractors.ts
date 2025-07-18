@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import { toTitleCase } from '../stringUtils.ts';
 import { fileURLToPath } from 'node:url';
 import { HYPHENATED_POKEMON_NAMES } from '../pokemonUrlNormalizer.ts';
+import { isDebugPokemon } from '../../../extract_pokemon_data.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -52,8 +53,76 @@ export function extractTypeChart() {
 
 // Helper function to extract form and base name information from a file name
 export function extractFormInfo(fileName: string): { basePokemonName: string, formName: string | null } {
+  // Special case for farfetch_d and sirfetch_d
+  if (fileName.toLowerCase().startsWith('farfetch_d') || fileName.toLowerCase().startsWith('sirfetch_d') || fileName.toLowerCase().startsWith('porygon_z')) {
+    // For these special cases, properly identify the base name and form
+    // farfetch_d_plain -> baseName: farfetch-d, form: plain
+    // farfetch_d_galarian -> baseName: farfetch-d, form: galarian
+    const baseMatch = fileName.toLowerCase().match(/^(farfetch_d|sirfetch_d|porygon_z)(?:_([a-z_]+))?$/);
+
+    if (baseMatch) {
+      const baseName = baseMatch[1].replace('_', '-'); // Convert to hyphenated format
+      const formPart = baseMatch[2] || null;
+
+      const isDebug = isDebugPokemon(baseName);
+
+      if (isDebug) {
+        console.log(`DEBUG: Processing special case for fileName: ${fileName}, baseMatch:`, baseMatch, `baseName: ${baseName}, formPart: ${formPart}`);
+      }
+      if (isDebug) {
+        console.log(`DEBUG: Special case detected: ${fileName} -> baseName: ${baseName}, formPart: ${formPart}`, {
+          baseName: baseName,
+          formPart: formPart
+        });
+      }
+
+      // Map form name to the standardized form value from KNOWN_FORMS
+      let formName = null;
+      if (formPart === 'plain') {
+        formName = null;
+      } else if (formPart === 'galarian') {
+        formName = KNOWN_FORMS.GALARIAN;
+      } else if (formPart === 'alolan') {
+        formName = KNOWN_FORMS.ALOLAN;
+      } else if (formPart === 'hisuian') {
+        formName = KNOWN_FORMS.HISUIAN;
+      } else if (formPart === 'paldean') {
+        formName = KNOWN_FORMS.PALDEAN;
+      } else if (formPart === 'paldean_fire') {
+        formName = KNOWN_FORMS.PALDEAN_FIRE;
+      } else if (formPart === 'paldean_water') {
+        formName = KNOWN_FORMS.PALDEAN_WATER;
+      } else if (formPart === 'armored') {
+        formName = KNOWN_FORMS.ARMORED;
+      } else if (formPart === 'bloodmoon') {
+        formName = KNOWN_FORMS.BLOODMOON;
+      } else if (formPart) {
+        formName = formPart;
+      }
+
+      if (isDebug) {
+        console.log(`DEBUG: Extracted formName: ${formName}`);
+      }
+
+      console.log(`Special case detected: ${fileName} -> baseName: ${baseName}, formName: ${formName}`);
+      return {
+        basePokemonName: toTitleCase(baseName).trimEnd(),
+        formName: formName
+      };
+    }
+  }
+
   // Check if the filename is a special hyphenated Pokémon name
   const normalizedFileName = fileName.toLowerCase();
+
+  // Special case for porygon_z to avoid treating it as porygon with form Z
+  if (normalizedFileName === 'porygon_z') {
+    return {
+      basePokemonName: 'porygon-z',
+      formName: null
+    };
+  }
+
   if (HYPHENATED_POKEMON_NAMES.includes(normalizedFileName)) {
     return {
       basePokemonName: toTitleCase(normalizedFileName).trimEnd(),

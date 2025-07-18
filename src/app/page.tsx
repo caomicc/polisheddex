@@ -10,17 +10,17 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="max-w-5xl mx-auto p-6 min-h-screen flex flex-col">
+    <div className="max-w-5xl mx-auto p-6 min-h-screen flex flex-col gap-6">
       <div className="mb-4 spacing-y-2">
         <h1 className="text-3xl font-bold">PolishedDex</h1>
         <p>A companion dex for Polished Crystal</p>
       </div>
-
+      <div>
       <div className="mb-4 spacing-y-2">
         <h2 className="text-xl font-bold">What are you looking for?</h2>
       </div>
 
-      <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4">
         <Link href="/pokemon" className="group">
           <Card className="">
             <CardHeader>
@@ -55,19 +55,40 @@ export default function Home() {
             </CardFooter>
           </Card>
         </Link>
-
-        {/* TODO: */}
-        {/* <Link href="/items" className="group">
-          <Card className="p-6 h-full transition hover:shadow-lg hover:border-blue-500">
-            <h2 className="text-2xl font-bold mb-3 group-hover:text-blue-700">Item Database</h2>
-            <p className="text-gray-600 mb-4">
-              Browse all items, their effects, and where to find them.
-            </p>
-            <span className="text-blue-600 font-medium group-hover:underline">
-              Browse Items &rarr;
-            </span>
-          </Card>
-        </Link> */}
+      </div>
+    </div>
+    <div>
+      <h2 className="text-xl mb-4 font-bold">Roadmap Features:</h2>
+      <ul className="w-full space-y-3 text-foreground list-disc dark:text-gray-400">
+          <li className="flex items-center text-md">
+              {/* <svg className="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+              </svg> */}
+              Item Database - Browse all items, their effects, and where to find them.
+          </li>
+          <li className="flex items-center text-md">
+              {/* <svg className="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+              </svg> */}
+              Move Database - Browse all moves, their effects, and type advantages vs disadvantages.
+          </li>
+          <li className="flex items-center text-md">
+              {/* <svg className="w-3.5 h-3.5 me-2 text-gray-500 dark:text-gray-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+              </svg> */}
+              <span>
+                Game Mechanics Guide - A guide to the game mechanics, including battle mechanics, breeding, and more.<span className="text-muted-foreground dark:text-muted-background text-xs block ml-4">*This may just default to wiki information instead of living on site, TBD</span>
+              </span>
+          </li>
+          <li className="flex items-center text-md">
+              {/* <svg className="w-3.5 h-3.5 me-2 text-gray-500 dark:text-gray-400 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+              </svg> */}
+              <span>
+                Faithful vs. Polished - A guide to the differences between the two versions, including changes in graphics, mechanics, and more.<span className="text-muted-foreground dark:text-muted-background text-xs block ml-4">*Another instances of this may just default to wiki information instead of living on site, TBD</span>
+              </span>
+          </li>
+        </ul>
       </div>
     </div>
   );

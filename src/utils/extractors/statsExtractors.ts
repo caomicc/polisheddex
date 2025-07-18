@@ -46,9 +46,9 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       pokemonName = 'Ho-Oh'; // Force the correct name format
     }
 
-    // Special case handling for Porygon-Z
+    // Special case handling for porygon-z
     if (fileName === 'porygon_z') {
-      pokemonName = 'Porygon-Z'; // Force the correct name format
+      pokemonName = 'porygon-z'; // Force the correct name format
     }
 
     if (fileName === 'mr__mime_plain') {

@@ -218,11 +218,32 @@ export function validatePokemonKeys<T>(jsonData: Record<string, T>): Record<stri
       const valueObj = value as Record<string, unknown>;
       if (valueObj.forms && typeof valueObj.forms === 'object') {
         const cleanedForms: Record<string, unknown> = {};
+        
         for (const [formKey, formValue] of Object.entries(valueObj.forms as Record<string, unknown>)) {
           const trimmedFormKey = formKey.trim();
+          
+          // Skip form names that start with a hyphen (like "- Z") as these are likely errors
+          if (trimmedFormKey.startsWith('-')) {
+            console.log(`Skipping invalid form name "${trimmedFormKey}" for Pokémon "${trimmedKey}"`);
+            continue;
+          }
+          
+          // Specific check for the problematic "- Z" form in Porygon
+          if (trimmedKey.toLowerCase() === 'porygon' && 
+             (trimmedFormKey === '- Z' || trimmedFormKey === '-Z' || trimmedFormKey === '- z' || trimmedFormKey === '-z')) {
+            console.log(`Skipping invalid "- Z" form for Porygon`);
+            continue;
+          }
+          
           cleanedForms[trimmedFormKey] = formValue;
         }
-        valueObj.forms = cleanedForms;
+        
+        // Only set forms if there are any valid forms left
+        if (Object.keys(cleanedForms).length > 0) {
+          valueObj.forms = cleanedForms;
+        } else {
+          delete valueObj.forms;
+        }
       }
     }
 

@@ -24,7 +24,7 @@ describe('Pokemon URL Normalizer', () => {
       expect(normalizePokemonUrlKey('Nidoran-F')).toBe('nidoran-f');
       expect(normalizePokemonUrlKey('Nidoran-M')).toBe('nidoran-m');
       expect(normalizePokemonUrlKey('Ho-Oh')).toBe('ho-oh');
-      expect(normalizePokemonUrlKey('Porygon-Z')).toBe('porygon-z');
+      expect(normalizePokemonUrlKey('porygon-z')).toBe('porygon-z');
     });
 
     it('should handle form variants correctly', () => {
@@ -61,8 +61,8 @@ describe('Pokemon URL Normalizer', () => {
       expect(normalizePokemonDisplayName('nidoran_f')).toBe('Nidoran-F');
       expect(normalizePokemonDisplayName('ho-oh')).toBe('Ho-Oh');
       expect(normalizePokemonDisplayName('ho_oh')).toBe('Ho-Oh');
-      expect(normalizePokemonDisplayName('porygon-z')).toBe('Porygon-Z');
-      expect(normalizePokemonDisplayName('porygon_z')).toBe('Porygon-Z');
+      expect(normalizePokemonDisplayName('porygon-z')).toBe('porygon-z');
+      expect(normalizePokemonDisplayName('porygon_z')).toBe('porygon-z');
     });
 
     it('should handle names with underscores and hyphens', () => {
@@ -87,7 +87,7 @@ describe('Pokemon URL Normalizer', () => {
       expect(urlKeyToStandardKey('nidoran-f')).toBe('Nidoran-F');
       expect(urlKeyToStandardKey('nidoran-m')).toBe('Nidoran-M');
       expect(urlKeyToStandardKey('ho-oh')).toBe('Ho-Oh');
-      expect(urlKeyToStandardKey('porygon-z')).toBe('Porygon-Z');
+      expect(urlKeyToStandardKey('porygon-z')).toBe('porygon-z');
     });
 
     it('should handle URL encoding', () => {

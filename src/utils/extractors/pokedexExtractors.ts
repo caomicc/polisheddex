@@ -20,9 +20,9 @@ export function extractBasePokemonName(fullName: string): string {
     return 'Ho-Oh';
   }
 
-  // Special case for Porygon-Z which contains a hyphen but shouldn't be split
-  if (fullName === 'Porygon-Z') {
-    return 'Porygon-Z';
+  // Special case for porygon-z which contains a hyphen but shouldn't be split
+  if (fullName === 'porygon-z') {
+    return 'porygon-z';
   }
 
   if (fullName === 'Mr-Mime') {

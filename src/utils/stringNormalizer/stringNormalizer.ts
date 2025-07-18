@@ -56,14 +56,16 @@ export const normalizeString = (str: string): string => {
     'ho-oh': 'Ho-Oh', // Lowercase with hyphen
     'ho_oh': 'Ho-Oh', // Special case for file name format
     'HO_OH': 'Ho-Oh', // Special case for ASM constant format
-    'Porygon-Z': 'Porygon-Z', // Special case for Porygon-Z
-    'Porygon Z': 'Porygon-Z', // Special case for Porygon-Z
-    'PorygonZ': 'Porygon-Z', // Another variant for Porygon-Z
-    'PORYGON-Z': 'Porygon-Z', // Uppercase variant
-    'porygon-z': 'Porygon-Z', // Lowercase with hyphen
-    'porygon z': 'Porygon-Z', // Lowercase with space
-    'porygon_z': 'Porygon-Z', // Special case for file name format
-    'PORYGON_Z': 'Porygon-Z', // Special case for ASM constant format
+    'porygon -z': 'porygon-z', // Special case for porygon-z
+    'porygon-z': 'porygon-Z', // Special case for porygon-z
+    'Porygon Z': 'porygon-z', // Special case for porygon-z
+    'PorygonZ': 'porygon-z', // Another variant for porygon-z
+    'PORYGON-Z': 'porygon-z', // Uppercase variant
+    'PORYGON -Z': 'porygon-z', // Uppercase variant
+    // 'porygon-z': 'porygon-z', // Lowercase with hyphen
+    'porygon z': 'porygon-z', // Lowercase with space
+    'porygon_z': 'porygon-z', // Special case for file name format
+    'PORYGON_Z': 'porygon-z', // Special case for ASM constant format
     'Mr. Mime': 'Mr-Mime', // Special case for Mr. Mime
     'Mr Mime': 'Mr-Mime', // Special case for Mr. Mime
     'MR. MIME': 'Mr-Mime', // Uppercase variant

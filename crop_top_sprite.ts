@@ -10,7 +10,7 @@ async function autodetectAndCropSprite(filePath: string, outPath: string) {
   const metadata = await image.metadata();
   const { width, height } = metadata;
   if (!width || !height) {
-    console.error(`Could not read image size for ${filePath}`);
+    console.error(`DEBUG: Could not read image size for ${filePath}`);
     return;
   }
   // Try to find the largest divisor of height that is <= width (assume square sprites)
@@ -42,7 +42,7 @@ async function autodetectAndCropSprite(filePath: string, outPath: string) {
         .toBuffer()
     )
     .toFile(outPath);
-  console.log(`Cropped top sprite from ${filePath} -> ${outPath} (white made transparent)`);
+  console.log(`DEBUG: Cropped top sprite from ${filePath} -> ${outPath} (white made transparent)`);
 }
 
 function findAllFrontPngs(dir: string): string[] {

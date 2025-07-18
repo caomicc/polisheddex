@@ -190,10 +190,10 @@ export function extractEggMoves() {
     const match = line.match(/^\s*dw ([A-Za-z0-9_]+)\s*;\s*(.+)$/);
 
     if (match) {
-      console.log('match[2]', match[2]);
       const pointer = match[1];
       // Use only the first word before any parenthesis or extra info as the species name
       const species = match[2].split('(')[0].split(';')[0].trim().replace(/\s+\(.+\)/, '').replace(/\s+$/, '');
+      console.log(`DEBUG: extractEggMoves: match[2] for ${species}`, match[2]);
 
       speciesToPointer[species] = pointer;
     }
@@ -231,10 +231,10 @@ export function extractEggMoves() {
     eggMoves[normalizedSpecies] = pointerToMoves[pointer] || [];
   }
 
-  console.log('Egg moves extracted:', eggMoves);
+  console.log('DEBUG: Egg moves extracted:', eggMoves);
 
   fs.writeFileSync(EGG_MOVES_OUTPUT, JSON.stringify(eggMoves, null, 2));
-  console.log('Egg moves extracted to', EGG_MOVES_OUTPUT);
+  console.log('DEBUG: Egg moves extracted to', EGG_MOVES_OUTPUT);
 }
 
 export function extractTmHmLearnset() {

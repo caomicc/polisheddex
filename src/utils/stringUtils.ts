@@ -115,6 +115,9 @@ export function parseWildmonLine(line: string): { level: string; species: string
   if (level.startsWith('LEVEL_FROM_BADGES')) {
     level = level.replace(/^LEVEL_FROM_BADGES/, 'Badge Level').trim();
   }
+
+  console.log(`DEBUG: stringUtils parseWildmonLine: level: ${level}, species: ${match[2]}, form: ${match[3]}`);
+
   return {
     level,
     species: match[2].trim(),

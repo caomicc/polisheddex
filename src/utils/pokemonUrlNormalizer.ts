@@ -24,7 +24,7 @@ export const HYPHENATED_POKEMON_NAMES = [
   'Mr-Mime',
   'Mime-Jr',
   'Ho-Oh',
-  'Porygon-Z',
+  'porygon-z',
   'Farfetch-d',
   'Sirfetch-d',
   'Jangmo-o',
@@ -41,6 +41,7 @@ export const HYPHENATED_POKEMON_NAMES = [
   'mime-jr',
   'ho-oh',
   'porygon-z',
+  'porygon_z',
   'sirfetch-d',
   'type-null',
   'jangmo-o',
@@ -79,8 +80,18 @@ export function normalizePokemonUrlKey(name: string): string {
   if (name.toLowerCase() === 'mimejr') return 'mime-jr';
   if (name.toLowerCase() === 'mime.jr') return 'mime-jr';
   if (name.toLowerCase() === 'farfetchd') return 'farfetch-d';
+  if (name.toLowerCase() === 'farfetch_d') return 'farfetch-d';
+  if (name.toLowerCase() === 'farfetch') return 'farfetch-d';
   if (name.toLowerCase() === 'hooh') return 'ho-oh';
   if (name.toLowerCase() === 'sirfetchd') return 'sirfetch-d';
+  if (name.toLowerCase() === 'sirfetch_d') return 'sirfetch-d';
+  if (name.toLowerCase() === 'sirfetch') return 'sirfetch-d';
+  if (name.toLowerCase() === 'porygonz') return 'porygon-z';
+  if (name.toLowerCase() === 'porygon_z') return 'porygon-z';
+  if (name.toLowerCase() === 'porygon') return 'porygon';
+  if (name.toLowerCase() === 'porygon2') return 'porygon2';
+
+  console.log(`Normalizing Pokemon name: ${name}`);
 
   // Check if this is a known hyphenated Pokemon name
   const isHyphenatedPokemon = HYPHENATED_POKEMON_NAMES.some(hyphenated =>
@@ -150,7 +161,7 @@ export function normalizePokemonDisplayName(name: string): string {
     return 'Ho-Oh';
   }
   if (name.toLowerCase() === 'porygon-z' || name.toLowerCase() === 'porygon_z') {
-    return 'Porygon-Z';
+    return 'porygon-z';
   }
   if (name.toLowerCase().includes('mr') && name.toLowerCase().includes('mime')) {
     return 'Mr-Mime';
@@ -193,7 +204,7 @@ export function urlKeyToStandardKey(urlKey: string): string {
   if (decoded.toLowerCase() === 'mr-mime') return 'Mr-Mime';
   if (decoded.toLowerCase() === 'mime-jr') return 'Mime-Jr';
   if (decoded.toLowerCase() === 'ho-oh') return 'Ho-Oh';
-  if (decoded.toLowerCase() === 'porygon-z') return 'Porygon-Z';
+  if (decoded.toLowerCase() === 'porygon-z') return 'porygon-z';
   if (decoded.toLowerCase() === 'farfetch-d') return 'Farfetch-d';
   if (decoded.toLowerCase() === 'sirfetch-d') return 'Sirfetch-d';
 

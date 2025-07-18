@@ -2,18 +2,18 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } from './src/data/constants.ts';
-import { extractTypeChart, extractHiddenGrottoes, mapEncounterRatesToPokemon, extractEggMoves, extractFormInfo, extractMoveDescriptions, extractTmHmLearnset, addBodyDataToDetailedStats, extractAbilityDescriptions, extractDetailedStats, extractBasePokemonName, extractPokedexEntries, getFullPokemonName } from './src/utils/extractors/index.ts';
+import { extractTypeChart, extractHiddenGrottoes, mapEncounterRatesToPokemon, extractEggMoves, extractFormInfo, extractMoveDescriptions, extractTmHmLearnset, addBodyDataToDetailedStats, extractAbilityDescriptions, extractDetailedStats, extractPokedexEntries, getFullPokemonName } from './src/utils/extractors/index.ts';
 import { groupPokemonForms, validatePokemonKeys } from './src/utils/helpers.ts';
 import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
 import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toTitleCase, typeEnumToName } from './src/utils/stringUtils.ts';
 import { normalizePokemonUrlKey, normalizePokemonDisplayName, getPokemonFileName, validatePokemonHyphenation } from './src/utils/pokemonUrlNormalizer.ts';
-import type { Ability, BaseData, DetailedStats, Evolution, EvolutionMethod, EvoRaw, LocationEntry, Move, PokemonDataV2, PokemonDataV3 } from './src/types/types.ts';
+import type { Ability, BaseData, DetailedStats, Evolution, EvolutionMethod, EvoRaw, LocationEntry, Move, PokemonDataV3, PokemonDexEntry } from './src/types/types.ts';
 
 /**
  * Robust function to check if a Pokémon name matches any name in the DEBUG_POKEMON list
  * Handles various edge cases and name formats
  */
-function isDebugPokemon(pokemonName: string): boolean {
+export function isDebugPokemon(pokemonName: string): boolean {
   if (!pokemonName) return false;
 
   // Normalize the input name by removing common variations
@@ -121,6 +121,24 @@ let evoMethods: EvoRaw[] = [];
 
 // Helper function to extract base Pokemon name and form from evos_attacks entries
 function parseFormName(pokemonName: string): { baseName: string, formName: string | null } {
+  // Directly check for Porygon-Z and similar cases that need special handling
+  if (pokemonName.toLowerCase() === 'porygonz' || 
+      pokemonName.toLowerCase() === 'porygon z' || 
+      pokemonName.toLowerCase() === 'porygon-z') {
+    return { baseName: 'porygon-z', formName: null };
+  }
+  
+  // If the pokemon name is 'porygon' with something that looks like a Z suffix
+  // but it should be Porygon-Z, handle it correctly
+  if (pokemonName.toLowerCase().startsWith('porygon') && 
+     (pokemonName.toLowerCase().endsWith('z') || 
+      pokemonName.toLowerCase().includes(' z') || 
+      pokemonName.toLowerCase().includes('-z'))) {
+    console.log(`DEBUG: Special handling for Porygon-Z variant: ${pokemonName}`);
+    // If it's actually meant to be Porygon-Z, return as a distinct Pokemon, not a form
+    return { baseName: 'porygon-z', formName: null };
+  }
+
   // List of special Pokémon with hyphens in their base names
   const SPECIAL_HYPHENATED_POKEMON = [
     'farfetch-d',
@@ -495,7 +513,18 @@ function buildCompleteEvolutionChain(startMon: string): {
           const targetMon = standardizePokemonKey(evo.target);
           const normalizedTargetName = normalizePokemonDisplayName(targetMon);
 
-          // Store evolution method information
+          // may need this for special cases like porygon-z
+
+          // Store evolution method information      // Fix inconsistent naming issues for special cases like porygon-z
+          // let fixedTargetName = normalizedTargetName;
+
+          // // Special case for porygon-z
+          // if (normalizedTargetName === 'Porygon Z' ||
+          //   normalizedTargetName.toLowerCase() === 'porygon z' ||
+          //   normalizedTargetName.toLowerCase() === 'porygonz') {
+          //   fixedTargetName = 'porygon-z';
+          // }
+
           methodsByPokemon[normalizedDisplayName].push({
             method: evo.method,
             parameter: evo.parameter,
@@ -556,12 +585,12 @@ for (const file of baseStatsFiles) {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
     if (isDebug) {
-      console.log(`  Line ${i}: "${line}"`);
-      if (line.startsWith('if DEF(FAITHFUL)')) {
-        console.log(`  Found conditional line at ${i}`);
-      }
+      console.log(`DEBUG: for loop for conditional types, extract_pokemon_data  Line ${i}: "${line}"`);
     }
     if (line.startsWith('if DEF(FAITHFUL)')) {
+      if (isDebug) {
+        console.log(`DEBUG: line considered faithful: "${line}"`);
+      }
       // Look for type definition within the conditional block
       for (let j = i + 1; j < lines.length && !lines[j].trim().startsWith('else'); j++) {
         const typeLine = lines[j].trim();
@@ -582,19 +611,35 @@ for (const file of baseStatsFiles) {
       // Look for the else block with updated types
       let foundElse = false;
       for (let j = i + 1; j < lines.length; j++) {
+        if (isDebug) {
+          console.log(`DEBUG: Checking for else block, extract_pokemon_data  Line ${j}: "${lines[j]}"`);
+        }
         if (lines[j].trim() === 'else') {
+          if (isDebug) {
+            console.log(`DEBUG: Found else block for ${basePokemonName} in ${fileName}`);
+          }
           foundElse = true;
           // Look for type definition in the else block
           for (let k = j + 1; k < lines.length && !lines[k].trim().startsWith('endc'); k++) {
             const typeLine = lines[k].trim();
+            if (isDebug) {
+              console.log(`DEBUG: Checking type line in else block, extract_pokemon_data  Line ${k}: "${typeLine}"`);
+            }
             if (typeLine.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/)) {
               const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
+              if (isDebug) {
+                console.log(`DEBUG: Match found in else block: ${match}`);
+                console.log(`DEBUG: Match details: ${JSON.stringify(match)}`);
+              }
               if (match) {
                 // Convert type enums to proper type names for updated version
                 updatedTypes = [
                   typeEnumToName[match[1]] || 'None',
                   typeEnumToName[match[2]] || 'None'
                 ];
+                if (isDebug) {
+                  console.log(`DEBUG: Match details: ${JSON.stringify(match)}`);
+                }
               }
               break;
             }
@@ -639,11 +684,11 @@ for (const file of baseStatsFiles) {
   }
 
   if (isDebug) {
-    console.log(`1 DEBUG: Processing ${fileName} for ${basePokemonName}`);
-    console.log(`  Has conditional types: ${hasConditionalTypes}`);
-    console.log(`  Faithful types: ${faithfulTypes ? faithfulTypes.join(', ') : 'None'}`);
-    console.log(`  Updated types: ${updatedTypes ? updatedTypes.join(', ') : 'None'}`);
-    console.log(`  All lines in file:`, lines.slice(0, 25));
+    console.log(`DEBUG: Processing types in ${fileName} for ${basePokemonName}`);
+    console.log(`DEBUG: Has conditional types: ${hasConditionalTypes}`);
+    console.log(`DEBUG: Faithful types: ${faithfulTypes ? faithfulTypes.join(', ') : 'None'}`);
+    console.log(`DEBUG: Updated types: ${updatedTypes ? updatedTypes.join(', ') : 'None'}`);
+    console.log(`DEBUG: All lines in file:`, lines.slice(0, 25));
   }
 
   // Special handling for "_plain" files
@@ -671,9 +716,9 @@ for (const file of baseStatsFiles) {
     };
 
     if (isDebug) {
-      console.log(`2 DEBUG: Processing ${fileName} as special form ${formName} for ${basePokemonName}`);
-      console.log(`  Faithful types: ${faithfulTypes?.join(', ')}`);
-      console.log(`  Updated types: ${updatedTypes?.join(', ')}`);
+      console.log(`DEBUG: Processing types for ${fileName} as special form ${formName} for ${basePokemonName}`);
+      console.log(`DEBUG: Faithful types: ${faithfulTypes?.join(', ')}`);
+      console.log(`DEBUG: Updated types: ${updatedTypes?.join(', ')}`);
     }
   } else {
     // Handle regular Pokémon types
@@ -684,25 +729,32 @@ for (const file of baseStatsFiles) {
     };
 
     if (isDebug) {
-      console.log(`3 DEBUG: Processing ${fileName} as base Pokémon ${basePokemonName}`);
-      console.log(`  Faithful types: ${faithfulTypes?.join(', ')}`);
-      console.log(`  Updated types: ${updatedTypes?.join(', ')}`);
+      console.log(`DEBUG: Processing (regular) ${typeName} for ${fileName} as base Pokémon ${basePokemonName}`);
+      console.log(`DEBUG: Faithful types: ${faithfulTypes?.join(', ')}`);
+      console.log(`DEBUG: Updated types: ${updatedTypes?.join(', ')}`);
     }
   }
 }
 const finalResult: Record<string, PokemonDataV3> = {};
 
 for (const mon of Object.keys(result)) {
-
-
+  const isDebug = isDebugPokemon(mon);
 
   const moves = result[mon].moves.map(m => ({
     name: m.name,
     level: m.level,
     ...(m.info ? { info: m.info } : {})
   }));
+  if (isDebug) {
+    console.log(`DEBUG: Processing Pokémon in const mon of Object.keys(result) : ${mon}`, mon);
+    console.log(`DEBUG: Moves for ${mon}:`, moves.slice(0, 3));
+  }
   // Standardize the Pokemon name to ensure consistent keys
   const standardMon = standardizePokemonKey(mon);
+
+  if (isDebug) {
+    console.log(`DEBUG: Standardized Pokémon name: ${standardMon}`);
+  }
 
   // Every Pokémon should have an evolution object, even if it's a final evolution
   // with no further evolutions. This ensures we have a chain for all Pokémon.
@@ -713,9 +765,17 @@ for (const mon of Object.keys(result)) {
     ...(e.form ? { form: e.form } : {})
   })) : [];
 
+  if (isDebug) {
+    console.log(`DEBUG: Evolution methods for ${standardMon}:`, methods.slice(0, 3));
+  }
+
   // Get the evolution chain and methods - this will work even for final evolutions
   // as it will include all pre-evolutions
   const evolutionResult = getEvolutionChain(standardMon);
+
+  if (isDebug) {
+    console.log(`DEBUG: Evolution chain for ${standardMon}:`, evolutionResult.chain);
+  }
 
   // If the chain contains only the current Pokémon and there are no methods,
   // it could be a basic Pokémon with no evolutions
@@ -724,10 +784,20 @@ for (const mon of Object.keys(result)) {
     chain: evolutionResult.chain,
     chainWithMethods: evolutionResult.methodsByPokemon
   };
+
+  if (isDebug) {
+    console.log(`DEBUG: Final evolution object for ${standardMon}:`, evolution);
+  }
+
   // Dex numbers (1-based, null if not found)
   // First get the base name by removing any form suffixes
   let baseMonName = standardizePokemonKey(mon);
 
+  // Handle special cases for Pokémon with hyphens in their names
+
+  if (isDebug) {
+    console.log(`DEBUG: Base Pokémon name before special case handling: ${baseMonName}, original mon: ${mon}`);
+  }
 
   if (baseMonName === 'Mr- Mime') {
     baseMonName = 'Mr-Mime'; // Special case for Mr. Mime
@@ -743,23 +813,52 @@ for (const mon of Object.keys(result)) {
     baseMonName = 'Mime-Jr';
   }
 
-  console.log(`DEBUG: Processing Pokémon: ${mon} (base: ${baseMonName})`);
+  if (
+    baseMonName === 'porygon -Z' || baseMonName === 'porygon-Z' || 'porygon -z' === baseMonName
+  ) {
+    baseMonName = 'Porygon-Z';
+  }
 
-  const nationalDex = nationalDexOrder.indexOf(baseMonName) >= 0 ? nationalDexOrder.indexOf(baseMonName) + 1 : null;
-  const johtoDex = johtoDexOrder.indexOf(baseMonName) >= 0 ? johtoDexOrder.indexOf(baseMonName) + 1 : null;  // Types
+  if (isDebug) {
+    console.log(`DEBUG: Processing Pokémon: ${mon} (base: ${baseMonName})`);
+  }
+
+  console.log(`DEBUG: Base Pokémon name after special case handling: ${baseMonName}`);
+
+  let baseMonNameDex = baseMonName; // Normalize for dex lookup
+
+  if (baseMonNameDex.toLowerCase() === 'porygon-z') {
+    baseMonNameDex = 'porygon-z'; // Ensure consistent casing for dex lookup
+  }
+  // Show all dex order entries for debugging
+  console.log(`DEBUG: Base Pokémon name for dex lookup: ${baseMonNameDex}`);
+  console.log('DEBUG: Full National Dex Order:', JSON.stringify(nationalDexOrder, null, 2));
+  console.log('DEBUG: Full Johto Dex Order:', JSON.stringify(johtoDexOrder, null, 2));
+
+  const nationalDex = nationalDexOrder.indexOf(baseMonNameDex) >= 0 ? nationalDexOrder.indexOf(baseMonNameDex) + 1 : null;
+  const johtoDex = johtoDexOrder.indexOf(baseMonNameDex) >= 0 ? johtoDexOrder.indexOf(baseMonNameDex) + 1 : null;  // Types
 
   console.log(`DEBUG: Processing Pokémon: ${mon} (base: ${baseMonName})`);
-  console.log(`DEBUG: National Dex: ${nationalDex}, Johto Dex: ${johtoDex}`);
+  console.log(`DEBUG: Processing Dex for ${baseMonNameDex},  National Dex: ${nationalDex}, Johto Dex: ${johtoDex}`, johtoDexOrder.indexOf("porygon-z"));
 
   // Determine if this is a form and extract the base name and form name
   let basePokemonName = baseMonName;
+
   let formName: string | null = null;
 
   // Check if this is a form by checking for known form suffixes
   for (const form of Object.values(KNOWN_FORMS)) {
+    if (isDebug) {
+      console.log(`DEBUG: Checking form suffix: ${form} for Pokémon: ${mon}`);
+      console.log(`DEBUG: mon.toLowerCase().endsWith(form.toLowerCase()): ${mon.toLowerCase().endsWith(form.toLowerCase())}`);
+    }
     if (mon.toLowerCase().endsWith(form.toLowerCase())) {
       basePokemonName = mon.substring(0, mon.length - form.length);
       formName = form;
+      if (isDebug) {
+        console.log(`DEBUG: Found form suffix: ${form} for Pokémon: ${mon}`);
+        console.log(`DEBUG: Base Pokémon name: ${basePokemonName}, Form name: ${formName}`);
+      }
       break;
     }
   }
@@ -770,48 +869,118 @@ for (const mon of Object.keys(result)) {
 
   if (formName && formName !== KNOWN_FORMS.PLAIN) {
     // This is a special form like alolan, galarian, etc.
+    if (isDebug) {
+      console.log(`DEBUG: Processing form-specific Pokémon: ${mon} (base: ${basePokemonName}, form: ${formName})`);
+      console.log(`DEBUG: formName && formName !== KNOWN_FORMS.PLAIN:`, formName && formName !== KNOWN_FORMS.PLAIN);
+    }
     if (formTypeMap[basePokemonName] && formTypeMap[basePokemonName][formName]) {
+      if (isDebug) {
+        console.log(`DEBUG: Found form-specific types for ${basePokemonName} (${formName})`, formTypeMap[basePokemonName][formName]);
+      }
       // Use form-specific type data from formTypeMap
       const formTypeData = formTypeMap[basePokemonName][formName];
       faithfulTypes = formTypeData.types || ['None'];
       updatedTypes = formTypeData.updatedTypes || ['None']; // Don't fall back to faithfulTypes
+      if (isDebug) {
+        console.log(`DEBUG: Form type data for ${basePokemonName} (${formName}):`, formTypeData);
+      }
     } else {
       // Fallback to base type if form type not found
       // Convert the URL key to the format used in typeMap (which uses toTitleCase/normalizeString)
       const typeMapKey = toTitleCase(basePokemonName);
+      if (isDebug) {
+        console.log(`DEBUG: else fallback for form name variant ${basePokemonName} (${formName}) typeMapKey:`, typeMapKey);
+      }
       if (typeMap[typeMapKey]) {
+        if (isDebug) {
+          console.log(`DEBUG: typeMap[typeMapKey] is true for ${basePokemonName} (${formName}) in typeMap:`, typeMap[typeMapKey]);
+        }
         faithfulTypes = typeMap[typeMapKey].types || ['None'];
         updatedTypes = typeMap[typeMapKey].updatedTypes || ['None']; // Don't fall back to faithfulTypes
+        if (isDebug) {
+          console.log(`DEBUG: New types for ${basePokemonName} (${formName}):`, `${typeMap[typeMapKey].types} and ${typeMap[typeMapKey].updatedTypes}`);
+        }
+      }
+      if (isDebug) {
+        console.log(`DEBUG: Fallback to base type for ${basePokemonName} (${formName}):`, typeMap[typeMapKey]);
       }
     }
   } else {
+
     // This is a base form or plain form - look up directly in typeMap
     // Convert the URL key to the format used in typeMap (which uses toTitleCase/normalizeString)
+
+    // ToDo: review title case conversion
+
     const typeMapKey = toTitleCase(baseMonName);
+
+    if (isDebug) {
+      console.log(`DEBUG: Else if no forms - use title case ${basePokemonName} (${formName}):`, typeMap[typeMapKey]);
+    }
+
+    if (isDebug) {
+      console.log(`DEBUG: typeMapKey for base form ${baseMonName} (${formName}):`, typeMapKey);
+    }
     if (typeMap[typeMapKey]) {
       faithfulTypes = typeMap[typeMapKey].types || ['None'];
       updatedTypes = typeMap[typeMapKey].updatedTypes || ['None']; // Don't fall back to faithfulTypes
+      if (isDebug) {
+        console.log(`DEBUG: New types for ${baseMonName} (${formName}):`, `${typeMap[typeMapKey].types} and ${typeMap[typeMapKey].updatedTypes}`);
+      }
     }
   }
 
   // Process faithful types
   let faithfulTypesFormatted: string | string[] = Array.from(new Set(faithfulTypes)).filter(t => t !== 'None');
+
+  if (isDebug) {
+    console.log(`DEBUG: Fallback to base type for ${basePokemonName} (${formName}):`, faithfulTypesFormatted);
+  }
+
   if (faithfulTypesFormatted.length === 0) {
+
+    if (isDebug) {
+      console.log(`DEBUG: No faithful types found for ${basePokemonName} (${formName})`);
+    }
+    // Fallback to 'Unknown' if no faithful types found
     faithfulTypesFormatted = 'Unknown';
   } else if (faithfulTypesFormatted.length === 1) {
+    if (isDebug) {
+      console.log(`DEBUG: Single faithful type for ${basePokemonName} (${formName}):`, faithfulTypesFormatted[0]);
+    }
+    // If only one type, use it directly
     faithfulTypesFormatted = faithfulTypesFormatted[0];
   }
 
   // Process updated types
   let updatedTypesFormatted: string | string[] = Array.from(new Set(updatedTypes)).filter(t => t !== 'None');
+
+  if (isDebug) {
+    console.log(`DEBUG: Updated types for ${basePokemonName} (${formName}):`, updatedTypesFormatted);
+  }
+
   if (updatedTypesFormatted.length === 0) {
+    if (isDebug) {
+      console.log(`DEBUG: No updated types found for ${basePokemonName} (${formName})`);
+    }
     updatedTypesFormatted = 'Unknown';
   } else if (updatedTypesFormatted.length === 1) {
     updatedTypesFormatted = updatedTypesFormatted[0];
+    if (isDebug) {
+      console.log(`DEBUG: Single updated type for ${basePokemonName} (${formName}):`, updatedTypesFormatted);
+    }
   }
 
   // Set the primary types field to the faithful types by default
   const types = faithfulTypesFormatted;
+
+  if (isDebug) {
+    console.log(`DEBUG: Final types for ${basePokemonName} (${formName}):`, types);
+  }
+
+  if (isDebug) {
+    console.log(`DEBUG: Final updated types for ${basePokemonName} (${formName}):`);
+  }
 
   // Create the final result with both faithful and updated types
   finalResult[mon] = {
@@ -823,6 +992,11 @@ for (const mon of Object.keys(result)) {
     ...(faithfulTypesFormatted && faithfulTypesFormatted !== 'Unknown' ? { faithfulTypes: faithfulTypesFormatted } : {}),
     ...(updatedTypesFormatted && updatedTypesFormatted !== 'Unknown' ? { updatedTypes: updatedTypesFormatted } : {}),
   };
+
+  if (isDebug) {
+    console.log(`DEBUG: Final Pokémon data for ${mon}:`, finalResult[mon]);
+  }
+
 }
 
 // --- Wild Pokémon Location Extraction ---
@@ -834,7 +1008,10 @@ const wildFiles = fs.readdirSync(wildDir).filter(f => f.endsWith('.asm'));
 const locationsByMon: { [mon: string]: LocationEntry[] } = {};
 
 for (const file of wildFiles) {
-  // console.log(`Processing wild file: ${file}`);
+  const isDebug = isDebugPokemon(file);
+  if (isDebug) {
+    console.log(`DEBUG: Processing wild file: ${file}`);
+  }
   const filePath = path.join(wildDir, file);
   const content = fs.readFileSync(filePath, 'utf8');
   const lines = content.split(/\r?\n/);
@@ -863,6 +1040,9 @@ for (const file of wildFiles) {
       currentTime = null;
       slotEntriesByTime = {};
       encounterRates = { morn: 0, day: 0, nite: 0 };
+      if (isDebug) {
+        console.log(`DEBUG: Found area block start: area=${area}, method=${method}, blockType=${blockType}`);
+      }
       continue;
     }
     // Parse encounter rates line
@@ -883,19 +1063,31 @@ for (const file of wildFiles) {
           encounterRates.nite = rate;
           encounterRates.eve = rate;
         }
+        if (isDebug) {
+          console.log(`DEBUG: Parsed encounter rates:`, encounterRates);
+        }
       }
       continue;
     }
     if (inBlock && line.startsWith('end_' + blockType + '_wildmons')) {
       // For each time block, assign canonical rates
       const encounterType = (method === 'water') ? 'surf' : 'grass';
-      for (const [, slotEntries] of Object.entries(slotEntriesByTime)) {
+      if (isDebug) {
+        console.log(`DEBUG: End of block for area=${area}, method=${method}, encounterType=${encounterType}`);
+      }
+      for (const [time, slotEntries] of Object.entries(slotEntriesByTime)) {
         const slotPokemon = slotEntries.map(e => e.key);
         const mappedRates = mapEncounterRatesToPokemon(slotPokemon, encounterType);
+        if (isDebug) {
+          console.log(`DEBUG: Mapping encounter rates for time=${time}, slotPokemon=`, slotPokemon, 'mappedRates=', mappedRates);
+        }
         for (let idx = 0; idx < slotEntries.length; idx++) {
           slotEntries[idx].entry.chance = mappedRates[idx]?.rate ?? 0;
           if (!locationsByMon[slotEntries[idx].key]) locationsByMon[slotEntries[idx].key] = [];
           locationsByMon[slotEntries[idx].key].push(slotEntries[idx].entry);
+          if (isDebug) {
+            console.log(`DEBUG: Added location for ${slotEntries[idx].key}:`, slotEntries[idx].entry);
+          }
         }
       }
       // Reset for next block
@@ -912,6 +1104,9 @@ for (const file of wildFiles) {
       if (["morn", "day", "nite", "eve"].includes(t)) {
         currentTime = t;
         if (!slotEntriesByTime[currentTime]) slotEntriesByTime[currentTime] = [];
+        if (isDebug) {
+          console.log(`DEBUG: Switched to time block: ${currentTime}`);
+        }
       }
       continue;
     }
@@ -948,6 +1143,9 @@ for (const file of wildFiles) {
             formName
           }
         });
+        if (isDebug) {
+          console.log(`DEBUG: Parsed wildmon line: key=${key}, area=${area}, method=${method}, time=${currentTime}, level=${normalizedLevel}, chance=${encounterRate}, formName=${formName}`);
+        }
       }
       continue;
     }
@@ -959,7 +1157,7 @@ console.log('🔧 Normalizing location data keys...');
 const normalizedLocationsByMon: { [mon: string]: LocationEntry[] } = {};
 for (const [originalKey, locations] of Object.entries(locationsByMon)) {
   const normalizedKey = normalizePokemonUrlKey(originalKey);
-  // Just copy the location entries without modification - they don't contain Pokemon names
+  // Just copy the location entries without modification - they don't contain Pokemon names, nothing to debug here
   normalizedLocationsByMon[normalizedKey] = locations;
   console.log(`Normalized location key: "${originalKey}" -> "${normalizedKey}"`);
 }
@@ -969,27 +1167,47 @@ for (const file of baseStatsFiles) {
   const fileName = file.replace('.asm', '');
   const { basePokemonName, formName } = extractFormInfo(fileName);
 
+  console.log(`DEBUG: for (const file of baseStatsFiles) Processing base stats file: ${fileName} (base: ${basePokemonName}, form: ${formName})`);
+
   // Convert to the proper name format used in our data structures
   const pokemonName = toTitleCase(basePokemonName);
 
+  const isDebug = isDebugPokemon(pokemonName) || isDebugPokemon(basePokemonName);
+
+  if (isDebug) {
+    console.log(`DEBUG: Processing base stats file: ${fileName} (base: ${basePokemonName}, form: ${formName})`);
+  }
+
+
   // Skip if this Pokemon is already in finalResult (already processed from evos_attacks)
   if (finalResult[pokemonName]) {
+    if (isDebug) {
+      console.log(`DEBUG: Skipping already processed Pokemon: ${pokemonName}`);
+    }
     continue;
   }
 
-  if (DEBUG_POKEMON.includes(basePokemonName)) {
-    console.log(`Adding missing Pokemon from base stats: ${pokemonName} (from ${fileName})`);
+  if (isDebug) {
+    console.log(`DEBUG: Adding missing Pokemon from base stats: ${pokemonName} (from ${fileName})`);
   }
 
   // Get the dex numbers
   const nationalDex = nationalDexOrder.indexOf(pokemonName) >= 0 ? nationalDexOrder.indexOf(pokemonName) + 1 : null;
   const johtoDex = johtoDexOrder.indexOf(pokemonName) >= 0 ? johtoDexOrder.indexOf(pokemonName) + 1 : null;  // Get types from our type maps
+
+  if (isDebug) {
+    console.log(`DEBUG: National Dex: ${nationalDex}, Johto Dex: ${johtoDex}`);
+  }
+
   let faithfulTypes: string | string[] = 'Unknown';
   let updatedTypes: string | string[] = 'Unknown';
 
   if (typeMap[pokemonName]) {
     faithfulTypes = processTypeArray(typeMap[pokemonName].types || ['None']);
     updatedTypes = processTypeArray(typeMap[pokemonName].updatedTypes || ['None']);
+    if (isDebug) {
+      console.log(`DEBUG: Found types for ${pokemonName}: faithfulTypes=${faithfulTypes}, updatedTypes=${updatedTypes}`);
+    }
   }
 
   // Create basic Pokemon data structure
@@ -1030,11 +1248,22 @@ for (const file of baseStatsFiles) {
     evYield: "None",
     locations: normalizedLocationsByMon[pokemonName] || []
   };
+  if (isDebug) {
+    console.log(`DEBUG: Added missing Pokemon ${pokemonName} with base stats from ${fileName}`);
+    console.dir('finalResult[pokemonName]', finalResult[pokemonName]);
+  }
 }
 
 // Using the previously defined PokemonDataV3 type
 const finalResultV3: Record<string, PokemonDataV3> = {};
 for (const mon of Object.keys(finalResult)) {
+
+  const isDebug = isDebugPokemon(mon);
+
+  if (isDebug) {
+    console.log(`DEBUG: Processing finalResultV3 result for Pokémon: ${mon}`);
+  }
+
   // Provide default values for all DetailedStats fields to satisfy PokemonDataV3
   finalResultV3[mon] = {
     ...finalResult[mon],
@@ -1064,6 +1293,10 @@ for (const mon of Object.keys(finalResult)) {
     evYield: "None",
     locations: normalizedLocationsByMon[mon] || []
   };
+  if (isDebug) {
+    console.log(`DEBUG: Added missing Pokemon ${mon} with base stats from ${mon}`);
+    console.dir('finalResult[pokemonName]', finalResult[mon]);
+  }
 }
 
 // --- Add missing form entries for Pokemon with base stats files but no moveset entries ---
@@ -1073,6 +1306,9 @@ console.log('Checking for missing form entries...');
 const baseStatsFormFiles = baseStatsFiles.filter(f => {
   const fileName = f.replace('.asm', '');
   const { basePokemonName, formName } = extractFormInfo(fileName);
+
+  console.log(`DEBUG: Processing base stats form file (not limited to debug pokemon): ${fileName} (base: ${basePokemonName}, form: ${formName})`);
+
   return formName && formName !== 'Plain'; // Only non-plain forms
 });
 
@@ -1085,11 +1321,22 @@ for (const formFile of baseStatsFormFiles) {
   const basePokemonKey = toTitleCase(basePokemonName);
   const fullFormKey = `${basePokemonKey}${formName}`;
 
+  const isDebug = isDebugPokemon(basePokemonKey) || isDebugPokemon(fullFormKey);
+
+  if (isDebug) {
+    console.log(`DEBUG: Processing form file: ${formFile}`);
+    console.log(`DEBUG: basePokemonName: ${basePokemonName}, formName: ${formName}`);
+    console.log(`DEBUG: basePokemonKey: ${basePokemonKey}, fullFormKey: ${fullFormKey}`);
+  }
+
   // Check if this form already exists in our results
   if (!finalResultV3[fullFormKey]) {
 
     // Check if the base Pokemon exists
     if (finalResultV3[basePokemonKey]) {
+      if (isDebug) {
+        console.log(`DEBUG: Creating form entry for ${fullFormKey} based on ${basePokemonKey}`);
+      }
       // Create a form entry that inherits from the base Pokemon
       finalResultV3[fullFormKey] = {
         // Copy all data from base Pokemon
@@ -1106,12 +1353,18 @@ for (const formFile of baseStatsFormFiles) {
         locations: []
       };
 
-      console.log(`Created form entry for ${fullFormKey} based on ${basePokemonKey}`);
+      if (isDebug) {
+        console.log(`DEBUG: Created form entry for ${fullFormKey} based on ${basePokemonKey}`);
+      }
     } else {
-      console.log(`Base Pokemon ${basePokemonKey} not found, cannot create form ${fullFormKey}`);
+      if (isDebug) {
+        console.log(`DEBUG: Base Pokemon ${basePokemonKey} not found, cannot create form ${fullFormKey}`);
+      }
     }
   } else {
-    console.log(`Form ${fullFormKey} already exists`);
+    if (isDebug) {
+      console.log(`DEBUG: Form ${fullFormKey} already exists`);
+    }
   }
 }
 
@@ -1122,21 +1375,28 @@ exportDetailedStats();
 const groupedPokemonData = groupPokemonForms(finalResultV3);
 
 console.log('🔧 Starting comprehensive Pokemon key normalization...');
-
 // --- Comprehensive Pokemon Key Normalization ---
+
 /**
  * Normalizes all Pokemon keys throughout the data structures to ensure consistency
  * across all JSON output files for easier web app access
  */
-function normalizePokemonDataKeys<T extends Record<string, any>>(
+function normalizePokemonDataKeys<T extends Record<string, unknown>>(
   data: T,
   keyField?: string
 ): Record<string, T[keyof T]> {
   const normalizedData: Record<string, T[keyof T]> = {};
 
   for (const [originalKey, value] of Object.entries(data)) {
+    // Add isDebug flag for debugging
+    const isDebug = isDebugPokemon(originalKey);
+
     // Get the standardized URL-safe key
     const normalizedKey = normalizePokemonUrlKey(originalKey);
+
+    if (isDebug) {
+      console.log(`Normalizing key: "${originalKey}" -> "${normalizedKey}"`);
+    }
 
     // Log hyphenation validation for debugging
     const validation = validatePokemonHyphenation(originalKey);
@@ -1145,7 +1405,10 @@ function normalizePokemonDataKeys<T extends Record<string, any>>(
     }
 
     // Clone the value to avoid mutation
-    let normalizedValue = { ...value };
+    // Add an index signature to allow dynamic property assignment
+    let normalizedValue: { [key: string]: unknown } = (typeof value === 'object')
+      ? { ...value, isDebug }
+      : { isDebug };
 
     // Update the name field to use the proper display name
     if (typeof normalizedValue === 'object' && normalizedValue !== null) {
@@ -1157,7 +1420,7 @@ function normalizePokemonDataKeys<T extends Record<string, any>>(
       normalizedValue = normalizeNestedPokemonReferences(normalizedValue);
     }
 
-    normalizedData[normalizedKey] = normalizedValue;
+    normalizedData[normalizedKey as string] = normalizedValue as T[keyof T];
   }
 
   return normalizedData;
@@ -1166,6 +1429,7 @@ function normalizePokemonDataKeys<T extends Record<string, any>>(
 /**
  * Recursively normalizes Pokemon references in nested objects
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function normalizeNestedPokemonReferences(obj: any): any {
   if (Array.isArray(obj)) {
     return obj.map(normalizeNestedPokemonReferences);
@@ -1186,7 +1450,7 @@ function normalizeNestedPokemonReferences(obj: any): any {
     }
 
     if (normalized.evolution.chainWithMethods) {
-      const newChainWithMethods: Record<string, any> = {};
+      const newChainWithMethods: Record<string, unknown> = {};
       for (const [pokemonName, methods] of Object.entries(normalized.evolution.chainWithMethods)) {
         const normalizedName = normalizePokemonDisplayName(pokemonName);
         newChainWithMethods[normalizedName] = methods;
@@ -1195,9 +1459,22 @@ function normalizeNestedPokemonReferences(obj: any): any {
     }
 
     if (normalized.evolution.methods) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       normalized.evolution.methods = normalized.evolution.methods.map((method: any) => {
         if (method.target) {
-          return { ...method, target: normalizePokemonDisplayName(method.target) };
+          const target = normalizePokemonDisplayName(method.target);
+
+          // this seems to be a special case for Porygon Z, but it is not used in the current code
+          // // Fix Porygon Z -> porygon-z
+          // if (target === 'Porygon Z' ||
+          //   target.toLowerCase() === 'porygon_z' ||
+          //   target.toLowerCase() === 'porygon z' ||
+          //   target.toLowerCase() === 'porygon-z' ||
+          //   target.toLowerCase() === 'porygonz') {
+          //   target = 'porygon-z';
+          // }
+
+          return { ...method, target };
         }
         return method;
       });
@@ -1206,6 +1483,7 @@ function normalizeNestedPokemonReferences(obj: any): any {
 
   // Handle forms
   if (normalized.forms) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const newForms: Record<string, any> = {};
     for (const [formKey, formData] of Object.entries(normalized.forms)) {
       newForms[formKey] = normalizeNestedPokemonReferences(formData);
@@ -1215,6 +1493,7 @@ function normalizeNestedPokemonReferences(obj: any): any {
 
   // Handle locations - preserve them as-is since they don't contain Pokemon names
   if (normalized.locations && Array.isArray(normalized.locations)) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     normalized.locations = normalized.locations.map((location: any) => {
       // Don't recursively normalize location objects - they contain area names, not Pokemon names
       return { ...location };
@@ -1290,48 +1569,6 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
     continue;
   }
 
-
-  // // --- FILTER OUT INVALID OR SPECIAL CASES BEFORE NORMALIZATION ---
-  // // List of invalid or placeholder Pokémon names to skip
-  // const INVALID_POKEMON = [
-  //   '',
-  //   'egg',
-  //   'a',
-  //   'mime',
-  //   'mr',
-  //   'file',
-  //   'empty',
-  //   'undefined',
-  //   'null',
-  //   '???',
-  //   'missingno',
-  //   'poke',
-  //   'pkmn',
-  //   'pokemon',
-  //   'poke_mon',
-  //   'poke-mon',
-  //   'poke mon',
-  //   'poke_mon',
-  //   'poke-mon',
-  //   'poke mon',
-  //   'none',
-  //   'unknown',
-  //   'test',
-  //   'testmon',
-  //   'test_mon',
-  //   'test-mon',
-  //   'test mon',
-  //   'debug',
-  //   'debugmon',
-  //   'debug_mon',
-  //   'debug-mon',
-  //   'debug mon',
-  //   'placeholder',
-  //   'placeholdermon',
-  //   'placeholder_mon',
-  //   'placeholder-mon',
-  //   'placeholder mon',
-  // ];
 
   // Handle special cases before normalization
   const trimmedMon = mon.trim();
@@ -1795,12 +2032,12 @@ for (const [pokemonName, locations] of Object.entries(grottoLocations)) {
 // Helper: Validate and fix moves array (removes null/undefined, ensures correct structure)
 // ...implementation moved to end of file...
 
-// Helper: Default evolution object
-const defaultEvolution: Evolution = {
-  methods: [],
-  chain: [],
-  chainWithMethods: {}
-};
+// // Helper: Default evolution object
+// const defaultEvolution: Evolution = {
+//   methods: [],
+//   chain: [],
+//   chainWithMethods: {}
+// };
 
 // ...duplicate index generation removed...
 
@@ -1875,13 +2112,20 @@ fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify({
 
 function exportDetailedStats() {
   try {
+
+
+    console.log('trying to export detailed stats to', DETAILED_STATS_OUTPUT);
+
     const detailedStats: Record<string, DetailedStats> = extractDetailedStats();
+
+    // Print all keys of detailedStats, not just the first 50
+    console.log('Keys of detailedStats:', Object.keys(detailedStats).join(',\n'));
 
     // Check if Ho-Oh is in detailedStats after extraction
     console.log('After extractDetailedStats - Is Ho-Oh in detailedStats?', 'Ho-Oh' in detailedStats);
 
-    // Check if Porygon-Z is in detailedStats after extraction
-    console.log('After extractDetailedStats - Is Porygon-Z in detailedStats?', 'Porygon-Z' in detailedStats);
+    // Check if porygon-z is in detailedStats after extraction
+    console.log('After extractDetailedStats - Is porygon-z in detailedStats?', 'porygon-z' in detailedStats);
 
     if (!('Ho-Oh' in detailedStats)) {
       // Try to find any keys that might be related to Ho-Oh
@@ -1892,22 +2136,36 @@ function exportDetailedStats() {
       console.log('Possible Ho-Oh related keys:', possibleHoOhKeys);
     }
 
-    if (!('Porygon-Z' in detailedStats)) {
-      // Try to find any keys that might be related to Porygon-Z
+    // Log all detailedStats keys that do not contain 'truncate'
+
+    if (!('porygon-z' in detailedStats)) {
+
+      // Try to find any keys that might be related to porygon-z
       const possiblePorygonZKeys = Object.keys(detailedStats).filter(k =>
-        k.toLowerCase().includes('porygon') && (k.toLowerCase().includes('z') || k.toLowerCase().includes('-z'))
+        k.toLowerCase().includes('porygon') &&
+        (k.toLowerCase().includes('z') || k.toLowerCase().includes('-z')) &&
+        k.toLowerCase() !== 'porygon-z'
       );
 
-      console.log('Possible Porygon-Z related keys:', possiblePorygonZKeys);
+      console.log('Possible porygon-z related keys:', possiblePorygonZKeys);
     }
 
     // Add types from finalResultV3 to the detailed stats
     for (const [pokemonName, stats] of Object.entries(detailedStats)) {
+      const isDebug = isDebugPokemon(pokemonName);
       if (finalResultV3[pokemonName]) {
-        console.log(`Adding types for ${pokemonName} from finalResultV3`, stats.types);
+        console.log(`Adding types in detailedStats for ${pokemonName} to finalResultV3`, stats.types);
         // Copy types from finalResultV3
         stats.types = finalResultV3[pokemonName].types || 'Unknown';
         stats.updatedTypes = finalResultV3[pokemonName].updatedTypes || finalResultV3[pokemonName].types || 'Unknown';
+
+        if (isDebug) {
+          console.log(`Debug info for ${pokemonName}:`, {
+            originalTypes: stats.types,
+            updatedTypes: stats.updatedTypes
+          });
+        }
+
       } else {
         console.log(`No direct match for ${pokemonName} in finalResultV3, trying to find a match...`);
         // If pokemon not found in finalResultV3, try looking for a match
@@ -2070,10 +2328,11 @@ if (!fs.existsSync(POKEMON_DIR)) {
 }
 
 // Load additional data files that we've already generated
-let tmHmData: Record<string, any> = {};
-let eggMoveData: Record<string, any> = {};
-let pokedexData: Record<string, any> = {};
-let detailedStatsData: Record<string, any> = {};
+// i changed from Record<string, any> to Record<string, DetailedStats> for detailedStatsData
+let tmHmData: Record<string, Move[]> = {};
+let eggMoveData: Record<string, Move[]> = {};
+let pokedexData: Record<string, Record<string, PokemonDexEntry>> = {};
+let detailedStatsData: Record<string, DetailedStats> = {};
 
 const TM_HM_OUTPUT = path.join(__dirname, 'output/pokemon_tm_hm_learnset.json');
 const EGG_MOVES_OUTPUT = path.join(__dirname, 'output/pokemon_egg_moves.json');
@@ -2103,14 +2362,29 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     continue;
   }
   // --- Ensure all forms are included in individual Pokemon files ---
-  const groupedData = normalizedGroupedData[pokemonName] || {};
+  // const groupedData = normalizedGroupedData[pokemonName] || {};
   // Deduplicate and normalize form keys
-  const forms: Record<string, any> = {};
+  const forms: Record<string, DetailedStats & {
+    name: string;
+    formName: string;
+    types: string[] | string;
+    updatedTypes?: string[] | string;
+    frontSpriteUrl?: string;
+    moves?: Move[];
+    detailedStats?: DetailedStats;
+  }> = {};
+  // Track seen forms to avoid duplicates
   const seenForms: Record<string, string> = {};
   // Skip groupedData.forms processing since we'll handle forms properly from base stat files below
   const baseName = pokemonName.toLowerCase();
+
   const formFiles = baseStatsFiles.filter(f => f.toLowerCase().startsWith(baseName + '_') && f.endsWith('.asm'));
-  for (const formFile of formFiles) {
+
+  console.log(`Processing formFiles formFiles for ${pokemonName} (${baseName}), found form files:`, formFiles);
+
+  const filteredFormFiles = formFiles.filter(f => f !== 'porygon_z.asm');
+
+  for (const formFile of filteredFormFiles) {
     const formName = formFile.replace(baseName + '_', '').replace('.asm', '');
     const normKey = formName.trim().toLowerCase();
     const titleCaseFormName = toTitleCase(formName.trim());
@@ -2140,7 +2414,7 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     const baseStats = detailedStatsData[displayNameForLookup] || {};
 
     // Get form type data, with fallbacks to detailed stats
-    let formTypeData = [];
+    let formTypeData: string | string[] = [];
     if (formTypeMap[pokemonName] && formTypeMap[pokemonName][titleCaseFormName]) {
       formTypeData = formTypeMap[pokemonName][titleCaseFormName].types;
     } else if (formStats.types) {
@@ -2223,8 +2497,8 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
 
   // Embed complete location data in the Pokemon object
   const pokemonLocationData = validatedLocationData[pokemonName];
-  let embeddedLocations: any[] = [];
-  let embeddedFormLocations: Record<string, any> = {};
+  let embeddedLocations: LocationEntry[] = [];
+  let embeddedFormLocations: Record<string, { locations: LocationEntry[] }> = {};
 
   if (pokemonLocationData) {
     // Include base form locations
@@ -2268,7 +2542,7 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     }
   }
 
-  const pokemonData: Record<string, any> = {
+  const pokemonData: Record<string, unknown> = {
     name: pokemonName,
     nationalDex: baseData.nationalDex,
     johtoDex: baseData.johtoDex,
@@ -2351,27 +2625,27 @@ console.log(`Created index file at ${indexPath}`);
 console.log('Individual Pokemon file generation complete!');
 
 // Helper function to check if one form data is more complete than another
-function isMoreCompleteForm(formA: any, formB: any): boolean {
-  if (!formA || !formB) return !!formA;
+// Currently unused but kept for potential future use
+// function isMoreCompleteForm(formA: Record<string, unknown>, formB: Record<string, unknown>): boolean {
+//   if (!formA || !formB) return !!formA;
+//   // Count the number of defined properties
+//   const countProperties = (obj: Record<string, unknown>): number => {
+//     if (!obj || typeof obj !== 'object') return 0;
+//     return Object.values(obj).filter(value =>
+//       value !== undefined && value !== null && value !== ''
+//     ).length;
+//   };
 
-  // Count the number of defined properties
-  const countProperties = (obj: any): number => {
-    if (!obj || typeof obj !== 'object') return 0;
-    return Object.values(obj).filter(value =>
-      value !== undefined && value !== null && value !== ''
-    ).length;
-  };
-
-  return countProperties(formA) > countProperties(formB);
-}
+//   return countProperties(formA) > countProperties(formB);
+// }
 
 // Helper function to validate and fix moves
-function validateAndFixMoves(moves: any[]): Move[] {
+function validateAndFixMoves(moves: (Partial<Move> | null | undefined)[]): Move[] {
   return Array.isArray(moves)
     ? moves.filter(Boolean).map(m => ({
-      name: m.name,
-      level: m.level,
-      ...(m.info ? { info: m.info } : {})
+      name: m?.name || 'Unknown Move',
+      level: m?.level || 0,
+      ...(m?.info ? { info: m.info } : {})
     }))
     : [];
 }
