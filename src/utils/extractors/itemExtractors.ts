@@ -266,9 +266,6 @@ export function extractItemData(): Record<string, ItemData> {
     }
   }
 
-  // Write the extracted data to a JSON file
-  fs.writeFileSync(outputFile, JSON.stringify(items, null, 2));
-
   // Count items with attributes for debugging
   const itemsWithAttributes = Object.values(items).filter(item => item.attributes).length;
   console.log(`✅ Item data extracted to ${outputFile}`);
@@ -286,13 +283,13 @@ export function extractItemData(): Record<string, ItemData> {
     }
   }
 
-  // Extract mart data and add location information to items
-  try {
-    console.log('📍 Adding mart location data to items...');
-    extractMartData(items);
-  } catch (error) {
-    console.error(`❌ Error extracting mart data: ${error}`);
-  }
+  console.log("📦 Extracted item data contains", Object.keys(items).length, "items.");
+
+  console.log("🔧 Extracting mart data...");
+  extractMartData(items);
+
+  // Write the extracted data to a JSON file
+  fs.writeFileSync(outputFile, JSON.stringify(items, null, 2));
 
   return items;
 }
@@ -302,7 +299,7 @@ export function extractItemData(): Record<string, ItemData> {
  * @param rawName The raw item name from the description label
  * @returns URI-friendly ID
  */
-function generateItemId(rawName: string): string {
+export function generateItemId(rawName: string): string {
   // Remove "Ball" or other suffixes, replace underscores, convert to lowercase
   return rawName
     .replace(/ball$/i, '')
@@ -316,7 +313,7 @@ function generateItemId(rawName: string): string {
  * @param rawName The raw item name from the description label
  * @returns User-friendly display name
  */
-function formatItemName(rawName: string): string {
+export function formatItemName(rawName: string): string {
   // Handle special cases first
   if (rawName === 'PokeBallDesc') return 'Poké Ball';
   if (rawName === 'GreatBallDesc') return 'Great Ball';
@@ -344,25 +341,207 @@ function formatItemName(rawName: string): string {
 }
 
 /**
- * Normalize item ID to ensure consistent keys between description and attribute sections
- * @param rawName The raw item name (can be from description or attributes section)
+ * Normalize item ID to ensure consistent keys across all sections of the codebase
+ * @param rawName The raw item name (can be from description, attributes, or mart sections)
  * @returns Normalized ID that will be consistent across the code
  */
-function normalizeItemId(rawName: string): string {
+export function normalizeItemId(rawName: string): string {
   // Remove Desc suffix if present
   let name = rawName.replace(/Desc$/, '');
+
+  // Handle TM prefix
+  if (name.startsWith('TM_')) {
+    return 'tm' + name.substring(3).toLowerCase();
+  }
+
+  // Check for Battle Tower/Factory items with "db " prefix
+  if (name.startsWith('db ')) {
+    name = name.substring(3);
+  }
 
   // Replace spaces with empty strings and convert to lowercase
   name = name.replace(/\s+/g, '').toLowerCase();
 
-  // Handle special cases for consistency
+  // Convert underscores to dashes for consistency
+  name = name.replace(/_/g, '-');
+
+  // Handle special cases for consistency - balls
   name = name.replace(/poke(ball)?$/, 'pokeball');
   name = name.replace(/great(ball)?$/, 'greatball');
   name = name.replace(/ultra(ball)?$/, 'ultraball');
   name = name.replace(/master(ball)?$/, 'masterball');
 
+  // Handle mail items consistently
+  if (name.includes('mail') || name.match(/^(music|flower|surf|mirage|portrait|bluesky|eon|morph|liteblue|lovely)$/)) {
+    if (name === 'music' || name === 'music-mail' || name === 'musicmail') return 'musicmail';
+    if (name === 'flower' || name === 'flower-mail' || name === 'flowermail') return 'flowermail';
+    if (name === 'surf' || name === 'surf-mail' || name === 'surfmail') return 'surfmail';
+    if (name === 'mirage' || name === 'mirage-mail' || name === 'miragemail') return 'miragemail';
+    if (name === 'portrait' || name === 'portrait-mail' || name === 'portraitmail') return 'portraitmail';
+    if (name === 'bluesky' || name === 'bluesky-mail' || name === 'blueskymail') return 'blueskymail';
+    if (name === 'eon' || name === 'eon-mail' || name === 'eonmail') return 'eonmail';
+    if (name === 'morph' || name === 'morph-mail' || name === 'morphmail') return 'morphmail';
+    if (name === 'liteblue' || name === 'liteblue-mail' || name === 'litebluemail') return 'litebluemail';
+    if (name === 'lovely' || name === 'lovely-mail' || name === 'lovelymail') return 'lovelymail';
+  }
+
+  // Handle other special cases
+  if (name === 'full' || name === 'fullheal' || name === 'full-heal') return 'full-heal';
+  if (name === 'fullrestore') return 'fullrestore';
+  if (name === 'exp' || name === 'expshare') return 'expshare';
+
   // Replace special characters
   name = name.replace(/'/, '');
 
-  return name;
+  // Map common item names to their expected IDs
+  const itemMappings: Record<string, string> = {
+    // Poké Balls
+    'pokeball': 'poke',
+    'poke-ball': 'poke',
+    'greatball': 'great',
+    'great-ball': 'great',
+    'ultraball': 'ultra',
+    'ultra-ball': 'ultra',
+    'masterball': 'master',
+    'master-ball': 'master',
+    'safariball': 'safari',
+    'safari-ball': 'safari',
+    'levelball': 'level',
+    'level-ball': 'level',
+    'lureball': 'lure',
+    'lure-ball': 'lure',
+    'moonball': 'moon',
+    'moon-ball': 'moon',
+    'friendball': 'friend',
+    'friend-ball': 'friend',
+    'fastball': 'fast',
+    'fast-ball': 'fast',
+    'heavyball': 'heavy',
+    'heavy-ball': 'heavy',
+    'loveball': 'love',
+    'love-ball': 'love',
+    'healball': 'heal',
+    'heal-ball': 'heal',
+    'netball': 'net',
+    'net-ball': 'net',
+    'nestball': 'nest',
+    'nest-ball': 'nest',
+    'repeatball': 'repeat',
+    'repeat-ball': 'repeat',
+    'timerball': 'timer',
+    'timer-ball': 'timer',
+    'luxuryball': 'luxury',
+    'luxury-ball': 'luxury',
+    'premierball': 'premier',
+    'premier-ball': 'premier',
+    'diveball': 'dive',
+    'dive-ball': 'dive',
+    'duskball': 'dusk',
+    'dusk-ball': 'dusk',
+    'quickball': 'quick',
+    'quick-ball': 'quick',
+    'dreamball': 'dream',
+    'dream-ball': 'dream',
+
+    // Medicine
+    'superpotion': 'super',
+    'hyperpotion': 'hyper',
+    'maxpotion': 'max',
+    'fullrestore': 'full',
+    'maxrevive': 'max-revive',
+    'freshwater': 'fresh-water',
+    'sodapop': 'soda-pop',
+    'moomoomilk': 'moomoo-milk',
+    'burnheal': 'burn-heal',
+    'iceheal': 'ice-heal',
+    'paralyzeheal': 'paralyze-heal',
+    'energyroot': 'energy-root',
+    'healpowder': 'heal-powder',
+    'revivalherb': 'revival-herb',
+
+    // Battle items
+    'xattack': 'x-attack',
+    'xdefend': 'x-defend',
+    'xspeed': 'x-speed',
+    'xspatk': 'x-sp-atk',
+    'xspdef': 'x-sp-def',
+    'xaccuracy': 'x-accuracy',
+    'direhit': 'dire-hit',
+    'guardspec': 'guard-spec',
+
+    // Evolution items
+    'firestone': 'fire-stone',
+    'thunderstone': 'thunderstone',
+    'waterstone': 'water-stone',
+    'leafstone': 'leaf-stone',
+    'moonstone': 'moon-stone',
+    'sunstone': 'sun-stone',
+    'icestone': 'ice-stone',
+    'duskstone': 'dusk-stone',
+    'shinystone': 'shiny-stone',
+
+    // Hold items
+    'luckyegg': 'lucky-egg',
+    'amuletcoin': 'amulet-coin',
+    'kingsrock': 'kings-rock',
+    'blackbelt': 'black-belt',
+    'choiceband': 'choice-band',
+    'choicescarf': 'choice-scarf',
+    'choicespecs': 'choice-specs',
+    'scopelens': 'scope-lens',
+    'focusband': 'focus-band',
+    'focussash': 'focus-sash',
+    'airballoon': 'air-balloon',
+
+    // Field items
+    'escaperope': 'escape-rope',
+    'superrepel': 'super-repel',
+    'maxrepel': 'max-repel',
+    'pokedoll': 'poke-doll',
+
+    // Other items
+    'ragecandybar': 'ragecandybar',
+    'expshare': 'exp',
+    'metronomei': 'metronome',
+    'rarecandy': 'rare',
+    'ppmax': 'pp',
+    'abilitycap': 'ability-cap',
+    'weakpolicy': 'weak',
+    'blundrpolicy': 'blundr',
+    'widelens': 'wide',
+    'zoomlens': 'zoom',
+    'machobrace': 'macho',
+    'powerweight': 'power-weight',
+    'powerbracer': 'power-bracer',
+    'powerbelt': 'power-belt',
+    'powerlens': 'power-lens',
+    'powerband': 'power-band',
+    'poweranklet': 'power-anklet',
+    'assaultvest': 'assault',
+    'protectpads': 'protect',
+    'rockyhelmet': 'rocky',
+    'safegoggles': 'safe',
+    'heavyboots': 'heavy',
+    'punchinglove': 'punching',
+    'covertcloak': 'covert',
+    'ejectbutton': 'eject',
+    'ejectpack': 'eject-pack',
+    'redcard': 'red',
+    'ironball': 'iron',
+    'laggingtail': 'lagging',
+    'flameorb': 'flame',
+    'toxicorb': 'toxic',
+    'blacksludge': 'black',
+    'clearamulet': 'clear',
+    'bindingband': 'binding',
+    'gripclaw': 'grip',
+    'loadeddice': 'loaded',
+    'throatspray': 'throat',
+    'roomservice': 'room',
+    'lifeorb': 'life',
+    'mintleaf': 'mint'
+  };
+
+  // Return the mapped ID if it exists, otherwise return the original normalized name
+  return itemMappings[name] || name;
 }

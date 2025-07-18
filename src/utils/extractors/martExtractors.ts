@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import type { ItemData } from './itemExtractors.ts';
+import { normalizeItemId, type ItemData } from './itemExtractors.ts';
 
 interface MartLocation {
   area: string;
@@ -12,8 +12,14 @@ interface MartLocation {
 /**
  * Extract Pokémart data from marts.asm and add location information to item data
  * @param itemData The existing item data to update with location information
+ *
+ * @returns Updated item data with mart locations added
  */
 export function extractMartData(itemData: Record<string, ItemData>): void {
+
+  // Logging itemData for debugging
+  console.log(`📦 Initial item data contains ${Object.values(itemData).flatMap(i => i.locations ?? []).length} locations.`);
+
   // Use this workaround for __dirname in ES modules
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
@@ -51,6 +57,8 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
       let itemName = line.replace('db ', '').trim();
       let price: number | undefined = undefined;
 
+      console.log(`Processing item line: "${line}" in mart "${currentMartDisplayName}", current item: "${itemName}"`);
+
       // Handle TMs with pricing (dbw TM_NAME, PRICE format)
       if (line.startsWith('dbw TM_')) {
         const parts = line.replace('dbw ', '').split(',').map(p => p.trim());
@@ -60,7 +68,9 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
         // Handle battle items with pricing (ITEM_NAME, PRICE format)
         const parts = line.split(',').map(p => p.trim());
         itemName = parts[0];
+        console.log(`Processing item line: "${parts}", current item: "${itemName}"`);
         price = parseInt(parts[1], 10);
+        console.log(`Processing price line: "${price}", current item: "${itemName}"`);
       }
 
       // Convert the item name to a key that matches our item data
@@ -72,6 +82,7 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
       // Add the location to our tracking object
       if (!itemLocations[itemId]) {
         itemLocations[itemId] = [];
+        console.log(`Adding new item location for "${itemId}" in "${currentMartDisplayName}"`);
       }
 
       // Add this mart as a location
@@ -80,15 +91,21 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
         details: 'For sale'
       };
 
+      console.log(`Adding location for item "${itemId}":`, location);
+
       // Add price if available (for battle facilities)
       if (price) {
         location.price = price;
         location.details = `For sale (BP: ${price})`;
+        console.log(`Item "${itemId}" is a battle item with price ${price}`);
       }
+
+
 
       // Check if this mart is already in the locations
       if (!itemLocations[itemId].some(loc => loc.area === currentMartDisplayName)) {
         itemLocations[itemId].push(location);
+        console.log(`Added location for item "${itemId}" in "${currentMartDisplayName}"`);
       }
     }
   }
@@ -99,43 +116,55 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
 
   for (const [itemId, locations] of Object.entries(itemLocations)) {
     // Try to find the item in our item data using multiple matching strategies
-
+    console.log(`🔍 Matching item "${itemId}" to item data...`, locations);
+    console.log(`🔍 Object.entries(itemLocations)`, JSON.stringify(Object.entries(itemLocations)));
     // First try exact match
     let matchedItemKey = Object.keys(itemData).find(key => key === itemId);
 
+    console.log(`🔍 Matched item key: ${matchedItemKey}`);
+
     // Second, try match by normalized key
     if (!matchedItemKey) {
+      console.log(`🔍 Normalizing item ID: ${itemId}`);
       matchedItemKey = Object.keys(itemData).find(key => {
+        console.log(`🔍 Checking key: ${key}`, normalizeItemId(key), itemId);
         return normalizeItemId(key) === itemId;
       });
     }
 
     // Third, try partial match (in case the item name is a substring)
     if (!matchedItemKey) {
+      console.log(`🔍 Trying partial match for item ID: ${itemId}`);
       matchedItemKey = Object.keys(itemData).find(key =>
         key.includes(itemId) || itemId.includes(key)
       );
+      console.log(`🔍 Partial match found: ${matchedItemKey}`);
     }
 
     // Fourth, try some common transformations
     if (!matchedItemKey) {
+      console.log(`🔍 Trying transformations for item ID: ${itemId}`);
       // Try without hyphens
       const noHyphens = itemId.replace(/-/g, '');
       matchedItemKey = Object.keys(itemData).find(key =>
         key === noHyphens || key.replace(/-/g, '') === noHyphens
       );
+      console.log(`🔍 No hyphens match found: ${matchedItemKey}`);
     }
 
     if (matchedItemKey) {
+      console.log(`✅ Found item "${itemId}" matched to key "${matchedItemKey}"`);
       // Update the item with location information
       if (!itemData[matchedItemKey].locations) {
         itemData[matchedItemKey].locations = [];
+        console.log(`Initialized locations array for item "${matchedItemKey}"`);
       }
 
       // Add new locations to the array
       locations.forEach(location => {
         // Use non-null assertion since we just initialized it if it was undefined
         (itemData[matchedItemKey].locations as MartLocation[]).push(location);
+        console.log(`Added location "${location.area}" to item "${matchedItemKey}"`);
       });
 
       // Log successful match for debugging
@@ -176,6 +205,9 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
     // Show a few item IDs from the data for comparison
     console.log('📝 Sample item IDs from data:', Object.keys(itemData).slice(0, 10));
   }
+
+  // Logging itemData for debugging
+  console.log(`📦 Final item data contains ${Object.values(itemData).flatMap(i => i.locations ?? []).length} locations.`);
 }
 
 /**
@@ -261,265 +293,4 @@ function formatMartName(martName: string): string {
     .replace(/Tm$/, 'TM Shop')
     .replace(/Souvenir$/, 'Souvenir Shop')
     .replace(/Eevee$/, '(With Eevee)');
-}
-
-/**
- * Normalize item ID to match the format used in item data
- * @param rawName The raw item name from marts.asm
- * @returns A normalized item ID
- */
-function normalizeItemId(rawName: string): string {
-  // Handle TM prefix
-  if (rawName.startsWith('TM_')) {
-    return 'tm' + rawName.substring(3).toLowerCase();
-  }
-
-  // Convert to lowercase and handle underscores consistently
-  const name = rawName.replace(/_/g, '-').toLowerCase();
-
-  // Special handling for common items that might have inconsistent naming
-  if (name === 'fullheal' || name === 'full-heal') {
-    return 'full-heal';
-  }
-
-  if (name.includes('music')) {
-    return 'music';
-  }
-
-  // Handle common problem cases directly
-  if (name === 'music' || name === 'music-mail' || name === 'musicmail') {
-    return 'musicmail';
-  }
-
-  if (name === 'flower' || name === 'flower-mail' || name === 'flowermail') {
-    return 'flowermail';
-  }
-
-  if (name === 'surf' || name === 'surf-mail' || name === 'surfmail') {
-    return 'surfmail';
-  }
-
-  if (name === 'mirage' || name === 'mirage-mail' || name === 'miragemail') {
-    return 'miragemail';
-  }
-
-  if (name === 'portrait' || name === 'portrait-mail' || name === 'portraitmail') {
-    return 'portraitmail';
-  }
-
-  if (name === 'bluesky' || name === 'bluesky-mail' || name === 'blueskymail') {
-    return 'blueskymail';
-  }
-
-  if (name === 'eon' || name === 'eon-mail' || name === 'eonmail') {
-    return 'eonmail';
-  }
-
-  if (name === 'morph' || name === 'morph-mail' || name === 'morphmail') {
-    return 'morphmail';
-  }
-
-  if (name === 'liteblue' || name === 'liteblue-mail' || name === 'litebluemail') {
-    return 'litebluemail';
-  }
-
-  if (name === 'lovely' || name === 'lovely-mail' || name === 'lovelymail') {
-    return 'lovelymail';
-  }
-
-  if (name === 'full' || name === 'fullrestore') {
-    return 'fullrestore';
-  }
-
-  if (name === 'exp' || name === 'expshare') {
-    return 'expshare';
-  }
-
-  // Map common item name patterns to their expected IDs - align with how item IDs are generated in itemExtractors.ts
-  const itemMappings: Record<string, string> = {
-    // Poké Balls - these match the IDs in items_data.json
-    'pokeball': 'poke',
-    'poke-ball': 'poke',
-    'greatball': 'great',
-    'great-ball': 'great',
-    'ultraball': 'ultra',
-    'ultra-ball': 'ultra',
-    'masterball': 'master',
-    'master-ball': 'master',
-    'safariball': 'safari',
-    'safari-ball': 'safari',
-    'levelball': 'level',
-    'level-ball': 'level',
-    'lureball': 'lure',
-    'lure-ball': 'lure',
-    'moonball': 'moon',
-    'moon-ball': 'moon',
-    'friendball': 'friend',
-    'friend-ball': 'friend',
-    'fastball': 'fast',
-    'fast-ball': 'fast',
-    'heavyball': 'heavy',
-    'heavy-ball': 'heavy',
-    'loveball': 'love',
-    'love-ball': 'love',
-    'healball': 'heal',
-    'heal-ball': 'heal',
-    'netball': 'net',
-    'net-ball': 'net',
-    'nestball': 'nest',
-    'nest-ball': 'nest',
-    'repeatball': 'repeat',
-    'repeat-ball': 'repeat',
-    'timerball': 'timer',
-    'timer-ball': 'timer',
-    'luxuryball': 'luxury',
-    'luxury-ball': 'luxury',
-    'premierball': 'premier',
-    'premier-ball': 'premier',
-    'diveball': 'dive',
-    'dive-ball': 'dive',
-    'duskball': 'dusk',
-    'dusk-ball': 'dusk',
-    'quickball': 'quick',
-    'quick-ball': 'quick',
-    'dreamball': 'dream',
-    'dream-ball': 'dream',
-
-    // Medicine
-    'potion': 'potion',
-    'superpotion': 'super',
-    'hyperpotion': 'hyper',
-    'maxpotion': 'max',
-    'fullrestore': 'full',
-    'revive': 'revive',
-    'maxrevive': 'max-revive',
-    'freshwater': 'fresh-water',
-    'sodapop': 'soda-pop',
-    'lemonade': 'lemonade',
-    'moomoomilk': 'moomoo-milk',
-
-    // Fix for Full Heal - it might be under a different name
-    'full_heal': 'antidote', // Try different potential matches
-
-    'awakening': 'awakening',
-    'antidote': 'antidote',
-    'burnheal': 'burn-heal',
-    'iceheal': 'ice-heal',
-    'paralyzeheal': 'paralyze-heal',
-    'energypowder': 'energypowder',
-    'energyroot': 'energy-root',
-    'healpowder': 'heal-powder',
-    'revivalherb': 'revival-herb',
-
-    // Battle items
-    'xattack': 'x-attack',
-    'xdefend': 'x-defend',
-    'xspeed': 'x-speed',
-    'xspatk': 'x-sp-atk',
-    'xspdef': 'x-sp-def',
-    'xaccuracy': 'x-accuracy',
-    'direhit': 'dire-hit',
-    'guardspec': 'guard-spec',
-
-    // Evolution items
-    'firestone': 'fire-stone',
-    'thunderstone': 'thunderstone',
-    'waterstone': 'water-stone',
-    'leafstone': 'leaf-stone',
-    'moonstone': 'moon-stone',
-    'sunstone': 'sun-stone',
-    'icestone': 'ice-stone',
-    'duskstone': 'dusk-stone',
-    'shinystone': 'shiny-stone',
-    'everstone': 'everstone',
-
-    // Hold items
-    'leftovers': 'leftovers',
-    'luckyegg': 'lucky-egg',
-    'amuletcoin': 'amulet-coin',
-    'kingsrock': 'kings-rock',
-    'blackbelt': 'black-belt',
-    'brightpowder': 'brightpowder',
-    'quickclaw': 'quick-claw',
-    'choiceband': 'choice-band',
-    'choicescarf': 'choice-scarf',
-    'choicespecs': 'choice-specs',
-    'scopelens': 'scope-lens',
-    'focusband': 'focus-band',
-    'focussash': 'focus-sash',
-    'airballoon': 'air-balloon',
-
-    // Field items
-    'escaperope': 'escape-rope',
-    'repel': 'repel',
-    'superrepel': 'super-repel',
-    'maxrepel': 'max-repel',
-    'pokedoll': 'poke-doll',
-
-    // Mail
-    'flowermail': 'flower',
-    'surfmail': 'surf',
-    'litebluemail': 'liteblue',
-    'portraitmail': 'portrait',
-    'lovelymail': 'lovely',
-    'eonmail': 'eon',
-    'morphmail': 'morph',
-    'blueskymail': 'bluesky',
-    'musicmail': 'music',
-    'miragemail': 'mirage',
-
-    // Other - Fix common specific mappings
-    'ragecandybar': 'ragecandybar',
-    'expshare': 'exp',
-    'charcoal': 'charcoal',
-
-    // Special handling for Battle Tower/Factory items with pricing
-    'metronomei': 'metronome',
-    'rarecandy': 'rare',
-    'ppmax': 'pp',
-    'abilitycap': 'ability-cap',
-    'weakpolicy': 'weak',
-    'blundrpolicy': 'blundr',
-    'widelens': 'wide',
-    'zoomlens': 'zoom',
-    'machobrace': 'macho',
-    'powerweight': 'power-weight',
-    'powerbracer': 'power-bracer',
-    'powerbelt': 'power-belt',
-    'powerlens': 'power-lens',
-    'powerband': 'power-band',
-    'poweranklet': 'power-anklet',
-    'assaultvest': 'assault',
-    'protectpads': 'protect',
-    'rockyhelmet': 'rocky',
-    'safegoggles': 'safe',
-    'heavyboots': 'heavy',
-    'punchinglove': 'punching',
-    'covertcloak': 'covert',
-    'ejectbutton': 'eject',
-    'ejectpack': 'eject-pack',
-    'redcard': 'red',
-    'ironball': 'iron',
-    'laggingtail': 'lagging',
-    'flameorb': 'flame',
-    'toxicorb': 'toxic',
-    'blacksludge': 'black',
-    'clearamulet': 'clear',
-    'bindingband': 'binding',
-    'gripclaw': 'grip',
-    'loadeddice': 'loaded',
-    'throatspray': 'throat',
-    'roomservice': 'room',
-    'lifeorb': 'life',
-    'mintleaf': 'mint'
-  };
-
-  // Check for Battle Tower/Factory items with "db " prefix
-  if (name.startsWith('db ')) {
-    const itemWithoutPrefix = name.substring(3);
-    return itemMappings[itemWithoutPrefix] || itemWithoutPrefix;
-  }
-
-  // Return the mapped ID if it exists, otherwise return the original name
-  return itemMappings[name] || name;
 }

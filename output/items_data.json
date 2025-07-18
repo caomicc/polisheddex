@@ -10,7 +10,37 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Cherrygrove City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Violet City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Azalea Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Ecruteak City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Yellow Forest Shop",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "great": {
     "id": "great",
@@ -23,7 +53,57 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Ecruteak City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Olivine City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Mahogany Town Shop (Before Team Rocket)",
+        "details": "For sale"
+      },
+      {
+        "area": "Mahogany Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Pewter City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cerulean City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Lavender Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Saffron City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Fuchsia City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "ultra": {
     "id": "ultra",
@@ -36,7 +116,41 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Indigo Plateau Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cerulean City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Vermilion City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Saffron City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Fuchsia City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "master": {
     "id": "master",
@@ -134,13 +248,20 @@
     "name": "Heavy Ball",
     "description": "A Ball for catch- ing heavy #mon.",
     "attributes": {
-      "price": 150,
-      "effect": "0",
+      "price": 4000,
+      "effect": "HELD_HEAVY_BOOTS",
       "parameter": 0,
-      "category": "Poké Ball",
-      "useOutsideBattle": "Use on party Pokémon",
-      "useInBattle": "Use and close menu"
-    }
+      "category": "Item",
+      "useOutsideBattle": "Cannot use",
+      "useInBattle": "Cannot use"
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 48)",
+        "price": 48
+      }
+    ]
   },
   "love": {
     "id": "love",
@@ -179,7 +300,17 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Violet City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Vermilion City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "timer": {
     "id": "timer",
@@ -192,7 +323,17 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "nest": {
     "id": "nest",
@@ -205,7 +346,17 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Ecruteak City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Fuchsia City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "net": {
     "id": "net",
@@ -218,7 +369,17 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Azalea Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "dive": {
     "id": "dive",
@@ -231,7 +392,17 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Olivine City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cerulean City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "luxury": {
     "id": "luxury",
@@ -244,7 +415,17 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Saffron City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "heal": {
     "id": "heal",
@@ -257,7 +438,57 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Cherrygrove City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Lavender Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Cianwood City Pharmacy",
+        "details": "For sale"
+      },
+      {
+        "area": "Yellow Forest Shop",
+        "details": "For sale"
+      },
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Indigo Plateau Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cerulean City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Saffron City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Fuchsia City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "quick": {
     "id": "quick",
@@ -270,7 +501,21 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Mahogany Town Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "dusk": {
     "id": "dusk",
@@ -283,7 +528,17 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Pewter City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "dream": {
     "id": "dream",
@@ -296,7 +551,13 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Silph Co. Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "premier": {
     "id": "premier",
@@ -335,7 +596,153 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Cherrygrove City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Violet City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Azalea Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Ecruteak City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cianwood City Pharmacy",
+        "details": "For sale"
+      },
+      {
+        "area": "Lavender Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Azalea Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Ecruteak City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Olivine City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cianwood City Pharmacy",
+        "details": "For sale"
+      },
+      {
+        "area": "Mahogany Town Shop (Before Team Rocket)",
+        "details": "For sale"
+      },
+      {
+        "area": "Mahogany Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Pewter City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cerulean City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Lavender Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Vermilion City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Fuchsia City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Olivine City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cianwood City Pharmacy",
+        "details": "For sale"
+      },
+      {
+        "area": "Mahogany Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Indigo Plateau Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Vermilion City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Saffron City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Fuchsia City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Indigo Plateau Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Saffron City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Silph Co. Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "superpotion": {
     "id": "superpotion",
@@ -387,7 +794,49 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Cherrygrove City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Violet City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Azalea Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Ecruteak City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Olivine City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Pewter City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Lavender Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "burnheal": {
     "id": "burnheal",
@@ -400,7 +849,37 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Ecruteak City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Pewter City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Lavender Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Vermilion City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "paralyzeheal": {
     "id": "paralyzeheal",
@@ -413,7 +892,53 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Cherrygrove City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Violet City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Azalea Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Ecruteak City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Olivine City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Pewter City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Lavender Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Vermilion City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "awakening": {
     "id": "awakening",
@@ -426,7 +951,49 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Cherrygrove City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Violet City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Ecruteak City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Olivine City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Pewter City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Lavender Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Vermilion City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "iceheal": {
     "id": "iceheal",
@@ -439,7 +1006,25 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Ecruteak City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Olivine City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "pewtercrunch": {
     "id": "pewtercrunch",
@@ -465,7 +1050,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Indigo Plateau Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "revive": {
     "id": "revive",
@@ -478,7 +1069,45 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Ecruteak City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cianwood City Pharmacy",
+        "details": "For sale"
+      },
+      {
+        "area": "Mahogany Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Indigo Plateau Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Vermilion City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "maxrevive": {
     "id": "maxrevive",
@@ -491,7 +1120,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "ether": {
     "id": "ether",
@@ -504,7 +1139,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Harbor Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "maxether": {
     "id": "maxether",
@@ -530,7 +1171,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Harbor Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "maxelixir": {
     "id": "maxelixir",
@@ -556,7 +1203,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      }
+    ]
   },
   "protein": {
     "id": "protein",
@@ -569,7 +1222,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      }
+    ]
   },
   "iron": {
     "id": "iron",
@@ -582,7 +1241,18 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      },
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "carbos": {
     "id": "carbos",
@@ -595,7 +1265,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      }
+    ]
   },
   "calcium": {
     "id": "calcium",
@@ -608,7 +1284,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      }
+    ]
   },
   "zinc": {
     "id": "zinc",
@@ -621,7 +1303,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      }
+    ]
   },
   "rarecandy": {
     "id": "rarecandy",
@@ -634,7 +1322,14 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 16)",
+        "price": 16
+      }
+    ]
   },
   "ppup": {
     "id": "ppup",
@@ -660,7 +1355,14 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 64)",
+        "price": 64
+      }
+    ]
   },
   "freshwater": {
     "id": "freshwater",
@@ -673,7 +1375,17 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Yellow Forest Shop",
+        "details": "For sale"
+      },
+      {
+        "area": "Mt. Moon Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "sodapop": {
     "id": "sodapop",
@@ -686,7 +1398,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Mt. Moon Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "lemonade": {
     "id": "lemonade",
@@ -699,7 +1417,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Mt. Moon Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "moomoomilk": {
     "id": "moomoomilk",
@@ -738,7 +1462,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Underground Herb Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "energyroot": {
     "id": "energyroot",
@@ -751,7 +1481,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Underground Herb Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "healpowder": {
     "id": "healpowder",
@@ -764,7 +1500,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Underground Herb Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "revivalherb": {
     "id": "revivalherb",
@@ -777,7 +1519,13 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Underground Herb Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "xattack": {
     "id": "xattack",
@@ -790,7 +1538,29 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Violet City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      },
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cerulean City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Saffron City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "xdefend": {
     "id": "xdefend",
@@ -803,7 +1573,29 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Violet City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      },
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cerulean City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Saffron City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "xspeed": {
     "id": "xspeed",
@@ -816,7 +1608,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Violet City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      }
+    ]
   },
   "xspatk": {
     "id": "xspatk",
@@ -829,7 +1631,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      }
+    ]
   },
   "xspdef": {
     "id": "xspdef",
@@ -842,7 +1650,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      }
+    ]
   },
   "direhit": {
     "id": "direhit",
@@ -855,12 +1669,28 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      },
+      {
+        "area": "Cerulean City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "guardspec": {
     "id": "guardspec",
     "name": "Guard Spec",
-    "description": "Prevents stat drops. (1 battle)"
+    "description": "Prevents stat drops. (1 battle)",
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      }
+    ]
   },
   "xaccuracy": {
     "id": "xaccuracy",
@@ -873,7 +1703,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 5F",
+        "details": "For sale"
+      }
+    ]
   },
   "repel": {
     "id": "repel",
@@ -886,7 +1722,29 @@
       "category": "Item",
       "useOutsideBattle": "Use without closing",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Azalea Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Yellow Forest Shop",
+        "details": "For sale"
+      },
+      {
+        "area": "Mt. Moon Shop",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "superrepel": {
     "id": "superrepel",
@@ -899,7 +1757,33 @@
       "category": "Item",
       "useOutsideBattle": "Use without closing",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Olivine City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Mahogany Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Pewter City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Mt. Moon Shop",
+        "details": "For sale"
+      },
+      {
+        "area": "Cerulean City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "maxrepel": {
     "id": "maxrepel",
@@ -912,7 +1796,37 @@
       "category": "Item",
       "useOutsideBattle": "Use without closing",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Indigo Plateau Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Lavender Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Silph Co. Shop",
+        "details": "For sale"
+      },
+      {
+        "area": "Fuchsia City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "escaperope": {
     "id": "escaperope",
@@ -925,7 +1839,25 @@
       "category": "Item",
       "useOutsideBattle": "Use and close menu",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Violet City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Azalea Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "pokedoll": {
     "id": "pokedoll",
@@ -938,7 +1870,21 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Mt. Moon Shop",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 4F",
+        "details": "For sale"
+      }
+    ]
   },
   "abilitycap": {
     "id": "abilitycap",
@@ -951,7 +1897,14 @@
       "category": "Item",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "linkingcord": {
     "id": "linkingcord",
@@ -964,7 +1917,13 @@
       "category": "Item",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 4F",
+        "details": "For sale"
+      }
+    ]
   },
   "everstone": {
     "id": "everstone",
@@ -982,7 +1941,17 @@
   "expshare": {
     "id": "expshare",
     "name": "Exp Share",
-    "description": "Shares battle Exp. Points. (Hold)"
+    "description": "Shares battle Exp. Points. (Hold)",
+    "locations": [
+      {
+        "area": "Indigo Plateau Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 4F",
+        "details": "For sale"
+      }
+    ]
   },
   "cheriberry": {
     "id": "cheriberry",
@@ -1515,7 +2484,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Azalea Town Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "mysticwater": {
     "id": "mysticwater",
@@ -1632,7 +2607,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 24)",
+        "price": 24
+      }
+    ]
   },
   "razorclaw": {
     "id": "razorclaw",
@@ -1684,7 +2666,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 16)",
+        "price": 16
+      }
+    ]
   },
   "leftovers": {
     "id": "leftovers",
@@ -1775,7 +2764,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "leek": {
     "id": "leek",
@@ -1866,7 +2861,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Mahogany Town Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "assaultvest": {
     "id": "assaultvest",
@@ -1879,7 +2880,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 48)",
+        "price": 48
+      }
+    ]
   },
   "bigroot": {
     "id": "bigroot",
@@ -1892,7 +2900,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "bindingband": {
     "id": "bindingband",
@@ -1905,7 +2919,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "destinyknot": {
     "id": "destinyknot",
@@ -1918,7 +2939,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Harbor Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "expertbelt": {
     "id": "expertbelt",
@@ -1931,7 +2958,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "focussash": {
     "id": "focussash",
@@ -1944,7 +2978,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 48)",
+        "price": 48
+      }
+    ]
   },
   "gripclaw": {
     "id": "gripclaw",
@@ -1957,7 +2998,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "lifeorb": {
     "id": "lifeorb",
@@ -1970,7 +3018,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 48)",
+        "price": 48
+      }
+    ]
   },
   "lightclay": {
     "id": "lightclay",
@@ -1988,7 +3043,22 @@
   "metronomei": {
     "id": "metronomei",
     "name": "Metronome I",
-    "description": "Powers up moves used again. (Hold)"
+    "description": "Powers up moves used again. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "HELD_METRONOME",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Cannot use",
+      "useInBattle": "Cannot use"
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "protectpads": {
     "id": "protectpads",
@@ -2001,7 +3071,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 16)",
+        "price": 16
+      }
+    ]
   },
   "rockyhelmet": {
     "id": "rockyhelmet",
@@ -2014,7 +3091,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 48)",
+        "price": 48
+      }
+    ]
   },
   "safegoggles": {
     "id": "safegoggles",
@@ -2027,7 +3111,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "shedshell": {
     "id": "shedshell",
@@ -2079,7 +3170,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 48)",
+        "price": 48
+      }
+    ]
   },
   "widelens": {
     "id": "widelens",
@@ -2092,7 +3190,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 16)",
+        "price": 16
+      }
+    ]
   },
   "zoomlens": {
     "id": "zoomlens",
@@ -2105,7 +3210,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 16)",
+        "price": 16
+      }
+    ]
   },
   "mentalherb": {
     "id": "mentalherb",
@@ -2118,7 +3230,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "powerherb": {
     "id": "powerherb",
@@ -2131,7 +3249,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "whiteherb": {
     "id": "whiteherb",
@@ -2144,7 +3268,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "damprock": {
     "id": "damprock",
@@ -2157,7 +3287,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "heatrock": {
     "id": "heatrock",
@@ -2170,7 +3306,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "smoothrock": {
     "id": "smoothrock",
@@ -2183,7 +3325,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "icyrock": {
     "id": "icyrock",
@@ -2196,7 +3344,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "choiceband": {
     "id": "choiceband",
@@ -2209,7 +3363,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 48)",
+        "price": 48
+      }
+    ]
   },
   "choicescarf": {
     "id": "choicescarf",
@@ -2222,7 +3383,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 48)",
+        "price": 48
+      }
+    ]
   },
   "choicespecs": {
     "id": "choicespecs",
@@ -2235,7 +3403,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 48)",
+        "price": 48
+      }
+    ]
   },
   "flameorb": {
     "id": "flameorb",
@@ -2248,7 +3423,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "toxicorb": {
     "id": "toxicorb",
@@ -2261,7 +3443,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "blacksludge": {
     "id": "blacksludge",
@@ -2274,7 +3463,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "machobrace": {
     "id": "machobrace",
@@ -2287,7 +3483,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 16)",
+        "price": 16
+      }
+    ]
   },
   "powerweight": {
     "id": "powerweight",
@@ -2300,7 +3503,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 24)",
+        "price": 24
+      }
+    ]
   },
   "powerbracer": {
     "id": "powerbracer",
@@ -2313,7 +3523,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 24)",
+        "price": 24
+      }
+    ]
   },
   "powerbelt": {
     "id": "powerbelt",
@@ -2326,7 +3543,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 24)",
+        "price": 24
+      }
+    ]
   },
   "powerlens": {
     "id": "powerlens",
@@ -2339,7 +3563,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 24)",
+        "price": 24
+      }
+    ]
   },
   "powerband": {
     "id": "powerband",
@@ -2352,7 +3583,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 24)",
+        "price": 24
+      }
+    ]
   },
   "poweranklet": {
     "id": "poweranklet",
@@ -2365,7 +3603,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 24)",
+        "price": 24
+      }
+    ]
   },
   "mulch": {
     "id": "mulch",
@@ -2404,7 +3649,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "muscleband": {
     "id": "muscleband",
@@ -2417,7 +3668,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "wiseglasses": {
     "id": "wiseglasses",
@@ -2430,7 +3688,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "dragonscale": {
     "id": "dragonscale",
@@ -2456,7 +3721,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Silph Co. Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "dubiousdisc": {
     "id": "dubiousdisc",
@@ -2469,7 +3740,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Silph Co. Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "protector": {
     "id": "protector",
@@ -2534,7 +3811,13 @@
       "category": "Item",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "nugget": {
     "id": "nugget",
@@ -2573,7 +3856,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Mahogany Town Shop (Before Team Rocket)",
+        "details": "For sale"
+      }
+    ]
   },
   "bigmushroom": {
     "id": "bigmushroom",
@@ -2729,7 +4018,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Mahogany Town Shop (Before Team Rocket)",
+        "details": "For sale"
+      }
+    ]
   },
   "bottlecap": {
     "id": "bottlecap",
@@ -2781,7 +4076,33 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Violet City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Azalea Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Mahogany Town Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Saffron City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Fuchsia City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "surfmail": {
     "id": "surfmail",
@@ -2794,7 +4115,25 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Harbor Shop",
+        "details": "For sale"
+      },
+      {
+        "area": "Olivine City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cerulean City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 4F",
+        "details": "For sale"
+      }
+    ]
   },
   "litebluemail": {
     "id": "litebluemail",
@@ -2807,7 +4146,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Vermilion City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "portraitmail": {
     "id": "portraitmail",
@@ -2820,7 +4165,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Mt. Moon Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "lovelymail": {
     "id": "lovelymail",
@@ -2833,7 +4184,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 4F",
+        "details": "For sale"
+      }
+    ]
   },
   "eonmail": {
     "id": "eonmail",
@@ -2846,7 +4203,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "morphmail": {
     "id": "morphmail",
@@ -2859,7 +4222,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "blueskymail": {
     "id": "blueskymail",
@@ -2872,7 +4241,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
   },
   "musicmail": {
     "id": "musicmail",
@@ -2885,7 +4260,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "miragemail": {
     "id": "miragemail",
@@ -2898,7 +4279,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Mt. Moon Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "ejectbutton": {
     "id": "ejectbutton",
@@ -2911,7 +4298,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "laggingtail": {
     "id": "laggingtail",
@@ -2924,7 +4318,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 24)",
+        "price": 24
+      }
+    ]
   },
   "redcard": {
     "id": "redcard",
@@ -2937,7 +4338,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 24)",
+        "price": 24
+      }
+    ]
   },
   "clearamulet": {
     "id": "clearamulet",
@@ -2950,7 +4358,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 16)",
+        "price": 16
+      }
+    ]
   },
   "mirrorherb": {
     "id": "mirrorherb",
@@ -2963,7 +4378,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Harbor Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "punchinglove": {
     "id": "punchinglove",
@@ -2976,7 +4397,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 16)",
+        "price": 16
+      }
+    ]
   },
   "covertcloak": {
     "id": "covertcloak",
@@ -2989,7 +4417,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 16)",
+        "price": 16
+      }
+    ]
   },
   "ejectpack": {
     "id": "ejectpack",
@@ -3002,7 +4437,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "roomservice": {
     "id": "roomservice",
@@ -3015,7 +4457,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 24)",
+        "price": 24
+      }
+    ]
   },
   "blundrpolicy": {
     "id": "blundrpolicy",
@@ -3028,7 +4477,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 48)",
+        "price": 48
+      }
+    ]
   },
   "throatspray": {
     "id": "throatspray",
@@ -3041,7 +4497,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 24)",
+        "price": 24
+      }
+    ]
   },
   "heavyboots": {
     "id": "heavyboots",
@@ -3067,7 +4530,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 16)",
+        "price": 16
+      }
+    ]
   },
   "mintleaf": {
     "id": "mintleaf",
@@ -3080,7 +4550,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 32)",
+        "price": 32
+      }
+    ]
   },
   "bicycle": {
     "id": "bicycle",
@@ -3265,7 +4742,13 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Mahogany Town Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "gbcsounds": {
     "id": "gbcsounds",
