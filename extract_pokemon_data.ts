@@ -1295,7 +1295,7 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
   ];
 
   // Handle special cases before normalization
-  let trimmedMon = mon.trim();
+  const trimmedMon = mon.trim();
   let displayName = trimmedMon;
   let spriteName = '';
 
@@ -1325,9 +1325,11 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
     // Default normalization for spriteName
     spriteName = trimmedMon
       .toLowerCase()
-      .replace(/[^a-z0-9]/g, '') // Remove non-alphanumerics
-      .replace(/_/g, '-'); // Replace underscores with hyphens
+      // .replace(/[^a-z0-9]/g, '') // Remove non-alphanumerics
+      .replace(/-/g, '_'); // Replace underscores with hyphens
   }
+
+  console.log(`Processing Pokémon: "${trimmedMon}" (spriteName: "${spriteName}")`);
 
   // Filter out invalid Pokémon before writing to baseData
   if (
@@ -1342,8 +1344,6 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
     continue;
   }
 
-  // ...existing code...
-  let typeData = data.types;
 
   // ...existing code...
   baseData[trimmedMon] = {
