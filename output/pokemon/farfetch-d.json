@@ -2,15 +2,9 @@
   "name": "farfetch-d",
   "nationalDex": 83,
   "johtoDex": 176,
-  "types": [
-    "Normal",
-    "Flying"
-  ],
-  "updatedTypes": [
-    "Normal",
-    "Flying"
-  ],
-  "frontSpriteUrl": "/sprites/pokemon/farfetchd/front_cropped.png",
+  "types": ["Normal", "Flying"],
+  "updatedTypes": ["Normal", "Flying"],
+  "frontSpriteUrl": "/sprites/pokemon/farfetch_d/front_cropped.png",
   "detailedStats": {
     "baseStats": {
       "hp": 52,
@@ -23,9 +17,7 @@
     },
     "catchRate": 45,
     "baseExp": 94,
-    "heldItems": [
-      "LEEK"
-    ],
+    "heldItems": ["LEEK"],
     "genderRatio": {
       "male": 50,
       "female": 50
@@ -73,82 +65,20 @@
     ],
     "updatedAbilities": [],
     "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Flying",
-      "Field"
-    ],
+    "eggGroups": ["Flying", "Field"],
     "evYield": "1 Atk",
-    "types": [
-      "Normal",
-      "Flying"
-    ],
-    "updatedTypes": [
-      "Normal",
-      "Flying"
-    ],
+    "types": ["Normal", "Flying"],
+    "updatedTypes": ["Normal", "Flying"],
     "height": 8,
     "weight": 420,
     "bodyShape": "Wings",
-    "bodyColor": "Brown",
-    "locations": [
-      {
-        "area": "ROUTE_43",
-        "method": "grass",
-        "time": "morn",
-        "level": "24",
-        "chance": 10,
-        "formName": null
-      },
-      {
-        "area": "ROUTE_43",
-        "method": "grass",
-        "time": "day",
-        "level": "24",
-        "chance": 10,
-        "formName": null
-      },
-      {
-        "area": "ROUTE_12_SOUTH",
-        "method": "grass",
-        "time": "morn",
-        "level": "52",
-        "chance": 3,
-        "formName": null
-      },
-      {
-        "area": "ROUTE_12_SOUTH",
-        "method": "grass",
-        "time": "morn",
-        "level": "54",
-        "chance": 2,
-        "formName": null
-      },
-      {
-        "area": "ROUTE_12_SOUTH",
-        "method": "grass",
-        "time": "day",
-        "level": "52",
-        "chance": 3,
-        "formName": null
-      },
-      {
-        "area": "ROUTE_12_SOUTH",
-        "method": "grass",
-        "time": "day",
-        "level": "54",
-        "chance": 2,
-        "formName": null
-      }
-    ]
+    "bodyColor": "Brown"
   },
   "evolution": {
     "methods": [],
-    "chain": [
-      "Farfetch-d",
-      "Sirfetch-d"
-    ],
+    "chain": ["farfetch-d", "sirfetch-d"],
     "chainWithMethods": {
-      "Farfetch-d": [
+      "farfetch-d": [
         {
           "method": "EVOLVE_CRIT",
           "parameter": "TR_ANYTIME",
@@ -156,7 +86,7 @@
           "form": "Plain Form"
         }
       ],
-      "Sirfetch-d": []
+      "sirfetch-d": []
     }
   },
   "levelMoves": [
@@ -716,6 +646,7 @@
     }
   ],
   "eggMoves": [
+    "Counter",
     "Foresight",
     "Gust",
     "Quick Attack",
@@ -725,56 +656,24 @@
   ],
   "locations": [
     {
-      "area": "ROUTE_43",
-      "method": "grass",
-      "time": "morn",
-      "level": "24",
-      "chance": 10,
-      "formName": null
-    },
-    {
-      "area": "ROUTE_43",
-      "method": "grass",
-      "time": "day",
-      "level": "24",
-      "chance": 10,
-      "formName": null
-    },
-    {
-      "area": "ROUTE_12_SOUTH",
-      "method": "grass",
-      "time": "morn",
-      "level": "52",
-      "chance": 3,
-      "formName": null
-    },
-    {
-      "area": "ROUTE_12_SOUTH",
-      "method": "grass",
-      "time": "morn",
-      "level": "54",
-      "chance": 2,
-      "formName": null
-    },
-    {
-      "area": "ROUTE_12_SOUTH",
-      "method": "grass",
-      "time": "day",
-      "level": "52",
-      "chance": 3,
-      "formName": null
-    },
-    {
-      "area": "ROUTE_12_SOUTH",
-      "method": "grass",
-      "time": "day",
-      "level": "54",
-      "chance": 2,
+      "area": "Lake of Rage",
+      "method": "hidden_grotto",
+      "time": "uncommon",
+      "level": "26",
+      "chance": 15,
+      "rareItem": "Water Stone",
       "formName": null
     }
   ],
-  "pokedexEntries": [],
-  "forms": {},
-  "generatedAt": "2025-07-17T15:35:50.926Z",
-  "version": "2.0.0"
+  "pokedexEntries": {
+    "default": {
+      "species": "Wild Duck",
+      "description": "In order to prevent their extinction, more people have made an effort to breed these #mon."
+    },
+    "Galarian": {
+      "species": "Wild Duck",
+      "description": "These unique Farfetch'd are brave warriors, and they wield thick, tough leeks in battle."
+    }
+  },
+  "forms": {}
 }
