@@ -253,3 +253,62 @@ export interface LocationData {
     [pokemonName: string]: PokemonMethods;
   };
 }
+
+// Item types
+export interface ItemLocation {
+  area: string;
+  details: string;
+}
+
+export interface ItemAttributes {
+  price: number;
+  effect: string;
+  parameter: number;
+  category: string;
+  useOutsideBattle: string;
+  useInBattle: string;
+}
+
+export interface ItemData {
+  id: string;
+  name: string;
+  description: string;
+  attributes: ItemAttributes;
+  locations: ItemLocation[];
+}
+
+// TM/HM data structure
+export interface TMHMLocation {
+  area: string;
+  details?: string;
+}
+
+export interface TMHMData {
+  id: string;
+  name: string;
+  description: string;
+  tmNumber: string;
+  moveName: string;
+  type: string;
+  power: number;
+  pp: number;
+  accuracy: number;
+  category: string;
+  location: TMHMLocation;
+}
+
+// Union type for all items
+export type AnyItemData = ItemData | TMHMData;
+
+export interface ItemsDatabase {
+  [itemId: string]: AnyItemData;
+}
+
+// Type guards
+export function isRegularItem(item: AnyItemData): item is ItemData {
+  return 'attributes' in item && item.attributes !== undefined;
+}
+
+export function isTMHMItem(item: AnyItemData): item is TMHMData {
+  return 'tmNumber' in item && item.tmNumber !== undefined;
+}

@@ -21,6 +21,7 @@ import {
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import TimeIcon from '@/components/pokemon/TimeIcon';
 import { getDisplayLocationName } from '@/components/utils';
+import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 
 interface EncounterDetail {
   level: string;
@@ -244,7 +245,19 @@ export default async function LocationDetailPage({
                         <TableCell>{pokemon.chance}%</TableCell>
                         <TableCell>
                           {pokemon.rareItem ? (
-                            <span className="text-amber-600 font-medium">{pokemon.rareItem}</span>
+                            (() => {
+                              const itemId = getItemIdFromDisplayName(pokemon.rareItem);
+                              return itemId ? (
+                                <Link
+                                  href={`/items/${itemId}`}
+                                  className="text-amber-600 hover:text-amber-700 hover:underline font-medium transition-colors"
+                                >
+                                  {pokemon.rareItem}
+                                </Link>
+                              ) : (
+                                <span className="text-amber-600 font-medium">{pokemon.rareItem}</span>
+                              );
+                            })()
                           ) : (
                             <span className="text-gray-400">—</span>
                           )}

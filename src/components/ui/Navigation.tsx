@@ -124,6 +124,12 @@ const NavigationMenuDemo = () => {
               </NavigationMenu.Link>
             </NavigationMenu.Item>
 
+            <NavigationMenu.Item>
+              <NavigationMenu.Link className="NavigationMenuLink" href="/items">
+                Items
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
+
             <NavigationMenu.Indicator className="NavigationMenuIndicator">
               <div className="Arrow" />
             </NavigationMenu.Indicator>
