@@ -1066,6 +1066,53 @@ export function calculateCatchChance(
   // Gen 2/Polished: true probability is 1 - (1 - a/255)^4 (four shake checks)
   const shakeProbability = modifiedCatchRate / 255;
   const trueCatchProbability = 1 - Math.pow(1 - shakeProbability, 4);
+
+  // Gen 2/Polished: single shake check probability (for animation wobble)
+  // Use the ROM's lookup table for exact match
+  const wobbleTable: Array<{ a: number; b: number }> = [
+    { a: 1, b: 90 }, { a: 2, b: 103 }, { a: 3, b: 111 }, { a: 4, b: 117 }, { a: 5, b: 122 },
+    { a: 6, b: 126 }, { a: 7, b: 130 }, { a: 8, b: 133 }, { a: 9, b: 136 }, { a: 10, b: 139 },
+    { a: 11, b: 141 }, { a: 12, b: 144 }, { a: 13, b: 146 }, { a: 14, b: 148 }, { a: 15, b: 150 },
+    { a: 16, b: 152 }, { a: 17, b: 154 }, { a: 18, b: 155 }, { a: 19, b: 157 }, { a: 20, b: 158 },
+    { a: 21, b: 160 }, { a: 22, b: 161 }, { a: 23, b: 163 }, { a: 24, b: 164 }, { a: 25, b: 165 },
+    { a: 26, b: 166 }, { a: 27, b: 168 }, { a: 28, b: 169 }, { a: 29, b: 170 }, { a: 30, b: 171 },
+    { a: 31, b: 172 }, { a: 32, b: 173 }, { a: 33, b: 174 }, { a: 34, b: 175 }, { a: 35, b: 176 },
+    { a: 36, b: 177 }, { a: 37, b: 178 }, { a: 38, b: 179 }, { a: 39, b: 180 }, { a: 41, b: 181 },
+    { a: 42, b: 182 }, { a: 43, b: 183 }, { a: 44, b: 184 }, { a: 46, b: 185 }, { a: 47, b: 186 },
+    { a: 48, b: 187 }, { a: 50, b: 188 }, { a: 51, b: 189 }, { a: 52, b: 190 }, { a: 54, b: 191 },
+    { a: 55, b: 192 }, { a: 57, b: 193 }, { a: 59, b: 194 }, { a: 60, b: 195 }, { a: 62, b: 196 },
+    { a: 64, b: 197 }, { a: 65, b: 198 }, { a: 67, b: 199 }, { a: 69, b: 200 }, { a: 71, b: 201 },
+    { a: 73, b: 202 }, { a: 75, b: 203 }, { a: 76, b: 204 }, { a: 78, b: 205 }, { a: 81, b: 206 },
+    { a: 83, b: 207 }, { a: 85, b: 208 }, { a: 87, b: 209 }, { a: 89, b: 210 }, { a: 91, b: 211 },
+    { a: 94, b: 212 }, { a: 96, b: 213 }, { a: 99, b: 214 }, { a: 101, b: 215 }, { a: 104, b: 216 },
+    { a: 106, b: 217 }, { a: 109, b: 218 }, { a: 111, b: 219 }, { a: 114, b: 220 }, { a: 117, b: 221 },
+    { a: 120, b: 222 }, { a: 123, b: 223 }, { a: 126, b: 224 }, { a: 129, b: 225 }, { a: 132, b: 226 },
+    { a: 135, b: 227 }, { a: 138, b: 228 }, { a: 141, b: 229 }, { a: 145, b: 230 }, { a: 148, b: 231 },
+    { a: 151, b: 232 }, { a: 155, b: 233 }, { a: 158, b: 234 }, { a: 162, b: 235 }, { a: 166, b: 236 },
+    { a: 170, b: 237 }, { a: 173, b: 238 }, { a: 177, b: 239 }, { a: 181, b: 240 }, { a: 185, b: 241 },
+    { a: 189, b: 242 }, { a: 194, b: 243 }, { a: 198, b: 244 }, { a: 202, b: 245 }, { a: 207, b: 246 },
+    { a: 211, b: 247 }, { a: 216, b: 248 }, { a: 220, b: 249 }, { a: 225, b: 250 }, { a: 230, b: 251 },
+    { a: 235, b: 252 }, { a: 240, b: 253 }, { a: 245, b: 254 }, { a: 250, b: 255 }, { a: 255, b: 255 },
+  ];
+
+  let wobbleThreshold = 0;
+  if (modifiedCatchRate >= 255) {
+    wobbleThreshold = 255;
+  } else if (modifiedCatchRate <= 0) {
+    wobbleThreshold = 0;
+  } else {
+    // Find the largest a in the table <= modifiedCatchRate
+    let found = false;
+    for (let i = wobbleTable.length - 1; i >= 0; i--) {
+      if (modifiedCatchRate >= wobbleTable[i].a) {
+        wobbleThreshold = wobbleTable[i].b;
+        found = true;
+        break;
+      }
+    }
+    if (!found) wobbleThreshold = 0;
+  }
+
   console.log('[CatchCalc]', {
     baseCatchRate,
     ballType,
@@ -1080,6 +1127,7 @@ export function calculateCatchChance(
     modifiedCatchRate,
     shakeProbability,
     trueCatchProbability,
+    wobbleThreshold,
   });
   return trueCatchProbability;
 }
