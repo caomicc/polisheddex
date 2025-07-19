@@ -1005,34 +1005,81 @@ export default function PokemonFormClient({
   );
 }
 
+/**
+ * Calculates the catch probability for a Pokémon at full HP, no status, using Gen 2 mechanics.
+ * @param baseCatchRate The Pokémon's base catch rate (0-255)
+ * @param ballType The type of Poké Ball used
+ * @returns Probability (0-1) of catching the Pokémon
+ */
+/**
+ * Calculates the catch probability for a Pokémon using Polished/Gen 2 mechanics.
+ * @param baseCatchRate The Pokémon's base catch rate (0-255)
+ * @param ballType The type of Poké Ball used
+ * @param currentHP The Pokémon's current HP
+ * @param maxHP The Pokémon's max HP
+ * @param status Status condition: 'none', 'par', 'brn', 'psn', 'frz', 'slp'
+ * @param speciesWeight (kg) Only needed for Heavy Ball
+ * @returns Probability (0-1) of catching the Pokémon
+ */
 export function calculateCatchChance(
   baseCatchRate: number,
-  ballType: 'pokeball' | 'greatball' | 'ultraball' = 'pokeball',
+  ballType: 'pokeball' | 'greatball' | 'ultraball' | 'heavyball' = 'pokeball',
+  currentHP: number = 100,
+  maxHP: number = 100,
+  status: 'none' | 'par' | 'brn' | 'psn' | 'frz' | 'slp' = 'none',
+  speciesWeight?: number,
 ) {
-  // Ball multipliers
-  const ballMultipliers: Record<'pokeball' | 'greatball' | 'ultraball', number> = {
+  // Ball multipliers (Gen 2/Polished, simplified)
+  const ballMultipliers: Record<string, number> = {
     pokeball: 1,
     greatball: 1.5,
     ultraball: 2,
+    heavyball: 1, // handled below
   };
-
   const ballBonus = ballMultipliers[ballType] ?? 1;
 
-  // Health factors for max HP (HP = maxHP means HP / maxHP = 1)
-  const maxHP = 100; // arbitrary, since HP/maxHP = 1
-  const currentHP = maxHP; // Full health
+  // Status multipliers
+  let statusBonus = 1;
+  if (status === 'frz' || status === 'slp') statusBonus = 2.5;
+  else if (status === 'par' || status === 'brn' || status === 'psn') statusBonus = 1.5;
 
-  // No status effect
-  const statusBonus = 1;
+  // Heavy Ball: modifies baseCatchRate additively
+  let catchRate = baseCatchRate;
+  if (ballType === 'heavyball' && typeof speciesWeight === 'number') {
+    if (speciesWeight < 102.4) catchRate = Math.max(1, baseCatchRate - 20);
+    else if (speciesWeight < 204.8) catchRate = baseCatchRate;
+    else if (speciesWeight < 307.2) catchRate = Math.min(255, baseCatchRate + 20);
+    else if (speciesWeight < 409.6) catchRate = Math.min(255, baseCatchRate + 30);
+    else catchRate = Math.min(255, baseCatchRate + 40);
+  }
 
-  // Calculate modified catch rate
-  const a = ((3 * maxHP - 2 * currentHP) * baseCatchRate * ballBonus * statusBonus) / (3 * maxHP);
+  // Main formula: ((3M - 2H) * ballBonus * catchRate * statusBonus) / (3M)
+  // Clamp denominator to avoid division by zero
+  if (maxHP <= 0) maxHP = 1;
+  const numerator = (3 * maxHP - 2 * currentHP) * ballBonus * catchRate * statusBonus;
+  const denominator = 3 * maxHP;
+  let modifiedCatchRate = Math.floor(numerator / denominator);
+  // Clamp to [1, 255]
+  if (modifiedCatchRate > 255) modifiedCatchRate = 255;
+  if (modifiedCatchRate < 1) modifiedCatchRate = 1;
 
-  // Clamp `a` to a max of 255
-  const cappedA = Math.min(a, 255);
-
-  // Compute catch probability
-  const catchProbability = cappedA / 255;
-
-  return catchProbability;
+  // Gen 2/Polished: true probability is 1 - (1 - a/255)^4 (four shake checks)
+  const shakeProbability = modifiedCatchRate / 255;
+  const trueCatchProbability = 1 - Math.pow(1 - shakeProbability, 4);
+  console.log('[CatchCalc]', {
+    baseCatchRate,
+    ballType,
+    ballBonus,
+    catchRate,
+    currentHP,
+    maxHP,
+    status,
+    statusBonus,
+    numerator,
+    denominator,
+    modifiedCatchRate,
+    shakeProbability,
+    trueCatchProbability,
+  });
+  return trueCatchProbability;
 }
