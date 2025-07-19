@@ -98,10 +98,14 @@ The items route is seamlessly integrated with other parts of the application:
 
 ### Pokemon Pages  
 - **Held Items in Location Tables**: In Pokemon detail pages, the "Held Item" column in location tables links to item detail pages
+- **Evolution Chain Items**: Evolution stones and items in evolution chains are clickable and link to their item detail pages
+- **Interactive Evolution Items**: Item sprites in evolution chains show hover effects and tooltips with "click to view" hints
 - **Automatic Link Detection**: Items are automatically detected and linked when they exist in the items database
 
 ### Item ID Conversion
 The application includes a robust utility function (`getItemIdFromDisplayName`) that:
 - Converts display names like "Leaf Stone" to item IDs like "leafstone"
 - Handles special cases for Poké Balls, evolution stones, and other items
+- Includes extensive mapping for evolution items (King's Rock, Metal Coat, Dragon Scale, etc.)
+- Supports trade evolution items and modern evolution items
 - Gracefully falls back to display-only text for items not found in the database

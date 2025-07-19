@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import type { EvolutionChainProps } from '@/types/types';
 import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
+import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 
 export function EvolutionChain({
   chain,
@@ -257,20 +258,46 @@ export function EvolutionChain({
                           {evolutionInfo.methodName === 'item' && (
                             <div className="flex flex-col items-center gap-1">
                               <p>Item:</p>
-                              {/* Use Tooltip for item display */}
-                              <Tooltip>
-                                <TooltipTrigger>
+                              {/* Use Tooltip for item display with link */}
+                              {(() => {
+                                const itemName = String(evolutionInfo.parameter);
+                                const itemId = getItemIdFromDisplayName(itemName);
+
+                                const itemImage = (
                                   <Image
-                                    src={`/sprites/items/${String(
-                                      evolutionInfo.parameter,
-                                    ).toLowerCase()}.png`}
-                                    alt={`Item: ${evolutionInfo.parameter}`}
+                                    src={`/sprites/items/${itemName.toLowerCase()}.png`}
+                                    alt={`Item: ${itemName}`}
                                     width={16}
                                     height={16}
                                   />
-                                </TooltipTrigger>
-                                <TooltipContent>{String(evolutionInfo.parameter)}</TooltipContent>
-                              </Tooltip>
+                                );
+
+                                return (
+                                  <Tooltip>
+                                    <TooltipTrigger asChild>
+                                      {itemId ? (
+                                        <Link
+                                          href={`/items/${itemId}`}
+                                          className="hover:scale-110 transition-transform duration-200"
+                                        >
+                                          {itemImage}
+                                        </Link>
+                                      ) : (
+                                        <div>{itemImage}</div>
+                                      )}
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                      {itemId ? (
+                                        <span>
+                                          {itemName} <span className="text-xs opacity-75">(click to view)</span>
+                                        </span>
+                                      ) : (
+                                        itemName
+                                      )}
+                                    </TooltipContent>
+                                  </Tooltip>
+                                );
+                              })()}
                             </div>
                           )}
                           {evolutionInfo.methodName === 'happiness' && (
