@@ -1027,48 +1027,20 @@ export function calculateCatchChance(
   currentHP: number = 100,
   maxHP: number = 100,
   status: 'none' | 'par' | 'brn' | 'psn' | 'frz' | 'slp' = 'none',
-  speciesWeight?: number,
+  // speciesWeight?: number,
 ) {
-  // Ball multipliers (Gen 2/Polished, simplified)
-  const ballMultipliers: Record<string, number> = {
-    pokeball: 1,
-    greatball: 1.5,
-    ultraball: 2,
-    heavyball: 1, // handled below
-  };
-  const ballBonus = ballMultipliers[ballType] ?? 1;
 
-  // Status multipliers
-  let statusBonus = 1;
-  if (status === 'frz' || status === 'slp') statusBonus = 2.5;
-  else if (status === 'par' || status === 'brn' || status === 'psn') statusBonus = 1.5;
+console.log('Calculating catch chance with parameters:', {
+  baseCatchRate,
+  ballType,
+  currentHP,
+  maxHP,
+  status,
+});
 
-  // Heavy Ball: modifies baseCatchRate additively
-  let catchRate = baseCatchRate;
-  if (ballType === 'heavyball' && typeof speciesWeight === 'number') {
-    if (speciesWeight < 102.4) catchRate = Math.max(1, baseCatchRate - 20);
-    else if (speciesWeight < 204.8) catchRate = baseCatchRate;
-    else if (speciesWeight < 307.2) catchRate = Math.min(255, baseCatchRate + 20);
-    else if (speciesWeight < 409.6) catchRate = Math.min(255, baseCatchRate + 30);
-    else catchRate = Math.min(255, baseCatchRate + 40);
-  }
+  const num = baseCatchRate / 3;
 
-  // Main formula: ((3M - 2H) * ballBonus * catchRate * statusBonus) / (3M)
-  // Clamp denominator to avoid division by zero
-  if (maxHP <= 0) maxHP = 1;
-  const numerator = (3 * maxHP - 2 * currentHP) * ballBonus * catchRate * statusBonus;
-  const denominator = 3 * maxHP;
-  let modifiedCatchRate = Math.floor(numerator / denominator);
-  // Clamp to [1, 255]
-  if (modifiedCatchRate > 255) modifiedCatchRate = 255;
-  if (modifiedCatchRate < 1) modifiedCatchRate = 1;
-
-  // Gen 2/Polished: true probability is 1 - (1 - a/255)^4 (four shake checks)
-  const shakeProbability = modifiedCatchRate / 255;
-  const trueCatchProbability = 1 - Math.pow(1 - shakeProbability, 4);
-
-  // Gen 2/Polished: single shake check probability (for animation wobble)
-  // Use the ROM's lookup table for exact match
+  // Step 2: Use the lookup table to get the wobble threshold for this value
   const wobbleTable: Array<{ a: number; b: number }> = [
     { a: 1, b: 90 }, { a: 2, b: 103 }, { a: 3, b: 111 }, { a: 4, b: 117 }, { a: 5, b: 122 },
     { a: 6, b: 126 }, { a: 7, b: 130 }, { a: 8, b: 133 }, { a: 9, b: 136 }, { a: 10, b: 139 },
@@ -1095,39 +1067,43 @@ export function calculateCatchChance(
     { a: 235, b: 252 }, { a: 240, b: 253 }, { a: 245, b: 254 }, { a: 250, b: 255 }, { a: 255, b: 255 },
   ];
 
-  let wobbleThreshold = 0;
-  if (modifiedCatchRate >= 255) {
-    wobbleThreshold = 255;
-  } else if (modifiedCatchRate <= 0) {
-    wobbleThreshold = 0;
-  } else {
-    // Find the largest a in the table <= modifiedCatchRate
-    let found = false;
-    for (let i = wobbleTable.length - 1; i >= 0; i--) {
-      if (modifiedCatchRate >= wobbleTable[i].a) {
-        wobbleThreshold = wobbleTable[i].b;
-        found = true;
-        break;
-      }
-    }
-    if (!found) wobbleThreshold = 0;
+  let adjustedNum = num;
+  if (ballType === 'greatball') {
+    adjustedNum = num * 1.5;
+  } else if (ballType === 'ultraball') {
+    adjustedNum = Math.ceil(num * 2);
   }
 
-  console.log('[CatchCalc]', {
-    baseCatchRate,
-    ballType,
-    ballBonus,
-    catchRate,
-    currentHP,
-    maxHP,
-    status,
-    statusBonus,
-    numerator,
-    denominator,
-    modifiedCatchRate,
-    shakeProbability,
-    trueCatchProbability,
-    wobbleThreshold,
-  });
-  return trueCatchProbability;
+  // Find the closest lower and higher a values for interpolation
+  const roundedNum = Math.round(adjustedNum);
+  let polishedCatchRate: number;
+  const exact = wobbleTable.find((entry) => entry.a === roundedNum);
+  if (exact) {
+    polishedCatchRate = exact.b;
+  } else {
+    // Interpolate between closest lower and higher
+    const lower = [...wobbleTable].reverse().find((entry) => entry.a < roundedNum);
+    const higher = wobbleTable.find((entry) => entry.a > roundedNum);
+    if (lower && higher) {
+      // Linear interpolation
+      const ratio = (roundedNum - lower.a) / (higher.a - lower.a);
+      polishedCatchRate = Math.round(lower.b + (higher.b - lower.b) * ratio);
+    } else if (lower) {
+      polishedCatchRate = lower.b;
+    } else if (higher) {
+      polishedCatchRate = higher.b;
+    } else {
+      polishedCatchRate = 0;
+    }
+  }
+
+  const newNum = polishedCatchRate + 1;
+
+  const polishedProb = Math.pow(newNum / 256, 4);
+
+  console.log('Initial catch rate (baseCatchRate / 3):', num);
+  console.log('Polished catch rate:', polishedCatchRate);
+  console.log('Polished probability:', polishedProb);
+
+  return polishedProb;
 }
