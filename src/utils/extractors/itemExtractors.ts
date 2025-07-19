@@ -194,7 +194,7 @@ export function extractItemData(): Record<string, ItemData> {
 
   // Extract item descriptions
   const items: Record<string, ItemData> = {};
-  let currentItem: string | null = null;
+  let currentItems: string[] = []; // Track multiple items sharing the same description
   let description = '';
 
   // Process item description sections
@@ -203,13 +203,37 @@ export function extractItemData(): Record<string, ItemData> {
 
     // Look for item description labels (e.g. "PokeBallDesc:")
     if (line.endsWith('Desc:')) {
-      // Save previous item if we were processing one
-      if (currentItem && description) {
-        const displayName = formatItemName(currentItem);
-        const itemId = generateItemId(currentItem);
-        const normalizedId = normalizeItemId(currentItem);
+      console.log(`🔍 Found item description label: ${line}`);
 
-        // Check if we have attributes for this item
+      // Add this item to the current group sharing a description
+      const itemName = line.replace('Desc:', '');
+      currentItems.push(itemName);
+      continue;
+    }
+
+    // Inside a description block, look for text content
+    if (currentItems.length > 0 && (line.startsWith('text "') || line.startsWith('next "'))) {
+      // Extract the text content between quotes
+      const match = line.match(/"([^"]+)"/);
+      if (match && match[1]) {
+        const textContent = match[1];
+        // Add space between lines for readability
+        description += (description ? ' ' : '') + textContent;
+      }
+    }
+
+    // Check for end of description
+    if (line === 'done' && currentItems.length > 0) {
+      console.log(`🔍 Processing ${currentItems.length} items with shared description: ${currentItems.join(', ')}`);
+
+      // Save all items that share this description
+      for (const itemName of currentItems) {
+        const displayName = formatItemName(itemName);
+        const itemId = generateItemId(itemName);
+        const normalizedId = normalizeItemId(itemName);
+
+        console.log(`🔍 Saving item: ${displayName} (${itemId})`);
+
         const itemData: ItemData = {
           id: itemId,
           name: displayName,
@@ -224,44 +248,8 @@ export function extractItemData(): Record<string, ItemData> {
         items[itemId] = itemData;
       }
 
-      // Start new item
-      currentItem = line.replace('Desc:', '');
-      description = '';
-      continue;
-    }
-
-    // Inside a description block, look for text content
-    if (currentItem && (line.startsWith('text "') || line.startsWith('next "'))) {
-      // Extract the text content between quotes
-      const match = line.match(/"([^"]+)"/);
-      if (match && match[1]) {
-        const textContent = match[1];
-        // Add space between lines for readability
-        description += (description ? ' ' : '') + textContent;
-      }
-    }
-
-    // Check for end of description
-    if (line === 'done' && currentItem) {
-      // Save this item and reset for the next one
-      const displayName = formatItemName(currentItem);
-      const itemId = generateItemId(currentItem);
-      const normalizedId = normalizeItemId(currentItem);
-
-      const itemData: ItemData = {
-        id: itemId,
-        name: displayName,
-        description: description.trim()
-      };
-
-      // Add attributes if available
-      if (itemAttributes[normalizedId]) {
-        itemData.attributes = itemAttributes[normalizedId];
-      }
-
-      items[itemId] = itemData;
-
-      currentItem = null;
+      // Reset for the next group
+      currentItems = [];
       description = '';
     }
   }
@@ -274,12 +262,18 @@ export function extractItemData(): Record<string, ItemData> {
   // Check for items without attributes
   if (itemsWithAttributes < Object.keys(itemAttributes).length) {
     console.log(`⚠️ Warning: ${Object.keys(itemAttributes).length - itemsWithAttributes} attributes were not matched to any item`);
-
-    // Sample a few unmatched attributes for debugging
+    // List which attribute keys were not matched
     const itemIds = Object.keys(items).map(id => normalizeItemId(id));
     const unmatchedAttrs = Object.keys(itemAttributes).filter(id => !itemIds.includes(id));
     if (unmatchedAttrs.length > 0) {
-      console.log(`🔍 Sample unmatched attribute keys: ${unmatchedAttrs.slice(0, 5).join(', ')}`);
+      console.log('🔍 Unmatched attribute keys:', unmatchedAttrs.join(', '));
+    }
+
+    // Sample a few unmatched attributes for debugging
+    console.log('🔍 declared itemIds:', JSON.stringify(itemIds));
+    console.log('🔍 unmatchedAttrs:', JSON.stringify(unmatchedAttrs));
+    if (unmatchedAttrs.length > 0) {
+      console.log(`🔍 Sample unmatched attribute keys: ${unmatchedAttrs.slice(0, 20).join(', ')}`);
     }
   }
 
@@ -386,11 +380,12 @@ export function normalizeItemId(rawName: string): string {
   }
 
   // Handle other special cases
-  if (name === 'full' || name === 'fullheal' || name === 'full-heal') return 'full-heal';
-  if (name === 'fullrestore') return 'fullrestore';
-  if (name === 'exp' || name === 'expshare') return 'expshare';
+  // if (name === 'full' || name === 'fullheal' || name === 'full-heal') return 'full-heal';
+  // if (name === 'fullrestore') return 'fullrestore';
+  // if (name === 'exp' || name === 'expshare') return 'expshare';
 
   // Replace special characters
+  console.log('🔍 looking for item name:', name);
   name = name.replace(/'/, '');
 
   // Map common item names to their expected IDs
@@ -442,12 +437,13 @@ export function normalizeItemId(rawName: string): string {
     'quick-ball': 'quick',
     'dreamball': 'dream',
     'dream-ball': 'dream',
+    'cherishball': 'cherish',
 
     // Medicine
     'superpotion': 'super',
     'hyperpotion': 'hyper',
     'maxpotion': 'max',
-    'fullrestore': 'full',
+    // 'fullrestore': 'full',
     'maxrevive': 'max-revive',
     'freshwater': 'fresh-water',
     'sodapop': 'soda-pop',
@@ -458,6 +454,7 @@ export function normalizeItemId(rawName: string): string {
     'energyroot': 'energy-root',
     'healpowder': 'heal-powder',
     'revivalherb': 'revival-herb',
+    'fullheal': 'full-heal',
 
     // Battle items
     'xattack': 'x-attack',
@@ -468,13 +465,17 @@ export function normalizeItemId(rawName: string): string {
     'xaccuracy': 'x-accuracy',
     'direhit': 'dire-hit',
     'guardspec': 'guard-spec',
+    'guardspec.': 'guard-spec',
 
     // Evolution items
     'firestone': 'fire-stone',
-    'thunderstone': 'thunderstone',
+    'fire-stone': 'fire-stone',
+    'thunderstone': 'thunder-stone',
     'waterstone': 'water-stone',
     'leafstone': 'leaf-stone',
+    'leaf-stone': 'leaf-stone',
     'moonstone': 'moon-stone',
+    'shiny-stone': 'shiny-stone',
     'sunstone': 'sun-stone',
     'icestone': 'ice-stone',
     'duskstone': 'dusk-stone',
@@ -484,6 +485,7 @@ export function normalizeItemId(rawName: string): string {
     'luckyegg': 'lucky-egg',
     'amuletcoin': 'amulet-coin',
     'kingsrock': 'kings-rock',
+    'kings-rock': 'kings-rock',
     'blackbelt': 'black-belt',
     'choiceband': 'choice-band',
     'choicescarf': 'choice-scarf',
@@ -502,6 +504,7 @@ export function normalizeItemId(rawName: string): string {
     // Other items
     'ragecandybar': 'ragecandybar',
     'expshare': 'exp',
+    'exp.share': 'exp',
     'metronomei': 'metronome',
     'rarecandy': 'rare',
     'ppmax': 'pp',
@@ -539,8 +542,13 @@ export function normalizeItemId(rawName: string): string {
     'throatspray': 'throat',
     'roomservice': 'room',
     'lifeorb': 'life',
-    'mintleaf': 'mint'
+    'smokeball': 'smoke',
+    'lightball': 'light',
+    'mintleaf': 'mint',
+    'bottlecap': 'bottlecap'
   };
+
+  console.log('🔍 Normalizing item ID:', itemMappings[name], name);
 
   // Return the mapped ID if it exists, otherwise return the original normalized name
   return itemMappings[name] || name;

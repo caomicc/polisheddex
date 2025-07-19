@@ -26,6 +26,7 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
 
   // Path to marts.asm file
   const martsFile = path.join(__dirname, '../../../rom/data/items/marts.asm');
+  // const buenaPrizesFile = path.join(__dirname, '../../../rom/data/items/buena_prizes.asm');
 
   console.log('🔧 Extracting Pokémart data...');
 
@@ -118,10 +119,14 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
     // Try to find the item in our item data using multiple matching strategies
     console.log(`🔍 Matching item "${itemId}" to item data...`, locations);
     console.log(`🔍 Object.entries(itemLocations)`, JSON.stringify(Object.entries(itemLocations)));
-    // First try exact match
-    let matchedItemKey = Object.keys(itemData).find(key => key === itemId);
 
-    console.log(`🔍 Matched item key: ${matchedItemKey}`);
+    const newItemId = normalizeItemId(itemId).replace(/-/g, '');
+    console.log(`🔍 newItemId ID: ${newItemId}`);
+
+    // First try exact match
+    let matchedItemKey = Object.keys(itemData).find(key => key === newItemId);
+    console.log(`🔍 Matched item key: ${matchedItemKey}`, newItemId, JSON.stringify(Object.keys(itemData)));
+
 
     // Second, try match by normalized key
     if (!matchedItemKey) {
@@ -206,9 +211,364 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
     console.log('📝 Sample item IDs from data:', Object.keys(itemData).slice(0, 10));
   }
 
+  // Process Buena's prizes
+  extractBuenaPrizes(itemData);
+
   // Logging itemData for debugging
   console.log(`📦 Final item data contains ${Object.values(itemData).flatMap(i => i.locations ?? []).length} locations.`);
+
+  // Process Buena's prizes
+  extractBuenaPrizes(itemData);
+
+  extractBargainShop(itemData);
+
+  extractFishingItems(itemData);
 }
+
+/**
+ * Extract Buena's prizes data from buena_prizes.asm and add location information to item data
+ * @param itemData The existing item data to update with location information
+ */
+function extractBuenaPrizes(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Path to buena_prizes.asm file
+  const buenaPrizesFile = path.join(__dirname, '../../../rom/data/items/buena_prizes.asm');
+
+  console.log('🔧 Extracting Buena\'s prizes data...');
+
+  // Check if the file exists
+  if (!fs.existsSync(buenaPrizesFile)) {
+    console.log('⚠️ Buena\'s prizes file not found. Skipping...');
+    return;
+  }
+
+  // Read buena_prizes.asm file
+  const prizesData = fs.readFileSync(buenaPrizesFile, 'utf8');
+  const lines = prizesData.split(/\r?\n/);
+
+  // Store all prize items
+  const prizeItems: Record<string, { points: number }> = {};
+
+  // Process the file content
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Skip header and empty lines
+    if (!line || line.startsWith('BlueCardMartData:') || line.match(/db \d+/)) {
+      continue;
+    }
+
+    // Process item lines (format: db ITEM_NAME, POINTS_REQUIRED)
+    if (line.startsWith('db ') && line !== 'db -1') {
+      const parts = line.replace('db ', '').split(',').map(p => p.trim());
+      if (parts.length === 2) {
+        const itemName = parts[0];
+        const points = parseInt(parts[1], 10);
+
+        // Convert the item name to a key that matches our item data
+        const itemId = normalizeItemId(itemName);
+
+        console.log(`Processing Buena prize: "${itemName}" -> "${itemId}" for ${points} points`);
+
+        prizeItems[itemId] = { points };
+      }
+    }
+  }
+
+  // Update item data with Buena prize information
+  let itemsWithBuenaPrizes = 0;
+  const unmatchedItems: string[] = [];
+
+  for (const [itemId, { points }] of Object.entries(prizeItems)) {
+    // Try to find the item in our item data
+    let matchedItemKey = Object.keys(itemData).find(key => key === itemId);
+
+    // Try alternate matching methods if exact match fails
+    if (!matchedItemKey) {
+      matchedItemKey = Object.keys(itemData).find(key => normalizeItemId(key) === itemId);
+    }
+
+    if (!matchedItemKey) {
+      matchedItemKey = Object.keys(itemData).find(key =>
+        key.includes(itemId) || itemId.includes(key)
+      );
+    }
+
+    if (matchedItemKey) {
+      // Update the item with location information
+      if (!itemData[matchedItemKey].locations) {
+        itemData[matchedItemKey].locations = [];
+      }
+
+      // Add Buena's prize as a location
+      const location: MartLocation = {
+        area: 'Radio Tower Buena\'s Password Club',
+        details: `Prize for ${points} Blue Card points`,
+        price: points
+      };
+
+      // Add this location if not already present
+      if (!itemData[matchedItemKey].locations!.some(loc =>
+        loc.area === 'Radio Tower Buena\'s Password Club' && loc.price === points
+      )) {
+        itemData[matchedItemKey].locations!.push(location);
+        console.log(`Added Buena prize location for item "${matchedItemKey}" (${points} points)`);
+      }
+
+      itemsWithBuenaPrizes++;
+    } else {
+      console.log(`⚠️ Could not match Buena prize item "${itemId}"`);
+      unmatchedItems.push(itemId);
+    }
+  }
+
+  console.log(`✅ Added Buena prize location data to ${itemsWithBuenaPrizes} items`);
+
+  if (unmatchedItems.length > 0) {
+    console.log(`⚠️ Found ${unmatchedItems.length} Buena prize items that couldn't be matched`);
+  }
+}
+
+
+/**
+ * Extract fishing items data from fish_items.asm and add location information to item data
+ * @param itemData The existing item data to update with location information
+ */
+function extractFishingItems(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Path to fish_items.asm file
+  const fishItemsFile = path.join(__dirname, '../../../rom/data/items/fish_items.asm');
+
+  console.log('🔧 Extracting fishing items data...');
+
+  // Check if the file exists
+  if (!fs.existsSync(fishItemsFile)) {
+    console.log('⚠️ Fishing items file not found. Skipping...');
+    return;
+  }
+
+  // Read fish_items.asm file
+  const fishItemsData = fs.readFileSync(fishItemsFile, 'utf8');
+  const lines = fishItemsData.split(/\r?\n/);
+
+  console.log(`📦 Fishing items data contains ${lines.length} lines.`);
+
+  // Store all fish items
+  const fishItems: Record<string, { tool: string }> = {};
+
+  // Process the file content
+  for (let i = 0; i < lines.length; i++) {
+    console.log(`Processing line ${i + 1}/${lines.length}: "${lines[i]}"`);
+    const line = lines[i].trim();
+
+    console.log(`Processing line: "${line}"`);
+
+    // Skip header and empty lines
+    if (!line || line.startsWith('FishItems:') || line.match(/db \d+/)) {
+      continue;
+    }
+
+    // Process item lines (format: db ITEM_NAME, POINTS_REQUIRED)
+    if (line.startsWith('db ') && line !== 'db -1') {
+      console.log(`Found item line: "${line}"`);
+      const parts = line.replace('db ', '').split(';').map(p => p.trim());
+      console.log(`Split parts:`, parts, `length: ${parts.length}`);
+      if (parts.length === 2) {
+        console.log(`Found fishing item line: "${line}"`);
+        const itemName = parts[0];
+        console.log(`Processing fishing item name: "${itemName}"`);
+        const tool = parts[1];
+
+        console.log(`Processing fishing item tool: ${tool}`);
+
+        // Convert the item name to a key that matches our item data
+        const itemId = normalizeItemId(itemName);
+
+        console.log(`Processing fishing item: "${itemName}" -> "${itemId}" for ${tool} tool`);
+
+        fishItems[itemId] = { tool };
+      }
+    }
+  }
+
+  // Update item data with fishing item information
+  let itemsWithFishingItems = 0;
+  const unmatchedItems: string[] = [];
+
+  for (const [itemId, { tool }] of Object.entries(fishItems)) {
+    // Try to find the item in our item data
+    let matchedItemKey = Object.keys(itemData).find(key => key === itemId);
+
+    console.log(`🔍 Matching fishing item "${itemId}" to item data...`);
+
+    // Try alternate matching methods if exact match fails
+    if (!matchedItemKey) {
+      matchedItemKey = Object.keys(itemData).find(key => normalizeItemId(key) === itemId);
+      console.log(`🔍 Normalized match found: ${matchedItemKey}`);
+    }
+
+    if (!matchedItemKey) {
+      matchedItemKey = Object.keys(itemData).find(key =>
+        key.includes(itemId) || itemId.includes(key)
+      );
+      console.log(`🔍 Fuzzy match found: ${matchedItemKey}`);
+    }
+
+    if (matchedItemKey) {
+      console.log(`✅ Found fishing item "${itemId}" matched to key "${matchedItemKey}"`);
+      // Update the item with location information
+      if (!itemData[matchedItemKey].locations) {
+        itemData[matchedItemKey].locations = [];
+        console.log(`Initialized locations array for item "${matchedItemKey}"`);
+      }
+
+      const location: MartLocation = {
+        area: 'Fishing',
+        details: tool,
+      };
+
+      // Add this location if not already present
+      if (!itemData[matchedItemKey].locations!.some(loc =>
+        loc.area === 'Fishing' && loc.details === tool
+      )) {
+        itemData[matchedItemKey].locations!.push(location);
+        console.log(`Added fishing location for item "${matchedItemKey}" ${tool}`);
+      }
+
+      itemsWithFishingItems++;
+      console.log(`✓ Matched fishing item "${itemId}" to data key "${matchedItemKey}"`, itemsWithFishingItems);
+    } else {
+      console.log(`⚠️ Could not match fishing item "${itemId}"`);
+      unmatchedItems.push(itemId);
+    }
+  }
+
+  console.log(`✅ Added fishing location data to ${itemsWithFishingItems} items`);
+
+  if (unmatchedItems.length > 0) {
+    console.log(`⚠️ Found ${unmatchedItems.length} fishing items that couldn't be matched`);
+  }
+}
+
+
+/**
+ * Extract Bargain Shop data from bargain_shop.asm and add location information to item data
+ * @param itemData The existing item data to update with location information
+ */
+function extractBargainShop(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Path to bargain_shop.asm file
+  const bargainShopFile = path.join(__dirname, '../../../rom/data/items/bargain_shop.asm');
+
+  console.log('🔧 Extracting Bargain Shop data...');
+
+  // Check if the file exists
+  if (!fs.existsSync(bargainShopFile)) {
+    console.log('⚠️ Bargain Shop file not found. Skipping...');
+    return;
+  }
+
+  // Read bargain_shop.asm file
+  const bargainItemData = fs.readFileSync(bargainShopFile, 'utf8');
+  const lines = bargainItemData.split(/\r?\n/);
+
+  console.log(`📦 Bargain Shop data contains ${lines.length} lines.`);
+
+  // Store all bargain items
+  const bargainItems: Record<string, { price: number }> = {};
+
+  // Process the file content
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    console.log(`Processing line ${i + 1}/${lines.length}: "${line}"`);
+
+    // Skip header and empty lines
+    if (!line || line.startsWith('BargainShopData:') || line.match(/db \d+/)) {
+      continue;
+    }
+
+    // Process item lines (format: db ITEM_NAME, POINTS_REQUIRED)
+    if (line.startsWith('dbw ') && line !== 'db -1') {
+      console.log(`Found item line: "${line}"`);
+      const parts = line.replace('dbw ', '').split(',').map(p => p.trim());
+      console.log(`Split parts:`, parts, `length: ${parts.length}`);
+      if (parts.length === 2) {
+        const itemName = parts[0];
+        const price = parseInt(parts[1], 10);
+
+        // Convert the item name to a key that matches our item data
+        const itemId = normalizeItemId(itemName);
+
+        console.log(`Processing Bargain Shop item: "${itemName}" -> "${itemId}" for ${price} price`);
+
+        bargainItems[itemId] = { price };
+      }
+    }
+  }
+
+  // Update item data with bargain item information
+  let itemsWithBargainShopItems = 0;
+  const unmatchedItems: string[] = [];
+
+  for (const [itemId, { price }] of Object.entries(bargainItems)) {
+    // Try to find the item in our item data
+    let matchedItemKey = Object.keys(itemData).find(key => key === itemId);
+
+    // Try alternate matching methods if exact match fails
+    if (!matchedItemKey) {
+      matchedItemKey = Object.keys(itemData).find(key => normalizeItemId(key) === itemId);
+    }
+
+    if (!matchedItemKey) {
+      matchedItemKey = Object.keys(itemData).find(key =>
+        key.includes(itemId) || itemId.includes(key)
+      );
+    }
+
+    if (matchedItemKey) {
+      // Update the item with location information
+      if (!itemData[matchedItemKey].locations) {
+        itemData[matchedItemKey].locations = [];
+      }
+
+      const location: MartLocation = {
+        area: 'Bargain Shop',
+        details: `Bargain Shop item for ${price} points`,
+        price: price
+      };
+
+      // Add this location if not already present
+      if (!itemData[matchedItemKey].locations!.some(loc =>
+        loc.area === 'Bargain Shop' && loc.price === price
+      )) {
+        itemData[matchedItemKey].locations!.push(location);
+        console.log(`Added Bargain Shop location for item "${matchedItemKey}" (${price} points)`);
+      }
+
+      itemsWithBargainShopItems++;
+    } else {
+      console.log(`⚠️ Could not match Bargain Shop item "${itemId}"`);
+      unmatchedItems.push(itemId);
+    }
+  }
+
+  console.log(`✅ Added Bargain Shop location data to ${itemsWithBargainShopItems} items`);
+
+  if (unmatchedItems.length > 0) {
+    console.log(`⚠️ Found ${unmatchedItems.length} Bargain Shop items that couldn't be matched`);
+  }
+}
+
 
 /**
  * Format the mart name into a readable display name

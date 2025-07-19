@@ -259,14 +259,7 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    },
-    "locations": [
-      {
-        "area": "Battle Factory Exchange",
-        "details": "For sale (BP: 48)",
-        "price": 48
-      }
-    ]
+    }
   },
   "love": {
     "id": "love",
@@ -452,46 +445,6 @@
       {
         "area": "Lavender Town Poké Mart",
         "details": "For sale"
-      },
-      {
-        "area": "Goldenrod Dept. Store 2F",
-        "details": "For sale"
-      },
-      {
-        "area": "Cianwood City Pharmacy",
-        "details": "For sale"
-      },
-      {
-        "area": "Yellow Forest Shop",
-        "details": "For sale"
-      },
-      {
-        "area": "Blackthorn City Poké Mart",
-        "details": "For sale"
-      },
-      {
-        "area": "Indigo Plateau Poké Mart",
-        "details": "For sale"
-      },
-      {
-        "area": "Viridian City Poké Mart",
-        "details": "For sale"
-      },
-      {
-        "area": "Cerulean City Poké Mart",
-        "details": "For sale"
-      },
-      {
-        "area": "Celadon Dept. Store 2F",
-        "details": "For sale"
-      },
-      {
-        "area": "Saffron City Poké Mart",
-        "details": "For sale"
-      },
-      {
-        "area": "Fuchsia City Poké Mart",
-        "details": "For sale"
       }
     ]
   },
@@ -514,10 +467,6 @@
       },
       {
         "area": "Celadon Dept. Store 2F",
-        "details": "For sale"
-      },
-      {
-        "area": "Mahogany Town Poké Mart",
         "details": "For sale"
       }
     ]
@@ -634,7 +583,22 @@
       {
         "area": "Celadon Dept. Store 2F",
         "details": "For sale"
-      },
+      }
+    ]
+  },
+  "superpotion": {
+    "id": "superpotion",
+    "name": "Super Potion",
+    "description": "Restores #mon HP by 60.",
+    "attributes": {
+      "price": 700,
+      "effect": "0",
+      "parameter": 60,
+      "category": "Medicine",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Use on party Pokémon"
+    },
+    "locations": [
       {
         "area": "Azalea Town Poké Mart",
         "details": "For sale"
@@ -686,7 +650,22 @@
       {
         "area": "Fuchsia City Poké Mart",
         "details": "For sale"
-      },
+      }
+    ]
+  },
+  "hyperpotion": {
+    "id": "hyperpotion",
+    "name": "Hyper Potion",
+    "description": "Restores #mon HP by 120.",
+    "attributes": {
+      "price": 1500,
+      "effect": "0",
+      "parameter": 120,
+      "category": "Medicine",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Use on party Pokémon"
+    },
+    "locations": [
       {
         "area": "Olivine City Poké Mart",
         "details": "For sale"
@@ -726,7 +705,22 @@
       {
         "area": "Fuchsia City Poké Mart",
         "details": "For sale"
-      },
+      }
+    ]
+  },
+  "maxpotion": {
+    "id": "maxpotion",
+    "name": "Max Potion",
+    "description": "Fully restores #mon HP.",
+    "attributes": {
+      "price": 2500,
+      "effect": "0",
+      "parameter": -1,
+      "category": "Medicine",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Use on party Pokémon"
+    },
+    "locations": [
       {
         "area": "Blackthorn City Poké Mart",
         "details": "For sale"
@@ -748,45 +742,6 @@
         "details": "For sale"
       }
     ]
-  },
-  "superpotion": {
-    "id": "superpotion",
-    "name": "Super Potion",
-    "description": "Restores #mon HP by 60.",
-    "attributes": {
-      "price": 700,
-      "effect": "0",
-      "parameter": 60,
-      "category": "Medicine",
-      "useOutsideBattle": "Use on party Pokémon",
-      "useInBattle": "Use on party Pokémon"
-    }
-  },
-  "hyperpotion": {
-    "id": "hyperpotion",
-    "name": "Hyper Potion",
-    "description": "Restores #mon HP by 120.",
-    "attributes": {
-      "price": 1500,
-      "effect": "0",
-      "parameter": 120,
-      "category": "Medicine",
-      "useOutsideBattle": "Use on party Pokémon",
-      "useInBattle": "Use on party Pokémon"
-    }
-  },
-  "maxpotion": {
-    "id": "maxpotion",
-    "name": "Max Potion",
-    "description": "Fully restores #mon HP.",
-    "attributes": {
-      "price": 2500,
-      "effect": "0",
-      "parameter": -1,
-      "category": "Medicine",
-      "useOutsideBattle": "Use on party Pokémon",
-      "useInBattle": "Use on party Pokémon"
-    }
   },
   "antidote": {
     "id": "antidote",
@@ -1027,6 +982,80 @@
       },
       {
         "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      }
+    ]
+  },
+  "fullheal": {
+    "id": "fullheal",
+    "name": "Full Heal",
+    "description": "Eliminates all status problems.",
+    "attributes": {
+      "price": 400,
+      "effect": "0",
+      "parameter": -1,
+      "category": "Medicine",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Use on party Pokémon"
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Cianwood City Pharmacy",
+        "details": "For sale"
+      },
+      {
+        "area": "Yellow Forest Shop",
+        "details": "For sale"
+      },
+      {
+        "area": "Blackthorn City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Indigo Plateau Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Viridian City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Cerulean City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Celadon Dept. Store 2F",
+        "details": "For sale"
+      },
+      {
+        "area": "Saffron City Poké Mart",
+        "details": "For sale"
+      },
+      {
+        "area": "Fuchsia City Poké Mart",
+        "details": "For sale"
+      }
+    ]
+  },
+  "ragecandybar": {
+    "id": "ragecandybar",
+    "name": "Rage Candy Bar",
+    "description": "Eliminates all status problems.",
+    "attributes": {
+      "price": 300,
+      "effect": "0",
+      "parameter": -1,
+      "category": "Medicine",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Use on party Pokémon"
+    },
+    "locations": [
+      {
+        "area": "Mahogany Town Poké Mart",
         "details": "For sale"
       }
     ]
@@ -1934,6 +1963,153 @@
       }
     ]
   },
+  "leafstone": {
+    "id": "leafstone",
+    "name": "Leaf Stone",
+    "description": "Evolves certain kinds of #mon.",
+    "attributes": {
+      "price": 3000,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Cannot use"
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 4F",
+        "details": "For sale"
+      }
+    ]
+  },
+  "firestone": {
+    "id": "firestone",
+    "name": "Fire Stone",
+    "description": "Evolves certain kinds of #mon.",
+    "attributes": {
+      "price": 3000,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Cannot use"
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 4F",
+        "details": "For sale"
+      }
+    ]
+  },
+  "waterstone": {
+    "id": "waterstone",
+    "name": "Water Stone",
+    "description": "Evolves certain kinds of #mon.",
+    "attributes": {
+      "price": 3000,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Cannot use"
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 4F",
+        "details": "For sale"
+      }
+    ]
+  },
+  "thunderstone": {
+    "id": "thunderstone",
+    "name": "Thunder Stone",
+    "description": "Evolves certain kinds of #mon.",
+    "attributes": {
+      "price": 3000,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Cannot use"
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 4F",
+        "details": "For sale"
+      }
+    ]
+  },
+  "moonstone": {
+    "id": "moonstone",
+    "name": "Moon Stone",
+    "description": "Evolves certain kinds of #mon.",
+    "attributes": {
+      "price": 3000,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Cannot use"
+    }
+  },
+  "sunstone": {
+    "id": "sunstone",
+    "name": "Sun Stone",
+    "description": "Evolves certain kinds of #mon.",
+    "attributes": {
+      "price": 3000,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Cannot use"
+    }
+  },
+  "duskstone": {
+    "id": "duskstone",
+    "name": "Dusk Stone",
+    "description": "Evolves certain kinds of #mon.",
+    "attributes": {
+      "price": 3000,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Cannot use"
+    }
+  },
+  "shinystone": {
+    "id": "shinystone",
+    "name": "Shiny Stone",
+    "description": "Evolves certain kinds of #mon.",
+    "attributes": {
+      "price": 3000,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Cannot use"
+    }
+  },
+  "icestone": {
+    "id": "icestone",
+    "name": "Ice Stone",
+    "description": "Evolves certain kinds of #mon.",
+    "attributes": {
+      "price": 3000,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Cannot use"
+    },
+    "locations": [
+      {
+        "area": "Celadon Dept. Store 4F",
+        "details": "For sale"
+      }
+    ]
+  },
   "linkingcord": {
     "id": "linkingcord",
     "name": "Linking Cord",
@@ -1970,6 +2146,14 @@
     "id": "expshare",
     "name": "Exp Share",
     "description": "Shares battle Exp. Points. (Hold)",
+    "attributes": {
+      "price": 3000,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Cannot use",
+      "useInBattle": "Cannot use"
+    },
     "locations": [
       {
         "area": "Indigo Plateau Poké Mart",
@@ -2644,6 +2828,26 @@
       }
     ]
   },
+  "scopelens": {
+    "id": "scopelens",
+    "name": "Scope Lens",
+    "description": "Raises critical hit ratio. (Hold)",
+    "attributes": {
+      "price": 4000,
+      "effect": "Increase Critical Hit Ratio",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Cannot use",
+      "useInBattle": "Cannot use"
+    },
+    "locations": [
+      {
+        "area": "Battle Tower Exchange",
+        "details": "For sale (BP: 16)",
+        "price": 16
+      }
+    ]
+  },
   "razorclaw": {
     "id": "razorclaw",
     "name": "Razor Claw",
@@ -2668,7 +2872,32 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Mahogany Town Poké Mart",
+        "details": "For sale"
+      }
+    ]
+  },
+  "kingsrock": {
+    "id": "kingsrock",
+    "name": "Kings Rock",
+    "description": "May make the foe flinch. (Hold)",
+    "attributes": {
+      "price": 5000,
+      "effect": "Increase Flinch Chance",
+      "parameter": 10,
+      "category": "Item",
+      "useOutsideBattle": "Cannot use",
+      "useInBattle": "Cannot use"
+    },
+    "locations": [
+      {
+        "area": "Mahogany Town Poké Mart",
+        "details": "For sale"
+      }
+    ]
   },
   "razorfang": {
     "id": "razorfang",
@@ -2792,13 +3021,7 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    },
-    "locations": [
-      {
-        "area": "Shamouti Island Shop",
-        "details": "For sale"
-      }
-    ]
+    }
   },
   "leek": {
     "id": "leek",
@@ -3066,7 +3289,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Island Shop",
+        "details": "For sale"
+      }
+    ]
   },
   "metronomei": {
     "id": "metronomei",
@@ -4119,13 +4348,20 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    },
-    "locations": [
-      {
-        "area": "Fishing",
-        "details": "Super Rod (10% of the time)"
-      }
-    ]
+    }
+  },
+  "helixfossil": {
+    "id": "helixfossil",
+    "name": "Helix Fossil",
+    "description": "A fossilized #mon shell.",
+    "attributes": {
+      "price": 1000,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Cannot use",
+      "useInBattle": "Cannot use"
+    }
   },
   "domefossil": {
     "id": "domefossil",
@@ -4605,7 +4841,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Factory Exchange",
+        "details": "For sale (BP: 48)",
+        "price": 48
+      }
+    ]
   },
   "loadeddice": {
     "id": "loadeddice",
@@ -4830,13 +5073,7 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    },
-    "locations": [
-      {
-        "area": "Mahogany Town Poké Mart",
-        "details": "For sale"
-      }
-    ]
+    }
   },
   "gbcsounds": {
     "id": "gbcsounds",
@@ -4851,6 +5088,15 @@
     "id": "bluecard",
     "name": "Blue Card",
     "description": "Card to save points.",
+    "attributes": {
+      "price": 0,
+      "isKeyItem": true
+    }
+  },
+  "orangeticket": {
+    "id": "orangeticket",
+    "name": "Orange Ticket",
+    "description": "A ticket for the Seagallop Ferry.",
     "attributes": {
       "price": 0,
       "isKeyItem": true
@@ -4981,6 +5227,26 @@
       "price": 0,
       "isKeyItem": true
     }
+  },
+  "expcandyxs": {
+    "id": "expcandyxs",
+    "name": "Exp Candy XS",
+    "description": "A candy that gives Exp.Points."
+  },
+  "expcandys": {
+    "id": "expcandys",
+    "name": "Exp Candy S",
+    "description": "A candy that gives Exp.Points."
+  },
+  "expcandym": {
+    "id": "expcandym",
+    "name": "Exp Candy M",
+    "description": "A candy that gives Exp.Points."
+  },
+  "expcandyl": {
+    "id": "expcandyl",
+    "name": "Exp Candy L",
+    "description": "A candy that gives Exp.Points."
   },
   "expcandyxl": {
     "id": "expcandyxl",
