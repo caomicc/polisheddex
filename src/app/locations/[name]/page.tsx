@@ -214,7 +214,12 @@ export default async function LocationDetailPage({
           {Object.entries(methodData).map(([time, timeData]) => (
             <Card key={time} className="overflow-hidden mb-6">
               <CardHeader className="">
-                <TimeIcon time={time} className="inline-block" />{' '}
+                {time === 'nite' && (
+                  <TimeIcon time={time} size={12} className="inline-block *:translate-y-0 *:translate-x-[1px]" />
+                )}
+                {time !== 'nite' && (
+                  <TimeIcon time={time} className="inline-block" />
+                )}
                 <p className="flex">
                   {formatMethod(method)}: {formatTime(time)}
                 </p>
@@ -236,7 +241,7 @@ export default async function LocationDetailPage({
                         <TableCell>
                           <Link
                             href={`/pokemon/${pokemon.name}`}
-                            className="text-blue-700 hover:underline font-medium"
+                            className="text-blue-700 hover:underline font-medium capitalize"
                           >
                             {pokemon.name}
                           </Link>
