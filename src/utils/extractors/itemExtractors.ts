@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { extractMartData } from './martExtractors.ts';
+import { replaceMonString } from '../stringUtils.ts';
 
 // Define types for item data
 export interface ItemData {
@@ -237,7 +238,7 @@ export function extractItemData(): Record<string, ItemData> {
         const itemData: ItemData = {
           id: itemId,
           name: displayName,
-          description: description.trim()
+          description: replaceMonString(description.trim())
         };
 
         // Add attributes if available
@@ -1046,7 +1047,7 @@ export function extractItemManiacs(itemData: Record<string, ItemData>): void {
       if (parts.length >= 2) {
         const itemName = parts[0];
         const cost = parseInt(parts[1], 10);
-        
+
         if (itemName && !isNaN(cost) && currentManiac) {
           maniacItems.push({ item: itemName, maniacType: currentManiac, cost });
         }
@@ -1060,7 +1061,7 @@ export function extractItemManiacs(itemData: Record<string, ItemData>): void {
 
   for (const { item: itemName, maniacType, cost } of maniacItems) {
     const normalizedId = normalizeItemId(itemName);
-    
+
     // Try different ID variations
     const possibleIds = [
       normalizedId,
@@ -1074,13 +1075,13 @@ export function extractItemManiacs(itemData: Record<string, ItemData>): void {
         if (!itemData[id].locations) {
           itemData[id].locations = [];
         }
-        
+
         itemData[id].locations.push({
           area: maniacType,
           details: `${cost} points`,
           price: cost
         });
-        
+
         itemsWithManiac++;
         found = true;
         break;

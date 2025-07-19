@@ -179,7 +179,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>{pokemonName}</BreadcrumbPage>
+            <BreadcrumbPage className='capitalize'>{pokemonName}</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
