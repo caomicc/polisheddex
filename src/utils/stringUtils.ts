@@ -255,3 +255,31 @@ export const typeEnumToName: Record<string, string> = {
   'GRASS': 'Grass', 'ELECTRIC': 'Electric', 'PSYCHIC': 'Psychic', 'ICE': 'Ice', 'DRAGON': 'Dragon',
   'DARK': 'Dark', 'FAIRY': 'Fairy', 'SHADOW': 'Shadow', 'NONE': 'None'
 };
+
+/**
+ * Utility to replace all occurrences of "#mon" with "pokemon" in a string, and trim any tab characters.
+ */
+export function replaceMonString(val: string): string {
+  if (typeof val !== 'string') return val;
+  return val.replace(/#mon/g, 'Pokemon').replace(/\t+/g, '').trim();
+}
+
+/**
+ * Recursively replace all occurrences of "#mon" with "pokemon" in all string fields of an object or array.
+ */
+export function deepReplaceMonString(obj: unknown): unknown {
+  if (typeof obj === 'string') {
+    return replaceMonString(obj);
+  }
+  if (Array.isArray(obj)) {
+    return obj.map(deepReplaceMonString);
+  }
+  if (obj && typeof obj === 'object') {
+    const newObj: Record<string, unknown> = {};
+    for (const [key, value] of Object.entries(obj)) {
+      newObj[key] = deepReplaceMonString(value);
+    }
+    return newObj;
+  }
+  return obj;
+}

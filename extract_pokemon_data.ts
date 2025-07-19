@@ -5,7 +5,7 @@ import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } f
 import { extractTypeChart, extractHiddenGrottoes, mapEncounterRatesToPokemon, extractEggMoves, extractFormInfo, extractMoveDescriptions, extractTmHmLearnset, addBodyDataToDetailedStats, extractAbilityDescriptions, extractDetailedStats, extractPokedexEntries, getFullPokemonName, extractItemData, extractTmHmItems, extractLocationsByArea } from './src/utils/extractors/index.ts';
 import { groupPokemonForms, validatePokemonKeys } from './src/utils/helpers.ts';
 import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
-import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toTitleCase, typeEnumToName } from './src/utils/stringUtils.ts';
+import { deepReplaceMonString, normalizeMonName, parseDexEntries, parseWildmonLine, replaceMonString, standardizePokemonKey, toTitleCase, typeEnumToName } from './src/utils/stringUtils.ts';
 import { normalizePokemonUrlKey, normalizePokemonDisplayName, getPokemonFileName, validatePokemonHyphenation } from './src/utils/pokemonUrlNormalizer.ts';
 import type { Ability, BaseData, DetailedStats, Evolution, EvolutionMethod, EvoRaw, LocationEntry, Move, PokemonDataV3, PokemonDexEntry } from './src/types/types.ts';
 
@@ -295,10 +295,20 @@ for (const lineRaw of lines) {
           category: moveDescriptions[prettyName].category
         }
         : undefined;
+      // Only replace #mon in string fields of info, but keep type
+      let fixedInfo = info;
+      if (info) {
+        fixedInfo = { ...info };
+        for (const key of Object.keys(fixedInfo)) {
+          if (typeof (fixedInfo as any)[key] === 'string') {
+            (fixedInfo as any)[key] = replaceMonString((fixedInfo as any)[key]);
+          }
+        }
+      }
       movesV2.push({
-        name: prettyName,
+        name: replaceMonString(prettyName),
         level,
-        ...(info ? { info } : {}),
+        ...(fixedInfo ? { info: fixedInfo } : {}),
       });
     }
   }
@@ -746,11 +756,22 @@ const finalResult: Record<string, PokemonDataV3> = {};
 for (const mon of Object.keys(result)) {
   const isDebug = isDebugPokemon(mon);
 
-  const moves = result[mon].moves.map(m => ({
-    name: m.name,
-    level: m.level,
-    ...(m.info ? { info: m.info } : {})
-  }));
+  const moves = result[mon].moves.map(m => {
+    let fixedInfo = m.info;
+    if (m.info) {
+      fixedInfo = { ...m.info };
+      for (const key of Object.keys(fixedInfo)) {
+        if (typeof (fixedInfo as any)[key] === 'string') {
+          (fixedInfo as any)[key] = replaceMonString((fixedInfo as any)[key]);
+        }
+      }
+    }
+    return {
+      name: replaceMonString(m.name),
+      level: m.level,
+      ...(fixedInfo ? { info: fixedInfo } : {})
+    };
+  });
   if (isDebug) {
     console.log(`DEBUG: Processing Pokémon in const mon of Object.keys(result) : ${mon}`, mon);
     console.log(`DEBUG: Moves for ${mon}:`, moves.slice(0, 3));
@@ -989,15 +1010,22 @@ for (const mon of Object.keys(result)) {
   }
 
   // Create the final result with both faithful and updated types
-  finalResult[mon] = {
+  // Only replace #mon in string fields, not the object type
+  // Fix types for TS: ensure string/string[] for type fields
+  const fixTypeField = (val: string | string[]) => {
+    if (Array.isArray(val)) return val.map(replaceMonString);
+    return replaceMonString(val);
+  };
+  const fixedFinalResult: typeof finalResult[typeof mon] = {
     evolution,
     moves,
     ...(nationalDex !== null ? { nationalDex } : {}),
     ...(johtoDex !== null ? { johtoDex } : {}),
-    ...(types && types !== 'Unknown' ? { types } : {}),
-    ...(faithfulTypesFormatted && faithfulTypesFormatted !== 'Unknown' ? { faithfulTypes: faithfulTypesFormatted } : {}),
-    ...(updatedTypesFormatted && updatedTypesFormatted !== 'Unknown' ? { updatedTypes: updatedTypesFormatted } : {}),
+    ...(types && types !== 'Unknown' ? { types: fixTypeField(types as string | string[]) } : {}),
+    ...(faithfulTypesFormatted && faithfulTypesFormatted !== 'Unknown' ? { faithfulTypes: fixTypeField(faithfulTypesFormatted as string | string[]) } : {}),
+    ...(updatedTypesFormatted && updatedTypesFormatted !== 'Unknown' ? { updatedTypes: fixTypeField(updatedTypesFormatted as string | string[]) } : {}),
   };
+  finalResult[mon] = fixedFinalResult;
 
   if (isDebug) {
     console.log(`DEBUG: Final Pokémon data for ${mon}:`, finalResult[mon]);
@@ -1271,7 +1299,7 @@ for (const mon of Object.keys(finalResult)) {
   }
 
   // Provide default values for all DetailedStats fields to satisfy PokemonDataV3
-  finalResultV3[mon] = {
+  const fixedFinalResultV3: typeof finalResultV3[typeof mon] = {
     ...finalResult[mon],
     // Add all required DetailedStats fields with default values if not present
     baseStats: {
@@ -1289,16 +1317,17 @@ for (const mon of Object.keys(finalResult)) {
     abilities: [],
     faithfulAbilities: [],
     updatedAbilities: [],
-    growthRate: "Medium Fast",
+    growthRate: replaceMonString("Medium Fast"),
     eggGroups: [],
     genderRatio: {
       male: 0,
       female: 0
     },
-    hatchRate: "Unknown",
-    evYield: "None",
+    hatchRate: replaceMonString("Unknown"),
+    evYield: replaceMonString("None"),
     locations: normalizedLocationsByMon[mon] || []
   };
+  finalResultV3[mon] = deepReplaceMonString(fixedFinalResultV3) as typeof finalResultV3[typeof mon];
   if (isDebug) {
     console.log(`DEBUG: Added missing Pokemon ${mon} with base stats from ${mon}`);
     console.dir('finalResult[pokemonName]', finalResult[mon]);
