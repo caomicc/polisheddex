@@ -115,7 +115,7 @@ export function TypeRelationsChart({ types, updatedTypes }: TypeRelationsChartPr
     <Tabs defaultValue="original" className="w-full">
       <TabsList className="grid w-full grid-cols-2">
         <TabsTrigger value="original">Original Types</TabsTrigger>
-        <TabsTrigger value="updated">Updated Types</TabsTrigger>
+        <TabsTrigger value="updated">Polished Types</TabsTrigger>
       </TabsList>
       <TabsContent value="original">
         <TypeEffectivenessTable relations={relations} />

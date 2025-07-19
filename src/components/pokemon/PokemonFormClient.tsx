@@ -305,7 +305,7 @@ export default function PokemonFormClient({
                       alt="Pokeball Icon"
                       width={32}
                       height={32}
-                      className="block"
+                      className="block rounded-sm"
                     />{' '}
                     Pokeball
                   </p>
@@ -323,7 +323,7 @@ export default function PokemonFormClient({
                       alt="Greatball Icon"
                       width={32}
                       height={32}
-                      className="block"
+                      className="block rounded-sm"
                     />{' '}
                     Greatball
                   </p>
@@ -343,7 +343,7 @@ export default function PokemonFormClient({
                       alt="Ultraball Icon"
                       width={32}
                       height={32}
-                      className="block"
+                      className="block rounded-sm"
                     />{' '}
                     Ultraball
                   </p>
