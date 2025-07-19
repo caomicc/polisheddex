@@ -149,6 +149,11 @@
       {
         "area": "Fuchsia City Poké Mart",
         "details": "For sale"
+      },
+      {
+        "area": "Radio Tower Buena's Password Club",
+        "details": "Prize for 2 Blue Card points",
+        "price": 2
       }
     ]
   },
@@ -1176,6 +1181,16 @@
       {
         "area": "Goldenrod Harbor Shop",
         "details": "For sale"
+      },
+      {
+        "area": "Radio Tower Buena's Password Club",
+        "details": "Prize for 2 Blue Card points",
+        "price": 2
+      },
+      {
+        "area": "Radio Tower Buena's Password Club",
+        "details": "Prize for 3 Blue Card points",
+        "price": 3
       }
     ]
   },
@@ -1685,6 +1700,14 @@
     "id": "guardspec",
     "name": "Guard Spec",
     "description": "Prevents stat drops. (1 battle)",
+    "attributes": {
+      "price": 1500,
+      "effect": "0",
+      "parameter": 0,
+      "category": "Item",
+      "useOutsideBattle": "Cannot use",
+      "useInBattle": "Use and close menu"
+    },
     "locations": [
       {
         "area": "Celadon Dept. Store 5F",
@@ -1903,6 +1926,11 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 32)",
         "price": 32
+      },
+      {
+        "area": "Radio Tower Buena's Password Club",
+        "details": "Prize for 7 Blue Card points",
+        "price": 7
       }
     ]
   },
@@ -3654,6 +3682,11 @@
       {
         "area": "Shamouti Island Shop",
         "details": "For sale"
+      },
+      {
+        "area": "Radio Tower Buena's Password Club",
+        "details": "Prize for 5 Blue Card points",
+        "price": 5
       }
     ]
   },
@@ -3830,7 +3863,24 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Radio Tower Buena's Password Club",
+        "details": "Prize for 3 Blue Card points",
+        "price": 3
+      },
+      {
+        "area": "Bargain Shop",
+        "details": "Bargain Shop item for 4500 points",
+        "price": 4500
+      },
+      {
+        "area": "Bargain Shop",
+        "details": "Bargain Shop item for 8500 points",
+        "price": 8500
+      }
+    ]
   },
   "bignugget": {
     "id": "bignugget",
@@ -3901,7 +3951,32 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Bargain Shop",
+        "details": "Bargain Shop item for 650 points",
+        "price": 650
+      },
+      {
+        "area": "Bargain Shop",
+        "details": "Bargain Shop item for 3500 points",
+        "price": 3500
+      },
+      {
+        "area": "Bargain Shop",
+        "details": "Bargain Shop item for 6500 points",
+        "price": 6500
+      },
+      {
+        "area": "Fishing",
+        "details": "Old Rod"
+      },
+      {
+        "area": "Fishing",
+        "details": "Good Rod"
+      }
+    ]
   },
   "bigpearl": {
     "id": "bigpearl",
@@ -3940,7 +4015,14 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Bargain Shop",
+        "details": "Bargain Shop item for 1000 points",
+        "price": 1000
+      }
+    ]
   },
   "starpiece": {
     "id": "starpiece",
@@ -4037,7 +4119,13 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Fishing",
+        "details": "Super Rod (10% of the time)"
+      }
+    ]
   },
   "domefossil": {
     "id": "domefossil",
