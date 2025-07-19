@@ -201,6 +201,32 @@ export function processLocations(
 
     locationsByArea[formattedAreaName].pokemon[pokemon].methods[method].times[time].push(encounterDetail);
   }
+
+  // After all encounter details are added, combine duplicates (same level, same formName, same rareItem)
+  for (const areaName of Object.keys(locationsByArea)) {
+    const area = locationsByArea[areaName];
+    if (!area.pokemon[pokemon]) continue;
+    const methods = area.pokemon[pokemon].methods;
+    for (const method of Object.keys(methods)) {
+      const times = methods[method].times;
+      for (const time of Object.keys(times)) {
+        const details = times[time];
+        // Group by level, formName, rareItem
+        const grouped: Record<string, EncounterDetail> = {};
+        for (const detail of details) {
+          // Use a composite key for grouping
+          const key = `${detail.level ?? ''}|${detail.formName ?? ''}|${detail.rareItem ?? ''}`;
+          if (!grouped[key]) {
+            grouped[key] = { ...detail };
+          } else {
+            grouped[key].chance += detail.chance;
+          }
+        }
+        // Replace with grouped array
+        methods[method].times[time] = Object.values(grouped);
+      }
+    }
+  }
 }
 
 

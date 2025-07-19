@@ -199,61 +199,9 @@ export async function extractLocationsByArea() {
       }
     }
 
-    // --- Map encounter rates to each area and method ---
-    for (const [, areaData] of Object.entries(locationsByArea)) {
-      // Collect all unique methods and times for this area
-      const allMethods = new Set<string>();
-      const allTimesByMethod: Record<string, Set<string>> = {};
-      for (const pokemonData of Object.values(areaData.pokemon)) {
-        for (const [method, methodData] of Object.entries(pokemonData.methods)) {
-          allMethods.add(method);
-          if (!allTimesByMethod[method]) allTimesByMethod[method] = new Set();
-          for (const time of Object.keys(methodData.times)) {
-            allTimesByMethod[method].add(time);
-          }
-        }
-      }
-      // Iterate over all methods and times
-      for (const method of allMethods) {
-        for (const time of allTimesByMethod[method]) {
-          // Collect all Pokémon for this area/method/time in slot order
-          const slotPokemon = [];
-          for (const [pokemonName, pokemonData] of Object.entries(areaData.pokemon)) {
-            const details = pokemonData.methods[method]?.times[time];
-            if (details && details.length > 0) {
-              for (let i = 0; i < details.length; i++) {
-                slotPokemon.push(pokemonName);
-              }
-            }
-          }
-          // Determine encounter type
-          const encounterType =
-            method.toLowerCase().includes('surf') || method.toLowerCase().includes('water') ? 'surf'
-              : method.toLowerCase().includes('fish') ? 'fish'
-                : 'grass';
-          // Use correct slot count for each type
-          const maxSlots =
-            encounterType === 'grass' ? 10 : encounterType === 'surf' ? 3 : 4;
-          // Map canonical rates to first N slots, extras get 0
-          const mappedRates = mapEncounterRatesToPokemon(slotPokemon.slice(0, maxSlots), encounterType);
-          // Assign rates to EncounterDetails in slot order
-          let slotIdx = 0;
-          for (const [, pokemonData] of Object.entries(areaData.pokemon)) {
-            const details = pokemonData.methods[method]?.times[time];
-            if (details && details.length > 0) {
-              for (let i = 0; i < details.length; i++) {
-                if (slotIdx < maxSlots) {
-                  details[i].chance = mappedRates[slotIdx]?.rate ?? 0;
-                } else {
-                  details[i].chance = 0;
-                }
-                slotIdx++;
-              }
-            }
-          }
-        }
-      }
-    }
+    // --- The encounter rates are already correct from the ROM parsing ---
+    // No need to recalculate them, just use what's already in the LocationEntry data
+    // The processLocations function preserves the original encounter rates
 
     // Write to file
     await fs.promises.writeFile(

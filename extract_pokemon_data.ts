@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } from './src/data/constants.ts';
-import { extractTypeChart, extractHiddenGrottoes, mapEncounterRatesToPokemon, extractEggMoves, extractFormInfo, extractMoveDescriptions, extractTmHmLearnset, addBodyDataToDetailedStats, extractAbilityDescriptions, extractDetailedStats, extractPokedexEntries, getFullPokemonName, extractItemData, extractTmHmItems } from './src/utils/extractors/index.ts';
+import { extractTypeChart, extractHiddenGrottoes, mapEncounterRatesToPokemon, extractEggMoves, extractFormInfo, extractMoveDescriptions, extractTmHmLearnset, addBodyDataToDetailedStats, extractAbilityDescriptions, extractDetailedStats, extractPokedexEntries, getFullPokemonName, extractItemData, extractTmHmItems, extractLocationsByArea } from './src/utils/extractors/index.ts';
 import { groupPokemonForms, validatePokemonKeys } from './src/utils/helpers.ts';
 import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
 import { normalizeMonName, parseDexEntries, parseWildmonLine, standardizePokemonKey, toTitleCase, typeEnumToName } from './src/utils/stringUtils.ts';
@@ -2115,6 +2115,10 @@ fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify({
     "version": "2.0.0"
   }
 }, null, 2));
+
+// Extract locations organized by area (creates locations_by_area.json)
+console.log('🗺️ Extracting locations by area...');
+extractLocationsByArea();
 
 function exportDetailedStats() {
   try {
