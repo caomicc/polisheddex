@@ -282,6 +282,18 @@ export function extractItemData(): Record<string, ItemData> {
   console.log("🔧 Extracting mart data...");
   extractMartData(items);
 
+  console.log("🔧 Extracting pickup items data...");
+  extractPickupItems(items);
+
+  console.log("🔧 Extracting rock smashing items data...");
+  extractRockItems(items);
+
+  console.log("🔧 Extracting fishing items data...");
+  extractFishingItems(items);
+
+  console.log("🔧 Extracting rooftop sale data...");
+  extractRooftopSale(items);
+
   // Write the extracted data to a JSON file
   fs.writeFileSync(outputFile, JSON.stringify(items, null, 2));
 
@@ -552,4 +564,423 @@ export function normalizeItemId(rawName: string): string {
 
   // Return the mapped ID if it exists, otherwise return the original normalized name
   return itemMappings[name] || name;
+}
+
+/**
+ * Extract pickup items data from pickup_items.asm and add location information to item data
+ * @param itemData The existing item data to update with location information
+ */
+export function extractPickupItems(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Path to pickup_items.asm file
+  const pickupFile = path.join(__dirname, '../../../rom/data/items/pickup_items.asm');
+
+  console.log('🔧 Extracting pickup items data...');
+
+  // Check if the file exists
+  if (!fs.existsSync(pickupFile)) {
+    console.log('⚠️ pickup_items.asm file not found, skipping pickup extraction');
+    return;
+  }
+
+  // Read pickup_items.asm file
+  const pickupData = fs.readFileSync(pickupFile, 'utf8');
+  const lines = pickupData.split(/\r?\n/);
+
+  // Store pickup items with their rarity
+  const basePickupItems: Set<string> = new Set();
+  const rarePickupItems: Set<string> = new Set();
+
+  // Track current table being processed
+  let currentTable = '';
+
+  // Process the file content
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Skip comments and empty lines
+    if (line.startsWith(';') || line.startsWith('//') || line === '') continue;
+
+    // Check for table headers
+    if (line.includes('BasePickupTable:')) {
+      currentTable = 'base';
+      continue;
+    } else if (line.includes('RarePickupTable:')) {
+      currentTable = 'rare';
+      continue;
+    }
+
+    // Look for item entries (db ITEM_NAME)
+    if (line.startsWith('db ') && !line.includes('NO_ITEM') && !line.includes('-1')) {
+      const itemName = line.replace('db ', '').trim();
+      if (itemName && itemName !== 'NO_ITEM') {
+        if (currentTable === 'base') {
+          basePickupItems.add(itemName);
+        } else if (currentTable === 'rare') {
+          rarePickupItems.add(itemName);
+        }
+      }
+    }
+  }
+
+  // Update item data with pickup location information
+  let itemsWithPickup = 0;
+  const unmatchedItems: string[] = [];
+
+  // Process base pickup items
+  for (const itemName of basePickupItems) {
+    const normalizedId = normalizeItemId(itemName);
+
+    // Try different ID variations
+    const possibleIds = [
+      normalizedId,
+      generateItemId(itemName),
+      itemName.toLowerCase().replace(/_/g, '-')
+    ];
+
+    let found = false;
+    for (const id of possibleIds) {
+      if (itemData[id]) {
+        if (!itemData[id].locations) {
+          itemData[id].locations = [];
+        }
+
+        itemData[id].locations.push({
+          area: 'Pickup',
+          details: 'Common'
+        });
+
+        itemsWithPickup++;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      unmatchedItems.push(itemName);
+    }
+  }
+
+  // Process rare pickup items
+  for (const itemName of rarePickupItems) {
+    const normalizedId = normalizeItemId(itemName);
+
+    // Try different ID variations
+    const possibleIds = [
+      normalizedId,
+      generateItemId(itemName),
+      itemName.toLowerCase().replace(/_/g, '-')
+    ];
+
+    let found = false;
+    for (const id of possibleIds) {
+      if (itemData[id]) {
+        if (!itemData[id].locations) {
+          itemData[id].locations = [];
+        }
+
+        itemData[id].locations.push({
+          area: 'Pickup',
+          details: 'Rare'
+        });
+
+        itemsWithPickup++;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      unmatchedItems.push(itemName);
+    }
+  }
+
+  console.log(`✅ Added pickup location data to ${itemsWithPickup} items`);
+
+  if (unmatchedItems.length > 0) {
+    console.log(`⚠️ Could not match ${unmatchedItems.length} pickup items:`, unmatchedItems.join(', '));
+  }
+}
+
+/**
+ * Extract rock smashing items data from rock_items.asm and add location information to item data
+ * @param itemData The existing item data to update with location information
+ */
+export function extractRockItems(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Path to rock_items.asm file
+  const rockFile = path.join(__dirname, '../../../rom/data/items/rock_items.asm');
+
+  console.log('🔧 Extracting rock smashing items data...');
+
+  // Check if the file exists
+  if (!fs.existsSync(rockFile)) {
+    console.log('⚠️ rock_items.asm file not found, skipping rock items extraction');
+    return;
+  }
+
+  // Read rock_items.asm file
+  const rockData = fs.readFileSync(rockFile, 'utf8');
+  const lines = rockData.split(/\r?\n/);
+
+  // Store rock items with their rarity
+  const rockItems: Array<{ item: string; rarity: number }> = [];
+
+  // Process the file content
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Skip comments and empty lines
+    if (line.startsWith(';') || line.startsWith('//') || line === '') continue;
+
+    // Look for item entries (db rarity, ITEM_NAME)
+    if (line.startsWith('db ') && line.includes(',')) {
+      const parts = line.replace('db ', '').split(',').map(p => p.trim());
+      if (parts.length >= 2 && !parts[1].includes('NO_ITEM') && !parts[0].includes('-1')) {
+        const rarity = parseInt(parts[0], 10);
+        const itemName = parts[1];
+
+        if (itemName && itemName !== 'NO_ITEM' && !isNaN(rarity)) {
+          rockItems.push({ item: itemName, rarity });
+        }
+      }
+    }
+  }
+
+  // Update item data with rock smashing location information
+  let itemsWithRock = 0;
+  const unmatchedItems: string[] = [];
+
+  for (const { item: itemName, rarity } of rockItems) {
+    const normalizedId = normalizeItemId(itemName);
+
+    // Try different ID variations
+    const possibleIds = [
+      normalizedId,
+      generateItemId(itemName),
+      itemName.toLowerCase().replace(/_/g, '-')
+    ];
+
+    let found = false;
+    for (const id of possibleIds) {
+      if (itemData[id]) {
+        if (!itemData[id].locations) {
+          itemData[id].locations = [];
+        }
+
+        // Add rarity information to the details
+        const rarityText = rarity === 1 ? 'Very rare' :
+          rarity <= 4 ? 'Rare' :
+            rarity <= 24 ? 'Uncommon' : 'Common';
+
+        itemData[id].locations.push({
+          area: 'Rock Smash',
+          details: `Rock smashing (${rarityText})`
+        });
+
+        itemsWithRock++;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      unmatchedItems.push(itemName);
+    }
+  }
+
+  console.log(`✅ Added rock smashing location data to ${itemsWithRock} items`);
+
+  if (unmatchedItems.length > 0) {
+    console.log(`⚠️ Could not match ${unmatchedItems.length} rock items:`, unmatchedItems.join(', '));
+  }
+}
+
+/**
+ * Extract fishing items data from fish_items.asm and add location information to item data
+ * @param itemData The existing item data to update with location information
+ */
+export function extractFishingItems(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Path to fish_items.asm file
+  const fishFile = path.join(__dirname, '../../../rom/data/items/fish_items.asm');
+
+  console.log('🔧 Extracting fishing items data...');
+
+  // Check if the file exists
+  if (!fs.existsSync(fishFile)) {
+    console.log('⚠️ fish_items.asm file not found, skipping fishing items extraction');
+    return;
+  }
+
+  // Read fish_items.asm file
+  const fishData = fs.readFileSync(fishFile, 'utf8');
+  const lines = fishData.split(/\r?\n/);
+
+  // Store fishing items
+  const fishItems: Set<string> = new Set();
+
+  // Process the file content
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Skip comments and empty lines
+    if (line.startsWith(';') || line.startsWith('//') || line === '') continue;
+
+    // Look for item entries - could be various formats
+    if (line.startsWith('db ') && !line.includes('NO_ITEM')) {
+      // Handle different formats like "db rarity, ITEM" or just "db ITEM"
+      const parts = line.replace('db ', '').split(',').map(p => p.trim());
+      const itemName = parts.length > 1 ? parts[1] : parts[0];
+
+      if (itemName && itemName !== 'NO_ITEM' && itemName !== '-1') {
+        fishItems.add(itemName);
+      }
+    }
+  }
+
+  // Update item data with fishing location information
+  let itemsWithFish = 0;
+  const unmatchedItems: string[] = [];
+
+  for (const itemName of fishItems) {
+    const normalizedId = normalizeItemId(itemName);
+
+    // Try different ID variations
+    const possibleIds = [
+      normalizedId,
+      generateItemId(itemName),
+      itemName.toLowerCase().replace(/_/g, '-')
+    ];
+
+    let found = false;
+    for (const id of possibleIds) {
+      if (itemData[id]) {
+        if (!itemData[id].locations) {
+          itemData[id].locations = [];
+        }
+
+        itemData[id].locations.push({
+          area: 'Fishing',
+          details: 'Fishing spots'
+        });
+
+        itemsWithFish++;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      unmatchedItems.push(itemName);
+    }
+  }
+
+  console.log(`✅ Added fishing location data to ${itemsWithFish} items`);
+
+  if (unmatchedItems.length > 0) {
+    console.log(`⚠️ Could not match ${unmatchedItems.length} fishing items:`, unmatchedItems.join(', '));
+  }
+}
+
+/**
+ * Extract rooftop sale data from rooftop_sale.asm and add location information to item data
+ * @param itemData The existing item data to update with location information
+ */
+export function extractRooftopSale(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Path to rooftop_sale.asm file
+  const rooftopFile = path.join(__dirname, '../../../rom/data/items/rooftop_sale.asm');
+
+  console.log('🔧 Extracting rooftop sale data...');
+
+  // Check if the file exists
+  if (!fs.existsSync(rooftopFile)) {
+    console.log('⚠️ rooftop_sale.asm file not found, skipping rooftop sale extraction');
+    return;
+  }
+
+  // Read rooftop_sale.asm file
+  const rooftopData = fs.readFileSync(rooftopFile, 'utf8');
+  const lines = rooftopData.split(/\r?\n/);
+
+  // Store rooftop sale items with their prices
+  const rooftopItems: Array<{ item: string; price?: number }> = [];
+
+  // Process the file content
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Skip comments and empty lines
+    if (line.startsWith(';') || line.startsWith('//') || line === '') continue;
+
+    // Look for item entries - could be "db ITEM, price" or just "db ITEM"
+    if (line.startsWith('db ') && !line.includes('NO_ITEM')) {
+      const parts = line.replace('db ', '').split(',').map(p => p.trim());
+      const itemName = parts[0];
+      const price = parts.length > 1 ? parseInt(parts[1], 10) : undefined;
+
+      if (itemName && itemName !== 'NO_ITEM') {
+        rooftopItems.push({ item: itemName, price });
+      }
+    }
+  }
+
+  // Update item data with rooftop sale location information
+  let itemsWithRooftop = 0;
+  const unmatchedItems: string[] = [];
+
+  for (const { item: itemName, price } of rooftopItems) {
+    const normalizedId = normalizeItemId(itemName);
+
+    // Try different ID variations
+    const possibleIds = [
+      normalizedId,
+      generateItemId(itemName),
+      itemName.toLowerCase().replace(/_/g, '-')
+    ];
+
+    let found = false;
+    for (const id of possibleIds) {
+      if (itemData[id]) {
+        if (!itemData[id].locations) {
+          itemData[id].locations = [];
+        }
+
+        const details = price ? `Rooftop Sale (₽${price})` : 'Rooftop Sale';
+
+        itemData[id].locations.push({
+          area: 'Goldenrod City',
+          details,
+          price
+        });
+
+        itemsWithRooftop++;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      unmatchedItems.push(itemName);
+    }
+  }
+
+  console.log(`✅ Added rooftop sale location data to ${itemsWithRooftop} items`);
+
+  if (unmatchedItems.length > 0) {
+    console.log(`⚠️ Could not match ${unmatchedItems.length} rooftop sale items:`, unmatchedItems.join(', '));
+  }
 }
