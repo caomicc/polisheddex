@@ -294,6 +294,9 @@ export function extractItemData(): Record<string, ItemData> {
   console.log("🔧 Extracting rooftop sale data...");
   extractRooftopSale(items);
 
+  console.log("🔧 Extracting item maniacs data...");
+  extractItemManiacs(items);
+
   // Write the extracted data to a JSON file
   fs.writeFileSync(outputFile, JSON.stringify(items, null, 2));
 
@@ -982,5 +985,113 @@ export function extractRooftopSale(itemData: Record<string, ItemData>): void {
 
   if (unmatchedItems.length > 0) {
     console.log(`⚠️ Could not match ${unmatchedItems.length} rooftop sale items:`, unmatchedItems.join(', '));
+  }
+}
+
+/**
+ * Extract item maniacs data from item_maniacs.asm and add location information to item data
+ * @param itemData The existing item data to update with location information
+ */
+export function extractItemManiacs(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Path to item_maniacs.asm file
+  const maniacFile = path.join(__dirname, '../../../rom/data/items/item_maniacs.asm');
+
+  console.log('🔧 Extracting item maniacs data...');
+
+  // Check if the file exists
+  if (!fs.existsSync(maniacFile)) {
+    console.log('⚠️ item_maniacs.asm file not found, skipping item maniacs extraction');
+    return;
+  }
+
+  // Read item_maniacs.asm file
+  const maniacData = fs.readFileSync(maniacFile, 'utf8');
+  const lines = maniacData.split(/\r?\n/);
+
+  // Store maniac items with their type and cost
+  const maniacItems: Array<{ item: string; maniacType: string; cost: number }> = [];
+
+  // Track current maniac type being processed
+  let currentManiac = '';
+
+  // Process the file content
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Skip comments and empty lines
+    if (line.startsWith(';') || line.startsWith('//') || line === '') continue;
+
+    // Check for maniac type headers
+    if (line.includes('GourmetManiacItemRewards:')) {
+      currentManiac = 'Gourmet Maniac';
+      continue;
+    } else if (line.includes('OreManiacItemRewards:')) {
+      currentManiac = 'Ore Maniac';
+      continue;
+    } else if (line.includes('FossilManiacItemRewards:')) {
+      currentManiac = 'Fossil Maniac';
+      continue;
+    }
+
+    // Look for item entries (dbw ITEM_NAME, cost)
+    if (line.startsWith('dbw ') && line.includes(',') && !line.includes('-1')) {
+      const parts = line.replace('dbw ', '').split(',').map(p => p.trim());
+      if (parts.length >= 2) {
+        const itemName = parts[0];
+        const cost = parseInt(parts[1], 10);
+        
+        if (itemName && !isNaN(cost) && currentManiac) {
+          maniacItems.push({ item: itemName, maniacType: currentManiac, cost });
+        }
+      }
+    }
+  }
+
+  // Update item data with maniac location information
+  let itemsWithManiac = 0;
+  const unmatchedItems: string[] = [];
+
+  for (const { item: itemName, maniacType, cost } of maniacItems) {
+    const normalizedId = normalizeItemId(itemName);
+    
+    // Try different ID variations
+    const possibleIds = [
+      normalizedId,
+      generateItemId(itemName),
+      itemName.toLowerCase().replace(/_/g, '-')
+    ];
+
+    let found = false;
+    for (const id of possibleIds) {
+      if (itemData[id]) {
+        if (!itemData[id].locations) {
+          itemData[id].locations = [];
+        }
+        
+        itemData[id].locations.push({
+          area: maniacType,
+          details: `${cost} points`,
+          price: cost
+        });
+        
+        itemsWithManiac++;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      unmatchedItems.push(`${itemName} (${maniacType})`);
+    }
+  }
+
+  console.log(`✅ Added item maniac location data to ${itemsWithManiac} items`);
+
+  if (unmatchedItems.length > 0) {
+    console.log(`⚠️ Could not match ${unmatchedItems.length} maniac items:`, unmatchedItems.join(', '));
   }
 }
