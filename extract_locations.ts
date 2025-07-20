@@ -75,7 +75,7 @@ export function extractAllLocations(): Record<string, LocationData> {
     if (landmarkMatch) {
       const x = parseInt(landmarkMatch[1]);
       const y = parseInt(landmarkMatch[2]);
-      const nameConstant = landmarkMatch[3];
+      // const nameConstant = landmarkMatch[3];
 
       // Find the landmark constant name for this index
       const landmarkConstantName = Object.keys(landmarkIdMap).find(name => landmarkIdMap[name] === landmarkIndex);
@@ -159,13 +159,13 @@ export function extractAllLocations(): Record<string, LocationData> {
       const connectionMatch = line.match(/^\s*connection\s+(north|south|east|west),\s*(\w+),\s*([A-Z_0-9_]+),\s*(-?\d+)/);
       if (connectionMatch && currentMapName) {
         const direction = connectionMatch[1] as 'north' | 'south' | 'east' | 'west';
-        const targetMapLabel = connectionMatch[2]; // e.g., Route29
+        // const targetMapLabel = connectionMatch[2]; // e.g., Route29
         const targetMapConstant = connectionMatch[3]; // e.g., ROUTE_29
         const offset = parseInt(connectionMatch[4]);
 
         // Find the target location's display name
         const targetLocationKey = targetMapConstant.toLowerCase();
-        let targetDisplayName = targetMapConstant
+        const targetDisplayName = targetMapConstant
           .split('_')
           .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
           .join(' ');
