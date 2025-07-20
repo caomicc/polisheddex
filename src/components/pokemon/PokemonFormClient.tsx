@@ -2,11 +2,10 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { MoveRow, LocationListItem } from '@/components/pokemon';
-import { FormData, Move, MoveDescription, PokemonType, LocationEntry } from '@/types/types';
+import { FormData, Move, MoveDescription, LocationEntry } from '@/types/types';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
 import { EvolutionChain } from '@/components/ui/EvolutionChain';
-import { TypeRelationsChart } from './TypeRelationsChart';
 import { cn } from '@/lib/utils';
 import { Progress } from '../ui/progress';
 import { PokemonAbilities } from './pokemon-abilities';
@@ -14,6 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Card, CardContent, CardHeader } from '../ui/card';
 import { GenderPieChart } from './gender-pie-chart';
 import PokedexHeader from './PokedexHeader';
+import { WeaknessChart } from './WeaknessChart';
 
 export default function PokemonFormClient({
   forms,
@@ -96,85 +96,13 @@ export default function PokemonFormClient({
           className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
         >
           <Card>
-            <CardHeader>Species</CardHeader>
+            <CardHeader className={'sr-only'}>Species</CardHeader>
             <CardContent className="space-y-2 px-2 md:px-6">
               <p className="text-sm md:text-md text-foreground">{formData.species} Pokémon</p>
               <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
-              <div
-                className="grid grid-col-1 md:grid-cols-2 my-4 max-w-[400px] mx-auto"
-                aria-label="Pokemon Types"
-                role="group"
-              >
-                {/*
-                <div className="flex flex-wrap flex-col gap-2 items-center text-center">
-                  <label className="leading-none text-xs w-[50px]">Faithful:</label>
-                  <div className="flex flex-wrap gap-2">
-                    {formData.types ? (
-                      Array.isArray(formData.types) ? (
-                        formData.types.map((type: string) => (
-                          <Badge
-                            key={`faithful-${type}`}
-                            variant={type.toLowerCase() as PokemonType['name']}
-                          >
-                            {type}
-                          </Badge>
-                        ))
-                      ) : (
-                        <Badge
-                          key={`faithful-${formData.types}`}
-                          variant={formData.types.toLowerCase() as PokemonType['name']}
-                        >
-                          {formData.types}
-                        </Badge>
-                      )
-                    ) : (
-                      <Badge variant="secondary">Unknown</Badge>
-                    )}
-                  </div>
-                </div>
-                <div
-                  className={cn(
-                    'flex flex-wrap flex-col gap-2 items-center text-center',
-                    formData.updatedTypes ? 'mt-4 md:mt-0' : 'hidden',
-                  )}
-                >
-                  <label className="leading-none text-xs w-[50px]">Polished:</label>
-                  <div className="flex flex-wrap gap-2">
-                    {formData.updatedTypes &&
-                      (Array.isArray(formData.updatedTypes) ? (
-                        formData.updatedTypes.map((type: string) => (
-                          <Badge
-                            key={`updated-${type}`}
-                            variant={type.toLowerCase() as PokemonType['name']}
-                          >
-                            {type}
-                          </Badge>
-                        ))
-                      ) : (
-                        <Badge
-                          key={`updated-${formData.updatedTypes}`}
-                          variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
-                        >
-                          {formData.updatedTypes}
-                        </Badge>
-                      ))}
-                  </div>
-                </div> */}
-              </div>
-              <div className="mt-8 flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
-                <div className="flex w-full flex-wrap justify-center items-center gap-0 mb-2">
-                  <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
-                    <Image
-                      src="/icons/ruler-regular.svg"
-                      alt="Ruler Icon"
-                      width={24}
-                      height={24}
-                      className="mx-auto pb-2"
-                    />
-                    <p className="text-sm md:text-md text-muted-foreground">
-                      {((formData.height as number) / 10).toFixed(1)} m
-                    </p>
-                  </div>
+
+              <div className="mt-0 flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
+                <div className="flex w-full flex-wrap justify-center items-center gap-0">
                   <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1 relative flex items-center justify-center">
                     {formData.genderRatio &&
                     formData.genderRatio.male === 0 &&
@@ -241,48 +169,12 @@ export default function PokemonFormClient({
                       </div>
                     )}
                   </div>
-                  {/* <div className="w-1/3 md:w-1/5 text-center md:border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
-                    <Image
-                      src="/icons/weight-scale-regular.svg"
-                      alt="Scale Icon"
-                      width={24}
-                      height={24}
-                      className="mx-auto pb-2"
-                    />
-                    <p className="text-sm md:text-md text-muted-foreground">
-                      {((formData.weight as number) / 10).toFixed(1)} kg
-                    </p>
-                  </div> */}
-                  {/* <div className="mt-4 md:mt-0 w-1/2 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
-                    <Image
-                      src="/icons/palette-regular.svg"
-                      alt="Palette Icon"
-                      width={24}
-                      height={24}
-                      className="mx-auto pb-2"
-                    />
-                    <p className="text-sm md:text-md text-muted-foreground">
-                      {formData.bodyColor || 'Unknown'}
-                    </p>
-                  </div>
-                  <div className="mt-4 md:mt-0 w-1/2 md:w-1/5 text-center p-1">
-                    <Image
-                      src="/icons/shapes-regular.svg"
-                      alt="Shape Icon"
-                      width={24}
-                      height={24}
-                      className="mx-auto pb-2"
-                    />
-                    <p className="text-sm md:text-md text-muted-foreground">
-                      {formData.bodyShape || 'Unknown'}
-                    </p>
-                  </div> */}
                 </div>
               </div>
             </CardContent>
           </Card>
           <Card>
-            <CardHeader>Abilities</CardHeader>
+            <CardHeader className='sr-only'>Abilities</CardHeader>
             <CardContent className="space-y-2">
               <PokemonAbilities
                 faithfulAbilities={formData.faithfulAbilities}
@@ -291,7 +183,7 @@ export default function PokemonFormClient({
             </CardContent>
           </Card>
           <Card>
-            <CardHeader>Catch Rate</CardHeader>
+            <CardHeader className='sr-only'>Catch Rate</CardHeader>
             <CardContent className="space-y-2">
               <p className="text-sm">
                 <span className="font-bold">Base Catch Rate</span>: {formData.catchRate}
@@ -493,7 +385,7 @@ export default function PokemonFormClient({
         >
           {formData.baseStats ? (
             <Card>
-              <CardHeader>Base Stats</CardHeader>
+              <CardHeader className='sr-only'>Base Stats</CardHeader>
               <CardContent className="space-y-4">
                 {[
                   { label: 'HP', value: formData.baseStats.hp, color: '*:bg-red-400' },
@@ -551,7 +443,7 @@ export default function PokemonFormClient({
             <div className="text-gray-400 text-sm mb-6">No base stat data</div>
           )}
           <Card>
-            <CardHeader>Type Relations</CardHeader>
+            <CardHeader className='sr-only'>Type Relations</CardHeader>
             <CardContent className="space-y-2">
               <div
                 className={cn(
@@ -559,34 +451,30 @@ export default function PokemonFormClient({
                   formData.updatedTypes ? 'md:grid-cols-2' : '',
                 )}
               >
-                {formData.types && (
-                  <div>
-                    <h3 className="italic font-bold text-sm mb-4 text-left">Faithful</h3>
-                    <TypeRelationsChart
-                      types={
-                        Array.isArray(formData.types)
-                          ? formData.types.map((t: string) => t.toLowerCase())
-                          : formData.types
-                          ? [formData.types.toLowerCase()]
-                          : []
-                      }
-                    />
-                  </div>
-                )}
-                {formData.updatedTypes && (
-                  <div>
-                    <h3 className="italic font-bold text-sm mb-4 text-left">Updated</h3>
-                    <TypeRelationsChart
-                      types={
-                        Array.isArray(formData.updatedTypes)
-                          ? formData.updatedTypes.map((t: string) => t.toLowerCase())
-                          : formData.updatedTypes
-                          ? [formData.updatedTypes.toLowerCase()]
-                          : []
-                      }
-                    />
-                  </div>
-                )}
+                <div>
+                  <WeaknessChart
+                    types={
+                      Array.isArray(formData.types)
+                        ? formData.types.map((t: string) => t.toLowerCase())
+                        : formData.types
+                        ? [formData.types.toLowerCase()]
+                        : []
+                    }
+                    variant='Faithful'
+                  />
+                </div>
+                <div>
+                  <WeaknessChart
+                    types={
+                      Array.isArray(formData.updatedTypes)
+                        ? formData.updatedTypes.map((t: string) => t.toLowerCase())
+                        : formData.updatedTypes
+                        ? [formData.updatedTypes.toLowerCase()]
+                        : []
+                    }
+                    variant='Polished'
+                  />
+                </div>
               </div>
             </CardContent>
           </Card>

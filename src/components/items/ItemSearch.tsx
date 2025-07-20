@@ -57,12 +57,9 @@ export default function ItemSearch({
     <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex items-center gap-2">
-          <label htmlFor="sort-select" className="font-medium text-sm">
-            Sort by:
-          </label>
             <Label htmlFor="sort-select" className="text-sm">Sort</Label>
             <Select value={sort} onValueChange={handleSortChange}>
-            <SelectTrigger id="sort-select" className="bg-white">
+            <SelectTrigger id="sort-select" className="bg-white w-[150px]">
               <SelectValue placeholder="Sort by..." />
             </SelectTrigger>
             <SelectContent>
@@ -75,17 +72,17 @@ export default function ItemSearch({
         </div>
 
         <div className="flex items-center gap-2">
-                      <Label htmlFor="sort-options" className="text-sm">Category</Label>
-<Select value={category} onValueChange={(value) => handleCategoryChange(value)}>
-            <SelectTrigger id="sort-options" className="bg-white">
-              <SelectValue placeholder="Sort by..." />
+          <Label htmlFor="sort-options" className="text-sm">Category</Label>
+          <Select value={category} onValueChange={(value) => handleCategoryChange(value)}>
+            <SelectTrigger id="sort-options" className="bg-white w-[150px]">
+              <SelectValue placeholder="Categories" />
             </SelectTrigger>
             <SelectContent>
-           {categories.map((cat) => (
-              <SelectItem key={cat} value={cat === 'TM/HM' ? 'tm-hm' : cat.toLowerCase().replace(/\s+/g, '-')}>
-                {cat}
-              </SelectItem>
-            ))}
+              {categories.map((cat) => (
+                <SelectItem key={cat} value={cat === 'TM/HM' ? 'tm-hm' : cat.toLowerCase().replace(/\s+/g, '-')}>
+                  {cat}
+                </SelectItem>
+              ))}
               </SelectContent>
             </Select>
         </div>

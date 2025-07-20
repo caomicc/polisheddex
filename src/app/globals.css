@@ -53,7 +53,7 @@
   --color-fighting: var(--color-orange-400);
   --color-fire: var(--color-red-400);
   --color-flying: var(--color-sky-300);
-  --color-ghost: var(--color-purple-400);
+  --color-ghost: var(--color-violet-300);
   --color-grass: var(--color-green-400);
   --color-ground: var(--color-orange-300);
   --color-ice: var(--color-cyan-300);
@@ -180,6 +180,40 @@
 .bg-bug-20 {
   @apply bg-bug/20;
 }
+/* Dynamic type gradient utilities */
+.bg-dual-type-gradient {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--type-1-color) var(--gradient-opacity, 20%), transparent) 0%,
+    color-mix(in oklab, var(--type-2-color) var(--gradient-opacity, 20%), transparent) 100%
+  );
+}
+
+.bg-single-type-gradient {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--type-color) var(--gradient-opacity, 100%), transparent) 0%,
+    color-mix(in oklab, var(--type-color) var(--gradient-opacity, 1%), transparent) 100%
+  );
+}
+
+/* Gradient direction variants */
+.bg-dual-type-gradient-horizontal {
+  background: linear-gradient(
+    to right,
+    color-mix(in oklab, var(--type-1-color) var(--gradient-opacity, 20%), transparent) 0%,
+    color-mix(in oklab, var(--type-2-color) var(--gradient-opacity, 20%), transparent) 100%
+  );
+}
+
+.bg-dual-type-gradient-diagonal {
+  background: linear-gradient(
+    45deg,
+    color-mix(in oklab, var(--type-1-color) var(--gradient-opacity, 20%), transparent) 0%,
+    color-mix(in oklab, var(--type-2-color) var(--gradient-opacity, 20%), transparent) 100%
+  );
+}
+
 .bg-dark-20 {
   @apply bg-dark/20;
 }

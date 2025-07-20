@@ -6,6 +6,7 @@ import { Badge } from '../ui/badge';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
+import { getTypeGradientProps } from '@/utils/css-gradients';
 
 export interface PokemonCardProps {
   pokemon: BaseData;
@@ -55,14 +56,22 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       : 'unknown'
     : 'unknown';
 
+  const secondaryType =
+    Array.isArray(displayTypes) && displayTypes.length > 1
+      ? displayTypes[1].toLowerCase()
+      : null;
+
+  // Generate CSS-based gradient props
+  const gradientProps = getTypeGradientProps(primaryType, secondaryType || undefined);
+
   return (
     <Link href={`/pokemon/${normalizePokemonUrlKey(pokemon.name)}`}>
       <Card
         className={cn(
-          'shadow-sm hover:shadow-md transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pt-[48px] h-[120px] md:h-auto',
-          `bg-${primaryType}-20`,
-          `shadow-${primaryType}`,
+          'shadow-sm hover:shadow-md transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pt-[48px] h-[110px] md:h-auto',
+          gradientProps.className
         )}
+        style={gradientProps.style}
       >
         <Image
           src={pokemon.frontSpriteUrl ?? '/images/pokemon-placeholder.png'}

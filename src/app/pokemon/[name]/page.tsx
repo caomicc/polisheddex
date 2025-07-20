@@ -3,8 +3,11 @@ import path from 'path';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
+import PokemonNavigation from '@/components/pokemon/PokemonNavigation';
+import PokemonKeyboardNavigation from '@/components/pokemon/PokemonKeyboardNavigation';
 import { MoveDescription, FormData, PokemonDataV3 } from '@/types/types';
 import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNormalizer';
+import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -153,6 +156,15 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   console.log(`Loaded Pokémon data for ${pokemonName}`, allFormData);
 
+  // Load dex orders for navigation
+  const dexOrders = await loadDexOrders();
+  const { order: dexOrder, type: dexType } = getDexOrderToUse(
+    pokemonData,
+    dexOrders.national,
+    dexOrders.johto
+  );
+  const navigation = getPokemonNavigation(pokemonName, dexOrder);
+
   // You may want to load moveDescData as before, or optimize further if you have per-move files
   // For now, keep the original moveDescData loading for compatibility
   const moveDescFile = path.join(process.cwd(), 'output/pokemon_move_descriptions.json');
@@ -184,12 +196,14 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         </BreadcrumbList>
       </Breadcrumb>
       <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
+      <PokemonKeyboardNavigation navigation={navigation} />
       <PokemonFormClient
         forms={forms}
         allFormData={allFormData}
         moveDescData={moveDescData}
         pokemonName={pokemonName}
       />
+      <PokemonNavigation navigation={navigation} dexType={dexType} />
     </div>
   );
 }

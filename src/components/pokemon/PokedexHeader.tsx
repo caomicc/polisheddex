@@ -4,11 +4,23 @@ import { cn } from '@/lib/utils';
 import { FormData, PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
 import PokemonFormSelect from './PokemonFormSelect';
+import { getTypeGradientProps } from '@/utils/css-gradients';
 
 const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSelectedForm } : { formData: FormData, uniqueForms: string[], pokemonName: string, selectedForm: string, setSelectedForm: React.Dispatch<React.SetStateAction<string>> }) => {
   // Desktop version uses the original two-row layout
 
   // Mobile version uses a compact layout with each row
+  // Determine which types to use for the gradient: faithful (original) or polished (updated)
+  const usePolished = selectedForm === 'polished' || selectedForm === 'updated'; // Adjust this logic if you have a more explicit trigger
+  const faithfulTypes = Array.isArray(formData.types) ? formData.types : [formData.types].filter(Boolean);
+  const polishedTypes = Array.isArray(formData.updatedTypes) ? formData.updatedTypes : [formData.updatedTypes].filter(Boolean);
+
+  // Use selected types based on trigger
+  const [primaryType, secondaryType] = usePolished && polishedTypes.length > 0 ? polishedTypes : faithfulTypes;
+
+  const gradientProps = primaryType
+    ? getTypeGradientProps(primaryType.toLowerCase(), secondaryType?.toLowerCase())
+    : { className: '', style: {} };
 
   return (
     <>
@@ -16,34 +28,18 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
         <div
           className={cn(
             'relative py-4 px-4 md:p-6 md:dark:from-gray-800 md:dark:to-gray-900 flex flex-row w-full justify-between md:justify-start gap-6',
-            `bg-${
-              formData.types
-                ? typeof formData.types === 'string'
-                  ? formData.types.toLowerCase()
-                  : Array.isArray(formData.types) && formData.types.length > 0
-                  ? formData.types[0].toLowerCase()
-                  : 'unknown'
-                : 'unknown'
-            }-20`,
-            `dark:bg-${
-              formData.types
-                ? typeof formData.types === 'string'
-                  ? formData.types.toLowerCase()
-                  : Array.isArray(formData.types) && formData.types.length > 0
-                  ? formData.types[0].toLowerCase()
-                  : 'unknown'
-                : 'unknown'
-            }-dark`,
+            gradientProps.className
           )}
+          style={gradientProps.style}
         >
           <div className={'md:hidden text-left'}>
             <div className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
-              <p>National #{String(formData.nationalDex).padStart(3, '0')}</p>
               {formData.johtoDex && (
                 <p>
                   <span>Johto #{String(formData.johtoDex).padStart(3, '0')}</span>
                 </p>
               )}
+              <p>National #{String(formData.nationalDex).padStart(3, '0')}</p>
             </div>
             <p className="text-sm md:text-4xl font-bold capitalize text-gray-900 dark:text-gray-50">
               {pokemonName}
@@ -123,15 +119,16 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
           </div>
           <div className="text-left hidden md:block">
             <div className="text-xs md:text-sm text-gray-800 dark:text-gray-200 mb-1 flex gap-3 flex-row">
-              <span>
-                National{' '}
-                <span className="font-bold">#{String(formData.nationalDex).padStart(3, '0')}</span>
-              </span>
               {formData.johtoDex && (
                 <span>
                   Johto <span className="font-bold">#{formData.johtoDex}</span>
                 </span>
               )}
+              <span>
+                National{' '}
+                <span className="font-bold">#{String(formData.nationalDex).padStart(3, '0')}</span>
+              </span>
+
             </div>
             <p className="text-sm md:text-xl font-bold capitalize text-gray-900 dark:text-gray-50">
               {pokemonName}
@@ -199,25 +196,9 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
       </div>
 
       <div className={cn("max-w-4xl mx-auto rounded-xl overflow-hidden md:hidden p-4 mb-2",
-        `bg-${
-              formData.types
-                ? typeof formData.types === 'string'
-                  ? formData.types.toLowerCase()
-                  : Array.isArray(formData.types) && formData.types.length > 0
-                  ? formData.types[0].toLowerCase()
-                  : 'unknown'
-                : 'unknown'
-            }-20`,
-            `dark:bg-${
-              formData.types
-                ? typeof formData.types === 'string'
-                  ? formData.types.toLowerCase()
-                  : Array.isArray(formData.types) && formData.types.length > 0
-                  ? formData.types[0].toLowerCase()
-                  : 'unknown'
-                : 'unknown'
-            }-dark`,
-      )}>
+            gradientProps.className
+          )}
+          style={gradientProps.style}>
         <div>
           <div className='flex flex-row items-start md:items-center gap-4 mb-2 justify-between'>
               <div className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
@@ -242,7 +223,7 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
               />
             </div>
         </div>
-        <div className='flex flex-row gap-4'>
+        <div className='flex flex-row gap-6'>
          <div>
            <label className="leading-none text-xs w-[50px]">Faithful:</label>
           <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">

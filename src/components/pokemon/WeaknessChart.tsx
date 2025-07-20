@@ -1,11 +1,9 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
 import { PokemonType } from '@/types/types';
-// import { Badge } from '../ui/badge';
 import typeChartData from '../../../output/type_chart.json';
-import TypeIcon from './TypeIcon';
+import { Badge } from '../ui/badge';
 
-// TODO: Update types
+// TODO: Update types`
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as any;
 const ALL_TYPES = Object.keys(TYPE_CHART).filter((type) => {
@@ -28,47 +26,47 @@ function getTypeEffectiveness(defTypes: string[]): Record<string, number> {
   return result;
 }
 
-export function WeaknessChart({ types }: { types: string[] }) {
+export function WeaknessChart({ types, variant }: { types: string[], variant?:string; }) {
   const effectiveness = getTypeEffectiveness(types);
   const weaknesses = ALL_TYPES.filter((type) => effectiveness[type] > 1);
   const strengths = ALL_TYPES.filter((type) => effectiveness[type] < 1 && effectiveness[type] > 0);
 
   return (
-    <div className="mb-4">
-      <div className="mb-2 font-semibold text-lg">Weak Against</div>
-      <div className="w-full flex flex-row flex-wrap gap-2 mb-6">
-        {weaknesses.length === 0 ? (
-          <span className="text-gray-600">None</span>
-        ) : (
-          weaknesses.map((type) => (
-            <div
-              key={type}
-              className={cn('flex flex-col items-center text-xs font-medium p-1 text-red-800')}
-              aria-label={`${type} damage: ${effectiveness[type]}x`}
-            >
-              <TypeIcon type={type as PokemonType['name']} className="mb-2" />
-              <span>{effectiveness[type]}x</span>
-            </div>
-          ))
-        )}
+    <div className="text-left">
+      <div>
+          <div className="mb-2 font-semibold text-xs">Weaknesses ({variant})</div>
+        <div className="w-full flex flex-row flex-wrap gap-2 mb-3">
+            {weaknesses.length === 0 ? (
+              <span className="text-gray-600">None</span>
+            ) : (
+              weaknesses.map((type) => (
+                <Badge
+                  key={type}
+                  variant={type.toLowerCase() as PokemonType['name']}
+                  >
+                  <span>{type}</span>
+                </Badge>
+              ))
+            )}
+          </div>
       </div>
-      <div className="mb-2 font-semibold text-lg">Strength Against</div>
-      <div className="w-full flex flex-row flex-wrap gap-2">
-        {strengths.length === 0 ? (
-          <span className="text-gray-600">None</span>
-        ) : (
-          strengths.map((type) => (
-            <div
-              key={type}
-              className={cn('flex flex-col items-center text-xs font-medium p-1 text-blue-800')}
-              aria-label={`${type} resistance: ${effectiveness[type]}x`}
-            >
-              <TypeIcon type={type as PokemonType['name']} className="mb-2" />
-              <span>{effectiveness[type]}x</span>
-            </div>
-          ))
-        )}
-      </div>
+     <div>
+       <div className="mb-2 font-semibold text-xs">Strengths ({variant})</div>
+        <div className="w-full flex flex-row flex-wrap gap-2">
+          {strengths.length === 0 ? (
+            <span className="text-gray-600">None</span>
+          ) : (
+            strengths.map((type) => (
+              <Badge
+                key={type}
+                variant={type.toLowerCase() as PokemonType['name']}
+                >
+                <span>{type}</span>
+              </Badge>
+            ))
+          )}
+        </div>
+     </div>
     </div>
   );
 }
