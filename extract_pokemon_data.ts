@@ -1890,7 +1890,7 @@ if (finalResultV3['mr-rime'] && !validatedBaseData['mr-rime']) {
     johtoDex: mrRime.johtoDex ?? null,
     types: mrRime.types ?? [],
     updatedTypes: mrRime.updatedTypes ?? mrRime.types ?? [],
-    frontSpriteUrl: '/sprites/pokemon/mr_rime/front_cropped.png',
+    frontSpriteUrl: '/sprites/pokemon/mr__rime/front_cropped.png',
     moves: mrRime.moves || []
   };
   console.log('Added Mr. Rime to validatedBaseData from finalResultV3 for base data JSON');
@@ -2431,7 +2431,7 @@ if (finalResultV3['mr-rime'] && !validatedBaseData['mr-rime']) {
     johtoDex: mrRime.johtoDex ?? null,
     types: mrRime.types ?? [],
     updatedTypes: mrRime.updatedTypes ?? mrRime.types ?? [],
-    frontSpriteUrl: '/sprites/pokemon/mr_rime/front_cropped.png',
+    frontSpriteUrl: '/sprites/pokemon/mr__rime/front_cropped.png',
     moves: mrRime.moves || []
   };
   console.log('Added Mr. Rime to validatedBaseData from finalResultV3');
