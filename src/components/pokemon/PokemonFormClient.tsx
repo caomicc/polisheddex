@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { MoveRow, LocationListItem } from '@/components/pokemon';
 import { FormData, Move, MoveDescription, LocationEntry } from '@/types/types';
@@ -27,6 +27,22 @@ export default function PokemonFormClient({
   pokemonName: string;
 }) {
   const [selectedForm, setSelectedForm] = useState('default');
+  const [activeTab, setActiveTab] = useState('about');
+
+  // Load saved tab from localStorage on component mount
+  useEffect(() => {
+    const savedTab = localStorage.getItem('pokemonActiveTab');
+    if (savedTab) {
+      setActiveTab(savedTab);
+    }
+  }, []);
+
+  // Save tab to localStorage when it changes
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    localStorage.setItem('pokemonActiveTab', value);
+  };
+
   // Convert selectedForm to title case to match keys in allFormData
   const toTitleCase = (str: string) =>
     str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase());
@@ -84,7 +100,7 @@ export default function PokemonFormClient({
         setSelectedForm={setSelectedForm}
       />
 
-      <Tabs defaultValue="about" className="w-full">
+      <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
         <TabsList className="w-full">
           <TabsTrigger value="about">About</TabsTrigger>
           <TabsTrigger value="stats">Stats</TabsTrigger>
@@ -173,6 +189,67 @@ export default function PokemonFormClient({
               </div>
             </CardContent>
           </Card>
+
+          {formData.baseStats ? (
+            <Card>
+              <CardHeader className='sr-only'>Base Stats</CardHeader>
+              <CardContent className="space-y-4">
+                {[
+                  { label: 'HP', value: formData.baseStats.hp, color: '*:bg-red-400' },
+                  { label: 'Atk', value: formData.baseStats.attack, color: '*:bg-orange-400' },
+                  { label: 'Def', value: formData.baseStats.defense, color: '*:bg-yellow-400' },
+                  {
+                    label: 'Sp. Atk',
+                    value: formData.baseStats.specialAttack,
+                    color: '*:bg-blue-400',
+                  },
+                  {
+                    label: 'Sp. Def',
+                    value: formData.baseStats.specialDefense,
+                    color: '*:bg-green-400',
+                  },
+                  { label: 'Spd', value: formData.baseStats.speed, color: '*:bg-purple-400' },
+                ].map(({ label, value, color }) => (
+                  <div key={label} className="flex flex-row gap-4 items-center">
+                    <div className="flex justify-between items-center w-[120px]">
+                      <span className="text-xs font-bold leading-none">{label}</span>
+                      <span className="text-xs leading-none text-muted-foreground">
+                        {value ?? 'N/A'}
+                      </span>
+                    </div>
+                    <Progress
+                      value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
+                      aria-label={`${label} stat`}
+                      className={cn(
+                        color,
+                        'bg-slate-200 dark:bg-slate-800 h-2 w-full rounded-full',
+                        'transition-all duration-300 ease-in-out',
+                      )}
+                    />
+                  </div>
+                ))}
+                <div className="flex justify-between items-center mt-2 border-t pt-2 border-gray-200 dark:border-gray-700">
+                  <span className="font-semibold">Total</span>
+                  <span className="text-xs text-muted-foreground">
+                    {[
+                      formData.baseStats.hp,
+                      formData.baseStats.attack,
+                      formData.baseStats.defense,
+                      formData.baseStats.specialAttack,
+                      formData.baseStats.specialDefense,
+                      formData.baseStats.speed,
+                    ].reduce(
+                      (sum: number, stat) => (typeof stat === 'number' ? sum + stat : sum),
+                      0,
+                    )}
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="text-gray-400 text-sm mb-6">No base stat data</div>
+          )}
+
           <Card>
             <CardHeader className='sr-only'>Abilities</CardHeader>
             <CardContent className="space-y-2">
@@ -383,65 +460,7 @@ export default function PokemonFormClient({
           value="stats"
           className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
         >
-          {formData.baseStats ? (
-            <Card>
-              <CardHeader className='sr-only'>Base Stats</CardHeader>
-              <CardContent className="space-y-4">
-                {[
-                  { label: 'HP', value: formData.baseStats.hp, color: '*:bg-red-400' },
-                  { label: 'Atk', value: formData.baseStats.attack, color: '*:bg-orange-400' },
-                  { label: 'Def', value: formData.baseStats.defense, color: '*:bg-yellow-400' },
-                  {
-                    label: 'Sp. Atk',
-                    value: formData.baseStats.specialAttack,
-                    color: '*:bg-blue-400',
-                  },
-                  {
-                    label: 'Sp. Def',
-                    value: formData.baseStats.specialDefense,
-                    color: '*:bg-green-400',
-                  },
-                  { label: 'Spd', value: formData.baseStats.speed, color: '*:bg-purple-400' },
-                ].map(({ label, value, color }) => (
-                  <div key={label} className="flex flex-row gap-4 items-center">
-                    <div className="flex justify-between items-center w-[120px]">
-                      <span className="text-xs font-bold leading-none">{label}</span>
-                      <span className="text-xs leading-none text-muted-foreground">
-                        {value ?? 'N/A'}
-                      </span>
-                    </div>
-                    <Progress
-                      value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
-                      aria-label={`${label} stat`}
-                      className={cn(
-                        color,
-                        'bg-slate-200 dark:bg-slate-800 h-2 w-full rounded-full',
-                        'transition-all duration-300 ease-in-out',
-                      )}
-                    />
-                  </div>
-                ))}
-                <div className="flex justify-between items-center mt-2 border-t pt-2 border-gray-200 dark:border-gray-700">
-                  <span className="font-semibold">Total</span>
-                  <span className="text-xs text-muted-foreground">
-                    {[
-                      formData.baseStats.hp,
-                      formData.baseStats.attack,
-                      formData.baseStats.defense,
-                      formData.baseStats.specialAttack,
-                      formData.baseStats.specialDefense,
-                      formData.baseStats.speed,
-                    ].reduce(
-                      (sum: number, stat) => (typeof stat === 'number' ? sum + stat : sum),
-                      0,
-                    )}
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          ) : (
-            <div className="text-gray-400 text-sm mb-6">No base stat data</div>
-          )}
+
           <Card>
             <CardHeader className='sr-only'>Type Relations</CardHeader>
             <CardContent className="space-y-2">
