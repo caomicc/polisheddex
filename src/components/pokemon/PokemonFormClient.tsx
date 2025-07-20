@@ -105,7 +105,7 @@ export default function PokemonFormClient({
                 aria-label="Pokemon Types"
                 role="group"
               >
-                {/* Faithful Types */}
+                {/*
                 <div className="flex flex-wrap flex-col gap-2 items-center text-center">
                   <label className="leading-none text-xs w-[50px]">Faithful:</label>
                   <div className="flex flex-wrap gap-2">
@@ -132,7 +132,6 @@ export default function PokemonFormClient({
                     )}
                   </div>
                 </div>
-                {/* Updated Types */}
                 <div
                   className={cn(
                     'flex flex-wrap flex-col gap-2 items-center text-center',
@@ -160,7 +159,7 @@ export default function PokemonFormClient({
                         </Badge>
                       ))}
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="mt-8 flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
                 <div className="flex w-full flex-wrap justify-center items-center gap-0 mb-2">
@@ -201,7 +200,7 @@ export default function PokemonFormClient({
                     ) : formData.genderRatio ? (
                       <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-1 md:gap-2 w-full">
                         <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
-                          {/* <div className="text-[10px] items-center flex">
+                          <div className="text-[10px] items-center flex">
                             <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
                               <Image
                                 src={'/icons/mars-solid.svg'}
@@ -211,7 +210,7 @@ export default function PokemonFormClient({
                               />
                             </div>{' '}
                             {formData.genderRatio.male}%
-                          </div> */}
+                          </div>
                           <div className="text-[10px]  items-center flex">
                             <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
                               <Image

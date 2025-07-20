@@ -27,6 +27,8 @@ export const HYPHENATED_POKEMON_NAMES = [
   'porygon-z',
   'Farfetch-d',
   'Sirfetch-d',
+  'mr-rime',
+  'Mr-Rime',
   'Jangmo-o',
   'Hakamo-o',
   'Kommo-o',
@@ -168,6 +170,9 @@ export function normalizePokemonDisplayName(name: string): string {
   }
   if (name.toLowerCase().includes('mime') && name.toLowerCase().includes('jr')) {
     return 'Mime-Jr';
+  }
+  if (name.toLowerCase().includes('mr') && name.toLowerCase().includes('rime')) {
+    return 'mr-rime';
   }
   if (name.toLowerCase().includes('farfetch') && name.toLowerCase().includes('d')) {
     return 'Farfetch-d';

@@ -53,6 +53,11 @@ export function extractTypeChart() {
 
 // Helper function to extract form and base name information from a file name
 export function extractFormInfo(fileName: string): { basePokemonName: string, formName: string | null } {
+  // Special case for mr__rime (separate Pokémon, not a form)
+  if (fileName.toLowerCase() === 'mr__rime') {
+    return { basePokemonName: 'mr-rime', formName: null };
+  }
+
   // Special case for farfetch_d and sirfetch_d
   if (fileName.toLowerCase().startsWith('farfetch_d') || fileName.toLowerCase().startsWith('sirfetch_d') || fileName.toLowerCase().startsWith('porygon_z')) {
     // For these special cases, properly identify the base name and form

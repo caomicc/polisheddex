@@ -12,7 +12,7 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
 
   return (
     <>
-      <div className="max-w-4xl mx-auto rounded-xl overflow-hidden">
+      <div className="max-w-4xl mx-auto rounded-xl overflow-hidden hidden md:block">
         <div
           className={cn(
             'relative py-4 px-4 md:p-6 md:dark:from-gray-800 md:dark:to-gray-900 flex flex-row w-full justify-between md:justify-start gap-6',
@@ -197,10 +197,114 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
           )}
         </div>
       </div>
-    </>
-  )
 
+      <div className={cn("max-w-4xl mx-auto rounded-xl overflow-hidden md:hidden p-4 mb-2",
+        `bg-${
+              formData.types
+                ? typeof formData.types === 'string'
+                  ? formData.types.toLowerCase()
+                  : Array.isArray(formData.types) && formData.types.length > 0
+                  ? formData.types[0].toLowerCase()
+                  : 'unknown'
+                : 'unknown'
+            }-20`,
+            `dark:bg-${
+              formData.types
+                ? typeof formData.types === 'string'
+                  ? formData.types.toLowerCase()
+                  : Array.isArray(formData.types) && formData.types.length > 0
+                  ? formData.types[0].toLowerCase()
+                  : 'unknown'
+                : 'unknown'
+            }-dark`,
+      )}>
+        <div>
+          <div className='flex flex-row items-start md:items-center gap-4 mb-2 justify-between'>
+              <div className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
+                <p>National #{String(formData.nationalDex).padStart(3, '0')}</p>
+                {formData.johtoDex && (
+                  <p>
+                    <span>Johto #{String(formData.johtoDex).padStart(3, '0')}</span>
+                  </p>
+                )}
+                <p className="text-sm md:text-4xl font-bold capitalize text-gray-900 dark:text-gray-50">
+                  {pokemonName}
+                </p>
+              </div>
+              <div className='w-18'>
+                <Image
+                  src={formData.frontSpriteUrl ?? ''}
+                  alt={`Sprite of Pokémon ${pokemonName}`}
+                  width={200}
+                  height={200}
+                  className="object-contain w-36 md:drop-shadow-xs md:w-36 md:h-auto md:mb-0"
+                  priority
+              />
+            </div>
+        </div>
+        <div className='flex flex-row gap-4'>
+         <div>
+           <label className="leading-none text-xs w-[50px]">Faithful:</label>
+          <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
+            {formData.types ? (
+              Array.isArray(formData.types) ? (
+                formData.types.map((type: string) => (
+                  <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                    {type}
+                  </Badge>
+                ))
+              ) : (
+                <Badge
+                  key={formData.types}
+                  variant={formData.types.toLowerCase() as PokemonType['name']}
+                >
+                  {formData.types}
+                </Badge>
+              )
+            ) : (
+              <Badge variant="secondary">Unknown</Badge>
+            )}
+          </div>
+         </div>
+<div>
 
+              <label className="leading-none text-xs w-[50px]">Polished:</label>
+              <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
+                {formData.updatedTypes ? (
+                  Array.isArray(formData.updatedTypes) ? (
+                    formData.updatedTypes.map((type: string) => (
+                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                        {type}
+                      </Badge>
+                    ))
+                  ) : (
+                    <Badge
+                      key={formData.updatedTypes}
+                      variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
+                    >
+                      {formData.types}
+                    </Badge>
+                  )
+                ) : (
+                  <></>
+                )}
+            </div>
+</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      {uniqueForms.length > 0 && (
+        <PokemonFormSelect
+          selectedForm={selectedForm}
+          setSelectedForm={setSelectedForm}
+          uniqueForms={uniqueForms}
+          classes="block md:hidden md:ml-auto"
+        />
+      )}
+    </div>
+  </>
+  );
 };
 
 export default PokedexHeader;

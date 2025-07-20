@@ -33,6 +33,11 @@ export function extractBasePokemonName(fullName: string): string {
     return 'Mime-Jr';
   }
 
+  // Special case for mr-mime - should not be processed as having a regional form suffix
+  if (fullName.toLowerCase() === 'mr-mime' || fullName.toLowerCase() === 'mrmime') {
+    return 'mr-mime';
+  }
+
   if (fullName === 'Nidoran-F') {
     return 'Nidoran-F';
   }
@@ -43,6 +48,11 @@ export function extractBasePokemonName(fullName: string): string {
 
   if (fullName === 'Sirfetch-d') {
     return 'Sirfetch-d';
+  }
+
+  // Special case for farfetch-d - should not be processed as having a regional form suffix
+  if (fullName.toLowerCase() === 'farfetch-d' || fullName.toLowerCase() === 'farfetchd') {
+    return 'farfetch-d';
   }
 
   if (fullName === 'taurospaldean' || fullName === 'Taurospaldean') {
@@ -68,16 +78,27 @@ export function extractBasePokemonName(fullName: string): string {
     'hisui', 'Hisui',
     'galar', 'Galar',
     'armored', 'Armored',
+    'armo', 'Armored',
     'bloodmoon', 'BloodMoon',
     'paldeanfire', 'PaldeanFire',
     'paldeanwater', 'PaldeanWater'
   ];
 
-  // Check for regional form suffixes
+  // Check for regional form suffixes with proper word boundaries
   for (const suffix of regionalFormSuffixes) {
-    if (fullName.toLowerCase().endsWith(suffix.toLowerCase())) {
-      const baseName = fullName.substring(0, fullName.length - suffix.length);
-      return baseName.trim();
+    const lowerFullName = fullName.toLowerCase();
+    const lowerSuffix = suffix.toLowerCase();
+
+    if (lowerFullName.endsWith(lowerSuffix)) {
+      // Make sure there's a separator before the suffix (space, dash, underscore)
+      // or the suffix is the entire second part of a compound name
+      const beforeSuffix = fullName.substring(0, fullName.length - suffix.length);
+      const lastChar = beforeSuffix.slice(-1);
+
+      // Only treat as a regional form if there's a clear separator or it's a compound name
+      if (lastChar === ' ' || lastChar === '-' || lastChar === '_' || beforeSuffix.length === 0) {
+        return beforeSuffix.trim();
+      }
     }
   }
 
@@ -192,10 +213,14 @@ export function extractPokedexEntries() {
         const standardizedMon = standardizePokemonKey(currentMon).toLowerCase();
         // Trim the last camelcased piece from currentMon (e.g., "TaurosPaldeanFire" -> "TaurosPaldean")
         // Extract the regional form from the currentMon (e.g., TyphlosionHisuian -> Hisuian)
+        // But only if it's an actual regional form, not just any camelCase ending
         const regionalFormMatch = currentMon.match(/([A-Z][a-z]+)$/);
-        const regionalForm = regionalFormMatch ? regionalFormMatch[1] : '';
+        const potentialRegionalForm = regionalFormMatch ? regionalFormMatch[1] : '';
+        const regionalForm = Object.values(KNOWN_FORMS).some(form =>
+          form.toLowerCase().includes(potentialRegionalForm.toLowerCase())
+        ) ? potentialRegionalForm : '';
         console.log(`Processing Pokémon: ${currentMon}`, 'regionalForm:', regionalForm);
-        if (Object.values(KNOWN_FORMS).some(form => form.toLowerCase().includes(regionalForm.toLowerCase()))) {
+        if (regionalForm) {
           console.log('currentMon:', currentMon, 'standardizedMon:', standardizedMon, 'currentSpecies:', currentSpecies, 'currentEntries:', currentEntries);
         }
         if (pokedexEntries[standardizedMon]) {
@@ -219,8 +244,8 @@ export function extractPokedexEntries() {
             entries: currentEntries,
           };
         }
-        // If this is a form (contains a hyphen), also add the entry for the base mon if not present
-        if (Object.values(KNOWN_FORMS).some(form => regionalForm.includes(form.toLowerCase()))) {
+        // If this is a form (has a valid regional form), also add the entry for the base mon if not present
+        if (regionalForm) {
           const baseMon = standardizedMon.split('-')[0];
           if (!pokedexEntries[baseMon]) {
             pokedexEntries[baseMon] = {
