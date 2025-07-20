@@ -1,0 +1,3076 @@
+{
+  "new_bark_town": {
+    "id": 1,
+    "name": "new_bark_town",
+    "displayName": "New Bark Town",
+    "region": "johto",
+    "x": 140,
+    "y": 100,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_29",
+        "targetLocationDisplay": "Route 29",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_27",
+        "targetLocationDisplay": "Route 27",
+        "offset": 0
+      }
+    ],
+    "spawnPoint": "SPAWN_NEW_BARK"
+  },
+  "route_29": {
+    "id": 2,
+    "name": "route_29",
+    "displayName": "Route 29",
+    "region": "johto",
+    "x": 120,
+    "y": 100,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_46",
+        "targetLocationDisplay": "Route 46",
+        "offset": 10
+      },
+      {
+        "direction": "west",
+        "targetLocation": "cherrygrove_city",
+        "targetLocationDisplay": "Cherrygrove City",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "new_bark_town",
+        "targetLocationDisplay": "New Bark Town",
+        "offset": 0
+      }
+    ]
+  },
+  "cherrygrove_city": {
+    "id": 3,
+    "name": "cherrygrove_city",
+    "displayName": "Cherrygrove City",
+    "region": "johto",
+    "x": 100,
+    "y": 100,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_30",
+        "targetLocationDisplay": "Route 30",
+        "offset": 5
+      },
+      {
+        "direction": "west",
+        "targetLocation": "cherrygrove_bay",
+        "targetLocationDisplay": "Cherrygrove Bay",
+        "offset": -15
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_29",
+        "targetLocationDisplay": "Route 29",
+        "offset": 0
+      }
+    ],
+    "spawnPoint": "SPAWN_CHERRYGROVE"
+  },
+  "cherrygrove_bay": {
+    "id": 4,
+    "name": "cherrygrove_bay",
+    "displayName": "Cherrygrove Bay",
+    "region": "johto",
+    "x": 92,
+    "y": 100,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_32_coast",
+        "targetLocationDisplay": "Route 32 Coast",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_32",
+        "targetLocationDisplay": "Route 32",
+        "offset": -12
+      },
+      {
+        "direction": "east",
+        "targetLocation": "cherrygrove_city",
+        "targetLocationDisplay": "Cherrygrove City",
+        "offset": 15
+      }
+    ]
+  },
+  "route_30": {
+    "id": 5,
+    "name": "route_30",
+    "displayName": "Route 30",
+    "region": "johto",
+    "x": 100,
+    "y": 80,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_31",
+        "targetLocationDisplay": "Route 31",
+        "offset": -10
+      },
+      {
+        "direction": "south",
+        "targetLocation": "cherrygrove_city",
+        "targetLocationDisplay": "Cherrygrove City",
+        "offset": -5
+      }
+    ]
+  },
+  "route_31": {
+    "id": 6,
+    "name": "route_31",
+    "displayName": "Route 31",
+    "region": "johto",
+    "x": 96,
+    "y": 60,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_30",
+        "targetLocationDisplay": "Route 30",
+        "offset": 10
+      },
+      {
+        "direction": "west",
+        "targetLocation": "violet_city",
+        "targetLocationDisplay": "Violet City",
+        "offset": -9
+      }
+    ]
+  },
+  "violet_city": {
+    "id": 7,
+    "name": "violet_city",
+    "displayName": "Violet City",
+    "region": "johto",
+    "x": 84,
+    "y": 60,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "violet_outskirts",
+        "targetLocationDisplay": "Violet Outskirts",
+        "offset": 0
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_32",
+        "targetLocationDisplay": "Route 32",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_36",
+        "targetLocationDisplay": "Route 36",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_31",
+        "targetLocationDisplay": "Route 31",
+        "offset": 9
+      }
+    ],
+    "spawnPoint": "SPAWN_VIOLET"
+  },
+  "sprout_tower": {
+    "id": 8,
+    "name": "sprout_tower",
+    "displayName": "Sprout Tower",
+    "region": "johto",
+    "x": 86,
+    "y": 58,
+    "flyable": false,
+    "connections": []
+  },
+  "violet_outskirts": {
+    "id": 9,
+    "name": "violet_outskirts",
+    "displayName": "Violet Outskirts",
+    "region": "johto",
+    "x": 84,
+    "y": 52,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_42",
+        "targetLocationDisplay": "Route 42",
+        "offset": -5
+      },
+      {
+        "direction": "south",
+        "targetLocation": "violet_city",
+        "targetLocationDisplay": "Violet City",
+        "offset": 0
+      }
+    ]
+  },
+  "ruins_of_alph": {
+    "id": 10,
+    "name": "ruins_of_alph",
+    "displayName": "Ruins Of Alph",
+    "region": "johto",
+    "x": 76,
+    "y": 76,
+    "flyable": false,
+    "connections": []
+  },
+  "route_32": {
+    "id": 11,
+    "name": "route_32",
+    "displayName": "Route 32",
+    "region": "johto",
+    "x": 84,
+    "y": 92,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "violet_city",
+        "targetLocationDisplay": "Violet City",
+        "offset": 0
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_33",
+        "targetLocationDisplay": "Route 33",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "magnet_tunnel_east",
+        "targetLocationDisplay": "Magnet Tunnel East",
+        "offset": 9
+      },
+      {
+        "direction": "east",
+        "targetLocation": "cherrygrove_bay",
+        "targetLocationDisplay": "Cherrygrove Bay",
+        "offset": 12
+      }
+    ]
+  },
+  "route_32_coast": {
+    "id": 12,
+    "name": "route_32_coast",
+    "displayName": "Route 32 Coast",
+    "region": "johto",
+    "x": 92,
+    "y": 112,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "cherrygrove_bay",
+        "targetLocationDisplay": "Cherrygrove Bay",
+        "offset": 0
+      }
+    ]
+  },
+  "union_cave": {
+    "id": 13,
+    "name": "union_cave",
+    "displayName": "Union Cave",
+    "region": "johto",
+    "x": 84,
+    "y": 124,
+    "flyable": true,
+    "connections": [],
+    "spawnPoint": "SPAWN_UNION_CAVE"
+  },
+  "route_33": {
+    "id": 14,
+    "name": "route_33",
+    "displayName": "Route 33",
+    "region": "johto",
+    "x": 76,
+    "y": 124,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_32",
+        "targetLocationDisplay": "Route 32",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "azalea_town",
+        "targetLocationDisplay": "Azalea Town",
+        "offset": 0
+      }
+    ]
+  },
+  "azalea_town": {
+    "id": 15,
+    "name": "azalea_town",
+    "displayName": "Azalea Town",
+    "region": "johto",
+    "x": 68,
+    "y": 124,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_34",
+        "targetLocationDisplay": "Route 34",
+        "offset": -18
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_33",
+        "targetLocationDisplay": "Route 33",
+        "offset": 0
+      }
+    ],
+    "spawnPoint": "SPAWN_AZALEA"
+  },
+  "slowpoke_well": {
+    "id": 16,
+    "name": "slowpoke_well",
+    "displayName": "Slowpoke Well",
+    "region": "johto",
+    "x": 76,
+    "y": 116,
+    "flyable": false,
+    "connections": []
+  },
+  "ilex_forest": {
+    "id": 17,
+    "name": "ilex_forest",
+    "displayName": "Ilex Forest",
+    "region": "johto",
+    "x": 52,
+    "y": 124,
+    "flyable": false,
+    "connections": []
+  },
+  "route_34": {
+    "id": 18,
+    "name": "route_34",
+    "displayName": "Route 34",
+    "region": "johto",
+    "x": 52,
+    "y": 108,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "goldenrod_city",
+        "targetLocationDisplay": "Goldenrod City",
+        "offset": -7
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_34_coast",
+        "targetLocationDisplay": "Route 34 Coast",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "azalea_town",
+        "targetLocationDisplay": "Azalea Town",
+        "offset": 18
+      }
+    ]
+  },
+  "route_34_coast": {
+    "id": 19,
+    "name": "route_34_coast",
+    "displayName": "Route 34 Coast",
+    "region": "johto",
+    "x": 36,
+    "y": 120,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "stormy_beach",
+        "targetLocationDisplay": "Stormy Beach",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_34",
+        "targetLocationDisplay": "Route 34",
+        "offset": 0
+      }
+    ]
+  },
+  "stormy_beach": {
+    "id": 20,
+    "name": "stormy_beach",
+    "displayName": "Stormy Beach",
+    "region": "johto",
+    "x": 44,
+    "y": 132,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_34_coast",
+        "targetLocationDisplay": "Route 34 Coast",
+        "offset": 0
+      }
+    ]
+  },
+  "murky_swamp": {
+    "id": 21,
+    "name": "murky_swamp",
+    "displayName": "Murky Swamp",
+    "region": "johto",
+    "x": 52,
+    "y": 132,
+    "flyable": false,
+    "connections": []
+  },
+  "goldenrod_city": {
+    "id": 22,
+    "name": "goldenrod_city",
+    "displayName": "Goldenrod City",
+    "region": "johto",
+    "x": 52,
+    "y": 92,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_35",
+        "targetLocationDisplay": "Route 35",
+        "offset": 5
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_34",
+        "targetLocationDisplay": "Route 34",
+        "offset": 7
+      },
+      {
+        "direction": "east",
+        "targetLocation": "magnet_tunnel_west",
+        "targetLocationDisplay": "Magnet Tunnel West",
+        "offset": 0
+      }
+    ],
+    "spawnPoint": "SPAWN_GOLDENROD"
+  },
+  "radio_tower": {
+    "id": 23,
+    "name": "radio_tower",
+    "displayName": "Radio Tower",
+    "region": "johto",
+    "x": 50,
+    "y": 92,
+    "flyable": false,
+    "connections": []
+  },
+  "goldenrod_harbor": {
+    "id": 24,
+    "name": "goldenrod_harbor",
+    "displayName": "Goldenrod Harbor",
+    "region": "johto",
+    "x": 44,
+    "y": 92,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_35_coast_south",
+        "targetLocationDisplay": "Route 35 Coast South",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_41",
+        "targetLocationDisplay": "Route 41",
+        "offset": -3
+      }
+    ]
+  },
+  "magnet_tunnel": {
+    "id": 25,
+    "name": "magnet_tunnel",
+    "displayName": "Magnet Tunnel",
+    "region": "johto",
+    "x": 68,
+    "y": 92,
+    "flyable": false,
+    "connections": []
+  },
+  "route_35": {
+    "id": 26,
+    "name": "route_35",
+    "displayName": "Route 35",
+    "region": "johto",
+    "x": 52,
+    "y": 76,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_36",
+        "targetLocationDisplay": "Route 36",
+        "offset": 0
+      },
+      {
+        "direction": "south",
+        "targetLocation": "goldenrod_city",
+        "targetLocationDisplay": "Goldenrod City",
+        "offset": -5
+      }
+    ]
+  },
+  "route_35_coast": {
+    "id": 27,
+    "name": "route_35_coast",
+    "displayName": "Route 35 Coast",
+    "region": "johto",
+    "x": 44,
+    "y": 76,
+    "flyable": false,
+    "connections": []
+  },
+  "national_park": {
+    "id": 28,
+    "name": "national_park",
+    "displayName": "National Park",
+    "region": "johto",
+    "x": 52,
+    "y": 60,
+    "flyable": false,
+    "connections": []
+  },
+  "route_36": {
+    "id": 29,
+    "name": "route_36",
+    "displayName": "Route 36",
+    "region": "johto",
+    "x": 64,
+    "y": 60,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_37",
+        "targetLocationDisplay": "Route 37",
+        "offset": 12
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_35",
+        "targetLocationDisplay": "Route 35",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "violet_city",
+        "targetLocationDisplay": "Violet City",
+        "offset": 0
+      }
+    ]
+  },
+  "route_37": {
+    "id": 30,
+    "name": "route_37",
+    "displayName": "Route 37",
+    "region": "johto",
+    "x": 68,
+    "y": 52,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "ecruteak_city",
+        "targetLocationDisplay": "Ecruteak City",
+        "offset": -5
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_36",
+        "targetLocationDisplay": "Route 36",
+        "offset": -12
+      }
+    ]
+  },
+  "ecruteak_city": {
+    "id": 31,
+    "name": "ecruteak_city",
+    "displayName": "Ecruteak City",
+    "region": "johto",
+    "x": 68,
+    "y": 44,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_37",
+        "targetLocationDisplay": "Route 37",
+        "offset": 5
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_38",
+        "targetLocationDisplay": "Route 38",
+        "offset": 5
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_42",
+        "targetLocationDisplay": "Route 42",
+        "offset": 9
+      }
+    ],
+    "spawnPoint": "SPAWN_ECRUTEAK"
+  },
+  "bellchime_trail": {
+    "id": 32,
+    "name": "bellchime_trail",
+    "displayName": "Bellchime Trail",
+    "region": "johto",
+    "x": 69,
+    "y": 42,
+    "flyable": false,
+    "connections": []
+  },
+  "tin_tower": {
+    "id": 33,
+    "name": "tin_tower",
+    "displayName": "Tin Tower",
+    "region": "johto",
+    "x": 70,
+    "y": 42,
+    "flyable": false,
+    "connections": []
+  },
+  "burned_tower": {
+    "id": 34,
+    "name": "burned_tower",
+    "displayName": "Burned Tower",
+    "region": "johto",
+    "x": 66,
+    "y": 42,
+    "flyable": false,
+    "connections": []
+  },
+  "route_38": {
+    "id": 35,
+    "name": "route_38",
+    "displayName": "Route 38",
+    "region": "johto",
+    "x": 52,
+    "y": 44,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_39",
+        "targetLocationDisplay": "Route 39",
+        "offset": -7
+      },
+      {
+        "direction": "east",
+        "targetLocation": "ecruteak_city",
+        "targetLocationDisplay": "Ecruteak City",
+        "offset": -5
+      }
+    ]
+  },
+  "route_39": {
+    "id": 36,
+    "name": "route_39",
+    "displayName": "Route 39",
+    "region": "johto",
+    "x": 36,
+    "y": 48,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "olivine_city",
+        "targetLocationDisplay": "Olivine City",
+        "offset": -5
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_38",
+        "targetLocationDisplay": "Route 38",
+        "offset": 7
+      }
+    ]
+  },
+  "rugged_road": {
+    "id": 37,
+    "name": "rugged_road",
+    "displayName": "Rugged Road",
+    "region": "johto",
+    "x": 36,
+    "y": 36,
+    "flyable": false,
+    "connections": []
+  },
+  "snowtop_mountain": {
+    "id": 38,
+    "name": "snowtop_mountain",
+    "displayName": "Snowtop Mountain",
+    "region": "johto",
+    "x": 36,
+    "y": 28,
+    "flyable": true,
+    "connections": [],
+    "spawnPoint": "SPAWN_SNOWTOP"
+  },
+  "olivine_city": {
+    "id": 39,
+    "name": "olivine_city",
+    "displayName": "Olivine City",
+    "region": "johto",
+    "x": 36,
+    "y": 60,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_39",
+        "targetLocationDisplay": "Route 39",
+        "offset": 5
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_35_coast_south",
+        "targetLocationDisplay": "Route 35 Coast South",
+        "offset": 7
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_40",
+        "targetLocationDisplay": "Route 40",
+        "offset": 7
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_35_coast_north",
+        "targetLocationDisplay": "Route 35 Coast North",
+        "offset": 3
+      }
+    ],
+    "spawnPoint": "SPAWN_OLIVINE"
+  },
+  "lighthouse": {
+    "id": 40,
+    "name": "lighthouse",
+    "displayName": "Lighthouse",
+    "region": "johto",
+    "x": 38,
+    "y": 62,
+    "flyable": false,
+    "connections": []
+  },
+  "route_40": {
+    "id": 41,
+    "name": "route_40",
+    "displayName": "Route 40",
+    "region": "johto",
+    "x": 28,
+    "y": 64,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_41",
+        "targetLocationDisplay": "Route 41",
+        "offset": -15
+      },
+      {
+        "direction": "east",
+        "targetLocation": "olivine_city",
+        "targetLocationDisplay": "Olivine City",
+        "offset": -7
+      }
+    ]
+  },
+  "battle_tower": {
+    "id": 42,
+    "name": "battle_tower",
+    "displayName": "Battle Tower",
+    "region": "johto",
+    "x": 28,
+    "y": 52,
+    "flyable": false,
+    "connections": []
+  },
+  "whirl_islands": {
+    "id": 43,
+    "name": "whirl_islands",
+    "displayName": "Whirl Islands",
+    "region": "johto",
+    "x": 28,
+    "y": 92,
+    "flyable": false,
+    "connections": []
+  },
+  "route_41": {
+    "id": 44,
+    "name": "route_41",
+    "displayName": "Route 41",
+    "region": "johto",
+    "x": 28,
+    "y": 100,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_40",
+        "targetLocationDisplay": "Route 40",
+        "offset": 15
+      },
+      {
+        "direction": "west",
+        "targetLocation": "cianwood_city",
+        "targetLocationDisplay": "Cianwood City",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "goldenrod_harbor",
+        "targetLocationDisplay": "Goldenrod Harbor",
+        "offset": 3
+      }
+    ]
+  },
+  "cianwood_city": {
+    "id": 45,
+    "name": "cianwood_city",
+    "displayName": "Cianwood City",
+    "region": "johto",
+    "x": 20,
+    "y": 100,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "east",
+        "targetLocation": "route_41",
+        "targetLocationDisplay": "Route 41",
+        "offset": 0
+      }
+    ],
+    "spawnPoint": "SPAWN_CIANWOOD"
+  },
+  "cliff_edge_gate": {
+    "id": 46,
+    "name": "cliff_edge_gate",
+    "displayName": "Cliff Edge Gate",
+    "region": "johto",
+    "x": 18,
+    "y": 98,
+    "flyable": false,
+    "connections": []
+  },
+  "route_47": {
+    "id": 47,
+    "name": "route_47",
+    "displayName": "Route 47",
+    "region": "johto",
+    "x": 12,
+    "y": 100,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_48",
+        "targetLocationDisplay": "Route 48",
+        "offset": 0
+      }
+    ]
+  },
+  "cliff_cave": {
+    "id": 48,
+    "name": "cliff_cave",
+    "displayName": "Cliff Cave",
+    "region": "johto",
+    "x": 12,
+    "y": 96,
+    "flyable": false,
+    "connections": []
+  },
+  "route_48": {
+    "id": 49,
+    "name": "route_48",
+    "displayName": "Route 48",
+    "region": "johto",
+    "x": 12,
+    "y": 92,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_47",
+        "targetLocationDisplay": "Route 47",
+        "offset": 0
+      }
+    ]
+  },
+  "yellow_forest": {
+    "id": 50,
+    "name": "yellow_forest",
+    "displayName": "Yellow Forest",
+    "region": "johto",
+    "x": 12,
+    "y": 84,
+    "flyable": true,
+    "connections": [],
+    "spawnPoint": "SPAWN_YELLOW_FOREST"
+  },
+  "quiet_cave": {
+    "id": 51,
+    "name": "quiet_cave",
+    "displayName": "Quiet Cave",
+    "region": "johto",
+    "x": 12,
+    "y": 108,
+    "flyable": false,
+    "connections": []
+  },
+  "route_42": {
+    "id": 52,
+    "name": "route_42",
+    "displayName": "Route 42",
+    "region": "johto",
+    "x": 92,
+    "y": 44,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "violet_outskirts",
+        "targetLocationDisplay": "Violet Outskirts",
+        "offset": 5
+      },
+      {
+        "direction": "west",
+        "targetLocation": "ecruteak_city",
+        "targetLocationDisplay": "Ecruteak City",
+        "offset": -9
+      },
+      {
+        "direction": "east",
+        "targetLocation": "mahogany_town",
+        "targetLocationDisplay": "Mahogany Town",
+        "offset": 0
+      }
+    ]
+  },
+  "mt_mortar": {
+    "id": 53,
+    "name": "mt_mortar",
+    "displayName": "Mt Mortar",
+    "region": "johto",
+    "x": 84,
+    "y": 44,
+    "flyable": false,
+    "connections": []
+  },
+  "mahogany_town": {
+    "id": 54,
+    "name": "mahogany_town",
+    "displayName": "Mahogany Town",
+    "region": "johto",
+    "x": 108,
+    "y": 44,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_43",
+        "targetLocationDisplay": "Route 43",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_42",
+        "targetLocationDisplay": "Route 42",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_44",
+        "targetLocationDisplay": "Route 44",
+        "offset": 0
+      }
+    ],
+    "spawnPoint": "SPAWN_MAHOGANY"
+  },
+  "route_43": {
+    "id": 55,
+    "name": "route_43",
+    "displayName": "Route 43",
+    "region": "johto",
+    "x": 108,
+    "y": 36,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "lake_of_rage",
+        "targetLocationDisplay": "Lake Of Rage",
+        "offset": -5
+      },
+      {
+        "direction": "south",
+        "targetLocation": "mahogany_town",
+        "targetLocationDisplay": "Mahogany Town",
+        "offset": 0
+      }
+    ]
+  },
+  "lake_of_rage": {
+    "id": 56,
+    "name": "lake_of_rage",
+    "displayName": "Lake Of Rage",
+    "region": "johto",
+    "x": 108,
+    "y": 28,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_43",
+        "targetLocationDisplay": "Route 43",
+        "offset": 5
+      }
+    ],
+    "spawnPoint": "SPAWN_LAKE_OF_RAGE"
+  },
+  "route_44": {
+    "id": 57,
+    "name": "route_44",
+    "displayName": "Route 44",
+    "region": "johto",
+    "x": 120,
+    "y": 44,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "mahogany_town",
+        "targetLocationDisplay": "Mahogany Town",
+        "offset": 0
+      }
+    ]
+  },
+  "ice_path": {
+    "id": 58,
+    "name": "ice_path",
+    "displayName": "Ice Path",
+    "region": "johto",
+    "x": 128,
+    "y": 40,
+    "flyable": false,
+    "connections": []
+  },
+  "blackthorn_city": {
+    "id": 59,
+    "name": "blackthorn_city",
+    "displayName": "Blackthorn City",
+    "region": "johto",
+    "x": 132,
+    "y": 44,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_45",
+        "targetLocationDisplay": "Route 45",
+        "offset": -2
+      }
+    ],
+    "spawnPoint": "SPAWN_BLACKTHORN"
+  },
+  "dragons_den": {
+    "id": 60,
+    "name": "dragons_den",
+    "displayName": "Dragons Den",
+    "region": "johto",
+    "x": 132,
+    "y": 36,
+    "flyable": false,
+    "connections": []
+  },
+  "route_45": {
+    "id": 61,
+    "name": "route_45",
+    "displayName": "Route 45",
+    "region": "johto",
+    "x": 132,
+    "y": 64,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "blackthorn_city",
+        "targetLocationDisplay": "Blackthorn City",
+        "offset": 2
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_46",
+        "targetLocationDisplay": "Route 46",
+        "offset": 37
+      }
+    ]
+  },
+  "dark_cave": {
+    "id": 62,
+    "name": "dark_cave",
+    "displayName": "Dark Cave",
+    "region": "johto",
+    "x": 116,
+    "y": 68,
+    "flyable": false,
+    "connections": []
+  },
+  "route_46": {
+    "id": 63,
+    "name": "route_46",
+    "displayName": "Route 46",
+    "region": "johto",
+    "x": 124,
+    "y": 88,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_29",
+        "targetLocationDisplay": "Route 29",
+        "offset": -10
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_45",
+        "targetLocationDisplay": "Route 45",
+        "offset": -37
+      }
+    ]
+  },
+  "silver_cave": {
+    "id": 64,
+    "name": "silver_cave",
+    "displayName": "Silver Cave",
+    "region": "johto",
+    "x": 144,
+    "y": 60,
+    "flyable": true,
+    "connections": [],
+    "spawnPoint": "SPAWN_MT_SILVER"
+  },
+  "fast_ship": {
+    "id": 65,
+    "name": "fast_ship",
+    "displayName": "Fast Ship",
+    "region": "johto",
+    "x": 102,
+    "y": 124,
+    "flyable": false,
+    "connections": []
+  },
+  "sinjoh_ruins": {
+    "id": 66,
+    "name": "sinjoh_ruins",
+    "displayName": "Sinjoh Ruins",
+    "region": "johto",
+    "x": 120,
+    "y": 28,
+    "flyable": false,
+    "connections": []
+  },
+  "mystri_stage": {
+    "id": 67,
+    "name": "mystri_stage",
+    "displayName": "Mystri Stage",
+    "region": "johto",
+    "x": 120,
+    "y": 28,
+    "flyable": false,
+    "connections": []
+  },
+  "magnet_tunnel_east": {
+    "id": -1,
+    "name": "magnet_tunnel_east",
+    "displayName": "Magnet Tunnel East",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "ruins_of_alph_outside",
+        "targetLocationDisplay": "Ruins Of Alph Outside",
+        "offset": 2
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_32",
+        "targetLocationDisplay": "Route 32",
+        "offset": -9
+      }
+    ]
+  },
+  "magnet_tunnel_west": {
+    "id": -1,
+    "name": "magnet_tunnel_west",
+    "displayName": "Magnet Tunnel West",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "goldenrod_city",
+        "targetLocationDisplay": "Goldenrod City",
+        "offset": 0
+      }
+    ]
+  },
+  "olivine_city_route_35_coast_dual": {
+    "id": -1,
+    "name": "olivine_city_route_35_coast_dual",
+    "displayName": "Olivine City Route 35 Coast Dual",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_35_coast_south",
+        "targetLocationDisplay": "Route 35 Coast South",
+        "offset": 0
+      }
+    ]
+  },
+  "route_10_north": {
+    "id": -1,
+    "name": "route_10_north",
+    "displayName": "Route 10 North",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_10_south",
+        "targetLocationDisplay": "Route 10 South",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_9",
+        "targetLocationDisplay": "Route 9",
+        "offset": 6
+      }
+    ]
+  },
+  "route_10_south": {
+    "id": -1,
+    "name": "route_10_south",
+    "displayName": "Route 10 South",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_10_north",
+        "targetLocationDisplay": "Route 10 North",
+        "offset": 0
+      },
+      {
+        "direction": "south",
+        "targetLocation": "lavender_town",
+        "targetLocationDisplay": "Lavender Town",
+        "offset": 0
+      }
+    ]
+  },
+  "route_12_north": {
+    "id": -1,
+    "name": "route_12_north",
+    "displayName": "Route 12 North",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "lavender_town",
+        "targetLocationDisplay": "Lavender Town",
+        "offset": 0
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_12_south",
+        "targetLocationDisplay": "Route 12 South",
+        "offset": 0
+      }
+    ]
+  },
+  "route_12_south": {
+    "id": -1,
+    "name": "route_12_south",
+    "displayName": "Route 12 South",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_12_north",
+        "targetLocationDisplay": "Route 12 North",
+        "offset": 0
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_13_east",
+        "targetLocationDisplay": "Route 13 East",
+        "offset": -13
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_11",
+        "targetLocationDisplay": "Route 11",
+        "offset": 17
+      }
+    ]
+  },
+  "route_13_east": {
+    "id": -1,
+    "name": "route_13_east",
+    "displayName": "Route 13 East",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_12_south",
+        "targetLocationDisplay": "Route 12 South",
+        "offset": 13
+      },
+      {
+        "direction": "south",
+        "targetLocation": "lucky_island",
+        "targetLocationDisplay": "Lucky Island",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_13_west",
+        "targetLocationDisplay": "Route 13 West",
+        "offset": 0
+      }
+    ]
+  },
+  "route_13_west": {
+    "id": -1,
+    "name": "route_13_west",
+    "displayName": "Route 13 West",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_14",
+        "targetLocationDisplay": "Route 14",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_13_east",
+        "targetLocationDisplay": "Route 13 East",
+        "offset": 0
+      }
+    ]
+  },
+  "route_16_northeast": {
+    "id": -1,
+    "name": "route_16_northeast",
+    "displayName": "Route 16 Northeast",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_16_west",
+        "targetLocationDisplay": "Route 16 West",
+        "offset": -1
+      },
+      {
+        "direction": "east",
+        "targetLocation": "celadon_city",
+        "targetLocationDisplay": "Celadon City",
+        "offset": -10
+      }
+    ]
+  },
+  "route_16_northwest": {
+    "id": -1,
+    "name": "route_16_northwest",
+    "displayName": "Route 16 Northwest",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_16_west",
+        "targetLocationDisplay": "Route 16 West",
+        "offset": -1
+      },
+      {
+        "direction": "east",
+        "targetLocation": "celadon_city",
+        "targetLocationDisplay": "Celadon City",
+        "offset": -10
+      }
+    ]
+  },
+  "route_16_south": {
+    "id": -1,
+    "name": "route_16_south",
+    "displayName": "Route 16 South",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_17",
+        "targetLocationDisplay": "Route 17",
+        "offset": 3
+      }
+    ]
+  },
+  "route_16_west": {
+    "id": -1,
+    "name": "route_16_west",
+    "displayName": "Route 16 West",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_2_south",
+        "targetLocationDisplay": "Route 2 South",
+        "offset": -7
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_16_northwest",
+        "targetLocationDisplay": "Route 16 Northwest",
+        "offset": 1
+      }
+    ]
+  },
+  "route_18_east": {
+    "id": -1,
+    "name": "route_18_east",
+    "displayName": "Route 18 East",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_18_west",
+        "targetLocationDisplay": "Route 18 West",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "fuchsia_city",
+        "targetLocationDisplay": "Fuchsia City",
+        "offset": -7
+      }
+    ]
+  },
+  "route_18_west": {
+    "id": -1,
+    "name": "route_18_west",
+    "displayName": "Route 18 West",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_17",
+        "targetLocationDisplay": "Route 17",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "uraga_channel_east",
+        "targetLocationDisplay": "Uraga Channel East",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_18_east",
+        "targetLocationDisplay": "Route 18 East",
+        "offset": 0
+      }
+    ]
+  },
+  "route_2_north": {
+    "id": -1,
+    "name": "route_2_north",
+    "displayName": "Route 2 North",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "pewter_city",
+        "targetLocationDisplay": "Pewter City",
+        "offset": -5
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_2_south",
+        "targetLocationDisplay": "Route 2 South",
+        "offset": -2
+      }
+    ]
+  },
+  "route_2_south": {
+    "id": -1,
+    "name": "route_2_south",
+    "displayName": "Route 2 South",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_2_north",
+        "targetLocationDisplay": "Route 2 North",
+        "offset": 2
+      },
+      {
+        "direction": "south",
+        "targetLocation": "viridian_city",
+        "targetLocationDisplay": "Viridian City",
+        "offset": -3
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_16_west",
+        "targetLocationDisplay": "Route 16 West",
+        "offset": 7
+      }
+    ]
+  },
+  "route_35_coast_north": {
+    "id": -1,
+    "name": "route_35_coast_north",
+    "displayName": "Route 35 Coast North",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_35_coast_south",
+        "targetLocationDisplay": "Route 35 Coast South",
+        "offset": -15
+      },
+      {
+        "direction": "west",
+        "targetLocation": "olivine_city",
+        "targetLocationDisplay": "Olivine City",
+        "offset": -3
+      }
+    ]
+  },
+  "route_35_coast_south": {
+    "id": -1,
+    "name": "route_35_coast_south",
+    "displayName": "Route 35 Coast South",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "olivine_city_route_35_coast_dual",
+        "targetLocationDisplay": "Olivine City Route 35 Coast Dual",
+        "offset": 0
+      },
+      {
+        "direction": "south",
+        "targetLocation": "goldenrod_harbor",
+        "targetLocationDisplay": "Goldenrod Harbor",
+        "offset": 0
+      }
+    ]
+  },
+  "rugged_road_north": {
+    "id": -1,
+    "name": "rugged_road_north",
+    "displayName": "Rugged Road North",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "rugged_road_south",
+        "targetLocationDisplay": "Rugged Road South",
+        "offset": 0
+      }
+    ]
+  },
+  "rugged_road_south": {
+    "id": -1,
+    "name": "rugged_road_south",
+    "displayName": "Rugged Road South",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "rugged_road_north",
+        "targetLocationDisplay": "Rugged Road North",
+        "offset": 0
+      }
+    ]
+  },
+  "ruins_of_alph_outside": {
+    "id": -1,
+    "name": "ruins_of_alph_outside",
+    "displayName": "Ruins Of Alph Outside",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "magnet_tunnel_east",
+        "targetLocationDisplay": "Magnet Tunnel East",
+        "offset": -2
+      }
+    ]
+  },
+  "silver_cave_outside": {
+    "id": -1,
+    "name": "silver_cave_outside",
+    "displayName": "Silver Cave Outside",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "east",
+        "targetLocation": "route_28",
+        "targetLocationDisplay": "Route 28",
+        "offset": 6
+      }
+    ]
+  },
+  "uraga_channel_east": {
+    "id": -1,
+    "name": "uraga_channel_east",
+    "displayName": "Uraga Channel East",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "uraga_channel_west",
+        "targetLocationDisplay": "Uraga Channel West",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_18_west",
+        "targetLocationDisplay": "Route 18 West",
+        "offset": 0
+      }
+    ]
+  },
+  "uraga_channel_west": {
+    "id": -1,
+    "name": "uraga_channel_west",
+    "displayName": "Uraga Channel West",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_21",
+        "targetLocationDisplay": "Route 21",
+        "offset": -19
+      },
+      {
+        "direction": "east",
+        "targetLocation": "uraga_channel_east",
+        "targetLocationDisplay": "Uraga Channel East",
+        "offset": 0
+      }
+    ]
+  },
+  "pallet_town": {
+    "id": 68,
+    "name": "pallet_town",
+    "displayName": "Pallet Town",
+    "region": "kanto",
+    "x": 52,
+    "y": 100,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_1",
+        "targetLocationDisplay": "Route 1",
+        "offset": -1
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_21",
+        "targetLocationDisplay": "Route 21",
+        "offset": 0
+      }
+    ],
+    "spawnPoint": "SPAWN_PALLET"
+  },
+  "route_1": {
+    "id": 69,
+    "name": "route_1",
+    "displayName": "Route 1",
+    "region": "kanto",
+    "x": 52,
+    "y": 88,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "viridian_city",
+        "targetLocationDisplay": "Viridian City",
+        "offset": -5
+      },
+      {
+        "direction": "south",
+        "targetLocation": "pallet_town",
+        "targetLocationDisplay": "Pallet Town",
+        "offset": 1
+      }
+    ]
+  },
+  "viridian_city": {
+    "id": 70,
+    "name": "viridian_city",
+    "displayName": "Viridian City",
+    "region": "kanto",
+    "x": 52,
+    "y": 76,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_2_south",
+        "targetLocationDisplay": "Route 2 South",
+        "offset": 3
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_1",
+        "targetLocationDisplay": "Route 1",
+        "offset": 5
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_22",
+        "targetLocationDisplay": "Route 22",
+        "offset": 4
+      }
+    ],
+    "spawnPoint": "SPAWN_VIRIDIAN"
+  },
+  "route_2": {
+    "id": 71,
+    "name": "route_2",
+    "displayName": "Route 2",
+    "region": "kanto",
+    "x": 52,
+    "y": 68,
+    "flyable": false,
+    "connections": []
+  },
+  "viridian_forest": {
+    "id": 72,
+    "name": "viridian_forest",
+    "displayName": "Viridian Forest",
+    "region": "kanto",
+    "x": 52,
+    "y": 60,
+    "flyable": false,
+    "connections": []
+  },
+  "pewter_city": {
+    "id": 73,
+    "name": "pewter_city",
+    "displayName": "Pewter City",
+    "region": "kanto",
+    "x": 52,
+    "y": 44,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_2_north",
+        "targetLocationDisplay": "Route 2 North",
+        "offset": 5
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_3",
+        "targetLocationDisplay": "Route 3",
+        "offset": 5
+      }
+    ],
+    "spawnPoint": "SPAWN_PEWTER"
+  },
+  "route_3": {
+    "id": 74,
+    "name": "route_3",
+    "displayName": "Route 3",
+    "region": "kanto",
+    "x": 64,
+    "y": 44,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "pewter_city",
+        "targetLocationDisplay": "Pewter City",
+        "offset": -5
+      }
+    ]
+  },
+  "mt_moon": {
+    "id": 75,
+    "name": "mt_moon",
+    "displayName": "Mt Moon",
+    "region": "kanto",
+    "x": 76,
+    "y": 44,
+    "flyable": true,
+    "connections": [],
+    "spawnPoint": "SPAWN_MT_MOON"
+  },
+  "route_4": {
+    "id": 76,
+    "name": "route_4",
+    "displayName": "Route 4",
+    "region": "kanto",
+    "x": 92,
+    "y": 44,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "east",
+        "targetLocation": "cerulean_city",
+        "targetLocationDisplay": "Cerulean City",
+        "offset": -2
+      }
+    ]
+  },
+  "cerulean_city": {
+    "id": 77,
+    "name": "cerulean_city",
+    "displayName": "Cerulean City",
+    "region": "kanto",
+    "x": 108,
+    "y": 44,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_24",
+        "targetLocationDisplay": "Route 24",
+        "offset": 0
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_5",
+        "targetLocationDisplay": "Route 5",
+        "offset": 5
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_4",
+        "targetLocationDisplay": "Route 4",
+        "offset": 2
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_9",
+        "targetLocationDisplay": "Route 9",
+        "offset": 4
+      }
+    ],
+    "spawnPoint": "SPAWN_CERULEAN"
+  },
+  "cerulean_cave": {
+    "id": 78,
+    "name": "cerulean_cave",
+    "displayName": "Cerulean Cave",
+    "region": "kanto",
+    "x": 100,
+    "y": 36,
+    "flyable": false,
+    "connections": []
+  },
+  "route_24": {
+    "id": 79,
+    "name": "route_24",
+    "displayName": "Route 24",
+    "region": "kanto",
+    "x": 108,
+    "y": 36,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "cerulean_city",
+        "targetLocationDisplay": "Cerulean City",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_25",
+        "targetLocationDisplay": "Route 25",
+        "offset": 0
+      }
+    ]
+  },
+  "route_25": {
+    "id": 80,
+    "name": "route_25",
+    "displayName": "Route 25",
+    "region": "kanto",
+    "x": 124,
+    "y": 28,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_24",
+        "targetLocationDisplay": "Route 24",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "cerulean_cape",
+        "targetLocationDisplay": "Cerulean Cape",
+        "offset": 0
+      }
+    ]
+  },
+  "cerulean_cape": {
+    "id": 81,
+    "name": "cerulean_cape",
+    "displayName": "Cerulean Cape",
+    "region": "kanto",
+    "x": 140,
+    "y": 28,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_25",
+        "targetLocationDisplay": "Route 25",
+        "offset": 0
+      }
+    ],
+    "spawnPoint": "SPAWN_CERULEAN_CAPE"
+  },
+  "route_5": {
+    "id": 82,
+    "name": "route_5",
+    "displayName": "Route 5",
+    "region": "kanto",
+    "x": 108,
+    "y": 52,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "cerulean_city",
+        "targetLocationDisplay": "Cerulean City",
+        "offset": -5
+      },
+      {
+        "direction": "south",
+        "targetLocation": "saffron_city",
+        "targetLocationDisplay": "Saffron City",
+        "offset": -5
+      }
+    ]
+  },
+  "underground": {
+    "id": 83,
+    "name": "underground",
+    "displayName": "Underground",
+    "region": "kanto",
+    "x": 114,
+    "y": 66,
+    "flyable": false,
+    "connections": []
+  },
+  "route_6": {
+    "id": 84,
+    "name": "route_6",
+    "displayName": "Route 6",
+    "region": "kanto",
+    "x": 108,
+    "y": 68,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "saffron_city",
+        "targetLocationDisplay": "Saffron City",
+        "offset": -3
+      },
+      {
+        "direction": "south",
+        "targetLocation": "vermilion_city",
+        "targetLocationDisplay": "Vermilion City",
+        "offset": -3
+      }
+    ]
+  },
+  "vermilion_city": {
+    "id": 85,
+    "name": "vermilion_city",
+    "displayName": "Vermilion City",
+    "region": "kanto",
+    "x": 108,
+    "y": 76,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_6",
+        "targetLocationDisplay": "Route 6",
+        "offset": 3
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_11",
+        "targetLocationDisplay": "Route 11",
+        "offset": 5
+      }
+    ],
+    "spawnPoint": "SPAWN_VERMILION"
+  },
+  "digletts_cave": {
+    "id": 86,
+    "name": "digletts_cave",
+    "displayName": "Digletts Cave",
+    "region": "kanto",
+    "x": 116,
+    "y": 68,
+    "flyable": false,
+    "connections": []
+  },
+  "route_7": {
+    "id": 87,
+    "name": "route_7",
+    "displayName": "Route 7",
+    "region": "kanto",
+    "x": 96,
+    "y": 60,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "celadon_city",
+        "targetLocationDisplay": "Celadon City",
+        "offset": -5
+      },
+      {
+        "direction": "east",
+        "targetLocation": "saffron_city",
+        "targetLocationDisplay": "Saffron City",
+        "offset": -6
+      }
+    ]
+  },
+  "route_8": {
+    "id": 88,
+    "name": "route_8",
+    "displayName": "Route 8",
+    "region": "kanto",
+    "x": 124,
+    "y": 60,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "saffron_city",
+        "targetLocationDisplay": "Saffron City",
+        "offset": -4
+      },
+      {
+        "direction": "east",
+        "targetLocation": "lavender_town",
+        "targetLocationDisplay": "Lavender Town",
+        "offset": 0
+      }
+    ]
+  },
+  "route_9": {
+    "id": 89,
+    "name": "route_9",
+    "displayName": "Route 9",
+    "region": "kanto",
+    "x": 124,
+    "y": 44,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "cerulean_city",
+        "targetLocationDisplay": "Cerulean City",
+        "offset": -4
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_10_north",
+        "targetLocationDisplay": "Route 10 North",
+        "offset": -6
+      }
+    ]
+  },
+  "route_10": {
+    "id": 90,
+    "name": "route_10",
+    "displayName": "Route 10",
+    "region": "kanto",
+    "x": 140,
+    "y": 52,
+    "flyable": false,
+    "connections": []
+  },
+  "rock_tunnel": {
+    "id": 91,
+    "name": "rock_tunnel",
+    "displayName": "Rock Tunnel",
+    "region": "kanto",
+    "x": 140,
+    "y": 44,
+    "flyable": true,
+    "connections": [],
+    "spawnPoint": "SPAWN_ROCK_TUNNEL"
+  },
+  "power_plant": {
+    "id": 92,
+    "name": "power_plant",
+    "displayName": "Power Plant",
+    "region": "kanto",
+    "x": 148,
+    "y": 52,
+    "flyable": false,
+    "connections": []
+  },
+  "dim_cave": {
+    "id": 93,
+    "name": "dim_cave",
+    "displayName": "Dim Cave",
+    "region": "kanto",
+    "x": 148,
+    "y": 44,
+    "flyable": false,
+    "connections": []
+  },
+  "lavender_town": {
+    "id": 94,
+    "name": "lavender_town",
+    "displayName": "Lavender Town",
+    "region": "kanto",
+    "x": 140,
+    "y": 60,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_10_south",
+        "targetLocationDisplay": "Route 10 South",
+        "offset": 0
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_12_north",
+        "targetLocationDisplay": "Route 12 North",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_8",
+        "targetLocationDisplay": "Route 8",
+        "offset": 0
+      }
+    ],
+    "spawnPoint": "SPAWN_LAVENDER"
+  },
+  "lav_radio_tower": {
+    "id": 95,
+    "name": "lav_radio_tower",
+    "displayName": "Lav Radio Tower",
+    "region": "kanto",
+    "x": 142,
+    "y": 58,
+    "flyable": false,
+    "connections": []
+  },
+  "soul_house": {
+    "id": 96,
+    "name": "soul_house",
+    "displayName": "Soul House",
+    "region": "kanto",
+    "x": 142,
+    "y": 62,
+    "flyable": false,
+    "connections": []
+  },
+  "celadon_city": {
+    "id": 97,
+    "name": "celadon_city",
+    "displayName": "Celadon City",
+    "region": "kanto",
+    "x": 84,
+    "y": 60,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_16_northeast",
+        "targetLocationDisplay": "Route 16 Northeast",
+        "offset": 10
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_7",
+        "targetLocationDisplay": "Route 7",
+        "offset": 5
+      }
+    ],
+    "spawnPoint": "SPAWN_CELADON"
+  },
+  "celadon_university": {
+    "id": 98,
+    "name": "celadon_university",
+    "displayName": "Celadon University",
+    "region": "kanto",
+    "x": 82,
+    "y": 62,
+    "flyable": false,
+    "connections": []
+  },
+  "saffron_city": {
+    "id": 99,
+    "name": "saffron_city",
+    "displayName": "Saffron City",
+    "region": "kanto",
+    "x": 108,
+    "y": 60,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_5",
+        "targetLocationDisplay": "Route 5",
+        "offset": 5
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_6",
+        "targetLocationDisplay": "Route 6",
+        "offset": 3
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_7",
+        "targetLocationDisplay": "Route 7",
+        "offset": 6
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_8",
+        "targetLocationDisplay": "Route 8",
+        "offset": 4
+      }
+    ],
+    "spawnPoint": "SPAWN_SAFFRON"
+  },
+  "route_11": {
+    "id": 100,
+    "name": "route_11",
+    "displayName": "Route 11",
+    "region": "kanto",
+    "x": 124,
+    "y": 76,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "vermilion_city",
+        "targetLocationDisplay": "Vermilion City",
+        "offset": -5
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_12_south",
+        "targetLocationDisplay": "Route 12 South",
+        "offset": -17
+      }
+    ]
+  },
+  "route_12": {
+    "id": 101,
+    "name": "route_12",
+    "displayName": "Route 12",
+    "region": "kanto",
+    "x": 140,
+    "y": 76,
+    "flyable": false,
+    "connections": []
+  },
+  "route_13": {
+    "id": 102,
+    "name": "route_13",
+    "displayName": "Route 13",
+    "region": "kanto",
+    "x": 132,
+    "y": 92,
+    "flyable": false,
+    "connections": []
+  },
+  "route_14": {
+    "id": 103,
+    "name": "route_14",
+    "displayName": "Route 14",
+    "region": "kanto",
+    "x": 124,
+    "y": 100,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_13_west",
+        "targetLocationDisplay": "Route 13 West",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_15",
+        "targetLocationDisplay": "Route 15",
+        "offset": 10
+      },
+      {
+        "direction": "east",
+        "targetLocation": "lucky_island",
+        "targetLocationDisplay": "Lucky Island",
+        "offset": 0
+      }
+    ]
+  },
+  "route_15": {
+    "id": 104,
+    "name": "route_15",
+    "displayName": "Route 15",
+    "region": "kanto",
+    "x": 108,
+    "y": 108,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "fuchsia_city",
+        "targetLocationDisplay": "Fuchsia City",
+        "offset": -9
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_14",
+        "targetLocationDisplay": "Route 14",
+        "offset": -10
+      }
+    ]
+  },
+  "lucky_island": {
+    "id": 105,
+    "name": "lucky_island",
+    "displayName": "Lucky Island",
+    "region": "kanto",
+    "x": 136,
+    "y": 104,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_13_east",
+        "targetLocationDisplay": "Route 13 East",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_14",
+        "targetLocationDisplay": "Route 14",
+        "offset": 0
+      }
+    ]
+  },
+  "route_16": {
+    "id": 106,
+    "name": "route_16",
+    "displayName": "Route 16",
+    "region": "kanto",
+    "x": 68,
+    "y": 60,
+    "flyable": false,
+    "connections": []
+  },
+  "route_17": {
+    "id": 107,
+    "name": "route_17",
+    "displayName": "Route 17",
+    "region": "kanto",
+    "x": 76,
+    "y": 88,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_16_south",
+        "targetLocationDisplay": "Route 16 South",
+        "offset": -3
+      },
+      {
+        "direction": "south",
+        "targetLocation": "route_18_west",
+        "targetLocationDisplay": "Route 18 West",
+        "offset": 0
+      }
+    ]
+  },
+  "route_18": {
+    "id": 108,
+    "name": "route_18",
+    "displayName": "Route 18",
+    "region": "kanto",
+    "x": 80,
+    "y": 108,
+    "flyable": false,
+    "connections": []
+  },
+  "fuchsia_city": {
+    "id": 109,
+    "name": "fuchsia_city",
+    "displayName": "Fuchsia City",
+    "region": "kanto",
+    "x": 92,
+    "y": 108,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_19",
+        "targetLocationDisplay": "Route 19",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_18_east",
+        "targetLocationDisplay": "Route 18 East",
+        "offset": 7
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_15",
+        "targetLocationDisplay": "Route 15",
+        "offset": 9
+      }
+    ],
+    "spawnPoint": "SPAWN_FUCHSIA"
+  },
+  "safari_zone": {
+    "id": 110,
+    "name": "safari_zone",
+    "displayName": "Safari Zone",
+    "region": "kanto",
+    "x": 92,
+    "y": 100,
+    "flyable": false,
+    "connections": []
+  },
+  "uraga_channel": {
+    "id": 111,
+    "name": "uraga_channel",
+    "displayName": "Uraga Channel",
+    "region": "kanto",
+    "x": 64,
+    "y": 108,
+    "flyable": false,
+    "connections": []
+  },
+  "scary_cave": {
+    "id": 112,
+    "name": "scary_cave",
+    "displayName": "Scary Cave",
+    "region": "kanto",
+    "x": 60,
+    "y": 116,
+    "flyable": false,
+    "connections": []
+  },
+  "route_19": {
+    "id": 113,
+    "name": "route_19",
+    "displayName": "Route 19",
+    "region": "kanto",
+    "x": 92,
+    "y": 120,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "fuchsia_city",
+        "targetLocationDisplay": "Fuchsia City",
+        "offset": 0
+      },
+      {
+        "direction": "west",
+        "targetLocation": "route_20",
+        "targetLocationDisplay": "Route 20",
+        "offset": 20
+      }
+    ]
+  },
+  "route_20": {
+    "id": 114,
+    "name": "route_20",
+    "displayName": "Route 20",
+    "region": "kanto",
+    "x": 80,
+    "y": 132,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "cinnabar_island",
+        "targetLocationDisplay": "Cinnabar Island",
+        "offset": -2
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_19",
+        "targetLocationDisplay": "Route 19",
+        "offset": -20
+      }
+    ]
+  },
+  "seafoam_islands": {
+    "id": 115,
+    "name": "seafoam_islands",
+    "displayName": "Seafoam Islands",
+    "region": "kanto",
+    "x": 68,
+    "y": 132,
+    "flyable": false,
+    "connections": []
+  },
+  "cinnabar_island": {
+    "id": 116,
+    "name": "cinnabar_island",
+    "displayName": "Cinnabar Island",
+    "region": "kanto",
+    "x": 52,
+    "y": 132,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "route_21",
+        "targetLocationDisplay": "Route 21",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_20",
+        "targetLocationDisplay": "Route 20",
+        "offset": 2
+      }
+    ],
+    "spawnPoint": "SPAWN_CINNABAR"
+  },
+  "pokemon_mansion": {
+    "id": 117,
+    "name": "pokemon_mansion",
+    "displayName": "Pokemon Mansion",
+    "region": "kanto",
+    "x": 50,
+    "y": 130,
+    "flyable": false,
+    "connections": []
+  },
+  "cinnabar_volcano": {
+    "id": 118,
+    "name": "cinnabar_volcano",
+    "displayName": "Cinnabar Volcano",
+    "region": "kanto",
+    "x": 54,
+    "y": 130,
+    "flyable": false,
+    "connections": []
+  },
+  "route_21": {
+    "id": 119,
+    "name": "route_21",
+    "displayName": "Route 21",
+    "region": "kanto",
+    "x": 52,
+    "y": 116,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "pallet_town",
+        "targetLocationDisplay": "Pallet Town",
+        "offset": 0
+      },
+      {
+        "direction": "south",
+        "targetLocation": "cinnabar_island",
+        "targetLocationDisplay": "Cinnabar Island",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "uraga_channel_west",
+        "targetLocationDisplay": "Uraga Channel West",
+        "offset": 19
+      }
+    ]
+  },
+  "route_22": {
+    "id": 120,
+    "name": "route_22",
+    "displayName": "Route 22",
+    "region": "kanto",
+    "x": 40,
+    "y": 76,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "east",
+        "targetLocation": "viridian_city",
+        "targetLocationDisplay": "Viridian City",
+        "offset": -4
+      }
+    ]
+  },
+  "route_27": {
+    "id": 121,
+    "name": "route_27",
+    "displayName": "Route 27",
+    "region": "kanto",
+    "x": 20,
+    "y": 100,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "new_bark_town",
+        "targetLocationDisplay": "New Bark Town",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "route_26",
+        "targetLocationDisplay": "Route 26",
+        "offset": -45
+      }
+    ]
+  },
+  "tohjo_falls": {
+    "id": 122,
+    "name": "tohjo_falls",
+    "displayName": "Tohjo Falls",
+    "region": "kanto",
+    "x": 12,
+    "y": 100,
+    "flyable": false,
+    "connections": []
+  },
+  "route_26": {
+    "id": 123,
+    "name": "route_26",
+    "displayName": "Route 26",
+    "region": "kanto",
+    "x": 28,
+    "y": 92,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_27",
+        "targetLocationDisplay": "Route 27",
+        "offset": 45
+      }
+    ]
+  },
+  "pokemon_league": {
+    "id": 124,
+    "name": "pokemon_league",
+    "displayName": "Pokemon League",
+    "region": "kanto",
+    "x": 28,
+    "y": 76,
+    "flyable": false,
+    "connections": []
+  },
+  "route_23": {
+    "id": 125,
+    "name": "route_23",
+    "displayName": "Route 23",
+    "region": "kanto",
+    "x": 28,
+    "y": 64,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "indigo_plateau",
+        "targetLocationDisplay": "Indigo Plateau",
+        "offset": 0
+      }
+    ]
+  },
+  "victory_road": {
+    "id": 126,
+    "name": "victory_road",
+    "displayName": "Victory Road",
+    "region": "kanto",
+    "x": 28,
+    "y": 52,
+    "flyable": false,
+    "connections": []
+  },
+  "indigo_plateau": {
+    "id": 127,
+    "name": "indigo_plateau",
+    "displayName": "Indigo Plateau",
+    "region": "kanto",
+    "x": 28,
+    "y": 36,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "route_23",
+        "targetLocationDisplay": "Route 23",
+        "offset": 0
+      }
+    ],
+    "spawnPoint": "SPAWN_INDIGO"
+  },
+  "route_28": {
+    "id": 128,
+    "name": "route_28",
+    "displayName": "Route 28",
+    "region": "kanto",
+    "x": 16,
+    "y": 76,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "silver_cave_outside",
+        "targetLocationDisplay": "Silver Cave Outside",
+        "offset": -6
+      }
+    ]
+  },
+  "cinnabar_lab": {
+    "id": 129,
+    "name": "cinnabar_lab",
+    "displayName": "Cinnabar Lab",
+    "region": "kanto",
+    "x": 54,
+    "y": 134,
+    "flyable": false,
+    "connections": []
+  },
+  "shamouti_island": {
+    "id": 130,
+    "name": "shamouti_island",
+    "displayName": "Shamouti Island",
+    "region": "orange",
+    "x": 68,
+    "y": 52,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "rocky_beach",
+        "targetLocationDisplay": "Rocky Beach",
+        "offset": 0
+      },
+      {
+        "direction": "east",
+        "targetLocation": "beautiful_beach",
+        "targetLocationDisplay": "Beautiful Beach",
+        "offset": 0
+      }
+    ],
+    "spawnPoint": "SPAWN_SHAMOUTI"
+  },
+  "beautiful_beach": {
+    "id": 131,
+    "name": "beautiful_beach",
+    "displayName": "Beautiful Beach",
+    "region": "orange",
+    "x": 84,
+    "y": 60,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "shamouti_island",
+        "targetLocationDisplay": "Shamouti Island",
+        "offset": 0
+      }
+    ]
+  },
+  "rocky_beach": {
+    "id": 132,
+    "name": "rocky_beach",
+    "displayName": "Rocky Beach",
+    "region": "orange",
+    "x": 68,
+    "y": 40,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "shamouti_island",
+        "targetLocationDisplay": "Shamouti Island",
+        "offset": 0
+      }
+    ]
+  },
+  "noisy_forest": {
+    "id": 133,
+    "name": "noisy_forest",
+    "displayName": "Noisy Forest",
+    "region": "orange",
+    "x": 76,
+    "y": 40,
+    "flyable": false,
+    "connections": []
+  },
+  "shrine_ruins": {
+    "id": 134,
+    "name": "shrine_ruins",
+    "displayName": "Shrine Ruins",
+    "region": "orange",
+    "x": 84,
+    "y": 44,
+    "flyable": false,
+    "connections": []
+  },
+  "shamouti_tunnel": {
+    "id": 135,
+    "name": "shamouti_tunnel",
+    "displayName": "Shamouti Tunnel",
+    "region": "orange",
+    "x": 52,
+    "y": 52,
+    "flyable": false,
+    "connections": []
+  },
+  "warm_beach": {
+    "id": 136,
+    "name": "warm_beach",
+    "displayName": "Warm Beach",
+    "region": "orange",
+    "x": 52,
+    "y": 60,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "south",
+        "targetLocation": "shamouti_coast",
+        "targetLocationDisplay": "Shamouti Coast",
+        "offset": 0
+      }
+    ]
+  },
+  "shamouti_coast": {
+    "id": 137,
+    "name": "shamouti_coast",
+    "displayName": "Shamouti Coast",
+    "region": "orange",
+    "x": 52,
+    "y": 72,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "north",
+        "targetLocation": "warm_beach",
+        "targetLocationDisplay": "Warm Beach",
+        "offset": 0
+      }
+    ]
+  },
+  "fire_island": {
+    "id": 138,
+    "name": "fire_island",
+    "displayName": "Fire Island",
+    "region": "orange",
+    "x": 60,
+    "y": 76,
+    "flyable": false,
+    "connections": []
+  },
+  "ice_island": {
+    "id": 139,
+    "name": "ice_island",
+    "displayName": "Ice Island",
+    "region": "orange",
+    "x": 76,
+    "y": 76,
+    "flyable": false,
+    "connections": []
+  },
+  "lightning_island": {
+    "id": 140,
+    "name": "lightning_island",
+    "displayName": "Lightning Island",
+    "region": "orange",
+    "x": 92,
+    "y": 76,
+    "flyable": false,
+    "connections": []
+  },
+  "route_49": {
+    "id": 141,
+    "name": "route_49",
+    "displayName": "Route 49",
+    "region": "orange",
+    "x": 68,
+    "y": 116,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "east",
+        "targetLocation": "valencia_island",
+        "targetLocationDisplay": "Valencia Island",
+        "offset": 2
+      }
+    ]
+  },
+  "valencia_island": {
+    "id": 142,
+    "name": "valencia_island",
+    "displayName": "Valencia Island",
+    "region": "orange",
+    "x": 76,
+    "y": 116,
+    "flyable": true,
+    "connections": [
+      {
+        "direction": "west",
+        "targetLocation": "route_49",
+        "targetLocationDisplay": "Route 49",
+        "offset": -2
+      }
+    ],
+    "spawnPoint": "SPAWN_VALENCIA"
+  },
+  "navel_rock": {
+    "id": 143,
+    "name": "navel_rock",
+    "displayName": "Navel Rock",
+    "region": "orange",
+    "x": 132,
+    "y": 100,
+    "flyable": true,
+    "connections": [],
+    "spawnPoint": "SPAWN_NAVEL"
+  },
+  "faraway_island": {
+    "id": 144,
+    "name": "faraway_island",
+    "displayName": "Faraway Island",
+    "region": "orange",
+    "x": 24,
+    "y": 120,
+    "flyable": false,
+    "connections": []
+  }
+}

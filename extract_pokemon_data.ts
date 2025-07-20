@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEBUG_POKEMON, evoMap, formTypeMap, KNOWN_FORMS, preEvoMap, typeMap } from './src/data/constants.ts';
-import { extractTypeChart, extractHiddenGrottoes, mapEncounterRatesToPokemon, extractEggMoves, extractFormInfo, extractMoveDescriptions, extractTmHmLearnset, addBodyDataToDetailedStats, extractAbilityDescriptions, extractDetailedStats, extractPokedexEntries, getFullPokemonName, extractItemData, extractTmHmItems, extractLocationsByArea } from './src/utils/extractors/index.ts';
+import { extractTypeChart, extractHiddenGrottoes, mapEncounterRatesToPokemon, extractEggMoves, extractFormInfo, extractMoveDescriptions, extractTmHmLearnset, addBodyDataToDetailedStats, extractAbilityDescriptions, extractDetailedStats, extractPokedexEntries, getFullPokemonName, extractItemData, extractTmHmItems, extractLocationsByArea, exportAllLocations } from './src/utils/extractors/index.ts';
 import { groupPokemonForms, validatePokemonKeys } from './src/utils/helpers.ts';
 import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
 import { deepReplaceMonString, normalizeMonName, parseDexEntries, parseWildmonLine, replaceMonString, standardizePokemonKey, toTitleCase, typeEnumToName } from './src/utils/stringUtils.ts';
@@ -2177,6 +2177,10 @@ fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify({
 // Extract locations organized by area (creates locations_by_area.json)
 console.log('🗺️ Extracting locations by area...');
 extractLocationsByArea();
+
+// Extract all locations with flypoint data (creates all_locations.json and locations_by_region.json)
+console.log('🗺️ Extracting all locations and flypoints...');
+exportAllLocations().catch(console.error);
 
 function exportDetailedStats() {
   try {

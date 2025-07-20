@@ -248,10 +248,23 @@ export interface PokemonMethods {
   };
 }
 
+export interface LocationConnection {
+  direction: 'north' | 'south' | 'east' | 'west';
+  targetLocation: string;
+  targetLocationDisplay: string;
+  offset: number;
+}
+
 export interface LocationData {
-  pokemon: {
-    [pokemonName: string]: PokemonMethods;
-  };
+  id: number;
+  name: string;
+  displayName: string;
+  region: 'johto' | 'kanto' | 'orange';
+  x: number;
+  y: number;
+  flyable: boolean;
+  spawnPoint?: string;
+  connections: LocationConnection[];
 }
 
 // Item types
