@@ -32,7 +32,7 @@ export default function PokemonNavigation({ navigation, dexType }: PokemonNaviga
       </div>
 
       {/* Navigation buttons */}
-      <div className="flex justify-between items-center gap-4">
+      <div className="flex-col md:flex-row flex justify-between items-center gap-4">
         {/* Previous button */}
         {previous ? (
           <Button asChild variant="default">
