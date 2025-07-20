@@ -84,10 +84,52 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
       }
     }
 
+    // Merge evolution chains from all forms to include regional form evolutions
+    let mergedEvolution = baseForm.evolution;
+    const allChainMembers = new Set(baseForm.evolution?.chain || []);
+    const allChainMethods: Record<string, any[]> = { ...baseForm.evolution?.chainWithMethods || {} };
+    const allMethods = [...(baseForm.evolution?.methods || [])];
+
+    // Check all forms for additional evolution data
+    for (const [formKey, formData] of Object.entries(forms)) {
+      if (formKey !== 'default' && formData.evolution) {
+        // Add any new chain members from this form
+        formData.evolution.chain?.forEach(member => allChainMembers.add(member));
+
+        // Merge chain methods
+        Object.entries(formData.evolution.chainWithMethods || {}).forEach(([key, methods]) => {
+          if (!allChainMethods[key]) {
+            allChainMethods[key] = [];
+          }
+          allChainMethods[key].push(...methods);
+        });
+
+        // Add any unique evolution methods
+        formData.evolution.methods?.forEach(method => {
+          const existing = allMethods.find(m =>
+            m.method === method.method &&
+            m.target === method.target &&
+            m.parameter === method.parameter
+          );
+          if (!existing) {
+            allMethods.push(method);
+          }
+        });
+      }
+    }
+
+    // Update merged evolution data
+    mergedEvolution = {
+      methods: allMethods,
+      chain: Array.from(allChainMembers),
+      chainWithMethods: allChainMethods
+    };
+
     // Create the entry for this Pokémon
     groupedData[baseName] = {
       ...baseForm,
       types: baseTypes || baseForm.types,
+      evolution: mergedEvolution,
       forms: {}
     };
 
@@ -112,7 +154,10 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
             }
           }
         }
-        //@ts-expect-error lint error fix later i wanna build and leave
+
+        // Ensure forms have the merged evolution data that includes regional form chains
+        const formEvolutionData = formData.evolution || mergedEvolution;
+
         groupedData[baseName].forms![formName] = {
           ...formData,
           formName,
@@ -131,7 +176,10 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
           bodyShape: formData.bodyShape,
           // habitat: formData.habitat,
           // generation: formData.generation
-        };
+        } as any;  // Temporary type assertion to include evolution data
+
+        // Add evolution data separately to avoid type conflicts
+        (groupedData[baseName].forms![formName] as any).evolution = formEvolutionData;
       }
     }
 

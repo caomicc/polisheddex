@@ -6,6 +6,8 @@
 
 # THERE IS ONLY A TAILWIND CSS FILE. IT IS IN GLOBALS.CSS. ALL THEME VARIABLES ARE IN THE GLOBALS.CSS FILE.
 
+## extraction function is `npm run extract > log.out`
+
 ## UI/Component Coding Standards
 
 - Use clear and descriptive variable names.

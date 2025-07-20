@@ -201,7 +201,7 @@ export default function PokemonFormClient({
                     ) : formData.genderRatio ? (
                       <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-1 md:gap-2 w-full">
                         <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
-                          <div className="text-[10px] items-center flex">
+                          {/* <div className="text-[10px] items-center flex">
                             <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
                               <Image
                                 src={'/icons/mars-solid.svg'}
@@ -211,7 +211,7 @@ export default function PokemonFormClient({
                               />
                             </div>{' '}
                             {formData.genderRatio.male}%
-                          </div>
+                          </div> */}
                           <div className="text-[10px]  items-center flex">
                             <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
                               <Image
@@ -242,7 +242,7 @@ export default function PokemonFormClient({
                       </div>
                     )}
                   </div>
-                  <div className="w-1/3 md:w-1/5 text-center md:border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
+                  {/* <div className="w-1/3 md:w-1/5 text-center md:border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
                     <Image
                       src="/icons/weight-scale-regular.svg"
                       alt="Scale Icon"
@@ -253,8 +253,8 @@ export default function PokemonFormClient({
                     <p className="text-sm md:text-md text-muted-foreground">
                       {((formData.weight as number) / 10).toFixed(1)} kg
                     </p>
-                  </div>
-                  <div className="mt-4 md:mt-0 w-1/2 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
+                  </div> */}
+                  {/* <div className="mt-4 md:mt-0 w-1/2 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1">
                     <Image
                       src="/icons/palette-regular.svg"
                       alt="Palette Icon"
@@ -277,7 +277,7 @@ export default function PokemonFormClient({
                     <p className="text-sm md:text-md text-muted-foreground">
                       {formData.bodyShape || 'Unknown'}
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </CardContent>

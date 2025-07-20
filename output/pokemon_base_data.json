@@ -44152,6 +44152,44 @@
   },
   "girafarig": {
     "name": "girafarig",
+    "moves": [],
+    "nationalDex": 203,
+    "johtoDex": 160,
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "updatedTypes": [
+      "Psychic",
+      "Dark"
+    ],
+    "frontSpriteUrl": "/sprites/pokemon/girafarig/front_cropped.png",
+    "baseStats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0,
+      "specialAttack": 0,
+      "specialDefense": 0,
+      "total": 0
+    },
+    "faithfulAbilities": [],
+    "updatedAbilities": [],
+    "catchRate": 255,
+    "baseExp": 0,
+    "heldItems": [],
+    "abilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [],
+    "genderRatio": {
+      "male": 0,
+      "female": 0
+    },
+    "hatchRate": "Unknown",
+    "evYield": "None"
+  },
+  "farigiraf": {
+    "name": "farigiraf",
     "moves": [
       {
         "name": "Astonish",
@@ -44338,8 +44376,8 @@
         }
       }
     ],
-    "nationalDex": 203,
-    "johtoDex": 160,
+    "nationalDex": 287,
+    "johtoDex": 161,
     "types": [
       "Normal",
       "Psychic"
@@ -44348,7 +44386,7 @@
       "Psychic",
       "Dark"
     ],
-    "frontSpriteUrl": "/sprites/pokemon/girafarig/front_cropped.png",
+    "frontSpriteUrl": "/sprites/pokemon/farigiraf/front_cropped.png",
     "baseStats": {
       "hp": 0,
       "attack": 0,
@@ -63411,42 +63449,276 @@
     "hatchRate": "Unknown",
     "evYield": "None"
   },
-  "farigiraf": {
-    "name": "farigiraf",
-    "moves": [],
-    "nationalDex": 287,
-    "johtoDex": 161,
+  "mr-rime": {
+    "name": "mr-rime",
+    "nationalDex": 280,
+    "johtoDex": 174,
     "types": [
-      "Normal",
+      "Ice",
       "Psychic"
     ],
     "updatedTypes": [
-      "Psychic",
-      "Dark"
+      "Ice",
+      "Psychic"
     ],
-    "frontSpriteUrl": "/sprites/pokemon/farigiraf/front_cropped.png",
-    "baseStats": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "speed": 0,
-      "specialAttack": 0,
-      "specialDefense": 0,
-      "total": 0
-    },
-    "faithfulAbilities": [],
-    "updatedAbilities": [],
-    "catchRate": 255,
-    "baseExp": 0,
-    "heldItems": [],
-    "abilities": [],
-    "growthRate": "Medium Fast",
-    "eggGroups": [],
-    "genderRatio": {
-      "male": 0,
-      "female": 0
-    },
-    "hatchRate": "Unknown",
-    "evYield": "None"
+    "frontSpriteUrl": "/sprites/pokemon/mr_rime/front_cropped.png",
+    "moves": [
+      {
+        "name": "Recover",
+        "level": 1,
+        "info": {
+          "description": "Restores HP by 1/2 the max HP.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 0,
+          "accuracy": "--",
+          "category": "Status"
+        }
+      },
+      {
+        "name": "Encore",
+        "level": 1,
+        "info": {
+          "description": "Makes the foe re- peat 2-6 times.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 0,
+          "accuracy": 100,
+          "category": "Status"
+        }
+      },
+      {
+        "name": "Protect",
+        "level": 1,
+        "info": {
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "accuracy": "--",
+          "category": "Status"
+        }
+      },
+      {
+        "name": "Light Screen",
+        "level": 1,
+        "info": {
+          "description": "Raises Sp.Def with a wall of light.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "accuracy": "--",
+          "category": "Status"
+        }
+      },
+      {
+        "name": "Reflect",
+        "level": 1,
+        "info": {
+          "description": "Raises Defense with a barrier.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "accuracy": "--",
+          "category": "Status"
+        }
+      },
+      {
+        "name": "Safeguard",
+        "level": 1,
+        "info": {
+          "description": "Prevents all status problems.",
+          "type": "Normal",
+          "pp": 25,
+          "power": 0,
+          "accuracy": "--",
+          "category": "Status"
+        }
+      },
+      {
+        "name": "Dazzlingleam",
+        "level": 1,
+        "info": {
+          "description": "Dazzles with a powerful flash.",
+          "type": "Fairy",
+          "pp": 10,
+          "power": 80,
+          "accuracy": 100,
+          "category": "Special"
+        }
+      },
+      {
+        "name": "Tackle",
+        "level": 1,
+        "info": {
+          "description": "A full-body charge attack.",
+          "type": "Normal",
+          "pp": 35,
+          "power": 40,
+          "accuracy": 100,
+          "category": "Physical"
+        }
+      },
+      {
+        "name": "Rapid Spin",
+        "level": 1,
+        "info": {
+          "description": "A high-speed spinning attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 50,
+          "accuracy": 100,
+          "category": "Physical"
+        }
+      },
+      {
+        "name": "Baton Pass",
+        "level": 1,
+        "info": {
+          "description": "Switches while keeping effects.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "accuracy": "--",
+          "category": "Status"
+        }
+      },
+      {
+        "name": "Ice Shard",
+        "level": 1,
+        "info": {
+          "description": "Hurls icy shards. Always goes first.",
+          "type": "Ice",
+          "pp": 30,
+          "power": 40,
+          "accuracy": 100,
+          "category": "Physical"
+        }
+      },
+      {
+        "name": "Confusion",
+        "level": 12,
+        "info": {
+          "description": "An attack that may confuse the foe.",
+          "type": "Psychic",
+          "pp": 25,
+          "power": 50,
+          "accuracy": 100,
+          "category": "Special"
+        }
+      },
+      {
+        "name": "Metronome",
+        "level": 16,
+        "info": {
+          "description": "Randomly uses any Pokemon move.",
+          "type": "Unknown",
+          "pp": 20,
+          "power": 0,
+          "accuracy": "--",
+          "category": "Status"
+        }
+      },
+      {
+        "name": "Icy Wind",
+        "level": 20,
+        "info": {
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "accuracy": 95,
+          "category": "Special"
+        }
+      },
+      {
+        "name": "Double Kick",
+        "level": 24,
+        "info": {
+          "description": "A double kicking attack.",
+          "type": "Fighting",
+          "pp": 30,
+          "power": 30,
+          "accuracy": 100,
+          "category": "Physical"
+        }
+      },
+      {
+        "name": "Psybeam",
+        "level": 28,
+        "info": {
+          "description": "An attack that may confuse the foe.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 65,
+          "accuracy": 100,
+          "category": "Special"
+        }
+      },
+      {
+        "name": "Hypnosis",
+        "level": 32,
+        "info": {
+          "description": "May cause the foe to fall asleep.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "accuracy": 60,
+          "category": "Status"
+        }
+      },
+      {
+        "name": "Mirror Coat",
+        "level": 36,
+        "info": {
+          "description": "Returns a special attack double.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 1,
+          "accuracy": "--",
+          "category": "Special"
+        }
+      },
+      {
+        "name": "Sucker Punch",
+        "level": 40,
+        "info": {
+          "description": "Attacks before the foe does.",
+          "type": "Dark",
+          "pp": 5,
+          "power": 70,
+          "accuracy": 100,
+          "category": "Physical"
+        }
+      },
+      {
+        "name": "Ice Beam",
+        "level": 44,
+        "info": {
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "accuracy": 100,
+          "category": "Special"
+        }
+      },
+      {
+        "name": "Psychic M",
+        "level": 48
+      },
+      {
+        "name": "Confuse Ray",
+        "level": 52,
+        "info": {
+          "description": "A move that may confuse the foe.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "accuracy": 100,
+          "category": "Status"
+        }
+      }
+    ]
   }
 }

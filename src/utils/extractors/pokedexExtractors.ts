@@ -55,12 +55,36 @@ export function extractBasePokemonName(fullName: string): string {
   if (fullName === 'tauros paldean water' || fullName === 'Taurospaldean_water') {
     return 'tauros';
   }
+
+  console.log(`Extracting base name from full name: ${fullName}`);
+
+  // Regional form suffixes to check for
+  const regionalFormSuffixes = [
+    'hisuian', 'Hisuian',
+    'galarian', 'Galarian',
+    'alolan', 'Alolan',
+    'paldean', 'Paldean',
+    'plain', 'Plain',
+    'hisui', 'Hisui',
+    'galar', 'Galar',
+    'armored', 'Armored',
+    'bloodmoon', 'BloodMoon',
+    'paldeanfire', 'PaldeanFire',
+    'paldeanwater', 'PaldeanWater'
+  ];
+
+  // Check for regional form suffixes
+  for (const suffix of regionalFormSuffixes) {
+    if (fullName.toLowerCase().endsWith(suffix.toLowerCase())) {
+      const baseName = fullName.substring(0, fullName.length - suffix.length);
+      return baseName.trim();
+    }
+  }
+
   // Check if the name contains the special separator for complex forms
   if (fullName.includes('-')) {
     return fullName.split('-')[0];
   }
-
-  console.log(`Extracting base name from full name: ${fullName}`);
 
   // Use the KNOWN_FORMS constant for consistency
   const knownForms = Object.values(KNOWN_FORMS);

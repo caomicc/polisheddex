@@ -2,6 +2,8 @@
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, useCallback } from 'react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { Label } from '../ui/label';
 
 interface ItemSearchProps {
   initialSort: string;
@@ -10,11 +12,11 @@ interface ItemSearchProps {
   totalItems: number;
 }
 
-export default function ItemSearch({ 
-  initialSort, 
-  initialCategory, 
-  categories, 
-  totalItems 
+export default function ItemSearch({
+  initialSort,
+  initialCategory,
+  categories,
+  totalItems
 }: ItemSearchProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -23,13 +25,13 @@ export default function ItemSearch({
 
   const updateFilters = useCallback((newSort: string, newCategory: string) => {
     const params = new URLSearchParams(searchParams);
-    
+
     if (newSort !== 'alphabetical') {
       params.set('sort', newSort);
     } else {
       params.delete('sort');
     }
-    
+
     if (newCategory !== 'all') {
       params.set('category', newCategory);
     } else {
@@ -58,36 +60,34 @@ export default function ItemSearch({
           <label htmlFor="sort-select" className="font-medium text-sm">
             Sort by:
           </label>
-          <select
-            id="sort-select"
-            value={sort}
-            onChange={(e) => handleSortChange(e.target.value)}
-            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option value="alphabetical">Alphabetical</option>
-            <option value="price-low-high">Price (Low to High)</option>
-            <option value="price-high-low">Price (High to Low)</option>
-            <option value="category">Category</option>
-          </select>
+            <Label htmlFor="sort-select" className="text-sm">Sort</Label>
+            <Select value={sort} onValueChange={handleSortChange}>
+            <SelectTrigger id="sort-select" className="bg-white">
+              <SelectValue placeholder="Sort by..." />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="alphabetical">Alphabetical</SelectItem>
+              <SelectItem value="price-low-high">Price (Low to High)</SelectItem>
+              <SelectItem value="price-high-low">Price (High to Low)</SelectItem>
+              <SelectItem value="category">Category</SelectItem>
+            </SelectContent>
+            </Select>
         </div>
 
         <div className="flex items-center gap-2">
-          <label htmlFor="category-select" className="font-medium text-sm">
-            Category:
-          </label>
-          <select
-            id="category-select"
-            value={category}
-            onChange={(e) => handleCategoryChange(e.target.value)}
-            className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option value="all">All Categories</option>
-            {categories.map((cat) => (
-              <option key={cat} value={cat === 'TM/HM' ? 'tm-hm' : cat.toLowerCase().replace(/\s+/g, '-')}>
+                      <Label htmlFor="sort-options" className="text-sm">Category</Label>
+<Select value={category} onValueChange={(value) => handleCategoryChange(value)}>
+            <SelectTrigger id="sort-options" className="bg-white">
+              <SelectValue placeholder="Sort by..." />
+            </SelectTrigger>
+            <SelectContent>
+           {categories.map((cat) => (
+              <SelectItem key={cat} value={cat === 'TM/HM' ? 'tm-hm' : cat.toLowerCase().replace(/\s+/g, '-')}>
                 {cat}
-              </option>
+              </SelectItem>
             ))}
-          </select>
+              </SelectContent>
+            </Select>
         </div>
       </div>
 

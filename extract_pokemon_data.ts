@@ -221,7 +221,7 @@ function parseFormName(pokemonName: string): { baseName: string, formName: strin
 
 for (const lineRaw of lines) {
   const line = lineRaw.trim();
-  if (line.startsWith('evos_attacks ')) {
+  if (line.startsWith('evos_attacks ') || line.match(/^[A-Za-z]+EvosAttacks:$/)) {
     if (currentMonV2) {
       console.log(`DEBUG: Processing evos_attacks for: ${currentMonV2}`);
       const { baseName, formName } = parseFormName(currentMonV2);
@@ -257,7 +257,13 @@ for (const lineRaw of lines) {
         }
       }
     }
-    currentMonV2 = line.split(' ')[1];
+    // Handle both formats: "evos_attacks PokemonName" and "PokemonNameEvosAttacks:"
+    if (line.startsWith('evos_attacks ')) {
+      currentMonV2 = line.split(' ')[1];
+    } else if (line.match(/^[A-Za-z]+EvosAttacks:$/)) {
+      // Extract pokemon name from "PokemonNameEvosAttacks:" format
+      currentMonV2 = line.replace('EvosAttacks:', '');
+    }
     movesV2 = [];
     evoMethods = [];
   } else if (line.startsWith('evo_data ')) {
@@ -857,6 +863,10 @@ for (const mon of Object.keys(result)) {
   if (baseMonNameDex.toLowerCase() === 'porygon-z') {
     baseMonNameDex = 'porygon-z'; // Ensure consistent casing for dex lookup
   }
+  if (baseMonNameDex.toLowerCase() === 'mr-rime') {
+    baseMonNameDex = 'mr-rime'; // Ensure consistent casing for dex lookup
+  }
+
   // Show all dex order entries for debugging
   console.log(`DEBUG: Base Pokémon name for dex lookup: ${baseMonNameDex}`);
   console.log('DEBUG: Full National Dex Order:', JSON.stringify(nationalDexOrder, null, 2));
@@ -1614,6 +1624,9 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
   if (trimmedMon === 'Mr Mime' || trimmedMon === 'mrmime' || trimmedMon === 'MrMimePlain' || trimmedMon === 'mr-mime') {
     displayName = 'Mr-Mime';
     spriteName = 'mr__mime';
+  } else if (trimmedMon === 'mr-rime' || trimmedMon === 'Mr-Rime' || trimmedMon === 'Mr Rime' || trimmedMon === 'MrRime') {
+    displayName = 'mr-rime';
+    spriteName = 'mr__rime';
   } else if (trimmedMon === 'Mime Jr' || trimmedMon === 'MimeJr' || trimmedMon === 'Mime-Jr' || trimmedMon === 'mime-jr') {
     displayName = 'Mime-Jr';
     spriteName = 'mime_jr_';
@@ -1867,6 +1880,22 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
 
 // Validate keys before writing to ensure no trailing spaces
 const validatedBaseData = validatePokemonKeys(baseData);
+
+// Ensure Mr. Rime is in validatedBaseData if it exists in finalResultV3
+if (finalResultV3['mr-rime'] && !validatedBaseData['mr-rime']) {
+  const mrRime = finalResultV3['mr-rime'];
+  validatedBaseData['mr-rime'] = {
+    name: 'mr-rime',
+    nationalDex: mrRime.nationalDex ?? null,
+    johtoDex: mrRime.johtoDex ?? null,
+    types: mrRime.types ?? [],
+    updatedTypes: mrRime.updatedTypes ?? mrRime.types ?? [],
+    frontSpriteUrl: '/sprites/pokemon/mr_rime/front_cropped.png',
+    moves: mrRime.moves || []
+  };
+  console.log('Added Mr. Rime to validatedBaseData from finalResultV3 for base data JSON');
+}
+
 fs.writeFileSync(BASE_DATA_OUTPUT, JSON.stringify(validatedBaseData, null, 2));
 console.log('Pokémon base data extracted to', BASE_DATA_OUTPUT);
 
@@ -2393,6 +2422,21 @@ if (fs.existsSync(DETAILED_STATS_OUTPUT)) {
   detailedStatsData = JSON.parse(fs.readFileSync(DETAILED_STATS_OUTPUT, 'utf8'));
 }
 
+// Ensure Mr. Rime is in validatedBaseData if it exists in finalResultV3
+if (finalResultV3['mr-rime'] && !validatedBaseData['mr-rime']) {
+  const mrRime = finalResultV3['mr-rime'];
+  validatedBaseData['mr-rime'] = {
+    name: 'mr-rime',
+    nationalDex: mrRime.nationalDex ?? null,
+    johtoDex: mrRime.johtoDex ?? null,
+    types: mrRime.types ?? [],
+    updatedTypes: mrRime.updatedTypes ?? mrRime.types ?? [],
+    frontSpriteUrl: '/sprites/pokemon/mr_rime/front_cropped.png',
+    moves: mrRime.moves || []
+  };
+  console.log('Added Mr. Rime to validatedBaseData from finalResultV3');
+}
+
 // Generate individual files for each Pokemon
 for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
   // Skip invalid Pokémon names
@@ -2417,14 +2461,24 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
   // Skip groupedData.forms processing since we'll handle forms properly from base stat files below
   const baseName = pokemonName.toLowerCase();
 
-  const formFiles = baseStatsFiles.filter(f => f.toLowerCase().startsWith(baseName + '_') && f.endsWith('.asm'));
+  // Convert hyphens to underscores for file matching, since form files use underscores
+  const baseNameForFileMatching = baseName.replace(/-/g, '_');
 
-  console.log(`Processing formFiles formFiles for ${pokemonName} (${baseName}), found form files:`, formFiles);
+  const formFiles = baseStatsFiles.filter(f => f.toLowerCase().startsWith(baseNameForFileMatching + '_') && f.endsWith('.asm'));
+
+  console.log(`Processing formFiles formFiles for ${pokemonName} (${baseName}), baseNameForFileMatching: ${baseNameForFileMatching}, found form files:`, formFiles);
 
   const filteredFormFiles = formFiles.filter(f => f !== 'porygon_z.asm');
 
   for (const formFile of filteredFormFiles) {
-    const formName = formFile.replace(baseName + '_', '').replace('.asm', '');
+    const formName = formFile.replace(baseNameForFileMatching + '_', '').replace('.asm', '');
+
+    // Skip if the form name is empty (this happens with files like "pokemon_.asm")
+    if (!formName || formName.trim() === '') {
+      console.log(`Skipping form file with empty form name: ${formFile}`);
+      continue;
+    }
+
     const normKey = formName.trim().toLowerCase();
     const titleCaseFormName = toTitleCase(formName.trim());
 
@@ -2552,6 +2606,7 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
   // Also embed location data in the detailedStats if present
   // Convert pokemonName (URL key) to display name format used in detailedStatsData
   const displayNameForLookup = normalizePokemonDisplayName(pokemonName);
+  console.log(`DEBUG: Individual file for ${pokemonName}, displayNameForLookup: ${displayNameForLookup}, found in detailedStatsData: ${displayNameForLookup in detailedStatsData}`);
   // Don't duplicate locations in detailedStats since they're already at the root level
   const enhancedDetailedStats = {
     ...(detailedStatsData[displayNameForLookup] || defaultDetailedStats)
@@ -2583,11 +2638,11 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
 
   const pokemonData: Record<string, unknown> = {
     name: pokemonName,
-    nationalDex: baseData.nationalDex,
-    johtoDex: baseData.johtoDex,
-    types: baseData.types,
-    updatedTypes: baseData.updatedTypes,
-    frontSpriteUrl: baseData.frontSpriteUrl,
+    nationalDex: validatedBaseData[pokemonName]?.nationalDex ?? finalResultV3[pokemonName]?.nationalDex ?? null,
+    johtoDex: validatedBaseData[pokemonName]?.johtoDex ?? finalResultV3[pokemonName]?.johtoDex ?? null,
+    types: validatedBaseData[pokemonName]?.types ?? finalResultV3[pokemonName]?.types ?? [],
+    updatedTypes: validatedBaseData[pokemonName]?.updatedTypes ?? validatedBaseData[pokemonName]?.types ?? finalResultV3[pokemonName]?.updatedTypes ?? finalResultV3[pokemonName]?.types ?? [],
+    frontSpriteUrl: validatedBaseData[pokemonName]?.frontSpriteUrl ?? `/sprites/pokemon/${pokemonName}/front_cropped.png`,
     detailedStats: enhancedDetailedStats,
     evolution: validatedEvolutionData[pokemonName] || defaultEvolution,
     levelMoves: validateAndFixMoves(validatedLevelMoves[pokemonName]?.moves || []),
