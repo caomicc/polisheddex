@@ -17,9 +17,9 @@ export function PokemonAbilities({
 
   return (
     <div>
-      <div className={cn('grid grid-cols-1 gap-6', showUpdated ? 'md:grid-cols-2' : '')}>
+      <div className={cn('grid grid-cols-1', showUpdated ? 'gap-6 md:grid-cols-2' : '')}>
         <div>
-          <h3 className="italic font-bold text-sm mb-4 text-left">Faithful Abilities:</h3>
+          <h3 className="font-bold text-sm mb-4 text-left">Faithful Abilities:</h3>
           <div className={cn('flex flex-col gap-2  ', className, showUpdated ? 'mb-6 md:m-0' : '')}>
             {faithfulAbilities?.map((ability, idx) => (
               <AbilityRow key={`${ability.name}-${idx}`} ability={ability} />
@@ -28,7 +28,7 @@ export function PokemonAbilities({
         </div>
         <div>
           <h3
-            className={cn('italic font-bold text-sm mb-4 text-left', showUpdated ? '' : 'hidden')}
+            className={cn('font-bold text-sm mb-4 text-left', showUpdated ? '' : 'hidden')}
           >
             Polished Abilities:
           </h3>

@@ -5,7 +5,7 @@ import { MoveRow, LocationListItem } from '@/components/pokemon';
 import { FormData, Move, MoveDescription, LocationEntry } from '@/types/types';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
-import { EvolutionChain } from '@/components/ui/EvolutionChain';
+import { EvolutionChain } from './EvolutionChain';
 import { cn } from '@/lib/utils';
 import { Progress } from '../ui/progress';
 import { PokemonAbilities } from './pokemon-abilities';
@@ -98,12 +98,13 @@ export default function PokemonFormClient({
         pokemonName={pokemonName}
         selectedForm={selectedForm}
         setSelectedForm={setSelectedForm}
+        usePolished={true}
       />
 
       <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
         <TabsList className="w-full">
           <TabsTrigger value="about">About</TabsTrigger>
-          <TabsTrigger value="stats">Stats</TabsTrigger>
+          {/* <TabsTrigger value="stats">Stats</TabsTrigger> */}
           <TabsTrigger value="moves">Moves</TabsTrigger>
           <TabsTrigger value="evolution">Location</TabsTrigger>
         </TabsList>
@@ -111,89 +112,17 @@ export default function PokemonFormClient({
           value="about"
           className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
         >
-          <Card>
-            <CardHeader className={'sr-only'}>Species</CardHeader>
-            <CardContent className="space-y-2 px-2 md:px-6">
-              <p className="text-sm md:text-md text-foreground">{formData.species} Pokémon</p>
-              <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
 
-              <div className="mt-0 flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
-                <div className="flex w-full flex-wrap justify-center items-center gap-0">
-                  <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1 relative flex items-center justify-center">
-                    {formData.genderRatio &&
-                    formData.genderRatio.male === 0 &&
-                    formData.genderRatio.female === 0 ? (
-                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-2">
-                        <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
-                          <div className="text-xs  items-center flex">
-                            <div className="aspect-square w-3 md:w-4 inline-block relative mr-1">
-                              <Image
-                                src={'/icons/genderless-solid.svg'}
-                                alt={''}
-                                className="inline-block fa-fw"
-                                fill
-                              />
-                            </div>{' '}
-                            Genderless
-                          </div>
-                        </div>
-                        <div className="inline-block w-10 h-10 align-middle">
-                          <GenderPieChart male={0} female={0} genderless={100} />
-                        </div>
-                      </div>
-                    ) : formData.genderRatio ? (
-                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-1 md:gap-2 w-full">
-                        <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
-                          <div className="text-[10px] items-center flex">
-                            <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
-                              <Image
-                                src={'/icons/mars-solid.svg'}
-                                alt={''}
-                                className="inline-block fa-fw"
-                                fill
-                              />
-                            </div>{' '}
-                            {formData.genderRatio.male}%
-                          </div>
-                          <div className="text-[10px]  items-center flex">
-                            <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
-                              <Image
-                                src={'/icons/venus-solid.svg'}
-                                alt={''}
-                                className="inline-block w-full"
-                                fill
-                              />
-                            </div>{' '}
-                            {formData.genderRatio.female}%
-                          </div>
-                        </div>
-                        <div className="inline-block w-14">
-                          <GenderPieChart
-                            male={formData.genderRatio.male ?? 0}
-                            female={formData.genderRatio.female ?? 0}
-                          />
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="translate-y-[-1px] relative">
-                        <div className="inline-block w-10 h-10 align-middle">
-                          <GenderPieChart male={50} female={50} />
-                        </div>
-                        <div className="text-sm md:text-md text-muted-foreground relative">
-                          Unknown
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
 
-          {formData.baseStats ? (
-            <Card>
-              <CardHeader className='sr-only'>Base Stats</CardHeader>
-              <CardContent className="space-y-4">
+          <div className='flex flex-col md:flex-row gap-12 items-start'>
+            <div className='md:flex-1 flex h-full w-full'>
+            {formData.baseStats ? (
+              <div className="space-y-4 w-full">
+                <h3
+                  className={cn('font-bold text-sm mb-4 text-left')}
+                >
+                  Base Stats:
+                </h3>
                 {[
                   { label: 'HP', value: formData.baseStats.hp, color: '*:bg-red-400' },
                   { label: 'Atk', value: formData.baseStats.attack, color: '*:bg-orange-400' },
@@ -244,11 +173,55 @@ export default function PokemonFormClient({
                     )}
                   </span>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
           ) : (
             <div className="text-gray-400 text-sm mb-6">No base stat data</div>
           )}
+       </div>
+       <div className='md:flex-1 md:h-[100%] flex '>
+          <div
+            className={cn(
+              'flex flex-col gap-6' ,
+            )}
+          >
+            <div>
+                              <h3
+              className={cn('font-bold text-sm mb-1 text-left')}
+            >
+              Faithful Type Chart:
+          </h3>
+              <WeaknessChart
+                types={
+                  Array.isArray(formData.types)
+                    ? formData.types.map((t: string) => t.toLowerCase())
+                    : formData.types
+                    ? [formData.types.toLowerCase()]
+                    : []
+                }
+                variant='Faithful'
+              />
+            </div>
+            {formData.updatedTypes &&
+            <div>
+                              <h3
+              className={cn('font-bold text-sm mb-1 text-left')}
+            >
+              Polished Type Chart:
+          </h3>
+              <WeaknessChart
+                types={
+                  Array.isArray(formData.updatedTypes)
+                    ? formData.updatedTypes.map((t: string) => t.toLowerCase())
+                    : formData.updatedTypes
+                    ? [formData.updatedTypes.toLowerCase()]
+                    : []
+                }
+                variant='Polished'
+              />
+            </div>}
+          </div>
+        </div>
+      </div>
 
           <Card>
             <CardHeader className='sr-only'>Abilities</CardHeader>
@@ -332,8 +305,13 @@ export default function PokemonFormClient({
             </CardContent>
           </Card>
           <Card>
-            <CardHeader>Training</CardHeader>
+            <CardHeader className='sr-only'>Training</CardHeader>
             <CardContent className="space-y-2">
+              <h3
+                className={cn('font-bold text-sm mb-4 text-left')}
+              >
+                Training Stats:
+              </h3>
               <Table className="max-w-full">
                 <TableHeader className="sr-only">
                   <TableRow>
@@ -354,21 +332,6 @@ export default function PokemonFormClient({
                     <TableCell className="font-medium w-[120px]">Base Exp.</TableCell>
                     <TableCell>{formData.baseExp}</TableCell>
                   </TableRow>
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>Breeding</CardHeader>
-            <CardContent className="space-y-2">
-              <Table className="max-w-full">
-                <TableHeader className="sr-only">
-                  <TableRow>
-                    <TableHead className="font-medium w-[120px]">Breeding Stats</TableHead>
-                    <TableHead className="font-medium">Value</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
                   <TableRow>
                     <TableCell className="font-medium w-[120px]">Egg Groups</TableCell>
                     <TableCell>
@@ -396,6 +359,85 @@ export default function PokemonFormClient({
               </Table>
             </CardContent>
           </Card>
+<Card>
+            <CardHeader className={'sr-only'}>Species</CardHeader>
+            <CardContent className="space-y-2 px-2 md:px-6">
+              <p className="text-sm md:text-md text-foreground">{formData.species} Pokémon</p>
+              <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
+
+              <div className="mt-0 flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
+                <div className="flex w-full flex-wrap justify-center items-center gap-0">
+                  <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1 relative flex items-center justify-center">
+                    {formData.genderRatio &&
+                    formData.genderRatio.male === 0 &&
+                    formData.genderRatio.female === 0 ? (
+                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-2">
+                        <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
+                          <div className="text-xs  items-center flex">
+                            <div className="aspect-square w-3 md:w-4 inline-block relative mr-1">
+                              <Image
+                                src={'/icons/genderless-solid.svg'}
+                                alt={''}
+                                className="inline-block fa-fw"
+                                fill
+                              />
+                            </div>{' '}
+                            Genderless
+                          </div>
+                        </div>
+                        <div className="inline-block w-10 h-10 align-middle">
+                          <GenderPieChart male={0} female={0} genderless={100} />
+                        </div>
+                      </div>
+                    ) : formData.genderRatio ? (
+                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-1 md:gap-2 w-full">
+                        <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
+                          <div className="text-[10px] items-center flex">
+                            <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
+                              <Image
+                                src={'/icons/mars-solid.svg'}
+                                alt={''}
+                                className="inline-block fa-fw"
+                                fill
+                              />
+                            </div>{' '}
+                            {formData.genderRatio.male}%
+                          </div>
+                          <div className="text-[10px]  items-center flex">
+                            <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
+                              <Image
+                                src={'/icons/venus-solid.svg'}
+                                alt={''}
+                                className="inline-block w-full"
+                                fill
+                              />
+                            </div>{' '}
+                            {formData.genderRatio.female}%
+                          </div>
+                        </div>
+                        <div className="inline-block w-14">
+                          <GenderPieChart
+                            male={formData.genderRatio.male ?? 0}
+                            female={formData.genderRatio.female ?? 0}
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="translate-y-[-1px] relative">
+                        <div className="inline-block w-10 h-10 align-middle">
+                          <GenderPieChart male={50} female={50} />
+                        </div>
+                        <div className="text-sm md:text-md text-muted-foreground relative">
+                          Unknown
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           <Card>
             <CardHeader>Evolution</CardHeader>
             <CardContent className="space-y-2">
@@ -456,48 +498,7 @@ export default function PokemonFormClient({
             </CardContent>
           </Card>
         </TabsContent>
-        <TabsContent
-          value="stats"
-          className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
-        >
 
-          <Card>
-            <CardHeader className='sr-only'>Type Relations</CardHeader>
-            <CardContent className="space-y-2">
-              <div
-                className={cn(
-                  'grid grid-cols-1 gap-6',
-                  formData.updatedTypes ? 'md:grid-cols-2' : '',
-                )}
-              >
-                <div>
-                  <WeaknessChart
-                    types={
-                      Array.isArray(formData.types)
-                        ? formData.types.map((t: string) => t.toLowerCase())
-                        : formData.types
-                        ? [formData.types.toLowerCase()]
-                        : []
-                    }
-                    variant='Faithful'
-                  />
-                </div>
-                <div>
-                  <WeaknessChart
-                    types={
-                      Array.isArray(formData.updatedTypes)
-                        ? formData.updatedTypes.map((t: string) => t.toLowerCase())
-                        : formData.updatedTypes
-                        ? [formData.updatedTypes.toLowerCase()]
-                        : []
-                    }
-                    variant='Polished'
-                  />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
         <TabsContent
           value="moves"
           className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"

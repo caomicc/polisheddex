@@ -6,12 +6,12 @@ import { Badge } from '../ui/badge';
 import PokemonFormSelect from './PokemonFormSelect';
 import { getTypeGradientProps } from '@/utils/css-gradients';
 
-const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSelectedForm } : { formData: FormData, uniqueForms: string[], pokemonName: string, selectedForm: string, setSelectedForm: React.Dispatch<React.SetStateAction<string>> }) => {
+const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSelectedForm, usePolished } : { formData: FormData, uniqueForms: string[], pokemonName: string, selectedForm: string, setSelectedForm: React.Dispatch<React.SetStateAction<string>>, usePolished: boolean }) => {
   // Desktop version uses the original two-row layout
 
   // Mobile version uses a compact layout with each row
   // Determine which types to use for the gradient: faithful (original) or polished (updated)
-  const usePolished = selectedForm === 'polished' || selectedForm === 'updated'; // Adjust this logic if you have a more explicit trigger
+  // const usePolished = selectedForm === 'polished' || selectedForm === 'updated'; // Adjust this logic if you have a more explicit trigger
   const faithfulTypes = Array.isArray(formData.types) ? formData.types : [formData.types].filter(Boolean);
   const polishedTypes = Array.isArray(formData.updatedTypes) ? formData.updatedTypes : [formData.updatedTypes].filter(Boolean);
 

@@ -26,7 +26,7 @@ function getTypeEffectiveness(defTypes: string[]): Record<string, number> {
   return result;
 }
 
-export function WeaknessChart({ types, variant }: { types: string[], variant?:string; }) {
+export function WeaknessChart({ types }: { types: string[], variant?:string; }) {
   const effectiveness = getTypeEffectiveness(types);
   const weaknesses = ALL_TYPES.filter((type) => effectiveness[type] > 1);
   const strengths = ALL_TYPES.filter((type) => effectiveness[type] < 1 && effectiveness[type] > 0);
@@ -34,7 +34,7 @@ export function WeaknessChart({ types, variant }: { types: string[], variant?:st
   return (
     <div className="text-left">
       <div>
-          <div className="mb-2 font-semibold text-xs">Weaknesses ({variant})</div>
+      <div className="mb-2 font-semibold text-xs">Weaknesses</div>
         <div className="w-full flex flex-row flex-wrap gap-2 mb-3">
             {weaknesses.length === 0 ? (
               <span className="text-gray-600">None</span>
@@ -51,7 +51,7 @@ export function WeaknessChart({ types, variant }: { types: string[], variant?:st
           </div>
       </div>
      <div>
-       <div className="mb-2 font-semibold text-xs">Strengths ({variant})</div>
+       <div className="mb-2 font-semibold text-xs">Strengths</div>
         <div className="w-full flex flex-row flex-wrap gap-2">
           {strengths.length === 0 ? (
             <span className="text-gray-600">None</span>

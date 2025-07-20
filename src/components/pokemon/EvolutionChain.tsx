@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import type { EvolutionChainProps } from '@/types/types';
-import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 
 export function EvolutionChain({
