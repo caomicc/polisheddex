@@ -35,6 +35,14 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       displayName = 'Mime Jr.';
     } else if (pokemon.name === 'Farfetchd') {
       displayName = 'Farfetch\'d';
+    }  else if (pokemon.name === 'Sirfetchd') {
+      displayName = 'Sirfetch\'d';
+    } else if (pokemon.name === 'Ho-Oh') {
+      displayName = 'Ho-Oh';
+    } else if (pokemon.name === 'mr-rime' || pokemon.name === 'Mr-Rime') {
+      displayName = 'Mr. Rime';
+    } else if (pokemon.name === 'Farigiraf') {
+      displayName = 'Farigiraf';
     }
   }
 
