@@ -1,4 +1,5 @@
 import { getPokemonFileName, urlKeyToStandardKey } from './pokemonUrlNormalizer';
+import { loadJsonFile } from './fileLoader';
 
 export interface NavigationData {
   previous: { name: string; url: string } | null;
@@ -69,22 +70,25 @@ export async function loadDexOrders(): Promise<{
   national: string[];
   johto: string[];
 }> {
-  const fs = await import('fs');
-  const path = await import('path');
-
   try {
-    const nationalPath = path.join(process.cwd(), 'output/national_dex_order.json');
-    const johtoPath = path.join(process.cwd(), 'output/johto_dex_order.json');
+    console.log('Loading dex orders...');
 
     const [nationalData, johtoData] = await Promise.all([
-      fs.promises.readFile(nationalPath, 'utf8').then(data => JSON.parse(data) as string[]),
-      fs.promises.readFile(johtoPath, 'utf8').then(data => JSON.parse(data) as string[])
+      loadJsonFile<string[]>('output/national_dex_order.json'),
+      loadJsonFile<string[]>('output/johto_dex_order.json')
     ]);
 
-    return {
-      national: nationalData,
-      johto: johtoData
+    const result = {
+      national: nationalData || [],
+      johto: johtoData || []
     };
+
+    console.log('Dex orders loaded:', {
+      nationalCount: result.national.length,
+      johtoCount: result.johto.length
+    });
+
+    return result;
   } catch (error) {
     console.error('Error loading dex orders:', error);
     return {
@@ -102,11 +106,26 @@ export function getDexOrderToUse(
   nationalOrder: string[],
   johtoOrder: string[]
 ): { order: string[]; type: 'national' | 'johto' } {
-  // Prefer Johto dex if the Pokemon has a Johto dex number
-  if (pokemonData.johtoDex && pokemonData.johtoDex > 0) {
+  // If we don't have any order data, return empty arrays but still indicate the preferred type
+  if (nationalOrder.length === 0 && johtoOrder.length === 0) {
+    console.warn('No dex order data available');
+    const preferJohto = pokemonData.johtoDex && pokemonData.johtoDex > 0;
+    return {
+      order: [],
+      type: preferJohto ? 'johto' : 'national'
+    };
+  }
+
+  // Prefer Johto dex if the Pokemon has a Johto dex number and we have johto data
+  if (pokemonData.johtoDex && pokemonData.johtoDex > 0 && johtoOrder.length > 0) {
     return { order: johtoOrder, type: 'johto' };
   }
 
-  // Otherwise use national dex
-  return { order: nationalOrder, type: 'national' };
+  // Otherwise use national dex if available
+  if (nationalOrder.length > 0) {
+    return { order: nationalOrder, type: 'national' };
+  }
+
+  // Fallback to johto if national is empty but johto has data
+  return { order: johtoOrder, type: 'johto' };
 }

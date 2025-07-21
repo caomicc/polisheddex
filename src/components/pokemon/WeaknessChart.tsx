@@ -44,7 +44,7 @@ export function WeaknessChart({ types }: { types: string[], variant?:string; }) 
                   key={type}
                   variant={type.toLowerCase() as PokemonType['name']}
                   >
-                  <span>{type}</span>
+                  <span>{type} ×{effectiveness[type]}</span>
                 </Badge>
               ))
             )}
@@ -61,7 +61,7 @@ export function WeaknessChart({ types }: { types: string[], variant?:string; }) 
                 key={type}
                 variant={type.toLowerCase() as PokemonType['name']}
                 >
-                <span>{type}</span>
+                <span>{type} ×{effectiveness[type]}</span>
               </Badge>
             ))
           )}

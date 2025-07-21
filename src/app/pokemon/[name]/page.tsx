@@ -8,6 +8,7 @@ import PokemonKeyboardNavigation from '@/components/pokemon/PokemonKeyboardNavig
 import { MoveDescription, FormData, PokemonDataV3 } from '@/types/types';
 import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNormalizer';
 import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';
+import { Button } from '@/components/ui/button';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -158,12 +159,26 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // Load dex orders for navigation
   const dexOrders = await loadDexOrders();
+  console.log('Loaded dex orders:', {
+    nationalCount: dexOrders.national.length,
+    johtoCount: dexOrders.johto.length
+  });
+
   const { order: dexOrder, type: dexType } = getDexOrderToUse(
     pokemonData,
     dexOrders.national,
     dexOrders.johto
   );
+  console.log('Using dex order:', {
+    type: dexType,
+    orderLength: dexOrder.length,
+    pokemonName,
+    nationalDex: pokemonData.nationalDex,
+    johtoDex: pokemonData.johtoDex
+  });
+
   const navigation = getPokemonNavigation(pokemonName, dexOrder);
+  console.log('Generated navigation:', navigation);
 
   // You may want to load moveDescData as before, or optimize further if you have per-move files
   // For now, keep the original moveDescData loading for compatibility
@@ -203,7 +218,20 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         moveDescData={moveDescData}
         pokemonName={pokemonName}
       />
-      <PokemonNavigation navigation={navigation} dexType={dexType} />
+      {/* Only render navigation if we have valid navigation data */}
+      {navigation.current.index !== -1 ? (
+        <PokemonNavigation navigation={navigation} dexType={dexType} />
+      ) : (
+        <div className="flex flex-col gap-4 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+          <div className="text-center">
+            <Button asChild variant="ghost" size="sm">
+              <Link href="/pokemon" className="flex items-center gap-1">
+                <span className="text-xs">Back to List</span>
+              </Link>
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
