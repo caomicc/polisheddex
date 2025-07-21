@@ -263,12 +263,12 @@ export function LocationDataTable<TData, TValue>({
             Showing {table.getFilteredRowModel().rows.length} of{' '}
             {filteredData.length} locations
             {sorting.length > 0 && (
-              <span className="ml-2 text-blue-600">
+              <span className="ml-2">
                 • Sorted by {sortOptions.find(opt => opt.value === getCurrentSortValue())?.label}
               </span>
             )}
             {(showOnlyPokemon || showOnlyFlyable || showOnlyGrottoes) && (
-              <span className="ml-2 text-green-600">
+              <span className="ml-2">
                 • Filtered: {[
                   showOnlyPokemon && 'Has Pokémon',
                   showOnlyFlyable && 'Flyable',
