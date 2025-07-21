@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "node scripts/generate-build-info.mjs && next build",
     "start": "next start",
     "lint": "next lint",
     "extract": "ts-node extract_pokemon_data.ts && ts-node extract_locations.ts",
