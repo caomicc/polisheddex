@@ -17,30 +17,21 @@ export function normalizeLocationKey(input: string): string {
     // Convert CamelCase/PascalCase to snake_case first
     .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
     .toLowerCase()
-    // Handle "Tower1 F" and "tower1_f" patterns specifically
-    .replace(/(\w)1[\s_]+f/i, '$1_1f')
-    // Handle "Tower1" pattern at end (e.g., "Burned Tower1" -> "burned_tower_1")
-    .replace(/(\w)1$/i, '$1_1')
-    // Handle various floor patterns - normalize all to standard format
-    // Handle B1F variations (with or without spaces, with or without F)
-    .replace(/\s*b\s*1\s*f?\s*$/i, '_b1f')
-    .replace(/\s*b\s*2\s*f?\s*$/i, '_b2f')
-    .replace(/\s*b\s*3\s*f?\s*$/i, '_b3f')
-    .replace(/\s*b\s*4\s*f?\s*$/i, '_b4f')
-    .replace(/\s*b\s*5\s*f?\s*$/i, '_b5f')
-    // Handle regular floor patterns (with or without spaces, with or without F)
-    .replace(/\s*1\s*f?\s*$/i, '_1f')
-    .replace(/\s*2\s*f?\s*$/i, '_2f')
-    .replace(/\s*3\s*f?\s*$/i, '_3f')
-    .replace(/\s*4\s*f?\s*$/i, '_4f')
-    .replace(/\s*5\s*f?\s*$/i, '_5f')
-    .replace(/\s*6\s*f?\s*$/i, '_6f')
-    .replace(/\s*7\s*f?\s*$/i, '_7f')
-    .replace(/\s*8\s*f?\s*$/i, '_8f')
-    .replace(/\s*9\s*f?\s*$/i, '_9f')
-    .replace(/\s*10\s*f?\s*$/i, '_10f')
-    // Convert spaces, hyphens, and other separators to underscores
+    // Convert spaces, hyphens, and other separators to underscores first
     .replace(/[\s\-\.]+/g, '_')
+    // Handle basement floor patterns first - more specific patterns
+    .replace(/b_?(\d+)_?f_?f(_|$)/gi, 'b$1f$2')
+    .replace(/b_?(\d+)_?f(_|$)/gi, 'b$1f$2')
+    // Handle regular floor patterns consistently
+    // Pattern 1: "tower1_f" or "tower_1_f" -> "tower_1f"
+    .replace(/(\w)_?(\d+)_+f(_|$)/gi, '$1_$2f$3')
+    // Pattern 2: "tower1f" -> "tower_1f"
+    .replace(/(\w)(\d+)f(_|$)/gi, '$1_$2f$3')
+    // Pattern 3: "tower1" at end -> "tower_1f" (assuming it's a floor)
+    .replace(/(\w)(\d+)$/gi, '$1_$2f')
+    // Pattern 4: standalone floor numbers like "_1_" -> "_1f"
+    .replace(/_(\d+)_/g, '_$1f_')
+    .replace(/_(\d+)$/g, '_$1f')
     // Clean up multiple underscores
     .replace(/_+/g, '_')
     // Remove leading/trailing underscores
@@ -236,15 +227,91 @@ export function extractLocationEvents(): Record<string, LocationEvent[]> {
   return eventsByLocation;
 }
 
+// --- TM/HM Location Extraction ---
+export function extractTMHMLocations(): Record<string, { tmNumber: string; moveName: string; location: string }[]> {
+  console.log('🔧 Extracting TM/HM locations...');
+
+  const tmhmMovesPath = path.join(__dirname, 'rom/data/moves/tmhm_moves.asm');
+
+  if (!fs.existsSync(tmhmMovesPath)) {
+    console.warn('TM/HM moves file not found');
+    return {};
+  }
+
+  const tmhmContent = fs.readFileSync(tmhmMovesPath, 'utf8');
+  const lines = tmhmContent.split(/\r?\n/);
+  const tmhmByLocation: Record<string, { tmNumber: string; moveName: string; location: string }[]> = {};
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Look for lines that define TM/HM moves with locations
+    // Format: db MOVE_NAME ; TMXX (Location)
+    if (line.startsWith('db ')) {
+      const parts = line.split(';');
+
+      if (parts.length >= 2) {
+        // Extract move name
+        const moveName = parts[0].replace('db', '').trim();
+
+        // Extract TM/HM info and location
+        const tmhmInfo = parts[1].trim();
+        const tmhmMatch = tmhmInfo.match(/(TM|HM)(\d+)\s*(?:\(([^)]+)\))?/);
+
+        if (tmhmMatch) {
+          const tmType = tmhmMatch[1];
+          const tmNumber = tmhmMatch[2].padStart(2, '0');
+          const location = tmhmMatch[3] || '';
+
+          if (location) {
+            const locationKey = normalizeLocationKey(location);
+            const tmhmNumber = `${tmType}${tmNumber}`;
+
+            if (!tmhmByLocation[locationKey]) {
+              tmhmByLocation[locationKey] = [];
+            }
+
+            tmhmByLocation[locationKey].push({
+              tmNumber: tmhmNumber,
+              moveName: formatMoveName(moveName),
+              location: location
+            });
+          }
+        }
+      }
+    }
+  }
+
+  const totalTMs = Object.values(tmhmByLocation).reduce((sum, tms) => sum + tms.length, 0);
+  console.log(`🔧 Found ${totalTMs} TM/HMs across ${Object.keys(tmhmByLocation).length} locations`);
+
+  return tmhmByLocation;
+}
+
+/**
+ * Format move name from ASM format to display format
+ */
+function formatMoveName(asmName: string): string {
+  // Special cases
+  if (asmName === 'PSYCHIC_M') return 'Psychic';
+
+  // Replace underscores with spaces and convert to title case
+  return asmName.replace(/_/g, ' ')
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+}
+
 // --- Comprehensive Location Extraction ---
 export function extractAllLocations(): Record<string, LocationData> {
   console.log('🗺️  Extracting all locations from landmarks, flypoints, and map attributes...');
 
   const locations: Record<string, LocationData> = {};
 
-  // Extract NPC trades and events first
+  // Extract NPC trades, events, and TM/HM locations first
   const tradesByLocation = extractNPCTrades();
   const eventsByLocation = extractLocationEvents();
+  const tmhmByLocation = extractTMHMLocations();
 
   // Read landmark constants to get the mapping of names to IDs
   const landmarkConstantsPath = path.join(__dirname, 'rom/constants/landmark_constants.asm');
@@ -613,8 +680,19 @@ export function extractAllLocations(): Record<string, LocationData> {
     }
   }
 
+  // Merge TM/HM locations into location data
+  console.log('🔧 Merging TM/HM locations...');
+  for (const [locationKey, tmhms] of Object.entries(tmhmByLocation)) {
+    if (locations[locationKey]) {
+      locations[locationKey].tmhms = tmhms;
+    } else {
+      console.log(`⚠️  TM/HM locations found for unknown location: ${locationKey}`);
+    }
+  }
+
   const totalTrades = Object.values(locations).reduce((sum, loc) => sum + (loc.npcTrades?.length || 0), 0);
   const totalEvents = Object.values(locations).reduce((sum, loc) => sum + (loc.events?.length || 0), 0);
+  const totalTMHMs = Object.values(locations).reduce((sum, loc) => sum + (loc.tmhms?.length || 0), 0);
 
   const landmarkLocations = Object.values(locations).filter(l => l.id >= 0).length;
   const nonLandmarkLocations = Object.values(locations).filter(l => l.id < 0).length;
@@ -628,6 +706,7 @@ export function extractAllLocations(): Record<string, LocationData> {
   console.log(`   ✈️  ${flyableCount} flyable locations`);
   console.log(`   💱 ${totalTrades} NPC trades`);
   console.log(`   ⚡ ${totalEvents} special events`);
+  console.log(`   🔧 ${totalTMHMs} TM/HM locations`);
 
   return locations;
 }
@@ -720,6 +799,18 @@ export async function exportAllLocations() {
         );
         if (uniqueEvents.length > 0) {
           baseLocation.events = uniqueEvents;
+        }
+
+        // Merge all TM/HM locations, removing duplicates
+        const allTMHMs = originalKeys.flatMap(key => allLocations[key].tmhms || []);
+        const uniqueTMHMs = allTMHMs.filter((tmhm, index, self) =>
+          index === self.findIndex(t =>
+            t.tmNumber === tmhm.tmNumber &&
+            t.moveName === tmhm.moveName
+          )
+        );
+        if (uniqueTMHMs.length > 0) {
+          baseLocation.tmhms = uniqueTMHMs;
         }
 
         consolidatedLocations[normalizedKey] = baseLocation;

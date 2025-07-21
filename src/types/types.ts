@@ -288,6 +288,7 @@ export interface LocationData {
   connections: LocationConnection[];
   npcTrades?: NPCTrade[];
   events?: LocationEvent[];
+  tmhms?: { tmNumber: string; moveName: string; location: string }[];
 }
 
 // Item types
