@@ -144,12 +144,39 @@ export function extractLocationEvents(): Record<string, LocationEvent[]> {
         });
       }
 
-      // Item events
-      const itemMatch = line.match(/itemball_event.*,\s*(\w+),/);
-      if (itemMatch) {
+      // Visible item events (itemball_event)
+      const visibleItemMatch = line.match(/itemball_event\s+(\d+),\s*(\d+),\s*(\w+),/);
+      if (visibleItemMatch) {
+        const itemName = visibleItemMatch[3].replace(/_/g, ' ').toLowerCase();
+        const formattedItemName = itemName.split(' ').map(word => 
+          word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+        
         events.push({
           type: 'item',
-          description: `Item: ${itemMatch[1].replace(/_/g, ' ')}`
+          description: `Visible Item: ${formattedItemName}`,
+          coordinates: { 
+            x: parseInt(visibleItemMatch[1]), 
+            y: parseInt(visibleItemMatch[2]) 
+          }
+        });
+      }
+
+      // Hidden item events (bg_event with BGEVENT_ITEM)
+      const hiddenItemMatch = line.match(/bg_event\s+(\d+),\s*(\d+),\s*BGEVENT_ITEM\s*\+\s*(\w+),/);
+      if (hiddenItemMatch) {
+        const itemName = hiddenItemMatch[3].replace(/_/g, ' ').toLowerCase();
+        const formattedItemName = itemName.split(' ').map(word => 
+          word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+        
+        events.push({
+          type: 'item',
+          description: `Hidden Item: ${formattedItemName}`,
+          coordinates: { 
+            x: parseInt(hiddenItemMatch[1]), 
+            y: parseInt(hiddenItemMatch[2]) 
+          }
         });
       }
     }
