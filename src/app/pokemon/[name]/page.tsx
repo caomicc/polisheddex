@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
@@ -6,7 +8,6 @@ import PokemonKeyboardNavigation from '@/components/pokemon/PokemonKeyboardNavig
 import { MoveDescription, FormData, PokemonDataV3 } from '@/types/types';
 import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNormalizer';
 import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';
-import { loadJsonFile } from '@/utils/fileLoader';
 import { Button } from '@/components/ui/button';
 import {
   Breadcrumb,
@@ -17,6 +18,17 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 
+// Function to safely load JSON data
+async function loadJsonData<T>(filePath: string): Promise<T | null> {
+  try {
+    const data = await fs.promises.readFile(filePath, 'utf8');
+    return JSON.parse(data) as T;
+  } catch (error) {
+    console.error(`Error loading data from ${filePath}:`, error);
+    return null;
+  }
+}
+
 export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
   const pokemonName = decodeURIComponent(nameParam);
@@ -25,8 +37,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const standardKey = urlKeyToStandardKey(pokemonName);
 
   // Build the path to the individual Pokémon file using the URL-safe filename
-  const pokemonFileName = `output/pokemon/${getPokemonFileName(standardKey)}`;
-  const pokemonData = await loadJsonFile<PokemonDataV3>(pokemonFileName);
+  const pokemonFile = path.join(process.cwd(), `output/pokemon/${getPokemonFileName(standardKey)}`);
+  const pokemonData = await loadJsonData<PokemonDataV3>(pokemonFile);
   if (!pokemonData) return notFound();
 
   // Map the loaded data to the expected structure for the client component
@@ -170,7 +182,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   // You may want to load moveDescData as before, or optimize further if you have per-move files
   // For now, keep the original moveDescData loading for compatibility
-  const moveDescData = await loadJsonFile<Record<string, MoveDescription>>('output/pokemon_move_descriptions.json') || {};
+  const moveDescFile = path.join(process.cwd(), 'output/pokemon_move_descriptions.json');
+  const moveDescData = (await loadJsonData<Record<string, MoveDescription>>(moveDescFile)) || {};
 
   return (
     <div className="max-w-xl md:max-w-4xl mx-auto p-4">

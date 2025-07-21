@@ -10,12 +10,13 @@ export async function loadJsonFile<T>(relativePath: string): Promise<T | null> {
     path.join(process.cwd(), relativePath),
     // Alternative path in case of deployment differences
     path.join(process.cwd(), '..', relativePath),
-    // Path relative to the dist folder in production
-    path.join(process.cwd(), '.next', '..', relativePath),
+    // Path relative to the current file
+    path.resolve(__dirname, '..', '..', '..', relativePath),
   ];
 
   console.log(`Attempting to load file: ${relativePath}`);
   console.log(`Process cwd: ${process.cwd()}`);
+  console.log(`__dirname: ${__dirname}`);
 
   for (const filePath of possiblePaths) {
     try {
