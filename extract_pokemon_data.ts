@@ -1645,6 +1645,8 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
     spriteName = 'nidoran_f';
   } else if (trimmedMon === 'Nidoran-M') {
     spriteName = 'nidoran_m';
+  } else if (trimmedMon === 'Dudunsparce' || 'dudunsparce' === trimmedMon) {
+    spriteName = 'dudunsparce_two_segment';
   } else {
     // Default normalization for spriteName
     spriteName = trimmedMon
