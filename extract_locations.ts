@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 export function extractNPCTrades(): Record<string, NPCTrade[]> {
   console.log('💱 Extracting NPC trades...');
   const tradesPath = path.join(__dirname, 'rom/data/events/npc_trades.asm');
-  
+
   if (!fs.existsSync(tradesPath)) {
     console.warn('NPC trades file not found');
     return {};
@@ -68,7 +68,7 @@ export function extractNPCTrades(): Record<string, NPCTrade[]> {
     const trainerMatch = line.match(/rawchar\s+"([^"@]+)@*",\s*\$00/);
     if (trainerMatch) {
       currentTrade.traderName = trainerMatch[1];
-      
+
       // Complete trade entry
       if (currentLocation && currentTrade.wantsPokemon && currentTrade.givesPokemon) {
         if (!tradesByLocation[currentLocation]) {
@@ -103,11 +103,11 @@ export function extractLocationEvents(): Record<string, LocationEvent[]> {
     const locationKey = path.basename(mapFile, '.asm').toLowerCase();
     // Convert PascalCase/CamelCase map names to snake_case
     const normalizedKey = locationKey.replace(/([A-Z])/g, '_$1').toLowerCase().replace(/^_/, '');
-    
+
     const mapPath = path.join(mapsDir, mapFile);
     const mapContent = fs.readFileSync(mapPath, 'utf8');
     const lines = mapContent.split(/\r?\n/);
-    
+
     const events: LocationEvent[] = [];
 
     for (let i = 0; i < lines.length; i++) {
@@ -148,16 +148,16 @@ export function extractLocationEvents(): Record<string, LocationEvent[]> {
       const visibleItemMatch = line.match(/itemball_event\s+(\d+),\s*(\d+),\s*(\w+),/);
       if (visibleItemMatch) {
         const itemName = visibleItemMatch[3].replace(/_/g, ' ').toLowerCase();
-        const formattedItemName = itemName.split(' ').map(word => 
+        const formattedItemName = itemName.split(' ').map(word =>
           word.charAt(0).toUpperCase() + word.slice(1)
         ).join(' ');
-        
+
         events.push({
           type: 'item',
           description: `Visible Item: ${formattedItemName}`,
-          coordinates: { 
-            x: parseInt(visibleItemMatch[1]), 
-            y: parseInt(visibleItemMatch[2]) 
+          coordinates: {
+            x: parseInt(visibleItemMatch[1]),
+            y: parseInt(visibleItemMatch[2])
           }
         });
       }
@@ -166,16 +166,16 @@ export function extractLocationEvents(): Record<string, LocationEvent[]> {
       const hiddenItemMatch = line.match(/bg_event\s+(\d+),\s*(\d+),\s*BGEVENT_ITEM\s*\+\s*(\w+),/);
       if (hiddenItemMatch) {
         const itemName = hiddenItemMatch[3].replace(/_/g, ' ').toLowerCase();
-        const formattedItemName = itemName.split(' ').map(word => 
+        const formattedItemName = itemName.split(' ').map(word =>
           word.charAt(0).toUpperCase() + word.slice(1)
         ).join(' ');
-        
+
         events.push({
           type: 'item',
           description: `Hidden Item: ${formattedItemName}`,
-          coordinates: { 
-            x: parseInt(hiddenItemMatch[1]), 
-            y: parseInt(hiddenItemMatch[2]) 
+          coordinates: {
+            x: parseInt(hiddenItemMatch[1]),
+            y: parseInt(hiddenItemMatch[2])
           }
         });
       }
@@ -467,9 +467,9 @@ export function extractAllLocations(): Record<string, LocationData> {
 
     // Add events - try multiple key variations
     const possibleEventKeys = [
-      locationKey, // exact match like "azalea_town"  
+      locationKey, // exact match like "azalea_town"
       locationKey.replace(/_/g, ''), // "azaleatown"
-      locationKey.split('_').map(word => 
+      locationKey.split('_').map(word =>
         word.charAt(0).toUpperCase() + word.slice(1)
       ).join(''), // "AzaleaTown"
     ];
