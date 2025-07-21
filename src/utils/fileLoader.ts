@@ -1,3 +1,4 @@
+// import fs from 'fs';
 import { promises as fs } from 'fs';
 import path from 'path';
 
@@ -34,4 +35,17 @@ export async function loadJsonFile<T>(relativePath: string): Promise<T | null> {
 
   console.error(`Failed to load file ${relativePath} from any path`);
   return null;
+}
+
+
+// Function to safely load JSON data
+export async function loadJsonData<T>(filePath: string): Promise<T | null> {
+  try {
+    // if not promises as fs, needs fs.promises.readFile
+    const data = await fs.readFile(filePath, 'utf8');
+    return JSON.parse(data) as T;
+  } catch (error) {
+    console.error(`Error loading data from ${filePath}:`, error);
+    return null;
+  }
 }

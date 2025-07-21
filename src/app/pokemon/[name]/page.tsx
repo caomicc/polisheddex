@@ -1,3 +1,5 @@
+import path from 'path';
+
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
@@ -6,7 +8,7 @@ import PokemonKeyboardNavigation from '@/components/pokemon/PokemonKeyboardNavig
 import { MoveDescription, FormData, PokemonDataV3 } from '@/types/types';
 import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNormalizer';
 import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';
-import { loadJsonFile } from '@/utils/fileLoader';
+import { loadJsonData } from '@/utils/fileLoader';
 import { Button } from '@/components/ui/button';
 import {
   Breadcrumb,
@@ -24,8 +26,12 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // Convert the URL key to a standardized key for file lookup
   const standardKey = urlKeyToStandardKey(pokemonName);
 
+
+  const pokemonFile = path.join(process.cwd(), `output/pokemon/${getPokemonFileName(standardKey)}`);
+  const pokemonData = await loadJsonData<PokemonDataV3>(pokemonFile);
+
   // Build the path to the individual Pokémon file using the URL-safe filename
-  const pokemonData = await loadJsonFile<PokemonDataV3>(`output/pokemon/${getPokemonFileName(standardKey)}`);
+  // const pokemonData = await loadJsonFile<PokemonDataV3>(`output/pokemon/${getPokemonFileName(standardKey)}`);
   if (!pokemonData) return notFound();
 
   // Map the loaded data to the expected structure for the client component
@@ -76,13 +82,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     // bodyShape: pokemonData.detailedStats?.bodyShape || '',
     // genderRatio: pokemonData.detailedStats?.genderRatio || {},
   };
-
-  console.log(
-    `Loaded default Pokémon data for ${pokemonName}`,
-    allFormData['default'],
-    pokemonData,
-    (pokemonData as FormData).description,
-  );
 
   // Add any additional forms
   if (pokemonData.forms) {
@@ -142,33 +141,24 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     });
   }
 
-  console.log(`Loaded Pokémon data for ${pokemonName}`, allFormData);
-
   // Load dex orders for navigation
   const dexOrders = await loadDexOrders();
-  console.log('Loaded dex orders:', {
-    nationalCount: dexOrders.national.length,
-    johtoCount: dexOrders.johto.length
-  });
 
   const { order: dexOrder, type: dexType } = getDexOrderToUse(
     pokemonData,
     dexOrders.national,
     dexOrders.johto
   );
-  console.log('Using dex order:', {
-    type: dexType,
-    orderLength: dexOrder.length,
-    pokemonName,
-    nationalDex: pokemonData.nationalDex,
-    johtoDex: pokemonData.johtoDex
-  });
 
   const navigation = getPokemonNavigation(pokemonName, dexOrder);
   console.log('Generated navigation:', navigation);
 
+
+  const moveDescFile = path.join(process.cwd(), `output/pokemon_move_descriptions.json`);
+  const moveDescData = (await loadJsonData<Record<string, MoveDescription>>(moveDescFile)) || {};
+
   // Load move descriptions using the robust file loader
-  const moveDescData = await loadJsonFile<Record<string, MoveDescription>>('output/pokemon_move_descriptions.json') || {};
+  // const moveDescData = await loadJsonFile<Record<string, MoveDescription>>('output/pokemon_move_descriptions.json') || {};
 
   return (
     <div className="max-w-xl md:max-w-4xl mx-auto p-4">

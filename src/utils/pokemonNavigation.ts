@@ -1,5 +1,9 @@
-import { getPokemonFileName, urlKeyToStandardKey } from './pokemonUrlNormalizer';
-import { loadJsonFile } from './fileLoader';
+// import fs from 'fs';
+import path from 'path';
+import { urlKeyToStandardKey } from './pokemonUrlNormalizer';
+import { loadJsonData } from './fileLoader';
+
+
 
 export interface NavigationData {
   previous: { name: string; url: string } | null;
@@ -74,10 +78,16 @@ export async function loadDexOrders(): Promise<{
     console.log('Loading dex orders...');
 
     // First try to load from the output directory (development)
-    let [nationalData, johtoData] = await Promise.all([
-      loadJsonFile<string[]>('output/national_dex_order.json'),
-      loadJsonFile<string[]>('output/johto_dex_order.json')
-    ]);
+    // let [nationalData, johtoData] = await Promise.all([
+    //   loadJsonFile<string[]>('output/national_dex_order.json'),
+    //   loadJsonFile<string[]>('output/johto_dex_order.json')
+    // ]);
+
+    const nationalDexFile = path.join(process.cwd(), `output/national_dex_order.json`);
+    const johtoDexFile = path.join(process.cwd(), `output/johto_dex_order.json`);
+
+    let nationalData = await loadJsonData<string[]>(nationalDexFile);
+    let johtoData = await loadJsonData<string[]>(johtoDexFile);
 
     // If that fails (e.g., in production), try to fetch from public directory
     if (!nationalData || !johtoData) {
@@ -85,8 +95,8 @@ export async function loadDexOrders(): Promise<{
 
       try {
         // In server-side rendering, we need to use fetch with full URL in production
-        const baseUrl = process.env.VERCEL_URL 
-          ? `https://${process.env.VERCEL_URL}` 
+        const baseUrl = process.env.VERCEL_URL
+          ? `https://${process.env.VERCEL_URL}`
           : 'http://localhost:3000';
 
         const [nationalResponse, johtoResponse] = await Promise.all([
