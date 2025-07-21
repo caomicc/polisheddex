@@ -43,25 +43,28 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
   return (
     <footer
       className={cn(
-        "w-full py-6 px-4 flex flex-col md:flex-row md:items-center spacing-2 justify-between border-t border-gray-200 bg-white dark:bg-gray-900",
+        "w-full py-6 px-4 flex flex-col md:flex-row md:items-center spacing-2 justify-between border-t border-gray-200 bg-white dark:bg-gray-900 gap-8",
         className
       )}
       role="contentinfo"
-    >
-      <span className="text-sm text-gray-500 dark:text-gray-400">
+    ><div>
+      <span className="text-sm text-gray-500 dark:text-gray-400 ">
         &copy; {new Date().getFullYear()} PolishedDex. All rights reserved.
       </span>
+      {" "}
+      <span className="text-sm text-gray-500 dark:text-gray-400">
+      Made by{" "}
+        <a
+          href="https://caomi.cc"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-gray-600 dark:text-gray-300"
+        >
+          {" "}Cammy
+        </a>.
+      </span>
+      </div>
       <div className="flex items-center gap-2">
-        {/* <Switch
-          id="theme-toggle"
-          checked={isDark}
-          onCheckedChange={setIsDark}
-          aria-label="Toggle dark mode"
-        />
-        <label htmlFor="theme-toggle" className="text-sm text-gray-600 dark:text-gray-300 cursor-pointer">
-          Dark mode
-        </label> */}
-
         <span className="text-xs text-gray-400 dark:text-gray-500">
           Last updated: {getLastUpdatedDate()}
         </span>
