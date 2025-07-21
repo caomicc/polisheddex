@@ -4,6 +4,7 @@ import { ColumnDef } from '@tanstack/react-table';
 import { ArrowUpDown, ArrowUp, ArrowDown, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../ui/button';
+import { normalizeLocationKey } from '@/utils/locationUtils';
 
 // Define the interface for location data
 export interface LocationData {
@@ -40,11 +41,14 @@ export const locationColumns: ColumnDef<LocationData>[] = [
     },
     cell: ({ row }) => {
       const location = row.original;
+      // Use urlName if available (should be pre-normalized), otherwise normalize the area as fallback
+      const urlPath = location.urlName || (location.area ? normalizeLocationKey(location.area) : null);
+      
       return (
         <div className="flex items-center space-x-2 min-w-0">
-          {location.urlName ? (
+          {urlPath ? (
             <Link
-              href={`/locations/${location.urlName}`}
+              href={`/locations/${encodeURIComponent(urlPath)}`}
               className="hover:text-blue-600 hover:underline  truncate"
             >
               {location.displayName || location.area}
@@ -52,7 +56,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
           ) : (
             <span className=" truncate text-sm ">{location.displayName || location.area}</span>
           )}
-          {location.urlName && (
+          {urlPath && (
             <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
           )}
         </div>

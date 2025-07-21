@@ -4,10 +4,12 @@ import { TableRow, TableCell } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
 import TimeIcon from './TimeIcon';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
+import { normalizeLocationKey } from '@/utils/locationUtils';
 
 export function LocationListItem({ area, method, time, level, chance, rareItem }: LocationEntry) {
   const formattedArea = area || 'N/A';
-  const areaUrl = area ? `/locations/${encodeURIComponent(formatAreaName(area))}` : '#';
+  // Use the normalized area name for URL routing to match the detail page expectations
+  const areaUrl = area ? `/locations/${encodeURIComponent(normalizeLocationKey(area))}` : '#';
   const desktopRows = [
     <TableRow
       key={`row-${formattedArea}-${level}`}

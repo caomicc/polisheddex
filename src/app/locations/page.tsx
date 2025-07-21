@@ -12,6 +12,7 @@ import {
 import { LocationData, LocationAreaData } from '@/types/types';
 // import LocationCard from '@/components/pokemon/LocationCard';
 import LocationSearch from '@/components/pokemon/LocationSearch';
+import { normalizeLocationKey } from '@/utils/locationUtils';
 
 // Function to load Pokemon encounter data by area
 async function loadPokemonLocationData(): Promise<Record<string, LocationAreaData>> {
@@ -101,48 +102,6 @@ interface EnhancedLocation {
 // Type for Pokemon methods in location data
 interface PokemonWithMethods {
   methods?: Record<string, unknown>;
-}
-
-
-/**
- * Normalize location names to consistent snake_case keys
- * This ensures all data sources use the same keys for matching
- * @param input - Input location name in any format
- * @returns Normalized key like "burned_tower_1f"
- */
-function normalizeLocationKey(input: string): string {
-  return input
-    // Convert CamelCase/PascalCase to snake_case first
-    .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
-    .toLowerCase()
-    // Handle "Tower1 F" and "tower1_f" patterns specifically
-    .replace(/(\w)1[\s_]+f/i, '$1_1f')
-    // Handle "Tower1" pattern at end (e.g., "Burned Tower1" -> "burned_tower_1")
-    .replace(/(\w)1$/i, '$1_1')
-    // Handle various floor patterns - normalize all to standard format
-    // Handle B1F variations (with or without spaces, with or without F)
-    .replace(/\s*b\s*1\s*f?\s*$/i, '_b1f')
-    .replace(/\s*b\s*2\s*f?\s*$/i, '_b2f')
-    .replace(/\s*b\s*3\s*f?\s*$/i, '_b3f')
-    .replace(/\s*b\s*4\s*f?\s*$/i, '_b4f')
-    .replace(/\s*b\s*5\s*f?\s*$/i, '_b5f')
-    // Handle regular floor patterns (with or without spaces, with or without F)
-    .replace(/\s*1\s*f?\s*$/i, '_1f')
-    .replace(/\s*2\s*f?\s*$/i, '_2f')
-    .replace(/\s*3\s*f?\s*$/i, '_3f')
-    .replace(/\s*4\s*f?\s*$/i, '_4f')
-    .replace(/\s*5\s*f?\s*$/i, '_5f')
-    .replace(/\s*6\s*f?\s*$/i, '_6f')
-    .replace(/\s*7\s*f?\s*$/i, '_7f')
-    .replace(/\s*8\s*f?\s*$/i, '_8f')
-    .replace(/\s*9\s*f?\s*$/i, '_9f')
-    .replace(/\s*10\s*f?\s*$/i, '_10f')
-    // Convert spaces, hyphens, and other separators to underscores
-    .replace(/[\s\-\.]+/g, '_')
-    // Clean up multiple underscores
-    .replace(/_+/g, '_')
-    // Remove leading/trailing underscores
-    .replace(/^_+|_+$/g, '');
 }
 
 

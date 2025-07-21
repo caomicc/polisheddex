@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { Badge } from '../ui/badge';
 import { getDisplayLocationName } from '../utils';
 import { LocationData } from '@/types/types';
+import { normalizeLocationKey } from '@/utils/locationUtils';
 
 export interface LocationCardProps {
   location: {
@@ -35,7 +36,8 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
       : 'normal';
 
   const displayName = location.displayName || getDisplayLocationName(location.area);
-  const urlName = location.urlName || location.area; // Use urlName if available, fallback to area
+  // Use urlName if available (should be pre-normalized), otherwise normalize the area as fallback
+  const urlName = location.urlName || (location.area ? normalizeLocationKey(location.area) : location.area);
 
   return (
     <Link href={`/locations/${encodeURIComponent(urlName)}`}>
