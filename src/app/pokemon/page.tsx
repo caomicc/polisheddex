@@ -61,8 +61,13 @@ export default async function PokemonList({
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <h1 className="sr-only">Pokémon List</h1>
 
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold mb-2">Pokedex</h1>
+        <p className="text-gray-600 dark:text-gray-400">
+          Browse all Pokémon available in Pokémon Polished Crystal
+        </p>
+      </div>
       <PokemonSearch pokemon={sortedPokemon} sortType={sortType} />
     </div>
   );

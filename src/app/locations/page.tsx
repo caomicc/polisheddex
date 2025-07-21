@@ -358,7 +358,12 @@ export default async function LocationsPage() {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <h1 className="text-3xl font-bold mb-6 sr-only">Game Locations</h1>
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold mb-2">Locations</h1>
+        <p className="text-gray-600 dark:text-gray-400">
+          Browse all locations available in Pokémon Polished Crystal
+        </p>
+      </div>
 
       {/* Display summary of location data */}
       <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
@@ -385,64 +390,6 @@ export default async function LocationsPage() {
 
       <LocationSearch locations={processedLocations} />
 
-      {/* <h1 className="text-3xl font-bold mb-6">Game Locations</h1>
-
-      <h2 className="text-xl font-semibold mb-4">All Locations</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {locationNames.map((locationName) => {
-          const pokemonCount = Object.keys(locationData[locationName].pokemon).length;
-
-          const hasHiddenGrottoes = Object.values(locationData[locationName].pokemon).some(
-            (pokemon: PokemonMethods) =>
-              pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
-          );
-
-
-          return (
-            <LocationCard
-              key={locationName}
-              location={{
-                area: locationName,
-                types: getLocationTypes(locationName),
-                pokemonCount,
-                hasHiddenGrottoes
-              }}
-            />
-          );
-        })}
-      </div>
-
-      <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-4">Hidden Grotto Locations</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {locationNames
-            .filter((locationName) => {
-              return Object.values(locationData[locationName].pokemon).some(
-                (pokemon: PokemonMethods) =>
-                  pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
-              );
-            })
-            .map((locationName) => {
-              // Count total Pokémon in hidden grottoes at this location
-              const pokemonCount = Object.values(locationData[locationName].pokemon).filter(
-                (pokemon: PokemonMethods) =>
-                  pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
-              ).length;
-
-              return (
-                <LocationCard
-                  key={locationName + '-grotto'}
-                  location={{
-                    area: locationName,
-                    types: getLocationTypes(locationName),
-                    pokemonCount,
-                    hasHiddenGrottoes: true
-                  }}
-                />
-              );
-            })}
-        </div>
-      </div> */}
     </div>
   );
 }
