@@ -73,10 +73,38 @@ export async function loadDexOrders(): Promise<{
   try {
     console.log('Loading dex orders...');
 
-    const [nationalData, johtoData] = await Promise.all([
-      loadJsonFile<string[]>('/public/output/national_dex_order.json'),
-      loadJsonFile<string[]>('/public/output/johto_dex_order.json')
+    // First try to load from the output directory (development)
+    let [nationalData, johtoData] = await Promise.all([
+      loadJsonFile<string[]>('output/national_dex_order.json'),
+      loadJsonFile<string[]>('output/johto_dex_order.json')
     ]);
+
+    // If that fails (e.g., in production), try to fetch from public directory
+    if (!nationalData || !johtoData) {
+      console.log('Fallback: Loading dex orders from public directory...');
+
+      try {
+        // In server-side rendering, we need to use fetch with full URL in production
+        const baseUrl = process.env.VERCEL_URL 
+          ? `https://${process.env.VERCEL_URL}` 
+          : 'http://localhost:3000';
+
+        const [nationalResponse, johtoResponse] = await Promise.all([
+          fetch(`${baseUrl}/output/national_dex_order.json`),
+          fetch(`${baseUrl}/output/johto_dex_order.json`)
+        ]);
+
+        if (nationalResponse.ok && !nationalData) {
+          nationalData = await nationalResponse.json();
+        }
+
+        if (johtoResponse.ok && !johtoData) {
+          johtoData = await johtoResponse.json();
+        }
+      } catch (fetchError) {
+        console.error('Error fetching from public directory:', fetchError);
+      }
+    }
 
     const result = {
       national: nationalData || [],
@@ -91,6 +119,10 @@ export async function loadDexOrders(): Promise<{
     return result;
   } catch (error) {
     console.error('Error loading dex orders:', error);
+    console.error('Error details:', {
+      message: error instanceof Error ? error.message : String(error),
+      cwd: process.cwd()
+    });
     return {
       national: [],
       johto: []
