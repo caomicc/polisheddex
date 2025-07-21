@@ -7,6 +7,46 @@ import type { LocationData, LocationConnection, NPCTrade, LocationEvent } from '
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// --- Normalize Location Key ---
+/**
+ * Normalize location names to consistent snake_case keys
+ * This ensures all data sources (Pokemon locations, comprehensive locations, etc.) use the same keys
+ */
+export function normalizeLocationKey(input: string): string {
+  return input
+    // Convert CamelCase/PascalCase to snake_case first
+    .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
+    .toLowerCase()
+    // Handle "Tower1 F" and "tower1_f" patterns specifically
+    .replace(/(\w)1[\s_]+f/i, '$1_1f')
+    // Handle "Tower1" pattern at end (e.g., "Burned Tower1" -> "burned_tower_1")
+    .replace(/(\w)1$/i, '$1_1')
+    // Handle various floor patterns - normalize all to standard format
+    // Handle B1F variations (with or without spaces, with or without F)
+    .replace(/\s*b\s*1\s*f?\s*$/i, '_b1f')
+    .replace(/\s*b\s*2\s*f?\s*$/i, '_b2f')
+    .replace(/\s*b\s*3\s*f?\s*$/i, '_b3f')
+    .replace(/\s*b\s*4\s*f?\s*$/i, '_b4f')
+    .replace(/\s*b\s*5\s*f?\s*$/i, '_b5f')
+    // Handle regular floor patterns (with or without spaces, with or without F)
+    .replace(/\s*1\s*f?\s*$/i, '_1f')
+    .replace(/\s*2\s*f?\s*$/i, '_2f')
+    .replace(/\s*3\s*f?\s*$/i, '_3f')
+    .replace(/\s*4\s*f?\s*$/i, '_4f')
+    .replace(/\s*5\s*f?\s*$/i, '_5f')
+    .replace(/\s*6\s*f?\s*$/i, '_6f')
+    .replace(/\s*7\s*f?\s*$/i, '_7f')
+    .replace(/\s*8\s*f?\s*$/i, '_8f')
+    .replace(/\s*9\s*f?\s*$/i, '_9f')
+    .replace(/\s*10\s*f?\s*$/i, '_10f')
+    // Convert spaces, hyphens, and other separators to underscores
+    .replace(/[\s\-\.]+/g, '_')
+    // Clean up multiple underscores
+    .replace(/_+/g, '_')
+    // Remove leading/trailing underscores
+    .replace(/^_+|_+$/g, '');
+}
+
 // --- NPC Trades Extraction ---
 export function extractNPCTrades(): Record<string, NPCTrade[]> {
   console.log('💱 Extracting NPC trades...');
@@ -30,7 +70,7 @@ export function extractNPCTrades(): Record<string, NPCTrade[]> {
     // Parse location from comments like "; NPC_TRADE_MIKE in Goldenrod City"
     const locationMatch = line.match(/;\s*NPC_TRADE_\w+\s+in\s+(.+)/i);
     if (locationMatch) {
-      currentLocation = locationMatch[1].toLowerCase().replace(/\s+/g, '_');
+      currentLocation = normalizeLocationKey(locationMatch[1]);
       currentTrade = {};
       continue;
     }
@@ -100,9 +140,9 @@ export function extractLocationEvents(): Record<string, LocationEvent[]> {
   const mapFiles = fs.readdirSync(mapsDir).filter(file => file.endsWith('.asm'));
 
   for (const mapFile of mapFiles) {
-    const locationKey = path.basename(mapFile, '.asm').toLowerCase();
-    // Convert PascalCase/CamelCase map names to snake_case
-    const normalizedKey = locationKey.replace(/([A-Z])/g, '_$1').toLowerCase().replace(/^_/, '');
+    const locationKey = path.basename(mapFile, '.asm');
+    // Use the normalization function for consistent keys
+    const normalizedKey = normalizeLocationKey(locationKey);
 
     const mapPath = path.join(mapsDir, mapFile);
     const mapContent = fs.readFileSync(mapPath, 'utf8');
@@ -202,6 +242,10 @@ export function extractAllLocations(): Record<string, LocationData> {
 
   const locations: Record<string, LocationData> = {};
 
+  // Extract NPC trades and events first
+  const tradesByLocation = extractNPCTrades();
+  const eventsByLocation = extractLocationEvents();
+
   // Read landmark constants to get the mapping of names to IDs
   const landmarkConstantsPath = path.join(__dirname, 'rom/constants/landmark_constants.asm');
   const landmarksPath = path.join(__dirname, 'rom/data/maps/landmarks.asm');
@@ -271,10 +315,11 @@ export function extractAllLocations(): Record<string, LocationData> {
 
       if (landmarkConstantName && landmarkConstantName !== 'SPECIAL_MAP') {
         const region = landmarkRegionMap[landmarkConstantName] || 'johto';
+        const normalizedKey = normalizeLocationKey(landmarkConstantName);
 
-        locations[landmarkConstantName.toLowerCase()] = {
+        locations[normalizedKey] = {
           id: landmarkIndex,
-          name: landmarkConstantName.toLowerCase(),
+          name: normalizedKey,
           displayName: '', // Will be filled from display names
           region,
           x,
@@ -317,7 +362,7 @@ export function extractAllLocations(): Record<string, LocationData> {
       if (mapAttributesMatch) {
         // Save connections for the previous map
         if (currentMapName && currentConnections.length > 0) {
-          const locationKey = currentMapName.toLowerCase();
+          const locationKey = normalizeLocationKey(currentMapName);
           if (locations[locationKey]) {
             locations[locationKey].connections = [...currentConnections];
           } else {
@@ -353,7 +398,7 @@ export function extractAllLocations(): Record<string, LocationData> {
         const offset = parseInt(connectionMatch[4]);
 
         // Find the target location's display name
-        const targetLocationKey = targetMapConstant.toLowerCase();
+        const targetLocationKey = normalizeLocationKey(targetMapConstant);
         const targetDisplayName = targetMapConstant
           .split('_')
           .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
@@ -370,7 +415,7 @@ export function extractAllLocations(): Record<string, LocationData> {
 
     // Don't forget to save connections for the last map
     if (currentMapName && currentConnections.length > 0) {
-      const locationKey = currentMapName.toLowerCase();
+      const locationKey = normalizeLocationKey(currentMapName);
       if (locations[locationKey]) {
         locations[locationKey].connections = [...currentConnections];
       } else {
@@ -388,6 +433,79 @@ export function extractAllLocations(): Record<string, LocationData> {
           flyable: false,
           connections: [...currentConnections],
         };
+      }
+    }
+  }  // Parse warp events from individual map files to create connections for indoor maps
+  console.log('🚪 Parsing warp events from individual map files...');
+  const mapsDir = path.join(__dirname, 'rom/maps');
+
+  if (fs.existsSync(mapsDir)) {
+    const mapFiles = fs.readdirSync(mapsDir).filter(file => file.endsWith('.asm'));
+
+    for (const mapFile of mapFiles) {
+      const sourceLocationKey = normalizeLocationKey(path.basename(mapFile, '.asm'));
+      const mapPath = path.join(mapsDir, mapFile);
+      const mapContent = fs.readFileSync(mapPath, 'utf8');
+      const lines = mapContent.split(/\r?\n/);
+
+      const warpConnections: LocationConnection[] = [];
+
+      for (const line of lines) {
+        // Parse warp_event lines: warp_event  X, Y, TARGET_MAP, warp_id
+        const warpMatch = line.trim().match(/^warp_event\s+\d+,\s*\d+,\s*([A-Z_0-9_]+),\s*\d+/);
+        if (warpMatch) {
+          const targetMapConstant = warpMatch[1];
+          const targetLocationKey = normalizeLocationKey(targetMapConstant);
+
+          // Debug logging for all warps to understand the pattern
+          console.log(`🔍 Found warp from ${sourceLocationKey} (${path.basename(mapFile, '.asm')}) to ${targetLocationKey} (${targetMapConstant})`);
+
+          // Only add if this connection doesn't already exist
+          const exists = warpConnections.some(conn => conn.targetLocation === targetLocationKey);
+          if (!exists) {
+            const targetDisplayName = targetMapConstant
+              .split('_')
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+              .join(' ');
+
+            warpConnections.push({
+              direction: 'warp',
+              targetLocation: targetLocationKey,
+              targetLocationDisplay: targetDisplayName,
+              offset: 0
+            });
+          }
+        }
+      }
+
+      // Add warp connections to the location if any were found
+      if (warpConnections.length > 0) {
+        // Debug logging for Burned Tower
+        if (sourceLocationKey.includes('burned_tower')) {
+          console.log(`🔗 Adding ${warpConnections.length} warp connections to ${sourceLocationKey}`);
+        }
+
+        if (!locations[sourceLocationKey]) {
+          // Create location entry if it doesn't exist
+          locations[sourceLocationKey] = {
+            id: -1,
+            name: sourceLocationKey,
+            displayName: path.basename(mapFile, '.asm')
+              .split(/(?=[A-Z])/) // Split on capital letters
+              .join(' ')
+              .replace(/^\w/, c => c.toUpperCase()),
+            region: 'johto',
+            x: -1,
+            y: -1,
+            flyable: false,
+            connections: warpConnections,
+          };
+        } else {
+          // Add to existing connections, avoiding duplicates
+          const existingTargets = new Set(locations[sourceLocationKey].connections.map(c => c.targetLocation));
+          const newConnections = warpConnections.filter(c => !existingTargets.has(c.targetLocation));
+          locations[sourceLocationKey].connections.push(...newConnections);
+        }
       }
     }
   }
@@ -448,42 +566,60 @@ export function extractAllLocations(): Record<string, LocationData> {
     }
   }
 
-  const landmarkLocations = Object.values(locations).filter(l => l.id >= 0).length;
-  const nonLandmarkLocations = Object.values(locations).filter(l => l.id < 0).length;
-  const totalConnections = Object.values(locations).reduce((sum, loc) => sum + loc.connections.length, 0);
-  const flyableCount = Object.values(locations).filter(l => l.flyable).length;
+  // Load Pokemon location data to ensure all Pokemon locations have entries
+  const pokemonLocationPath = path.join(__dirname, 'output/locations_by_area.json');
+  if (fs.existsSync(pokemonLocationPath)) {
+    console.log('🔄 Merging Pokemon location data...');
+    const pokemonLocationData = JSON.parse(fs.readFileSync(pokemonLocationPath, 'utf8'));
 
-  // Extract NPC trades and events
-  console.log('📊 Adding NPC trades and events data...');
-  const npcTrades = extractNPCTrades();
-  const locationEvents = extractLocationEvents();
+    for (const pokemonLocationName of Object.keys(pokemonLocationData)) {
+      const normalizedPokemonKey = normalizeLocationKey(pokemonLocationName);
 
-  // Add trades and events to locations
-  for (const [locationKey, location] of Object.entries(locations)) {
-    // Add NPC trades
-    if (npcTrades[locationKey]) {
-      location.npcTrades = npcTrades[locationKey];
-    }
+      // If this Pokemon location doesn't exist in our comprehensive data, create an entry
+      if (!locations[normalizedPokemonKey]) {
+        locations[normalizedPokemonKey] = {
+          id: -1, // Non-landmark locations get -1 ID
+          name: normalizedPokemonKey,
+          displayName: pokemonLocationName, // Use original Pokemon location display name
+          region: 'johto', // Default region, could be refined later
+          x: -1, // No coordinates for Pokemon-only locations
+          y: -1,
+          flyable: false,
+          connections: [],
+        };
 
-    // Add events - try multiple key variations
-    const possibleEventKeys = [
-      locationKey, // exact match like "azalea_town"
-      locationKey.replace(/_/g, ''), // "azaleatown"
-      locationKey.split('_').map(word =>
-        word.charAt(0).toUpperCase() + word.slice(1)
-      ).join(''), // "AzaleaTown"
-    ];
-
-    for (const eventKey of possibleEventKeys) {
-      if (locationEvents[eventKey]) {
-        location.events = locationEvents[eventKey];
-        break;
+        console.log(`📍 Created location entry for Pokemon location: ${pokemonLocationName} -> ${normalizedPokemonKey}`);
       }
+    }
+  }
+
+  // Merge NPC trades into location data
+  console.log('💱 Merging NPC trades...');
+  for (const [locationKey, trades] of Object.entries(tradesByLocation)) {
+    if (locations[locationKey]) {
+      locations[locationKey].npcTrades = trades;
+    } else {
+      console.log(`⚠️  NPC trades found for unknown location: ${locationKey}`);
+    }
+  }
+
+  // Merge events into location data
+  console.log('⚡ Merging location events...');
+  for (const [locationKey, events] of Object.entries(eventsByLocation)) {
+    if (locations[locationKey]) {
+      locations[locationKey].events = events;
+    } else {
+      console.log(`⚠️  Events found for unknown location: ${locationKey}`);
     }
   }
 
   const totalTrades = Object.values(locations).reduce((sum, loc) => sum + (loc.npcTrades?.length || 0), 0);
   const totalEvents = Object.values(locations).reduce((sum, loc) => sum + (loc.events?.length || 0), 0);
+
+  const landmarkLocations = Object.values(locations).filter(l => l.id >= 0).length;
+  const nonLandmarkLocations = Object.values(locations).filter(l => l.id < 0).length;
+  const totalConnections = Object.values(locations).reduce((sum, loc) => sum + loc.connections.length, 0);
+  const flyableCount = Object.values(locations).filter(l => l.flyable).length;
 
   console.log(`✅ Extracted ${Object.keys(locations).length} total locations:`);
   console.log(`   📍 ${landmarkLocations} landmark locations with coordinates`);
@@ -501,8 +637,99 @@ export async function exportAllLocations() {
   try {
     const allLocations = extractAllLocations();
 
+    // Consolidate locations with similar normalized keys
+    console.log('🔄 Consolidating duplicate location entries...');
+    const consolidatedLocations: Record<string, LocationData> = {};
+    const consolidationGroups: Record<string, string[]> = {}; // normalizedKey -> originalKeys[]
+
+    // Group locations by their fully normalized keys
+    for (const [originalKey] of Object.entries(allLocations)) {
+      const normalizedKey = normalizeLocationKey(originalKey);
+
+      if (!consolidationGroups[normalizedKey]) {
+        consolidationGroups[normalizedKey] = [];
+      }
+      consolidationGroups[normalizedKey].push(originalKey);
+    }
+
+    // Debug: show groups with multiple entries before consolidation
+    const groupsWithMultiples = Object.entries(consolidationGroups).filter(([, keys]) => keys.length > 1);
+    if (groupsWithMultiples.length > 0) {
+      console.log(`🔍 Found ${groupsWithMultiples.length} groups with multiple entries:`);
+      groupsWithMultiples.forEach(([normalizedKey, originalKeys]) => {
+        console.log(`   • ${normalizedKey}: [${originalKeys.join(', ')}]`);
+      });
+    } else {
+      console.log('🔍 No duplicate groups found - checking a few examples...');
+      const exampleKeys = Object.keys(consolidationGroups).filter(key => key.includes('burned')).slice(0, 5);
+      exampleKeys.forEach(key => {
+        console.log(`   • ${key}: [${consolidationGroups[key].join(', ')}]`);
+      });
+    }
+
+    // Consolidate groups that have multiple entries
+    for (const [normalizedKey, originalKeys] of Object.entries(consolidationGroups)) {
+      if (originalKeys.length === 1) {
+        // Single entry, no consolidation needed
+        consolidatedLocations[normalizedKey] = allLocations[originalKeys[0]];
+      } else {
+        // Multiple entries, consolidate them
+        console.log(`   🔀 Consolidating ${originalKeys.length} entries for "${normalizedKey}": [${originalKeys.join(', ')}]`);
+
+        // Debug: show display names being consolidated
+        const displayNames = originalKeys.map(key => `"${allLocations[key].displayName}"`);
+        console.log(`      Display names: [${displayNames.join(', ')}]`);
+
+        // Start with the first location as base
+        const baseLocation = { ...allLocations[originalKeys[0]] };
+        baseLocation.name = normalizedKey; // Use normalized key as the canonical name
+
+        // Choose the most descriptive display name (prefer ones with floor numbers)
+        baseLocation.displayName = displayNames.find(name => /[0-9]f?/i.test(name)) || displayNames[0];
+
+        // Merge all connections, removing duplicates
+        const allConnections = originalKeys.flatMap(key => allLocations[key].connections);
+        const uniqueConnections = allConnections.filter((conn, index, self) =>
+          index === self.findIndex(c =>
+            c.direction === conn.direction &&
+            c.targetLocation === conn.targetLocation
+          )
+        );
+        baseLocation.connections = uniqueConnections;
+
+        // Merge all NPC trades, removing duplicates
+        const allTrades = originalKeys.flatMap(key => allLocations[key].npcTrades || []);
+        const uniqueTrades = allTrades.filter((trade, index, self) =>
+          index === self.findIndex(t =>
+            t.traderName === trade.traderName &&
+            t.wantsPokemon === trade.wantsPokemon &&
+            t.givesPokemon === trade.givesPokemon
+          )
+        );
+        if (uniqueTrades.length > 0) {
+          baseLocation.npcTrades = uniqueTrades;
+        }
+
+        // Merge all events, removing duplicates
+        const allEvents = originalKeys.flatMap(key => allLocations[key].events || []);
+        const uniqueEvents = allEvents.filter((event, index, self) =>
+          index === self.findIndex(e =>
+            e.type === event.type &&
+            e.description === event.description
+          )
+        );
+        if (uniqueEvents.length > 0) {
+          baseLocation.events = uniqueEvents;
+        }
+
+        consolidatedLocations[normalizedKey] = baseLocation;
+      }
+    }
+
+    console.log(`✨ Consolidated ${Object.keys(allLocations).length} entries into ${Object.keys(consolidatedLocations).length} unique locations`);
+
     // Sort locations by region, then landmarks first, then by ID/name
-    const sortedLocations = Object.entries(allLocations)
+    const sortedLocations = Object.entries(consolidatedLocations)
       .sort(([, a], [, b]) => {
         // First sort by region (johto, kanto, orange)
         const regionOrder: Record<string, number> = { johto: 0, kanto: 1, orange: 2 };

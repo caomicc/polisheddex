@@ -63,16 +63,46 @@ interface PokemonWithMethods {
 
 
 /**
- * Converts a display name to the underscored key format used in comprehensive locations
- * @param displayName - Display name like "Beautiful Beach" or "Blackthorn City"
- * @returns Key like "beautiful_beach" or "blackthorn_city"
+ * Normalize location names to consistent snake_case keys
+ * This ensures all data sources use the same keys for matching
+ * @param input - Input location name in any format
+ * @returns Normalized key like "burned_tower_1f"
  */
-function displayNameToKey(displayName: string): string {
-  return displayName
+function normalizeLocationKey(input: string): string {
+  return input
+    // Convert CamelCase/PascalCase to snake_case first
+    .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '_')
-    .replace(/^_|_$/g, '');
+    // Handle "Tower1 F" and "tower1_f" patterns specifically
+    .replace(/(\w)1[\s_]+f/i, '$1_1f')
+    // Handle "Tower1" pattern at end (e.g., "Burned Tower1" -> "burned_tower_1")
+    .replace(/(\w)1$/i, '$1_1')
+    // Handle various floor patterns - normalize all to standard format
+    // Handle B1F variations (with or without spaces, with or without F)
+    .replace(/\s*b\s*1\s*f?\s*$/i, '_b1f')
+    .replace(/\s*b\s*2\s*f?\s*$/i, '_b2f')
+    .replace(/\s*b\s*3\s*f?\s*$/i, '_b3f')
+    .replace(/\s*b\s*4\s*f?\s*$/i, '_b4f')
+    .replace(/\s*b\s*5\s*f?\s*$/i, '_b5f')
+    // Handle regular floor patterns (with or without spaces, with or without F)
+    .replace(/\s*1\s*f?\s*$/i, '_1f')
+    .replace(/\s*2\s*f?\s*$/i, '_2f')
+    .replace(/\s*3\s*f?\s*$/i, '_3f')
+    .replace(/\s*4\s*f?\s*$/i, '_4f')
+    .replace(/\s*5\s*f?\s*$/i, '_5f')
+    .replace(/\s*6\s*f?\s*$/i, '_6f')
+    .replace(/\s*7\s*f?\s*$/i, '_7f')
+    .replace(/\s*8\s*f?\s*$/i, '_8f')
+    .replace(/\s*9\s*f?\s*$/i, '_9f')
+    .replace(/\s*10\s*f?\s*$/i, '_10f')
+    // Convert spaces, hyphens, and other separators to underscores
+    .replace(/[\s\-\.]+/g, '_')
+    // Clean up multiple underscores
+    .replace(/_+/g, '_')
+    // Remove leading/trailing underscores
+    .replace(/^_+|_+$/g, '');
 }
+
 
 /**
  * Infer region from location name using known patterns
@@ -192,27 +222,27 @@ export default async function LocationsPage() {
   const pokemonLocationData = await loadPokemonLocationData();
   const allLocationData = await loadAllLocationData();
 
+  // Create a normalized Pokemon location map for efficient lookups
+  const normalizedPokemonData: Record<string, { originalKey: string; data: LocationAreaData }> = {};
+  Object.keys(pokemonLocationData).forEach(originalKey => {
+    const normalizedKey = normalizeLocationKey(originalKey);
+    normalizedPokemonData[normalizedKey] = {
+      originalKey,
+      data: pokemonLocationData[originalKey]
+    };
+  });
+
   // Start with comprehensive location data as the base
   const comprehensiveLocations: EnhancedLocation[] = Object.keys(allLocationData)
     .map(locationKey => {
       const locationInfo = allLocationData[locationKey];
 
-      // Try to find matching Pokemon data by testing different name variations
+      // Find matching Pokemon data using normalized keys
       let pokemonData: LocationAreaData | null = null;
-      const possibleNames = [
-        locationInfo.displayName, // "Beautiful Beach"
-        locationKey, // "beautiful_beach"
-        locationKey.replace(/_/g, ' '), // "beautiful beach"
-        locationKey.split('_').map(word =>
-          word.charAt(0).toUpperCase() + word.slice(1)
-        ).join(' '), // "Beautiful Beach"
-      ];
+      const normalizedKey = normalizeLocationKey(locationKey);
 
-      for (const name of possibleNames) {
-        if (pokemonLocationData[name]) {
-          pokemonData = pokemonLocationData[name];
-          break;
-        }
+      if (normalizedPokemonData[normalizedKey]) {
+        pokemonData = normalizedPokemonData[normalizedKey].data;
       }
 
       // Calculate Pokemon count if Pokemon data exists
@@ -243,17 +273,21 @@ export default async function LocationsPage() {
     });
 
   // Find Pokemon-only locations that weren't matched with comprehensive data
-  const pokemonOnlyLocations: EnhancedLocation[] = Object.keys(pokemonLocationData)
-    .filter(pokemonLocationName => {
-      // Check if this Pokemon location already has a match in comprehensive data
-      const keyVariations = [
-        displayNameToKey(pokemonLocationName),
-        pokemonLocationName.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, ''),
-      ];
-      return !keyVariations.some(key => allLocationData[key]);
-    })
-    .map(pokemonLocationName => {
-      const pokemonData = pokemonLocationData[pokemonLocationName];
+  const usedPokemonKeys = new Set<string>();
+
+  // Mark all Pokemon locations that were already matched with comprehensive data
+  Object.keys(allLocationData).forEach(locationKey => {
+    const normalizedKey = normalizeLocationKey(locationKey);
+    if (normalizedPokemonData[normalizedKey]) {
+      usedPokemonKeys.add(normalizedKey);
+    }
+  });
+
+  // Create entries for unmatched Pokemon locations
+  const pokemonOnlyLocations: EnhancedLocation[] = Object.keys(normalizedPokemonData)
+    .filter(normalizedKey => !usedPokemonKeys.has(normalizedKey))
+    .map(normalizedKey => {
+      const { originalKey, data: pokemonData } = normalizedPokemonData[normalizedKey];
       const pokemonCount = Object.keys(pokemonData.pokemon).length;
 
       const hasHiddenGrottoes = Object.values(pokemonData.pokemon).some(
@@ -262,13 +296,13 @@ export default async function LocationsPage() {
       );
 
       return {
-        area: displayNameToKey(pokemonLocationName),
-        urlName: displayNameToKey(pokemonLocationName), // Use underscored format for URLs
-        displayName: pokemonLocationName,
-        types: getLocationTypes(pokemonLocationName),
+        area: normalizedKey,
+        urlName: normalizedKey, // Use normalized format for URLs
+        displayName: originalKey, // Use original display name
+        types: getLocationTypes(originalKey),
         pokemonCount,
         hasHiddenGrottoes,
-        region: inferRegion(pokemonLocationName), // Infer region from location name
+        region: inferRegion(originalKey), // Infer region from location name
         flyable: false, // Pokemon-only locations don't have flyable info
         connections: [],
         coordinates: undefined,

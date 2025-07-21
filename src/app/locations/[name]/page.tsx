@@ -23,6 +23,41 @@ import TimeIcon from '@/components/pokemon/TimeIcon';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import { LocationConnection, NPCTrade, LocationEvent } from '@/types/types';
 
+function normalizeLocationKey(input: string): string {
+  return input
+    // Convert CamelCase/PascalCase to snake_case first
+    .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
+    .toLowerCase()
+    // Handle "Tower1 F" and "tower1_f" patterns specifically
+    .replace(/(\w)1[\s_]+f/i, '$1_1f')
+    // Handle "Tower1" pattern at end (e.g., "Burned Tower1" -> "burned_tower_1")
+    .replace(/(\w)1$/i, '$1_1')
+    // Handle various floor patterns - normalize all to standard format
+    // Handle B1F variations (with or without spaces, with or without F)
+    .replace(/\s*b\s*1\s*f?\s*$/i, '_b1f')
+    .replace(/\s*b\s*2\s*f?\s*$/i, '_b2f')
+    .replace(/\s*b\s*3\s*f?\s*$/i, '_b3f')
+    .replace(/\s*b\s*4\s*f?\s*$/i, '_b4f')
+    .replace(/\s*b\s*5\s*f?\s*$/i, '_b5f')
+    // Handle regular floor patterns (with or without spaces, with or without F)
+    .replace(/\s*1\s*f?\s*$/i, '_1f')
+    .replace(/\s*2\s*f?\s*$/i, '_2f')
+    .replace(/\s*3\s*f?\s*$/i, '_3f')
+    .replace(/\s*4\s*f?\s*$/i, '_4f')
+    .replace(/\s*5\s*f?\s*$/i, '_5f')
+    .replace(/\s*6\s*f?\s*$/i, '_6f')
+    .replace(/\s*7\s*f?\s*$/i, '_7f')
+    .replace(/\s*8\s*f?\s*$/i, '_8f')
+    .replace(/\s*9\s*f?\s*$/i, '_9f')
+    .replace(/\s*10\s*f?\s*$/i, '_10f')
+    // Convert spaces, hyphens, and other separators to underscores
+    .replace(/[\s\-\.]+/g, '_')
+    // Clean up multiple underscores
+    .replace(/_+/g, '_')
+    // Remove leading/trailing underscores
+    .replace(/^_+|_+$/g, '');
+}
+
 interface EncounterDetail {
   level: string;
   chance: number;
@@ -137,40 +172,35 @@ export default async function LocationDetailPage({
   // Check comprehensive location data (by key)
   const comprehensiveInfo = allLocationData[locationName];
 
-  // Try to find matching Pokemon data by testing different name variations
+  // Try to find matching Pokemon data using normalized keys and variations
   let pokemonInfo = null;
-  if (comprehensiveInfo) {
-    // If we have comprehensive info, try multiple name variations for Pokemon lookup
-    const possibleNames = [
-      comprehensiveInfo.displayName, // "Beautiful Beach"
-      locationName, // "beautiful_beach"
-      locationName.replace(/_/g, ' '), // "beautiful beach"
-      locationName.split('_').map(word =>
-        word.charAt(0).toUpperCase() + word.slice(1)
-      ).join(' '), // "Beautiful Beach"
-    ];
 
-    for (const name of possibleNames) {
-      if (pokemonLocationData[name]) {
-        pokemonInfo = pokemonLocationData[name];
-        break;
-      }
-    }
-  } else {
-    // If no comprehensive info, check Pokemon data directly with name variations
-    const possibleNames = [
-      locationName, // exact match
-      locationName.replace(/_/g, ' '), // "beautiful beach"
-      locationName.split('_').map(word =>
-        word.charAt(0).toUpperCase() + word.slice(1)
-      ).join(' '), // "Beautiful Beach"
-    ];
+  // Create all possible variations of the location name for matching
+  const locationVariations = new Set([
+    locationName, // Original URL param: "burned_tower_1f"
+    // From comprehensive info if available
+    ...(comprehensiveInfo ? [
+      comprehensiveInfo.displayName, // "Burned Tower 1F"
+      normalizeLocationKey(comprehensiveInfo.displayName), // "burned_tower_1f"
+    ] : []),
+    // Normalized variations
+    normalizeLocationKey(locationName), // "burned_tower_1f"
+    // Space variations
+    locationName.replace(/_/g, ' '), // "burned tower 1f"
+    locationName.split('_').map(word =>
+      word.charAt(0).toUpperCase() + word.slice(1)
+    ).join(' '), // "Burned Tower 1f"
+    // Title case variations
+    locationName.split('_').map(word =>
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    ).join(' '), // "Burned Tower 1f"
+  ]);
 
-    for (const name of possibleNames) {
-      if (pokemonLocationData[name]) {
-        pokemonInfo = pokemonLocationData[name];
-        break;
-      }
+  // Try each variation to find Pokemon data
+  for (const nameVariation of locationVariations) {
+    if (pokemonLocationData[nameVariation]) {
+      pokemonInfo = pokemonLocationData[nameVariation];
+      break;
     }
   }
 
