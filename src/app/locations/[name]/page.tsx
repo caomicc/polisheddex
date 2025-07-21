@@ -20,7 +20,6 @@ import {
 } from '@/components/ui/table';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import TimeIcon from '@/components/pokemon/TimeIcon';
-import { getDisplayLocationName } from '@/components/utils';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 
 interface EncounterDetail {
@@ -85,22 +84,42 @@ function formatTime(time: string): string {
   return time.charAt(0).toUpperCase() + time.slice(1);
 }
 
-// Function to load location data
-async function loadLocationData() {
+// Function to load Pokemon location data
+async function loadPokemonLocationData() {
   try {
     const locationsFile = path.join(process.cwd(), 'output/locations_by_area.json');
     const data = await fs.promises.readFile(locationsFile, 'utf8');
     return JSON.parse(data) as Record<string, LocationData>;
   } catch (error) {
-    console.error('Error loading location data:', error);
+    console.error('Error loading Pokemon location data:', error);
+    return {};
+  }
+}
+
+// Function to load comprehensive location data
+async function loadAllLocationData() {
+  try {
+    const locationsFile = path.join(process.cwd(), 'output/all_locations.json');
+    const data = await fs.promises.readFile(locationsFile, 'utf8');
+    return JSON.parse(data);
+  } catch (error) {
+    console.error('Error loading comprehensive location data:', error);
     return {};
   }
 }
 
 // This function helps Next.js pre-render pages at build time
 export async function generateStaticParams() {
-  const locations = await loadLocationData();
-  return Object.keys(locations).map((name) => ({ name }));
+  const pokemonLocations = await loadPokemonLocationData();
+  const allLocations = await loadAllLocationData();
+
+  // Get all unique location keys from both datasets
+  const allLocationKeys = new Set([
+    ...Object.keys(pokemonLocations),
+    ...Object.keys(allLocations)
+  ]);
+
+  return Array.from(allLocationKeys).map((name) => ({ name }));
 }
 
 export default async function LocationDetailPage({
@@ -111,15 +130,126 @@ export default async function LocationDetailPage({
   const { name } = await params;
   const locationName = decodeURIComponent(name);
 
+  const pokemonLocationData = await loadPokemonLocationData();
+  const allLocationData = await loadAllLocationData();
 
-  const displayName = getDisplayLocationName(locationName);
+  // Check comprehensive location data (by key)
+  const comprehensiveInfo = allLocationData[locationName];
 
-  const locationData = await loadLocationData();
-  const locationInfo = locationData[locationName];
+  // Try to find matching Pokemon data by testing different name variations
+  let pokemonInfo = null;
+  if (comprehensiveInfo) {
+    // If we have comprehensive info, try multiple name variations for Pokemon lookup
+    const possibleNames = [
+      comprehensiveInfo.displayName, // "Beautiful Beach"
+      locationName, // "beautiful_beach"
+      locationName.replace(/_/g, ' '), // "beautiful beach"
+      locationName.split('_').map(word =>
+        word.charAt(0).toUpperCase() + word.slice(1)
+      ).join(' '), // "Beautiful Beach"
+    ];
 
-  if (!locationInfo) return notFound();
+    for (const name of possibleNames) {
+      if (pokemonLocationData[name]) {
+        pokemonInfo = pokemonLocationData[name];
+        break;
+      }
+    }
+  } else {
+    // If no comprehensive info, check Pokemon data directly with name variations
+    const possibleNames = [
+      locationName, // exact match
+      locationName.replace(/_/g, ' '), // "beautiful beach"
+      locationName.split('_').map(word =>
+        word.charAt(0).toUpperCase() + word.slice(1)
+      ).join(' '), // "Beautiful Beach"
+    ];
 
-  // Process Pokémon encounters by method and time
+    for (const name of possibleNames) {
+      if (pokemonLocationData[name]) {
+        pokemonInfo = pokemonLocationData[name];
+        break;
+      }
+    }
+  }
+
+  // If neither exists, return 404
+  if (!pokemonInfo && !comprehensiveInfo) {
+    return notFound();
+  }
+
+  // Determine display name - prefer comprehensive info, fallback to processed location name
+  const displayName = comprehensiveInfo?.displayName ||
+    locationName.split('_').map(word =>
+      word.charAt(0).toUpperCase() + word.slice(1)
+    ).join(' ');
+
+  // If no Pokemon data, show location info without Pokemon table
+  if (!pokemonInfo) {
+    return (
+      <div className="max-w-4xl mx-auto p-4">
+        <Breadcrumb className="mb-4">
+          <BreadcrumbList>
+            <BreadcrumbLink asChild>
+              <Link href="/" className="hover:underline dark:text-blue-200 text-blue-700">
+                Home
+              </Link>
+            </BreadcrumbLink>
+            <BreadcrumbSeparator />
+            <BreadcrumbLink asChild>
+              <Link href="/locations" className="hover:underline dark:text-blue-200 text-blue-700">
+                Locations
+              </Link>
+            </BreadcrumbLink>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{displayName}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+
+        <h1 className="text-3xl font-bold mb-6">{displayName}</h1>
+
+        {comprehensiveInfo && (
+          <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+            <h2 className="text-lg font-semibold mb-2">Location Details</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+              {comprehensiveInfo.region && (
+                <div>
+                  <div className="font-medium text-slate-600 dark:text-slate-300">Region</div>
+                  <div className="capitalize">{comprehensiveInfo.region}</div>
+                </div>
+              )}
+              {comprehensiveInfo.flyable !== undefined && (
+                <div>
+                  <div className="font-medium text-slate-600 dark:text-slate-300">Flyable</div>
+                  <div>{comprehensiveInfo.flyable ? 'Yes' : 'No'}</div>
+                </div>
+              )}
+              {comprehensiveInfo.x >= 0 && comprehensiveInfo.y >= 0 && (
+                <div>
+                  <div className="font-medium text-slate-600 dark:text-slate-300">Coordinates</div>
+                  <div>{comprehensiveInfo.x}, {comprehensiveInfo.y}</div>
+                </div>
+              )}
+              {comprehensiveInfo.connections && comprehensiveInfo.connections.length > 0 && (
+                <div>
+                  <div className="font-medium text-slate-600 dark:text-slate-300">Connections</div>
+                  <div>{comprehensiveInfo.connections.length}</div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg text-center">
+          <p className="text-slate-600 dark:text-slate-300">No Pokémon encounter data available for this location.</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Process Pokémon encounters by method and time for locations with Pokemon data
   type GroupedPokemon = {
     [method: string]: {
       [time: string]: {
@@ -135,7 +265,7 @@ export default async function LocationDetailPage({
 
   const groupedByMethodAndTime: GroupedPokemon = {};
 
-  Object.entries(locationInfo.pokemon).forEach(([pokemonName, pokemonData]) => {
+  Object.entries(pokemonInfo.pokemon).forEach(([pokemonName, pokemonData]) => {
     Object.entries(pokemonData.methods).forEach(([method, methodData]) => {
       if (!groupedByMethodAndTime[method]) {
         groupedByMethodAndTime[method] = {};
@@ -204,78 +334,96 @@ export default async function LocationDetailPage({
 
       <h1 className="text-3xl font-bold mb-2">{displayName}</h1>
 
-      <p className="mb-6 text-md text-muted-foreground">
-        *Badge Level pertains to the level a user can find in the wild related to current badges
-        earned.
-      </p>
-
-      {Object.entries(groupedByMethodAndTime).map(([method, methodData]) => (
-        <div key={method} className="mb-8">
-          {Object.entries(methodData).map(([time, timeData]) => (
-            <Card key={time} className="overflow-hidden mb-6">
-              <CardHeader className="">
-                {time === 'nite' && (
-                  <TimeIcon time={time} size={12} className="inline-block *:translate-y-0 *:translate-x-[1px]" />
-                )}
-                {time !== 'nite' && (
-                  <TimeIcon time={time} className="inline-block" />
-                )}
-                <p className="flex">
-                  {formatMethod(method)}: {formatTime(time)}
-                </p>
-              </CardHeader>
-              <CardContent className="space-y-2 px-0 md:px-6">
-                {/* <Table defaultValue="level-up" className="w-full"> */}
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="w-1/3">Pokémon</TableHead>
-                      <TableHead>Level</TableHead>
-                      <TableHead>Chance</TableHead>
-                      <TableHead>Rare Item</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {timeData.pokemon.map((pokemon, idx) => (
-                      <TableRow key={`${pokemon.name}-${idx}`}>
-                        <TableCell>
-                          <Link
-                            href={`/pokemon/${pokemon.name}`}
-                            className="text-blue-700 hover:underline font-medium capitalize"
-                          >
-                            {pokemon.name}
-                          </Link>
-                        </TableCell>
-                        <TableCell>Lv. {pokemon.level}</TableCell>
-                        <TableCell>{pokemon.chance}%</TableCell>
-                        <TableCell>
-                          {pokemon.rareItem ? (
-                            (() => {
-                              const itemId = getItemIdFromDisplayName(pokemon.rareItem);
-                              return itemId ? (
-                                <Link
-                                  href={`/items/${itemId}`}
-                                  className="text-amber-600 hover:text-amber-700 hover:underline font-medium transition-colors"
-                                >
-                                  {pokemon.rareItem}
-                                </Link>
-                              ) : (
-                                <span className="text-amber-600 font-medium">{pokemon.rareItem}</span>
-                              );
-                            })()
-                          ) : (
-                            <span className="text-gray-400">—</span>
-                          )}
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-          ))}
+      {/* Optional location details from comprehensive data */}
+      {comprehensiveInfo && (
+        <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <h2 className="text-lg font-semibold mb-2">Location Details</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+            {comprehensiveInfo.region && (
+              <div>
+                <div className="font-medium text-slate-600 dark:text-slate-300">Region</div>
+                <div className="capitalize">{comprehensiveInfo.region}</div>
+              </div>
+            )}
+            {comprehensiveInfo.flyable !== undefined && (
+              <div>
+                <div className="font-medium text-slate-600 dark:text-slate-300">Flyable</div>
+                <div>{comprehensiveInfo.flyable ? 'Yes' : 'No'}</div>
+              </div>
+            )}
+            {comprehensiveInfo.x >= 0 && comprehensiveInfo.y >= 0 && (
+              <div>
+                <div className="font-medium text-slate-600 dark:text-slate-300">Coordinates</div>
+                <div>{comprehensiveInfo.x}, {comprehensiveInfo.y}</div>
+              </div>
+            )}
+            {comprehensiveInfo.connections && comprehensiveInfo.connections.length > 0 && (
+              <div>
+                <div className="font-medium text-slate-600 dark:text-slate-300">Connections</div>
+                <div>{comprehensiveInfo.connections.length}</div>
+              </div>
+            )}
+          </div>
         </div>
-      ))}
+      )}
+
+      <div className="space-y-6">
+        {Object.entries(groupedByMethodAndTime).map(([method, timeData]) => (
+          <Card key={method}>
+            <CardHeader>
+              <h3 className="text-lg font-semibold">{formatMethod(method)}</h3>
+            </CardHeader>
+            <CardContent>
+              {Object.entries(timeData).map(([time, data]) => (
+                <div key={time} className="mb-4 last:mb-0">
+                  <div className="flex items-center gap-2 mb-2">
+                    <TimeIcon time={time} />
+                    <h4 className="text-md font-medium">{formatTime(time)}</h4>
+                  </div>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Pokémon</TableHead>
+                        <TableHead>Level</TableHead>
+                        <TableHead>Chance</TableHead>
+                        <TableHead>Rare Item</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {data.pokemon.map((pokemon, index) => (
+                        <TableRow key={`${pokemon.name}-${index}`}>
+                          <TableCell>
+                            <Link
+                              href={`/pokemon/${pokemon.name}`}
+                              className="hover:underline text-blue-600 dark:text-blue-400"
+                            >
+                              {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                            </Link>
+                          </TableCell>
+                          <TableCell>{pokemon.level}</TableCell>
+                          <TableCell>{pokemon.chance}%</TableCell>
+                          <TableCell>
+                            {pokemon.rareItem ? (
+                              <Link
+                                href={`/items/${getItemIdFromDisplayName(pokemon.rareItem)}`}
+                                className="hover:underline text-purple-600 dark:text-purple-400"
+                              >
+                                {pokemon.rareItem}
+                              </Link>
+                            ) : (
+                              '-'
+                            )}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 }

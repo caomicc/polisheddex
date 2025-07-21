@@ -3,7 +3,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
-import type { PokemonType } from '@/types/types';
+import type { LocationData, PokemonType } from '@/types/types';
 
 // All possible badge variants, including Pokémon types and UI variants
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -31,7 +31,10 @@ const badgeVariantNames = [
   'steel',
   'fairy',
   'locations',
-  'grotto'
+  'grotto',
+  'kanto',
+  'johto',
+  'orange',
 ] as const;
 
 type BadgeVariant = (typeof badgeVariantNames)[number];
@@ -68,6 +71,9 @@ const badgeVariants = cva(
         fairy: 'bg-fairy text-pink-950 border-transparent',
         locations: 'bg-cyan-100 text-cyan-900 border-cyan-200',
         grotto: 'bg-green-100 text-green-900 border-green-200',
+        kanto: 'bg-violet-100 text-violet-900 border-violet-200',
+        johto: 'bg-slate-100 text-slate-900 border-slate-200',
+        orange: 'bg-orange-100 text-orange-900 border-orange-200',
       },
     },
     defaultVariants: {
@@ -77,7 +83,7 @@ const badgeVariants = cva(
 );
 
 interface BadgeProps extends React.ComponentProps<'span'> {
-  variant?: BadgeVariant | PokemonType['name'];
+  variant?: BadgeVariant | PokemonType['name'] | LocationData['region'];
   asChild?: boolean;
 }
 
