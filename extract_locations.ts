@@ -17,21 +17,16 @@ export function normalizeLocationKey(input: string): string {
     // Convert CamelCase/PascalCase to snake_case first
     .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
     .toLowerCase()
-    // Convert spaces, hyphens, and other separators to underscores first
+    // Convert spaces, hyphens, and other separators to underscores
     .replace(/[\s\-\.]+/g, '_')
-    // Handle basement floor patterns first - more specific patterns
-    .replace(/b_?(\d+)_?f_?f(_|$)/gi, 'b$1f$2')
-    .replace(/b_?(\d+)_?f(_|$)/gi, 'b$1f$2')
-    // Handle regular floor patterns consistently
-    // Pattern 1: "tower1_f" or "tower_1_f" -> "tower_1f"
+    // Handle basement floor patterns: "b_1_f" -> "b_1f"
+    .replace(/_b_(\d+)_f(_|$)/g, '_b_$1f$2')
+    // Handle regular floor patterns: "tower_1_f" -> "tower_1f"
     .replace(/(\w)_?(\d+)_+f(_|$)/gi, '$1_$2f$3')
-    // Pattern 2: "tower1f" -> "tower_1f"
-    .replace(/(\w)(\d+)f(_|$)/gi, '$1_$2f$3')
-    // Pattern 3: "tower1" at end -> "tower_1f" (assuming it's a floor)
-    .replace(/(\w)(\d+)$/gi, '$1_$2f')
-    // Pattern 4: standalone floor numbers like "_1_" -> "_1f"
-    .replace(/_(\d+)_/g, '_$1f_')
-    .replace(/_(\d+)$/g, '_$1f')
+    // Pattern for standalone numbers that should be floors - but NOT for routes
+    // Only add "f" to numbers that are likely floors (between words that suggest buildings/areas)
+    .replace(/(tower|building|floor|level|gym|center|house|cave|tunnel|path|mansion)_(\d+)(_|$)/gi, '$1_$2f$3')
+    .replace(/(\w)_(\d+)_(\w+)_side(_|$)/gi, '$1_$2f_$3_side$4') // Handle "ice_path_2_blackthorn_side" -> "ice_path_2f_blackthorn_side"
     // Clean up multiple underscores
     .replace(/_+/g, '_')
     // Remove leading/trailing underscores
@@ -324,10 +319,11 @@ export function extractAllLocations(): Record<string, LocationData> {
     return {};
   }
 
-  // Parse landmark constants to get ID mapping
+  // Parse landmark constants to get the canonical ordering and ID mapping for ALL locations
   const constantsContent = fs.readFileSync(landmarkConstantsPath, 'utf8');
   const landmarkIdMap: Record<string, number> = {};
   const landmarkRegionMap: Record<string, 'johto' | 'kanto' | 'orange'> = {};
+  const canonicalOrder: string[] = []; // Track the canonical order of all locations
 
   const constantsLines = constantsContent.split(/\r?\n/);
   let currentValue = 0;
@@ -356,11 +352,37 @@ export function extractAllLocations(): Record<string, LocationData> {
       const constantName = constMatch[1];
       landmarkIdMap[constantName] = currentValue;
       landmarkRegionMap[constantName] = currentRegion;
+      canonicalOrder.push(constantName); // Track canonical order
       currentValue++;
     }
   }
 
-  // Parse landmarks.asm to get coordinates and display names
+  console.log(`📋 Loaded canonical ordering: ${canonicalOrder.length} locations from landmark constants`);
+
+  // Initialize ALL locations from the canonical order first
+  // This ensures we have entries for every location in landmark_constants.asm
+  for (const constantName of canonicalOrder) {
+    if (constantName !== 'SPECIAL_MAP') { // Skip SPECIAL_MAP
+      const normalizedKey = normalizeLocationKey(constantName);
+      const id = landmarkIdMap[constantName];
+      const region = landmarkRegionMap[constantName] || 'johto';
+
+      locations[normalizedKey] = {
+        id,
+        name: normalizedKey,
+        displayName: formatDisplayName(normalizedKey),
+        region,
+        x: -1, // Default to no coordinates; will be updated from landmarks.asm if available
+        y: -1,
+        flyable: false, // Will be updated from flypoints
+        connections: [], // Will be filled from map attributes
+      };
+    }
+  }
+
+  console.log(`📍 Initialized ${Object.keys(locations).length} locations from canonical order`);
+
+  // Parse landmarks.asm to get coordinates and display names for locations that have them
   const landmarksContent = fs.readFileSync(landmarksPath, 'utf8');
   const landmarkLines = landmarksContent.split(/\r?\n/);
 
@@ -377,23 +399,19 @@ export function extractAllLocations(): Record<string, LocationData> {
       const y = parseInt(landmarkMatch[2]);
       // const nameConstant = landmarkMatch[3];
 
-      // Find the landmark constant name for this index
-      const landmarkConstantName = Object.keys(landmarkIdMap).find(name => landmarkIdMap[name] === landmarkIndex);
+      // Find the landmark constant name for this index using our canonical order
+      if (landmarkIndex < canonicalOrder.length) {
+        const landmarkConstantName = canonicalOrder[landmarkIndex];
 
-      if (landmarkConstantName && landmarkConstantName !== 'SPECIAL_MAP') {
-        const region = landmarkRegionMap[landmarkConstantName] || 'johto';
-        const normalizedKey = normalizeLocationKey(landmarkConstantName);
+        if (landmarkConstantName && landmarkConstantName !== 'SPECIAL_MAP') {
+          const normalizedKey = normalizeLocationKey(landmarkConstantName);
 
-        locations[normalizedKey] = {
-          id: landmarkIndex,
-          name: normalizedKey,
-          displayName: '', // Will be filled from display names
-          region,
-          x,
-          y,
-          flyable: false, // Will be updated from flypoints
-          connections: [], // Will be filled from map attributes
-        };
+          // Update the existing location entry with coordinates
+          if (locations[normalizedKey]) {
+            locations[normalizedKey].x = x;
+            locations[normalizedKey].y = y;
+          }
+        }
       }
 
       landmarkIndex++;
@@ -437,11 +455,8 @@ export function extractAllLocations(): Record<string, LocationData> {
             locations[locationKey] = {
               id: -1, // Non-landmark locations get -1 ID
               name: locationKey,
-              displayName: currentMapName
-                .split('_')
-                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-                .join(' '),
-              region: 'johto', // Default region, could be refined later
+              displayName: formatDisplayName(locationKey),
+              region: inferLocationRegion(locationKey),
               x: -1, // No coordinates for non-landmark locations
               y: -1,
               flyable: false,
@@ -490,11 +505,8 @@ export function extractAllLocations(): Record<string, LocationData> {
         locations[locationKey] = {
           id: -1, // Non-landmark locations get -1 ID
           name: locationKey,
-          displayName: currentMapName
-            .split('_')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-            .join(' '),
-          region: 'johto', // Default region, could be refined later
+          displayName: formatDisplayName(locationKey),
+          region: inferLocationRegion(locationKey),
           x: -1, // No coordinates for non-landmark locations
           y: -1,
           flyable: false,
@@ -557,11 +569,8 @@ export function extractAllLocations(): Record<string, LocationData> {
           locations[sourceLocationKey] = {
             id: -1,
             name: sourceLocationKey,
-            displayName: path.basename(mapFile, '.asm')
-              .split(/(?=[A-Z])/) // Split on capital letters
-              .join(' ')
-              .replace(/^\w/, c => c.toUpperCase()),
-            region: 'johto',
+            displayName: formatDisplayName(sourceLocationKey),
+            region: inferLocationRegion(sourceLocationKey),
             x: -1,
             y: -1,
             flyable: false,
@@ -594,10 +603,7 @@ export function extractAllLocations(): Record<string, LocationData> {
       locationData.displayName = displayNameMap[nameConstant];
     } else {
       // Fallback: convert constant name to readable format
-      locationData.displayName = locationKey
-        .split('_')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-        .join(' ');
+      locationData.displayName = formatDisplayName(locationKey);
     }
   }
 
@@ -647,9 +653,9 @@ export function extractAllLocations(): Record<string, LocationData> {
         locations[normalizedPokemonKey] = {
           id: -1, // Non-landmark locations get -1 ID
           name: normalizedPokemonKey,
-          displayName: pokemonLocationName, // Use original Pokemon location display name
-          region: 'johto', // Default region, could be refined later
-          x: -1, // No coordinates for Pokemon-only locations
+          displayName: formatDisplayName(normalizedPokemonKey),
+          region: inferLocationRegion(normalizedPokemonKey),
+          x: -1,
           y: -1,
           flyable: false,
           connections: [],
@@ -817,34 +823,289 @@ export async function exportAllLocations() {
       }
     }
 
+    /**
+     * Create a logical ordering system that groups related locations together.
+     * This ensures that floors, houses, and other sub-locations appear near their parent landmark.
+     */
+    function createLogicalLocationOrder(): Map<string, number> {
+      const logicalOrder = new Map<string, number>();
+      let currentOrder = 0;
+
+      // Define logical groupings based on common patterns and game structure
+      const locationGroups = [
+        // Special/System
+        ['special_map'],
+
+        // Johto - following canonical order with logical sub-location groupings
+        ['new_bark_town', 'players_house_1f', 'players_house_2f', 'players_neighbors_house', 'lyras_house_1f', 'lyras_house_2f', 'elms_house', 'elms_lab'],
+        ['route_29'],
+        ['cherrygrove_city', 'cherrygrove_pokecenter_1f', 'cherrygrove_mart', 'guide_gents_house', 'cherrygrove_gym_speech_house'],
+        ['cherrygrove_bay'],
+        ['route_30', 'route_30_berry_house', 'mr_pokemons_house'],
+        ['route_31', 'route_31_violet_gate', 'dark_cave_violet_entrance'],
+        ['violet_city', 'violet_gym', 'violet_mart', 'violet_pokecenter_1f', 'violet_nickname_speech_house', 'violet_onix_trade_house', 'earls_pokemon_academy', 'route_36_violet_gate'],
+        ['sprout_tower', 'sprout_tower_1f', 'sprout_tower_2f', 'sprout_tower_3f'],
+        ['violet_outskirts', 'violet_outskirts_house'],
+        ['ruins_of_alph', 'ruins_of_alph_outside', 'ruins_of_alph_ho_oh_chamber', 'ruins_of_alph_kabuto_chamber', 'ruins_of_alph_omanyte_chamber', 'ruins_of_alph_aerodactyl_chamber', 'ruins_of_alph_ho_oh_item_room', 'ruins_of_alph_kabuto_item_room', 'ruins_of_alph_omanyte_item_room', 'ruins_of_alph_aerodactyl_item_room', 'ruins_of_alph_inner_chamber', 'ruins_of_alph_research_center'],
+        ['route_32', 'route_32_ruins_of_alph_gate', 'route_32_pokecenter_1f'],
+        ['route_32_coast'],
+        ['union_cave', 'union_cave_1f', 'union_cave_b1f_north', 'union_cave_b1f_south', 'union_cave_b2f'],
+        ['route_33'],
+        ['azalea_town', 'azalea_pokecenter_1f', 'azalea_mart', 'azalea_gym', 'kurts_house', 'charcoal_kiln'],
+        ['slowpoke_well', 'slowpoke_well_entrance', 'slowpoke_well_b1f', 'slowpoke_well_b2f'],
+        ['ilex_forest', 'ilex_forest_gate', 'forest_shrine'],
+        ['route_34', 'route_34_ilex_forest_gate', 'daycare_house'],
+        ['route_34_coast'],
+        ['stormy_beach'],
+        ['murky_swamp'],
+        ['goldenrod_city', 'goldenrod_gym', 'goldenrod_bike_shop', 'goldenrod_happiness_rater', 'goldenrod_bills_house', 'goldenrod_pokecenter_1f', 'goldenrod_pp_speech_house', 'goldenrod_name_rater', 'goldenrod_dept_store_1f', 'goldenrod_dept_store_2f', 'goldenrod_dept_store_3f', 'goldenrod_dept_store_4f', 'goldenrod_dept_store_5f', 'goldenrod_dept_store_6f', 'goldenrod_dept_store_b1f', 'goldenrod_dept_store_elevator', 'goldenrod_game_corner', 'goldenrod_pokecom_center_1f', 'goldenrod_pokecom_center_2f_mobile', 'goldenrod_flower_shop', 'goldenrod_harbor_gate', 'goldenrod_museum_1f', 'goldenrod_net_ball_house', 'goldenrod_band_house', 'goldenrod_honey_house', 'underground_path_switch_room_entrances', 'underground_warehouse', 'warehouse_entrance'],
+        ['radio_tower', 'radio_tower_1f', 'radio_tower_2f', 'radio_tower_3f', 'radio_tower_4f', 'radio_tower_5f'],
+        ['goldenrod_harbor'],
+        ['magnet_tunnel', 'magnet_tunnel_inside'],
+        ['route_35', 'route_35_goldenrod_gate', 'route_35_national_park_gate'],
+        ['route_35_coast', 'route_35_coast_north', 'route_35_coast_south'],
+        ['national_park', 'national_park_bug_contest'],
+        ['route_36', 'route_36_national_park_gate', 'route_36_ruins_of_alph_gate'],
+        ['route_37'],
+        ['ecruteak_city', 'ecruteak_pokecenter_1f', 'ecruteak_lugia_speech_house', 'ecruteak_dance_theatre', 'ecruteak_gym', 'ecruteak_mart', 'ecruteak_house', 'wise_trios_room', 'valeries_house'],
+        ['bellchime_trail'],
+        ['tin_tower', 'tin_tower_1f', 'tin_tower_2f', 'tin_tower_3f', 'tin_tower_4f', 'tin_tower_5f', 'tin_tower_6f', 'tin_tower_7f', 'tin_tower_8f', 'tin_tower_9f', 'tin_tower_10f', 'tin_tower_roof'],
+        ['burned_tower', 'burned_tower_1f', 'burned_tower_b1f'],
+        ['route_38', 'route_38_ecruteak_gate'],
+        ['route_39', 'route_39_barn', 'route_39_farmhouse', 'moomoo_farm', 'route_39_rugged_road_gate'],
+        ['rugged_road', 'rugged_road_north', 'rugged_road_south'],
+        ['snowtop_mountain', 'snowtop_mountain_outside', 'snowtop_mountain_inside', 'snowtop_pokecenter_1f'],
+        ['olivine_city', 'olivine_pokecenter_1f', 'olivine_gym', 'olivine_tims_house', 'olivine_punishment_speech_house', 'olivine_good_rod_house', 'olivine_cafe', 'olivine_mart', 'olivine_port'],
+        ['lighthouse', 'olivine_lighthouse_1f', 'olivine_lighthouse_2f', 'olivine_lighthouse_3f', 'olivine_lighthouse_4f', 'olivine_lighthouse_5f', 'olivine_lighthouse_6f'],
+        ['route_40', 'route_40_battle_tower_gate'],
+        ['battle_tower', 'battle_tower_outside', 'battle_tower_1f', 'battle_tower_elevator', 'battle_tower_hallway', 'battle_tower_battle_room'],
+        ['whirl_islands', 'whirl_island_nw', 'whirl_island_ne', 'whirl_island_sw', 'whirl_island_se', 'whirl_island_b1f', 'whirl_island_b2f', 'whirl_island_cave', 'whirl_island_lugia_chamber'],
+        ['route_41'],
+        ['cianwood_city', 'cianwood_pokecenter_1f', 'cianwood_pharmacy', 'cianwood_photo_studio', 'cianwood_lugia_speech_house', 'cianwood_lassie_speech_house', 'cianwood_gym'],
+        ['cliff_edge_gate'],
+        ['route_47'],
+        ['cliff_cave'],
+        ['route_48', 'yellow_forest_gate'],
+        ['yellow_forest'],
+        ['quiet_cave', 'quiet_cave_1f', 'quiet_cave_b1f', 'quiet_cave_b2f', 'quiet_cave_b3f'],
+        ['route_42'],
+        ['mt_mortar', 'mount_mortar_1f_outside', 'mount_mortar_1f_inside', 'mount_mortar_2f_inside', 'mount_mortar_b1f'],
+        ['mahogany_town', 'mahogany_pokecenter_1f', 'mahogany_gym', 'mahogany_mart_1f', 'mahogany_red_gyarados_speech_house', 'team_rocket_base_b1f', 'team_rocket_base_b2f', 'team_rocket_base_b3f'],
+        ['route_43', 'route_43_mahogany_gate', 'route_43_gate'],
+        ['lake_of_rage', 'lake_of_rage_hidden_power_house', 'lake_of_rage_magikarp_house'],
+        ['route_44'],
+        ['ice_path', 'ice_path_1f', 'ice_path_b1f', 'ice_path_b2f_mahogany_side', 'ice_path_b2f_blackthorn_side', 'ice_path_b3f'],
+        ['blackthorn_city', 'blackthorn_pokecenter_1f', 'blackthorn_mart', 'blackthorn_gym_1f', 'blackthorn_gym_2f', 'blackthorn_dragon_speech_house', 'blackthorn_emys_house', 'move_deleter_house'],
+        ['dragons_den', 'dragon_shrine', 'dragons_den_b1f'],
+        ['route_45'],
+        ['dark_cave', 'dark_cave_violet_entrance', 'dark_cave_blackthorn_entrance'],
+        ['route_46'],
+        ['silver_cave', 'silver_cave_outside', 'silver_cave_pokecenter_1f', 'silver_cave_room1', 'silver_cave_room2', 'silver_cave_room3', 'silver_cave_item_rooms'],
+        ['fast_ship', 'fast_ship_1f', 'fast_ship_cabins_nne', 'fast_ship_cabins_nw', 'fast_ship_cabins_sw', 'fast_ship_cabins_se', 'fast_ship_b1f'],
+        ['sinjoh_ruins', 'sinjoh_ruins_house'],
+        ['mystri_stage'],
+
+        // Kanto - following canonical order with sub-locations
+        ['pallet_town', 'reds_house_1f', 'reds_house_2f', 'blues_house', 'oaks_lab'],
+        ['route_1', 'route_1_viridian_gate'],
+        ['viridian_city', 'viridian_pokecenter_1f', 'viridian_mart', 'viridian_gym', 'viridian_nickname_speech_house', 'viridian_school_house', 'trainer_house_1f', 'trainer_house_b1f'],
+        ['route_2', 'route_2_north', 'route_2_south', 'route_2_gate', 'viridian_forest_viridian_gate', 'viridian_forest_pewter_gate'],
+        ['viridian_forest'],
+        ['pewter_city', 'pewter_pokecenter_1f', 'pewter_mart', 'pewter_gym', 'pewter_nidoran_speech_house', 'pewter_gym_speech_house', 'pewter_museum_1f', 'pewter_museum_2f'],
+        ['route_3', 'route_3_pokecenter_1f'],
+        ['mt_moon', 'mount_moon_1f', 'mount_moon_b1f', 'mount_moon_b2f', 'mount_moon_square'],
+        ['route_4'],
+        ['cerulean_city', 'cerulean_pokecenter_1f', 'cerulean_gym', 'cerulean_mart', 'cerulean_trade_speech_house', 'cerulean_police_station', 'cerulean_bike_shop'],
+        ['cerulean_cave', 'cerulean_cave_1f', 'cerulean_cave_2f', 'cerulean_cave_b1f'],
+        ['route_24'],
+        ['route_25', 'bills_house'],
+        ['cerulean_cape'],
+        ['route_5', 'route_5_underground_entrance', 'route_5_saffron_gate', 'route_5_cleanse_tag_house'],
+        ['underground'],
+        ['route_6', 'route_6_underground_entrance', 'route_6_saffron_gate'],
+        ['vermilion_city', 'vermilion_pokecenter_1f', 'vermilion_gym', 'vermilion_mart', 'vermilion_house_digletts_cave_speech_house', 'vermilion_house_fishing_speech_house', 'vermilion_magnet_train_speech_house', 'vermilion_pollution_speech_house', 'vermilion_ssanne_speech_house', 'pokemon_fan_club', 'vermilion_port', 'seagallop_ferry_vermilion_gate', 'battle_factory_1f'],
+        ['digletts_cave'],
+        ['route_7'],
+        ['route_8'],
+        ['route_9'],
+        ['route_10', 'route_10_north', 'route_10_south', 'power_plant'],
+        ['rock_tunnel', 'rock_tunnel_1f', 'rock_tunnel_2f', 'rock_tunnel_b1f'],
+        ['power_plant'],
+        ['dim_cave', 'dim_cave_1f', 'dim_cave_2f', 'dim_cave_3f', 'dim_cave_4f', 'dim_cave_5f'],
+        ['lavender_town', 'lavender_pokecenter_1f', 'lavender_mart', 'lavender_speech_house', 'name_raters_house'],
+        ['lav_radio_tower', 'lavender_radio_tower_1f', 'lavender_radio_tower_2f'],
+        ['soul_house', 'soul_house_b1f', 'soul_house_b2f', 'soul_house_b3f'],
+        ['celadon_city', 'celadon_dept_store_1f', 'celadon_dept_store_2f', 'celadon_dept_store_3f', 'celadon_dept_store_4f', 'celadon_dept_store_5f', 'celadon_dept_store_6f', 'celadon_dept_store_elevator', 'celadon_mansion_1f', 'celadon_mansion_2f', 'celadon_mansion_3f', 'celadon_mansion_roof', 'celadon_mansion_roof_house', 'celadon_pokecenter_1f', 'celadon_game_corner', 'celadon_game_corner_prize_room', 'celadon_gym', 'celadon_cafe', 'celadon_hotel_1f', 'celadon_hotel_2f', 'celadon_hotel_3f', 'celadon_hotel_room1', 'celadon_hotel_room3', 'celadon_chief_house'],
+        ['celadon_university', 'celadon_university_1f', 'celadon_university_2f_library', 'celadon_university_2f_pool'],
+        ['saffron_city', 'saffron_pokecenter_1f', 'saffron_mart', 'saffron_gym', 'saffron_psychic_house', 'saffron_pidgey_house', 'saffron_magnet_train_station', 'fighting_dojo', 'silph_co_1f', 'silph_co_2f', 'silph_co_3f'],
+        ['route_11'],
+        ['route_12', 'route_12_super_rod_house', 'route_12_south'],
+        ['route_13'],
+        ['route_14'],
+        ['route_15'],
+        ['lucky_island'],
+        ['route_16', 'route_16_fuchsia_gate', 'route_16_west', 'route_1617_gate'],
+        ['route_17'],
+        ['route_18', 'route_18_gate'],
+        ['fuchsia_city', 'fuchsia_pokecenter_1f', 'fuchsia_mart', 'fuchsia_gym', 'fuchsia_bills_brothers_house', 'fuchsia_safari_zone_office', 'wardens_home'],
+        ['safari_zone', 'safari_zone_hub', 'safari_zone_east', 'safari_zone_north', 'safari_zone_west'],
+        ['uraga_channel', 'uraga_channel_east', 'uraga_channel_west'],
+        ['scary_cave', 'scary_cave_1f', 'scary_cave_b1f', 'scary_cave_shipwreck'],
+        ['route_19'],
+        ['route_20'],
+        ['seafoam_islands', 'seafoam_islands_1f', 'seafoam_islands_b1f', 'seafoam_islands_b2f', 'seafoam_islands_b3f', 'seafoam_islands_b4f'],
+        ['cinnabar_island', 'cinnabar_pokecenter_1f', 'cinnabar_gym'],
+        ['pokemon_mansion', 'pokemon_mansion_1f', 'pokemon_mansion_2f', 'pokemon_mansion_3f', 'pokemon_mansion_b1f'],
+        ['cinnabar_volcano', 'cinnabar_volcano_1f', 'cinnabar_volcano_b1f', 'cinnabar_volcano_b2f'],
+        ['route_21'],
+        ['route_22', 'route_22_past'],
+        ['route_27', 'tohjo_falls', 'giovannis_cave'],
+        ['tohjo_falls'],
+        ['route_26', 'route_26_heal_house'],
+        ['pokemon_league', 'pokemon_league_gate'],
+        ['route_23'],
+        ['victory_road', 'victory_road_1f', 'victory_road_2f', 'victory_road_3f'],
+        ['indigo_plateau', 'indigo_plateau_pokecenter_1f', 'wills_room', 'kogas_room', 'brunos_room', 'karens_room', 'lances_room', 'hall_of_fame'],
+        ['route_28'],
+        ['cinnabar_lab'],
+
+        // Orange Islands - following canonical order with sub-locations
+        ['shamouti_island', 'shamouti_pokecenter_1f', 'shamouti_hotel_1f', 'shamouti_hotel_2f', 'shamouti_hotel_3f', 'shamouti_hotel_restaurant', 'shamouti_hotel_room2_a', 'shamouti_hotel_room2_b', 'shamouti_hotel_room3_b', 'shamouti_hotel_room3_c', 'shamouti_house', 'shamouti_merchant', 'shamouti_tourist_center'],
+        ['beautiful_beach', 'beautiful_beach_villa'],
+        ['rocky_beach'],
+        ['noisy_forest'],
+        ['shrine_ruins', 'shamouti_shrine_ruins'],
+        ['shamouti_tunnel'],
+        ['warm_beach', 'warm_beach_house', 'warm_beach_shack'],
+        ['shamouti_coast'],
+        ['fire_island', 'fire_island_roof'],
+        ['ice_island', 'ice_island_roof'],
+        ['lightning_island', 'lightning_island_roof'],
+        ['route_49'],
+        ['valencia_island', 'valencia_port', 'valencia_house', 'ivys_lab', 'ivys_house'],
+        ['navel_rock', 'navel_rock_outside', 'navel_rock_inside', 'seagallop_ferry_navel_gate'],
+        ['faraway_island', 'faraway_jungle'],
+
+        // Region entries (these should come at the very end or be filtered out)
+        ['johto_region', 'kanto_region', 'orange_region'],
+
+        // Additional island roof locations
+        ['fire_island_roof', 'ice_island_roof', 'lightning_island_roof'],
+
+        // Additional non-landmark locations that don't fit the main groups
+        ['colosseum', 'trade_center', 'time_capsule', 'pokecenter_2f', 'hidden_cave_grotto', 'hidden_tree_grotto']
+      ];
+
+      // Assign order numbers to each location
+      for (const group of locationGroups) {
+        for (const location of group) {
+          logicalOrder.set(location, currentOrder++);
+        }
+      }
+
+      // For any locations not in our logical groupings, try to group them with similar locations
+      // This provides a fallback for locations we might have missed
+      const allLocationNames = Object.keys(filteredLocations);
+      for (const locationName of allLocationNames) {
+        if (!logicalOrder.has(locationName)) {
+          // Try to find a parent location and group it with that
+          const parentOrder = findParentLocationForGrouping(locationName, logicalOrder);
+          if (parentOrder !== null) {
+            logicalOrder.set(locationName, parentOrder + 0.5); // Insert after parent
+          } else {
+            // Give it a very high order number so it appears at the end
+            logicalOrder.set(locationName, currentOrder + 10000);
+          }
+        }
+      }
+
+      return logicalOrder;
+    }
+
+    /**
+     * Find a logical parent location for grouping purposes
+     */
+    function findParentLocationForGrouping(locationName: string, logicalOrder: Map<string, number>): number | null {
+      // Skip region entries - they should go at the end
+      if (locationName.endsWith('_region')) {
+        return null;
+      }
+
+      // Extract potential parent names from the location name
+      const parts = locationName.split('_');
+
+      // Try progressively shorter prefixes to find a parent
+      for (let i = parts.length - 1; i >= 1; i--) {
+        const potentialParent = parts.slice(0, i).join('_');
+        if (logicalOrder.has(potentialParent)) {
+          return logicalOrder.get(potentialParent)!;
+        }
+      }
+
+      return null;
+    }
+
     console.log(`✨ Consolidated ${Object.keys(allLocations).length} entries into ${Object.keys(consolidatedLocations).length} unique locations`);
 
-    // Sort locations by region, then landmarks first, then by ID/name
-    const sortedLocations = Object.entries(consolidatedLocations)
-      .sort(([, a], [, b]) => {
+    // Filter out region entries as they're not actual game locations
+    const filteredLocations: Record<string, LocationData> = {};
+    for (const [key, location] of Object.entries(consolidatedLocations)) {
+      if (!key.endsWith('_region')) {
+        filteredLocations[key] = location;
+      }
+    }
+
+    console.log(`🔍 Filtered out region entries, ${Object.keys(filteredLocations).length} locations remaining`);
+
+    // Sort locations using the canonical order from landmark_constants.asm combined with logical grouping
+    // This ensures locations are ordered exactly as they appear in the game's constant definitions
+    // with related sub-locations (floors, houses, etc.) grouped logically with their parent landmark
+    const logicalOrder = createLogicalLocationOrder();
+
+    const sortedLocations = Object.entries(filteredLocations)
+      .sort(([keyA, a], [keyB, b]) => {
         // First sort by region (johto, kanto, orange)
         const regionOrder: Record<string, number> = { johto: 0, kanto: 1, orange: 2 };
         if (regionOrder[a.region] !== regionOrder[b.region]) {
           return regionOrder[a.region] - regionOrder[b.region];
         }
 
-        // Then landmarks first (positive IDs), then map-only locations (negative IDs)
-        if ((a.id >= 0) !== (b.id >= 0)) {
-          return b.id - a.id; // Positive IDs (landmarks) come first
+        // Get logical order for both locations
+        const orderA = logicalOrder.get(keyA);
+        const orderB = logicalOrder.get(keyB);
+
+        // If both locations have logical order, use it
+        if (orderA !== undefined && orderB !== undefined) {
+          return orderA - orderB;
         }
 
-        // Within same type, sort by ID or name
-        if (a.id >= 0 && b.id >= 0) {
-          return a.id - b.id; // Sort landmarks by ID
-        } else {
-          return a.name.localeCompare(b.name); // Sort map-only by name
+        // If only one has logical order, it comes first
+        if (orderA !== undefined && orderB === undefined) {
+          return -1;
         }
+        if (orderA === undefined && orderB !== undefined) {
+          return 1;
+        }
+
+        // For locations not in the logical order, fall back to canonical ID then name
+        if (a.id >= 0 && b.id >= 0) {
+          return a.id - b.id; // Sort by canonical landmark constant ID
+        }
+
+        // Canonical landmark locations come before non-landmark locations
+        if ((a.id >= 0) !== (b.id >= 0)) {
+          return b.id - a.id; // Positive IDs (canonical landmarks) come first
+        }
+
+        // For non-landmark locations not in logical order, sort by name
+        return a.name.localeCompare(b.name);
       })
       .reduce((acc, [key, value]) => {
         acc[key] = value;
         return acc;
       }, {} as Record<string, LocationData>);
 
+    // Export as both object format (for compatibility) and ordered array format (to preserve order)
     const outputPath = path.join(__dirname, 'output/all_locations.json');
     await fs.promises.writeFile(
       outputPath,
@@ -853,11 +1114,26 @@ export async function exportAllLocations() {
 
     console.log(`📍 Exported ${Object.keys(sortedLocations).length} locations to ${outputPath}`);
 
-    // Also create a summary by region
+    // Export as ordered array to preserve logical order
+    const orderedLocationsArray = Object.entries(sortedLocations).map(([key, location], index) => ({
+      ...location,
+      key,
+      order: index
+    }));
+
+    const orderedOutputPath = path.join(__dirname, 'output/all_locations_ordered.json');
+    await fs.promises.writeFile(
+      orderedOutputPath,
+      JSON.stringify(orderedLocationsArray, null, 2)
+    );
+
+    console.log(`📍 Exported ${orderedLocationsArray.length} ordered locations to ${orderedOutputPath}`);
+
+    // Also create a summary by region (preserving order within regions)
     const locationsByRegion = {
-      johto: Object.values(sortedLocations).filter(l => l.region === 'johto'),
-      kanto: Object.values(sortedLocations).filter(l => l.region === 'kanto'),
-      orange: Object.values(sortedLocations).filter(l => l.region === 'orange'),
+      johto: orderedLocationsArray.filter(l => l.region === 'johto'),
+      kanto: orderedLocationsArray.filter(l => l.region === 'kanto'),
+      orange: orderedLocationsArray.filter(l => l.region === 'orange'),
     };
 
     const summaryPath = path.join(__dirname, 'output/locations_by_region.json');
@@ -865,10 +1141,10 @@ export async function exportAllLocations() {
       summaryPath,
       JSON.stringify({
         summary: {
-          total: Object.keys(sortedLocations).length,
-          flyable: Object.values(sortedLocations).filter(l => l.flyable).length,
-          landmarks: Object.values(sortedLocations).filter(l => l.id >= 0).length,
-          mapOnly: Object.values(sortedLocations).filter(l => l.id < 0).length,
+          total: orderedLocationsArray.length,
+          flyable: orderedLocationsArray.filter(l => l.flyable).length,
+          landmarks: orderedLocationsArray.filter(l => l.id >= 0).length,
+          mapOnly: orderedLocationsArray.filter(l => l.id < 0).length,
           johto: locationsByRegion.johto.length,
           kanto: locationsByRegion.kanto.length,
           orange: locationsByRegion.orange.length,
@@ -884,6 +1160,109 @@ export async function exportAllLocations() {
     console.error('❌ Error exporting locations:', error);
     throw error;
   }
+}
+
+/**
+ * Format location key to a proper display name
+ * Handles floor numbers, basement levels, and other special patterns
+ */
+function formatDisplayName(locationKey: string): string {
+  const words = locationKey.split('_');
+
+  return words
+    .map((word, index, parts) => {
+      // Handle floor numbers: "1f", "2f" -> "1F", "2F"
+      if (/^\d+f$/.test(word)) {
+        return word.toUpperCase();
+      }
+
+      // Handle basement letter: "b" -> "B" (will be combined with next floor if applicable)
+      if (word === 'b' && index < parts.length - 1 && /^\d+f$/.test(parts[index + 1])) {
+        // Combine "b" with next floor number: "b" + "1f" -> "B1F"
+        const floorNumber = parts[index + 1].toUpperCase();
+        // Mark the next word for skipping by returning special marker
+        parts[index + 1] = 'SKIP';
+        return `B${floorNumber}`;
+      }
+
+      // Skip words marked for skipping
+      if (word === 'SKIP') {
+        return null;
+      }
+
+      // Handle basement floor numbers that are already combined: "b1f", "b2f" -> "B1F", "B2F"
+      if (/^b\d+f$/.test(word)) {
+        return word.toUpperCase();
+      }
+
+      // Handle special directional cases
+      if (word === 'nw') return 'NW';
+      if (word === 'ne') return 'NE';
+      if (word === 'sw') return 'SW';
+      if (word === 'se') return 'SE';
+      if (word === 'n') return 'N';
+      if (word === 's') return 'S';
+      if (word === 'e') return 'E';
+      if (word === 'w') return 'W';
+
+      // Handle compound location descriptors for better readability
+      if (word === 'side' && index > 0) {
+        const prevWord = parts[index - 1];
+        if (['blackthorn', 'mahogany', 'east', 'west', 'north', 'south'].includes(prevWord)) {
+          return 'Side)';
+        }
+      }
+
+      if (['blackthorn', 'mahogany'].includes(word) && index < parts.length - 1 && parts[index + 1] === 'side') {
+        return `(${word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()}`;
+      }
+
+      // Regular word capitalization
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .filter(part => part !== null) // Remove null values (skipped words)
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Determine the likely region for a location based on known patterns
+ */
+function inferLocationRegion(locationKey: string): 'johto' | 'kanto' | 'orange' {
+  // Known Kanto locations
+  const kantoPatterns = [
+    'victory_road', 'cerulean', 'vermilion', 'lavender', 'celadon', 'fuchsia',
+    'saffron', 'cinnabar', 'viridian', 'pewter', 'pallet', 'indigo_plateau',
+    'route_1', 'route_2', 'route_3', 'route_4', 'route_5', 'route_6', 'route_7',
+    'route_8', 'route_9', 'route_10', 'route_11', 'route_12', 'route_13', 'route_14',
+    'route_15', 'route_16', 'route_17', 'route_18', 'route_19', 'route_20', 'route_21',
+    'route_22', 'route_23', 'route_24', 'route_25', 'route_26', 'route_27', 'route_28',
+    'pokemon_league', 'rock_tunnel', 'underground', 'power_plant', 'seafoam', 'pokemon_mansion',
+    'silph', 'fighting_dojo', 'digletts_cave', 'mount_moon'
+  ];
+
+  // Known Orange Islands locations
+  const orangePatterns = [
+    'shamouti', 'valencia', 'navel_rock', 'faraway', 'fire_island', 'ice_island',
+    'lightning_island', 'beautiful_beach'
+  ];
+
+  // Check if location matches any known patterns
+  for (const pattern of kantoPatterns) {
+    if (locationKey.includes(pattern)) {
+      return 'kanto';
+    }
+  }
+
+  for (const pattern of orangePatterns) {
+    if (locationKey.includes(pattern)) {
+      return 'orange';
+    }
+  }
+
+  // Default to johto for everything else
+  return 'johto';
 }
 
 // Run if called directly

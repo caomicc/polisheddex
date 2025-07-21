@@ -40,52 +40,6 @@ interface LocationSearchProps {
 
 type SortOption = 'landmark' | 'alphabetical' | 'pokemon-count' | 'hidden-grotto' | 'region';
 
-// Landmark order based on rom/data/maps/landmarks.asm - the canonical in-game order
-const LANDMARK_ORDER = [
-  // Johto locations (in order of progression)
-  'new_bark_town', 'route_29', 'cherrygrove_city', 'cherrygrove_bay',
-  'route_30', 'route_31', 'violet_city', 'sprout_tower', 'violet_outskirts',
-  'ruins_of_alph', 'route_32', 'route_32_coast', 'union_cave', 'route_33',
-  'azalea_town', 'slowpoke_well', 'ilex_forest', 'route_34', 'route_34_coast',
-  'stormy_beach', 'murky_swamp', 'goldenrod_city', 'radio_tower', 'goldenrod_harbor',
-  'magnet_tunnel', 'route_35', 'route_35_coast', 'national_park', 'route_36',
-  'route_37', 'ecruteak_city', 'bellchime_trail', 'tin_tower', 'burned_tower',
-  'route_38', 'route_39', 'rugged_road', 'snowtop_mountain', 'olivine_city',
-  'lighthouse', 'route_40', 'battle_tower', 'whirl_islands', 'route_41',
-  'cianwood_city', 'cliff_edge_gate', 'route_47', 'cliff_cave', 'route_48',
-  'yellow_forest', 'quiet_cave', 'route_42', 'mt_mortar', 'mahogany_town',
-  'route_43', 'lake_of_rage', 'route_44', 'ice_path', 'blackthorn_city',
-  'dragons_den', 'route_45', 'dark_cave', 'route_46', 'silver_cave',
-  'fast_ship', 'sinjoh_ruins', 'mystri_stage',
-
-  // Kanto locations (in order of progression)
-  'pallet_town', 'route_1', 'viridian_city', 'route_2', 'viridian_forest',
-  'pewter_city', 'route_3', 'mt_moon', 'route_4', 'cerulean_city',
-  'cerulean_cave', 'route_24', 'route_25', 'cerulean_cape', 'route_5',
-  'underground', 'route_6', 'vermilion_city', 'digletts_cave', 'route_7',
-  'route_8', 'route_9', 'route_10', 'rock_tunnel', 'power_plant',
-  'dim_cave', 'lavender_town', 'lav_radio_tower', 'soul_house', 'celadon_city',
-  'celadon_university', 'saffron_city', 'route_11', 'route_12', 'route_13',
-  'route_14', 'route_15', 'lucky_island', 'route_16', 'route_17', 'route_18',
-  'fuchsia_city', 'safari_zone', 'uraga_channel', 'scary_cave', 'route_19',
-  'route_20', 'seafoam_islands', 'cinnabar_island', 'pokemon_mansion',
-  'cinnabar_volcano', 'route_21', 'route_22', 'route_27', 'tohjo_falls',
-  'route_26', 'pokemon_league', 'route_23', 'victory_road', 'indigo_plateau',
-  'route_28', 'cinnabar_lab',
-
-  // Orange Islands locations
-  'shamouti_island', 'beautiful_beach', 'rocky_beach', 'noisy_forest',
-  'shrine_ruins', 'shamouti_tunnel', 'warm_beach', 'shamouti_coast',
-  'fire_island', 'ice_island', 'lightning_island', 'route_49',
-  'valencia_island', 'navel_rock', 'faraway_island'
-];
-
-// Function to get landmark order index for sorting
-function getLandmarkOrder(locationKey: string): number {
-  const index = LANDMARK_ORDER.indexOf(locationKey);
-  return index !== -1 ? index : LANDMARK_ORDER.length; // Put unknown locations at end
-}
-
 const LocationSearch: React.FC<LocationSearchProps> = ({ locations }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showOnlyGrottoes, setShowOnlyGrottoes] = useState(false);
@@ -148,10 +102,9 @@ const LocationSearch: React.FC<LocationSearchProps> = ({ locations }) => {
   const sortedLocations = useMemo(() => {
     return [...filteredLocations].sort((a, b) => {
       if (sortOption === 'landmark') {
-        // Sort by landmark order (canonical in-game progression)
-        const orderA = getLandmarkOrder(a.urlName || a.area.toLowerCase().replace(/\s+/g, '_'));
-        const orderB = getLandmarkOrder(b.urlName || b.area.toLowerCase().replace(/\s+/g, '_'));
-        return orderA - orderB;
+        // Preserve the original order from the data source (already in logical order)
+        // The data comes pre-sorted in logical/canonical order from the extraction
+        return 0; // Keep original order
       } else if (sortOption === 'alphabetical') {
         return a.displayName?.localeCompare(b.displayName || '') || a.area.localeCompare(b.area);
       } else if (sortOption === 'pokemon-count') {
@@ -322,7 +275,6 @@ const LocationSearch: React.FC<LocationSearchProps> = ({ locations }) => {
         <p className="text-center py-8 text-gray-500">No locations found matching your search.</p>
       ) : (
         <div className="">
-          {/* <p className="text-sm text-gray-500 mb-4">{sortedLocations.length} location{sortedLocations.length !== 1 ? 's' : ''} found</p> */}
           <ul className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {sortedLocations.map((loc) => (
               <li key={loc.area}>
@@ -332,6 +284,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({ locations }) => {
           </ul>
         </div>
       )}
+
     </div>
   );
 };

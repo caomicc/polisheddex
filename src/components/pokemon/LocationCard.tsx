@@ -48,7 +48,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
       >
         <div className="flex flex-col gap-4 relative z-20">
           <div className="flex justify-between items-start gap-2">
-            <h2 className="text-sm md:text-md font-bold py-1 leading-none line-clamp-1 flex-grow">{displayName}</h2>
+            <h2 className="text-sm md:text-md font-bold py-1 leading-none flex-grow">{displayName}</h2>
             {location.region && (
               <Badge variant={location.region as LocationData['region']} className="text-[11px] capitalize tracking-[0]">
                 {location.region}

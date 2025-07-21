@@ -25,15 +25,57 @@ async function loadPokemonLocationData(): Promise<Record<string, LocationAreaDat
   }
 }
 
-// Function to load comprehensive location data (coordinates, connections, flyable status)
-async function loadAllLocationData(): Promise<Record<string, LocationData>> {
+// Function to load comprehensive location data in proper order
+async function loadAllLocationData(): Promise<EnhancedLocation[]> {
   try {
+    const orderedLocationsFile = path.join(process.cwd(), 'output/all_locations_ordered.json');
+
+    // Try to load the ordered array first (preserves logical order)
+    if (fs.existsSync(orderedLocationsFile)) {
+      const data = await fs.promises.readFile(orderedLocationsFile, 'utf8');
+      const orderedLocations = JSON.parse(data) as (LocationData & { key: string; order: number })[];
+
+      // Convert to EnhancedLocation format
+      return orderedLocations.map(location => ({
+        area: location.key,
+        urlName: location.key,
+        displayName: location.displayName,
+        types: getLocationTypes(location.displayName),
+        pokemonCount: 0, // Will be filled later from Pokemon data
+        hasHiddenGrottoes: false, // Will be filled later from Pokemon data
+        region: location.region,
+        flyable: location.flyable,
+        connections: location.connections,
+        coordinates: location.x >= 0 && location.y >= 0
+          ? { x: location.x, y: location.y }
+          : undefined,
+      }));
+    }
+
+    // Fallback to the object format if ordered array doesn't exist
     const locationsFile = path.join(process.cwd(), 'output/all_locations.json');
     const data = await fs.promises.readFile(locationsFile, 'utf8');
-    return JSON.parse(data) as Record<string, LocationData>;
+    const allLocationData = JSON.parse(data) as Record<string, LocationData>;
+
+    return Object.entries(allLocationData).map(([locationKey, locationInfo]) => {
+      return {
+        area: locationKey,
+        urlName: locationKey,
+        displayName: locationInfo.displayName,
+        types: getLocationTypes(locationInfo.displayName),
+        pokemonCount: 0,
+        hasHiddenGrottoes: false,
+        region: locationInfo.region,
+        flyable: locationInfo.flyable,
+        connections: locationInfo.connections,
+        coordinates: locationInfo.x >= 0 && locationInfo.y >= 0
+          ? { x: locationInfo.x, y: locationInfo.y }
+          : undefined,
+      };
+    });
   } catch (error) {
     console.error('Error loading comprehensive location data:', error);
-    return {};
+    return [];
   }
 }
 
@@ -220,7 +262,7 @@ function getLocationTypes(locationName: string): string[] {
 
 export default async function LocationsPage() {
   const pokemonLocationData = await loadPokemonLocationData();
-  const allLocationData = await loadAllLocationData();
+  const comprehensiveLocations = await loadAllLocationData(); // This now returns EnhancedLocation[] in proper order
 
   // Create a normalized Pokemon location map for efficient lookups
   const normalizedPokemonData: Record<string, { originalKey: string; data: LocationAreaData }> = {};
@@ -232,58 +274,46 @@ export default async function LocationsPage() {
     };
   });
 
-  // Start with comprehensive location data as the base
-  const comprehensiveLocations: EnhancedLocation[] = Object.keys(allLocationData)
-    .map(locationKey => {
-      const locationInfo = allLocationData[locationKey];
+  // Merge Pokemon data into comprehensive locations (preserving order)
+  const enhancedLocations: EnhancedLocation[] = comprehensiveLocations.map(location => {
+    // Find matching Pokemon data using normalized keys
+    let pokemonData: LocationAreaData | null = null;
+    const normalizedKey = normalizeLocationKey(location.area);
 
-      // Find matching Pokemon data using normalized keys
-      let pokemonData: LocationAreaData | null = null;
-      const normalizedKey = normalizeLocationKey(locationKey);
+    if (normalizedPokemonData[normalizedKey]) {
+      pokemonData = normalizedPokemonData[normalizedKey].data;
+    }
 
-      if (normalizedPokemonData[normalizedKey]) {
-        pokemonData = normalizedPokemonData[normalizedKey].data;
-      }
+    // Calculate Pokemon count if Pokemon data exists
+    const pokemonCount = pokemonData ? Object.keys(pokemonData.pokemon).length : 0;
 
-      // Calculate Pokemon count if Pokemon data exists
-      const pokemonCount = pokemonData ? Object.keys(pokemonData.pokemon).length : 0;
+    // Check for hidden grottoes if Pokemon data exists
+    const hasHiddenGrottoes = pokemonData
+      ? Object.values(pokemonData.pokemon).some(
+          (pokemon: PokemonWithMethods) =>
+            pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto')
+        )
+      : false;
 
-      // Check for hidden grottoes if Pokemon data exists
-      const hasHiddenGrottoes = pokemonData
-        ? Object.values(pokemonData.pokemon).some(
-            (pokemon: PokemonWithMethods) =>
-              pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto')
-          )
-        : false;
-
-      return {
-        area: locationKey, // Use the key from comprehensive data
-        urlName: locationKey, // Use underscored format for URLs (beautiful_beach)
-        displayName: locationInfo.displayName,
-        types: getLocationTypes(locationInfo.displayName),
-        pokemonCount,
-        hasHiddenGrottoes,
-        region: locationInfo.region,
-        flyable: locationInfo.flyable,
-        connections: locationInfo.connections,
-        coordinates: locationInfo.x >= 0 && locationInfo.y >= 0
-          ? { x: locationInfo.x, y: locationInfo.y }
-          : undefined,
-      };
-    });
+    return {
+      ...location,
+      pokemonCount,
+      hasHiddenGrottoes,
+    };
+  });
 
   // Find Pokemon-only locations that weren't matched with comprehensive data
   const usedPokemonKeys = new Set<string>();
 
   // Mark all Pokemon locations that were already matched with comprehensive data
-  Object.keys(allLocationData).forEach(locationKey => {
-    const normalizedKey = normalizeLocationKey(locationKey);
+  enhancedLocations.forEach(location => {
+    const normalizedKey = normalizeLocationKey(location.area);
     if (normalizedPokemonData[normalizedKey]) {
       usedPokemonKeys.add(normalizedKey);
     }
   });
 
-  // Create entries for unmatched Pokemon locations
+  // Create entries for unmatched Pokemon locations (append at the end to preserve order)
   const pokemonOnlyLocations: EnhancedLocation[] = Object.keys(normalizedPokemonData)
     .filter(normalizedKey => !usedPokemonKeys.has(normalizedKey))
     .map(normalizedKey => {
@@ -309,17 +339,8 @@ export default async function LocationsPage() {
       };
     });
 
-  // Combine both arrays
-  const processedLocations = [...comprehensiveLocations, ...pokemonOnlyLocations]
-    .sort((a, b) => {
-      // Sort by region first, then by display name
-      if (a.region && b.region && a.region !== b.region) {
-        const regionOrder = { johto: 0, kanto: 1, orange: 2 };
-        return (regionOrder[a.region as keyof typeof regionOrder] || 3) -
-               (regionOrder[b.region as keyof typeof regionOrder] || 3);
-      }
-      return a.displayName.localeCompare(b.displayName);
-    });
+  // Combine both arrays - DON'T SORT, preserve the logical order from extraction
+  const processedLocations = [...enhancedLocations, ...pokemonOnlyLocations];
 
   return (
     <div className="max-w-xl md:max-w-4xl mx-auto p-4">
