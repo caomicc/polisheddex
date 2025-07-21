@@ -21,7 +21,7 @@ import {
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import TimeIcon from '@/components/pokemon/TimeIcon';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
-import { LocationConnection } from '@/types/types';
+import { LocationConnection, NPCTrade, LocationEvent } from '@/types/types';
 
 interface EncounterDetail {
   level: string;
@@ -282,6 +282,88 @@ export default async function LocationDetailPage({
           </div>
         )}
 
+        {/* NPC Trades */}
+        {comprehensiveInfo && comprehensiveInfo.npcTrades && comprehensiveInfo.npcTrades.length > 0 && (
+          <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500">
+            <h2 className="text-lg font-semibold mb-3 text-green-800 dark:text-green-200">NPC Trades Available</h2>
+            <div className="space-y-3">
+              {comprehensiveInfo.npcTrades.map((trade: NPCTrade, index: number) => (
+                <div key={index} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-medium text-slate-900 dark:text-slate-100">{trade.traderName}</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div>
+                      <div className="font-medium text-slate-600 dark:text-slate-300">Wants</div>
+                      <Link
+                        href={`/pokemon/${trade.wantsPokemon}`}
+                        className="text-blue-600 dark:text-blue-400 hover:underline capitalize"
+                      >
+                        {trade.wantsPokemon}
+                      </Link>
+                      {trade.wantsForm && (
+                        <span className="text-slate-500 text-xs ml-1">({trade.wantsForm})</span>
+                      )}
+                    </div>
+                    <div>
+                      <div className="font-medium text-slate-600 dark:text-slate-300">Offers</div>
+                      <Link
+                        href={`/pokemon/${trade.givesPokemon}`}
+                        className="text-blue-600 dark:text-blue-400 hover:underline capitalize"
+                      >
+                        {trade.givesPokemon}
+                      </Link>
+                      {trade.givesForm && (
+                        <span className="text-slate-500 text-xs ml-1">({trade.givesForm})</span>
+                      )}
+                      {trade.givesGender && (
+                        <span className="text-slate-500 text-xs ml-1">(♂/♀)</span>
+                      )}
+                    </div>
+                    <div>
+                      <div className="font-medium text-slate-600 dark:text-slate-300">Nickname</div>
+                      <div className="text-slate-700 dark:text-slate-300">{trade.nickname}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Special Events */}
+        {comprehensiveInfo && comprehensiveInfo.events && comprehensiveInfo.events.length > 0 && (
+          <div className="mb-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+            <h2 className="text-lg font-semibold mb-3 text-purple-800 dark:text-purple-200">Special Events</h2>
+            <div className="space-y-2">
+              {comprehensiveInfo.events.map((event: LocationEvent, index: number) => (
+                <div key={index} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                  <div className="flex items-center gap-2">
+                    <div className="flex-shrink-0 w-6 h-6 bg-purple-100 dark:bg-purple-800 rounded-full flex items-center justify-center">
+                      {event.type === 'rival_battle' && <span className="text-xs">⚔️</span>}
+                      {event.type === 'trainer_battle' && <span className="text-xs">🥊</span>}
+                      {event.type === 'special' && <span className="text-xs">✨</span>}
+                      {event.type === 'item' && <span className="text-xs">📦</span>}
+                      {event.type === 'coordinate_trigger' && <span className="text-xs">📍</span>}
+                    </div>
+                    <div className="flex-grow">
+                      <div className="font-medium text-slate-900 dark:text-slate-100">{event.description}</div>
+                      {event.details && (
+                        <div className="text-sm text-slate-600 dark:text-slate-300">{event.details}</div>
+                      )}
+                      {event.coordinates && (
+                        <div className="text-xs text-slate-500 dark:text-slate-400">
+                          Position: ({event.coordinates.x}, {event.coordinates.y})
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg text-center">
           <p className="text-slate-600 dark:text-slate-300">No Pokémon encounter data available for this location.</p>
         </div>
@@ -441,6 +523,88 @@ export default async function LocationDetailPage({
                   <span className="text-slate-400 dark:text-slate-500">→</span>
                 </div>
               </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* NPC Trades */}
+      {comprehensiveInfo && comprehensiveInfo.npcTrades && comprehensiveInfo.npcTrades.length > 0 && (
+        <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500">
+          <h2 className="text-lg font-semibold mb-3 text-green-800 dark:text-green-200">NPC Trades Available</h2>
+          <div className="space-y-3">
+            {comprehensiveInfo.npcTrades.map((trade: NPCTrade, index: number) => (
+              <div key={index} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="font-medium text-slate-900 dark:text-slate-100">{trade.traderName}</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <div className="font-medium text-slate-600 dark:text-slate-300">Wants</div>
+                    <Link
+                      href={`/pokemon/${trade.wantsPokemon}`}
+                      className="text-blue-600 dark:text-blue-400 hover:underline capitalize"
+                    >
+                      {trade.wantsPokemon}
+                    </Link>
+                    {trade.wantsForm && (
+                      <span className="text-slate-500 text-xs ml-1">({trade.wantsForm})</span>
+                    )}
+                  </div>
+                  <div>
+                    <div className="font-medium text-slate-600 dark:text-slate-300">Offers</div>
+                    <Link
+                      href={`/pokemon/${trade.givesPokemon}`}
+                      className="text-blue-600 dark:text-blue-400 hover:underline capitalize"
+                    >
+                      {trade.givesPokemon}
+                    </Link>
+                    {trade.givesForm && (
+                      <span className="text-slate-500 text-xs ml-1">({trade.givesForm})</span>
+                    )}
+                    {trade.givesGender && (
+                      <span className="text-slate-500 text-xs ml-1">(♂/♀)</span>
+                    )}
+                  </div>
+                  <div>
+                    <div className="font-medium text-slate-600 dark:text-slate-300">Nickname</div>
+                    <div className="text-slate-700 dark:text-slate-300">{trade.nickname}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Special Events */}
+      {comprehensiveInfo && comprehensiveInfo.events && comprehensiveInfo.events.length > 0 && (
+        <div className="mb-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+          <h2 className="text-lg font-semibold mb-3 text-purple-800 dark:text-purple-200">Special Events</h2>
+          <div className="space-y-2">
+            {comprehensiveInfo.events.map((event: LocationEvent, index: number) => (
+              <div key={index} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-2">
+                  <div className="flex-shrink-0 w-6 h-6 bg-purple-100 dark:bg-purple-800 rounded-full flex items-center justify-center">
+                    {event.type === 'rival_battle' && <span className="text-xs">⚔️</span>}
+                    {event.type === 'trainer_battle' && <span className="text-xs">🥊</span>}
+                    {event.type === 'special' && <span className="text-xs">✨</span>}
+                    {event.type === 'item' && <span className="text-xs">📦</span>}
+                    {event.type === 'coordinate_trigger' && <span className="text-xs">📍</span>}
+                  </div>
+                  <div className="flex-grow">
+                    <div className="font-medium text-slate-900 dark:text-slate-100">{event.description}</div>
+                    {event.details && (
+                      <div className="text-sm text-slate-600 dark:text-slate-300">{event.details}</div>
+                    )}
+                    {event.coordinates && (
+                      <div className="text-xs text-slate-500 dark:text-slate-400">
+                        Position: ({event.coordinates.x}, {event.coordinates.y})
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>

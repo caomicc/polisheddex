@@ -255,6 +255,27 @@ export interface LocationConnection {
   offset: number;
 }
 
+export interface NPCTrade {
+  traderName: string;
+  wantsPokemon: string;
+  wantsForm?: string;
+  givesPokemon: string;
+  givesForm?: string;
+  givesGender?: string;
+  nickname: string;
+  item?: string;
+  ability?: string;
+  nature?: string;
+}
+
+export interface LocationEvent {
+  type: 'rival_battle' | 'trainer_battle' | 'item' | 'special' | 'coordinate_trigger';
+  description: string;
+  details?: string;
+  eventFlag?: string;
+  coordinates?: { x: number; y: number };
+}
+
 export interface LocationData {
   id: number;
   name: string;
@@ -265,63 +286,6 @@ export interface LocationData {
   flyable: boolean;
   spawnPoint?: string;
   connections: LocationConnection[];
-}
-
-// Item types
-export interface ItemLocation {
-  area: string;
-  details: string;
-}
-
-export interface ItemAttributes {
-  price: number;
-  effect: string;
-  parameter: number;
-  category: string;
-  useOutsideBattle: string;
-  useInBattle: string;
-}
-
-export interface ItemData {
-  id: string;
-  name: string;
-  description: string;
-  attributes: ItemAttributes;
-  locations: ItemLocation[];
-}
-
-// TM/HM data structure
-export interface TMHMLocation {
-  area: string;
-  details?: string;
-}
-
-export interface TMHMData {
-  id: string;
-  name: string;
-  description: string;
-  tmNumber: string;
-  moveName: string;
-  type: string;
-  power: number;
-  pp: number;
-  accuracy: number;
-  category: string;
-  location: TMHMLocation;
-}
-
-// Union type for all items
-export type AnyItemData = ItemData | TMHMData;
-
-export interface ItemsDatabase {
-  [itemId: string]: AnyItemData;
-}
-
-// Type guards
-export function isRegularItem(item: AnyItemData): item is ItemData {
-  return 'attributes' in item && item.attributes !== undefined;
-}
-
-export function isTMHMItem(item: AnyItemData): item is TMHMData {
-  return 'tmNumber' in item && item.tmNumber !== undefined;
+  npcTrades?: NPCTrade[];
+  events?: LocationEvent[];
 }
