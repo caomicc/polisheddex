@@ -249,7 +249,7 @@ export interface PokemonMethods {
 }
 
 export interface LocationConnection {
-  direction: 'north' | 'south' | 'east' | 'west';
+  direction: 'north' | 'south' | 'east' | 'west' | 'northeast' | 'northwest' | 'southeast' | 'southwest';
   targetLocation: string;
   targetLocationDisplay: string;
   offset: number;
