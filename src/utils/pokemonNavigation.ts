@@ -106,6 +106,13 @@ export function getDexOrderToUse(
   nationalOrder: string[],
   johtoOrder: string[]
 ): { order: string[]; type: 'national' | 'johto' } {
+
+  console.log('getDexOrderToUse called with:', {
+    pokemonData,
+    nationalOrder,
+    johtoOrder
+  });
+
   // If we don't have any order data, return empty arrays but still indicate the preferred type
   if (nationalOrder.length === 0 && johtoOrder.length === 0) {
     console.warn('No dex order data available');
