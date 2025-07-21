@@ -74,8 +74,8 @@ export async function loadDexOrders(): Promise<{
     console.log('Loading dex orders...');
 
     const [nationalData, johtoData] = await Promise.all([
-      loadJsonFile<string[]>('/output/national_dex_order.json'),
-      loadJsonFile<string[]>('/output/johto_dex_order.json')
+      loadJsonFile<string[]>('./public/output/national_dex_order.json'),
+      loadJsonFile<string[]>('./public/output/johto_dex_order.json')
     ]);
 
     const result = {
