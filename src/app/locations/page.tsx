@@ -85,7 +85,7 @@ async function loadAllLocationData(): Promise<EnhancedLocation[]> {
 }
 
 // Enhanced location type with additional data
-interface EnhancedLocation {
+export interface EnhancedLocation {
   area: string; // Key used for internal processing
   urlName: string; // Name used for URLs (matches Pokemon location data keys)
   displayName: string;
@@ -359,7 +359,8 @@ export default async function LocationsPage() {
         </div>
       </div>
 
-      <LocationSearch locations={processedLocations} />
+
+      <LocationSearch locations={processedLocations as LocationData[]} />
 
     </div>
   );
