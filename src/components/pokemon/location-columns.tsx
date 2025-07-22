@@ -5,27 +5,8 @@ import { ArrowUpDown, ArrowUp, ArrowDown, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { normalizeLocationKey } from '@/utils/locationUtils';
-
-// Define the interface for location data
-export interface LocationData {
-  area: string;
-  urlName?: string;
-  displayName: string;
-  types: string[] | string;
-  pokemonCount?: number;
-  hasHiddenGrottoes?: boolean;
-  hasTrainers?: boolean;
-  trainerCount?: number;
-  region?: string;
-  flyable?: boolean;
-  connections?: Array<{
-    direction: string;
-    targetLocation: string;
-    targetLocationDisplay: string;
-    offset: number;
-  }>;
-  coordinates?: { x: number; y: number };
-}
+import { Badge } from '../ui/badge';
+import { LocationData } from '@/types/types';
 
 export const locationColumns: ColumnDef<LocationData>[] = [
   {
@@ -38,7 +19,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
           className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
         >
           Location
-                    {column.getIsSorted() === 'desc' ? (
+            {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
             <ArrowUp className="size-3" />
@@ -96,9 +77,9 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       const region = row.getValue('region') as string;
       if (!region) return <span className="text-gray-400 text-sm">-</span>;
       return (
-        <span className="text-sm ">
+        <Badge variant={region as 'kanto' | 'johto' | 'orange'}>
           {region.charAt(0).toUpperCase() + region.slice(1)}
-        </span>
+        </Badge>
       );
     },
     // Enable filtering on this column
@@ -174,24 +155,40 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       );
     },
   },
-  // {
-  //   accessorKey: 'hasHiddenGrottoes',
-  //   header: () => {
-  //     return <span className='text-center w-full block'>Hidden Grotto</span>
-  //    },
-  //   cell: ({ row }) => {
-  //     const hasGrotto = row.getValue('hasHiddenGrottoes') as boolean;
-  //     return (
-  //       <div className="text-center">
-  //         {hasGrotto ? (
-  //           <span className="text-green-600 text-sm  ">Yes</span>
-  //         ) : (
-  //           <span className="text-gray-400 text-sm">-</span>
-  //         )}
-  //       </div>
-  //     );
-  //   },
-  // },
+  {
+    accessorKey: 'hasItems',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+        >
+          Items?
+            {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const location = row.original;
+      const hasItems = (location.items && location.items.length > 0);
+      return (
+        <div className="text-center">
+          {hasItems ? (
+            <span className="text-green-600 text-sm  ">Yes</span>
+          ) : (
+            <span className="text-gray-400 text-sm">-</span>
+          )}
+        </div>
+      );
+    },
+  },
   {
     accessorKey: 'flyable',
     header: ({ column }) => {

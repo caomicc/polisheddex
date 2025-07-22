@@ -358,10 +358,17 @@ export interface LocationData {
   npcTrades?: NPCTrade[];
   events?: LocationEvent[];
   items?: LocationItem[];
-  hiddenItems?: LocationHiddenItem[];
   tmhms?: { tmNumber: string; moveName: string; location: string }[];
   trainers?: LocationTrainer[];
   gymLeader?: GymLeader;
+  area?: string;
+  urlName?: string;
+  types?: string[] | string;
+  pokemonCount?: number;
+  hasHiddenGrottoes?: boolean;
+  hasTrainers?: boolean;
+  trainerCount?: number;
+  coordinates?: { x: number; y: number };
 }
 
 // Item types

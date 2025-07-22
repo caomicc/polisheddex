@@ -52,6 +52,7 @@ export function LocationDataTable<TData, TValue>({
   const [showOnlyFlyable, setShowOnlyFlyable] = React.useState(false);
   const [showOnlyGrottoes, setShowOnlyGrottoes] = React.useState(false);
   const [showOnlyTrainers, setShowOnlyTrainers] = React.useState(false);
+  const [showOnlyItems, setShowOnlyItems] = React.useState(false);
 
   // Apply checkbox filters to the data
   const filteredData = React.useMemo(() => {
@@ -61,10 +62,11 @@ export function LocationDataTable<TData, TValue>({
       const matchesFlyable = !showOnlyFlyable || location.flyable;
       const matchesGrottoes = !showOnlyGrottoes || location.hasHiddenGrottoes;
       const matchesTrainers = !showOnlyTrainers || location.hasTrainers;
+      const matchesItems = !showOnlyItems || (location.items && location.items.length > 0);
 
-      return matchesPokemon && matchesFlyable && matchesGrottoes && matchesTrainers;
+      return matchesPokemon && matchesFlyable && matchesGrottoes && matchesTrainers && matchesItems;
     });
-  }, [data, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers]);
+  }, [data, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems]);
 
   const table = useReactTable({
     data: filteredData,
@@ -148,16 +150,16 @@ export function LocationDataTable<TData, TValue>({
     switch (columnId) {
       case 'displayName':
         return '35%'; // Slightly smaller to make room for trainers column
-      case 'region':
-        return '18%'; // Medium for region
-      case 'pokemonCount':
-        return '12%'; // Small for count
-      case 'trainerCount':
-        return '12%'; // Small for trainer count
-      // case 'hasHiddenGrottoes':
-      //   return '14%'; // Small for yes/no
-      case 'flyable':
-        return '12%'; // Small for yes/no
+      // case 'region':
+      //   return '18%'; // Medium for region
+      // case 'pokemonCount':
+      //   return '12%'; // Small for count
+      // case 'trainerCount':
+      //   return '12%'; // Small for trainer count
+      // // case 'hasHiddenGrottoes':
+      // //   return '14%'; // Small for yes/no
+      // case 'flyable':
+      //   return '12%'; // Small for yes/no
       default:
         return 'auto';
     }
@@ -276,6 +278,17 @@ export function LocationDataTable<TData, TValue>({
               Has Hidden Grottoes
             </Label>
           </div>
+
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="has-items"
+              checked={showOnlyItems}
+              onCheckedChange={(checked) => setShowOnlyItems(checked === true)}
+            />
+            <Label htmlFor="has-items" className="text-xs sm:text-sm cursor-pointer">
+              Has Items
+            </Label>
+          </div>
         </div>
 
         {/* Filter summary */}
@@ -316,6 +329,7 @@ export function LocationDataTable<TData, TValue>({
                 setShowOnlyTrainers(false);
                 setShowOnlyFlyable(false);
                 setShowOnlyGrottoes(false);
+                setShowOnlyItems(false);
               }}
               className="text-xs sm:text-sm whitespace-nowrap"
             >
@@ -360,7 +374,7 @@ export function LocationDataTable<TData, TValue>({
                     <TableCell
                       key={cell.id}
                       className="text-sm align-middle"
-                      style={{ width: getColumnWidth(cell.column.id) }}
+                      // style={{ width: getColumnWidth(cell.column.id) }}
                     >
                       <div className="overflow-hidden text-ellipsis">
                         {flexRender(
