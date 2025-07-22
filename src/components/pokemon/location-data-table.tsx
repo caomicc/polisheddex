@@ -400,26 +400,8 @@ export function LocationDataTable<TData, TValue>({
         </div>
 
         {/* Filter summary */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-muted-foreground">
-          <span>
-            Showing {table.getFilteredRowModel().rows.length} of{' '}
-            {filteredData.length} locations
-            {sorting.length > 0 && (
-              <span className="ml-2">
-                • Sorted by {sortOptions.find(opt => opt.value === getCurrentSortValue())?.label}
-              </span>
-            )}
-            {(showOnlyPokemon || showOnlyTrainers || showOnlyFlyable || showOnlyGrottoes) && (
-              <span className="ml-2">
-                • Filtered: {[
-                  showOnlyPokemon && 'Has Pokémon',
-                  showOnlyTrainers && 'Has Trainers',
-                  showOnlyFlyable && 'Flyable',
-                  showOnlyGrottoes && 'Has Grottoes'
-                ].filter(Boolean).join(', ')}
-              </span>
-            )}
-          </span>
+        <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
+
           {(Boolean(table.getColumn('displayName')?.getFilterValue()) ||
             Boolean(table.getColumn('region')?.getFilterValue()) ||
             sorting.length > 0 ||
@@ -452,6 +434,25 @@ export function LocationDataTable<TData, TValue>({
               Clear filters & sort
             </Button>
           )}
+          <span className="flex">
+            Showing {table.getFilteredRowModel().rows.length} of{' '}
+            {filteredData.length} locations
+            {sorting.length > 0 && (
+              <span className="ml-2">
+                • Sorted by {sortOptions.find(opt => opt.value === getCurrentSortValue())?.label}
+              </span>
+            )}
+            {(showOnlyPokemon || showOnlyTrainers || showOnlyFlyable || showOnlyGrottoes) && (
+              <span className="ml-2">
+                • Filtered: {[
+                  showOnlyPokemon && 'Has Pokémon',
+                  showOnlyTrainers && 'Has Trainers',
+                  showOnlyFlyable && 'Flyable',
+                  showOnlyGrottoes && 'Has Grottoes'
+                ].filter(Boolean).join(', ')}
+              </span>
+            )}
+          </span>
         </div>
       </div>
       <div className="rounded-md border bg-white overflow-x-auto border-border">

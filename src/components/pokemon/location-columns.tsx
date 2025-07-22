@@ -157,31 +157,20 @@ export const locationColumns: ColumnDef<LocationData>[] = [
   },
   {
     accessorKey: 'hasItems',
-    header: ({ column }) => {
+    header: () => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
-        >
+        <span className="text-muted-foreground">
           Items?
-            {column.getIsSorted() === 'desc' ? (
-            <ArrowDown className="size-3" />
-          ) : column.getIsSorted() === 'asc' ? (
-            <ArrowUp className="size-3" />
-          ) : (
-            <ArrowUpDown className="size-3" />
-          )}
-        </Button>
+        </span>
       );
     },
     cell: ({ row }) => {
       const location = row.original;
       const hasItems = (location.items && location.items.length > 0);
       return (
-        <div className="text-center">
+        <div className="">
           {hasItems ? (
-            <span className="text-green-600 text-sm  ">Yes</span>
+            <span className="text-sm">Yes</span>
           ) : (
             <span className="text-gray-400 text-sm">-</span>
           )}
@@ -191,22 +180,13 @@ export const locationColumns: ColumnDef<LocationData>[] = [
   },
   {
     accessorKey: 'flyable',
-    header: ({ column }) => {
+    header: () => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+        <span
+          className="text-muted-foreground"
         >
           Fly?
-          {column.getIsSorted() === 'desc' ? (
-            <ArrowDown className="size-3" />
-          ) : column.getIsSorted() === 'asc' ? (
-            <ArrowUp className="size-3" />
-          ) : (
-            <ArrowUpDown className="size-3" />
-          )}
-        </Button>
+        </span>
       );
     },
     cell: ({ row }) => {
@@ -214,9 +194,9 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       return (
         <div className="">
           {flyable ? (
-            <span>Yes</span>
+            <span className="text-sm">Yes</span>
           ) : (
-            <span>-</span>
+            <span className="text-gray-400 text-sm">-</span>
           )}
         </div>
       );

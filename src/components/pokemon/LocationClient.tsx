@@ -10,6 +10,7 @@ import { formatMethod, formatTime } from '@/utils/locationUtils';
 import TrainerCard from '../trainer/TrainerCard';
 import TimeIcon from './TimeIcon';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
+import { Badge } from '../ui/badge';
 
 export default function LocationClient({
   comprehensiveInfo,
@@ -47,29 +48,43 @@ export default function LocationClient({
 
   return (
     <>
+      {/* Location details from comprehensive data */}
+      {comprehensiveInfo && (
+        <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+              <div className='flex flex-col gap-2'>
+                <div className="font-medium text-slate-600 dark:text-slate-300">Region</div>
+                <Badge variant={comprehensiveInfo.region}>{comprehensiveInfo.region}</Badge>
+              </div>
+              <div className='flex flex-col gap-2'>
+                <div className="font-medium text-slate-600 dark:text-slate-300">Flyable?</div>
+                <div>{comprehensiveInfo.flyable ? 'Yes' : 'No'}</div>
+              </div>
+              <div className='flex flex-col gap-2'>
+                <div className="font-medium text-slate-600 dark:text-slate-300">Coordinates</div>
+                <div>{comprehensiveInfo.x}, {comprehensiveInfo.y}</div>
+              </div>
+              <div className='flex flex-col gap-2'>
+                <div className="font-medium text-slate-600 dark:text-slate-300">Connections</div>
+                <div>{comprehensiveInfo.connections.length}</div>
+              </div>
+          </div>
+        </div>
+      )}
+
       <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
         <TabsList className="w-full">
-          {Object.keys(groupedPokemonData).length > 0 && (
             <TabsTrigger value="pokemon">Pokemon</TabsTrigger>
-          )}
-          {comprehensiveInfo?.items && comprehensiveInfo.items.length > 0 && (
             <TabsTrigger value="items">Items</TabsTrigger>
-          )}
-          {comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0 && (
             <TabsTrigger value="trainers">Trainers</TabsTrigger>
-          )}
-          {comprehensiveInfo?.events && comprehensiveInfo.events.length > 0 && (
             <TabsTrigger value="events">Events</TabsTrigger>
-          )}
-          {comprehensiveInfo?.trades && comprehensiveInfo.trades.length > 0 && (
             <TabsTrigger value="trades">Trades</TabsTrigger>
-          )}
-          <TabsTrigger value="about">About</TabsTrigger>
+          <TabsTrigger value="connections">Connections</TabsTrigger>
         </TabsList>
-        
+
         {/* Pokemon encounters tab */}
-        {Object.keys(groupedPokemonData).length > 0 && (
-          <TabsContent value="pokemon" className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col">
+        <TabsContent value="pokemon" className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col">
+          {Object.keys(groupedPokemonData).length > 0 ? (
             <div className="space-y-6">
               {Object.entries(groupedPokemonData).map(([method, timeData]) => (
                 <Card key={method} className="w-full">
@@ -127,12 +142,16 @@ export default function LocationClient({
                 </Card>
               ))}
             </div>
-          </TabsContent>
-        )}
+          ) : (
+            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
+              <p>No Pokémon encounters found at this location.</p>
+            </div>
+          )}
+        </TabsContent>
 
         {/* Items tab */}
-        {comprehensiveInfo?.items && comprehensiveInfo.items.length > 0 && (
-          <TabsContent value="items" className="py-6">
+        <TabsContent value="items" className="py-6">
+          {comprehensiveInfo?.items && comprehensiveInfo.items.length > 0 ? (
             <Card>
               <CardHeader>
                 <h3 className="text-lg font-semibold">Items Found Here</h3>
@@ -167,12 +186,16 @@ export default function LocationClient({
                 </Table>
               </CardContent>
             </Card>
-          </TabsContent>
-        )}
+          ) : (
+            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
+              <p>No items found at this location.</p>
+            </div>
+          )}
+        </TabsContent>
 
         {/* Trainers tab */}
-        {comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0 && (
-          <TabsContent value="trainers" className="py-6">
+        <TabsContent value="trainers" className="py-6">
+          {comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0 ? (
             <div className="space-y-6">
               <h3 className="text-lg font-semibold">Trainers</h3>
               <div className="grid gap-6">
@@ -181,12 +204,16 @@ export default function LocationClient({
                 ))}
               </div>
             </div>
-          </TabsContent>
-        )}
+          ) : (
+            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
+              <p>No trainers found at this location.</p>
+            </div>
+          )}
+        </TabsContent>
 
         {/* Events tab */}
-        {comprehensiveInfo?.events && comprehensiveInfo.events.length > 0 && (
-          <TabsContent value="events" className="py-6">
+        <TabsContent value="events" className="py-6">
+          {comprehensiveInfo?.events && comprehensiveInfo.events.length > 0 ? (
             <Card>
               <CardHeader>
                 <h3 className="text-lg font-semibold">Special Events</h3>
@@ -207,12 +234,16 @@ export default function LocationClient({
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-        )}
+          ) : (
+            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
+              <p>No special events found at this location.</p>
+            </div>
+          )}
+        </TabsContent>
 
         {/* Trades tab */}
-        {comprehensiveInfo?.trades && comprehensiveInfo.trades.length > 0 && (
-          <TabsContent value="trades" className="py-6">
+        <TabsContent value="trades" className="py-6">
+          {comprehensiveInfo?.trades && comprehensiveInfo.trades.length > 0 ? (
             <Card>
               <CardHeader>
                 <h3 className="text-lg font-semibold">NPC Trades</h3>
@@ -252,46 +283,17 @@ export default function LocationClient({
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
-        )}
-
-        {/* About tab - Location details */}
-        <TabsContent value="about" className="py-6">
-          {/* Location details from comprehensive data */}
-          {comprehensiveInfo && (
-            <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
-              <h2 className="text-lg font-semibold mb-2">Location Details</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                {comprehensiveInfo.region && (
-                  <div>
-                    <div className="font-medium text-slate-600 dark:text-slate-300">Region</div>
-                    <div className="capitalize">{comprehensiveInfo.region}</div>
-                  </div>
-                )}
-                {comprehensiveInfo.flyable !== undefined && (
-                  <div>
-                    <div className="font-medium text-slate-600 dark:text-slate-300">Flyable</div>
-                    <div>{comprehensiveInfo.flyable ? 'Yes' : 'No'}</div>
-                  </div>
-                )}
-                {comprehensiveInfo.x >= 0 && comprehensiveInfo.y >= 0 && (
-                  <div>
-                    <div className="font-medium text-slate-600 dark:text-slate-300">Coordinates</div>
-                    <div>{comprehensiveInfo.x}, {comprehensiveInfo.y}</div>
-                  </div>
-                )}
-                {comprehensiveInfo.connections && comprehensiveInfo.connections.length > 0 && (
-                  <div>
-                    <div className="font-medium text-slate-600 dark:text-slate-300">Connections</div>
-                    <div>{comprehensiveInfo.connections.length}</div>
-                  </div>
-                )}
-              </div>
+          ) : (
+            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
+              <p>No NPC trades available at this location.</p>
             </div>
           )}
+        </TabsContent>
 
+        {/* About tab - Location details */}
+        <TabsContent value="connections" className="py-6">
           {/* Navigation connections */}
-          {comprehensiveInfo && comprehensiveInfo.connections && comprehensiveInfo.connections.length > 0 && (
+          {comprehensiveInfo && comprehensiveInfo.connections && comprehensiveInfo.connections.length > 0 ? (
             <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
               <h2 className="text-lg font-semibold mb-3 text-blue-800 dark:text-blue-200">Connected Locations</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -326,6 +328,10 @@ export default function LocationClient({
                   </Link>
                 ))}
               </div>
+            </div>
+          ) : (
+            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
+              <p>No connections found for this location.</p>
             </div>
           )}
         </TabsContent>
