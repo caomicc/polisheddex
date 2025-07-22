@@ -18,11 +18,11 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import TrainerCard from '@/components/trainer/TrainerCard';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import TimeIcon from '@/components/pokemon/TimeIcon';
-import TrainerCard from '@/components/trainer/TrainerCard';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
-import { LocationConnection, NPCTrade, LocationEvent, LocationItem, LocationHiddenItem, LocationTrainer } from '@/types/types';
+import { LocationConnection, NPCTrade, LocationEvent, LocationItem, LocationHiddenItem, LocationTrainer, GymLeader, TrainerPokemon } from '@/types/types';
 
 function normalizeLocationKey(input: string): string {
   return input
@@ -33,6 +33,8 @@ function normalizeLocationKey(input: string): string {
     .replace(/(\w)1[\s_]+f/i, '$1_1f')
     // Handle "Tower1" pattern at end (e.g., "Burned Tower1" -> "burned_tower_1")
     .replace(/(\w)1$/i, '$1_1')
+    // Handle route numbers specifically: "route6" -> "route_6"
+    .replace(/^route(\d+)(_|$)/g, 'route_$1$2')
     // Handle various floor patterns - normalize all to standard format
     // Handle B1F variations (with or without spaces, with or without F)
     .replace(/\s*b\s*1\s*f?\s*$/i, '_b1f')
@@ -362,6 +364,101 @@ export default async function LocationDetailPage({
           </div>
         )}
 
+        {/* Gym Leader */}
+        {comprehensiveInfo && comprehensiveInfo.gymLeader && (
+          <div className="mb-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-l-4 border-yellow-500">
+            <h2 className="text-lg font-semibold mb-3 text-yellow-800 dark:text-yellow-200 flex items-center gap-2">
+              <span className="text-xl" aria-hidden="true">🏆</span>
+              Gym Leader
+            </h2>
+            <div className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 dark:bg-yellow-800 rounded-full flex items-center justify-center">
+                  <span className="text-2xl" aria-hidden="true">👑</span>
+                </div>
+                <div className="flex-grow">
+                  <div className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+                    {comprehensiveInfo.gymLeader.name}
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div>
+                      <div className="font-medium text-slate-600 dark:text-slate-300">Speciality</div>
+                      <div className="text-slate-700 dark:text-slate-300 font-medium">
+                        {comprehensiveInfo.gymLeader.speciality} Type
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-medium text-slate-600 dark:text-slate-300">Badge</div>
+                      <div className="text-slate-700 dark:text-slate-300 capitalize">
+                        {comprehensiveInfo.gymLeader.badge.toLowerCase().replace('badge', ' Badge')}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-medium text-slate-600 dark:text-slate-300">Region</div>
+                      <div className="text-slate-700 dark:text-slate-300 capitalize">
+                        {comprehensiveInfo.gymLeader.region}
+                      </div>
+                    </div>
+                  </div>
+                  {comprehensiveInfo.gymLeader.coordinates && (
+                    <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                      Position: ({comprehensiveInfo.gymLeader.coordinates.x}, {comprehensiveInfo.gymLeader.coordinates.y})
+                    </div>
+                  )}
+                  {comprehensiveInfo.gymLeader.pokemon && comprehensiveInfo.gymLeader.pokemon.length > 0 && (
+                    <div className="mt-4">
+                      <div className="font-medium text-slate-600 dark:text-slate-300 mb-2">Pokémon Team</div>
+                      <div className="space-y-2">
+                        {comprehensiveInfo.gymLeader.pokemon.map((pokemon, index) => (
+                          <div key={index} className="p-2 bg-slate-50 dark:bg-slate-700 rounded border">
+                            <div className="flex items-center justify-between mb-1">
+                              <div className="font-medium text-slate-900 dark:text-slate-100 capitalize">
+                                {pokemon.species.replace(/_/g, ' ')}
+                              </div>
+                              <div className="text-sm text-slate-600 dark:text-slate-300">
+                                Level {pokemon.level}
+                              </div>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                              {pokemon.item && (
+                                <div>
+                                  <span className="font-medium text-slate-600 dark:text-slate-300">Item:</span>{' '}
+                                  <span className="capitalize">{pokemon.item.replace(/_/g, ' ')}</span>
+                                </div>
+                              )}
+                              {pokemon.gender && (
+                                <div>
+                                  <span className="font-medium text-slate-600 dark:text-slate-300">Gender:</span>{' '}
+                                  <span className="capitalize">{pokemon.gender}</span>
+                                </div>
+                              )}
+                            </div>
+                            {pokemon.moves && pokemon.moves.length > 0 && (
+                              <div className="mt-2">
+                                <div className="font-medium text-slate-600 dark:text-slate-300 text-xs mb-1">Moves:</div>
+                                <div className="flex flex-wrap gap-1">
+                                  {pokemon.moves.map((move, moveIndex) => (
+                                    <span
+                                      key={moveIndex}
+                                      className="px-2 py-1 bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-200 text-xs rounded capitalize"
+                                    >
+                                      {move.replace(/_/g, ' ')}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Special Events */}
         {comprehensiveInfo && comprehensiveInfo.events && comprehensiveInfo.events.length > 0 && (
           <div className="mb-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
@@ -396,38 +493,40 @@ export default async function LocationDetailPage({
         )}
 
         {/* Items */}
-        {comprehensiveInfo && (comprehensiveInfo.items || comprehensiveInfo.hiddenItems) && ((comprehensiveInfo.items && comprehensiveInfo.items.length > 0) || (comprehensiveInfo.hiddenItems && comprehensiveInfo.hiddenItems.length > 0)) && (
+        {comprehensiveInfo && comprehensiveInfo.items && comprehensiveInfo.items.length > 0 && (
           <div className="mb-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border-l-4 border-indigo-500">
             <h2 className="text-lg font-semibold mb-3 text-indigo-800 dark:text-indigo-200">Items</h2>
             <div className="space-y-2">
-              {comprehensiveInfo.items && comprehensiveInfo.items.map((item: LocationItem, index: number) => (
-                <div key={`visible-${index}`} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+              {comprehensiveInfo.items.map((item: LocationItem, index: number) => (
+                <div key={`item-${index}`} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
                   <div className="flex items-center gap-2">
-                    <div className="flex-shrink-0 w-6 h-6 bg-orange-100 dark:bg-orange-800 rounded-full flex items-center justify-center">
-                      <span className="text-xs">📦</span>
+                    <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
+                      item.type === 'item' ? 'bg-orange-100 dark:bg-orange-800' :
+                      item.type === 'hiddenItem' ? 'bg-amber-100 dark:bg-amber-800' :
+                      'bg-purple-100 dark:bg-purple-800'
+                    }`}>
+                      <span className="text-xs">
+                        {item.type === 'item' ? '📦' :
+                         item.type === 'hiddenItem' ? '🕵️' :
+                         '🔧'}
+                      </span>
                     </div>
                     <div className="flex-grow">
                       <div className="font-medium text-slate-900 dark:text-slate-100">{item.name}</div>
-                      <div className="text-sm text-orange-600 dark:text-orange-400 font-medium">Visible Item</div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400">
-                        Position: ({item.coordinates.x}, {item.coordinates.y})
+                      <div className={`text-sm font-medium ${
+                        item.type === 'item' ? 'text-orange-600 dark:text-orange-400' :
+                        item.type === 'hiddenItem' ? 'text-amber-600 dark:text-amber-400' :
+                        'text-purple-600 dark:text-purple-400'
+                      }`}>
+                        {item.type === 'item' ? 'Visible Item' :
+                         item.type === 'hiddenItem' ? 'Hidden Item' :
+                         'TM/HM'}
                       </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              {comprehensiveInfo.hiddenItems && comprehensiveInfo.hiddenItems.map((item: LocationHiddenItem, index: number) => (
-                <div key={`hidden-${index}`} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
-                  <div className="flex items-center gap-2">
-                    <div className="flex-shrink-0 w-6 h-6 bg-amber-100 dark:bg-amber-800 rounded-full flex items-center justify-center">
-                      <span className="text-xs">🕵️</span>
-                    </div>
-                    <div className="flex-grow">
-                      <div className="font-medium text-slate-900 dark:text-slate-100">{item.name}</div>
-                      <div className="text-sm text-amber-600 dark:text-amber-400 font-medium">Hidden Item</div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400">
-                        Position: ({item.coordinates.x}, {item.coordinates.y})
-                      </div>
+                      {item.coordinates && (
+                        <div className="text-xs text-slate-500 dark:text-slate-400">
+                          Position: ({item.coordinates.x}, {item.coordinates.y})
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -691,6 +790,53 @@ export default async function LocationDetailPage({
         </div>
       )}
 
+      {/* Gym Leader */}
+      {comprehensiveInfo && comprehensiveInfo.gymLeader && (
+        <div className="mb-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-l-4 border-yellow-500">
+          <h2 className="text-lg font-semibold mb-3 text-yellow-800 dark:text-yellow-200 flex items-center gap-2">
+            <span className="text-xl" aria-hidden="true">🏆</span>
+            Gym Leader
+          </h2>
+          <div className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 dark:bg-yellow-800 rounded-full flex items-center justify-center">
+                <span className="text-2xl" aria-hidden="true">👑</span>
+              </div>
+              <div className="flex-grow">
+                <div className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+                  {comprehensiveInfo.gymLeader.name}
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <div className="font-medium text-slate-600 dark:text-slate-300">Speciality</div>
+                    <div className="text-slate-700 dark:text-slate-300 font-medium">
+                      {comprehensiveInfo.gymLeader.speciality} Type
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-slate-600 dark:text-slate-300">Badge</div>
+                    <div className="text-slate-700 dark:text-slate-300 capitalize">
+                      {comprehensiveInfo.gymLeader.badge.toLowerCase().replace('badge', ' Badge')}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-slate-600 dark:text-slate-300">Region</div>
+                    <div className="text-slate-700 dark:text-slate-300 capitalize">
+                      {comprehensiveInfo.gymLeader.region}
+                    </div>
+                  </div>
+                </div>
+                {comprehensiveInfo.gymLeader.coordinates && (
+                  <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                    Position: ({comprehensiveInfo.gymLeader.coordinates.x}, {comprehensiveInfo.gymLeader.coordinates.y})
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Special Events */}
       {comprehensiveInfo && comprehensiveInfo.events && comprehensiveInfo.events.length > 0 && (
         <div className="mb-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
@@ -742,6 +888,21 @@ export default async function LocationDetailPage({
         </section>
       )}
 
+       {/* Gym Leaders */}
+      {comprehensiveInfo && comprehensiveInfo.gymLeader && (
+        <section className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border-l-4 border-red-500">
+          <h2 className="text-lg font-semibold mb-3 text-red-800 dark:text-red-200 flex items-center gap-2">
+            <span className="text-xl" aria-hidden="true">⚔️</span>
+            Gym Leaders ({comprehensiveInfo.gymLeader.length})
+          </h2>
+          <div className="space-y-4">
+            {comprehensiveInfo.gymLeader.map((leader: LocationTrainer) => (
+              <TrainerCard key={`gym-leader-${leader.name}`} trainer={leader} />
+            ))}
+          </div>
+        </section>
+      )}
+
       {comprehensiveInfo && (comprehensiveInfo.items || comprehensiveInfo.hiddenItems) && ((comprehensiveInfo.items && comprehensiveInfo.items.length > 0) || (comprehensiveInfo.hiddenItems && comprehensiveInfo.hiddenItems.length > 0)) && (
         <div className="mb-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border-l-4 border-indigo-500">
           <h2 className="text-lg font-semibold mb-3 text-indigo-800 dark:text-indigo-200">Items</h2>
@@ -756,7 +917,7 @@ export default async function LocationDetailPage({
                     <div className="font-medium text-slate-900 dark:text-slate-100">{item.name}</div>
                     <div className="text-sm text-orange-600 dark:text-orange-400 font-medium">Visible Item</div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">
-                      Position: ({item.coordinates.x}, {item.coordinates.y})
+                      Position: ({item?.coordinates?.x}, {item?.coordinates?.y})
                     </div>
                   </div>
                 </div>

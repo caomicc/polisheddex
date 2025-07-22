@@ -25,7 +25,14 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
             <div className="flex items-center gap-2">
               <div className="text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-md border">
                 <span className="sr-only">Position:</span>
-                <span aria-hidden="true">📍</span> ({trainer.coordinates.x}, {trainer.coordinates.y})
+                <span aria-hidden="true">📍</span>
+                {trainer.possibleCoordinates && trainer.possibleCoordinates.length > 1 ? (
+                  <span title={`Can be encountered at ${trainer.possibleCoordinates.length} different locations`}>
+                    Multiple locations ({trainer.possibleCoordinates.length})
+                  </span>
+                ) : (
+                  <>({trainer.coordinates.x}, {trainer.coordinates.y})</>
+                )}
               </div>
               {trainer.rematchable && (
                 <div className="text-xs text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded-md border border-green-200 dark:border-green-800">
@@ -36,16 +43,34 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
           </div>
 
           {/* Additional trainer info */}
-          {(trainer.baseReward || trainer.items) && (
-            <div className="flex flex-wrap gap-3 mb-3 text-sm">
-              {trainer.baseReward && (
-                <div className="text-yellow-600 dark:text-yellow-400 font-medium">
-                  <span aria-hidden="true">💰</span> ${trainer.baseReward} reward
-                </div>
-              )}
-              {trainer.items && trainer.items.length > 0 && (
-                <div className="text-purple-600 dark:text-purple-400 font-medium">
-                  <span aria-hidden="true">🎁</span> Items: {trainer.items.join(', ')}
+          {(trainer.baseReward || trainer.items || (trainer.possibleCoordinates && trainer.possibleCoordinates.length > 1)) && (
+            <div className="space-y-2 mb-3 text-sm">
+              <div className="flex flex-wrap gap-3">
+                {trainer.baseReward && (
+                  <div className="text-yellow-600 dark:text-yellow-400 font-medium">
+                    <span aria-hidden="true">💰</span> ${trainer.baseReward} reward
+                  </div>
+                )}
+                {trainer.items && trainer.items.length > 0 && (
+                  <div className="text-purple-600 dark:text-purple-400 font-medium">
+                    <span aria-hidden="true">🎁</span> Items: {trainer.items.join(', ')}
+                  </div>
+                )}
+              </div>
+
+              {/* Show all possible coordinates if there are multiple */}
+              {trainer.possibleCoordinates && trainer.possibleCoordinates.length > 1 && (
+                <div className="bg-slate-50 dark:bg-slate-700/30 p-2 rounded border">
+                  <div className="text-xs text-slate-600 dark:text-slate-400 font-medium mb-1">
+                    Possible encounter locations:
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {trainer.possibleCoordinates.map((coord, index) => (
+                      <span key={index} className="text-xs bg-slate-200 dark:bg-slate-600 px-2 py-1 rounded">
+                        ({coord.x}, {coord.y})
+                      </span>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>

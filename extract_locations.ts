@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { LocationData, LocationConnection, NPCTrade, LocationEvent } from './src/types/types.ts';
+import type { LocationData, LocationConnection, NPCTrade, LocationEvent, LocationItem, GymLeader, TrainerPokemon } from './src/types/types.ts';
 import { extractTrainerData } from './src/utils/extractors/trainerExtractors.ts';
 
 // Use this workaround for __dirname in ES modules
@@ -170,42 +170,6 @@ export function extractLocationEvents(): Record<string, LocationEvent[]> {
           details: 'Time travel encounter with Celebi'
         });
       }
-
-      // Visible item events (itemball_event)
-      const visibleItemMatch = line.match(/itemball_event\s+(\d+),\s*(\d+),\s*(\w+),/);
-      if (visibleItemMatch) {
-        const itemName = visibleItemMatch[3].replace(/_/g, ' ').toLowerCase();
-        const formattedItemName = itemName.split(' ').map(word =>
-          word.charAt(0).toUpperCase() + word.slice(1)
-        ).join(' ');
-
-        events.push({
-          type: 'item',
-          description: `Visible Item: ${formattedItemName}`,
-          coordinates: {
-            x: parseInt(visibleItemMatch[1]),
-            y: parseInt(visibleItemMatch[2])
-          }
-        });
-      }
-
-      // Hidden item events (bg_event with BGEVENT_ITEM)
-      const hiddenItemMatch = line.match(/bg_event\s+(\d+),\s*(\d+),\s*BGEVENT_ITEM\s*\+\s*(\w+),/);
-      if (hiddenItemMatch) {
-        const itemName = hiddenItemMatch[3].replace(/_/g, ' ').toLowerCase();
-        const formattedItemName = itemName.split(' ').map(word =>
-          word.charAt(0).toUpperCase() + word.slice(1)
-        ).join(' ');
-
-        events.push({
-          type: 'item',
-          description: `Hidden Item: ${formattedItemName}`,
-          coordinates: {
-            x: parseInt(hiddenItemMatch[1]),
-            y: parseInt(hiddenItemMatch[2])
-          }
-        });
-      }
     }
 
     if (events.length > 0) {
@@ -304,11 +268,13 @@ export function extractAllLocations(): Record<string, LocationData> {
 
   const locations: Record<string, LocationData> = {};
 
-  // Extract NPC trades, events, TM/HM locations, and trainer data first
+  // Extract NPC trades, events, items, TM/HM locations, and trainer data first
   const tradesByLocation = extractNPCTrades();
   const eventsByLocation = extractLocationEvents();
+  const itemsByLocation = extractLocationItems();
   const tmhmByLocation = extractTMHMLocations();
   const trainerData = extractTrainerData();
+  const gymLeadersByLocation = extractGymLeaders();
 
   // Read landmark constants to get the mapping of names to IDs
   const landmarkConstantsPath = path.join(__dirname, 'rom/constants/landmark_constants.asm');
@@ -748,10 +714,33 @@ export function extractAllLocations(): Record<string, LocationData> {
     }
   }
 
+  // Merge gym leaders into location data
+  console.log('🏆 Merging gym leaders...');
+  for (const [locationKey, gymLeader] of Object.entries(gymLeadersByLocation)) {
+    if (locations[locationKey]) {
+      locations[locationKey].gymLeader = gymLeader;
+      console.log(`✅ Added gym leader ${gymLeader.name} to ${locationKey}`);
+    } else {
+      console.log(`⚠️  Gym leader ${gymLeader.name} found for unknown location: ${locationKey}`);
+    }
+  }
+
+  // Merge items into location data
+  console.log('📦 Merging location items...');
+  for (const [locationKey, items] of Object.entries(itemsByLocation)) {
+    if (locations[locationKey]) {
+      locations[locationKey].items = items;
+    } else {
+      console.log(`⚠️  Items found for unknown location: ${locationKey}`);
+    }
+  }
+
   const totalTrades = Object.values(locations).reduce((sum, loc) => sum + (loc.npcTrades?.length || 0), 0);
   const totalEvents = Object.values(locations).reduce((sum, loc) => sum + (loc.events?.length || 0), 0);
+  const totalItems = Object.values(locations).reduce((sum, loc) => sum + (loc.items?.length || 0), 0);
   const totalTMHMs = Object.values(locations).reduce((sum, loc) => sum + (loc.tmhms?.length || 0), 0);
   const totalTrainers = Object.values(locations).reduce((sum, loc) => sum + (loc.trainers?.length || 0), 0);
+  const totalGymLeaders = Object.values(locations).reduce((sum, loc) => sum + (loc.gymLeader ? 1 : 0), 0);
 
   const landmarkLocations = Object.values(locations).filter(l => l.id >= 0).length;
   const nonLandmarkLocations = Object.values(locations).filter(l => l.id < 0).length;
@@ -765,10 +754,241 @@ export function extractAllLocations(): Record<string, LocationData> {
   console.log(`   ✈️  ${flyableCount} flyable locations`);
   console.log(`   💱 ${totalTrades} NPC trades`);
   console.log(`   ⚡ ${totalEvents} special events`);
-  console.log(`   🔧 ${totalTMHMs} TM/HM locations`);
+  console.log(`   � ${totalItems} items`);
+  console.log(`   �🔧 ${totalTMHMs} TM/HM locations`);
   console.log(`   🎯 ${totalTrainers} trainers`);
+  console.log(`   🏆 ${totalGymLeaders} gym leaders`);
 
   return locations;
+}
+
+// --- Extract Gym Leader Pokemon Parties ---
+export function extractGymLeaderParties(): Record<string, { level: number; species: string; item?: string; gender?: string; moves?: string[] }[]> {
+  console.log('🏆 Extracting gym leader Pokemon parties...');
+  const partiesPath = path.join(__dirname, 'rom/data/trainers/parties.asm');
+
+  if (!fs.existsSync(partiesPath)) {
+    console.warn('Trainer parties file not found');
+    return {};
+  }
+
+  const partiesContent = fs.readFileSync(partiesPath, 'utf8');
+  const lines = partiesContent.split(/\r?\n/);
+  const gymLeaderParties: Record<string, { level: number; species: string; item?: string; gender?: string; moves?: string[] }[]> = {};
+
+  let currentTrainerClass: string | null = null;
+  let currentTrainerNumber: number | null = null;
+  let currentParty: { level: number; species: string; item?: string; gender?: string; moves?: string[] }[] = [];
+  let currentPokemon: { level: number; species: string; item?: string; gender?: string; moves?: string[] } | null = null;
+
+  // Define gym leader classes we're interested in
+  const gymLeaderClasses = ['FALKNER', 'BUGSY', 'WHITNEY', 'MORTY', 'CHUCK', 'JASMINE', 'PRYCE', 'CLAIR', 'BROCK', 'MISTY', 'LT_SURGE', 'ERIKA', 'JANINE', 'SABRINA', 'BLAINE', 'BLUE'];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Look for trainer class definitions: def_trainer_class FALKNER
+    const classMatch = line.match(/def_trainer_class\s+([A-Z_]+)/);
+    if (classMatch) {
+      const trainerClass = classMatch[1];
+      if (gymLeaderClasses.includes(trainerClass)) {
+        currentTrainerClass = trainerClass;
+        console.log(`🏆 Found gym leader class: ${trainerClass}`);
+      } else {
+        currentTrainerClass = null;
+      }
+      continue;
+    }
+
+    // Only process lines if we're in a gym leader class
+    if (!currentTrainerClass) continue;
+
+    // Look for trainer definitions: def_trainer 1, "Falkner"
+    const trainerMatch = line.match(/def_trainer\s+(\d+),\s*"([^"]+)"/);
+    if (trainerMatch) {
+      // Save previous trainer's data if we had one
+      if (currentTrainerNumber !== null && currentParty.length > 0) {
+        const key = `${currentTrainerClass}_${currentTrainerNumber}`;
+        gymLeaderParties[key] = [...currentParty];
+        console.log(`🏆 Saved party for ${key}: ${currentParty.length} Pokemon`);
+      }
+
+      currentTrainerNumber = parseInt(trainerMatch[1]);
+      currentParty = [];
+      currentPokemon = null;
+      continue;
+    }
+
+    // Look for Pokemon definitions: tr_mon <LEVEL>, [Nickname], <SPECIES/SPECIES @ ITEM>, [GENDER+FORM]
+    const pokemonMatch = line.match(/tr_mon\s+(\d+),\s*([^,\s]+)(?:\s*@\s*([^,\s]+))?\s*(?:,\s*(MALE|FEMALE))?/);
+    if (pokemonMatch) {
+      // Save previous Pokemon if we had one
+      if (currentPokemon) {
+        currentParty.push(currentPokemon);
+      }
+
+      currentPokemon = {
+        level: parseInt(pokemonMatch[1]),
+        species: pokemonMatch[2].toLowerCase().replace(/-/g, '_'),
+      };
+
+      if (pokemonMatch[3]) {
+        currentPokemon.item = pokemonMatch[3].toLowerCase();
+      }
+
+      if (pokemonMatch[4]) {
+        currentPokemon.gender = pokemonMatch[4].toLowerCase();
+      }
+      continue;
+    }
+
+    // Look for moves: tr_moves MOVE1, MOVE2, MOVE3, MOVE4
+    const movesMatch = line.match(/tr_moves\s+(.+)/);
+    if (movesMatch && currentPokemon) {
+      const moves = movesMatch[1]
+        .split(',')
+        .map(move => move.trim().toLowerCase().replace(/_/g, ' '))
+        .filter(move => move.length > 0);
+      currentPokemon.moves = moves;
+      continue;
+    }
+
+    // Look for end of trainer: end_trainer
+    if (line === 'end_trainer') {
+      // Save current Pokemon if we have one
+      if (currentPokemon) {
+        currentParty.push(currentPokemon);
+        currentPokemon = null;
+      }
+
+      // Save current trainer's party if we have one
+      if (currentTrainerNumber !== null && currentParty.length > 0) {
+        const key = `${currentTrainerClass}_${currentTrainerNumber}`;
+        gymLeaderParties[key] = [...currentParty];
+        console.log(`🏆 Saved party for ${key}: ${currentParty.length} Pokemon`);
+      }
+
+      // Reset for next trainer (but stay in same class)
+      currentTrainerNumber = null;
+      currentParty = [];
+      currentPokemon = null;
+      continue;
+    }
+  }
+
+  const totalParties = Object.keys(gymLeaderParties).length;
+  console.log(`🏆 Extracted ${totalParties} gym leader parties`);
+
+  return gymLeaderParties;
+}
+
+// --- Extract Gym Leaders ---
+export function extractGymLeaders(): Record<string, GymLeader> {
+  console.log('🏆 Extracting gym leaders...');
+  const mapsDir = path.join(__dirname, 'rom/maps');
+  const gymLeadersByLocation: Record<string, GymLeader> = {};
+
+  if (!fs.existsSync(mapsDir)) {
+    console.warn('Maps directory not found');
+    return {};
+  }
+
+  // Extract Pokemon party data first
+  const gymLeaderParties = extractGymLeaderParties();
+
+  // Define gym leader mapping
+  const gymLeaderData: Record<string, { badge: string; speciality: string; region: 'johto' | 'kanto' }> = {
+    'FALKNER': { badge: 'ZEPHYRBADGE', speciality: 'Flying', region: 'johto' as const },
+    'BUGSY': { badge: 'HIVEBADGE', speciality: 'Bug', region: 'johto' as const },
+    'WHITNEY': { badge: 'PLAINBADGE', speciality: 'Normal', region: 'johto' as const },
+    'MORTY': { badge: 'FOGBADGE', speciality: 'Ghost', region: 'johto' as const },
+    'CHUCK': { badge: 'STORMBADGE', speciality: 'Fighting', region: 'johto' as const },
+    'JASMINE': { badge: 'MINERALBADGE', speciality: 'Steel', region: 'johto' as const },
+    'PRYCE': { badge: 'GLACIERBADGE', speciality: 'Ice', region: 'johto' as const },
+    'CLAIR': { badge: 'RISINGBADGE', speciality: 'Dragon', region: 'johto' as const },
+
+    'BROCK': { badge: 'BOULDERBADGE', speciality: 'Rock', region: 'kanto' as const },
+    'MISTY': { badge: 'CASCADEBADGE', speciality: 'Water', region: 'kanto' as const },
+    'LT_SURGE': { badge: 'THUNDERBADGE', speciality: 'Electric', region: 'kanto' as const },
+    'ERIKA': { badge: 'RAINBOWBADGE', speciality: 'Grass', region: 'kanto' as const },
+    'JANINE': { badge: 'SOULBADGE', speciality: 'Poison', region: 'kanto' as const },
+    'SABRINA': { badge: 'MARSHBADGE', speciality: 'Psychic', region: 'kanto' as const },
+    'BLAINE': { badge: 'VOLCANOBADGE', speciality: 'Fire', region: 'kanto' as const },
+    'BLUE': { badge: 'EARTHBADGE', speciality: 'Mixed', region: 'kanto' as const },
+  };
+
+  const mapFiles = fs.readdirSync(mapsDir).filter(file => file.endsWith('Gym.asm'));
+
+  for (const mapFile of mapFiles) {
+    const locationKey = path.basename(mapFile, '.asm');
+    const normalizedKey = normalizeLocationKey(locationKey);
+
+    const mapPath = path.join(mapsDir, mapFile);
+    const mapContent = fs.readFileSync(mapPath, 'utf8');
+    const lines = mapContent.split(/\r?\n/);
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+
+      // Look for gym leader trainer loading: loadtrainer FALKNER, 1
+      const trainerMatch = line.match(/loadtrainer\s+([A-Z_]+),\s*(\d+)/);
+      if (trainerMatch) {
+        const trainerClass = trainerMatch[1];
+        const trainerNumber = parseInt(trainerMatch[2]);
+
+        if (gymLeaderData[trainerClass]) {
+          const leaderData = gymLeaderData[trainerClass];
+
+          // Look for coordinates from object_event - search backwards for sprite
+          let coordinates: { x: number; y: number } | undefined;
+          for (let j = Math.max(0, i - 50); j < i; j++) {
+            const prevLine = lines[j].trim();
+            const spriteMatch = prevLine.match(/object_event\s+(\d+),\s*(\d+),\s*SPRITE_([A-Z_]+)/);
+            if (spriteMatch && spriteMatch[3] === trainerClass) {
+              coordinates = {
+                x: parseInt(spriteMatch[1]),
+                y: parseInt(spriteMatch[2])
+              };
+              break;
+            }
+          }
+
+          // Get Pokemon party data
+          const partyKey = `${trainerClass}_${trainerNumber}`;
+          const partyData = gymLeaderParties[partyKey];
+
+          let pokemon: TrainerPokemon[] | undefined;
+          if (partyData) {
+            pokemon = partyData.map(p => ({
+              level: p.level,
+              species: p.species,
+              item: p.item,
+              gender: p.gender,
+              moves: p.moves
+            }));
+          }
+
+          gymLeadersByLocation[normalizedKey] = {
+            name: trainerClass.charAt(0).toUpperCase() + trainerClass.slice(1).toLowerCase().replace('_', ' '),
+            trainerClass: trainerClass,
+            badge: leaderData.badge,
+            region: leaderData.region,
+            speciality: leaderData.speciality,
+            coordinates,
+            pokemon
+          };
+
+          console.log(`🏆 Found gym leader ${trainerClass} in ${normalizedKey}${pokemon ? ` with ${pokemon.length} Pokemon` : ''}`);
+          break;
+        }
+      }
+    }
+  }
+
+  const totalGymLeaders = Object.keys(gymLeadersByLocation).length;
+  console.log(`🏆 Found ${totalGymLeaders} gym leaders across ${Object.keys(gymLeadersByLocation).length} locations`);
+
+  return gymLeadersByLocation;
 }
 
 // --- Export all locations to JSON ---
@@ -871,6 +1091,39 @@ export async function exportAllLocations() {
         );
         if (uniqueTMHMs.length > 0) {
           baseLocation.tmhms = uniqueTMHMs;
+        }
+
+        // Merge gym leader data (there should only be one per location)
+        const gymLeaders = originalKeys.map(key => allLocations[key].gymLeader).filter(Boolean);
+        if (gymLeaders.length > 0) {
+          baseLocation.gymLeader = gymLeaders[0]; // Take the first one (should only be one)
+        }
+
+        // Merge all trainers, removing duplicates
+        const allTrainers = originalKeys.flatMap(key => allLocations[key].trainers || []);
+        const uniqueTrainers = allTrainers.filter((trainer, index, self) =>
+          index === self.findIndex(t =>
+            t.name === trainer.name &&
+            t.coordinates.x === trainer.coordinates.x &&
+            t.coordinates.y === trainer.coordinates.y
+          )
+        );
+        if (uniqueTrainers.length > 0) {
+          baseLocation.trainers = uniqueTrainers;
+        }
+
+        // Merge all items, removing duplicates
+        const allItems = originalKeys.flatMap(key => allLocations[key].items || []);
+        const uniqueItems = allItems.filter((item, index, self) =>
+          index === self.findIndex(i =>
+            i.type === item.type &&
+            i.name === item.name &&
+            i.coordinates?.x === item.coordinates?.x &&
+            i.coordinates?.y === item.coordinates?.y
+          )
+        );
+        if (uniqueItems.length > 0) {
+          baseLocation.items = uniqueItems;
         }
 
         consolidatedLocations[normalizedKey] = baseLocation;
@@ -1322,4 +1575,100 @@ function inferLocationRegion(locationKey: string): 'johto' | 'kanto' | 'orange' 
 // Run if called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
   exportAllLocations().catch(console.error);
+}
+
+// --- Location Items Extraction ---
+export function extractLocationItems(): Record<string, LocationItem[]> {
+  console.log('📦 Extracting location items...');
+  const mapsDir = path.join(__dirname, 'rom/maps');
+  const itemsByLocation: Record<string, LocationItem[]> = {};
+
+  if (!fs.existsSync(mapsDir)) {
+    console.warn('Maps directory not found');
+    return {};
+  }
+
+  const mapFiles = fs.readdirSync(mapsDir).filter(file => file.endsWith('.asm'));
+
+  for (const mapFile of mapFiles) {
+    const locationKey = path.basename(mapFile, '.asm');
+    // Use the normalization function for consistent keys
+    const normalizedKey = normalizeLocationKey(locationKey);
+
+    const mapPath = path.join(mapsDir, mapFile);
+    const mapContent = fs.readFileSync(mapPath, 'utf8');
+    const lines = mapContent.split(/\r?\n/);
+
+    const items: LocationItem[] = [];
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+
+      // Visible item events (itemball_event)
+      const visibleItemMatch = line.match(/itemball_event\s+(\d+),\s*(\d+),\s*(\w+),/);
+      if (visibleItemMatch) {
+        const itemName = visibleItemMatch[3].replace(/_/g, ' ').toLowerCase();
+        const formattedItemName = itemName.split(' ').map(word =>
+          word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+
+        items.push({
+          type: 'item',
+          name: formattedItemName,
+          coordinates: {
+            x: parseInt(visibleItemMatch[1]),
+            y: parseInt(visibleItemMatch[2])
+          }
+        });
+      }
+
+      // Hidden item events (bg_event with BGEVENT_ITEM)
+      const hiddenItemMatch = line.match(/bg_event\s+(\d+),\s*(\d+),\s*BGEVENT_ITEM\s*\+\s*(\w+),/);
+      if (hiddenItemMatch) {
+        const itemName = hiddenItemMatch[3].replace(/_/g, ' ').toLowerCase();
+        const formattedItemName = itemName.split(' ').map(word =>
+          word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+
+        items.push({
+          type: 'hiddenItem',
+          name: formattedItemName,
+          coordinates: {
+            x: parseInt(hiddenItemMatch[1]),
+            y: parseInt(hiddenItemMatch[2])
+          }
+        });
+      }
+    }
+
+    if (items.length > 0) {
+      // Try both the original key and normalized key
+      itemsByLocation[normalizedKey] = items;
+      if (normalizedKey !== locationKey) {
+        itemsByLocation[locationKey] = items;
+      }
+    }
+  }
+
+  // Also add TM/HM locations as items with tmHm type
+  const tmhmByLocation = extractTMHMLocations();
+  for (const [locationKey, tmhms] of Object.entries(tmhmByLocation)) {
+    for (const tmhm of tmhms) {
+      const tmhmItem: LocationItem = {
+        type: 'tmHm',
+        name: `${tmhm.tmNumber} - ${tmhm.moveName}`,
+        // TM/HMs don't have specific coordinates in our current data
+      };
+
+      if (!itemsByLocation[locationKey]) {
+        itemsByLocation[locationKey] = [];
+      }
+      itemsByLocation[locationKey].push(tmhmItem);
+    }
+  }
+
+  const totalItems = Object.values(itemsByLocation).reduce((sum, items) => sum + items.length, 0);
+  console.log(`📦 Found ${totalItems} items across ${Object.keys(itemsByLocation).length} locations`);
+
+  return itemsByLocation;
 }

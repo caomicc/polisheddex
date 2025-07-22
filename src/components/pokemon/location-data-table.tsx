@@ -51,6 +51,7 @@ export function LocationDataTable<TData, TValue>({
   const [showOnlyPokemon, setShowOnlyPokemon] = React.useState(false);
   const [showOnlyFlyable, setShowOnlyFlyable] = React.useState(false);
   const [showOnlyGrottoes, setShowOnlyGrottoes] = React.useState(false);
+  const [showOnlyTrainers, setShowOnlyTrainers] = React.useState(false);
 
   // Apply checkbox filters to the data
   const filteredData = React.useMemo(() => {
@@ -59,10 +60,11 @@ export function LocationDataTable<TData, TValue>({
       const matchesPokemon = !showOnlyPokemon || (location.pokemonCount && location.pokemonCount > 0);
       const matchesFlyable = !showOnlyFlyable || location.flyable;
       const matchesGrottoes = !showOnlyGrottoes || location.hasHiddenGrottoes;
+      const matchesTrainers = !showOnlyTrainers || location.hasTrainers;
 
-      return matchesPokemon && matchesFlyable && matchesGrottoes;
+      return matchesPokemon && matchesFlyable && matchesGrottoes && matchesTrainers;
     });
-  }, [data, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes]);
+  }, [data, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers]);
 
   const table = useReactTable({
     data: filteredData,
@@ -105,6 +107,8 @@ export function LocationDataTable<TData, TValue>({
     { value: 'region-desc', label: 'Region (Z-A)' },
     { value: 'pokemon-desc', label: 'Most Pokémon First' },
     { value: 'pokemon-asc', label: 'Least Pokémon First' },
+    { value: 'trainers-desc', label: 'Most Trainers First' },
+    { value: 'trainers-asc', label: 'Least Trainers First' },
   ];
 
   const handleSortChange = (value: string) => {
@@ -117,6 +121,8 @@ export function LocationDataTable<TData, TValue>({
           ? 'displayName'
           : field === 'region'
           ? 'region'
+          : field === 'trainers'
+          ? 'trainerCount'
           : 'pokemonCount';
       setSorting([{ id: columnId, desc: direction === 'desc' }]);
     }
@@ -130,6 +136,8 @@ export function LocationDataTable<TData, TValue>({
         ? 'name'
         : sort.id === 'region'
         ? 'region'
+        : sort.id === 'trainerCount'
+        ? 'trainers'
         : 'pokemon';
     const direction = sort.desc ? 'desc' : 'asc';
     return `${field}-${direction}`;
@@ -139,15 +147,17 @@ export function LocationDataTable<TData, TValue>({
   const getColumnWidth = (columnId: string): string => {
     switch (columnId) {
       case 'displayName':
-        return '40%'; // Largest column for location names
+        return '35%'; // Slightly smaller to make room for trainers column
       case 'region':
         return '18%'; // Medium for region
       case 'pokemonCount':
-        return '14%'; // Small for count
+        return '12%'; // Small for count
+      case 'trainerCount':
+        return '12%'; // Small for trainer count
       // case 'hasHiddenGrottoes':
       //   return '14%'; // Small for yes/no
       case 'flyable':
-        return '14%'; // Small for yes/no
+        return '12%'; // Small for yes/no
       default:
         return 'auto';
     }
@@ -236,6 +246,17 @@ export function LocationDataTable<TData, TValue>({
 
           <div className="flex items-center space-x-2">
             <Checkbox
+              id="has-trainers"
+              checked={showOnlyTrainers}
+              onCheckedChange={(checked) => setShowOnlyTrainers(checked === true)}
+            />
+            <Label htmlFor="has-trainers" className="text-xs sm:text-sm cursor-pointer">
+              Has trainers
+            </Label>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <Checkbox
               id="flyable"
               checked={showOnlyFlyable}
               onCheckedChange={(checked) => setShowOnlyFlyable(checked === true)}
@@ -267,10 +288,11 @@ export function LocationDataTable<TData, TValue>({
                 • Sorted by {sortOptions.find(opt => opt.value === getCurrentSortValue())?.label}
               </span>
             )}
-            {(showOnlyPokemon || showOnlyFlyable || showOnlyGrottoes) && (
+            {(showOnlyPokemon || showOnlyTrainers || showOnlyFlyable || showOnlyGrottoes) && (
               <span className="ml-2">
                 • Filtered: {[
                   showOnlyPokemon && 'Has Pokémon',
+                  showOnlyTrainers && 'Has Trainers',
                   showOnlyFlyable && 'Flyable',
                   showOnlyGrottoes && 'Has Grottoes'
                 ].filter(Boolean).join(', ')}
@@ -281,6 +303,7 @@ export function LocationDataTable<TData, TValue>({
             Boolean(table.getColumn('region')?.getFilterValue()) ||
             sorting.length > 0 ||
             showOnlyPokemon ||
+            showOnlyTrainers ||
             showOnlyFlyable ||
             showOnlyGrottoes) && (
             <Button
@@ -290,6 +313,7 @@ export function LocationDataTable<TData, TValue>({
                 table.getColumn('region')?.setFilterValue('');
                 setSorting([]);
                 setShowOnlyPokemon(false);
+                setShowOnlyTrainers(false);
                 setShowOnlyFlyable(false);
                 setShowOnlyGrottoes(false);
               }}

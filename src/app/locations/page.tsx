@@ -44,6 +44,8 @@ async function loadAllLocationData(): Promise<EnhancedLocation[]> {
         types: getLocationTypes(location.displayName),
         pokemonCount: 0, // Will be filled later from Pokemon data
         hasHiddenGrottoes: false, // Will be filled later from Pokemon data
+        hasTrainers: Boolean(location.trainers && location.trainers.length > 0), // Check if location has trainers
+        trainerCount: location.trainers ? location.trainers.length : 0, // Count of trainers
         region: location.region,
         flyable: location.flyable,
         connections: location.connections,
@@ -66,6 +68,8 @@ async function loadAllLocationData(): Promise<EnhancedLocation[]> {
         types: getLocationTypes(locationInfo.displayName),
         pokemonCount: 0,
         hasHiddenGrottoes: false,
+        hasTrainers: Boolean(locationInfo.trainers && locationInfo.trainers.length > 0), // Check if location has trainers
+        trainerCount: locationInfo.trainers ? locationInfo.trainers.length : 0, // Count of trainers
         region: locationInfo.region,
         flyable: locationInfo.flyable,
         connections: locationInfo.connections,
@@ -88,6 +92,8 @@ interface EnhancedLocation {
   types: string[];
   pokemonCount: number;
   hasHiddenGrottoes: boolean;
+  hasTrainers: boolean; // Whether location has any trainers
+  trainerCount: number; // Number of trainers in location
   region?: 'johto' | 'kanto' | 'orange';
   flyable?: boolean;
   connections?: Array<{
@@ -291,6 +297,8 @@ export default async function LocationsPage() {
         types: getLocationTypes(originalKey),
         pokemonCount,
         hasHiddenGrottoes,
+        hasTrainers: false, // Pokemon-only locations don't have trainer data in comprehensive file
+        trainerCount: 0, // Pokemon-only locations don't have trainers
         region: inferRegion(originalKey), // Infer region from location name
         flyable: false, // Pokemon-only locations don't have flyable info
         connections: [],
@@ -327,7 +335,7 @@ export default async function LocationsPage() {
       {/* Display summary of location data */}
       <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
         <h2 className="text-lg font-semibold mb-2">Location Overview</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
           <div className="text-center">
             <div className="text-2xl font-bold text-blue-600">{processedLocations.length}</div>
             <div className="text-slate-600 dark:text-slate-300">Total Locations</div>
@@ -335,6 +343,10 @@ export default async function LocationsPage() {
           <div className="text-center">
             <div className="text-2xl font-bold text-green-600">{processedLocations.filter(l => l.pokemonCount > 0).length}</div>
             <div className="text-slate-600 dark:text-slate-300">With Pokémon</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-red-600">{processedLocations.filter(l => l.hasTrainers).length}</div>
+            <div className="text-slate-600 dark:text-slate-300">With Trainers</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-purple-600">{processedLocations.filter(l => l.flyable).length}</div>

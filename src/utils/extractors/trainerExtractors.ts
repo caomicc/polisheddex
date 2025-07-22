@@ -141,37 +141,67 @@ function extractTrainerLocations(mapsDir: string, trainerParties: Record<string,
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i].trim();
 
-      // Look for trainer object events
-      const objectMatch = line.match(/object_event\s+(\d+),\s*(\d+),\s*SPRITE_([A-Z_]+),.*OBJECTTYPE_GENERICTRAINER.*GenericTrainer([A-Za-z0-9_]+)/);
+      // Look for trainer object events - handle multi-line format
+      const objectMatch = line.match(/object_event\s+(\d+),\s*(\d+),\s*SPRITE_([A-Z_]+)/);
       if (objectMatch) {
         const x = parseInt(objectMatch[1]);
         const y = parseInt(objectMatch[2]);
         const spriteType = objectMatch[3].toLowerCase();
 
-        // Look ahead for the trainer definition
-        for (let j = i + 1; j < Math.min(i + 20, lines.length); j++) {
-          const nextLine = lines[j].trim();
-          const trainerDefMatch = nextLine.match(/generictrainer\s+([A-Z_]+),\s*([A-Z0-9_]+),/);
+        // Reconstruct the full object_event line by reading ahead until we find the complete definition
+        let fullObjectLine = line;
+        let nextLineIdx = i + 1;
 
-          if (trainerDefMatch) {
-            const trainerClass = trainerDefMatch[1];
-            const trainerId = trainerDefMatch[2];
-            const trainerPartyKey = `${trainerClass}_${trainerId}`;
+        // Keep reading lines until we have a complete object_event (ends with something recognizable)
+        while (nextLineIdx < lines.length &&
+          !fullObjectLine.includes('OBJECTTYPE_') &&
+          nextLineIdx < i + 5) {
+          fullObjectLine += ' ' + lines[nextLineIdx].trim();
+          nextLineIdx++;
+        }
 
-            const pokemon = trainerParties[trainerPartyKey] || [];
+        // Check if this is a GENERICTRAINER object
+        if (fullObjectLine.includes('OBJECTTYPE_GENERICTRAINER')) {
+          // Find the GenericTrainer reference in the full line
+          const genericTrainerMatch = fullObjectLine.match(/GenericTrainer([A-Za-z0-9_]+)/);
+          if (genericTrainerMatch) {
+            const genericTrainerRef = genericTrainerMatch[1];
 
-            const trainer: LocationTrainer = {
-              id: `${trainerClass.toLowerCase()}_${trainerId.toLowerCase()}`,
-              name: trainerId.charAt(0).toUpperCase() + trainerId.slice(1).toLowerCase(),
-              trainerClass,
-              spriteType: getSpriteType(trainerClass),
-              coordinates: { x, y },
-              pokemon: pokemon,
-            };
+            // Look ahead for the trainer definition (expanded search range for gym files)
+            for (let j = nextLineIdx; j < Math.min(nextLineIdx + 100, lines.length); j++) {
+              const nextLine = lines[j].trim();
 
-            locationTrainers.push(trainer);
-            console.log(`� Found trainer ${trainer.name} (${trainerClass}) at ${locationKey} with ${pokemon.length} pokemon`);
-            break;
+              // Check if this line defines the referenced trainer
+              if (nextLine.startsWith(`GenericTrainer${genericTrainerRef}:`)) {
+                // Found the trainer definition, now look for the generictrainer line
+                for (let k = j + 1; k < Math.min(j + 5, lines.length); k++) {
+                  const trainerDefLine = lines[k].trim();
+                  const trainerDefMatch = trainerDefLine.match(/generictrainer\s+([A-Z_]+),\s*([A-Z0-9_]+),/);
+
+                  if (trainerDefMatch) {
+                    const trainerClass = trainerDefMatch[1];
+                    const trainerId = trainerDefMatch[2];
+                    const trainerPartyKey = `${trainerClass}_${trainerId}`;
+
+                    const pokemon = trainerParties[trainerPartyKey] || [];
+
+                    const trainer: LocationTrainer = {
+                      id: `${trainerClass.toLowerCase()}_${trainerId.toLowerCase()}`,
+                      name: trainerId.charAt(0).toUpperCase() + trainerId.slice(1).toLowerCase(),
+                      trainerClass,
+                      spriteType: getSpriteType(trainerClass),
+                      coordinates: { x, y },
+                      pokemon: pokemon,
+                    };
+
+                    locationTrainers.push(trainer);
+                    console.log(`🎯 Found trainer ${trainer.name} (${trainerClass}) at ${locationKey} with ${pokemon.length} pokemon`);
+                    break;
+                  }
+                }
+                break;
+              }
+            }
           }
         }
       }

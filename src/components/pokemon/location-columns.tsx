@@ -14,6 +14,8 @@ export interface LocationData {
   types: string[] | string;
   pokemonCount?: number;
   hasHiddenGrottoes?: boolean;
+  hasTrainers?: boolean;
+  trainerCount?: number;
   region?: string;
   flyable?: boolean;
   connections?: Array<{
@@ -33,9 +35,16 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="hover:bg-gray-100"
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
         >
           Location
+                    {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
         </Button>
       );
     },
@@ -70,15 +79,15 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="hover:bg-gray-100"
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
         >
           Region
           {column.getIsSorted() === 'desc' ? (
-            <ArrowDown className="ml-2 h-4 w-4" />
+            <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
-            <ArrowUp className="ml-2 h-4 w-4" />
+            <ArrowUp className="size-3" />
           ) : (
-            <ArrowUpDown className="ml-2 h-4 w-4" />
+            <ArrowUpDown className="size-3" />
           )}
         </Button>
       );
@@ -106,15 +115,15 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="hover:bg-gray-100"
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
         >
           Pokémon
-          {column.getIsSorted() === 'desc' ? (
-            <ArrowDown className="ml-2 h-4 w-4" />
+           {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
-            <ArrowUp className="ml-2 h-4 w-4" />
+            <ArrowUp className="size-3" />
           ) : (
-            <ArrowUpDown className="ml-2 h-4 w-4" />
+            <ArrowUpDown className="size-3" />
           )}
         </Button>
       );
@@ -122,9 +131,42 @@ export const locationColumns: ColumnDef<LocationData>[] = [
     cell: ({ row }) => {
       const count = row.getValue('pokemonCount') as number;
       return (
-        <div className="text-center">
+        <div className="">
           {count && count > 0 ? (
-            <span className="text-sm  ">{count}</span>
+            <span className="text-sm">{count}</span>
+          ) : (
+            <span className="text-gray-400 text-sm">-</span>
+          )}
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: 'trainerCount',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+        >
+          Trainers
+          {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const count = row.getValue('trainerCount') as number;
+      return (
+        <div className="">
+          {count && count > 0 ? (
+            <span className="text-sm">{count}</span>
           ) : (
             <span className="text-gray-400 text-sm">-</span>
           )}
@@ -152,17 +194,32 @@ export const locationColumns: ColumnDef<LocationData>[] = [
   // },
   {
     accessorKey: 'flyable',
-    header: () => {
-      return <span className='text-center w-full block'>Flyable</span>
-     },
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+        >
+          Fly?
+          {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
+      );
+    },
     cell: ({ row }) => {
       const flyable = row.getValue('flyable') as boolean;
       return (
-        <div className="text-center">
+        <div className="">
           {flyable ? (
-            <span className="text-blue-600 text-sm  ">Yes</span>
+            <span>Yes</span>
           ) : (
-            <span className="text-gray-400 text-sm">-</span>
+            <span>-</span>
           )}
         </div>
       );

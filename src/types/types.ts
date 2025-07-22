@@ -277,8 +277,9 @@ export interface LocationEvent {
 }
 
 export interface LocationItem {
+  type: 'item' | 'hiddenItem' | 'tmHm';
   name: string;
-  coordinates: {
+  coordinates?: {
     x: number;
     y: number;
   };
@@ -329,6 +330,10 @@ export interface LocationTrainer {
     x: number;
     y: number;
   };
+  possibleCoordinates?: Array<{
+    x: number;
+    y: number;
+  }>;
   eventFlag?: string;
   pokemon?: TrainerPokemon[];
   items?: string[];
@@ -356,6 +361,7 @@ export interface LocationData {
   hiddenItems?: LocationHiddenItem[];
   tmhms?: { tmNumber: string; moveName: string; location: string }[];
   trainers?: LocationTrainer[];
+  gymLeader?: GymLeader;
 }
 
 // Item types
@@ -415,4 +421,14 @@ export function isRegularItem(item: AnyItemData): item is ItemData {
 
 export function isTMHMItem(item: AnyItemData): item is TMHMData {
   return 'tmNumber' in item && item.tmNumber !== undefined;
+}
+
+export interface GymLeader {
+  name: string;
+  trainerClass: string;
+  badge: string;
+  region: 'johto' | 'kanto' | 'orange';
+  pokemon?: TrainerPokemon[];
+  coordinates?: { x: number; y: number };
+  speciality?: string; // Type speciality like "Flying", "Bug", etc.
 }
