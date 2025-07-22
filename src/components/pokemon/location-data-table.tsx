@@ -144,8 +144,8 @@ export function LocationDataTable<TData, TValue>({
         return '18%'; // Medium for region
       case 'pokemonCount':
         return '14%'; // Small for count
-      case 'hasHiddenGrottoes':
-        return '14%'; // Small for yes/no
+      // case 'hasHiddenGrottoes':
+      //   return '14%'; // Small for yes/no
       case 'flyable':
         return '14%'; // Small for yes/no
       default:
@@ -300,7 +300,7 @@ export function LocationDataTable<TData, TValue>({
           )}
         </div>
       </div>
-      <div className="rounded-md border bg-white overflow-x-auto border-border shadow-sm">
+      <div className="rounded-md border bg-white overflow-x-auto border-border">
         <Table className="table-fixed w-full min-w-[600px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

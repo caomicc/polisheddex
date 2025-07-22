@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { LocationData, LocationConnection, NPCTrade, LocationEvent } from './src/types/types.ts';
+import { extractTrainerData } from './src/utils/extractors/trainerExtractors.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -303,10 +304,11 @@ export function extractAllLocations(): Record<string, LocationData> {
 
   const locations: Record<string, LocationData> = {};
 
-  // Extract NPC trades, events, and TM/HM locations first
+  // Extract NPC trades, events, TM/HM locations, and trainer data first
   const tradesByLocation = extractNPCTrades();
   const eventsByLocation = extractLocationEvents();
   const tmhmByLocation = extractTMHMLocations();
+  const trainerData = extractTrainerData();
 
   // Read landmark constants to get the mapping of names to IDs
   const landmarkConstantsPath = path.join(__dirname, 'rom/constants/landmark_constants.asm');
@@ -696,9 +698,60 @@ export function extractAllLocations(): Record<string, LocationData> {
     }
   }
 
+  // Merge trainer data into location data
+  console.log('🎯 Merging trainer data...');
+  for (const [trainerKey, trainers] of Object.entries(trainerData)) {
+    // Find matching location by trying various key matching strategies
+    let matchedLocationKey: string | null = null;
+
+    // Strategy 1: Direct match
+    if (locations[trainerKey]) {
+      matchedLocationKey = trainerKey;
+    } else {
+      // Strategy 2: Try to match trainer key to location names
+      const possibleKeys = [
+        trainerKey,
+        trainerKey.replace(/_/g, ''),
+        trainerKey.replace(/bug_catcher/g, 'bugcatcher'),
+        trainerKey.replace(/youngster/g, 'youngster'),
+        // Add more trainer class mappings as needed
+      ];
+
+      for (const key of possibleKeys) {
+        if (locations[key]) {
+          matchedLocationKey = key;
+          break;
+        }
+      }
+
+      // Strategy 3: Search for partial matches in location names
+      if (!matchedLocationKey) {
+        for (const locationKey of Object.keys(locations)) {
+          // Check if location name contains the trainer location info
+          // This is a fallback for trainers whose location isn't directly mappable
+          if (locationKey.includes('route') || locationKey.includes('city') || locationKey.includes('town')) {
+            // For now, let's skip this complex matching and rely on map data
+            continue;
+          }
+        }
+      }
+    }
+
+    if (matchedLocationKey) {
+      if (!locations[matchedLocationKey].trainers) {
+        locations[matchedLocationKey].trainers = [];
+      }
+      locations[matchedLocationKey].trainers!.push(...trainers);
+      console.log(`✅ Added ${trainers.length} trainers to ${matchedLocationKey}`);
+    } else {
+      console.log(`⚠️  Could not match trainer group "${trainerKey}" to any location`);
+    }
+  }
+
   const totalTrades = Object.values(locations).reduce((sum, loc) => sum + (loc.npcTrades?.length || 0), 0);
   const totalEvents = Object.values(locations).reduce((sum, loc) => sum + (loc.events?.length || 0), 0);
   const totalTMHMs = Object.values(locations).reduce((sum, loc) => sum + (loc.tmhms?.length || 0), 0);
+  const totalTrainers = Object.values(locations).reduce((sum, loc) => sum + (loc.trainers?.length || 0), 0);
 
   const landmarkLocations = Object.values(locations).filter(l => l.id >= 0).length;
   const nonLandmarkLocations = Object.values(locations).filter(l => l.id < 0).length;
@@ -713,6 +766,7 @@ export function extractAllLocations(): Record<string, LocationData> {
   console.log(`   💱 ${totalTrades} NPC trades`);
   console.log(`   ⚡ ${totalEvents} special events`);
   console.log(`   🔧 ${totalTMHMs} TM/HM locations`);
+  console.log(`   🎯 ${totalTrainers} trainers`);
 
   return locations;
 }

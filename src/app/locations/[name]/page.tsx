@@ -20,8 +20,9 @@ import {
 } from '@/components/ui/table';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import TimeIcon from '@/components/pokemon/TimeIcon';
+import TrainerCard from '@/components/trainer/TrainerCard';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
-import { LocationConnection, NPCTrade, LocationEvent } from '@/types/types';
+import { LocationConnection, NPCTrade, LocationEvent, LocationItem, LocationHiddenItem, LocationTrainer } from '@/types/types';
 
 function normalizeLocationKey(input: string): string {
   return input
@@ -373,7 +374,7 @@ export default async function LocationDetailPage({
                       {event.type === 'rival_battle' && <span className="text-xs">⚔️</span>}
                       {event.type === 'trainer_battle' && <span className="text-xs">🥊</span>}
                       {event.type === 'special' && <span className="text-xs">✨</span>}
-                      {event.type === 'item' && <span className="text-xs">📦</span>}
+                      {/* {event.type === 'item' && <span className="text-xs">📦</span>} */}
                       {event.type === 'coordinate_trigger' && <span className="text-xs">📍</span>}
                     </div>
                     <div className="flex-grow">
@@ -384,6 +385,89 @@ export default async function LocationDetailPage({
                       {event.coordinates && (
                         <div className="text-xs text-slate-500 dark:text-slate-400">
                           Position: ({event.coordinates.x}, {event.coordinates.y})
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Items */}
+        {comprehensiveInfo && (comprehensiveInfo.items || comprehensiveInfo.hiddenItems) && ((comprehensiveInfo.items && comprehensiveInfo.items.length > 0) || (comprehensiveInfo.hiddenItems && comprehensiveInfo.hiddenItems.length > 0)) && (
+          <div className="mb-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border-l-4 border-indigo-500">
+            <h2 className="text-lg font-semibold mb-3 text-indigo-800 dark:text-indigo-200">Items</h2>
+            <div className="space-y-2">
+              {comprehensiveInfo.items && comprehensiveInfo.items.map((item: LocationItem, index: number) => (
+                <div key={`visible-${index}`} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                  <div className="flex items-center gap-2">
+                    <div className="flex-shrink-0 w-6 h-6 bg-orange-100 dark:bg-orange-800 rounded-full flex items-center justify-center">
+                      <span className="text-xs">📦</span>
+                    </div>
+                    <div className="flex-grow">
+                      <div className="font-medium text-slate-900 dark:text-slate-100">{item.name}</div>
+                      <div className="text-sm text-orange-600 dark:text-orange-400 font-medium">Visible Item</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400">
+                        Position: ({item.coordinates.x}, {item.coordinates.y})
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {comprehensiveInfo.hiddenItems && comprehensiveInfo.hiddenItems.map((item: LocationHiddenItem, index: number) => (
+                <div key={`hidden-${index}`} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                  <div className="flex items-center gap-2">
+                    <div className="flex-shrink-0 w-6 h-6 bg-amber-100 dark:bg-amber-800 rounded-full flex items-center justify-center">
+                      <span className="text-xs">🕵️</span>
+                    </div>
+                    <div className="flex-grow">
+                      <div className="font-medium text-slate-900 dark:text-slate-100">{item.name}</div>
+                      <div className="text-sm text-amber-600 dark:text-amber-400 font-medium">Hidden Item</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400">
+                        Position: ({item.coordinates.x}, {item.coordinates.y})
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* LocationTrainer */}
+        {comprehensiveInfo && comprehensiveInfo.trainers && comprehensiveInfo.trainers.length > 0 && (
+          <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+            <h2 className="text-lg font-semibold mb-3 text-blue-800 dark:text-blue-200">Trainers</h2>
+            <div className="space-y-2">
+              {comprehensiveInfo.trainers.map((trainer: LocationTrainer) => (
+                <div key={trainer.name} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                  <div className="flex items-center gap-2">
+                    <div className="flex-shrink-0 w-6 h-6 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center">
+                      <span className="text-xs">👤</span>
+                    </div>
+                    <div className="flex-grow">
+                      <div className="font-medium text-slate-900 dark:text-slate-100">{trainer.name}</div>
+                      <div className="text-sm text-blue-600 dark:text-blue-400 font-medium">Trainer</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400">
+                        Position: ({trainer.coordinates.x}, {trainer.coordinates.y})
+                      </div>
+                      {trainer.trainerClass && (
+                        <div className="text-xs text-slate-500 dark:text-slate-400">
+                          Class: {trainer.trainerClass}
+                        </div>
+                      )}
+                      {trainer.pokemon && trainer.pokemon.length > 0 && (
+                        <div className="mt-2">
+                          <div className="font-medium text-slate-600 dark:text-slate-300">Pokémon</div>
+                          <ul className="list-disc list-inside space-y-1">
+                            {trainer.pokemon.map((pokemon, index) => (
+                              <li key={index} className="text-sm text-slate-700 dark:text-slate-300">
+                                {pokemon.species} (Level {pokemon.level})
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       )}
                     </div>
@@ -619,7 +703,7 @@ export default async function LocationDetailPage({
                     {event.type === 'rival_battle' && <span className="text-xs">⚔️</span>}
                     {event.type === 'trainer_battle' && <span className="text-xs">🥊</span>}
                     {event.type === 'special' && <span className="text-xs">✨</span>}
-                    {event.type === 'item' && <span className="text-xs">📦</span>}
+                    {/* {event.type === 'item' && <span className="text-xs">📦</span>} */}
                     {event.type === 'coordinate_trigger' && <span className="text-xs">📍</span>}
                   </div>
                   <div className="flex-grow">
@@ -632,6 +716,64 @@ export default async function LocationDetailPage({
                         Position: ({event.coordinates.x}, {event.coordinates.y})
                       </div>
                     )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {console.log('Grouped Pokémon by method and time:', groupedByMethodAndTime)}
+      {console.log('Comprehensive Info:', comprehensiveInfo)}
+
+      {/* Trainers */}
+      {comprehensiveInfo && comprehensiveInfo.trainers && comprehensiveInfo.trainers.length > 0 && (
+        <section className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border-l-4 border-red-500">
+          <h2 className="text-lg font-semibold mb-3 text-red-800 dark:text-red-200 flex items-center gap-2">
+            <span className="text-xl" aria-hidden="true">⚔️</span>
+            Trainers ({comprehensiveInfo.trainers.length})
+          </h2>
+          <div className="space-y-4">
+            {comprehensiveInfo.trainers.map((trainer: LocationTrainer, index: number) => (
+              <TrainerCard key={`trainer-${index}-${trainer.name}`} trainer={trainer} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {comprehensiveInfo && (comprehensiveInfo.items || comprehensiveInfo.hiddenItems) && ((comprehensiveInfo.items && comprehensiveInfo.items.length > 0) || (comprehensiveInfo.hiddenItems && comprehensiveInfo.hiddenItems.length > 0)) && (
+        <div className="mb-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border-l-4 border-indigo-500">
+          <h2 className="text-lg font-semibold mb-3 text-indigo-800 dark:text-indigo-200">Items</h2>
+          <div className="space-y-2">
+            {comprehensiveInfo.items && comprehensiveInfo.items.map((item: LocationItem, index: number) => (
+              <div key={`visible-${index}`} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-2">
+                  <div className="flex-shrink-0 w-6 h-6 bg-orange-100 dark:bg-orange-800 rounded-full flex items-center justify-center">
+                    <span className="text-xs">�</span>
+                  </div>
+                  <div className="flex-grow">
+                    <div className="font-medium text-slate-900 dark:text-slate-100">{item.name}</div>
+                    <div className="text-sm text-orange-600 dark:text-orange-400 font-medium">Visible Item</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">
+                      Position: ({item.coordinates.x}, {item.coordinates.y})
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+            {comprehensiveInfo.hiddenItems && comprehensiveInfo.hiddenItems.map((item: LocationHiddenItem, index: number) => (
+              <div key={`hidden-${index}`} className="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-2">
+                  <div className="flex-shrink-0 w-6 h-6 bg-amber-100 dark:bg-amber-800 rounded-full flex items-center justify-center">
+                    <span className="text-xs">�️</span>
+                  </div>
+                  <div className="flex-grow">
+                    <div className="font-medium text-slate-900 dark:text-slate-100">{item.name}</div>
+                    <div className="text-sm text-amber-600 dark:text-amber-400 font-medium">Hidden Item</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">
+                      Position: ({item.coordinates.x}, {item.coordinates.y})
+                    </div>
                   </div>
                 </div>
               </div>

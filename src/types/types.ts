@@ -269,11 +269,75 @@ export interface NPCTrade {
 }
 
 export interface LocationEvent {
-  type: 'rival_battle' | 'trainer_battle' | 'item' | 'special' | 'coordinate_trigger';
+  type: 'rival_battle' | 'trainer_battle' | 'special' | 'coordinate_trigger' | 'item';
   description: string;
   details?: string;
   eventFlag?: string;
   coordinates?: { x: number; y: number };
+}
+
+export interface LocationItem {
+  name: string;
+  coordinates: {
+    x: number;
+    y: number;
+  };
+}
+
+export interface LocationHiddenItem {
+  name: string;
+  coordinates: {
+    x: number;
+    y: number;
+  };
+}
+
+// Trainer types
+export interface TrainerPokemon {
+  level: number;
+  species: string;
+  nickname?: string;
+  item?: string;
+  gender?: string;
+  form?: string;
+  ability?: string;
+  nature?: string;
+  shiny?: boolean;
+  moves?: string[];
+  dvs?: {
+    hp: number;
+    attack: number;
+    defense: number;
+    speed: number;
+    special: number;
+  };
+  evs?: {
+    hp: number;
+    attack: number;
+    defense: number;
+    speed: number;
+    special: number;
+  };
+}
+
+export interface LocationTrainer {
+  id: string;
+  name: string;
+  trainerClass: string;
+  spriteType: string;
+  coordinates: {
+    x: number;
+    y: number;
+  };
+  eventFlag?: string;
+  pokemon?: TrainerPokemon[];
+  items?: string[];
+  baseReward?: number;
+  aiFlags?: string[];
+  rematchable?: boolean;
+  seenText?: string;
+  beatenText?: string;
+  afterText?: string;
 }
 
 export interface LocationData {
@@ -288,7 +352,10 @@ export interface LocationData {
   connections: LocationConnection[];
   npcTrades?: NPCTrade[];
   events?: LocationEvent[];
+  items?: LocationItem[];
+  hiddenItems?: LocationHiddenItem[];
   tmhms?: { tmNumber: string; moveName: string; location: string }[];
+  trainers?: LocationTrainer[];
 }
 
 // Item types

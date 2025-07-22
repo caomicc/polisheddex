@@ -43,7 +43,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       const location = row.original;
       // Use urlName if available (should be pre-normalized), otherwise normalize the area as fallback
       const urlPath = location.urlName || (location.area ? normalizeLocationKey(location.area) : null);
-      
+
       return (
         <div className="flex items-center space-x-2 min-w-0">
           {urlPath ? (
@@ -132,24 +132,24 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       );
     },
   },
-  {
-    accessorKey: 'hasHiddenGrottoes',
-    header: () => {
-      return <span className='text-center w-full block'>Hidden Grotto</span>
-     },
-    cell: ({ row }) => {
-      const hasGrotto = row.getValue('hasHiddenGrottoes') as boolean;
-      return (
-        <div className="text-center">
-          {hasGrotto ? (
-            <span className="text-green-600 text-sm  ">Yes</span>
-          ) : (
-            <span className="text-gray-400 text-sm">-</span>
-          )}
-        </div>
-      );
-    },
-  },
+  // {
+  //   accessorKey: 'hasHiddenGrottoes',
+  //   header: () => {
+  //     return <span className='text-center w-full block'>Hidden Grotto</span>
+  //    },
+  //   cell: ({ row }) => {
+  //     const hasGrotto = row.getValue('hasHiddenGrottoes') as boolean;
+  //     return (
+  //       <div className="text-center">
+  //         {hasGrotto ? (
+  //           <span className="text-green-600 text-sm  ">Yes</span>
+  //         ) : (
+  //           <span className="text-gray-400 text-sm">-</span>
+  //         )}
+  //       </div>
+  //     );
+  //   },
+  // },
   {
     accessorKey: 'flyable',
     header: () => {
