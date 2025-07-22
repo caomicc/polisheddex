@@ -39,20 +39,49 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
+/**
+ * LocationDataTable - A data table component with persistent state
+ *
+ * This component automatically saves and restores:
+ * - Current page number
+ * - Applied filters (search, region, checkboxes)
+ * - Sort order
+ * - Column visibility
+ *
+ * State is persisted to localStorage and restored when users return to the page.
+ */
+
 export function LocationDataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
+  // Storage key for persisting table state
+  const STORAGE_KEY = 'locationDataTable';
+
+  // Load initial state from localStorage
+  const loadStoredState = () => {
+    if (typeof window === 'undefined') return null;
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      return stored ? JSON.parse(stored) : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const storedState = loadStoredState();
+
+  const [sorting, setSorting] = React.useState<SortingState>(storedState?.sorting || []);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(storedState?.columnFilters || []);
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(storedState?.columnVisibility || {});
+  const [pageIndex, setPageIndex] = React.useState(storedState?.pageIndex || 0);
 
   // Checkbox filter states
-  const [showOnlyPokemon, setShowOnlyPokemon] = React.useState(false);
-  const [showOnlyFlyable, setShowOnlyFlyable] = React.useState(false);
-  const [showOnlyGrottoes, setShowOnlyGrottoes] = React.useState(false);
-  const [showOnlyTrainers, setShowOnlyTrainers] = React.useState(false);
-  const [showOnlyItems, setShowOnlyItems] = React.useState(false);
+  const [showOnlyPokemon, setShowOnlyPokemon] = React.useState(storedState?.showOnlyPokemon || false);
+  const [showOnlyFlyable, setShowOnlyFlyable] = React.useState(storedState?.showOnlyFlyable || false);
+  const [showOnlyGrottoes, setShowOnlyGrottoes] = React.useState(storedState?.showOnlyGrottoes || false);
+  const [showOnlyTrainers, setShowOnlyTrainers] = React.useState(storedState?.showOnlyTrainers || false);
+  const [showOnlyItems, setShowOnlyItems] = React.useState(storedState?.showOnlyItems || false);
 
   // Apply checkbox filters to the data
   const filteredData = React.useMemo(() => {
@@ -82,13 +111,66 @@ export function LocationDataTable<TData, TValue>({
       sorting,
       columnFilters,
       columnVisibility,
-    },
-    initialState: {
       pagination: {
+        pageIndex: pageIndex,
         pageSize: 20,
       },
     },
+    initialState: {
+      pagination: {
+        pageIndex: storedState?.pageIndex || 0,
+        pageSize: 20,
+      },
+    },
+    onPaginationChange: (updater) => {
+      const newPagination = typeof updater === 'function'
+        ? updater({ pageIndex, pageSize: 20 })
+        : updater;
+      setPageIndex(newPagination.pageIndex);
+    },
   });
+
+  // Save state to localStorage whenever it changes
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Skip saving on initial render if we just loaded from storage
+    const isInitialLoad = !storedState || (
+      JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
+      JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters) &&
+      pageIndex === storedState.pageIndex &&
+      showOnlyPokemon === storedState.showOnlyPokemon &&
+      showOnlyFlyable === storedState.showOnlyFlyable &&
+      showOnlyGrottoes === storedState.showOnlyGrottoes &&
+      showOnlyTrainers === storedState.showOnlyTrainers &&
+      showOnlyItems === storedState.showOnlyItems
+    );
+
+    if (isInitialLoad) return;
+
+    const stateToSave = {
+      sorting,
+      columnFilters,
+      columnVisibility,
+      pageIndex,
+      showOnlyPokemon,
+      showOnlyFlyable,
+      showOnlyGrottoes,
+      showOnlyTrainers,
+      showOnlyItems,
+    };
+
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
+    } catch (error) {
+      console.warn('Failed to save table state to localStorage:', error);
+    }
+  }, [sorting, columnFilters, columnVisibility, pageIndex, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, storedState]);
+
+  // Reset to first page when filters change
+  React.useEffect(() => {
+    setPageIndex(0);
+  }, [showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, columnFilters]);
 
   // Get unique regions for filter
   const availableRegions = React.useMemo(() => {
@@ -325,11 +407,19 @@ export function LocationDataTable<TData, TValue>({
                 table.getColumn('displayName')?.setFilterValue('');
                 table.getColumn('region')?.setFilterValue('');
                 setSorting([]);
+                setPageIndex(0);
                 setShowOnlyPokemon(false);
                 setShowOnlyTrainers(false);
                 setShowOnlyFlyable(false);
                 setShowOnlyGrottoes(false);
                 setShowOnlyItems(false);
+
+                // Clear localStorage
+                try {
+                  localStorage.removeItem(STORAGE_KEY);
+                } catch (error) {
+                  console.warn('Failed to clear table state from localStorage:', error);
+                }
               }}
               className="text-xs sm:text-sm whitespace-nowrap"
             >
