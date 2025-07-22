@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { LocationDataTable } from './location-data-table';
-import { locationColumns, type LocationData } from './location-columns';
+import { locationColumns } from './location-columns';
+import { LocationData } from '@/types/types';
 
 interface LocationSearchProps {
   locations: LocationData[];
