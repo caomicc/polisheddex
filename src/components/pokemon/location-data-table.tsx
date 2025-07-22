@@ -4,6 +4,7 @@ import * as React from 'react';
 import {
   ColumnDef,
   ColumnFiltersState,
+  PaginationState,
   SortingState,
   VisibilityState,
   flexRender,
@@ -74,7 +75,7 @@ export function LocationDataTable<TData, TValue>({
   const [sorting, setSorting] = React.useState<SortingState>(storedState?.sorting || []);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(storedState?.columnFilters || []);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(storedState?.columnVisibility || {});
-  const [pageIndex, setPageIndex] = React.useState(storedState?.pageIndex || 0);
+  // const [pageIndex, setPageIndex] = React.useState(storedState?.pageIndex || 0);
 
   // Checkbox filter states
   const [showOnlyPokemon, setShowOnlyPokemon] = React.useState(storedState?.showOnlyPokemon || false);
@@ -111,24 +112,49 @@ export function LocationDataTable<TData, TValue>({
       sorting,
       columnFilters,
       columnVisibility,
-      pagination: {
-        pageIndex: pageIndex,
-        pageSize: 20,
-      },
+      // pagination: {
+      //   pageIndex: pageIndex,
+      //   pageSize: 20,
+      // },
     },
     initialState: {
-      pagination: {
-        pageIndex: storedState?.pageIndex || 0,
-        pageSize: 20,
-      },
+      // pagination: {
+        // pageIndex: storedState?.pageIndex || 0,
+        // pageSize: 20,
+      // },
     },
-    onPaginationChange: (updater) => {
-      const newPagination = typeof updater === 'function'
-        ? updater({ pageIndex, pageSize: 20 })
-        : updater;
-      setPageIndex(newPagination.pageIndex);
+    onPaginationChange: () => {
+      // const newPagination = typeof updater === 'function'
+      //   ? updater({ pageIndex, pageSize: 20 })
+      //   : updater;
+      // setPageIndex(newPagination.pageIndex);
     },
   });
+  const [state, setState] = React.useState(table.initialState);
+
+  const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
+    pageIndex: 0,
+    pageSize: 20
+  });
+
+    const pagination = React.useMemo(
+    () => ({
+      pageIndex,
+      pageSize
+    }),
+    [pageIndex, pageSize]
+  );
+
+  table.setOptions(prev => ({
+    ...prev,
+    onStateChange: setState,
+    state: {
+      ...state,
+      pagination,
+    },
+    onPaginationChange: setPagination,
+    pageCount: Math.ceil(filteredData.length / pageSize)
+  }));
 
   // Save state to localStorage whenever it changes
   React.useEffect(() => {
@@ -168,11 +194,11 @@ export function LocationDataTable<TData, TValue>({
   }, [sorting, columnFilters, columnVisibility, pageIndex, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, storedState]);
 
   // Reset to first page when filters change
-  React.useEffect(() => {
-    setPageIndex(0);
-  }, [showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, columnFilters]);
+  // React.useEffect(() => {
+  //   setPageIndex(0);
+  // }, [showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, columnFilters]);
 
-  // Get unique regions for filter
+  // // Get unique regions for filter
   const availableRegions = React.useMemo(() => {
     const regions = new Set(
       (data as { region?: string }[])
@@ -407,7 +433,7 @@ export function LocationDataTable<TData, TValue>({
                 table.getColumn('displayName')?.setFilterValue('');
                 table.getColumn('region')?.setFilterValue('');
                 setSorting([]);
-                setPageIndex(0);
+                // setPageIndex(0);
                 setShowOnlyPokemon(false);
                 setShowOnlyTrainers(false);
                 setShowOnlyFlyable(false);
