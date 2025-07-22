@@ -18,6 +18,8 @@ export function normalizeLocationKey(input: string): string {
     // Convert CamelCase/PascalCase to snake_case first
     .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
     .toLowerCase()
+    // Handle route numbers specifically: "route30" -> "route_30"
+    .replace(/^route(\d+)(_|$)/g, 'route_$1$2')
     // Convert spaces, hyphens, and other separators to underscores
     .replace(/[\s\-\.]+/g, '_')
     // Handle basement floor patterns: "b_1_f" -> "b_1f"
