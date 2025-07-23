@@ -10,14 +10,6 @@ import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNorma
 import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';
 import { loadJsonData } from '@/utils/fileLoader';
 import { Button } from '@/components/ui/button';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
 
 export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
@@ -161,30 +153,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // const moveDescData = await loadJsonFile<Record<string, MoveDescription>>('output/pokemon_move_descriptions.json') || {};
 
   return (
-    <div className="max-w-xl md:max-w-4xl mx-auto p-4">
-      <Breadcrumb className="mb-4">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/" className="hover:underline dark:text-blue-200 text-blue-700">
-                Home
-              </Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/pokemon" className="hover:underline dark:text-blue-200 text-blue-700">
-                Pokemon
-              </Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage className='capitalize'>{pokemonName}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+    <>
+    <div className="max-w-xl md:max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
       <PokemonKeyboardNavigation navigation={navigation} />
       <PokemonFormClient
@@ -208,5 +178,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         </div>
       )}
     </div>
+    </>
   );
 }

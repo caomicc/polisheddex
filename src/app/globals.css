@@ -60,7 +60,7 @@
   --color-ice: var(--color-cyan-300);
   --color-normal: #dfcbaa;
   --color-poison: var(--color-purple-400);
-  --color-psychic: var(--color-pink-400);
+  --color-psychic: var(--color-fuchsia-400);
   --color-rock: var(--color-gray-400);
   --color-steel: var(--color-slate-400);
   --color-water: var(--color-blue-400);
@@ -79,6 +79,12 @@
   --color-physical: #e45e3e;
   --color-special: #5973a7;
   --color-status: #a9a795;
+
+  /* Pokemon Theme CSS Custom Properties */
+  --pokemon-theme-bg: transparent;
+  --pokemon-theme-text: inherit;
+  --pokemon-theme-link: inherit;
+  --pokemon-theme-hover: rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -728,4 +734,27 @@
   to {
     opacity: 0;
   }
+}
+
+/* Pokemon Type Theme Classes */
+.pokemon-themed {
+  background-color: var(--pokemon-theme-bg);
+  color: var(--pokemon-theme-text);
+}
+
+.pokemon-themed-link {
+  color: var(--pokemon-theme-link);
+}
+
+.pokemon-themed-link:hover {
+  background-color: var(--pokemon-theme-hover);
+}
+
+.pokemon-hero-text {
+  color: var(--pokemon-theme-text);
+}
+
+.pokemon-hero-description {
+  color: var(--pokemon-theme-text);
+  opacity: 0.8;
 }

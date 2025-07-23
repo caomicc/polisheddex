@@ -491,6 +491,7 @@ export default async function LocationsPage() {
   return (
     <>
     <Hero
+      className="text-white"
       headline={'Locations'}
       description={
         'Explore the diverse locations in Pokémon Polished Crystal'

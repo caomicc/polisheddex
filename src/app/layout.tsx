@@ -5,6 +5,7 @@ import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Footer } from '@/components/ui/Footer';
+import { PokemonTypeProvider } from '@/contexts/PokemonTypeContext';
 
 const rubik = Manrope({
   variable: '--font-rubik',
@@ -83,11 +84,13 @@ export default function RootLayout({
       <body
         className={`${rubik.variable} ${geistMono.variable} font-sans antialiased text-gray-900 dark:bg-gray-900 dark:text-gray-100 bg-slate-100`}
       >
-        <div className="flex flex-col min-h-screen">
-          <Navigation />
-          <main className="flex-grow mb-10">{children}</main>
-          <Footer />
-        </div>
+        <PokemonTypeProvider>
+          <div className="flex flex-col min-h-screen">
+            <Navigation />
+            <main className="flex-grow mb-10">{children}</main>
+            <Footer />
+          </div>
+        </PokemonTypeProvider>
         <SpeedInsights />
         <Analytics />
       </body>

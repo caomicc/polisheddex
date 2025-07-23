@@ -5,8 +5,11 @@ import { FormData, PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
 import PokemonFormSelect from './PokemonFormSelect';
 import { getTypeGradientProps } from '@/utils/css-gradients';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../ui/breadcrumb';
+import Link from 'next/link';
+import { Hero } from '../ui/Hero';
 
-const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSelectedForm, usePolished } : { formData: FormData, uniqueForms: string[], pokemonName: string, selectedForm: string, setSelectedForm: React.Dispatch<React.SetStateAction<string>>, usePolished: boolean }) => {
+const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSelectedForm, usePolished } : { formData: FormData, uniqueForms: string[], pokemonName: string, selectedForm: string, setSelectedForm: React.Dispatch<React.SetStateAction<string>>, usePolished: boolean, breadcrumbs?: React.ReactNode }) => {
   // Desktop version uses the original two-row layout
 
   // Mobile version uses a compact layout with each row
@@ -24,28 +27,72 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
 
   return (
     <>
-      <div className="max-w-4xl mx-auto rounded-xl overflow-hidden hidden md:block">
-        <div
-          className={cn(
-            'relative py-4 px-4 md:p-6 md:dark:from-gray-800 md:dark:to-gray-900 flex flex-row w-full justify-between md:justify-start gap-6',
-            gradientProps.className
-          )}
-          style={gradientProps.style}
-        >
+
+      <Hero
+        style={gradientProps.style}
+        className={cn(
+          gradientProps.className, 'pt-20'
+        )}
+      breadcrumbs={
+        <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link href="/" className="hover:underline">
+                Home
+              </Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link href="/pokemon" className="hover:underline">
+                Pokemon
+              </Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage className='capitalize'>{pokemonName}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      }
+      headline={pokemonName}>
+
           <div className={'md:hidden text-left'}>
-            <div className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
-              {formData.johtoDex && (
-                <p>
-                  <span>Johto #{String(formData.johtoDex).padStart(3, '0')}</span>
-                </p>
-              )}
-              <p>National #{String(formData.nationalDex).padStart(3, '0')}</p>
+<div
+              className="flex flex-col mt-2 spacing-y-2 md:gap-1"
+              aria-label="Pokemon Faithful Types"
+              role="group"
+            >
+              <label className="leading-none text-xs w-[50px]">Faithful:</label>
+              <div className="gap-2 flex flex-wrap">
+                {formData.types ? (
+                  Array.isArray(formData.types) ? (
+                    formData.types.map((type: string) => (
+                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                        {type}
+                      </Badge>
+                    ))
+                  ) : (
+                    <Badge
+                      key={formData.types}
+                      variant={formData.types.toLowerCase() as PokemonType['name']}
+                    >
+                      {formData.types}
+                    </Badge>
+                  )
+                ) : (
+                  <></>
+                )}
+              </div>
             </div>
-            <p className="text-sm md:text-4xl font-bold capitalize text-gray-900 dark:text-gray-50">
+            {/* <p className="text-sm md:text-4xl font-bold capitalize text-gray-900 dark:text-gray-50">
               {pokemonName}
-            </p>
+            </p> */}
             <div
-              className="flex flex-col mt-2 spacing-y-2 gap-1"
+              className="flex flex-row mt-2 spacing-y-2 gap-1"
               aria-label="Pokemon Faithful Types"
               role="group"
             >
@@ -70,12 +117,12 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
                   <Badge variant="secondary">Unknown</Badge>
                 )}
               </div>
-            </div>
+            {/* </div>
             <div
-              className="flex flex-col mt-2 spacing-y-2 gap-1"
+              className="flex flex-row mt-2 spacing-y-2 gap-1"
               aria-label="Pokemon Polished Types"
               role="group"
-            >
+            > */}
               <label className="leading-none text-xs w-[50px]">Polished:</label>
               <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
                 {formData.updatedTypes ? (
@@ -107,7 +154,7 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
               />
             )}
           </div>{' '}
-          <div className="w-36 p-1 md:p-0 md:w-36 md:h-auto md:mx-[initial] md:mr-0">
+          <div className="w-36 p-1 md:p-0 md:w-14 md:h-auto md:mx-[initial] md:mr-0">
             <Image
               src={formData.frontSpriteUrl ?? ''}
               alt={`Sprite of Pokémon ${pokemonName}`}
@@ -117,22 +164,11 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
               priority
             />
           </div>
-          <div className="text-left hidden md:block">
-            <div className="text-xs md:text-sm text-gray-800 dark:text-gray-200 mb-1 flex gap-3 flex-row">
-              {formData.johtoDex && (
-                <span>
-                  Johto <span className="font-bold">#{formData.johtoDex}</span>
-                </span>
-              )}
-              <span>
-                National{' '}
-                <span className="font-bold">#{String(formData.nationalDex).padStart(3, '0')}</span>
-              </span>
+          <div className="text-left hidden md:flex gap-4">
 
-            </div>
-            <p className="text-sm md:text-xl font-bold capitalize text-gray-900 dark:text-gray-50">
+            {/* <p className="text-sm md:text-xl font-bold capitalize text-gray-900 dark:text-gray-50">
               {pokemonName}
-            </p>
+            </p> */}
             <div
               className="flex flex-col mt-2 spacing-y-2 md:gap-1"
               aria-label="Pokemon Faithful Types"
@@ -189,11 +225,10 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
               selectedForm={selectedForm}
               setSelectedForm={setSelectedForm}
               uniqueForms={uniqueForms}
-              classes="hidden md:block md:ml-auto"
+              classes="hidden md:block md:mr-auto"
             />
           )}
-        </div>
-      </div>
+      </Hero>
 
       <div className={cn("max-w-4xl mx-auto rounded-xl overflow-hidden md:hidden p-4 mb-2",
             gradientProps.className
@@ -201,17 +236,6 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
           style={gradientProps.style}>
         <div>
           <div className='flex flex-row items-start md:items-center gap-4 mb-2 justify-between'>
-              <div className="text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">
-                <p>National #{String(formData.nationalDex).padStart(3, '0')}</p>
-                {formData.johtoDex && (
-                  <p>
-                    <span>Johto #{String(formData.johtoDex).padStart(3, '0')}</span>
-                  </p>
-                )}
-                <p className="text-sm md:text-4xl font-bold capitalize text-gray-900 dark:text-gray-50">
-                  {pokemonName}
-                </p>
-              </div>
               <div className='w-18'>
                 <Image
                   src={formData.frontSpriteUrl ?? ''}

@@ -14,6 +14,7 @@ import { Card, CardContent, CardHeader } from '../ui/card';
 import { GenderPieChart } from './gender-pie-chart';
 import PokedexHeader from './PokedexHeader';
 import { WeaknessChart } from './WeaknessChart';
+import PokemonTypeSetter from './PokemonTypeSetter';
 
 export default function PokemonFormClient({
   forms,
@@ -65,8 +66,24 @@ export default function PokemonFormClient({
   );
 
   return (
+    <>
+    {/* Set Pokemon type theme based on current form */}
+    <PokemonTypeSetter
+      primaryType={formData.updatedTypes || formData.types || null}
+      secondaryType={undefined}
+    />
     <div className="space-y-6">
-      {process.env.NODE_ENV === 'development' && (
+
+      <PokedexHeader
+        formData={formData}
+        uniqueForms={uniqueForms}
+        pokemonName={pokemonName}
+        selectedForm={selectedForm}
+        setSelectedForm={setSelectedForm}
+        usePolished={true}
+      />
+
+            {process.env.NODE_ENV === 'development' && (
         <div className="rounded-lg border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/60 p-4 mb-4 text-xs text-left overflow-x-auto">
           <details>
             <summary className="cursor-pointer font-semibold text-gray-700 dark:text-gray-200">
@@ -92,14 +109,6 @@ export default function PokemonFormClient({
           </details>
         </div>
       )}
-      <PokedexHeader
-        formData={formData}
-        uniqueForms={uniqueForms}
-        pokemonName={pokemonName}
-        selectedForm={selectedForm}
-        setSelectedForm={setSelectedForm}
-        usePolished={true}
-      />
 
       <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
         <TabsList className="w-full">
@@ -731,6 +740,7 @@ export default function PokemonFormClient({
         </TabsContent>
       </Tabs>
     </div>
+    </>
   );
 }
 

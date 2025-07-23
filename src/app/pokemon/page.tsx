@@ -49,6 +49,7 @@ export default async function PokemonList({
     <>
     <Hero
       headline={'Pokedex'}
+      className="text-white"
       description={
           'Browse all Pokémon available in Pokémon Polished Crystal'
       }

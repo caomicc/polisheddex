@@ -7,10 +7,12 @@ import classNames from 'clsx';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { usePokemonType } from '@/contexts/PokemonTypeContext';
 
 const NavigationMenuDemo = () => {
   const [heroVisible, setHeroVisible] = React.useState(true);
   const [isHydrated, setIsHydrated] = React.useState(false);
+  const { primaryType, getTypeBasedStyles } = usePokemonType();
 
   React.useEffect(() => {
     // Mark as hydrated after first render
@@ -28,16 +30,25 @@ const NavigationMenuDemo = () => {
   }, []);
 
   // Use consistent state until hydrated
-  const shouldShowRedBackground = isHydrated && !heroVisible;
+  const showBackground = isHydrated && !heroVisible;
+
+  // Get Pokemon type-based styles
+  const typeStyles = getTypeBasedStyles();
+  const hasPokemonTheme = primaryType !== null;
 
   return (
     <div
       className={cn(
-      "fixed top-4 py-2 px-4 mx-4 w-[calc(100%-theme(spacing.8))] left-[50%] transform -translate-x-1/2 z-50 rounded-xl transition-bg duration-300 backdrop-blur-xl border border-2 max-w-4xl mx-auto",
-      shouldShowRedBackground
+      "fixed top-4 py-2 px-4 mx-4 w-[calc(100%-theme(spacing.8))] left-[50%] transform -translate-x-1/2 z-50 rounded-xl transition-all duration-300 backdrop-blur-xl border border-2 max-w-4xl mx-auto",
+      showBackground
         ? "bg-white/20 border-gray-200 text-white"
         : "dark:text-white text-white border-transparent"
       )}
+      style={hasPokemonTheme ? {
+        // backgroundColor: `${typeStyles.backgroundColor}CC`, // Add transparency
+        // borderColor: typeStyles.hoverColor,
+        color: typeStyles.textColor
+      } : undefined}
     >
       <div className="w-full mx-auto flex items-center justify-between">
       <div className="flex items-center gap-2">
@@ -54,8 +65,9 @@ const NavigationMenuDemo = () => {
         <span
           className={cn(
           "font-bold text-sm md:text-xl transition-colors duration-300",
-          shouldShowRedBackground ? "text-gray-900" : "text-white"
+          showBackground && !hasPokemonTheme ? "text-gray-900" : "text-white"
           )}
+          style={hasPokemonTheme ? { color: typeStyles.textColor } : undefined}
         >
           PolishedDex
         </span>
@@ -67,10 +79,15 @@ const NavigationMenuDemo = () => {
           <NavigationMenu.Link
           className={cn(
             "NavigationMenuLink transition-colors duration-300 !text-current",
-            shouldShowRedBackground
+            !hasPokemonTheme && showBackground
               ? "text-white hover:bg-red-500"
-              : "text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800"
+              : !hasPokemonTheme
+              ? "text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800"
+              : "hover:bg-black/20"
           )}
+          style={hasPokemonTheme ? {
+            color: typeStyles.textColor
+          } : undefined}
           href="/pokemon"
           >
           Pokedex
@@ -80,10 +97,15 @@ const NavigationMenuDemo = () => {
           <NavigationMenu.Link
           className={cn(
             "NavigationMenuLink transition-colors duration-300 !text-current",
-            shouldShowRedBackground
+            !hasPokemonTheme && showBackground
               ? "text-white hover:bg-red-500"
-              : "text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800"
+              : !hasPokemonTheme
+              ? "text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800"
+              : "hover:bg-black/20"
           )}
+          style={hasPokemonTheme ? {
+            color: typeStyles.textColor
+          } : undefined}
           href="/locations"
           >
           Locations
@@ -91,15 +113,20 @@ const NavigationMenuDemo = () => {
         </NavigationMenu.Item>
         <NavigationMenu.Item>
           <NavigationMenu.Link
-          className={cn(
-            "NavigationMenuLink transition-colors duration-300 !text-current",
-            shouldShowRedBackground
-              ? "text-white hover:bg-red-500"
-              : "text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800"
-          )}
-          href="/items"
-          >
-          Items
+            className={cn(
+              "NavigationMenuLink transition-colors duration-300 !text-current",
+              !hasPokemonTheme && showBackground
+                ? "text-gray-900 hover:bg-red-500"
+                : !hasPokemonTheme
+                ? "text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800"
+                : "hover:bg-black/20"
+            )}
+            style={hasPokemonTheme ? {
+              color: typeStyles.textColor
+            } : undefined}
+            href="/items"
+            >
+            Items
           </NavigationMenu.Link>
         </NavigationMenu.Item>
         <NavigationMenu.Indicator className="NavigationMenuIndicator">

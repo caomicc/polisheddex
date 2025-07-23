@@ -13,6 +13,7 @@ export default function Home() {
   return (
     <div>
       <Hero
+        className="text-white"
         headline="Polished Dex"
         description="A companion pokedex for Pokémon Polished Crystal, providing detailed information on Pokémon, locations, and items."
       />

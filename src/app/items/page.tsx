@@ -77,6 +77,7 @@ export default async function ItemsList({
   return (
     <>
     <Hero
+      className="text-white"
       headline="Items"
       description="Browse all items available in Pokémon Polished Crystal"
       breadcrumbs={
