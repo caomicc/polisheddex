@@ -195,6 +195,18 @@ export default function LocationClient({
 
         {/* Trainers tab */}
         <TabsContent value="trainers" className="py-6">
+                    {comprehensiveInfo?.gymLeader ? (
+            <div className="space-y-6">
+              <h3 className="text-lg font-semibold">Trainers</h3>
+              <div className="grid gap-6">
+                  <TrainerCard trainer={comprehensiveInfo.gymLeader} />
+              </div>
+            </div>
+          ) : (
+            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
+              <p>No trainers found at this location.</p>
+            </div>
+          )}
           {comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0 ? (
             <div className="space-y-6">
               <h3 className="text-lg font-semibold">Trainers</h3>
