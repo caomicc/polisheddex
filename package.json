@@ -10,7 +10,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "extract": "ts-node extract_pokemon_data.ts && ts-node extract_locations.ts",
-    "crop": "ts-node crop_top_sprite.ts",
+    "crop": "ts-node scripts/crop_top_sprite.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },
