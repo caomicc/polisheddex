@@ -346,14 +346,15 @@
 .shadow-bug {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-bug) 1%, var(--color-lime-700) 30%) var(--tw-shadow-alpha, 3),
+    color-mix(in oklab, var(--color-bug) 20%, var(--color-emerald-500) 10%)
+      var(--tw-shadow-alpha, 3),
     transparent
   );
 }
 .shadow-dark {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-dark) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-dark) 20%, var(--color-slate-700) 10%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
@@ -367,111 +368,120 @@
 .shadow-electric {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-electric) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-electric) 20%, var(--color-amber-700) 10%)
+      var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-fairy {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-fairy) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-fairy) 20%, var(--color-pink-700) 10%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-fighting {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-fighting) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-fighting) 20%, var(--color-orange-700) 10%)
+      var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-fire {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-fire) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-fire) 20%, var(--color-red-700) 10%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-flying {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-flying) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-flying) 20%, var(--color-sky-700) 10%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-ghost {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-ghost) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-ghost) 20%, var(--color-slate-700) 10%)
+      var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-grass {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-grass) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-grass) 20%, var(--color-emerald-700) 10%)
+      var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-ground {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-ground) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-ground) 20%, var(--color-sand-700) 10%)
+      var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-ice {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-ice) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-ice) 20%, var(--color-sky-700) 10%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-normal {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-normal) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-normal) 20%, var(--color-slate-700) 10%)
+      var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-poison {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-poison) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-poison) 20%, var(--color-purple-700) 10%)
+      var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-psychic {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-psychic) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-psychic) 20%, var(--color-pink-700) 10%)
+      var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-rock {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-rock) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-rock) 20%, var(--color-slate-700) 10%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-steel {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-steel) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-steel) 20%, var(--color-slate-700) 10%)
+      var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 .shadow-water {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-water) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-water) 20%, var(--color-sky-700) 10%) var(--tw-shadow-alpha, 1),
     transparent
   );
 }
 
 .bg-bug-dark {
-  background-color: red;
+  @apply bg-bug/20;
 }
 .bg-dark-dark {
   @apply bg-dark/20;

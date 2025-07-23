@@ -30,7 +30,7 @@ export const usePokemonType = () => {
 };
 
 // Type color mappings based on your globals.css
-const TYPE_COLORS: Record<
+export const TYPE_COLORS: Record<
   PokemonType['name'],
   {
     primary: string;

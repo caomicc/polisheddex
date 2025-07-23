@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 import { getTypeGradientProps } from '@/utils/css-gradients';
+import { TYPE_COLORS } from '@/contexts/PokemonTypeContext';
 
 export interface PokemonCardProps {
   pokemon: BaseData;
@@ -46,7 +47,6 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       displayName = 'Farigiraf';
     }
   }
-
   // Get the primary type for styling
   const primaryType = displayTypes
     ? typeof displayTypes === 'string'
@@ -62,12 +62,27 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
   // Generate CSS-based gradient props
   const gradientProps = getTypeGradientProps(primaryType, secondaryType || undefined);
 
+  /**
+   * Get color values for types from the type content.
+   * Assumes you have a type color map available from your type content.
+   * Example: { fire: '#F08030', water: '#6890F0', ... }
+   */
+
+  const primaryTypeInfo = TYPE_COLORS[(primaryType as keyof typeof TYPE_COLORS) || 'normal'];
+  const secondaryTypeInfo = secondaryType
+    ? TYPE_COLORS[(secondaryType as keyof typeof TYPE_COLORS) || 'normal']
+    : undefined;
+
+  console.log('Primary Type Info:', primaryTypeInfo);
+  console.log('Secondary Type Info:', secondaryTypeInfo);
+
   return (
     <Link href={`/pokemon/${normalizePokemonUrlKey(pokemon.name)}`}>
       <Card
         className={cn(
-          'shadow-sm hover:shadow-md transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pt-[48px] h-[110px] md:h-auto',
+          'shadow-md md:shadow-lg md:hover:shadow-xl transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pt-[65px] h-[110px] md:h-auto gap-1 md:gap-6',
           gradientProps.className,
+          `shadow-${primaryType.toLowerCase()}`,
         )}
         style={gradientProps.style}
       >
@@ -78,18 +93,23 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
           height={64}
           className="absolute max-w-12 md:max-w-16 right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 z-0 md:z-10"
         />
+        <p className="text-xs md:text-lg md:absolute  md:top-4 md:left-4 ">
+          #
+          {sortType === 'johtodex'
+            ? pokemon.johtoDex !== null && pokemon.johtoDex < 999
+              ? pokemon.johtoDex
+              : '—'
+            : pokemon.nationalDex !== null
+              ? pokemon.nationalDex
+              : '—'}
+        </p>
         <div className="flex flex-col gap-0 relative z-20">
-          <p className="text-xs md:text-lg md:mb-2">
-            #
-            {sortType === 'johtodex'
-              ? pokemon.johtoDex !== null && pokemon.johtoDex < 999
-                ? pokemon.johtoDex
-                : '—'
-              : pokemon.nationalDex !== null
-                ? pokemon.nationalDex
-                : '—'}
-          </p>
-          <h2 className="text-sm md:text-xl md:mb-8 font-bold leading-none mb-2">{displayName}</h2>
+          <h2
+            className="text-sm md:text-xl md:mb-4 font-bold leading-none mb-2"
+            style={{ color: primaryTypeInfo?.text }}
+          >
+            {displayName}
+          </h2>
           <div className="flex md:justify-center gap-1 md:gap-2 flex-col md:flex-row">
             {(Array.isArray(displayTypes) ? displayTypes : [displayTypes]).map((type) => (
               <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
