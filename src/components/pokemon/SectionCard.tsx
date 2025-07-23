@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils';
 import React, { PropsWithChildren, ReactNode } from 'react';
 import { Card, CardContent, CardHeader } from '../ui/card';
+import { usePokemonType } from '@/contexts/PokemonTypeContext';
 
 type SectionCardProps = PropsWithChildren<{
   children: ReactNode;
@@ -10,12 +11,15 @@ type SectionCardProps = PropsWithChildren<{
 
 const SectionCard: React.FC<SectionCardProps> = ({ ...props }: SectionCardProps) => {
   const { children, headline, className } = props;
+  const { primaryType } = usePokemonType();
+  const hasPokemonTheme = primaryType !== null;
+
   return (
     <Card
       className={cn(
-        'bg-white dark:bg-gray-800 shadow-md rounded-lg p-4',
-        'border border-gray-200 dark:border-gray-700',
-        'transition-transform transform hover:scale-[1.01] active:scale-[0.95]',
+        'bg-white/60 backdrop-blur-xl dark:bg-gray-800 rounded-xl p-4',
+        'border-none shadow-lg',
+        hasPokemonTheme && 'pokemon-section-card',
         className,
       )}
     >

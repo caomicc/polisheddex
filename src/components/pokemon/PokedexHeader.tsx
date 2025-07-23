@@ -54,7 +54,7 @@ const PokedexHeader = ({
   return (
     <Hero
       style={gradientProps.style}
-      className={cn(gradientProps.className, 'pt-24 md:pb-[26px]')}
+      className={cn(gradientProps.className, 'pt-24 md:pb-[26px] shadow-lg shadow-ghost')}
       breadcrumbs={
         <Breadcrumb>
           <BreadcrumbList>

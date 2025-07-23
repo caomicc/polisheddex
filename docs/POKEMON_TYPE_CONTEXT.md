@@ -95,6 +95,10 @@ Use the predefined utility classes for common theming:
   This div will use the Pokemon type page background (same as bg-{type}-page)
 </div>
 
+<div className="pokemon-section-card">
+  This card will use Pokemon type page background with themed border
+</div>
+
 <nav className="pokemon-breadcrumb-active">
   Active breadcrumb styling
 </nav>
@@ -108,7 +112,9 @@ Use the predefined utility classes for common theming:
 
 - **Navigation**: Changes background and text colors based on Pokemon type
 - **Hero**: Updates background and text colors to match Pokemon type
+- **SectionCard**: Automatically applies Pokemon type page background and border colors
 - **PokemonFormClient**: Automatically sets the type when viewing a Pokemon
+- **Breadcrumbs**: Use Pokemon type colors for active/inactive states
 
 ## Type Colors
 

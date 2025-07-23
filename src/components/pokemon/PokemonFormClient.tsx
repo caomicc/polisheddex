@@ -10,7 +10,6 @@ import { cn } from '@/lib/utils';
 import { Progress } from '../ui/progress';
 import { PokemonAbilities } from './pokemon-abilities';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
-import { Card, CardContent, CardHeader } from '../ui/card';
 import { GenderPieChart } from './gender-pie-chart';
 import PokedexHeader from './PokedexHeader';
 import { WeaknessChart } from './WeaknessChart';
@@ -208,513 +207,481 @@ export default function PokemonFormClient({
               </div>
             </SectionCard>
 
-            <Card>
-              <CardHeader className="sr-only">Abilities</CardHeader>
-              <CardContent className="space-y-2">
-                <PokemonAbilities
-                  faithfulAbilities={formData.faithfulAbilities}
-                  updatedAbilities={formData.updatedAbilities}
-                />
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="sr-only">Catch Rate</CardHeader>
-              <CardContent className="space-y-2">
-                <p className="text-sm">
-                  <span className="font-bold">Base Catch Rate</span>: {formData.catchRate}
-                </p>
-                <span className="flex flex-row items-start justify-between max-w-[300px] mx-auto">
-                  <div>
-                    <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
-                      <Image
-                        src="/sprites/items/poke_ball.png"
-                        alt="Pokeball Icon"
-                        width={32}
-                        height={32}
-                        className="block rounded-sm"
-                      />{' '}
-                      Pokeball
-                    </p>
-                    <p className="text-sm md:text-md text-muted-foreground text-center">
-                      <Badge className="bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-300">
-                        {(calculateCatchChance(formData.catchRate ?? 0, 'pokeball') * 100).toFixed(
-                          1,
-                        )}
-                        %
-                      </Badge>
-                    </p>
-                  </div>
-                  <div>
-                    <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
-                      <Image
-                        src="/sprites/items/great_ball.png"
-                        alt="Greatball Icon"
-                        width={32}
-                        height={32}
-                        className="block rounded-sm"
-                      />{' '}
-                      Greatball
-                    </p>
-                    <p className="text-sm md:text-md text-muted-foreground text-center">
-                      <Badge className="bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                        {(calculateCatchChance(formData.catchRate ?? 0, 'greatball') * 100).toFixed(
-                          1,
-                        )}
-                        %
-                      </Badge>
-                    </p>
-                  </div>
-                  <div>
-                    <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
-                      <Image
-                        src="/sprites/items/ultra_ball.png"
-                        alt="Ultraball Icon"
-                        width={32}
-                        height={32}
-                        className="block rounded-sm"
-                      />{' '}
-                      Ultraball
-                    </p>
-                    <p className="text-sm md:text-md text-muted-foreground text-center">
-                      <Badge className="bg-yellow-200 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">
-                        {(calculateCatchChance(formData.catchRate ?? 0, 'ultraball') * 100).toFixed(
-                          1,
-                        )}
-                        %
-                      </Badge>
-                    </p>
-                  </div>
-                </span>
-                <p className="text-xs text-muted-foreground text-center mt-4">
-                  Sample rates for this pokemon when full HP, actual calculation may vary based on
-                  status effects, level, and other factors.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="sr-only">Training</CardHeader>
-              <CardContent className="space-y-2">
-                <h3 className={cn('font-bold text-sm mb-4 text-left')}>Training Stats:</h3>
-                <Table className="max-w-full">
-                  <TableHeader className="sr-only">
-                    <TableRow>
-                      <TableHead className="font-medium w-[120px]">Training Stats</TableHead>
-                      <TableHead className="font-medium">Value</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell className="font-medium w-[120px]">Growth Rate</TableCell>
-                      <TableCell>{formData.growthRate}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="font-medium">EV Yield</TableCell>
-                      <TableCell>{formData.evYield || 'None'}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="font-medium w-[120px]">Base Exp.</TableCell>
-                      <TableCell>{formData.baseExp}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="font-medium w-[120px]">Egg Groups</TableCell>
-                      <TableCell>
-                        <div className="flex items-center gap-1">
-                          {formData.eggGroups && formData.eggGroups.length > 0 ? (
-                            formData.eggGroups.map((group, idx) => (
-                              <span key={idx}>
-                                {group}
-                                {formData.eggGroups && idx < formData.eggGroups.length - 1 && (
-                                  <span>,</span>
-                                )}
-                              </span>
-                            ))
-                          ) : (
-                            <span className="text-gray-500">Unknown</span>
-                          )}
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="font-medium w-[120px]">Hatch Rate</TableCell>
-                      <TableCell>{formData.hatchRate}</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className={'sr-only'}>Species</CardHeader>
-              <CardContent className="space-y-2 px-2 md:px-6">
-                <p className="text-sm md:text-md text-foreground">{formData.species} Pokémon</p>
-                <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
-
-                <div className="mt-0 flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
-                  <div className="flex w-full flex-wrap justify-center items-center gap-0">
-                    <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1 relative flex items-center justify-center">
-                      {formData.genderRatio &&
-                      formData.genderRatio.male === 0 &&
-                      formData.genderRatio.female === 0 ? (
-                        <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-2">
-                          <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
-                            <div className="text-xs  items-center flex">
-                              <div className="aspect-square w-3 md:w-4 inline-block relative mr-1">
-                                <Image
-                                  src={'/icons/genderless-solid.svg'}
-                                  alt={''}
-                                  className="inline-block fa-fw"
-                                  fill
-                                />
-                              </div>{' '}
-                              Genderless
-                            </div>
-                          </div>
-                          <div className="inline-block w-10 h-10 align-middle">
-                            <GenderPieChart male={0} female={0} genderless={100} />
-                          </div>
-                        </div>
-                      ) : formData.genderRatio ? (
-                        <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-1 md:gap-2 w-full">
-                          <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
-                            <div className="text-[10px] items-center flex">
-                              <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
-                                <Image
-                                  src={'/icons/mars-solid.svg'}
-                                  alt={''}
-                                  className="inline-block fa-fw"
-                                  fill
-                                />
-                              </div>{' '}
-                              {formData.genderRatio.male}%
-                            </div>
-                            <div className="text-[10px]  items-center flex">
-                              <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
-                                <Image
-                                  src={'/icons/venus-solid.svg'}
-                                  alt={''}
-                                  className="inline-block w-full"
-                                  fill
-                                />
-                              </div>{' '}
-                              {formData.genderRatio.female}%
-                            </div>
-                          </div>
-                          <div className="inline-block w-14">
-                            <GenderPieChart
-                              male={formData.genderRatio.male ?? 0}
-                              female={formData.genderRatio.female ?? 0}
-                            />
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="translate-y-[-1px] relative">
-                          <div className="inline-block w-10 h-10 align-middle">
-                            <GenderPieChart male={50} female={50} />
-                          </div>
-                          <div className="text-sm md:text-md text-muted-foreground relative">
-                            Unknown
-                          </div>
-                        </div>
+            <SectionCard headline={'Abilities'}>
+              <PokemonAbilities
+                faithfulAbilities={formData.faithfulAbilities}
+                updatedAbilities={formData.updatedAbilities}
+              />
+            </SectionCard>
+            <SectionCard headline={'Catch Rate'}>
+              <p className="text-sm">
+                <span className="font-bold">Base Catch Rate</span>: {formData.catchRate}
+              </p>
+              <span className="flex flex-row items-start justify-between max-w-[300px] mx-auto">
+                <div>
+                  <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
+                    <Image
+                      src="/sprites/items/poke_ball.png"
+                      alt="Pokeball Icon"
+                      width={32}
+                      height={32}
+                      className="block rounded-sm"
+                    />{' '}
+                    Pokeball
+                  </p>
+                  <p className="text-sm md:text-md text-muted-foreground text-center">
+                    <Badge className="bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-300">
+                      {(calculateCatchChance(formData.catchRate ?? 0, 'pokeball') * 100).toFixed(1)}
+                      %
+                    </Badge>
+                  </p>
+                </div>
+                <div>
+                  <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
+                    <Image
+                      src="/sprites/items/great_ball.png"
+                      alt="Greatball Icon"
+                      width={32}
+                      height={32}
+                      className="block rounded-sm"
+                    />{' '}
+                    Greatball
+                  </p>
+                  <p className="text-sm md:text-md text-muted-foreground text-center">
+                    <Badge className="bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                      {(calculateCatchChance(formData.catchRate ?? 0, 'greatball') * 100).toFixed(
+                        1,
                       )}
-                    </div>
+                      %
+                    </Badge>
+                  </p>
+                </div>
+                <div>
+                  <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
+                    <Image
+                      src="/sprites/items/ultra_ball.png"
+                      alt="Ultraball Icon"
+                      width={32}
+                      height={32}
+                      className="block rounded-sm"
+                    />{' '}
+                    Ultraball
+                  </p>
+                  <p className="text-sm md:text-md text-muted-foreground text-center">
+                    <Badge className="bg-yellow-200 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">
+                      {(calculateCatchChance(formData.catchRate ?? 0, 'ultraball') * 100).toFixed(
+                        1,
+                      )}
+                      %
+                    </Badge>
+                  </p>
+                </div>
+              </span>
+              <p className="text-xs text-muted-foreground text-center mt-4">
+                Sample rates for this pokemon when full HP, actual calculation may vary based on
+                status effects, level, and other factors.
+              </p>
+            </SectionCard>
+            <SectionCard headline={'Training'}>
+              <h3 className={cn('font-bold text-sm mb-4 text-left')}>Training Stats:</h3>
+              <Table className="max-w-full">
+                <TableHeader className="sr-only">
+                  <TableRow>
+                    <TableHead className="font-medium w-[120px]">Training Stats</TableHead>
+                    <TableHead className="font-medium">Value</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium w-[120px]">Growth Rate</TableCell>
+                    <TableCell>{formData.growthRate}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">EV Yield</TableCell>
+                    <TableCell>{formData.evYield || 'None'}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-[120px]">Base Exp.</TableCell>
+                    <TableCell>{formData.baseExp}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-[120px]">Egg Groups</TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-1">
+                        {formData.eggGroups && formData.eggGroups.length > 0 ? (
+                          formData.eggGroups.map((group, idx) => (
+                            <span key={idx}>
+                              {group}
+                              {formData.eggGroups && idx < formData.eggGroups.length - 1 && (
+                                <span>,</span>
+                              )}
+                            </span>
+                          ))
+                        ) : (
+                          <span className="text-gray-500">Unknown</span>
+                        )}
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium w-[120px]">Hatch Rate</TableCell>
+                    <TableCell>{formData.hatchRate}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </SectionCard>
+            <SectionCard headline={'Species Information'}>
+              <p className="text-sm md:text-md text-foreground">{formData.species} Pokémon</p>
+              <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
+
+              <div className="mt-0 flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
+                <div className="flex w-full flex-wrap justify-center items-center gap-0">
+                  <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1 relative flex items-center justify-center">
+                    {formData.genderRatio &&
+                    formData.genderRatio.male === 0 &&
+                    formData.genderRatio.female === 0 ? (
+                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-2">
+                        <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
+                          <div className="text-xs  items-center flex">
+                            <div className="aspect-square w-3 md:w-4 inline-block relative mr-1">
+                              <Image
+                                src={'/icons/genderless-solid.svg'}
+                                alt={''}
+                                className="inline-block fa-fw"
+                                fill
+                              />
+                            </div>{' '}
+                            Genderless
+                          </div>
+                        </div>
+                        <div className="inline-block w-10 h-10 align-middle">
+                          <GenderPieChart male={0} female={0} genderless={100} />
+                        </div>
+                      </div>
+                    ) : formData.genderRatio ? (
+                      <div className="translate-y-[-1px] relative flex flex-row justify-center items-center gap-1 md:gap-2 w-full">
+                        <div className="md:text-md text-muted-foreground relative gap-1 flex flex-col justify-start">
+                          <div className="text-[10px] items-center flex">
+                            <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
+                              <Image
+                                src={'/icons/mars-solid.svg'}
+                                alt={''}
+                                className="inline-block fa-fw"
+                                fill
+                              />
+                            </div>{' '}
+                            {formData.genderRatio.male}%
+                          </div>
+                          <div className="text-[10px]  items-center flex">
+                            <div className="aspect-square w-3 md:w-4 inline-block relative items-center mr-1">
+                              <Image
+                                src={'/icons/venus-solid.svg'}
+                                alt={''}
+                                className="inline-block w-full"
+                                fill
+                              />
+                            </div>{' '}
+                            {formData.genderRatio.female}%
+                          </div>
+                        </div>
+                        <div className="inline-block w-14">
+                          <GenderPieChart
+                            male={formData.genderRatio.male ?? 0}
+                            female={formData.genderRatio.female ?? 0}
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="translate-y-[-1px] relative">
+                        <div className="inline-block w-10 h-10 align-middle">
+                          <GenderPieChart male={50} female={50} />
+                        </div>
+                        <div className="text-sm md:text-md text-muted-foreground relative">
+                          Unknown
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </SectionCard>
 
-            <Card>
-              <CardHeader>Evolution</CardHeader>
-              <CardContent className="space-y-2">
-                {formData.evolution && formData.evolution.chain ? (
-                  <EvolutionChain
-                    chain={formData.evolution.chain}
-                    chainWithMethods={formData.evolution.chainWithMethods || {}}
-                    spritesByGen={(() => {
-                      const sprites: Record<string, string> = {};
+            <SectionCard headline={'Evolution'}>
+              {formData.evolution && formData.evolution.chain ? (
+                <EvolutionChain
+                  chain={formData.evolution.chain}
+                  chainWithMethods={formData.evolution.chainWithMethods || {}}
+                  spritesByGen={(() => {
+                    const sprites: Record<string, string> = {};
 
-                      // Add sprites for base chain Pokémon
-                      formData.evolution.chain.forEach((name) => {
-                        // Try to find an entry in allFormData for this Pokémon
-                        for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
-                          if (
-                            formDataEntry.frontSpriteUrl &&
-                            formKey.toLowerCase() === name.toLowerCase()
-                          ) {
-                            sprites[name] = formDataEntry.frontSpriteUrl;
-                            break;
-                          }
+                    // Add sprites for base chain Pokémon
+                    formData.evolution.chain.forEach((name) => {
+                      // Try to find an entry in allFormData for this Pokémon
+                      for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
+                        if (
+                          formDataEntry.frontSpriteUrl &&
+                          formKey.toLowerCase() === name.toLowerCase()
+                        ) {
+                          sprites[name] = formDataEntry.frontSpriteUrl;
+                          break;
                         }
-                      });
+                      }
+                    });
 
-                      // Add sprites for form variants
-                      if (formData.evolution.chainWithMethods) {
-                        Object.entries(formData.evolution.chainWithMethods).forEach(
-                          ([source, methods]) => {
-                            console.log(`Processing methods for source: ${source}`, methods);
-                            methods.forEach((method) => {
-                              if (method.target && method.form) {
-                                const formVariantKey = `${method.target} (${method.form})`;
+                    // Add sprites for form variants
+                    if (formData.evolution.chainWithMethods) {
+                      Object.entries(formData.evolution.chainWithMethods).forEach(
+                        ([source, methods]) => {
+                          console.log(`Processing methods for source: ${source}`, methods);
+                          methods.forEach((method) => {
+                            if (method.target && method.form) {
+                              const formVariantKey = `${method.target} (${method.form})`;
 
-                                // Try to find form variant in allFormData
-                                for (const [formKey, formDataEntry] of Object.entries(
-                                  allFormData,
-                                )) {
-                                  // Check if this is the right form
-                                  if (
-                                    formKey.toLowerCase().includes(method.form.toLowerCase()) &&
-                                    formKey.toLowerCase().includes(method.target.toLowerCase()) &&
-                                    formDataEntry.frontSpriteUrl
-                                  ) {
-                                    sprites[formVariantKey] = formDataEntry.frontSpriteUrl;
-                                    break;
-                                  }
+                              // Try to find form variant in allFormData
+                              for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
+                                // Check if this is the right form
+                                if (
+                                  formKey.toLowerCase().includes(method.form.toLowerCase()) &&
+                                  formKey.toLowerCase().includes(method.target.toLowerCase()) &&
+                                  formDataEntry.frontSpriteUrl
+                                ) {
+                                  sprites[formVariantKey] = formDataEntry.frontSpriteUrl;
+                                  break;
                                 }
                               }
-                            });
-                          },
-                        );
-                      }
+                            }
+                          });
+                        },
+                      );
+                    }
 
-                      return sprites;
-                    })()}
-                  />
-                ) : (
-                  <div className="text-gray-500">No evolution data.</div>
-                )}
-              </CardContent>
-            </Card>
+                    return sprites;
+                  })()}
+                />
+              ) : (
+                <div className="text-gray-500">No evolution data.</div>
+              )}
+            </SectionCard>
           </TabsContent>
 
           <TabsContent
             value="moves"
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
-            <Card>
-              <CardHeader>
-                Moves*{' '}
-                <span className="text-muted-foreground italic text-xs">
-                  *Faithful vs. Polished movesets coming soon!
-                </span>
-              </CardHeader>
-              <CardContent className="space-y-2 px-0 md:px-6">
-                <Tabs defaultValue="level-up" className="w-full">
-                  <div className="px-4 md:px-0">
-                    <TabsList className="w-full">
-                      <TabsTrigger value="level-up">Level Up</TabsTrigger>
-                      <TabsTrigger value="egg">Egg Moves</TabsTrigger>
-                      <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
-                    </TabsList>
-                  </div>
-                  <TabsContent value="level-up">
-                    {/* Moves List */}
-                    {formData.moves &&
-                    Array.isArray(formData.moves) &&
-                    formData.moves.length > 0 ? (
-                      <Table>
-                        <TableHeader className={'hidden md:table-header-group'}>
-                          <TableRow>
-                            <TableHead className="attheader cen align-middle text-left w-[60px]">
-                              Level
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[180px]">
-                              Attack Name
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Type
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Cat.
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Att.
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Acc.
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              PP
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Effect %
-                            </TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {formData.moves.map((moveData: Move) => {
-                            const moveInfo = moveDescData[moveData.name] || null;
-                            return (
-                              <MoveRow
-                                key={`move-${moveData.name}-${moveData.level}`}
-                                name={moveData.name}
-                                level={moveData.level}
-                                info={moveInfo}
-                              />
-                            );
-                          })}
-                        </TableBody>
-                      </Table>
-                    ) : (
-                      <div className="text-gray-400 text-sm mb-6">No move data</div>
-                    )}
-                  </TabsContent>
-                  <TabsContent value="egg">
-                    {formData.eggMoves &&
-                    Array.isArray(formData.eggMoves) &&
-                    formData.eggMoves.length > 0 ? (
-                      <Table>
-                        <TableHeader className={'hidden md:table-header-group'}>
-                          <TableRow>
-                            <TableHead className="attheader cen align-middle text-left w-[60px]">
-                              Level
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[180px]">
-                              Attack Name
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Type
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Cat.
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Att.
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Acc.
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              PP
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Effect %
-                            </TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {formData.eggMoves.map((moveName: string) => {
-                            const moveInfo = moveDescData[moveName] || null;
-                            return (
-                              <MoveRow
-                                key={`egg-${moveName}`}
-                                name={moveName}
-                                level={1}
-                                info={moveInfo}
-                              />
-                            );
-                          })}
-                        </TableBody>
-                      </Table>
-                    ) : (
-                      <div className="text-gray-400 text-sm mb-6">No egg moves</div>
-                    )}
-                  </TabsContent>
-                  <TabsContent value="tm-hm">
-                    {formData.tmHmLearnset &&
-                    Array.isArray(formData.tmHmLearnset) &&
-                    formData.tmHmLearnset.length > 0 ? (
-                      <Table>
-                        <TableHeader className={'hidden md:table-header-group'}>
-                          <TableRow>
-                            <TableHead className="attheader cen align-middle text-left w-[60px]">
-                              Level
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[180px]">
-                              Attack Name
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Type
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Cat.
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Att.
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Acc.
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              PP
-                            </TableHead>
-                            <TableHead className="attheader cen align-middle text-left w-[80px]">
-                              Effect %
-                            </TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {formData.tmHmLearnset.map((move) => {
-                            const moveInfo = moveDescData[move.name] || null;
-                            return (
-                              <MoveRow
-                                key={`tm-${move.name}`}
-                                name={move.name}
-                                level={move.level}
-                                info={moveInfo}
-                              />
-                            );
-                          })}
-                        </TableBody>
-                      </Table>
-                    ) : (
-                      <div className="text-gray-400 text-sm mb-6">No learnset</div>
-                    )}
-                  </TabsContent>
-                </Tabs>
-              </CardContent>
-            </Card>
+            <SectionCard headline={'Moves'}>
+              <Tabs defaultValue="level-up" className="w-full">
+                <div className="px-4 md:px-0">
+                  <TabsList className="w-full">
+                    <TabsTrigger value="level-up">Level Up</TabsTrigger>
+                    <TabsTrigger value="egg">Egg Moves</TabsTrigger>
+                    <TabsTrigger value="tm-hm">TM/HM</TabsTrigger>
+                  </TabsList>
+                </div>
+                <TabsContent value="level-up">
+                  {/* Moves List */}
+                  {formData.moves && Array.isArray(formData.moves) && formData.moves.length > 0 ? (
+                    <Table>
+                      <TableHeader className={'hidden md:table-header-group'}>
+                        <TableRow>
+                          <TableHead className="attheader cen align-middle text-left w-[60px]">
+                            Level
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[180px]">
+                            Attack Name
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Type
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Cat.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Att.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Acc.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            PP
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Effect %
+                          </TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {formData.moves.map((moveData: Move) => {
+                          const moveInfo = moveDescData[moveData.name] || null;
+                          return (
+                            <MoveRow
+                              key={`move-${moveData.name}-${moveData.level}`}
+                              name={moveData.name}
+                              level={moveData.level}
+                              info={moveInfo}
+                            />
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  ) : (
+                    <div className="text-gray-400 text-sm mb-6">No move data</div>
+                  )}
+                </TabsContent>
+                <TabsContent value="egg">
+                  {formData.eggMoves &&
+                  Array.isArray(formData.eggMoves) &&
+                  formData.eggMoves.length > 0 ? (
+                    <Table>
+                      <TableHeader className={'hidden md:table-header-group'}>
+                        <TableRow>
+                          <TableHead className="attheader cen align-middle text-left w-[60px]">
+                            Level
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[180px]">
+                            Attack Name
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Type
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Cat.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Att.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Acc.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            PP
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Effect %
+                          </TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {formData.eggMoves.map((moveName: string) => {
+                          const moveInfo = moveDescData[moveName] || null;
+                          return (
+                            <MoveRow
+                              key={`egg-${moveName}`}
+                              name={moveName}
+                              level={1}
+                              info={moveInfo}
+                            />
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  ) : (
+                    <div className="text-gray-400 text-sm mb-6">No egg moves</div>
+                  )}
+                </TabsContent>
+                <TabsContent value="tm-hm">
+                  {formData.tmHmLearnset &&
+                  Array.isArray(formData.tmHmLearnset) &&
+                  formData.tmHmLearnset.length > 0 ? (
+                    <Table>
+                      <TableHeader className={'hidden md:table-header-group'}>
+                        <TableRow>
+                          <TableHead className="attheader cen align-middle text-left w-[60px]">
+                            Level
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[180px]">
+                            Attack Name
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Type
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Cat.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Att.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Acc.
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            PP
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            Effect %
+                          </TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {formData.tmHmLearnset.map((move) => {
+                          const moveInfo = moveDescData[move.name] || null;
+                          return (
+                            <MoveRow
+                              key={`tm-${move.name}`}
+                              name={move.name}
+                              level={move.level}
+                              info={moveInfo}
+                            />
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  ) : (
+                    <div className="text-gray-400 text-sm mb-6">No learnset</div>
+                  )}
+                </TabsContent>
+              </Tabs>
+            </SectionCard>
           </TabsContent>
           <TabsContent
             value="evolution"
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
-            <Card>
-              <CardHeader>Locations</CardHeader>
-              <CardContent className="space-y-2">
-                {formData.locations &&
-                Array.isArray(formData.locations) &&
-                formData.locations.length > 0 ? (
-                  <Table>
-                    <TableHeader className={'hidden md:table-header-group'}>
-                      <TableRow>
-                        <TableHead className="attheader cen align-middle text-left w-[60px]">
-                          Area
-                        </TableHead>
-                        <TableHead className="attheader cen align-middle text-left w-[180px]">
-                          Method
-                        </TableHead>
-                        <TableHead className="attheader cen align-middle text-left w-[80px]">
-                          Time
-                        </TableHead>
-                        <TableHead className="attheader cen align-middle text-left w-[80px]">
-                          Level
-                        </TableHead>
-                        <TableHead className="attheader cen align-middle text-left w-[80px]">
-                          Encounter Rate
-                        </TableHead>
-                        <TableHead className="attheader cen align-middle text-left w-[80px]">
-                          Held Item
-                        </TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {/* Show all slots for this Pokémon, not just one per area/method/time */}
-                      {formData.locations.map((loc: LocationEntry, idx: number) => (
-                        <LocationListItem
-                          key={idx}
-                          area={loc.area}
-                          method={loc.method}
-                          time={loc.time}
-                          level={loc.level}
-                          chance={loc.chance}
-                          rareItem={loc.rareItem}
-                        />
-                      ))}
-                    </TableBody>
-                  </Table>
-                ) : (
-                  <div className="text-gray-400 text-sm mb-6">No location data</div>
-                )}
-              </CardContent>
-            </Card>
+            <SectionCard headline={'Locations'}>
+              {formData.locations &&
+              Array.isArray(formData.locations) &&
+              formData.locations.length > 0 ? (
+                <Table>
+                  <TableHeader className={'hidden md:table-header-group'}>
+                    <TableRow>
+                      <TableHead className="attheader cen align-middle text-left w-[60px]">
+                        Area
+                      </TableHead>
+                      <TableHead className="attheader cen align-middle text-left w-[180px]">
+                        Method
+                      </TableHead>
+                      <TableHead className="attheader cen align-middle text-left w-[80px]">
+                        Time
+                      </TableHead>
+                      <TableHead className="attheader cen align-middle text-left w-[80px]">
+                        Level
+                      </TableHead>
+                      <TableHead className="attheader cen align-middle text-left w-[80px]">
+                        Encounter Rate
+                      </TableHead>
+                      <TableHead className="attheader cen align-middle text-left w-[80px]">
+                        Held Item
+                      </TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {/* Show all slots for this Pokémon, not just one per area/method/time */}
+                    {formData.locations.map((loc: LocationEntry, idx: number) => (
+                      <LocationListItem
+                        key={idx}
+                        area={loc.area}
+                        method={loc.method}
+                        time={loc.time}
+                        level={loc.level}
+                        chance={loc.chance}
+                        rareItem={loc.rareItem}
+                      />
+                    ))}
+                  </TableBody>
+                </Table>
+              ) : (
+                <div className="text-gray-400 text-sm mb-6">No location data</div>
+              )}
+            </SectionCard>
           </TabsContent>
         </Tabs>
         {process.env.NODE_ENV === 'development' && (
