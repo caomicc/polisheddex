@@ -1,17 +1,15 @@
-import { KNOWN_FORMS } from "../../data/constants.ts";
-import { normalizeMonName, standardizePokemonKey } from "../stringUtils.ts";
-import path from "node:path";
+import { KNOWN_FORMS } from '../../data/constants.ts';
+import { normalizeMonName, standardizePokemonKey } from '../stringUtils.ts';
+import path from 'node:path';
 import fs from 'node:fs';
-import type { PokemonDexEntry } from "../../types/types.ts";
-import { fileURLToPath } from "node:url";
+import type { PokemonDexEntry } from '../../types/types.ts';
+import { fileURLToPath } from 'node:url';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
 const POKEDEX_ENTRIES_OUTPUT = path.join(__dirname, '../../../output/pokemon_pokedex_entries.json');
-
 
 // Helper to extract the base name from a combined name with form
 export function extractBasePokemonName(fullName: string): string {
@@ -70,18 +68,30 @@ export function extractBasePokemonName(fullName: string): string {
 
   // Regional form suffixes to check for
   const regionalFormSuffixes = [
-    'hisuian', 'Hisuian',
-    'galarian', 'Galarian',
-    'alolan', 'Alolan',
-    'paldean', 'Paldean',
-    'plain', 'Plain',
-    'hisui', 'Hisui',
-    'galar', 'Galar',
-    'armored', 'Armored',
-    'armo', 'Armored',
-    'bloodmoon', 'BloodMoon',
-    'paldeanfire', 'PaldeanFire',
-    'paldeanwater', 'PaldeanWater'
+    'hisuian',
+    'Hisuian',
+    'galarian',
+    'Galarian',
+    'alolan',
+    'Alolan',
+    'paldean',
+    'Paldean',
+    'plain',
+    'Plain',
+    'hisui',
+    'Hisui',
+    'galar',
+    'Galar',
+    'armored',
+    'Armored',
+    'armo',
+    'Armored',
+    'bloodmoon',
+    'BloodMoon',
+    'paldeanfire',
+    'PaldeanFire',
+    'paldeanwater',
+    'PaldeanWater',
   ];
 
   // Check for regional form suffixes with proper word boundaries
@@ -109,14 +119,22 @@ export function extractBasePokemonName(fullName: string): string {
 
   // Use the KNOWN_FORMS constant for consistency
   const knownForms = Object.values(KNOWN_FORMS);
-  let baseName = fullName.split('-').filter(segment => !Object.values(KNOWN_FORMS).includes(segment)).join('-');
-
+  let baseName = fullName
+    .split('-')
+    .filter((segment) => !Object.values(KNOWN_FORMS).includes(segment))
+    .join('-');
 
   // Special handling for compound form names like "paldean_fire" and "paldean_water"
   if (fullName.toLowerCase().includes(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())) {
-    return fullName.substring(0, fullName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase()));
+    return fullName.substring(
+      0,
+      fullName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase()),
+    );
   } else if (fullName.toLowerCase().includes(KNOWN_FORMS.PALDEAN_WATER.toLowerCase())) {
-    return fullName.substring(0, fullName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_WATER.toLowerCase()));
+    return fullName.substring(
+      0,
+      fullName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_WATER.toLowerCase()),
+    );
   }
 
   // Handle standard forms
@@ -146,12 +164,11 @@ export function getFullPokemonName(name: string, form: string | null): string {
   // Return the combined name - use consistent format for forms
   // For the special Paldean forms, use a unique separator to make extraction easier
   if (formName === KNOWN_FORMS.PALDEAN_FIRE || formName === KNOWN_FORMS.PALDEAN_WATER) {
-    return `${baseName}-${formName}`;  // Use a separator for these complex forms
+    return `${baseName}-${formName}`; // Use a separator for these complex forms
   }
 
   return formName ? `${baseName}${formName}` : baseName;
 }
-
 
 /**
  * Update the respective Pokémon's JSON file with the extracted Pokédex entry.
@@ -172,7 +189,11 @@ function updatePokemonJsonWithDexEntry(mon: string, entry: PokemonDexEntry) {
   console.log(`Current data for ${mon}:`, data);
 
   // Always use the { default: {...}, regionalform: {...} } format
-  if (!data.pokedexEntries || typeof data.pokedexEntries !== 'object' || Array.isArray(data.pokedexEntries)) {
+  if (
+    !data.pokedexEntries ||
+    typeof data.pokedexEntries !== 'object' ||
+    Array.isArray(data.pokedexEntries)
+  ) {
     data.pokedexEntries = {};
   }
 
@@ -195,7 +216,14 @@ export function extractPokedexEntries() {
   const lines = entriesData.split(/\r?\n/);
 
   // Store the entries as { pokemon: { species: string, entries: string[] } }
-  const pokedexEntries: Record<string, { species: string, entries: string[], forms?: Record<string, { species: string, entries: string[] }> }> = {};
+  const pokedexEntries: Record<
+    string,
+    {
+      species: string;
+      entries: string[];
+      forms?: Record<string, { species: string; entries: string[] }>;
+    }
+  > = {};
   let currentMon: string | null = null;
   let currentSpecies: string | null = null;
   let currentEntries: string[] = [];
@@ -216,12 +244,23 @@ export function extractPokedexEntries() {
         // But only if it's an actual regional form, not just any camelCase ending
         const regionalFormMatch = currentMon.match(/([A-Z][a-z]+)$/);
         const potentialRegionalForm = regionalFormMatch ? regionalFormMatch[1] : '';
-        const regionalForm = Object.values(KNOWN_FORMS).some(form =>
-          form.toLowerCase().includes(potentialRegionalForm.toLowerCase())
-        ) ? potentialRegionalForm : '';
+        const regionalForm = Object.values(KNOWN_FORMS).some((form) =>
+          form.toLowerCase().includes(potentialRegionalForm.toLowerCase()),
+        )
+          ? potentialRegionalForm
+          : '';
         console.log(`Processing Pokémon: ${currentMon}`, 'regionalForm:', regionalForm);
         if (regionalForm) {
-          console.log('currentMon:', currentMon, 'standardizedMon:', standardizedMon, 'currentSpecies:', currentSpecies, 'currentEntries:', currentEntries);
+          console.log(
+            'currentMon:',
+            currentMon,
+            'standardizedMon:',
+            standardizedMon,
+            'currentSpecies:',
+            currentSpecies,
+            'currentEntries:',
+            currentEntries,
+          );
         }
         if (pokedexEntries[standardizedMon]) {
           console.log(`Duplicate entry for ${standardizedMon}`);
@@ -232,11 +271,20 @@ export function extractPokedexEntries() {
               ...currentData.forms,
               [regionalForm]: {
                 species: currentSpecies,
-                entries: currentEntries
-              }
-            }
+                entries: currentEntries,
+              },
+            },
           };
-          console.log('Updating existing entry:', standardizedMon, 'with new form:', regionalForm, 'currentData:', currentData, 'updatedData:', updatedData);
+          console.log(
+            'Updating existing entry:',
+            standardizedMon,
+            'with new form:',
+            regionalForm,
+            'currentData:',
+            currentData,
+            'updatedData:',
+            updatedData,
+          );
           pokedexEntries[standardizedMon] = updatedData;
         } else {
           pokedexEntries[standardizedMon] = {
@@ -250,7 +298,7 @@ export function extractPokedexEntries() {
           if (!pokedexEntries[baseMon]) {
             pokedexEntries[baseMon] = {
               species: currentSpecies,
-              entries: currentEntries
+              entries: currentEntries,
             };
           }
         }
@@ -316,7 +364,7 @@ export function extractPokedexEntries() {
     const standardizedMon = standardizePokemonKey(currentMon).toLowerCase();
     pokedexEntries[standardizedMon] = {
       species: currentSpecies,
-      entries: currentEntries
+      entries: currentEntries,
     };
     // If this is a form (contains a hyphen), also add the entry for the base mon if not present
     if (standardizedMon.includes('-')) {
@@ -324,7 +372,7 @@ export function extractPokedexEntries() {
       if (!pokedexEntries[baseMon]) {
         pokedexEntries[baseMon] = {
           species: currentSpecies,
-          entries: currentEntries
+          entries: currentEntries,
         };
       }
     }
@@ -334,18 +382,18 @@ export function extractPokedexEntries() {
   const formattedEntries: Record<string, Record<string, PokemonDexEntry>> = {};
 
   for (const [mon, data] of Object.entries(pokedexEntries)) {
-    const description = data.entries.join(' ')
+    const description = data.entries
+      .join(' ')
       .replace(/@/g, '')
       .replace(/\s*-\s*(?=\w)/g, '')
       .replace(/\s+/g, ' ');
 
-    console.log(data)
+    console.log(data);
 
     const entry = {
       species: data.species,
-      description: description.trim()
+      description: description.trim(),
     };
-
 
     if (!formattedEntries[mon]) formattedEntries[mon] = {};
     formattedEntries[mon].default = entry;
@@ -356,7 +404,8 @@ export function extractPokedexEntries() {
       const forms = data.forms;
       for (const formKey in forms) {
         const formData = forms[formKey];
-        const formDescription = formData.entries.join(' ')
+        const formDescription = formData.entries
+          .join(' ')
           .replace(/@/g, '')
           .replace(/\s*-\s*(?=\w)/g, '')
           .replace(/\s+/g, ' ')
@@ -366,7 +415,7 @@ export function extractPokedexEntries() {
         formattedEntries[mon] = formattedEntries[mon] || {};
         formattedEntries[mon][formKey] = {
           species: formData.species,
-          description: formDescription
+          description: formDescription,
         };
       }
     }

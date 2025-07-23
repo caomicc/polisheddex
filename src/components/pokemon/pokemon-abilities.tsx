@@ -27,9 +27,7 @@ export function PokemonAbilities({
           </div>
         </div>
         <div>
-          <h3
-            className={cn('font-bold text-sm mb-4 text-left', showUpdated ? '' : 'hidden')}
-          >
+          <h3 className={cn('font-bold text-sm mb-4 text-left', showUpdated ? '' : 'hidden')}>
             Polished Abilities:
           </h3>
           <div className={cn('flex flex-col gap-2', className)}>

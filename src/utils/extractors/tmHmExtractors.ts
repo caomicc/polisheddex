@@ -4,19 +4,20 @@ import { fileURLToPath } from 'url';
 
 // Define types for TM/HM item data
 export interface TmHmItemData {
-  id: string;              // URI-friendly ID (e.g., "tm01")
-  tmNumber: string;        // TM/HM number (e.g., "TM01", "HM01")
-  moveName: string;        // Move name (e.g., "Dynamicpunch")
-  displayName: string;     // Display name (e.g., "TM01 Dynamicpunch")
-  description: string;     // Move description
-  type: string;            // Move type
-  power: number;           // Move power
-  pp: number;              // Move PP
+  id: string; // URI-friendly ID (e.g., "tm01")
+  tmNumber: string; // TM/HM number (e.g., "TM01", "HM01")
+  moveName: string; // Move name (e.g., "Dynamicpunch")
+  displayName: string; // Display name (e.g., "TM01 Dynamicpunch")
+  description: string; // Move description
+  type: string; // Move type
+  power: number; // Move power
+  pp: number; // Move PP
   accuracy: number | string; // Move accuracy
-  category: string;        // Move category
-  location?: {             // Structured location data for lookups
-    area: string;          // Area name for location table lookup
-    details?: string;      // Additional location details if available
+  category: string; // Move category
+  location?: {
+    // Structured location data for lookups
+    area: string; // Area name for location table lookup
+    details?: string; // Additional location details if available
   };
 }
 
@@ -43,7 +44,10 @@ export function extractTmHmItems(itemData?: Record<string, any>): Record<string,
   const lines = tmhmMovesData.split(/\r?\n/);
 
   // Load move descriptions from the existing file
-  const moveDescriptionsFile = path.join(__dirname, '../../../output/pokemon_move_descriptions.json');
+  const moveDescriptionsFile = path.join(
+    __dirname,
+    '../../../output/pokemon_move_descriptions.json',
+  );
 
   // Define interface for move description data
   interface MoveDescriptionData {
@@ -69,7 +73,7 @@ export function extractTmHmItems(itemData?: Record<string, any>): Record<string,
   const itemsDataExists = fs.existsSync(itemsDataFile);
   if (!itemsDataExists) {
     console.log('items_data.json file not found. A new file will be created.');
-  }  // Extract TM/HM data
+  } // Extract TM/HM data
   const tmhmItems: Record<string, TmHmItemData> = {};
 
   for (let i = 0; i < lines.length; i++) {
@@ -103,8 +107,8 @@ export function extractTmHmItems(itemData?: Record<string, any>): Record<string,
             power: 0,
             pp: 0,
             accuracy: 0,
-            category: ''
-          };          // Create item ID
+            category: '',
+          }; // Create item ID
           const itemId = `${tmType.toLowerCase()}${tmNumber}`;
 
           // Create display name
@@ -127,7 +131,7 @@ export function extractTmHmItems(itemData?: Record<string, any>): Record<string,
             pp: moveData.pp || 0,
             accuracy: moveData.accuracy || 0,
             category: moveData.category || '',
-            location: locationInfo
+            location: locationInfo,
           };
         }
       }
@@ -155,7 +159,7 @@ export function extractTmHmItems(itemData?: Record<string, any>): Record<string,
 
   // Load the existing items data or use the passed itemData
   let existingItems: Record<string, any> = {};
-  
+
   if (itemData) {
     // Use the passed itemData parameter
     existingItems = itemData;
@@ -184,7 +188,7 @@ export function extractTmHmItems(itemData?: Record<string, any>): Record<string,
       pp: tmhmData.pp,
       accuracy: tmhmData.accuracy,
       category: tmhmData.category,
-      location: tmhmData.location
+      location: tmhmData.location,
     };
   }
 
@@ -205,9 +209,10 @@ function formatMoveName(asmName: string): string {
   if (asmName === 'PSYCHIC_M') return 'Psychic';
 
   // Replace underscores with spaces and convert to title case
-  return asmName.replace(/_/g, ' ')
+  return asmName
+    .replace(/_/g, ' ')
     .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(' ');
 }
 
@@ -218,7 +223,7 @@ function formatMoveName(asmName: string): string {
  */
 function formatLocation(locationStr: string): { area: string; details?: string } {
   if (!locationStr) {
-    return { area: "Unknown" };
+    return { area: 'Unknown' };
   }
 
   // Process location string to handle common patterns
@@ -226,47 +231,64 @@ function formatLocation(locationStr: string): { area: string; details?: string }
   // We'll set details in the return objects where needed
 
   // Handle "Route XX" format
-  if (area.startsWith("Route ")) {
+  if (area.startsWith('Route ')) {
     return { area: area };
   }
 
   // Handle location with department stores
-  if (area.includes("Dept. Store")) {
-    const cityName = area.split("Dept.")[0].trim();
+  if (area.includes('Dept. Store')) {
+    const cityName = area.split('Dept.')[0].trim();
     return {
       area: cityName,
-      details: "Department Store"
+      details: 'Department Store',
     };
   }
 
   // Handle Game Corner locations
-  if (area.includes("Game Corner")) {
-    const cityName = area.split("Game")[0].trim();
+  if (area.includes('Game Corner')) {
+    const cityName = area.split('Game')[0].trim();
     return {
       area: cityName,
-      details: "Game Corner"
+      details: 'Game Corner',
     };
   }
 
   // Handle tower/cave/forest/etc.
-  if (area.includes("Tower") ||
-    area.includes("Cave") ||
-    area.includes("Forest") ||
-    area.includes("Path") ||
-    area.includes("Tunnel") ||
-    area.includes("Road")) {
+  if (
+    area.includes('Tower') ||
+    area.includes('Cave') ||
+    area.includes('Forest') ||
+    area.includes('Path') ||
+    area.includes('Tunnel') ||
+    area.includes('Road')
+  ) {
     return { area: area };
   }
 
   // Handle gym leaders (these are typically just the leader's name)
-  const gymLeaders = ["Falkner", "Bugsy", "Whitney", "Morty", "Chuck",
-    "Jasmine", "Pryce", "Clair", "Brock", "Misty",
-    "Lt. Surge", "Erika", "Janine", "Sabrina", "Blaine", "Blue"];
+  const gymLeaders = [
+    'Falkner',
+    'Bugsy',
+    'Whitney',
+    'Morty',
+    'Chuck',
+    'Jasmine',
+    'Pryce',
+    'Clair',
+    'Brock',
+    'Misty',
+    'Lt. Surge',
+    'Erika',
+    'Janine',
+    'Sabrina',
+    'Blaine',
+    'Blue',
+  ];
 
   if (gymLeaders.includes(area)) {
     return {
       area: area + "'s Gym",
-      details: "Gym Leader"
+      details: 'Gym Leader',
     };
   }
 

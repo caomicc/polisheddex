@@ -6,7 +6,10 @@ import { PokemonType } from '@/types/types';
 interface PokemonTypeContextValue {
   primaryType: PokemonType['name'] | null;
   secondaryType: PokemonType['name'] | null;
-  setPokemonTypes: (primary: PokemonType['name'] | null, secondary?: PokemonType['name'] | null) => void;
+  setPokemonTypes: (
+    primary: PokemonType['name'] | null,
+    secondary?: PokemonType['name'] | null,
+  ) => void;
   clearPokemonTypes: () => void;
   getTypeBasedStyles: () => {
     backgroundColor?: string;
@@ -27,17 +30,20 @@ export const usePokemonType = () => {
 };
 
 // Type color mappings based on your globals.css
-const TYPE_COLORS: Record<PokemonType['name'], {
-  primary: string;
-  secondary: string;
-  text: string;
-  textSecondary: string;
-  textTertiary?: string; // Optional tertiary text color for breadcrumbs
-  hover: string;
-  navHover?: string; // Optional hover color for navigation links
-  pageBackground?: string; // Optional background color for pages
-  tabBackground?: string; // Optional background color for tabs
-}> = {
+const TYPE_COLORS: Record<
+  PokemonType['name'],
+  {
+    primary: string;
+    secondary: string;
+    text: string;
+    textSecondary: string;
+    textTertiary?: string; // Optional tertiary text color for breadcrumbs
+    hover: string;
+    navHover?: string; // Optional hover color for navigation links
+    pageBackground?: string; // Optional background color for pages
+    tabBackground?: string; // Optional background color for tabs
+  }
+> = {
   bug: {
     primary: 'var(--color-slate-200)', // lime-400
     secondary: 'var(--color-lime-900)', // lime-600
@@ -46,8 +52,8 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     textTertiary: 'var(--color-lime-800)', // lime-800
     hover: 'var(--color-lime-500)', // lime-500
     navHover: 'var(--color-lime-100)', // lime-600
-    pageBackground: 'var(--color-lime-50)',
-    tabBackground: 'var(--color-lime-100)'
+    pageBackground: 'color-mix(in oklab, var(--color-bug) 10%, transparent)',
+    tabBackground: 'var(--color-lime-100)',
   },
   dark: {
     primary: 'var(--color-gray-800)',
@@ -57,8 +63,8 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     textTertiary: 'var(--color-gray-500)', // gray-500 for breadcrumbs
     hover: 'var(--color-gray-700)',
     navHover: 'var(--color-gray-100)', // gray-600
-    pageBackground: 'var(--color-gray-50)',
-    tabBackground: 'var(--color-gray-100)'
+    pageBackground: 'color-mix(in oklab, var(--color-dark) 10%, transparent)',
+    tabBackground: 'var(--color-gray-100)',
   },
   dragon: {
     primary: 'var(--color-indigo-400)',
@@ -68,8 +74,8 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     textTertiary: 'var(--color-indigo-800)', // indigo-800
     hover: 'var(--color-indigo-500)',
     navHover: 'var(--color-indigo-100)', // indigo-600
-    pageBackground: 'var(--color-indigo-50)',
-    tabBackground: 'var(--color-indigo-100)'
+    pageBackground: '@apply bg-dragon-page',
+    tabBackground: 'var(--color-indigo-100)',
   },
   electric: {
     primary: 'var(--color-yellow-400)',
@@ -80,7 +86,7 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     hover: 'var(--color-yellow-500)',
     navHover: 'var(--color-yellow-100)', // yellow-600
     pageBackground: 'var(--color-yellow-50)',
-    tabBackground: 'var(--color-yellow-100)'
+    tabBackground: 'var(--color-yellow-100)',
   },
   fairy: {
     primary: 'var(--color-pink-300)',
@@ -91,7 +97,7 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     hover: 'var(--color-pink-500)',
     navHover: 'var(--color-pink-100)', // pink-600
     pageBackground: 'var(--color-pink-50)',
-    tabBackground: 'var(--color-pink-100)'
+    tabBackground: 'var(--color-pink-100)',
   },
   fighting: {
     primary: 'var(--color-orange-400)',
@@ -101,8 +107,8 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     textTertiary: 'var(--color-orange-600)', // orange-600
     hover: 'var(--color-orange-500)',
     navHover: 'var(--color-orange-100)', // orange-600
-    pageBackground: 'var(--color-orange-50)',
-    tabBackground: 'var(--color-orange-100)'
+    pageBackground: 'color-mix(in oklab, var(--color-fighting) 10%, transparent)',
+    tabBackground: 'var(--color-orange-100)',
   },
   fire: {
     primary: 'var(--color-red-400)',
@@ -112,8 +118,8 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     textTertiary: 'var(--color-red-600)', // red-600
     hover: 'var(--color-red-500)', // red-500
     navHover: 'var(--color-red-100)', // red-600
-    pageBackground: 'var(--color-red-50)',
-    tabBackground: 'var(--color-red-100)'
+    pageBackground: 'color-mix(in oklab, var(--color-fire) 10%, transparent)',
+    tabBackground: 'var(--color-red-100)',
   },
   flying: {
     primary: 'var(--color-sky-300)',
@@ -123,7 +129,7 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     hover: 'var(--color-sky-400)',
     navHover: 'var(--color-sky-100)', // sky-600
     pageBackground: 'var(--color-sky-50)', // sky-50
-    tabBackground: 'var(--color-sky-100)'
+    tabBackground: 'var(--color-sky-100)',
   },
   ghost: {
     primary: 'var(--color-violet-300)',
@@ -134,7 +140,6 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     navHover: 'var(--color-violet-100)', // violet-600
     pageBackground: 'var(--color-violet-50)',
     tabBackground: 'var(--color-violet-100)',
-
   },
   grass: {
     primary: 'var(--color-emerald-400)',
@@ -143,8 +148,8 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     textSecondary: 'var(--color-emerald-800)',
     hover: 'var(--color-emerald-500)',
     navHover: 'var(--color-emerald-100)',
-    pageBackground: 'var(--color-emerald-50)',
-    tabBackground: 'var(--color-emerald-100)'
+    pageBackground: 'color-mix(in oklab, var(--color-grass) 5%, transparent)', // grass uses 5% opacity
+    tabBackground: 'var(--color-emerald-100)',
   },
   ground: {
     primary: 'var(--color-orange-300)',
@@ -153,8 +158,8 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     textSecondary: 'var(--color-orange-800)',
     hover: 'var(--color-orange-400)',
     navHover: 'var(--color-orange-100)', // orange-600
-    pageBackground: 'var(--color-orange-50)',
-    tabBackground: 'var(--color-orange-100)'
+    pageBackground: 'color-mix(in oklab, var(--color-ground) 10%, transparent)',
+    tabBackground: 'var(--color-orange-100)',
   },
   ice: {
     primary: 'var(--color-cyan-300)',
@@ -164,7 +169,7 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     hover: 'var(--color-cyan-400)',
     navHover: 'var(--color-cyan-100)', // cyan-600
     pageBackground: 'var(--color-cyan-50)',
-    tabBackground: 'var(--color-cyan-100)'
+    tabBackground: 'var(--color-cyan-100)',
   },
   normal: {
     primary: 'var(--color-normal-300)', // custom normal color from globals.css
@@ -174,7 +179,7 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     hover: 'var(--color-normal-700)', // stone-400
     navHover: 'var(--color-normal-400)', // stone-600
     pageBackground: 'var(--color-normal-50)',
-    tabBackground: 'var(--color-normal-100)'
+    tabBackground: 'var(--color-normal-100)',
   },
   poison: {
     primary: 'var(--color-purple-400)',
@@ -184,7 +189,7 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     hover: 'var(--color-purple-500)',
     navHover: 'var(--color-purple-100)', // purple-600
     pageBackground: 'var(--color-purple-50)',
-    tabBackground: 'var(--color-purple-100)'
+    tabBackground: 'var(--color-purple-100)',
   },
   psychic: {
     primary: 'var(--color-fuchsia-400)',
@@ -194,7 +199,7 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     hover: 'var(--color-fuchsia-500)',
     navHover: 'var(--color-fuchsia-100)', // fuchsia-600
     pageBackground: 'var(--color-fuchsia-50)',
-    tabBackground: 'var(--color-fuchsia-100)'
+    tabBackground: 'var(--color-fuchsia-100)',
   },
   rock: {
     primary: 'var(--color-gray-400)',
@@ -204,7 +209,7 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     hover: 'var(--color-gray-500)',
     navHover: 'var(--color-gray-100)', // gray-600
     pageBackground: 'var(--color-gray-50)', // gray-50
-    tabBackground: 'var(--color-gray-100)'
+    tabBackground: 'var(--color-gray-100)',
   },
   steel: {
     primary: 'var(--color-slate-400)',
@@ -214,7 +219,7 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     hover: 'var(--color-slate-500)',
     navHover: 'var(--color-slate-100)', // slate-600
     pageBackground: 'var(--color-slate-50)',
-    tabBackground: 'var(--color-slate-100)'
+    tabBackground: 'var(--color-slate-100)',
   },
   water: {
     primary: 'var(--color-blue-400)', // background
@@ -223,8 +228,8 @@ const TYPE_COLORS: Record<PokemonType['name'], {
     textSecondary: 'var(--color-blue-900)', // theme-link
     hover: 'var(--color-blue-800)', //theme-hover (breadcrumb hover)
     navHover: 'var(--color-blue-300)', // pokemon-themed-link:hover
-    pageBackground: 'var(--color-blue-50)',
-    tabBackground: 'var(--color-blue-100)'
+    pageBackground: 'color-mix(in oklab, var(--color-water) 10%, transparent)',
+    tabBackground: 'var(--color-blue-100)',
   },
 };
 
@@ -242,7 +247,10 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
     setIsInitialized(true);
   }, []);
 
-  const setPokemonTypes = (primary: PokemonType['name'] | null, secondary?: PokemonType['name'] | null) => {
+  const setPokemonTypes = (
+    primary: PokemonType['name'] | null,
+    secondary?: PokemonType['name'] | null,
+  ) => {
     setPrimaryType(primary);
     setSecondaryType(secondary || null);
   };
@@ -283,7 +291,10 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
       const typeColors = TYPE_COLORS[primaryType];
       // Use requestAnimationFrame to ensure smooth transitions
       requestAnimationFrame(() => {
-        root.style.setProperty('--pokemon-page-bg', typeColors.pageBackground || 'var(--color-slate-100)'); // Default to white if no page background defined
+        root.style.setProperty(
+          '--pokemon-page-bg',
+          typeColors.pageBackground || 'var(--color-slate-100)',
+        ); // Default to white if no page background defined
         root.style.setProperty('--pokemon-theme-bg', typeColors.primary);
         root.style.setProperty('--pokemon-theme-text', typeColors.text);
         root.style.setProperty('--pokemon-theme-link', typeColors.textSecondary);
@@ -292,9 +303,15 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
         root.style.setProperty('--pokemon-theme-breadcrumb-active', typeColors.textSecondary);
         root.style.setProperty('--pokemon-theme-breadcrumb-inactive', `${typeColors.textTertiary}`); // 80% opacity
         // Navigation hover color
-        root.style.setProperty('--pokemon-theme-nav-hover', typeColors.navHover || typeColors.hover);
+        root.style.setProperty(
+          '--pokemon-theme-nav-hover',
+          typeColors.navHover || typeColors.hover,
+        );
         // Tab background color
-        root.style.setProperty('--pokemon-tab-bg', typeColors.tabBackground || 'var(--color-slate-200)');
+        root.style.setProperty(
+          '--pokemon-tab-bg',
+          typeColors.tabBackground || 'var(--color-slate-200)',
+        );
       });
     } else {
       // Clear custom properties with smooth transition
@@ -320,9 +337,5 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
     getTypeBasedStyles,
   };
 
-  return (
-    <PokemonTypeContext.Provider value={value}>
-      {children}
-    </PokemonTypeContext.Provider>
-  );
+  return <PokemonTypeContext.Provider value={value}>{children}</PokemonTypeContext.Provider>;
 };

@@ -4,7 +4,13 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Card, CardContent, CardHeader } from '../ui/card';
 import Link from 'next/link';
-import { LocationConnection, LocationEvent, LocationItem, LocationTrainer, NPCTrade } from '@/types/types';
+import {
+  LocationConnection,
+  LocationEvent,
+  LocationItem,
+  LocationTrainer,
+  NPCTrade,
+} from '@/types/types';
 import { GroupedPokemon } from '@/types/locationTypes';
 import { formatMethod, formatTime } from '@/utils/locationUtils';
 import TrainerCard from '../trainer/TrainerCard';
@@ -15,7 +21,7 @@ import { Badge } from '../ui/badge';
 
 export default function LocationClient({
   comprehensiveInfo,
-  groupedPokemonData
+  groupedPokemonData,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   comprehensiveInfo?: any;
@@ -55,38 +61,43 @@ export default function LocationClient({
       {comprehensiveInfo && (
         <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-              <div className='flex flex-col gap-2'>
-                <div className="font-medium text-slate-600 dark:text-slate-300">Region</div>
-                <Badge variant={comprehensiveInfo.region}>{comprehensiveInfo.region}</Badge>
+            <div className="flex flex-col gap-2">
+              <div className="font-medium text-slate-600 dark:text-slate-300">Region</div>
+              <Badge variant={comprehensiveInfo.region}>{comprehensiveInfo.region}</Badge>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="font-medium text-slate-600 dark:text-slate-300">Flyable?</div>
+              <div>{comprehensiveInfo.flyable ? 'Yes' : 'No'}</div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="font-medium text-slate-600 dark:text-slate-300">Coordinates</div>
+              <div>
+                {comprehensiveInfo.x}, {comprehensiveInfo.y}
               </div>
-              <div className='flex flex-col gap-2'>
-                <div className="font-medium text-slate-600 dark:text-slate-300">Flyable?</div>
-                <div>{comprehensiveInfo.flyable ? 'Yes' : 'No'}</div>
-              </div>
-              <div className='flex flex-col gap-2'>
-                <div className="font-medium text-slate-600 dark:text-slate-300">Coordinates</div>
-                <div>{comprehensiveInfo.x}, {comprehensiveInfo.y}</div>
-              </div>
-              <div className='flex flex-col gap-2'>
-                <div className="font-medium text-slate-600 dark:text-slate-300">Connections</div>
-                <div>{comprehensiveInfo.connections.length}</div>
-              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="font-medium text-slate-600 dark:text-slate-300">Connections</div>
+              <div>{comprehensiveInfo.connections.length}</div>
+            </div>
           </div>
         </div>
       )}
 
       <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
         <TabsList className="w-full">
-            <TabsTrigger value="pokemon">Pokemon</TabsTrigger>
-            <TabsTrigger value="items">Items</TabsTrigger>
-            <TabsTrigger value="trainers">Trainers</TabsTrigger>
-            <TabsTrigger value="events">Events</TabsTrigger>
-            <TabsTrigger value="trades">Trades</TabsTrigger>
+          <TabsTrigger value="pokemon">Pokemon</TabsTrigger>
+          <TabsTrigger value="items">Items</TabsTrigger>
+          <TabsTrigger value="trainers">Trainers</TabsTrigger>
+          <TabsTrigger value="events">Events</TabsTrigger>
+          <TabsTrigger value="trades">Trades</TabsTrigger>
           <TabsTrigger value="connections">Connections</TabsTrigger>
         </TabsList>
 
         {/* Pokemon encounters tab */}
-        <TabsContent value="pokemon" className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col">
+        <TabsContent
+          value="pokemon"
+          className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
+        >
           {Object.keys(groupedPokemonData).length > 0 ? (
             <div className="space-y-6">
               {Object.entries(groupedPokemonData).map(([method, timeData]) => (
@@ -114,7 +125,9 @@ export default function LocationClient({
                             {data.pokemon.map((pokemon, index) => {
                               const { form } = pokemon;
                               // Create the full pokemon name with form for proper formatting
-                              const fullPokemonName = form ? `${pokemon.name}_${form}` : pokemon.name;
+                              const fullPokemonName = form
+                                ? `${pokemon.name}_${form}`
+                                : pokemon.name;
                               return (
                                 <TableRow key={index}>
                                   <TableCell>
@@ -126,7 +139,9 @@ export default function LocationClient({
                                         {formatPokemonDisplayWithForm(fullPokemonName)}
                                       </Link>
                                       {form && (
-                                        <span className={`text-xs text-muted-foreground ${getFormTypeClass(form)}`}>
+                                        <span
+                                          className={`text-xs text-muted-foreground ${getFormTypeClass(form)}`}
+                                        >
                                           Regional variant
                                         </span>
                                       )}
@@ -193,7 +208,11 @@ export default function LocationClient({
                         </TableCell>
                         <TableCell className="capitalize">{item.type || 'Item'}</TableCell>
                         <TableCell className="text-sm text-gray-600 dark:text-gray-400">
-                          {item.type === 'hiddenItem' ? 'Hidden Item' : item.type === 'tmHm' ? 'TM/HM' : 'Found in this location'}
+                          {item.type === 'hiddenItem'
+                            ? 'Hidden Item'
+                            : item.type === 'tmHm'
+                              ? 'TM/HM'
+                              : 'Found in this location'}
                         </TableCell>
                       </TableRow>
                     ))}
@@ -210,16 +229,15 @@ export default function LocationClient({
 
         {/* Trainers tab */}
         <TabsContent value="trainers" className="py-6">
-                    {comprehensiveInfo?.gymLeader ? (
+          {comprehensiveInfo?.gymLeader ? (
             <div className="space-y-6">
               <h3 className="text-lg font-semibold">Trainers</h3>
               <div className="grid gap-6">
-                  <TrainerCard trainer={comprehensiveInfo.gymLeader} />
+                <TrainerCard trainer={comprehensiveInfo.gymLeader} />
               </div>
             </div>
           ) : (
-            <>
-            </>
+            <></>
           )}
           {comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0 ? (
             <div className="space-y-6">
@@ -249,7 +267,9 @@ export default function LocationClient({
                   {comprehensiveInfo.events.map((event: LocationEvent, index: number) => (
                     <div key={index} className="border-l-4 border-purple-500 pl-4 py-2">
                       <h4 className="font-semibold">{event.type}</h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{event.description}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {event.description}
+                      </p>
                       {event.details && (
                         <p className="text-xs text-purple-600 dark:text-purple-400 mt-1">
                           Details: {event.details}
@@ -277,7 +297,10 @@ export default function LocationClient({
               <CardContent>
                 <div className="space-y-4">
                   {comprehensiveInfo.trades.map((trade: NPCTrade, index: number) => (
-                    <div key={index} className="flex items-center justify-between p-4 border rounded-lg">
+                    <div
+                      key={index}
+                      className="flex items-center justify-between p-4 border rounded-lg"
+                    >
                       <div className="flex items-center gap-4">
                         <div className="text-center">
                           <div className="text-sm text-gray-500">You give</div>
@@ -319,40 +342,78 @@ export default function LocationClient({
         {/* About tab - Location details */}
         <TabsContent value="connections" className="py-6">
           {/* Navigation connections */}
-          {comprehensiveInfo && comprehensiveInfo.connections && comprehensiveInfo.connections.length > 0 ? (
+          {comprehensiveInfo &&
+          comprehensiveInfo.connections &&
+          comprehensiveInfo.connections.length > 0 ? (
             <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-              <h2 className="text-lg font-semibold mb-3 text-blue-800 dark:text-blue-200">Connected Locations</h2>
+              <h2 className="text-lg font-semibold mb-3 text-blue-800 dark:text-blue-200">
+                Connected Locations
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {comprehensiveInfo.connections.map((connection: LocationConnection, index: number) => (
-                  <Link
-                    key={index}
-                    href={`/locations/${encodeURIComponent(connection.targetLocation)}`}
-                    className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 hover:shadow-md"
-                    aria-label={`Navigate ${connection.direction} to ${connection.targetLocationDisplay}`}
-                  >
-                    <div className="flex-shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center">
-                      {connection.direction === 'north' && <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↑</span>}
-                      {connection.direction === 'south' && <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↓</span>}
-                      {connection.direction === 'east' && <span className="text-sm font-bold text-blue-700 dark:text-blue-300">→</span>}
-                      {connection.direction === 'west' && <span className="text-sm font-bold text-blue-700 dark:text-blue-300">←</span>}
-                      {connection.direction === 'northeast' && <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↗</span>}
-                      {connection.direction === 'northwest' && <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↖</span>}
-                      {connection.direction === 'southeast' && <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↘</span>}
-                      {connection.direction === 'southwest' && <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↙</span>}
-                    </div>
-                    <div className="flex-grow">
-                      <div className="text-sm font-medium text-slate-600 dark:text-slate-300 capitalize">
-                        To {connection.direction}
+                {comprehensiveInfo.connections.map(
+                  (connection: LocationConnection, index: number) => (
+                    <Link
+                      key={index}
+                      href={`/locations/${encodeURIComponent(connection.targetLocation)}`}
+                      className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 hover:shadow-md"
+                      aria-label={`Navigate ${connection.direction} to ${connection.targetLocationDisplay}`}
+                    >
+                      <div className="flex-shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center">
+                        {connection.direction === 'north' && (
+                          <span className="text-sm font-bold text-blue-700 dark:text-blue-300">
+                            ↑
+                          </span>
+                        )}
+                        {connection.direction === 'south' && (
+                          <span className="text-sm font-bold text-blue-700 dark:text-blue-300">
+                            ↓
+                          </span>
+                        )}
+                        {connection.direction === 'east' && (
+                          <span className="text-sm font-bold text-blue-700 dark:text-blue-300">
+                            →
+                          </span>
+                        )}
+                        {connection.direction === 'west' && (
+                          <span className="text-sm font-bold text-blue-700 dark:text-blue-300">
+                            ←
+                          </span>
+                        )}
+                        {connection.direction === 'northeast' && (
+                          <span className="text-sm font-bold text-blue-700 dark:text-blue-300">
+                            ↗
+                          </span>
+                        )}
+                        {connection.direction === 'northwest' && (
+                          <span className="text-sm font-bold text-blue-700 dark:text-blue-300">
+                            ↖
+                          </span>
+                        )}
+                        {connection.direction === 'southeast' && (
+                          <span className="text-sm font-bold text-blue-700 dark:text-blue-300">
+                            ↘
+                          </span>
+                        )}
+                        {connection.direction === 'southwest' && (
+                          <span className="text-sm font-bold text-blue-700 dark:text-blue-300">
+                            ↙
+                          </span>
+                        )}
                       </div>
-                      <div className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
-                        {connection.targetLocationDisplay}
+                      <div className="flex-grow">
+                        <div className="text-sm font-medium text-slate-600 dark:text-slate-300 capitalize">
+                          To {connection.direction}
+                        </div>
+                        <div className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                          {connection.targetLocationDisplay}
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex-shrink-0">
-                      <span className="text-slate-400 dark:text-slate-500">→</span>
-                    </div>
-                  </Link>
-                ))}
+                      <div className="flex-shrink-0">
+                        <span className="text-slate-400 dark:text-slate-500">→</span>
+                      </div>
+                    </Link>
+                  ),
+                )}
               </div>
             </div>
           ) : (

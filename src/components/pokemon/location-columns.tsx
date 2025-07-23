@@ -19,7 +19,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
           className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
         >
           Location
-            {column.getIsSorted() === 'desc' ? (
+          {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
             <ArrowUp className="size-3" />
@@ -32,7 +32,8 @@ export const locationColumns: ColumnDef<LocationData>[] = [
     cell: ({ row }) => {
       const location = row.original;
       // Use urlName if available (should be pre-normalized), otherwise normalize the area as fallback
-      const urlPath = location.urlName || (location.area ? normalizeLocationKey(location.area) : null);
+      const urlPath =
+        location.urlName || (location.area ? normalizeLocationKey(location.area) : null);
 
       return (
         <div className="flex items-center space-x-2 min-w-0">
@@ -46,9 +47,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
           ) : (
             <span className=" truncate text-sm ">{location.displayName || location.area}</span>
           )}
-          {urlPath && (
-            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
-          )}
+          {urlPath && <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />}
         </div>
       );
     },
@@ -99,7 +98,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
           className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
         >
           Pokémon
-           {column.getIsSorted() === 'desc' ? (
+          {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
             <ArrowUp className="size-3" />
@@ -159,16 +158,12 @@ export const locationColumns: ColumnDef<LocationData>[] = [
     accessorKey: 'hasItems',
     header: () => {
       return (
-        <span
-          className="text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
-        >
-          Items?
-        </span>
+        <span className="text-muted-foreground hover:bg-gray-200 hover:text-gray-900">Items?</span>
       );
     },
     cell: ({ row }) => {
       const location = row.original;
-      const hasItems = (location.items && location.items.length > 0);
+      const hasItems = location.items && location.items.length > 0;
       return (
         <div className="">
           {hasItems ? (
@@ -202,15 +197,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
     },
     cell: ({ row }) => {
       const flyable = row.getValue('flyable') as boolean;
-      return (
-        <div className="">
-          {flyable ? (
-            <span>Yes</span>
-          ) : (
-            <span>-</span>
-          )}
-        </div>
-      );
+      return <div className="">{flyable ? <span>Yes</span> : <span>-</span>}</div>;
     },
   },
 ];

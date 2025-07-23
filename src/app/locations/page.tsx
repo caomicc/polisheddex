@@ -61,10 +61,13 @@ async function loadAllLocationData(): Promise<EnhancedLocation[]> {
     // Try to load the ordered array first (preserves logical order)
     if (fs.existsSync(orderedLocationsFile)) {
       const data = await fs.promises.readFile(orderedLocationsFile, 'utf8');
-      const orderedLocations = JSON.parse(data) as (LocationData & { key: string; order: number })[];
+      const orderedLocations = JSON.parse(data) as (LocationData & {
+        key: string;
+        order: number;
+      })[];
 
       // Convert to EnhancedLocation format
-      return orderedLocations.map(location => ({
+      return orderedLocations.map((location) => ({
         area: location.key,
         urlName: location.key,
         displayName: location.displayName,
@@ -73,17 +76,20 @@ async function loadAllLocationData(): Promise<EnhancedLocation[]> {
         hasHiddenGrottoes: false, // Will be filled later from Pokemon data
         hasTrainers: Boolean(location.trainers && location.trainers.length > 0), // Check if location has trainers
         trainerCount: location.trainers ? location.trainers.length : 0, // Count of trainers
-        items: location.items ? location.items.map(item => ({
-          type: (item.type as 'item' | 'hiddenItem' | 'tmHm') || 'item',
-          name: item.name,
-          details: item.coordinates ? `Found at coordinates (${item.coordinates.x}, ${item.coordinates.y})` : undefined
-        })) : [], // Convert location items to EnhancedLocation format
+        items: location.items
+          ? location.items.map((item) => ({
+              type: (item.type as 'item' | 'hiddenItem' | 'tmHm') || 'item',
+              name: item.name,
+              details: item.coordinates
+                ? `Found at coordinates (${item.coordinates.x}, ${item.coordinates.y})`
+                : undefined,
+            }))
+          : [], // Convert location items to EnhancedLocation format
         region: location.region,
         flyable: location.flyable,
         connections: location.connections,
-        coordinates: location.x >= 0 && location.y >= 0
-          ? { x: location.x, y: location.y }
-          : undefined,
+        coordinates:
+          location.x >= 0 && location.y >= 0 ? { x: location.x, y: location.y } : undefined,
       }));
     }
 
@@ -102,17 +108,22 @@ async function loadAllLocationData(): Promise<EnhancedLocation[]> {
         hasHiddenGrottoes: false,
         hasTrainers: Boolean(locationInfo.trainers && locationInfo.trainers.length > 0), // Check if location has trainers
         trainerCount: locationInfo.trainers ? locationInfo.trainers.length : 0, // Count of trainers
-        items: locationInfo.items ? locationInfo.items.map(item => ({
-          type: (item.type as 'item' | 'hiddenItem' | 'tmHm') || 'item',
-          name: item.name,
-          details: item.coordinates ? `Found at coordinates (${item.coordinates.x}, ${item.coordinates.y})` : undefined
-        })) : [], // Convert location items to EnhancedLocation format
+        items: locationInfo.items
+          ? locationInfo.items.map((item) => ({
+              type: (item.type as 'item' | 'hiddenItem' | 'tmHm') || 'item',
+              name: item.name,
+              details: item.coordinates
+                ? `Found at coordinates (${item.coordinates.x}, ${item.coordinates.y})`
+                : undefined,
+            }))
+          : [], // Convert location items to EnhancedLocation format
         region: locationInfo.region,
         flyable: locationInfo.flyable,
         connections: locationInfo.connections,
-        coordinates: locationInfo.x >= 0 && locationInfo.y >= 0
-          ? { x: locationInfo.x, y: locationInfo.y }
-          : undefined,
+        coordinates:
+          locationInfo.x >= 0 && locationInfo.y >= 0
+            ? { x: locationInfo.x, y: locationInfo.y }
+            : undefined,
       };
     });
   } catch (error) {
@@ -148,7 +159,6 @@ interface PokemonWithMethods {
   methods?: Record<string, unknown>;
 }
 
-
 /**
  * Create a more intelligent location matching system for items
  * Maps item location names to normalized location keys
@@ -156,7 +166,7 @@ interface PokemonWithMethods {
 function createLocationMappingForItems(locations: EnhancedLocation[]): Record<string, string> {
   const mapping: Record<string, string> = {};
 
-  locations.forEach(location => {
+  locations.forEach((location) => {
     const normalized = normalizeLocationKey(location.area);
     const displayName = location.displayName.toLowerCase();
 
@@ -190,7 +200,7 @@ function createLocationMappingForItems(locations: EnhancedLocation[]): Record<st
     // Handle special locations
     if (displayName.includes('radio tower')) {
       mapping[normalizeLocationKey('Radio Tower')] = normalized;
-      mapping[normalizeLocationKey('Radio Tower Buena\'s Password Club')] = normalized;
+      mapping[normalizeLocationKey("Radio Tower Buena's Password Club")] = normalized;
     }
   });
 
@@ -200,76 +210,82 @@ function inferRegion(locationName: string): 'johto' | 'kanto' | 'orange' | undef
   const name = locationName.toLowerCase();
 
   // Johto locations
-  if (name.includes('national park') ||
-      name.includes('ilex forest') ||
-      name.includes('burned tower') ||
-      name.includes('ecruteak') ||
-      name.includes('olivine') ||
-      name.includes('cianwood') ||
-      name.includes('mahogany') ||
-      name.includes('blackthorn') ||
-      name.includes('lake of rage') ||
-      name.includes('ice path') ||
-      name.includes('dragon\'s den') ||
-      name.includes('whirl islands') ||
-      name.includes('new bark') ||
-      name.includes('cherrygrove') ||
-      name.includes('violet city') ||
-      name.includes('azalea') ||
-      name.includes('goldenrod') ||
-      name.includes('ruins of alph') ||
-      name.includes('sprout tower') ||
-      name.includes('slowpoke well') ||
-      name.includes('union cave') ||
-      name.includes('dark cave') ||
-      name.includes('tin tower') ||
-      name.includes('mt silver') ||
-      name.includes('tohjo falls') ||
-      /route (29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46)/.test(name)) {
+  if (
+    name.includes('national park') ||
+    name.includes('ilex forest') ||
+    name.includes('burned tower') ||
+    name.includes('ecruteak') ||
+    name.includes('olivine') ||
+    name.includes('cianwood') ||
+    name.includes('mahogany') ||
+    name.includes('blackthorn') ||
+    name.includes('lake of rage') ||
+    name.includes('ice path') ||
+    name.includes("dragon's den") ||
+    name.includes('whirl islands') ||
+    name.includes('new bark') ||
+    name.includes('cherrygrove') ||
+    name.includes('violet city') ||
+    name.includes('azalea') ||
+    name.includes('goldenrod') ||
+    name.includes('ruins of alph') ||
+    name.includes('sprout tower') ||
+    name.includes('slowpoke well') ||
+    name.includes('union cave') ||
+    name.includes('dark cave') ||
+    name.includes('tin tower') ||
+    name.includes('mt silver') ||
+    name.includes('tohjo falls') ||
+    /route (29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46)/.test(name)
+  ) {
     return 'johto';
   }
 
   // Kanto locations
-  if (name.includes('pallet') ||
-      name.includes('viridian') ||
-      name.includes('pewter') ||
-      name.includes('cerulean') ||
-      name.includes('vermilion') ||
-      name.includes('lavender') ||
-      name.includes('celadon') ||
-      name.includes('fuchsia') ||
-      name.includes('saffron') ||
-      name.includes('cinnabar') ||
-      name.includes('indigo plateau') ||
-      name.includes('mt moon') ||
-      name.includes('rock tunnel') ||
-      name.includes('power plant') ||
-      name.includes('pokemon tower') ||
-      name.includes('safari zone') ||
-      name.includes('seafoam islands') ||
-      name.includes('victory road') ||
-      name.includes('cerulean cave') ||
-      name.includes('digletts cave') ||
-      name.includes('pokemon mansion') ||
-      /route ([1-9]|1[0-9]|2[0-8])(?:\s|$)/.test(name)) {
+  if (
+    name.includes('pallet') ||
+    name.includes('viridian') ||
+    name.includes('pewter') ||
+    name.includes('cerulean') ||
+    name.includes('vermilion') ||
+    name.includes('lavender') ||
+    name.includes('celadon') ||
+    name.includes('fuchsia') ||
+    name.includes('saffron') ||
+    name.includes('cinnabar') ||
+    name.includes('indigo plateau') ||
+    name.includes('mt moon') ||
+    name.includes('rock tunnel') ||
+    name.includes('power plant') ||
+    name.includes('pokemon tower') ||
+    name.includes('safari zone') ||
+    name.includes('seafoam islands') ||
+    name.includes('victory road') ||
+    name.includes('cerulean cave') ||
+    name.includes('digletts cave') ||
+    name.includes('pokemon mansion') ||
+    /route ([1-9]|1[0-9]|2[0-8])(?:\s|$)/.test(name)
+  ) {
     return 'kanto';
   }
 
   // Orange Islands locations
-  if (name.includes('valencia') ||
-      name.includes('tangelo') ||
-      name.includes('mikan') ||
-      name.includes('mandarin') ||
-      name.includes('navel') ||
-      name.includes('trovita') ||
-      name.includes('kumquat') ||
-      name.includes('pummelo') ||
-      name.includes('shamouti') ||
-      name.includes('beautiful beach') ||
-      name.includes('crystal beach') ||
-      name.includes('bellchime trail') ||
-      name.includes('seven grapefruit islands') ||
-      /gi\s*\d+/.test(name)) {
+  if (
+    name.includes('valencia') ||
+    name.includes('tangelo') ||
+    name.includes('mikan') ||
+    name.includes('mandarin') ||
+    name.includes('navel') ||
+    name.includes('trovita') ||
+    name.includes('kumquat') ||
+    name.includes('pummelo') ||
+    name.includes('shamouti') ||
+    name.includes('beautiful beach') ||
+    name.includes('crystal beach') ||
+    name.includes('bellchime trail') ||
+    name.includes('seven grapefruit islands') ||
+    /gi\s*\d+/.test(name)
+  ) {
     return 'orange';
   }
 
@@ -287,7 +303,11 @@ function getLocationTypes(locationName: string): string[] {
     return ['Grass'];
   } else if (locationName.includes('Cave') || locationName.includes('Mountain')) {
     return ['Rock'];
-  } else if (locationName.includes('Lake') || locationName.includes('Sea') || locationName.includes('Ocean')) {
+  } else if (
+    locationName.includes('Lake') ||
+    locationName.includes('Sea') ||
+    locationName.includes('Ocean')
+  ) {
     return ['Water'];
   } else if (locationName.includes('Tower') || locationName.includes('Ruins')) {
     return ['Ghost'];
@@ -318,7 +338,7 @@ export default async function LocationsPage() {
   Object.assign(itemLocationMapping, basicMapping);
 
   // Add some manual mappings for common patterns we know about
-  comprehensiveLocations.forEach(location => {
+  comprehensiveLocations.forEach((location) => {
     const normalized = normalizeLocationKey(location.area);
     const displayName = location.displayName.toLowerCase();
 
@@ -334,18 +354,21 @@ export default async function LocationsPage() {
 
     // Radio Tower special mappings
     if (displayName.includes('radio tower')) {
-      itemLocationMapping[normalizeLocationKey('Radio Tower Buena\'s Password Club')] = normalized;
+      itemLocationMapping[normalizeLocationKey("Radio Tower Buena's Password Club")] = normalized;
     }
   });
 
   // Create a map of items by location (normalized location names as keys)
-  const itemsByLocation: Record<string, Array<{ type: 'item' | 'hiddenItem' | 'tmHm'; name: string; details?: string }>> = {};
+  const itemsByLocation: Record<
+    string,
+    Array<{ type: 'item' | 'hiddenItem' | 'tmHm'; name: string; details?: string }>
+  > = {};
 
   // Check if itemsData exists and is an object before processing
   if (itemsData && typeof itemsData === 'object') {
-    Object.values(itemsData).forEach(item => {
+    Object.values(itemsData).forEach((item) => {
       if (item && item.locations && Array.isArray(item.locations)) {
-        item.locations.forEach(location => {
+        item.locations.forEach((location) => {
           if (location && location.area && location.details) {
             // Skip non-location items like "Pickup"
             if (location.area.toLowerCase() === 'pickup') {
@@ -363,11 +386,13 @@ export default async function LocationsPage() {
               const areaLower = location.area.toLowerCase();
 
               // Look for partial matches in comprehensive locations
-              const partialMatch = comprehensiveLocations.find(loc => {
+              const partialMatch = comprehensiveLocations.find((loc) => {
                 const displayLower = loc.displayName.toLowerCase();
                 // Check if the area name contains the location name or vice versa
-                return displayLower.includes(areaLower.split(' ')[0]) ||
-                       areaLower.includes(displayLower.split(' ')[0]);
+                return (
+                  displayLower.includes(areaLower.split(' ')[0]) ||
+                  areaLower.includes(displayLower.split(' ')[0])
+                );
               });
 
               if (partialMatch) {
@@ -389,24 +414,24 @@ export default async function LocationsPage() {
             itemsByLocation[normalizedLocationKey].push({
               type: itemType,
               name: item.name,
-              details: location.details
+              details: location.details,
             });
           }
         });
       }
     });
-  }  // Create a normalized Pokemon location map for efficient lookups
+  } // Create a normalized Pokemon location map for efficient lookups
   const normalizedPokemonData: Record<string, { originalKey: string; data: LocationAreaData }> = {};
-  Object.keys(pokemonLocationData).forEach(originalKey => {
+  Object.keys(pokemonLocationData).forEach((originalKey) => {
     const normalizedKey = normalizeLocationKey(originalKey);
     normalizedPokemonData[normalizedKey] = {
       originalKey,
-      data: pokemonLocationData[originalKey]
+      data: pokemonLocationData[originalKey],
     };
   });
 
   // Merge Pokemon data into comprehensive locations (preserving order)
-  const enhancedLocations: EnhancedLocation[] = comprehensiveLocations.map(location => {
+  const enhancedLocations: EnhancedLocation[] = comprehensiveLocations.map((location) => {
     // Find matching Pokemon data using normalized keys
     let pokemonData: LocationAreaData | null = null;
     const normalizedKey = normalizeLocationKey(location.area);
@@ -422,7 +447,7 @@ export default async function LocationsPage() {
     const hasHiddenGrottoes = pokemonData
       ? Object.values(pokemonData.pokemon).some(
           (pokemon: PokemonWithMethods) =>
-            pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto')
+            pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
         )
       : false;
 
@@ -445,7 +470,7 @@ export default async function LocationsPage() {
   const usedPokemonKeys = new Set<string>();
 
   // Mark all Pokemon locations that were already matched with comprehensive data
-  enhancedLocations.forEach(location => {
+  enhancedLocations.forEach((location) => {
     const normalizedKey = normalizeLocationKey(location.area);
     if (normalizedPokemonData[normalizedKey]) {
       usedPokemonKeys.add(normalizedKey);
@@ -454,14 +479,14 @@ export default async function LocationsPage() {
 
   // Create entries for unmatched Pokemon locations (append at the end to preserve order)
   const pokemonOnlyLocations: EnhancedLocation[] = Object.keys(normalizedPokemonData)
-    .filter(normalizedKey => !usedPokemonKeys.has(normalizedKey))
-    .map(normalizedKey => {
+    .filter((normalizedKey) => !usedPokemonKeys.has(normalizedKey))
+    .map((normalizedKey) => {
       const { originalKey, data: pokemonData } = normalizedPokemonData[normalizedKey];
       const pokemonCount = Object.keys(pokemonData.pokemon).length;
 
       const hasHiddenGrottoes = Object.values(pokemonData.pokemon).some(
         (pokemon: PokemonWithMethods) =>
-          pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto')
+          pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
       );
 
       // Get items for this location from both sources
@@ -490,33 +515,31 @@ export default async function LocationsPage() {
 
   return (
     <>
-    <Hero
-      className="text-white"
-      headline={'Locations'}
-      description={
-        'Explore the diverse locations in Pokémon Polished Crystal'
-      }
-      breadcrumbs={
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="/" className="hover:underline text-white hover:text-slate-200">
-                  Home
-                </Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage className="text-white">Locations</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      }
-    />
-    <div className="max-w-xl md:max-w-4xl mx-auto px-4">
-      {/* Display summary of location data */}
-      {/* <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+      <Hero
+        className="text-white"
+        headline={'Locations'}
+        description={'Explore the diverse locations in Pokémon Polished Crystal'}
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-white">Locations</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
+      />
+      <div className="max-w-xl md:max-w-4xl mx-auto px-4">
+        {/* Display summary of location data */}
+        {/* <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
           <div className="text-center">
             <div className="text-2xl font-bold text-blue-600">{processedLocations.length}</div>
@@ -541,10 +564,8 @@ export default async function LocationsPage() {
         </div>
       </div> */}
 
-
-      <LocationSearch locations={processedLocations as LocationData[]} />
-
-    </div>
+        <LocationSearch locations={processedLocations as LocationData[]} />
+      </div>
     </>
   );
 }

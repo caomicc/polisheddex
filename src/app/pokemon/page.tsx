@@ -47,34 +47,32 @@ export default async function PokemonList({
 
   return (
     <>
-    <Hero
-      headline={'Pokedex'}
-      className="text-white"
-      description={
-          'Browse all Pokémon available in Pokémon Polished Crystal'
-      }
-      breadcrumbs={
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="/" className="hover:underline text-white hover:text-slate-200">
-                Home
-              </Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage className="text-white">Pokemon</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-    }
-    />
+      <Hero
+        headline={'Pokedex'}
+        className="text-white"
+        description={'Browse all Pokémon available in Pokémon Polished Crystal'}
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-white">Pokemon</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
+      />
 
-    <div className="max-w-xl md:max-w-4xl mx-auto p-4">
-      <PokemonSearch pokemon={sortedPokemon} sortType={sortType} />
-    </div>
+      <div className="max-w-xl md:max-w-4xl mx-auto p-4">
+        <PokemonSearch pokemon={sortedPokemon} sortType={sortType} />
+      </div>
     </>
   );
 }

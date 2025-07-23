@@ -28,7 +28,10 @@ export async function loadJsonFile<T>(relativePath: string): Promise<T | null> {
       console.log(`Successfully loaded file from: ${filePath}`);
       return parsed;
     } catch (error) {
-      console.log(`Failed to load from ${filePath}:`, error instanceof Error ? error.message : String(error));
+      console.log(
+        `Failed to load from ${filePath}:`,
+        error instanceof Error ? error.message : String(error),
+      );
       continue;
     }
   }
@@ -36,7 +39,6 @@ export async function loadJsonFile<T>(relativePath: string): Promise<T | null> {
   console.error(`Failed to load file ${relativePath} from any path`);
   return null;
 }
-
 
 // Function to safely load JSON data
 export async function loadJsonData<T>(filePath: string): Promise<T | null> {

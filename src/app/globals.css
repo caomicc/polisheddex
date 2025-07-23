@@ -196,9 +196,7 @@
 }
 
 /* Pokémon Type Backgrounds with 50% Opacity */
-.bg-bug-20 {
-  @apply bg-bug/20;
-}
+
 /* Dynamic type gradient utilities */
 .bg-dual-type-gradient {
   background: linear-gradient(
@@ -233,56 +231,114 @@
   );
 }
 
+.bg-bug-20 {
+  @apply bg-bug/20;
+}
+.bg-bug-page {
+  @apply bg-bug/10;
+}
+
 .bg-dark-20 {
   @apply bg-dark/20;
+}
+.bg-bug-page {
+  @apply bg-bug/10;
 }
 .bg-dragon-20 {
   @apply bg-dragon/20;
 }
+.bg-bug-page {
+  @apply bg-bug/10;
+}
 .bg-electric-20 {
   @apply bg-electric/20;
+}
+.bg-electric-page {
+  @apply bg-electric/10;
 }
 .bg-fairy-20 {
   @apply bg-fairy/20;
 }
+.bg-fairy-page {
+  @apply bg-fairy/10;
+}
 .bg-fighting-20 {
   @apply bg-fighting/20;
+}
+.bg-fighting-page {
+  @apply bg-fighting/10;
 }
 .bg-fire-20 {
   @apply bg-fire/20;
 }
+.bg-fire-page {
+  @apply bg-fire/10;
+}
 .bg-flying-20 {
   @apply bg-flying/20;
+}
+.bg-flying-page {
+  @apply bg-flying/10;
 }
 .bg-ghost-20 {
   @apply bg-ghost/20;
 }
+.bg-ghost-page {
+  @apply bg-ghost/10;
+}
 .bg-grass-20 {
   @apply bg-grass/20;
+}
+.bg-grass-page {
+  @apply bg-grass/5;
 }
 .bg-ground-20 {
   @apply bg-ground/20;
 }
+.bg-ground-page {
+  @apply bg-ground/10;
+}
 .bg-ice-20 {
   @apply bg-ice/20;
+}
+.bg-ice-page {
+  @apply bg-ice/10;
 }
 .bg-normal-20 {
   @apply bg-normal/20;
 }
+.bg-normal-page {
+  @apply bg-normal/10;
+}
 .bg-poison-20 {
   @apply bg-poison/20;
+}
+.bg-poison-page {
+  @apply bg-poison/10;
 }
 .bg-psychic-20 {
   @apply bg-psychic/20;
 }
+.bg-psychic-page {
+  @apply bg-psychic/10;
+}
 .bg-rock-20 {
   @apply bg-rock/20;
+}
+.bg-rock-page {
+  @apply bg-rock/10;
 }
 .bg-steel-20 {
   @apply bg-steel/20;
 }
+.bg-steel-page {
+  @apply bg-steel/10;
+}
 .bg-water-20 {
   @apply bg-water/20;
+}
+.bg-water-page {
+  @apply bg-water/10;
 }
 
 /* Pokémon Type Shadow Classes */
@@ -519,7 +575,9 @@
   top: 100%;
   overflow: hidden;
   z-index: 1;
-  transition: width, transform 250ms ease;
+  transition:
+    width,
+    transform 250ms ease;
 }
 .NavigationMenuIndicator[data-state='visible'] {
   animation: fadeIn 200ms ease;
@@ -536,9 +594,14 @@
   background-color: white;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  box-shadow:
+    hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   height: var(--radix-navigation-menu-viewport-height);
-  transition: width, height, 300ms ease;
+  transition:
+    width,
+    height,
+    300ms ease;
 }
 .NavigationMenuViewport[data-state='open'] {
   animation: scaleIn 200ms ease;

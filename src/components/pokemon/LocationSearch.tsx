@@ -10,9 +10,7 @@ interface LocationSearchProps {
 }
 
 const LocationSearch: React.FC<LocationSearchProps> = ({ locations }) => {
-  return (
-    <LocationDataTable columns={locationColumns} data={locations} />
-  );
+  return <LocationDataTable columns={locationColumns} data={locations} />;
 };
 
 export default LocationSearch;

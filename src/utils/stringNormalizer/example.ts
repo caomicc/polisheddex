@@ -13,21 +13,21 @@ const moveVariants = [
   'ThunderShock',
   'ThundershockDescription',
   'BattleAnim_ThunderShock',
-  'Sfx_Thundershock'
+  'Sfx_Thundershock',
 ];
 
 console.log('\nPractical usage example:');
 console.log('------------------------');
 
 // Normalize a set of move variants
-const normalizedMoves = moveVariants.map(move => {
+const normalizedMoves = moveVariants.map((move) => {
   const normalized = normalizeMoveString(move);
   console.log(`"${move}" → "${normalized}"`);
   return normalized;
 });
 
 // Check if all variants normalize to the same string
-const allMatch = normalizedMoves.every(move => move === normalizedMoves[0]);
+const allMatch = normalizedMoves.every((move) => move === normalizedMoves[0]);
 console.log(`\nAll variants normalize to the same string: ${allMatch ? 'Yes ✅' : 'No ❌'}`);
 
 // Example with move conflict resolution
@@ -37,13 +37,13 @@ const conflictingMoves = [
   'SlashDescription',
   'Night Slash',
   'NIGHT_SLASH',
-  'NightSlashDescription'
+  'NightSlashDescription',
 ];
 
 console.log('\nConflict resolution example:');
 console.log('---------------------------');
 
-conflictingMoves.forEach(move => {
+conflictingMoves.forEach((move) => {
   console.log(`"${move}" → "${normalizeMoveString(move)}"`);
 });
 

@@ -31,13 +31,14 @@ export default async function ItemsList({
 
   // For filtering, we'll primarily work with regular items
   // but we can add TM/HMs as a special category
-  const filteredItems = category === 'all'
-    ? regularItems
-    : category === 'tm-hm'
-    ? tmhmItems
-    : regularItems.filter(item =>
-        item.attributes?.category?.toLowerCase().replace(/\s+/g, '-') === category
-      );
+  const filteredItems =
+    category === 'all'
+      ? regularItems
+      : category === 'tm-hm'
+        ? tmhmItems
+        : regularItems.filter(
+            (item) => item.attributes?.category?.toLowerCase().replace(/\s+/g, '-') === category,
+          );
 
   // Sort based on selected sort type
   const sortedItems = [...filteredItems].sort((a, b) => {
@@ -55,19 +56,21 @@ export default async function ItemsList({
       return priceB - priceA;
     }
     if (sort === 'category') {
-      const aCat = isRegularItem(a) ? (a.attributes?.category || 'Unknown') : 'TM/HM';
-      const bCat = isRegularItem(b) ? (b.attributes?.category || 'Unknown') : 'TM/HM';
+      const aCat = isRegularItem(a) ? a.attributes?.category || 'Unknown' : 'TM/HM';
+      const bCat = isRegularItem(b) ? b.attributes?.category || 'Unknown' : 'TM/HM';
       return aCat.localeCompare(bCat) || a.name.localeCompare(b.name);
     }
     return 0;
   });
 
   // Get unique categories for filter (include TM/HM as special category)
-  const categories = Array.from(new Set(
-    regularItems
-      .filter(item => item.attributes?.category) // Only include items with categories
-      .map(item => item.attributes.category)
-  )).sort();
+  const categories = Array.from(
+    new Set(
+      regularItems
+        .filter((item) => item.attributes?.category) // Only include items with categories
+        .map((item) => item.attributes.category),
+    ),
+  ).sort();
 
   // Add TM/HM category if we have TM/HM items
   if (tmhmItems.length > 0) {
@@ -76,30 +79,29 @@ export default async function ItemsList({
 
   return (
     <>
-    <Hero
-      className="text-white"
-      headline="Items"
-      description="Browse all items available in Pokémon Polished Crystal"
-      breadcrumbs={
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link href="/" className="hover:underline text-white hover:text-slate-200">
-                  Home
-                </Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage className="text-white">Items</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      }
-    />
+      <Hero
+        className="text-white"
+        headline="Items"
+        description="Browse all items available in Pokémon Polished Crystal"
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-white">Items</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
+      />
       <div className="max-w-xl md:max-w-4xl mx-auto p-4">
-
         <ItemSearch
           initialSort={sort}
           initialCategory={category}
@@ -117,7 +119,7 @@ export default async function ItemsList({
               <div className="flex items-start justify-between mb-2">
                 <h3 className="font-semibold text-lg">{item.name}</h3>
                 <span className="text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
-                  {isRegularItem(item) ? (item.attributes?.category || 'Item') : 'TM/HM'}
+                  {isRegularItem(item) ? item.attributes?.category || 'Item' : 'TM/HM'}
                 </span>
               </div>
               <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-2">
@@ -137,9 +139,8 @@ export default async function ItemsList({
                   {isRegularItem(item)
                     ? `${item.locations?.length || 0} location${(item.locations?.length || 0) !== 1 ? 's' : ''}`
                     : isTMHMItem(item) && item.location
-                    ? '1 location'
-                    : 'No locations'
-                  }
+                      ? '1 location'
+                      : 'No locations'}
                 </span>
               </div>
             </Link>

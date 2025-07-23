@@ -1,4 +1,4 @@
-import { getItemIdFromDisplayName } from './src/utils/itemUtils';
+import { getItemIdFromDisplayName } from '../utils/itemUtils';
 
 // Test evolution items mapping
 const testEvolutionItems = [
@@ -11,14 +11,14 @@ const testEvolutionItems = [
   'Dusk Stone',
   'Shiny Stone',
   'Dawn Stone',
-  'King\'s Rock',
+  "King's Rock",
   'Metal Coat',
   'Dragon Scale',
   'Upgrade',
 ];
 
 console.log('Testing evolution item ID conversion:');
-testEvolutionItems.forEach(item => {
+testEvolutionItems.forEach((item) => {
   const itemId = getItemIdFromDisplayName(item);
   console.log(`${item} -> ${itemId}`);
 });

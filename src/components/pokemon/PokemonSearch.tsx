@@ -28,9 +28,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
     }
 
     // Get the appropriate types based on user preference
-    const selectedTypes = showUpdatedTypes
-      ? p.updatedTypes || p.types
-      : p.types;
+    const selectedTypes = showUpdatedTypes ? p.updatedTypes || p.types : p.types;
 
     // Check if any type matches
     const types = Array.isArray(selectedTypes) ? selectedTypes : [selectedTypes];
@@ -138,11 +136,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
         <ul className="grid gap-4 md:gap-8 grid-cols-2 md:grid-cols-3">
           {filteredPokemon.map((p) => (
             <li key={p.name}>
-              <PokemonCard
-                pokemon={p}
-                sortType={sortType}
-                showUpdatedTypes={showUpdatedTypes}
-              />
+              <PokemonCard pokemon={p} sortType={sortType} showUpdatedTypes={showUpdatedTypes} />
             </li>
           ))}
         </ul>

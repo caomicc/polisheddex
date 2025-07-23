@@ -25,7 +25,7 @@ export default function PokemonNavigation({ navigation, dexType }: PokemonNaviga
   const formatPokemonName = (name: string) => {
     return name
       .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
   };
 
@@ -42,9 +42,9 @@ export default function PokemonNavigation({ navigation, dexType }: PokemonNaviga
         {previous ? (
           <Button asChild variant="default">
             <Link href={previous.url}>
-                <div className="font-medium truncate text-sm">
-                 ← {formatPokemonName(previous.name)} #{current.index - 1}
-                </div>
+              <div className="font-medium truncate text-sm">
+                ← {formatPokemonName(previous.name)} #{current.index - 1}
+              </div>
             </Link>
           </Button>
         ) : (
@@ -63,7 +63,7 @@ export default function PokemonNavigation({ navigation, dexType }: PokemonNaviga
           <Button asChild variant="default">
             <Link href={next.url} className="">
               <div className="font-medium truncate text-sm">
-               #{current.index + 1} {formatPokemonName(next.name)} →
+                #{current.index + 1} {formatPokemonName(next.name)} →
               </div>
             </Link>
           </Button>

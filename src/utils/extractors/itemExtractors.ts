@@ -6,12 +6,12 @@ import { replaceMonString } from '../stringUtils.ts';
 
 // Define types for item data
 export interface ItemData {
-  id: string;          // URI-friendly ID
-  name: string;        // Display name
+  id: string; // URI-friendly ID
+  name: string; // Display name
   description: string; // Item description
   attributes?: {
-    price: number;     // Item price/value
-    effect?: string;   // Held item effect type
+    price: number; // Item price/value
+    effect?: string; // Held item effect type
     parameter?: number | string; // Effect parameter
     category?: string; // Item category (MEDICINE, BERRIES, ITEM, etc.)
     useOutsideBattle?: string; // How the item can be used outside battle
@@ -19,9 +19,9 @@ export interface ItemData {
     isKeyItem?: boolean; // Whether this is a key item
   };
   locations?: Array<{
-    area: string;      // Location name
-    details?: string;  // Additional details like "For sale" or "Hidden item"
-    price?: number;    // Price in BP for battle facilities
+    area: string; // Location name
+    details?: string; // Additional details like "For sale" or "Hidden item"
+    price?: number; // Price in BP for battle facilities
   }>;
 }
 
@@ -44,15 +44,18 @@ export function extractItemData(): Record<string, ItemData> {
   const lines = descriptionsData.split(/\r?\n/);
 
   // Parse item attributes if file exists
-  const itemAttributes: Record<string, {
-    price: number;
-    effect?: string;
-    parameter?: number | string;
-    category?: string;
-    useOutsideBattle?: string;
-    useInBattle?: string;
-    isKeyItem?: boolean;
-  }> = {};
+  const itemAttributes: Record<
+    string,
+    {
+      price: number;
+      effect?: string;
+      parameter?: number | string;
+      category?: string;
+      useOutsideBattle?: string;
+      useInBattle?: string;
+      isKeyItem?: boolean;
+    }
+  > = {};
 
   if (fs.existsSync(attributesFile)) {
     console.log('🔍 Found attributes.asm file, extracting attributes...');
@@ -61,68 +64,68 @@ export function extractItemData(): Record<string, ItemData> {
 
     // Map of effect codes to readable effect names
     const effectMap: Record<string, string> = {
-      'HELD_NONE': 'None',
-      'HELD_BERRY': 'Restore HP',
-      'HELD_RESTORE_PP': 'Restore PP',
-      'HELD_HEAL_STATUS': 'Heal Status',
-      'HELD_HEAL_CONFUSE': 'Heal Confusion',
-      'HELD_HEAL_PARALYZE': 'Heal Paralysis',
-      'HELD_HEAL_FREEZE': 'Heal Freeze',
-      'HELD_HEAL_BURN': 'Heal Burn',
-      'HELD_HEAL_POISON': 'Heal Poison',
-      'HELD_HEAL_SLEEP': 'Heal Sleep',
-      'HELD_ESCAPE': 'Escape from wild battles',
-      'HELD_PREVENT_EVOLVE': 'Prevent Evolution',
-      'HELD_FOCUS_BAND': 'Focus Band Effect',
-      'HELD_LEFTOVERS': 'Leftovers Recovery',
-      'HELD_CLEANSE_TAG': 'Reduce Wild Encounters',
-      'HELD_QUICK_CLAW': 'Quick Claw Effect',
-      'HELD_BRIGHTPOWDER': 'Reduce Accuracy',
-      'HELD_LUCKY_EGG': 'Extra EXP',
-      'HELD_METAL_POWDER': 'Boost Defense (Ditto)',
-      'HELD_QUICK_POWDER': 'Boost Speed (Ditto)',
-      'HELD_LIGHT_BALL': 'Boost Special Attack (Pikachu)',
-      'HELD_FLINCH_UP': 'Increase Flinch Chance',
-      'HELD_CRITICAL_UP': 'Increase Critical Hit Ratio',
-      'HELD_AMULET_COIN': 'Double Prize Money',
-      'HELD_EVIOLITE': 'Boost Defense/Sp.Defense (Unevolved)',
-      'HELD_TYPE_BOOST': 'Boost Move Type Power',
-      'HELD_CATEGORY_BOOST': 'Boost Move Category Power',
-      'HELD_BERSERK_GENE': 'Berserk Gene Effect',
-      'HELD_ACCURACY_BOOST': 'Boost Move Accuracy',
-      'HELD_BLACK_SLUDGE': 'Black Sludge Effect',
-      'HELD_ZOOM_LENS': 'Zoom Lens Effect',
-      'HELD_SHELL_BELL': 'Shell Bell Effect',
-      'HELD_POWER_HERB': 'Power Herb Effect',
-      'HELD_MENTAL_HERB': 'Mental Herb Effect',
-      'HELD_WHITE_HERB': 'White Herb Effect',
-      'HELD_LIFE_ORB': 'Life Orb Effect',
-      'HELD_FOCUS_SASH': 'Focus Sash Effect',
-      'HELD_IRON_BALL': 'Iron Ball Effect',
-      'HELD_SHED_SHELL': 'Shed Shell Effect',
-      'HELD_BIG_ROOT': 'Big Root Effect',
-      'HELD_EXP_SHARE': 'Share Experience',
-      'HELD_EXPERT_BELT': 'Expert Belt Effect',
+      HELD_NONE: 'None',
+      HELD_BERRY: 'Restore HP',
+      HELD_RESTORE_PP: 'Restore PP',
+      HELD_HEAL_STATUS: 'Heal Status',
+      HELD_HEAL_CONFUSE: 'Heal Confusion',
+      HELD_HEAL_PARALYZE: 'Heal Paralysis',
+      HELD_HEAL_FREEZE: 'Heal Freeze',
+      HELD_HEAL_BURN: 'Heal Burn',
+      HELD_HEAL_POISON: 'Heal Poison',
+      HELD_HEAL_SLEEP: 'Heal Sleep',
+      HELD_ESCAPE: 'Escape from wild battles',
+      HELD_PREVENT_EVOLVE: 'Prevent Evolution',
+      HELD_FOCUS_BAND: 'Focus Band Effect',
+      HELD_LEFTOVERS: 'Leftovers Recovery',
+      HELD_CLEANSE_TAG: 'Reduce Wild Encounters',
+      HELD_QUICK_CLAW: 'Quick Claw Effect',
+      HELD_BRIGHTPOWDER: 'Reduce Accuracy',
+      HELD_LUCKY_EGG: 'Extra EXP',
+      HELD_METAL_POWDER: 'Boost Defense (Ditto)',
+      HELD_QUICK_POWDER: 'Boost Speed (Ditto)',
+      HELD_LIGHT_BALL: 'Boost Special Attack (Pikachu)',
+      HELD_FLINCH_UP: 'Increase Flinch Chance',
+      HELD_CRITICAL_UP: 'Increase Critical Hit Ratio',
+      HELD_AMULET_COIN: 'Double Prize Money',
+      HELD_EVIOLITE: 'Boost Defense/Sp.Defense (Unevolved)',
+      HELD_TYPE_BOOST: 'Boost Move Type Power',
+      HELD_CATEGORY_BOOST: 'Boost Move Category Power',
+      HELD_BERSERK_GENE: 'Berserk Gene Effect',
+      HELD_ACCURACY_BOOST: 'Boost Move Accuracy',
+      HELD_BLACK_SLUDGE: 'Black Sludge Effect',
+      HELD_ZOOM_LENS: 'Zoom Lens Effect',
+      HELD_SHELL_BELL: 'Shell Bell Effect',
+      HELD_POWER_HERB: 'Power Herb Effect',
+      HELD_MENTAL_HERB: 'Mental Herb Effect',
+      HELD_WHITE_HERB: 'White Herb Effect',
+      HELD_LIFE_ORB: 'Life Orb Effect',
+      HELD_FOCUS_SASH: 'Focus Sash Effect',
+      HELD_IRON_BALL: 'Iron Ball Effect',
+      HELD_SHED_SHELL: 'Shed Shell Effect',
+      HELD_BIG_ROOT: 'Big Root Effect',
+      HELD_EXP_SHARE: 'Share Experience',
+      HELD_EXPERT_BELT: 'Expert Belt Effect',
       // Add more effect mappings as needed
     };
 
     // Map of category codes to readable names
     const categoryMap: Record<string, string> = {
-      'MEDICINE': 'Medicine',
-      'BERRIES': 'Berry',
-      'ITEM': 'Item',
-      'BALL': 'Poké Ball',
-      'KEY': 'Key Item',
-      'TMHM': 'TM/HM',
-      'CANDY': 'Experience Candy'
+      MEDICINE: 'Medicine',
+      BERRIES: 'Berry',
+      ITEM: 'Item',
+      BALL: 'Poké Ball',
+      KEY: 'Key Item',
+      TMHM: 'TM/HM',
+      CANDY: 'Experience Candy',
     };
 
     // Map of use codes to readable descriptions
     const useMap: Record<string, string> = {
-      'ITEMMENU_NOUSE': 'Cannot use',
-      'ITEMMENU_PARTY': 'Use on party Pokémon',
-      'ITEMMENU_CLOSE': 'Use and close menu',
-      'ITEMMENU_CURRENT': 'Use without closing'
+      ITEMMENU_NOUSE: 'Cannot use',
+      ITEMMENU_PARTY: 'Use on party Pokémon',
+      ITEMMENU_CLOSE: 'Use and close menu',
+      ITEMMENU_CURRENT: 'Use without closing',
     };
 
     // Parse each item_attribute line
@@ -157,7 +160,7 @@ export function extractItemData(): Record<string, ItemData> {
             parameter: isNaN(parseInt(parameter, 10)) ? parameter : parseInt(parameter, 10),
             category: categoryMap[category] || category,
             useOutsideBattle: useMap[outBattle] || outBattle,
-            useInBattle: useMap[inBattle] || inBattle
+            useInBattle: useMap[inBattle] || inBattle,
           };
         }
       }
@@ -176,7 +179,7 @@ export function extractItemData(): Record<string, ItemData> {
             } else {
               itemAttributes[normalizedKeyId] = {
                 price: 0,
-                isKeyItem: true
+                isKeyItem: true,
               };
             }
           }
@@ -225,7 +228,9 @@ export function extractItemData(): Record<string, ItemData> {
 
     // Check for end of description
     if (line === 'done' && currentItems.length > 0) {
-      console.log(`🔍 Processing ${currentItems.length} items with shared description: ${currentItems.join(', ')}`);
+      console.log(
+        `🔍 Processing ${currentItems.length} items with shared description: ${currentItems.join(', ')}`,
+      );
 
       // Save all items that share this description
       for (const itemName of currentItems) {
@@ -238,7 +243,7 @@ export function extractItemData(): Record<string, ItemData> {
         const itemData: ItemData = {
           id: itemId,
           name: displayName,
-          description: replaceMonString(description.trim())
+          description: replaceMonString(description.trim()),
         };
 
         // Add attributes if available
@@ -256,16 +261,20 @@ export function extractItemData(): Record<string, ItemData> {
   }
 
   // Count items with attributes for debugging
-  const itemsWithAttributes = Object.values(items).filter(item => item.attributes).length;
+  const itemsWithAttributes = Object.values(items).filter((item) => item.attributes).length;
   console.log(`✅ Item data extracted to ${outputFile}`);
-  console.log(`📊 Stats: ${Object.keys(items).length} total items, ${itemsWithAttributes} items with attributes`);
+  console.log(
+    `📊 Stats: ${Object.keys(items).length} total items, ${itemsWithAttributes} items with attributes`,
+  );
 
   // Check for items without attributes
   if (itemsWithAttributes < Object.keys(itemAttributes).length) {
-    console.log(`⚠️ Warning: ${Object.keys(itemAttributes).length - itemsWithAttributes} attributes were not matched to any item`);
+    console.log(
+      `⚠️ Warning: ${Object.keys(itemAttributes).length - itemsWithAttributes} attributes were not matched to any item`,
+    );
     // List which attribute keys were not matched
-    const itemIds = Object.keys(items).map(id => normalizeItemId(id));
-    const unmatchedAttrs = Object.keys(itemAttributes).filter(id => !itemIds.includes(id));
+    const itemIds = Object.keys(items).map((id) => normalizeItemId(id));
+    const unmatchedAttrs = Object.keys(itemAttributes).filter((id) => !itemIds.includes(id));
     if (unmatchedAttrs.length > 0) {
       console.log('🔍 Unmatched attribute keys:', unmatchedAttrs.join(', '));
     }
@@ -278,24 +287,24 @@ export function extractItemData(): Record<string, ItemData> {
     }
   }
 
-  console.log("📦 Extracted item data contains", Object.keys(items).length, "items.");
+  console.log('📦 Extracted item data contains', Object.keys(items).length, 'items.');
 
-  console.log("🔧 Extracting mart data...");
+  console.log('🔧 Extracting mart data...');
   extractMartData(items);
 
-  console.log("🔧 Extracting pickup items data...");
+  console.log('🔧 Extracting pickup items data...');
   extractPickupItems(items);
 
-  console.log("🔧 Extracting rock smashing items data...");
+  console.log('🔧 Extracting rock smashing items data...');
   extractRockItems(items);
 
-  console.log("🔧 Extracting fishing items data...");
+  console.log('🔧 Extracting fishing items data...');
   extractFishingItems(items);
 
-  console.log("🔧 Extracting rooftop sale data...");
+  console.log('🔧 Extracting rooftop sale data...');
   extractRooftopSale(items);
 
-  console.log("🔧 Extracting item maniacs data...");
+  console.log('🔧 Extracting item maniacs data...');
   extractItemManiacs(items);
 
   // Write the extracted data to a JSON file
@@ -311,11 +320,7 @@ export function extractItemData(): Record<string, ItemData> {
  */
 export function generateItemId(rawName: string): string {
   // Remove "Ball" or other suffixes, replace underscores, convert to lowercase
-  return rawName
-    .replace(/ball$/i, '')
-    .replace(/desc$/i, '')
-    .replace(/_/g, '-')
-    .toLowerCase();
+  return rawName.replace(/ball$/i, '').replace(/desc$/i, '').replace(/_/g, '-').toLowerCase();
 }
 
 /**
@@ -382,16 +387,22 @@ export function normalizeItemId(rawName: string): string {
   name = name.replace(/master(ball)?$/, 'masterball');
 
   // Handle mail items consistently
-  if (name.includes('mail') || name.match(/^(music|flower|surf|mirage|portrait|bluesky|eon|morph|liteblue|lovely)$/)) {
+  if (
+    name.includes('mail') ||
+    name.match(/^(music|flower|surf|mirage|portrait|bluesky|eon|morph|liteblue|lovely)$/)
+  ) {
     if (name === 'music' || name === 'music-mail' || name === 'musicmail') return 'musicmail';
     if (name === 'flower' || name === 'flower-mail' || name === 'flowermail') return 'flowermail';
     if (name === 'surf' || name === 'surf-mail' || name === 'surfmail') return 'surfmail';
     if (name === 'mirage' || name === 'mirage-mail' || name === 'miragemail') return 'miragemail';
-    if (name === 'portrait' || name === 'portrait-mail' || name === 'portraitmail') return 'portraitmail';
-    if (name === 'bluesky' || name === 'bluesky-mail' || name === 'blueskymail') return 'blueskymail';
+    if (name === 'portrait' || name === 'portrait-mail' || name === 'portraitmail')
+      return 'portraitmail';
+    if (name === 'bluesky' || name === 'bluesky-mail' || name === 'blueskymail')
+      return 'blueskymail';
     if (name === 'eon' || name === 'eon-mail' || name === 'eonmail') return 'eonmail';
     if (name === 'morph' || name === 'morph-mail' || name === 'morphmail') return 'morphmail';
-    if (name === 'liteblue' || name === 'liteblue-mail' || name === 'litebluemail') return 'litebluemail';
+    if (name === 'liteblue' || name === 'liteblue-mail' || name === 'litebluemail')
+      return 'litebluemail';
     if (name === 'lovely' || name === 'lovely-mail' || name === 'lovelymail') return 'lovelymail';
   }
 
@@ -407,164 +418,164 @@ export function normalizeItemId(rawName: string): string {
   // Map common item names to their expected IDs
   const itemMappings: Record<string, string> = {
     // Poké Balls
-    'pokeball': 'poke',
+    pokeball: 'poke',
     'poke-ball': 'poke',
-    'greatball': 'great',
+    greatball: 'great',
     'great-ball': 'great',
-    'ultraball': 'ultra',
+    ultraball: 'ultra',
     'ultra-ball': 'ultra',
-    'masterball': 'master',
+    masterball: 'master',
     'master-ball': 'master',
-    'safariball': 'safari',
+    safariball: 'safari',
     'safari-ball': 'safari',
-    'levelball': 'level',
+    levelball: 'level',
     'level-ball': 'level',
-    'lureball': 'lure',
+    lureball: 'lure',
     'lure-ball': 'lure',
-    'moonball': 'moon',
+    moonball: 'moon',
     'moon-ball': 'moon',
-    'friendball': 'friend',
+    friendball: 'friend',
     'friend-ball': 'friend',
-    'fastball': 'fast',
+    fastball: 'fast',
     'fast-ball': 'fast',
-    'heavyball': 'heavy',
+    heavyball: 'heavy',
     'heavy-ball': 'heavy',
-    'loveball': 'love',
+    loveball: 'love',
     'love-ball': 'love',
-    'healball': 'heal',
+    healball: 'heal',
     'heal-ball': 'heal',
-    'netball': 'net',
+    netball: 'net',
     'net-ball': 'net',
-    'nestball': 'nest',
+    nestball: 'nest',
     'nest-ball': 'nest',
-    'repeatball': 'repeat',
+    repeatball: 'repeat',
     'repeat-ball': 'repeat',
-    'timerball': 'timer',
+    timerball: 'timer',
     'timer-ball': 'timer',
-    'luxuryball': 'luxury',
+    luxuryball: 'luxury',
     'luxury-ball': 'luxury',
-    'premierball': 'premier',
+    premierball: 'premier',
     'premier-ball': 'premier',
-    'diveball': 'dive',
+    diveball: 'dive',
     'dive-ball': 'dive',
-    'duskball': 'dusk',
+    duskball: 'dusk',
     'dusk-ball': 'dusk',
-    'quickball': 'quick',
+    quickball: 'quick',
     'quick-ball': 'quick',
-    'dreamball': 'dream',
+    dreamball: 'dream',
     'dream-ball': 'dream',
-    'cherishball': 'cherish',
+    cherishball: 'cherish',
 
     // Medicine
-    'superpotion': 'super',
-    'hyperpotion': 'hyper',
-    'maxpotion': 'max',
+    superpotion: 'super',
+    hyperpotion: 'hyper',
+    maxpotion: 'max',
     // 'fullrestore': 'full',
-    'maxrevive': 'max-revive',
-    'freshwater': 'fresh-water',
-    'sodapop': 'soda-pop',
-    'moomoomilk': 'moomoo-milk',
-    'burnheal': 'burn-heal',
-    'iceheal': 'ice-heal',
-    'paralyzeheal': 'paralyze-heal',
-    'energyroot': 'energy-root',
-    'healpowder': 'heal-powder',
-    'revivalherb': 'revival-herb',
-    'fullheal': 'full-heal',
+    maxrevive: 'max-revive',
+    freshwater: 'fresh-water',
+    sodapop: 'soda-pop',
+    moomoomilk: 'moomoo-milk',
+    burnheal: 'burn-heal',
+    iceheal: 'ice-heal',
+    paralyzeheal: 'paralyze-heal',
+    energyroot: 'energy-root',
+    healpowder: 'heal-powder',
+    revivalherb: 'revival-herb',
+    fullheal: 'full-heal',
 
     // Battle items
-    'xattack': 'x-attack',
-    'xdefend': 'x-defend',
-    'xspeed': 'x-speed',
-    'xspatk': 'x-sp-atk',
-    'xspdef': 'x-sp-def',
-    'xaccuracy': 'x-accuracy',
-    'direhit': 'dire-hit',
-    'guardspec': 'guard-spec',
+    xattack: 'x-attack',
+    xdefend: 'x-defend',
+    xspeed: 'x-speed',
+    xspatk: 'x-sp-atk',
+    xspdef: 'x-sp-def',
+    xaccuracy: 'x-accuracy',
+    direhit: 'dire-hit',
+    guardspec: 'guard-spec',
     'guardspec.': 'guard-spec',
 
     // Evolution items
-    'firestone': 'firestone',
+    firestone: 'firestone',
     'fire-stone': 'firestone',
-    'thunderstone': 'thunderstone',
-    'waterstone': 'waterstone',
-    'leafstone': 'leafstone',
+    thunderstone: 'thunderstone',
+    waterstone: 'waterstone',
+    leafstone: 'leafstone',
     'leaf-stone': 'leafstone',
-    'moonstone': 'moonstone',
+    moonstone: 'moonstone',
     'shiny-stone': 'shinystone',
-    'sunstone': 'sunstone',
+    sunstone: 'sunstone',
     'sun-stone': 'sunstone',
-    'icestone': 'icestone',
+    icestone: 'icestone',
     'ice-stone': 'icestone',
-    'duskstone': 'duskstone',
+    duskstone: 'duskstone',
     'dusk-stone': 'duskstone',
-    'shinystone': 'shinystone',
+    shinystone: 'shinystone',
 
     // Hold items
-    'luckyegg': 'lucky-egg',
-    'amuletcoin': 'amulet-coin',
-    'kingsrock': 'kings-rock',
+    luckyegg: 'lucky-egg',
+    amuletcoin: 'amulet-coin',
+    kingsrock: 'kings-rock',
     'kings-rock': 'kings-rock',
-    'blackbelt': 'black-belt',
-    'choiceband': 'choice-band',
-    'choicescarf': 'choice-scarf',
-    'choicespecs': 'choice-specs',
-    'scopelens': 'scope-lens',
-    'focusband': 'focus-band',
-    'focussash': 'focus-sash',
-    'airballoon': 'air-balloon',
+    blackbelt: 'black-belt',
+    choiceband: 'choice-band',
+    choicescarf: 'choice-scarf',
+    choicespecs: 'choice-specs',
+    scopelens: 'scope-lens',
+    focusband: 'focus-band',
+    focussash: 'focus-sash',
+    airballoon: 'air-balloon',
 
     // Field items
-    'escaperope': 'escape-rope',
-    'superrepel': 'super-repel',
-    'maxrepel': 'max-repel',
-    'pokedoll': 'poke-doll',
+    escaperope: 'escape-rope',
+    superrepel: 'super-repel',
+    maxrepel: 'max-repel',
+    pokedoll: 'poke-doll',
 
     // Other items
-    'ragecandybar': 'ragecandybar',
-    'expshare': 'exp',
+    ragecandybar: 'ragecandybar',
+    expshare: 'exp',
     'exp.share': 'exp',
-    'metronomei': 'metronome',
-    'rarecandy': 'rare',
-    'ppmax': 'pp',
-    'abilitycap': 'ability-cap',
-    'weakpolicy': 'weak',
-    'blundrpolicy': 'blundr',
-    'widelens': 'wide',
-    'zoomlens': 'zoom',
-    'machobrace': 'macho',
-    'powerweight': 'power-weight',
-    'powerbracer': 'power-bracer',
-    'powerbelt': 'power-belt',
-    'powerlens': 'power-lens',
-    'powerband': 'power-band',
-    'poweranklet': 'power-anklet',
-    'assaultvest': 'assault',
-    'protectpads': 'protect',
-    'rockyhelmet': 'rocky',
-    'safegoggles': 'safe',
-    'heavyboots': 'heavy',
-    'punchinglove': 'punching',
-    'covertcloak': 'covert',
-    'ejectbutton': 'eject',
-    'ejectpack': 'eject-pack',
-    'redcard': 'red',
-    'ironball': 'iron',
-    'laggingtail': 'lagging',
-    'flameorb': 'flame',
-    'toxicorb': 'toxic',
-    'blacksludge': 'black',
-    'clearamulet': 'clear',
-    'bindingband': 'binding',
-    'gripclaw': 'grip',
-    'loadeddice': 'loaded',
-    'throatspray': 'throat',
-    'roomservice': 'room',
-    'lifeorb': 'life',
-    'smokeball': 'smoke',
-    'lightball': 'light',
-    'mintleaf': 'mint',
-    'bottlecap': 'bottlecap'
+    metronomei: 'metronome',
+    rarecandy: 'rare',
+    ppmax: 'pp',
+    abilitycap: 'ability-cap',
+    weakpolicy: 'weak',
+    blundrpolicy: 'blundr',
+    widelens: 'wide',
+    zoomlens: 'zoom',
+    machobrace: 'macho',
+    powerweight: 'power-weight',
+    powerbracer: 'power-bracer',
+    powerbelt: 'power-belt',
+    powerlens: 'power-lens',
+    powerband: 'power-band',
+    poweranklet: 'power-anklet',
+    assaultvest: 'assault',
+    protectpads: 'protect',
+    rockyhelmet: 'rocky',
+    safegoggles: 'safe',
+    heavyboots: 'heavy',
+    punchinglove: 'punching',
+    covertcloak: 'covert',
+    ejectbutton: 'eject',
+    ejectpack: 'eject-pack',
+    redcard: 'red',
+    ironball: 'iron',
+    laggingtail: 'lagging',
+    flameorb: 'flame',
+    toxicorb: 'toxic',
+    blacksludge: 'black',
+    clearamulet: 'clear',
+    bindingband: 'binding',
+    gripclaw: 'grip',
+    loadeddice: 'loaded',
+    throatspray: 'throat',
+    roomservice: 'room',
+    lifeorb: 'life',
+    smokeball: 'smoke',
+    lightball: 'light',
+    mintleaf: 'mint',
+    bottlecap: 'bottlecap',
   };
 
   console.log('🔍 Normalizing item ID:', itemMappings[name], name);
@@ -645,7 +656,7 @@ export function extractPickupItems(itemData: Record<string, ItemData>): void {
     const possibleIds = [
       normalizedId,
       generateItemId(itemName),
-      itemName.toLowerCase().replace(/_/g, '-')
+      itemName.toLowerCase().replace(/_/g, '-'),
     ];
 
     let found = false;
@@ -657,7 +668,7 @@ export function extractPickupItems(itemData: Record<string, ItemData>): void {
 
         itemData[id].locations.push({
           area: 'Pickup',
-          details: 'Common'
+          details: 'Common',
         });
 
         itemsWithPickup++;
@@ -679,7 +690,7 @@ export function extractPickupItems(itemData: Record<string, ItemData>): void {
     const possibleIds = [
       normalizedId,
       generateItemId(itemName),
-      itemName.toLowerCase().replace(/_/g, '-')
+      itemName.toLowerCase().replace(/_/g, '-'),
     ];
 
     let found = false;
@@ -691,7 +702,7 @@ export function extractPickupItems(itemData: Record<string, ItemData>): void {
 
         itemData[id].locations.push({
           area: 'Pickup',
-          details: 'Rare'
+          details: 'Rare',
         });
 
         itemsWithPickup++;
@@ -708,7 +719,10 @@ export function extractPickupItems(itemData: Record<string, ItemData>): void {
   console.log(`✅ Added pickup location data to ${itemsWithPickup} items`);
 
   if (unmatchedItems.length > 0) {
-    console.log(`⚠️ Could not match ${unmatchedItems.length} pickup items:`, unmatchedItems.join(', '));
+    console.log(
+      `⚠️ Could not match ${unmatchedItems.length} pickup items:`,
+      unmatchedItems.join(', '),
+    );
   }
 }
 
@@ -748,7 +762,10 @@ export function extractRockItems(itemData: Record<string, ItemData>): void {
 
     // Look for item entries (db rarity, ITEM_NAME)
     if (line.startsWith('db ') && line.includes(',')) {
-      const parts = line.replace('db ', '').split(',').map(p => p.trim());
+      const parts = line
+        .replace('db ', '')
+        .split(',')
+        .map((p) => p.trim());
       if (parts.length >= 2 && !parts[1].includes('NO_ITEM') && !parts[0].includes('-1')) {
         const rarity = parseInt(parts[0], 10);
         const itemName = parts[1];
@@ -771,7 +788,7 @@ export function extractRockItems(itemData: Record<string, ItemData>): void {
     const possibleIds = [
       normalizedId,
       generateItemId(itemName),
-      itemName.toLowerCase().replace(/_/g, '-')
+      itemName.toLowerCase().replace(/_/g, '-'),
     ];
 
     let found = false;
@@ -782,13 +799,12 @@ export function extractRockItems(itemData: Record<string, ItemData>): void {
         }
 
         // Add rarity information to the details
-        const rarityText = rarity === 1 ? 'Very rare' :
-          rarity <= 4 ? 'Rare' :
-            rarity <= 24 ? 'Uncommon' : 'Common';
+        const rarityText =
+          rarity === 1 ? 'Very rare' : rarity <= 4 ? 'Rare' : rarity <= 24 ? 'Uncommon' : 'Common';
 
         itemData[id].locations.push({
           area: 'Rock Smash',
-          details: `Rock smashing (${rarityText})`
+          details: `Rock smashing (${rarityText})`,
         });
 
         itemsWithRock++;
@@ -805,7 +821,10 @@ export function extractRockItems(itemData: Record<string, ItemData>): void {
   console.log(`✅ Added rock smashing location data to ${itemsWithRock} items`);
 
   if (unmatchedItems.length > 0) {
-    console.log(`⚠️ Could not match ${unmatchedItems.length} rock items:`, unmatchedItems.join(', '));
+    console.log(
+      `⚠️ Could not match ${unmatchedItems.length} rock items:`,
+      unmatchedItems.join(', '),
+    );
   }
 }
 
@@ -846,7 +865,10 @@ export function extractFishingItems(itemData: Record<string, ItemData>): void {
     // Look for item entries - could be various formats
     if (line.startsWith('db ') && !line.includes('NO_ITEM')) {
       // Handle different formats like "db rarity, ITEM" or just "db ITEM"
-      const parts = line.replace('db ', '').split(',').map(p => p.trim());
+      const parts = line
+        .replace('db ', '')
+        .split(',')
+        .map((p) => p.trim());
       const itemName = parts.length > 1 ? parts[1] : parts[0];
 
       if (itemName && itemName !== 'NO_ITEM' && itemName !== '-1') {
@@ -866,7 +888,7 @@ export function extractFishingItems(itemData: Record<string, ItemData>): void {
     const possibleIds = [
       normalizedId,
       generateItemId(itemName),
-      itemName.toLowerCase().replace(/_/g, '-')
+      itemName.toLowerCase().replace(/_/g, '-'),
     ];
 
     let found = false;
@@ -878,7 +900,7 @@ export function extractFishingItems(itemData: Record<string, ItemData>): void {
 
         itemData[id].locations.push({
           area: 'Fishing',
-          details: 'Fishing spots'
+          details: 'Fishing spots',
         });
 
         itemsWithFish++;
@@ -895,7 +917,10 @@ export function extractFishingItems(itemData: Record<string, ItemData>): void {
   console.log(`✅ Added fishing location data to ${itemsWithFish} items`);
 
   if (unmatchedItems.length > 0) {
-    console.log(`⚠️ Could not match ${unmatchedItems.length} fishing items:`, unmatchedItems.join(', '));
+    console.log(
+      `⚠️ Could not match ${unmatchedItems.length} fishing items:`,
+      unmatchedItems.join(', '),
+    );
   }
 }
 
@@ -935,7 +960,10 @@ export function extractRooftopSale(itemData: Record<string, ItemData>): void {
 
     // Look for item entries - could be "db ITEM, price" or just "db ITEM"
     if (line.startsWith('db ') && !line.includes('NO_ITEM')) {
-      const parts = line.replace('db ', '').split(',').map(p => p.trim());
+      const parts = line
+        .replace('db ', '')
+        .split(',')
+        .map((p) => p.trim());
       const itemName = parts[0];
       const price = parts.length > 1 ? parseInt(parts[1], 10) : undefined;
 
@@ -956,7 +984,7 @@ export function extractRooftopSale(itemData: Record<string, ItemData>): void {
     const possibleIds = [
       normalizedId,
       generateItemId(itemName),
-      itemName.toLowerCase().replace(/_/g, '-')
+      itemName.toLowerCase().replace(/_/g, '-'),
     ];
 
     let found = false;
@@ -971,7 +999,7 @@ export function extractRooftopSale(itemData: Record<string, ItemData>): void {
         itemData[id].locations.push({
           area: 'Goldenrod City',
           details,
-          price
+          price,
         });
 
         itemsWithRooftop++;
@@ -988,7 +1016,10 @@ export function extractRooftopSale(itemData: Record<string, ItemData>): void {
   console.log(`✅ Added rooftop sale location data to ${itemsWithRooftop} items`);
 
   if (unmatchedItems.length > 0) {
-    console.log(`⚠️ Could not match ${unmatchedItems.length} rooftop sale items:`, unmatchedItems.join(', '));
+    console.log(
+      `⚠️ Could not match ${unmatchedItems.length} rooftop sale items:`,
+      unmatchedItems.join(', '),
+    );
   }
 }
 
@@ -1043,7 +1074,10 @@ export function extractItemManiacs(itemData: Record<string, ItemData>): void {
 
     // Look for item entries (dbw ITEM_NAME, cost)
     if (line.startsWith('dbw ') && line.includes(',') && !line.includes('-1')) {
-      const parts = line.replace('dbw ', '').split(',').map(p => p.trim());
+      const parts = line
+        .replace('dbw ', '')
+        .split(',')
+        .map((p) => p.trim());
       if (parts.length >= 2) {
         const itemName = parts[0];
         const cost = parseInt(parts[1], 10);
@@ -1066,7 +1100,7 @@ export function extractItemManiacs(itemData: Record<string, ItemData>): void {
     const possibleIds = [
       normalizedId,
       generateItemId(itemName),
-      itemName.toLowerCase().replace(/_/g, '-')
+      itemName.toLowerCase().replace(/_/g, '-'),
     ];
 
     let found = false;
@@ -1079,7 +1113,7 @@ export function extractItemManiacs(itemData: Record<string, ItemData>): void {
         itemData[id].locations.push({
           area: maniacType,
           details: `${cost} points`,
-          price: cost
+          price: cost,
         });
 
         itemsWithManiac++;
@@ -1096,6 +1130,9 @@ export function extractItemManiacs(itemData: Record<string, ItemData>): void {
   console.log(`✅ Added item maniac location data to ${itemsWithManiac} items`);
 
   if (unmatchedItems.length > 0) {
-    console.log(`⚠️ Could not match ${unmatchedItems.length} maniac items:`, unmatchedItems.join(', '));
+    console.log(
+      `⚠️ Could not match ${unmatchedItems.length} maniac items:`,
+      unmatchedItems.join(', '),
+    );
   }
 }

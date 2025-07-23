@@ -80,14 +80,9 @@ describe('String Normalizer', () => {
 
   describe('normalizeMoveString', () => {
     it('should be an alias of normalizeString', () => {
-      const testStrings = [
-        'ThunderShock',
-        'DOUBLE_SLAP',
-        'Wild Charge',
-        'NIGHT_SLASH'
-      ];
+      const testStrings = ['ThunderShock', 'DOUBLE_SLAP', 'Wild Charge', 'NIGHT_SLASH'];
 
-      testStrings.forEach(str => {
+      testStrings.forEach((str) => {
         expect(normalizeMoveString(str)).toBe(normalizeString(str));
       });
     });

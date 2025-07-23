@@ -1,5 +1,5 @@
-import { extractItemData } from './src/utils/extractors/itemExtractors.ts';
-import { extractMartData } from './src/utils/extractors/martExtractors.ts';
+import { extractItemData } from '../utils/extractors/itemExtractors.ts';
+import { extractMartData } from '../utils/extractors/martExtractors.ts';
 
 // Extract item data
 console.log('🔍 Extracting item data...');

@@ -3,8 +3,6 @@ import path from 'path';
 import { urlKeyToStandardKey } from './pokemonUrlNormalizer';
 import { loadJsonData } from './fileLoader';
 
-
-
 export interface NavigationData {
   previous: { name: string; url: string } | null;
   next: { name: string; url: string } | null;
@@ -23,14 +21,14 @@ function pokemonNameToUrlSafe(name: string): string {
  */
 export function getPokemonNavigation(
   currentPokemonName: string,
-  dexOrder: string[]
+  dexOrder: string[],
 ): NavigationData {
   // Normalize the current Pokemon name to match the dex order format
   const normalizedCurrentName = urlKeyToStandardKey(currentPokemonName);
 
   // Find the current Pokemon's index in the dex order
-  const currentIndex = dexOrder.findIndex(name =>
-    urlKeyToStandardKey(name) === normalizedCurrentName
+  const currentIndex = dexOrder.findIndex(
+    (name) => urlKeyToStandardKey(name) === normalizedCurrentName,
   );
 
   if (currentIndex === -1) {
@@ -41,20 +39,26 @@ export function getPokemonNavigation(
       current: {
         name: currentPokemonName,
         index: -1,
-        total: dexOrder.length
-      }
+        total: dexOrder.length,
+      },
     };
   }
 
-  const previous = currentIndex > 0 ? {
-    name: dexOrder[currentIndex - 1],
-    url: `/pokemon/${pokemonNameToUrlSafe(dexOrder[currentIndex - 1])}`
-  } : null;
+  const previous =
+    currentIndex > 0
+      ? {
+          name: dexOrder[currentIndex - 1],
+          url: `/pokemon/${pokemonNameToUrlSafe(dexOrder[currentIndex - 1])}`,
+        }
+      : null;
 
-  const next = currentIndex < dexOrder.length - 1 ? {
-    name: dexOrder[currentIndex + 1],
-    url: `/pokemon/${pokemonNameToUrlSafe(dexOrder[currentIndex + 1])}`
-  } : null;
+  const next =
+    currentIndex < dexOrder.length - 1
+      ? {
+          name: dexOrder[currentIndex + 1],
+          url: `/pokemon/${pokemonNameToUrlSafe(dexOrder[currentIndex + 1])}`,
+        }
+      : null;
 
   return {
     previous,
@@ -62,8 +66,8 @@ export function getPokemonNavigation(
     current: {
       name: currentPokemonName,
       index: currentIndex + 1, // 1-based indexing for display
-      total: dexOrder.length
-    }
+      total: dexOrder.length,
+    },
   };
 }
 
@@ -101,7 +105,7 @@ export async function loadDexOrders(): Promise<{
 
         const [nationalResponse, johtoResponse] = await Promise.all([
           fetch(`${baseUrl}/output/national_dex_order.json`),
-          fetch(`${baseUrl}/output/johto_dex_order.json`)
+          fetch(`${baseUrl}/output/johto_dex_order.json`),
         ]);
 
         if (nationalResponse.ok && !nationalData) {
@@ -118,12 +122,12 @@ export async function loadDexOrders(): Promise<{
 
     const result = {
       national: nationalData || [],
-      johto: johtoData || []
+      johto: johtoData || [],
     };
 
     console.log('Dex orders loaded:', {
       nationalCount: result.national.length,
-      johtoCount: result.johto.length
+      johtoCount: result.johto.length,
     });
 
     return result;
@@ -131,11 +135,11 @@ export async function loadDexOrders(): Promise<{
     console.error('Error loading dex orders:', error);
     console.error('Error details:', {
       message: error instanceof Error ? error.message : String(error),
-      cwd: process.cwd()
+      cwd: process.cwd(),
     });
     return {
       national: [],
-      johto: []
+      johto: [],
     };
   }
 }
@@ -146,13 +150,12 @@ export async function loadDexOrders(): Promise<{
 export function getDexOrderToUse(
   pokemonData: { nationalDex?: number | null; johtoDex?: number | null },
   nationalOrder: string[],
-  johtoOrder: string[]
+  johtoOrder: string[],
 ): { order: string[]; type: 'national' | 'johto' } {
-
   console.log('getDexOrderToUse called with:', {
     pokemonData,
     nationalOrder,
-    johtoOrder
+    johtoOrder,
   });
 
   // If we don't have any order data, return empty arrays but still indicate the preferred type
@@ -161,7 +164,7 @@ export function getDexOrderToUse(
     const preferJohto = pokemonData.johtoDex && pokemonData.johtoDex > 0;
     return {
       order: [],
-      type: preferJohto ? 'johto' : 'national'
+      type: preferJohto ? 'johto' : 'national',
     };
   }
 

@@ -1,4 +1,4 @@
-import { getItemIdFromDisplayName } from './src/utils/itemUtils';
+import { getItemIdFromDisplayName } from '../utils/itemUtils';
 import fs from 'fs';
 import path from 'path';
 
@@ -12,7 +12,7 @@ const testCases = [
   'Master Ball',
   'Rare Candy',
   'Max Revive',
-  'Full Restore'
+  'Full Restore',
 ];
 
 console.log('Testing item ID conversion...');
@@ -21,7 +21,7 @@ console.log('Testing item ID conversion...');
 const itemsFile = path.join(process.cwd(), 'output/items_data.json');
 const itemsData = JSON.parse(fs.readFileSync(itemsFile, 'utf8'));
 
-testCases.forEach(testCase => {
+testCases.forEach((testCase) => {
   const itemId = getItemIdFromDisplayName(testCase);
   const exists = itemId && itemsData[itemId];
   console.log(`${testCase} -> ${itemId} ${exists ? '✅' : '❌'}`);

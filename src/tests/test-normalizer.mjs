@@ -7,7 +7,7 @@ import {
   urlKeyToStandardKey,
   getPokemonFileName,
   validatePokemonHyphenation,
-} from './pokemonUrlNormalizer.js';
+} from '../utils/pokemonUrlNormalizer.js';
 
 console.log('Running simple Pokemon URL Normalizer tests...\n');
 

@@ -51,13 +51,11 @@ export default async function ItemPage({ params }: ItemPageProps) {
         <div className="flex items-start gap-4 mb-4">
           <div className="flex-1">
             <h1 className="text-3xl font-bold mb-2">{item.name}</h1>
-            <p className="text-gray-600 dark:text-gray-400 text-lg">
-              {item.description}
-            </p>
+            <p className="text-gray-600 dark:text-gray-400 text-lg">{item.description}</p>
           </div>
           <div className="flex flex-col items-end gap-2">
             <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium">
-              {isRegularItem(item) ? (item.attributes?.category || 'Item') : 'TM/HM'}
+              {isRegularItem(item) ? item.attributes?.category || 'Item' : 'TM/HM'}
             </span>
             {isRegularItem(item) && item.attributes?.price !== undefined && (
               <span className="text-2xl font-bold text-green-600 dark:text-green-400">
@@ -80,14 +78,17 @@ export default async function ItemPage({ params }: ItemPageProps) {
 // Component for regular items
 function RegularItemDetails({ item }: { item: import('@/types/types').ItemData }) {
   // Group locations by area type for better organization
-  const groupedLocations = (item.locations || []).reduce((acc: Record<string, string[]>, location) => {
-    const key = location.details;
-    if (!acc[key]) {
-      acc[key] = [];
-    }
-    acc[key].push(location.area);
-    return acc;
-  }, {});
+  const groupedLocations = (item.locations || []).reduce(
+    (acc: Record<string, string[]>, location) => {
+      const key = location.details;
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      acc[key].push(location.area);
+      return acc;
+    },
+    {},
+  );
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -97,11 +98,15 @@ function RegularItemDetails({ item }: { item: import('@/types/types').ItemData }
         <div className="space-y-3">
           <div className="flex justify-between">
             <span className="font-medium">Effect:</span>
-            <span className="text-gray-600 dark:text-gray-400">{item.attributes?.effect || 'None'}</span>
+            <span className="text-gray-600 dark:text-gray-400">
+              {item.attributes?.effect || 'None'}
+            </span>
           </div>
           <div className="flex justify-between">
             <span className="font-medium">Parameter:</span>
-            <span className="text-gray-600 dark:text-gray-400">{item.attributes?.parameter || 0}</span>
+            <span className="text-gray-600 dark:text-gray-400">
+              {item.attributes?.parameter || 0}
+            </span>
           </div>
           <div className="flex justify-between">
             <span className="font-medium">Price:</span>
@@ -128,12 +133,13 @@ function RegularItemDetails({ item }: { item: import('@/types/types').ItemData }
 
       {/* Locations */}
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow border border-gray-200 dark:border-gray-700">
-        <h2 className="text-xl font-semibold mb-4">
-          Locations ({item.locations?.length || 0})
-        </h2>
+        <h2 className="text-xl font-semibold mb-4">Locations ({item.locations?.length || 0})</h2>
         <div className="space-y-4">
           {Object.entries(groupedLocations).map(([method, areas]) => (
-            <div key={method} className="border-b border-gray-200 dark:border-gray-600 pb-3 last:border-b-0">
+            <div
+              key={method}
+              className="border-b border-gray-200 dark:border-gray-600 pb-3 last:border-b-0"
+            >
               <h3 className="font-medium text-blue-600 dark:text-blue-400 mb-2 capitalize">
                 {method}
               </h3>
@@ -166,7 +172,9 @@ function TMHMItemDetails({ item }: { item: import('@/types/types').TMHMData }) {
           </div>
           <div className="flex justify-between">
             <span className="font-medium">Type:</span>
-            <span className={`px-2 py-1 rounded text-sm font-medium bg-${item.type.toLowerCase()}-100 text-${item.type.toLowerCase()}-800`}>
+            <span
+              className={`px-2 py-1 rounded text-sm font-medium bg-${item.type.toLowerCase()}-100 text-${item.type.toLowerCase()}-800`}
+            >
               {item.type}
             </span>
           </div>
@@ -194,9 +202,7 @@ function TMHMItemDetails({ item }: { item: import('@/types/types').TMHMData }) {
         <h2 className="text-xl font-semibold mb-4">Location</h2>
         <div className="space-y-2">
           <div>
-            <h3 className="font-medium text-blue-600 dark:text-blue-400">
-              {item.location.area}
-            </h3>
+            <h3 className="font-medium text-blue-600 dark:text-blue-400">{item.location.area}</h3>
             {item.location.details && (
               <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
                 {item.location.details}
@@ -238,18 +244,12 @@ export async function generateMetadata({ params }: ItemPageProps) {
   const locationInfo = isRegularItem(item)
     ? `Available at ${item.locations?.length || 0} locations`
     : isTMHMItem(item) && item.location
-    ? `Available at ${item.location.area}`
-    : 'Location unknown';
+      ? `Available at ${item.location.area}`
+      : 'Location unknown';
 
   return {
     title: `${item.name} - PolishedDex Items`,
     description: `${item.description} ${priceInfo} ${locationInfo} in Pokémon Polished Crystal.`,
-    keywords: [
-      'pokemon polished crystal',
-      'items',
-      item.name,
-      itemType,
-      'polisheddex',
-    ],
+    keywords: ['pokemon polished crystal', 'items', item.name, itemType, 'polisheddex'],
   };
 }

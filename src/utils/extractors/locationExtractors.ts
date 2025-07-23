@@ -1,6 +1,13 @@
 import fs from 'node:fs';
-import type { EncounterDetail, LocationAreaData, LocationEntry, PokemonLocationData, LocationData, LocationConnection } from "../../types/types.ts";
-import path from "node:path";
+import type {
+  EncounterDetail,
+  LocationAreaData,
+  LocationEntry,
+  PokemonLocationData,
+  LocationData,
+  LocationConnection,
+} from '../../types/types.ts';
+import path from 'node:path';
 import { normalizeMonName } from '../stringUtils.ts';
 import { getFullPokemonName } from './pokedexExtractors.ts';
 import { processLocations } from '../helpers.ts';
@@ -9,7 +16,6 @@ import { fileURLToPath } from 'node:url';
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 
 const LOCATIONS_DATA_PATH = path.join(__dirname, '../../../output/pokemon_locations.json');
 const LOCATIONS_BY_AREA_OUTPUT = path.join(__dirname, '../../../output/locations_by_area.json');
@@ -20,7 +26,10 @@ export function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
   const grottoLocations: Record<string, LocationEntry[]> = {};
 
   // Read the grottoes.asm file
-  const grottoeFilePath = path.join(__dirname, '../../../rom/data/events/hidden_grottoes/grottoes.asm');
+  const grottoeFilePath = path.join(
+    __dirname,
+    '../../../rom/data/events/hidden_grottoes/grottoes.asm',
+  );
   if (!fs.existsSync(grottoeFilePath)) {
     console.warn('Hidden grottoes file not found, skipping extraction');
     return {};
@@ -31,42 +40,42 @@ export function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
 
   // Maps for item names and location names
   const itemNames: Record<string, string> = {
-    'FIRE_STONE': 'Fire Stone',
-    'WATER_STONE': 'Water Stone',
-    'THUNDER_STONE': 'Thunder Stone',
-    'LEAF_STONE': 'Leaf Stone',
-    'MOON_STONE': 'Moon Stone',
-    'SUN_STONE': 'Sun Stone',
-    'SHINY_STONE': 'Shiny Stone',
-    'DUSK_STONE': 'Dusk Stone',
-    'ICE_STONE': 'Ice Stone',
-    'EVERSTONE': 'Everstone',
+    FIRE_STONE: 'Fire Stone',
+    WATER_STONE: 'Water Stone',
+    THUNDER_STONE: 'Thunder Stone',
+    LEAF_STONE: 'Leaf Stone',
+    MOON_STONE: 'Moon Stone',
+    SUN_STONE: 'Sun Stone',
+    SHINY_STONE: 'Shiny Stone',
+    DUSK_STONE: 'Dusk Stone',
+    ICE_STONE: 'Ice Stone',
+    EVERSTONE: 'Everstone',
   };
 
   // Maps for location names (from CONSTANT to human-readable name)
   const locationNames: Record<string, string> = {
-    'HIDDENGROTTO_ROUTE_32': 'Route 32',
-    'HIDDENGROTTO_ILEX_FOREST': 'Ilex Forest',
-    'HIDDENGROTTO_ROUTE_35': 'Route 35',
-    'HIDDENGROTTO_ROUTE_36': 'Route 36',
-    'HIDDENGROTTO_CHERRYGROVE_BAY': 'Cherrygrove Bay',
-    'HIDDENGROTTO_VIOLET_OUTSKIRTS': 'Violet Outskirts',
-    'HIDDENGROTTO_ROUTE_32_COAST': 'Route 32 Coast',
-    'HIDDENGROTTO_STORMY_BEACH': 'Stormy Beach',
-    'HIDDENGROTTO_ROUTE_35_COAST': 'Route 35 Coast',
-    'HIDDENGROTTO_RUINS_OF_ALPH': 'Ruins of Alph',
-    'HIDDENGROTTO_ROUTE_47': 'Route 47',
-    'HIDDENGROTTO_YELLOW_FOREST': 'Yellow Forest',
-    'HIDDENGROTTO_RUGGED_ROAD_NORTH': 'Rugged Road North',
-    'HIDDENGROTTO_SNOWTOP_MOUNTAIN_INSIDE': 'Snowtop Mountain Inside',
-    'HIDDENGROTTO_ROUTE_42': 'Route 42',
-    'HIDDENGROTTO_LAKE_OF_RAGE': 'Lake of Rage',
-    'HIDDENGROTTO_BELLCHIME_TRAIL': 'Bellchime Trail',
-    'HIDDENGROTTO_ROUTE_44': 'Route 44',
-    'HIDDENGROTTO_ROUTE_45': 'Route 45',
-    'HIDDENGROTTO_ROUTE_46': 'Route 46',
-    'HIDDENGROTTO_SINJOH_RUINS': 'Sinjoh Ruins',
-    'HIDDENGROTTO_SILVER_CAVE': 'Silver Cave',
+    HIDDENGROTTO_ROUTE_32: 'Route 32',
+    HIDDENGROTTO_ILEX_FOREST: 'Ilex Forest',
+    HIDDENGROTTO_ROUTE_35: 'Route 35',
+    HIDDENGROTTO_ROUTE_36: 'Route 36',
+    HIDDENGROTTO_CHERRYGROVE_BAY: 'Cherrygrove Bay',
+    HIDDENGROTTO_VIOLET_OUTSKIRTS: 'Violet Outskirts',
+    HIDDENGROTTO_ROUTE_32_COAST: 'Route 32 Coast',
+    HIDDENGROTTO_STORMY_BEACH: 'Stormy Beach',
+    HIDDENGROTTO_ROUTE_35_COAST: 'Route 35 Coast',
+    HIDDENGROTTO_RUINS_OF_ALPH: 'Ruins of Alph',
+    HIDDENGROTTO_ROUTE_47: 'Route 47',
+    HIDDENGROTTO_YELLOW_FOREST: 'Yellow Forest',
+    HIDDENGROTTO_RUGGED_ROAD_NORTH: 'Rugged Road North',
+    HIDDENGROTTO_SNOWTOP_MOUNTAIN_INSIDE: 'Snowtop Mountain Inside',
+    HIDDENGROTTO_ROUTE_42: 'Route 42',
+    HIDDENGROTTO_LAKE_OF_RAGE: 'Lake of Rage',
+    HIDDENGROTTO_BELLCHIME_TRAIL: 'Bellchime Trail',
+    HIDDENGROTTO_ROUTE_44: 'Route 44',
+    HIDDENGROTTO_ROUTE_45: 'Route 45',
+    HIDDENGROTTO_ROUTE_46: 'Route 46',
+    HIDDENGROTTO_SINJOH_RUINS: 'Sinjoh Ruins',
+    HIDDENGROTTO_SILVER_CAVE: 'Silver Cave',
   };
 
   let currentLocation: string | null = null;
@@ -89,7 +98,8 @@ export function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
       const locationMatch = line.match(/;\s*(HIDDENGROTTO_[A-Z_]+)/);
       if (locationMatch) {
         const locationKey = locationMatch[1];
-        currentLocation = locationNames[locationKey] || locationKey.replace('HIDDENGROTTO_', '').replace(/_/g, ' ');
+        currentLocation =
+          locationNames[locationKey] || locationKey.replace('HIDDENGROTTO_', '').replace(/_/g, ' ');
       }
       continue;
     }
@@ -163,7 +173,7 @@ export function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
           level: String(level), // Convert to string regardless of type
           chance: rarity === 'rare' ? 5 : rarity === 'uncommon' ? 15 : 40,
           rareItem: rareItem,
-          formName: normalizedFormName // Add form information
+          formName: normalizedFormName, // Add form information
         });
       }
     }
@@ -172,18 +182,20 @@ export function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
   return grottoLocations;
 }
 
-
-
 // Load the Pokemon location data
 export async function extractLocationsByArea() {
   try {
-    const pokemonLocationsData = JSON.parse(await fs.promises.readFile(LOCATIONS_DATA_PATH, 'utf8'));
+    const pokemonLocationsData = JSON.parse(
+      await fs.promises.readFile(LOCATIONS_DATA_PATH, 'utf8'),
+    );
 
     // Organize by area
     const locationsByArea: Record<string, LocationAreaData> = {};
 
     // Process each Pokemon and its locations
-    for (const [pokemon, pokemonData] of Object.entries<PokemonLocationData>(pokemonLocationsData)) {
+    for (const [pokemon, pokemonData] of Object.entries<PokemonLocationData>(
+      pokemonLocationsData,
+    )) {
       // Process base form locations
       if (pokemonData.locations && Array.isArray(pokemonData.locations)) {
         processLocations(pokemon, pokemonData.locations, null, locationsByArea);
@@ -204,19 +216,13 @@ export async function extractLocationsByArea() {
     // The processLocations function preserves the original encounter rates
 
     // Write to file
-    await fs.promises.writeFile(
-      LOCATIONS_BY_AREA_OUTPUT,
-      JSON.stringify(locationsByArea, null, 2)
-    );
+    await fs.promises.writeFile(LOCATIONS_BY_AREA_OUTPUT, JSON.stringify(locationsByArea, null, 2));
 
     console.log(`Location data by area extracted to ${LOCATIONS_BY_AREA_OUTPUT}`);
   } catch (error) {
     console.error('Error extracting locations by area:', error);
   }
 }
-
-
-
 
 /**
  * Converts cumulative probability thresholds to individual slot percentages.
@@ -235,7 +241,7 @@ function getSlotPercentages(cumulative: number[]): number[] {
  */
 export function mapEncounterRatesToPokemon(
   pokemonList: string[],
-  encounterType: 'grass' | 'surf' | 'fish'
+  encounterType: 'grass' | 'surf' | 'fish',
 ): Array<{ name: string; rate: number }> {
   // Probability tables from probabilities.asm (cumulative)
   const GRASS_PROBABILITIES_CUMULATIVE = [30, 60, 80, 90, 95, 98, 100];
@@ -255,10 +261,9 @@ export function mapEncounterRatesToPokemon(
 
   return pokemonList.map((name, idx) => ({
     name,
-    rate: probabilities[idx] || 0 // 0 if more Pokémon than slots
+    rate: probabilities[idx] || 0, // 0 if more Pokémon than slots
   }));
 }
-
 
 // --- Synchronize encounter rates from locations_by_area.json to pokemon_locations.json ---
 export async function synchronizeLocationChances() {
@@ -270,7 +275,7 @@ export async function synchronizeLocationChances() {
     return area
       .toLowerCase()
       .replace(/_/g, ' ')
-      .replace(/\b\w/g, c => c.toUpperCase());
+      .replace(/\b\w/g, (c) => c.toUpperCase());
   }
 
   for (const [pokemon, rawData] of Object.entries(pokemonLocations)) {
@@ -278,16 +283,19 @@ export async function synchronizeLocationChances() {
     // Handle base form locations
     if (Array.isArray(data.locations)) {
       for (const loc of data.locations) {
-        const areaName = normalizeArea(loc.area ?? "");
+        const areaName = normalizeArea(loc.area ?? '');
         const method = loc.method || 'unknown';
         const time = loc.time || 'any';
         const level = loc.level;
         // Find matching slot in locations_by_area.json
-        const areaObj = locationsByArea[areaName]?.pokemon?.[pokemon]?.methods?.[method]?.times?.[time];
+        const areaObj =
+          locationsByArea[areaName]?.pokemon?.[pokemon]?.methods?.[method]?.times?.[time];
         if (areaObj) {
           // Find matching slot by level and (optionally) formName
           const match = areaObj.find(
-            (slot: EncounterDetail) => String(slot.level) === String(level) && (loc.formName == null || slot.formName === loc.formName)
+            (slot: EncounterDetail) =>
+              String(slot.level) === String(level) &&
+              (loc.formName == null || slot.formName === loc.formName),
           );
           if (match) {
             loc.chance = match.chance;
@@ -300,14 +308,17 @@ export async function synchronizeLocationChances() {
       for (const [, formData] of Object.entries(data.forms)) {
         if (Array.isArray(formData.locations)) {
           for (const loc of formData.locations) {
-            const areaName = normalizeArea(loc.area ?? "");
+            const areaName = normalizeArea(loc.area ?? '');
             const method = loc.method || 'unknown';
             const time = loc.time || 'any';
             const level = loc.level;
-            const areaObj = locationsByArea[areaName]?.pokemon?.[pokemon]?.methods?.[method]?.times?.[time];
+            const areaObj =
+              locationsByArea[areaName]?.pokemon?.[pokemon]?.methods?.[method]?.times?.[time];
             if (areaObj) {
               const match = areaObj.find(
-                (slot: EncounterDetail) => String(slot.level) === String(level) && (loc.formName == null || slot.formName === loc.formName)
+                (slot: EncounterDetail) =>
+                  String(slot.level) === String(level) &&
+                  (loc.formName == null || slot.formName === loc.formName),
               );
               if (match) {
                 loc.chance = match.chance;
@@ -320,10 +331,7 @@ export async function synchronizeLocationChances() {
   }
 
   // Write updated pokemon_locations.json
-  await fs.promises.writeFile(
-    LOCATIONS_DATA_PATH,
-    JSON.stringify(pokemonLocations, null, 2)
-  );
+  await fs.promises.writeFile(LOCATIONS_DATA_PATH, JSON.stringify(pokemonLocations, null, 2));
   console.log('Synchronized encounter rates in pokemon_locations.json');
 }
 
@@ -334,7 +342,10 @@ export function extractAllLocations(): Record<string, LocationData> {
   const locations: Record<string, LocationData> = {};
 
   // Read landmark constants to get the mapping of names to IDs
-  const landmarkConstantsPath = path.join(__dirname, '../../../rom/constants/landmark_constants.asm');
+  const landmarkConstantsPath = path.join(
+    __dirname,
+    '../../../rom/constants/landmark_constants.asm',
+  );
   const landmarksPath = path.join(__dirname, '../../../rom/data/maps/landmarks.asm');
   const flyPointsPath = path.join(__dirname, '../../../rom/data/maps/flypoints.asm');
 
@@ -397,7 +408,9 @@ export function extractAllLocations(): Record<string, LocationData> {
       const nameConstant = landmarkMatch[3];
 
       // Find the landmark constant name for this index
-      const landmarkConstantName = Object.keys(landmarkIdMap).find(name => landmarkIdMap[name] === landmarkIndex);
+      const landmarkConstantName = Object.keys(landmarkIdMap).find(
+        (name) => landmarkIdMap[name] === landmarkIndex,
+      );
 
       if (landmarkConstantName && landmarkConstantName !== 'SPECIAL_MAP') {
         const region = landmarkRegionMap[landmarkConstantName] || 'johto';
@@ -433,9 +446,10 @@ export function extractAllLocations(): Record<string, LocationData> {
   // Map display names to locations
   for (const [locationKey, locationData] of Object.entries(locations)) {
     // Try to find matching display name
-    const nameConstant = Object.keys(displayNameMap).find(name =>
-      name.toLowerCase().replace('name', '') === locationKey ||
-      name.toLowerCase() === locationKey + 'name'
+    const nameConstant = Object.keys(displayNameMap).find(
+      (name) =>
+        name.toLowerCase().replace('name', '') === locationKey ||
+        name.toLowerCase() === locationKey + 'name',
     );
 
     if (nameConstant) {
@@ -444,7 +458,7 @@ export function extractAllLocations(): Record<string, LocationData> {
       // Fallback: convert constant name to readable format
       locationData.displayName = locationKey
         .split('_')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
         .join(' ');
     }
   }
@@ -485,7 +499,9 @@ export function extractAllLocations(): Record<string, LocationData> {
       const line = mapLines[i].trim();
 
       // Parse map_attributes macro calls to identify current map
-      const mapAttributesMatch = line.match(/^\s*map_attributes\s+(\w+),\s*([A-Z_0-9_]+),\s*\$[0-9a-fA-F]+,\s*(.*)/);
+      const mapAttributesMatch = line.match(
+        /^\s*map_attributes\s+(\w+),\s*([A-Z_0-9_]+),\s*\$[0-9a-fA-F]+,\s*(.*)/,
+      );
       if (mapAttributesMatch) {
         // Save connections for the previous map
         if (currentMapName && currentConnections.length > 0) {
@@ -502,7 +518,9 @@ export function extractAllLocations(): Record<string, LocationData> {
       }
 
       // Parse connection lines
-      const connectionMatch = line.match(/^\s*connection\s+(north|south|east|west),\s*(\w+),\s*([A-Z_0-9_]+),\s*(-?\d+)/);
+      const connectionMatch = line.match(
+        /^\s*connection\s+(north|south|east|west),\s*(\w+),\s*([A-Z_0-9_]+),\s*(-?\d+)/,
+      );
       if (connectionMatch && currentMapName) {
         const direction = connectionMatch[1] as 'north' | 'south' | 'east' | 'west';
         const targetMapLabel = connectionMatch[2]; // e.g., Route29
@@ -513,7 +531,7 @@ export function extractAllLocations(): Record<string, LocationData> {
         const targetLocationKey = targetMapConstant.toLowerCase();
         let targetDisplayName = targetMapConstant
           .split('_')
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
           .join(' ');
 
         // Try to get the actual display name if the target location exists
@@ -525,7 +543,7 @@ export function extractAllLocations(): Record<string, LocationData> {
           direction,
           targetLocation: targetLocationKey,
           targetLocationDisplay: targetDisplayName,
-          offset
+          offset,
         });
       }
     }
@@ -538,11 +556,18 @@ export function extractAllLocations(): Record<string, LocationData> {
       }
     }
 
-    const totalConnections = Object.values(locations).reduce((sum, loc) => sum + loc.connections.length, 0);
-    console.log(`🔗 Parsed ${totalConnections} map connections across ${Object.keys(locations).length} locations`);
+    const totalConnections = Object.values(locations).reduce(
+      (sum, loc) => sum + loc.connections.length,
+      0,
+    );
+    console.log(
+      `🔗 Parsed ${totalConnections} map connections across ${Object.keys(locations).length} locations`,
+    );
   }
 
-  console.log(`✅ Extracted ${Object.keys(locations).length} locations (${Object.values(locations).filter(l => l.flyable).length} flyable)`);
+  console.log(
+    `✅ Extracted ${Object.keys(locations).length} locations (${Object.values(locations).filter((l) => l.flyable).length} flyable)`,
+  );
   return locations;
 }
 
@@ -562,39 +587,43 @@ export async function exportAllLocations() {
         // Then sort by ID within region
         return a.id - b.id;
       })
-      .reduce((acc, [key, value]) => {
-        acc[key] = value;
-        return acc;
-      }, {} as Record<string, LocationData>);
+      .reduce(
+        (acc, [key, value]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {} as Record<string, LocationData>,
+      );
 
     const outputPath = path.join(__dirname, '../../../output/all_locations.json');
-    await fs.promises.writeFile(
-      outputPath,
-      JSON.stringify(sortedLocations, null, 2)
-    );
+    await fs.promises.writeFile(outputPath, JSON.stringify(sortedLocations, null, 2));
 
     console.log(`📍 Exported ${Object.keys(sortedLocations).length} locations to ${outputPath}`);
 
     // Also create a summary by region
     const locationsByRegion = {
-      johto: Object.values(sortedLocations).filter(l => l.region === 'johto'),
-      kanto: Object.values(sortedLocations).filter(l => l.region === 'kanto'),
-      orange: Object.values(sortedLocations).filter(l => l.region === 'orange'),
+      johto: Object.values(sortedLocations).filter((l) => l.region === 'johto'),
+      kanto: Object.values(sortedLocations).filter((l) => l.region === 'kanto'),
+      orange: Object.values(sortedLocations).filter((l) => l.region === 'orange'),
     };
 
     const summaryPath = path.join(__dirname, '../../../output/locations_by_region.json');
     await fs.promises.writeFile(
       summaryPath,
-      JSON.stringify({
-        summary: {
-          total: Object.keys(sortedLocations).length,
-          flyable: Object.values(sortedLocations).filter(l => l.flyable).length,
-          johto: locationsByRegion.johto.length,
-          kanto: locationsByRegion.kanto.length,
-          orange: locationsByRegion.orange.length,
+      JSON.stringify(
+        {
+          summary: {
+            total: Object.keys(sortedLocations).length,
+            flyable: Object.values(sortedLocations).filter((l) => l.flyable).length,
+            johto: locationsByRegion.johto.length,
+            kanto: locationsByRegion.kanto.length,
+            orange: locationsByRegion.orange.length,
+          },
+          locations: locationsByRegion,
         },
-        locations: locationsByRegion
-      }, null, 2)
+        null,
+        2,
+      ),
     );
 
     console.log(`📊 Exported location summary to ${summaryPath}`);

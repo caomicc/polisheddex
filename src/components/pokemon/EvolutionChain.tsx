@@ -289,7 +289,10 @@ export function EvolutionChain({
                                     <TooltipContent>
                                       {itemId ? (
                                         <span>
-                                          {itemName} <span className="text-xs opacity-75">(click to view)</span>
+                                          {itemName}{' '}
+                                          <span className="text-xs opacity-75">
+                                            (click to view)
+                                          </span>
                                         </span>
                                       ) : (
                                         itemName

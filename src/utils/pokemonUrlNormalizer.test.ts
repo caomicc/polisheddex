@@ -4,7 +4,7 @@ import {
   normalizePokemonDisplayName,
   urlKeyToStandardKey,
   getPokemonFileName,
-  validatePokemonHyphenation
+  validatePokemonHyphenation,
 } from './pokemonUrlNormalizer';
 
 describe('Pokemon URL Normalizer', () => {
@@ -34,7 +34,7 @@ describe('Pokemon URL Normalizer', () => {
     });
 
     it('should remove special characters', () => {
-      expect(normalizePokemonUrlKey('Farfetch\'d')).toBe('farfetchd');
+      expect(normalizePokemonUrlKey("Farfetch'd")).toBe('farfetchd');
       expect(normalizePokemonUrlKey('Flabébé')).toBe('flabebe');
     });
 

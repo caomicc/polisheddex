@@ -16,9 +16,10 @@ interface MartLocation {
  * @returns Updated item data with mart locations added
  */
 export function extractMartData(itemData: Record<string, ItemData>): void {
-
   // Logging itemData for debugging
-  console.log(`📦 Initial item data contains ${Object.values(itemData).flatMap(i => i.locations ?? []).length} locations.`);
+  console.log(
+    `📦 Initial item data contains ${Object.values(itemData).flatMap((i) => i.locations ?? []).length} locations.`,
+  );
 
   // Use this workaround for __dirname in ES modules
   const __filename = fileURLToPath(import.meta.url);
@@ -45,8 +46,15 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
     const line = lines[i].trim();
 
     // Look for mart name declarations (e.g. "CherrygroveMart:")
-    if (line.endsWith('Mart:') || line.endsWith('Mart1:') || line.endsWith('Mart2:') || line.endsWith('Mart3:') ||
-      line.endsWith('TMMart:') || line.endsWith('Souvenir:') || line.endsWith('Eevee:')) {
+    if (
+      line.endsWith('Mart:') ||
+      line.endsWith('Mart1:') ||
+      line.endsWith('Mart2:') ||
+      line.endsWith('Mart3:') ||
+      line.endsWith('TMMart:') ||
+      line.endsWith('Souvenir:') ||
+      line.endsWith('Eevee:')
+    ) {
       // Extract the mart name and format it
       currentMart = line.replace(':', '');
       currentMartDisplayName = formatMartName(currentMart);
@@ -54,20 +62,30 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
     }
 
     // If we have a current mart and this line has an item
-    if (currentMart && line.startsWith('db ') && !line.startsWith('db -1') && !line.match(/db \d+ ; # items/)) {
+    if (
+      currentMart &&
+      line.startsWith('db ') &&
+      !line.startsWith('db -1') &&
+      !line.match(/db \d+ ; # items/)
+    ) {
       let itemName = line.replace('db ', '').trim();
       let price: number | undefined = undefined;
 
-      console.log(`Processing item line: "${line}" in mart "${currentMartDisplayName}", current item: "${itemName}"`);
+      console.log(
+        `Processing item line: "${line}" in mart "${currentMartDisplayName}", current item: "${itemName}"`,
+      );
 
       // Handle TMs with pricing (dbw TM_NAME, PRICE format)
       if (line.startsWith('dbw TM_')) {
-        const parts = line.replace('dbw ', '').split(',').map(p => p.trim());
+        const parts = line
+          .replace('dbw ', '')
+          .split(',')
+          .map((p) => p.trim());
         itemName = parts[0];
         price = parseInt(parts[1], 10);
       } else if (line.includes(',')) {
         // Handle battle items with pricing (ITEM_NAME, PRICE format)
-        const parts = line.split(',').map(p => p.trim());
+        const parts = line.split(',').map((p) => p.trim());
         itemName = parts[0];
         console.log(`Processing item line: "${parts}", current item: "${itemName}"`);
         price = parseInt(parts[1], 10);
@@ -78,7 +96,9 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
       const itemId = normalizeItemId(itemName);
 
       // Debug logging
-      console.log(`Processing item "${itemName}" -> "${itemId}" in mart "${currentMartDisplayName}"`);
+      console.log(
+        `Processing item "${itemName}" -> "${itemId}" in mart "${currentMartDisplayName}"`,
+      );
 
       // Add the location to our tracking object
       if (!itemLocations[itemId]) {
@@ -89,7 +109,7 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
       // Add this mart as a location
       const location: MartLocation = {
         area: currentMartDisplayName,
-        details: 'For sale'
+        details: 'For sale',
       };
 
       console.log(`Adding location for item "${itemId}":`, location);
@@ -101,10 +121,8 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
         console.log(`Item "${itemId}" is a battle item with price ${price}`);
       }
 
-
-
       // Check if this mart is already in the locations
-      if (!itemLocations[itemId].some(loc => loc.area === currentMartDisplayName)) {
+      if (!itemLocations[itemId].some((loc) => loc.area === currentMartDisplayName)) {
         itemLocations[itemId].push(location);
         console.log(`Added location for item "${itemId}" in "${currentMartDisplayName}"`);
       }
@@ -124,14 +142,17 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
     console.log(`🔍 newItemId ID: ${newItemId}`);
 
     // First try exact match
-    let matchedItemKey = Object.keys(itemData).find(key => key === newItemId);
-    console.log(`🔍 Matched item key: ${matchedItemKey}`, newItemId, JSON.stringify(Object.keys(itemData)));
-
+    let matchedItemKey = Object.keys(itemData).find((key) => key === newItemId);
+    console.log(
+      `🔍 Matched item key: ${matchedItemKey}`,
+      newItemId,
+      JSON.stringify(Object.keys(itemData)),
+    );
 
     // Second, try match by normalized key
     if (!matchedItemKey) {
       console.log(`🔍 Normalizing item ID: ${itemId}`);
-      matchedItemKey = Object.keys(itemData).find(key => {
+      matchedItemKey = Object.keys(itemData).find((key) => {
         console.log(`🔍 Checking key: ${key}`, normalizeItemId(key), itemId);
         return normalizeItemId(key) === itemId;
       });
@@ -140,8 +161,8 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
     // Third, try partial match (in case the item name is a substring)
     if (!matchedItemKey) {
       console.log(`🔍 Trying partial match for item ID: ${itemId}`);
-      matchedItemKey = Object.keys(itemData).find(key =>
-        key.includes(itemId) || itemId.includes(key)
+      matchedItemKey = Object.keys(itemData).find(
+        (key) => key.includes(itemId) || itemId.includes(key),
       );
       console.log(`🔍 Partial match found: ${matchedItemKey}`);
     }
@@ -151,8 +172,8 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
       console.log(`🔍 Trying transformations for item ID: ${itemId}`);
       // Try without hyphens
       const noHyphens = itemId.replace(/-/g, '');
-      matchedItemKey = Object.keys(itemData).find(key =>
-        key === noHyphens || key.replace(/-/g, '') === noHyphens
+      matchedItemKey = Object.keys(itemData).find(
+        (key) => key === noHyphens || key.replace(/-/g, '') === noHyphens,
       );
       console.log(`🔍 No hyphens match found: ${matchedItemKey}`);
     }
@@ -166,7 +187,7 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
       }
 
       // Add new locations to the array
-      locations.forEach(location => {
+      locations.forEach((location) => {
         // Use non-null assertion since we just initialized it if it was undefined
         (itemData[matchedItemKey].locations as MartLocation[]).push(location);
         console.log(`Added location "${location.area}" to item "${matchedItemKey}"`);
@@ -183,7 +204,7 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
 
       // Log a few potential candidate keys to help debug
       const potentialMatches = Object.keys(itemData)
-        .filter(k => k.includes(itemId.substring(0, 3)) || itemId.includes(k.substring(0, 3)))
+        .filter((k) => k.includes(itemId.substring(0, 3)) || itemId.includes(k.substring(0, 3)))
         .slice(0, 3);
 
       if (potentialMatches.length > 0) {
@@ -194,7 +215,7 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
       if (!unmatchedItems[itemId]) {
         unmatchedItems[itemId] = [];
       }
-      locations.forEach(loc => unmatchedItems[itemId].push(loc.area));
+      locations.forEach((loc) => unmatchedItems[itemId].push(loc.area));
     }
   }
 
@@ -215,7 +236,9 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
   extractBuenaPrizes(itemData);
 
   // Logging itemData for debugging
-  console.log(`📦 Final item data contains ${Object.values(itemData).flatMap(i => i.locations ?? []).length} locations.`);
+  console.log(
+    `📦 Final item data contains ${Object.values(itemData).flatMap((i) => i.locations ?? []).length} locations.`,
+  );
 
   // Process Buena's prizes
   extractBuenaPrizes(itemData);
@@ -237,11 +260,11 @@ function extractBuenaPrizes(itemData: Record<string, ItemData>): void {
   // Path to buena_prizes.asm file
   const buenaPrizesFile = path.join(__dirname, '../../../rom/data/items/buena_prizes.asm');
 
-  console.log('🔧 Extracting Buena\'s prizes data...');
+  console.log("🔧 Extracting Buena's prizes data...");
 
   // Check if the file exists
   if (!fs.existsSync(buenaPrizesFile)) {
-    console.log('⚠️ Buena\'s prizes file not found. Skipping...');
+    console.log("⚠️ Buena's prizes file not found. Skipping...");
     return;
   }
 
@@ -263,7 +286,10 @@ function extractBuenaPrizes(itemData: Record<string, ItemData>): void {
 
     // Process item lines (format: db ITEM_NAME, POINTS_REQUIRED)
     if (line.startsWith('db ') && line !== 'db -1') {
-      const parts = line.replace('db ', '').split(',').map(p => p.trim());
+      const parts = line
+        .replace('db ', '')
+        .split(',')
+        .map((p) => p.trim());
       if (parts.length === 2) {
         const itemName = parts[0];
         const points = parseInt(parts[1], 10);
@@ -284,16 +310,16 @@ function extractBuenaPrizes(itemData: Record<string, ItemData>): void {
 
   for (const [itemId, { points }] of Object.entries(prizeItems)) {
     // Try to find the item in our item data
-    let matchedItemKey = Object.keys(itemData).find(key => key === itemId);
+    let matchedItemKey = Object.keys(itemData).find((key) => key === itemId);
 
     // Try alternate matching methods if exact match fails
     if (!matchedItemKey) {
-      matchedItemKey = Object.keys(itemData).find(key => normalizeItemId(key) === itemId);
+      matchedItemKey = Object.keys(itemData).find((key) => normalizeItemId(key) === itemId);
     }
 
     if (!matchedItemKey) {
-      matchedItemKey = Object.keys(itemData).find(key =>
-        key.includes(itemId) || itemId.includes(key)
+      matchedItemKey = Object.keys(itemData).find(
+        (key) => key.includes(itemId) || itemId.includes(key),
       );
     }
 
@@ -305,15 +331,17 @@ function extractBuenaPrizes(itemData: Record<string, ItemData>): void {
 
       // Add Buena's prize as a location
       const location: MartLocation = {
-        area: 'Radio Tower Buena\'s Password Club',
+        area: "Radio Tower Buena's Password Club",
         details: `Prize for ${points} Blue Card points`,
-        price: points
+        price: points,
       };
 
       // Add this location if not already present
-      if (!itemData[matchedItemKey].locations!.some(loc =>
-        loc.area === 'Radio Tower Buena\'s Password Club' && loc.price === points
-      )) {
+      if (
+        !itemData[matchedItemKey].locations!.some(
+          (loc) => loc.area === "Radio Tower Buena's Password Club" && loc.price === points,
+        )
+      ) {
         itemData[matchedItemKey].locations!.push(location);
         console.log(`Added Buena prize location for item "${matchedItemKey}" (${points} points)`);
       }
@@ -331,7 +359,6 @@ function extractBuenaPrizes(itemData: Record<string, ItemData>): void {
     console.log(`⚠️ Found ${unmatchedItems.length} Buena prize items that couldn't be matched`);
   }
 }
-
 
 /**
  * Extract fishing items data from fish_items.asm and add location information to item data
@@ -377,7 +404,10 @@ function extractFishingItems(itemData: Record<string, ItemData>): void {
     // Process item lines (format: db ITEM_NAME, POINTS_REQUIRED)
     if (line.startsWith('db ') && line !== 'db -1') {
       console.log(`Found item line: "${line}"`);
-      const parts = line.replace('db ', '').split(';').map(p => p.trim());
+      const parts = line
+        .replace('db ', '')
+        .split(';')
+        .map((p) => p.trim());
       console.log(`Split parts:`, parts, `length: ${parts.length}`);
       if (parts.length === 2) {
         console.log(`Found fishing item line: "${line}"`);
@@ -403,19 +433,19 @@ function extractFishingItems(itemData: Record<string, ItemData>): void {
 
   for (const [itemId, { tool }] of Object.entries(fishItems)) {
     // Try to find the item in our item data
-    let matchedItemKey = Object.keys(itemData).find(key => key === itemId);
+    let matchedItemKey = Object.keys(itemData).find((key) => key === itemId);
 
     console.log(`🔍 Matching fishing item "${itemId}" to item data...`);
 
     // Try alternate matching methods if exact match fails
     if (!matchedItemKey) {
-      matchedItemKey = Object.keys(itemData).find(key => normalizeItemId(key) === itemId);
+      matchedItemKey = Object.keys(itemData).find((key) => normalizeItemId(key) === itemId);
       console.log(`🔍 Normalized match found: ${matchedItemKey}`);
     }
 
     if (!matchedItemKey) {
-      matchedItemKey = Object.keys(itemData).find(key =>
-        key.includes(itemId) || itemId.includes(key)
+      matchedItemKey = Object.keys(itemData).find(
+        (key) => key.includes(itemId) || itemId.includes(key),
       );
       console.log(`🔍 Fuzzy match found: ${matchedItemKey}`);
     }
@@ -434,15 +464,20 @@ function extractFishingItems(itemData: Record<string, ItemData>): void {
       };
 
       // Add this location if not already present
-      if (!itemData[matchedItemKey].locations!.some(loc =>
-        loc.area === 'Fishing' && loc.details === tool
-      )) {
+      if (
+        !itemData[matchedItemKey].locations!.some(
+          (loc) => loc.area === 'Fishing' && loc.details === tool,
+        )
+      ) {
         itemData[matchedItemKey].locations!.push(location);
         console.log(`Added fishing location for item "${matchedItemKey}" ${tool}`);
       }
 
       itemsWithFishingItems++;
-      console.log(`✓ Matched fishing item "${itemId}" to data key "${matchedItemKey}"`, itemsWithFishingItems);
+      console.log(
+        `✓ Matched fishing item "${itemId}" to data key "${matchedItemKey}"`,
+        itemsWithFishingItems,
+      );
     } else {
       console.log(`⚠️ Could not match fishing item "${itemId}"`);
       unmatchedItems.push(itemId);
@@ -455,7 +490,6 @@ function extractFishingItems(itemData: Record<string, ItemData>): void {
     console.log(`⚠️ Found ${unmatchedItems.length} fishing items that couldn't be matched`);
   }
 }
-
 
 /**
  * Extract Bargain Shop data from bargain_shop.asm and add location information to item data
@@ -500,7 +534,10 @@ function extractBargainShop(itemData: Record<string, ItemData>): void {
     // Process item lines (format: db ITEM_NAME, POINTS_REQUIRED)
     if (line.startsWith('dbw ') && line !== 'db -1') {
       console.log(`Found item line: "${line}"`);
-      const parts = line.replace('dbw ', '').split(',').map(p => p.trim());
+      const parts = line
+        .replace('dbw ', '')
+        .split(',')
+        .map((p) => p.trim());
       console.log(`Split parts:`, parts, `length: ${parts.length}`);
       if (parts.length === 2) {
         const itemName = parts[0];
@@ -509,7 +546,9 @@ function extractBargainShop(itemData: Record<string, ItemData>): void {
         // Convert the item name to a key that matches our item data
         const itemId = normalizeItemId(itemName);
 
-        console.log(`Processing Bargain Shop item: "${itemName}" -> "${itemId}" for ${price} price`);
+        console.log(
+          `Processing Bargain Shop item: "${itemName}" -> "${itemId}" for ${price} price`,
+        );
 
         bargainItems[itemId] = { price };
       }
@@ -522,16 +561,16 @@ function extractBargainShop(itemData: Record<string, ItemData>): void {
 
   for (const [itemId, { price }] of Object.entries(bargainItems)) {
     // Try to find the item in our item data
-    let matchedItemKey = Object.keys(itemData).find(key => key === itemId);
+    let matchedItemKey = Object.keys(itemData).find((key) => key === itemId);
 
     // Try alternate matching methods if exact match fails
     if (!matchedItemKey) {
-      matchedItemKey = Object.keys(itemData).find(key => normalizeItemId(key) === itemId);
+      matchedItemKey = Object.keys(itemData).find((key) => normalizeItemId(key) === itemId);
     }
 
     if (!matchedItemKey) {
-      matchedItemKey = Object.keys(itemData).find(key =>
-        key.includes(itemId) || itemId.includes(key)
+      matchedItemKey = Object.keys(itemData).find(
+        (key) => key.includes(itemId) || itemId.includes(key),
       );
     }
 
@@ -544,13 +583,15 @@ function extractBargainShop(itemData: Record<string, ItemData>): void {
       const location: MartLocation = {
         area: 'Bargain Shop',
         details: `Bargain Shop item for ${price} points`,
-        price: price
+        price: price,
       };
 
       // Add this location if not already present
-      if (!itemData[matchedItemKey].locations!.some(loc =>
-        loc.area === 'Bargain Shop' && loc.price === price
-      )) {
+      if (
+        !itemData[matchedItemKey].locations!.some(
+          (loc) => loc.area === 'Bargain Shop' && loc.price === price,
+        )
+      ) {
         itemData[matchedItemKey].locations!.push(location);
         console.log(`Added Bargain Shop location for item "${matchedItemKey}" (${price} points)`);
       }
@@ -568,7 +609,6 @@ function extractBargainShop(itemData: Record<string, ItemData>): void {
     console.log(`⚠️ Found ${unmatchedItems.length} Bargain Shop items that couldn't be matched`);
   }
 }
-
 
 /**
  * Format the mart name into a readable display name

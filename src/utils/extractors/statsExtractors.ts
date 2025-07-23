@@ -1,7 +1,14 @@
 import path from 'node:path';
 import fs from 'node:fs';
-import type { Ability, DetailedStats } from "../../types/types.ts";
-import { convertEggGroupCode, convertGenderCode, convertGrowthRateCode, convertHatchCode, toCapitalCaseWithSpaces, toTitleCase } from "../stringUtils.ts";
+import type { Ability, DetailedStats } from '../../types/types.ts';
+import {
+  convertEggGroupCode,
+  convertGenderCode,
+  convertGrowthRateCode,
+  convertHatchCode,
+  toCapitalCaseWithSpaces,
+  toTitleCase,
+} from '../stringUtils.ts';
 import { extractFormInfo } from './formExtractors.ts';
 import { sharedDescriptionGroups } from '../../data/constants.ts';
 import { fileURLToPath } from 'node:url';
@@ -10,13 +17,15 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
-const ABILITY_DESCRIPTIONS_OUTPUT = path.join(__dirname, '../../../output/pokemon_ability_descriptions.json');
+const ABILITY_DESCRIPTIONS_OUTPUT = path.join(
+  __dirname,
+  '../../../output/pokemon_ability_descriptions.json',
+);
 
 // --- Detailed Stats Extraction ---
 export function extractDetailedStats(): Record<string, DetailedStats> {
   const detailedStatsDir = path.join(__dirname, '../../../rom/data/pokemon/base_stats');
-  const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter(f => f.endsWith('.asm'));
+  const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter((f) => f.endsWith('.asm'));
 
   const detailedStats: Record<string, DetailedStats> = {};
 
@@ -64,7 +73,9 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
     try {
       // Extract base stats (first line)
       // Format: db hp, atk, def, spe, sat, sdf ; BST
-      const baseStatsLine = lines.find(l => l.trim().match(/^db\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+/));
+      const baseStatsLine = lines.find((l) =>
+        l.trim().match(/^db\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+/),
+      );
       if (!baseStatsLine) {
         if (fileName === 'ho_oh') {
           console.log('No base stats line found for Ho-Oh, skipping');
@@ -73,7 +84,9 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         continue;
       }
 
-      const baseStatsMatch = baseStatsLine.trim().match(/db\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+)/);
+      const baseStatsMatch = baseStatsLine
+        .trim()
+        .match(/db\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+)/);
       if (!baseStatsMatch) continue;
 
       // Get BST from comment if available
@@ -87,17 +100,22 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         speed: parseInt(baseStatsMatch[4], 10),
         specialAttack: parseInt(baseStatsMatch[5], 10),
         specialDefense: parseInt(baseStatsMatch[6], 10),
-        total: bst || 0 // Use calculated BST or 0 if not found
+        total: bst || 0, // Use calculated BST or 0 if not found
       };
 
       // Calculate the total if it wasn't provided
       if (baseStats.total === 0) {
-        baseStats.total = baseStats.hp + baseStats.attack + baseStats.defense +
-          baseStats.speed + baseStats.specialAttack + baseStats.specialDefense;
+        baseStats.total =
+          baseStats.hp +
+          baseStats.attack +
+          baseStats.defense +
+          baseStats.speed +
+          baseStats.specialAttack +
+          baseStats.specialDefense;
       }
 
       // Extract catch rate - Format: db NUM ; catch rate
-      const catchRateLine = lines.find(l => l.trim().match(/^db\s+\d+\s*;\s*catch rate/));
+      const catchRateLine = lines.find((l) => l.trim().match(/^db\s+\d+\s*;\s*catch rate/));
       let catchRate = 255; // Default
       if (catchRateLine) {
         const catchRateMatch = catchRateLine.match(/db\s+(\d+)/);
@@ -107,7 +125,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       }
 
       // Extract base exp - Format: db NUM ; base exp
-      const baseExpLine = lines.find(l => l.trim().match(/^db\s+\d+\s*;\s*base exp/));
+      const baseExpLine = lines.find((l) => l.trim().match(/^db\s+\d+\s*;\s*base exp/));
       let baseExp = 0;
       if (baseExpLine) {
         const baseExpMatch = baseExpLine.match(/db\s+(\d+)/);
@@ -117,7 +135,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       }
 
       // Extract held items - Format: db ITEM1, ITEM2 ; held items
-      const heldItemsLine = lines.find(l => l.trim().match(/^db.*;\s*held items/));
+      const heldItemsLine = lines.find((l) => l.trim().match(/^db.*;\s*held items/));
       const heldItems: string[] = [];
       if (heldItemsLine) {
         const heldItemsMatch = heldItemsLine.match(/db\s+([A-Z_]+)(?:,\s*([A-Z_]+))?/);
@@ -133,7 +151,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
       // Extract gender ratio and hatch rate
       // Format: dn GENDER_XXX, HATCH_XXX ; gender ratio, step cycles to hatch
-      const genderHatchLine = lines.find(l => l.trim().match(/^dn.*;\s*gender ratio/));
+      const genderHatchLine = lines.find((l) => l.trim().match(/^dn.*;\s*gender ratio/));
       let genderRatio = { male: 0, female: 0 };
       let hatchRate = 'Unknown';
 
@@ -148,7 +166,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
           const hatchCode = genderHatchMatch[2];
           hatchRate = convertHatchCode(hatchCode);
         }
-      }      // Extract abilities - Format: abilities_for POKEMON, ABILITY1, ABILITY2, HIDDEN_ABILITY
+      } // Extract abilities - Format: abilities_for POKEMON, ABILITY1, ABILITY2, HIDDEN_ABILITY
       // Check for faithful vs non-faithful conditional abilities
       let faithfulAbilitiesLine: string | undefined;
       let nonFaithfulAbilitiesLine: string | undefined;
@@ -160,11 +178,14 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       // Debug for Pikachu
       if (pokemonName === 'Pikachu') {
         console.log('Looking for abilities for Pikachu...');
-        console.log('File contains conditional blocks:', lines.some(l => l.includes('if DEF(FAITHFUL)')));
+        console.log(
+          'File contains conditional blocks:',
+          lines.some((l) => l.includes('if DEF(FAITHFUL)')),
+        );
       }
 
       // First try to find a standard abilities_for line regardless of conditional blocks
-      const standardAbilitiesLine = lines.find(l => l.trim().startsWith('abilities_for'));
+      const standardAbilitiesLine = lines.find((l) => l.trim().startsWith('abilities_for'));
 
       // console.log('Standard abilities line:', standardAbilitiesLine);
 
@@ -218,26 +239,40 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         if (pokemonName === 'Pikachu') {
           console.log('Using standard abilities line:', standardAbilitiesLine);
         }
-      } else if (pokemonName === 'Pikachu' && !foundConditionalAbilities && !standardAbilitiesLine) {
+      } else if (
+        pokemonName === 'Pikachu' &&
+        !foundConditionalAbilities &&
+        !standardAbilitiesLine
+      ) {
         console.log('No abilities line found for Pikachu');
-      }// Process abilities
+      } // Process abilities
       if (faithfulAbilitiesLine) {
         // console.log(`Processing abilities for ${pokemonName}: ${faithfulAbilitiesLine}`);
-        const faithfulMatch = faithfulAbilitiesLine.match(/abilities_for\s+([A-Z_0-9]+),\s*([A-Z_0-9]+)(?:,\s*([A-Z_0-9]+))?(?:,\s*([A-Z_0-9]+))?/);
+        const faithfulMatch = faithfulAbilitiesLine.match(
+          /abilities_for\s+([A-Z_0-9]+),\s*([A-Z_0-9]+)(?:,\s*([A-Z_0-9]+))?(?:,\s*([A-Z_0-9]+))?/,
+        );
 
         // Special debug for Pikachu
-        if (pokemonName === "Pikachu") {
-          console.log("PIKACHU DEBUG: Match result:", faithfulMatch);
+        if (pokemonName === 'Pikachu') {
+          console.log('PIKACHU DEBUG: Match result:', faithfulMatch);
         }
 
         if (faithfulMatch) {
-
           // console.log(`Faithful match found for ${pokemonName}:`, faithfulMatch);
 
           // Extract ability names from the faithful match - handle NO_ABILITY properly
-          const faithfulPrimaryName = faithfulMatch[2] && faithfulMatch[2] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(faithfulMatch[2].trim()) : null;
-          const faithfulSecondaryName = faithfulMatch[3] && faithfulMatch[3] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(faithfulMatch[3].trim()) : null;
-          const faithfulHiddenName = faithfulMatch[4] && faithfulMatch[4] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(faithfulMatch[4].trim()) : null;
+          const faithfulPrimaryName =
+            faithfulMatch[2] && faithfulMatch[2] !== 'NO_ABILITY'
+              ? toCapitalCaseWithSpaces(faithfulMatch[2].trim())
+              : null;
+          const faithfulSecondaryName =
+            faithfulMatch[3] && faithfulMatch[3] !== 'NO_ABILITY'
+              ? toCapitalCaseWithSpaces(faithfulMatch[3].trim())
+              : null;
+          const faithfulHiddenName =
+            faithfulMatch[4] && faithfulMatch[4] !== 'NO_ABILITY'
+              ? toCapitalCaseWithSpaces(faithfulMatch[4].trim())
+              : null;
 
           // console.log(`Parsed abilities for ${pokemonName}: Primary: ${faithfulPrimaryName}, Secondary: ${faithfulSecondaryName}, Hidden: ${faithfulHiddenName}`);
 
@@ -251,11 +286,22 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
           if (nonFaithfulAbilitiesLine && nonFaithfulAbilitiesLine !== faithfulAbilitiesLine) {
             // console.log(`Processing non-faithful abilities for ${pokemonName}: ${nonFaithfulAbilitiesLine}`);
-            const nonFaithfulMatch = nonFaithfulAbilitiesLine.match(/abilities_for\s+([A-Z_0-9]+),\s*([A-Z_0-9]+)(?:,\s*([A-Z_0-9]+))?(?:,\s*([A-Z_0-9]+))?/);
+            const nonFaithfulMatch = nonFaithfulAbilitiesLine.match(
+              /abilities_for\s+([A-Z_0-9]+),\s*([A-Z_0-9]+)(?:,\s*([A-Z_0-9]+))?(?:,\s*([A-Z_0-9]+))?/,
+            );
             if (nonFaithfulMatch) {
-              nonFaithfulPrimaryName = nonFaithfulMatch[2] && nonFaithfulMatch[2] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(nonFaithfulMatch[2].trim()) : null;
-              nonFaithfulSecondaryName = nonFaithfulMatch[3] && nonFaithfulMatch[3] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(nonFaithfulMatch[3].trim()) : null;
-              nonFaithfulHiddenName = nonFaithfulMatch[4] && nonFaithfulMatch[4] !== 'NO_ABILITY' ? toCapitalCaseWithSpaces(nonFaithfulMatch[4].trim()) : null;
+              nonFaithfulPrimaryName =
+                nonFaithfulMatch[2] && nonFaithfulMatch[2] !== 'NO_ABILITY'
+                  ? toCapitalCaseWithSpaces(nonFaithfulMatch[2].trim())
+                  : null;
+              nonFaithfulSecondaryName =
+                nonFaithfulMatch[3] && nonFaithfulMatch[3] !== 'NO_ABILITY'
+                  ? toCapitalCaseWithSpaces(nonFaithfulMatch[3].trim())
+                  : null;
+              nonFaithfulHiddenName =
+                nonFaithfulMatch[4] && nonFaithfulMatch[4] !== 'NO_ABILITY'
+                  ? toCapitalCaseWithSpaces(nonFaithfulMatch[4].trim())
+                  : null;
 
               // Check if the abilities are actually different between faithful and non-faithful versions
               hasDistinctAbilities =
@@ -272,7 +318,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
               name: faithfulPrimaryName,
               description: '', // Will be filled in later
               isHidden: false,
-              abilityType: 'primary'
+              abilityType: 'primary',
             };
             faithfulAbilities.push(faithfulAbilityData);
             abilities.push({ ...faithfulAbilityData }); // For backward compatibility
@@ -285,7 +331,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
               name: faithfulSecondaryName,
               description: '', // Will be filled in later
               isHidden: false,
-              abilityType: 'secondary'
+              abilityType: 'secondary',
             };
             faithfulAbilities.push(faithfulAbilityData);
             abilities.push({ ...faithfulAbilityData }); // For backward compatibility
@@ -298,7 +344,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
               name: faithfulHiddenName,
               description: '', // Will be filled in later
               isHidden: true,
-              abilityType: 'hidden'
+              abilityType: 'hidden',
             };
             faithfulAbilities.push(faithfulAbilityData);
             abilities.push({ ...faithfulAbilityData }); // For backward compatibility
@@ -313,7 +359,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
                 name: nonFaithfulPrimaryName,
                 description: '', // Will be filled in later
                 isHidden: false,
-                abilityType: 'primary'
+                abilityType: 'primary',
               };
               updatedAbilities.push(updatedAbilityData);
             }
@@ -324,7 +370,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
                 name: nonFaithfulSecondaryName,
                 description: '', // Will be filled in later
                 isHidden: false,
-                abilityType: 'secondary'
+                abilityType: 'secondary',
               };
               updatedAbilities.push(updatedAbilityData);
             }
@@ -335,7 +381,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
                 name: nonFaithfulHiddenName,
                 description: '', // Will be filled in later
                 isHidden: true,
-                abilityType: 'hidden'
+                abilityType: 'hidden',
               };
               updatedAbilities.push(updatedAbilityData);
             }
@@ -348,7 +394,9 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       }
 
       // Extract growth rate - Format: db GROWTH_XXX ; growth rate
-      const growthRateLine = lines.find(l => l.trim().match(/^db\s+GROWTH_[A-Z_]+\s*;\s*growth rate/));
+      const growthRateLine = lines.find((l) =>
+        l.trim().match(/^db\s+GROWTH_[A-Z_]+\s*;\s*growth rate/),
+      );
       let growthRate = 'Medium';
 
       if (growthRateLine) {
@@ -359,7 +407,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       }
 
       // Extract egg groups - Format: dn EGG_GROUP1, EGG_GROUP2 ; egg groups
-      const eggGroupsLine = lines.find(l => l.trim().match(/^dn.*;\s*egg groups/));
+      const eggGroupsLine = lines.find((l) => l.trim().match(/^dn.*;\s*egg groups/));
       const eggGroups: string[] = [];
 
       if (eggGroupsLine) {
@@ -375,7 +423,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       }
 
       // Extract EV yield - Format: ev_yield NUM STAT
-      const evYieldLine = lines.find(l => l.trim().startsWith('ev_yield'));
+      const evYieldLine = lines.find((l) => l.trim().startsWith('ev_yield'));
       let evYield = 'None';
 
       if (evYieldLine) {
@@ -462,7 +510,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
 
       // If no conditional types were found, look for a standard type declaration
       if (!hasConditionalTypes) {
-        const typeLine = lines.find(l => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
+        const typeLine = lines.find((l) => l.match(/^\s*db [A-Z_]+, [A-Z_]+ ?; type/));
         if (typeLine) {
           const match = typeLine.match(/db ([A-Z_]+), ([A-Z_]+) ?; type/);
           if (match) {
@@ -502,14 +550,15 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         genderRatio,
         hatchRate,
         abilities: abilities.length > 0 ? abilities : [],
-        faithfulAbilities: faithfulAbilities.length > 0 ? faithfulAbilities : abilities.length > 0 ? abilities : [],
+        faithfulAbilities:
+          faithfulAbilities.length > 0 ? faithfulAbilities : abilities.length > 0 ? abilities : [],
         // Keep updatedAbilities empty if we explicitly cleared it (meaning abilities are identical)
         updatedAbilities: updatedAbilities,
         growthRate,
         eggGroups,
         evYield,
         types: faithfulTypes,
-        updatedTypes: updatedTypes
+        updatedTypes: updatedTypes,
       };
     } catch (error) {
       console.error(`Error processing ${fileName}:`, error);
@@ -525,7 +574,10 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
   console.log('Is Ho-Oh in detailedStats?', 'Ho-Oh' in detailedStats);
   if (!('Ho-Oh' in detailedStats)) {
     // Log all keys to see what's there
-    console.log('All keys in detailedStats:', Object.keys(detailedStats).filter(k => k.includes('Ho') || k.includes('Oh')));
+    console.log(
+      'All keys in detailedStats:',
+      Object.keys(detailedStats).filter((k) => k.includes('Ho') || k.includes('Oh')),
+    );
   }
 
   return detailedStats;
@@ -538,7 +590,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
  */
 export function addBodyDataToDetailedStats(
   line: string,
-  detailedStats: DetailedStats
+  detailedStats: DetailedStats,
 ): DetailedStats {
   // Example line: body_data   7,   69, QUADRUPED,    GREEN  ; BULBASAUR
   const bodyDataRegex = /body_data\s+(\d+),\s*(\d+),\s*([A-Z_]+),\s*([A-Z_]+)\s*;\s*(.+)/;
@@ -561,7 +613,10 @@ export function addBodyDataToDetailedStats(
 
 export function extractAbilityDescriptions() {
   const abilityNamesPath = path.join(__dirname, '../../../rom/data/abilities/names.asm');
-  const abilityDescriptionsPath = path.join(__dirname, '../../../rom/data/abilities/descriptions.asm');
+  const abilityDescriptionsPath = path.join(
+    __dirname,
+    '../../../rom/data/abilities/descriptions.asm',
+  );
 
   const namesData = fs.readFileSync(abilityNamesPath, 'utf8');
   const descData = fs.readFileSync(abilityDescriptionsPath, 'utf8');
@@ -572,10 +627,11 @@ export function extractAbilityDescriptions() {
   // First get the ability identifiers from the table at the beginning
   console.log('Parsing ability name IDs...', namesData);
   console.log('Names data length:', namesData.length);
-  const nameIds = namesData.split(/\r?\n/)
-    .filter(l => l.trim().startsWith('dw '))
-    .map(l => l.trim().replace(/^dw\s+/, '')) // Ensure space after 'dw'
-    .map(id => id.replace(/([a-z])([A-Z])/g, '$1 $2'))
+  const nameIds = namesData
+    .split(/\r?\n/)
+    .filter((l) => l.trim().startsWith('dw '))
+    .map((l) => l.trim().replace(/^dw\s+/, '')) // Ensure space after 'dw'
+    .map((id) => id.replace(/([a-z])([A-Z])/g, '$1 $2'))
     .filter(Boolean);
 
   console.log('Ability name IDs found:', nameIds.length, [...nameIds]);
@@ -589,7 +645,10 @@ export function extractAbilityDescriptions() {
   console.log('rawNameMatches', [...rawNameMatches]);
 
   // Debug the rawchar matching
-  console.log('Raw name matches found:', [...namesData.matchAll(/^(\w+):\s+rawchar\s+"([^@]+)@"/gm)].length);
+  console.log(
+    'Raw name matches found:',
+    [...namesData.matchAll(/^(\w+):\s+rawchar\s+"([^@]+)@"/gm)].length,
+  );
 
   for (const match of rawNameMatches) {
     const [, id, name] = match;
@@ -599,8 +658,7 @@ export function extractAbilityDescriptions() {
   console.log('Ability name map entries:', Object.keys(abilityNameMap).length);
 
   // Map the ids to their corresponding names
-  const abilityNames = nameIds.map(id => abilityNameMap[toTitleCase(id)] || toTitleCase(id));
-
+  const abilityNames = nameIds.map((id) => abilityNameMap[toTitleCase(id)] || toTitleCase(id));
 
   console.log('Ability names parsed:', abilityNames.length, abilityNames, 'abilities');
 
@@ -658,7 +716,7 @@ export function extractAbilityDescriptions() {
     const normalizedAbilityName = toTitleCase(abilityNames[i]);
     const desc = descMap[normalizedAbilityName] || '';
     abilityDescByName[normalizedAbilityName] = {
-      description: desc
+      description: desc,
     };
   }
 
@@ -678,4 +736,3 @@ export function extractAbilityDescriptions() {
 
   return abilityDescByName;
 }
-

@@ -1,4 +1,3 @@
-
 // Create a normalized display name for the location
 export function getDisplayLocationName(location: string): string {
   // Replace underscores/hyphens with spaces, trim, and capitalize each word

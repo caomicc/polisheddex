@@ -1,11 +1,11 @@
 'use client';
 
-import * as React from "react";
-import { cn } from "@/lib/utils";
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
-import Image from "next/image";
+import Image from 'next/image';
 
-type HeroProps =  React.PropsWithChildren & {
+type HeroProps = React.PropsWithChildren & {
   className?: string;
   headline?: string | React.ReactNode;
   description?: string | React.ReactNode;
@@ -26,11 +26,13 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         // Dispatch a custom event when hero visibility changes
-        window.dispatchEvent(new CustomEvent('heroVisibilityChange', {
-          detail: { isVisible: entry.isIntersecting }
-        }));
+        window.dispatchEvent(
+          new CustomEvent('heroVisibilityChange', {
+            detail: { isVisible: entry.isIntersecting },
+          }),
+        );
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     observer.observe(heroElement);
@@ -50,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
       return {
         backgroundColor: typeStyles.backgroundColor,
         color: typeStyles.textColor,
-        ...style
+        ...style,
       };
     }
     return style;
@@ -60,12 +62,17 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
     <div
       ref={heroRef}
       className={cn(
-        "flex flex-col text-left min-h-[200px] lg:min-h-[250px] justify-end p-4 md:p-8 pt-22 bg-gray-900 dark:bg-gray-800 rounded-xl mb-8 gap-1 max-w-4xl md:mx-auto",
-        className
+        'flex flex-col text-left min-h-[200px] lg:min-h-[250px] justify-end p-4 md:p-8 pt-22 bg-gray-900 dark:bg-gray-800 rounded-xl mb-8 gap-1 max-w-4xl md:mx-auto',
+        className,
       )}
       style={combinedStyle}
     >
-      <div className="mb-1" style={hasPokemonTheme ? { color: `${typeStyles.textColor} !important` } : undefined}>{breadcrumbs}</div>
+      <div
+        className="mb-1"
+        style={hasPokemonTheme ? { color: `${typeStyles.textColor} !important` } : undefined}
+      >
+        {breadcrumbs}
+      </div>
       <div className="flex items-center gap-4 mb-2">
         {image && (
           <Image
@@ -78,13 +85,19 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
           />
         )}
         {headline && (
-          <h1 className="text-2xl md:text-4xl font-bold capitalize" style={hasPokemonTheme ? { color: typeStyles.textColor } : undefined}>
+          <h1
+            className="text-2xl md:text-4xl font-bold capitalize"
+            style={hasPokemonTheme ? { color: typeStyles.textColor } : undefined}
+          >
             {headline}
           </h1>
         )}
       </div>
       {description && (
-        <p className="text-lg text-gray-300 dark:text-gray-400" style={hasPokemonTheme ? { color: `${typeStyles.textColor}CC` } : undefined}>
+        <p
+          className="text-lg text-gray-300 dark:text-gray-400"
+          style={hasPokemonTheme ? { color: `${typeStyles.textColor}CC` } : undefined}
+        >
           {description}
         </p>
       )}

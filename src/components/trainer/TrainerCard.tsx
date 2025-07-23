@@ -12,7 +12,9 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
         {/* Trainer Icon with better styling */}
         <div className="flex-shrink-0">
           <div className="w-10 h-10 bg-gradient-to-br from-red-100 to-red-200 dark:from-red-800 dark:to-red-900 rounded-full flex items-center justify-center border-2 border-red-200 dark:border-red-700">
-            <span className="text-lg" aria-hidden="true">👤</span>
+            <span className="text-lg" aria-hidden="true">
+              👤
+            </span>
           </div>
         </div>
 
@@ -27,11 +29,15 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
                 <span className="sr-only">Position:</span>
                 <span aria-hidden="true">📍</span>
                 {trainer.possibleCoordinates && trainer.possibleCoordinates.length > 1 ? (
-                  <span title={`Can be encountered at ${trainer.possibleCoordinates.length} different locations`}>
+                  <span
+                    title={`Can be encountered at ${trainer.possibleCoordinates.length} different locations`}
+                  >
                     Multiple locations ({trainer.possibleCoordinates.length})
                   </span>
                 ) : (
-                  <>({trainer.coordinates.x}, {trainer.coordinates.y})</>
+                  <>
+                    ({trainer.coordinates.x}, {trainer.coordinates.y})
+                  </>
                 )}
               </div>
               {trainer.rematchable && (
@@ -43,7 +49,9 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
           </div>
 
           {/* Additional trainer info */}
-          {(trainer.baseReward || trainer.items || (trainer.possibleCoordinates && trainer.possibleCoordinates.length > 1)) && (
+          {(trainer.baseReward ||
+            trainer.items ||
+            (trainer.possibleCoordinates && trainer.possibleCoordinates.length > 1)) && (
             <div className="space-y-2 mb-3 text-sm">
               <div className="flex flex-wrap gap-3">
                 {trainer.baseReward && (
@@ -66,7 +74,10 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {trainer.possibleCoordinates.map((coord, index) => (
-                      <span key={index} className="text-xs bg-slate-200 dark:bg-slate-600 px-2 py-1 rounded">
+                      <span
+                        key={index}
+                        className="text-xs bg-slate-200 dark:bg-slate-600 px-2 py-1 rounded"
+                      >
                         ({coord.x}, {coord.y})
                       </span>
                     ))}
@@ -99,7 +110,13 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
                       </Link>
                       <div className="flex-shrink-0 flex items-center gap-1">
                         {pokemon.shiny && (
-                          <span className="text-yellow-500" title="Shiny Pokémon" aria-label="Shiny">✨</span>
+                          <span
+                            className="text-yellow-500"
+                            title="Shiny Pokémon"
+                            aria-label="Shiny"
+                          >
+                            ✨
+                          </span>
                         )}
                         <span className="text-sm font-bold text-slate-700 dark:text-slate-300 bg-slate-200 dark:bg-slate-600 px-2 py-0.5 rounded">
                           Lv. {pokemon.level}
@@ -122,7 +139,9 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
                         {pokemon.gender && (
                           <div className="flex items-center gap-1">
                             <span className="text-slate-500 dark:text-slate-400">Gender:</span>
-                            <span className={`font-medium ${pokemon.gender === 'male' ? 'text-blue-600 dark:text-blue-400' : 'text-pink-600 dark:text-pink-400'}`}>
+                            <span
+                              className={`font-medium ${pokemon.gender === 'male' ? 'text-blue-600 dark:text-blue-400' : 'text-pink-600 dark:text-pink-400'}`}
+                            >
                               {pokemon.gender === 'male' ? '♂' : '♀'}
                             </span>
                           </div>
@@ -131,7 +150,9 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
                         {pokemon.nature && (
                           <div className="flex items-center gap-1">
                             <span className="text-slate-500 dark:text-slate-400">Nature:</span>
-                            <span className="font-medium text-slate-700 dark:text-slate-300">{pokemon.nature}</span>
+                            <span className="font-medium text-slate-700 dark:text-slate-300">
+                              {pokemon.nature}
+                            </span>
                           </div>
                         )}
                       </div>
@@ -139,14 +160,18 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
                       {pokemon.ability && (
                         <div className="flex items-center gap-1">
                           <span className="text-slate-500 dark:text-slate-400">Ability:</span>
-                          <span className="font-medium text-green-600 dark:text-green-400">{pokemon.ability}</span>
+                          <span className="font-medium text-green-600 dark:text-green-400">
+                            {pokemon.ability}
+                          </span>
                         </div>
                       )}
 
                       {pokemon.item && (
                         <div className="flex items-center gap-1">
                           <span className="text-slate-500 dark:text-slate-400">Held Item:</span>
-                          <span className="font-medium text-purple-600 dark:text-purple-400">{pokemon.item}</span>
+                          <span className="font-medium text-purple-600 dark:text-purple-400">
+                            {pokemon.item}
+                          </span>
                         </div>
                       )}
                     </div>
@@ -154,8 +179,14 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
                     {/* Moves with better layout */}
                     {pokemon.moves && pokemon.moves.length > 0 && (
                       <div className="mt-3 pt-2 border-t border-slate-200 dark:border-slate-600">
-                        <div className="text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">Moves:</div>
-                        <div className="flex flex-wrap gap-1" role="list" aria-label="Pokémon moves">
+                        <div className="text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                          Moves:
+                        </div>
+                        <div
+                          className="flex flex-wrap gap-1"
+                          role="list"
+                          aria-label="Pokémon moves"
+                        >
                           {pokemon.moves.map((move, moveIndex) => (
                             <span
                               key={moveIndex}
@@ -193,17 +224,26 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
               <div className="space-y-1 text-xs text-slate-600 dark:text-slate-400 mt-2">
                 {trainer.seenText && (
                   <div>
-                    <span className="font-medium text-slate-700 dark:text-slate-300">Before battle:</span> &ldquo;{trainer.seenText}&rdquo;
+                    <span className="font-medium text-slate-700 dark:text-slate-300">
+                      Before battle:
+                    </span>{' '}
+                    &ldquo;{trainer.seenText}&rdquo;
                   </div>
                 )}
                 {trainer.beatenText && (
                   <div>
-                    <span className="font-medium text-slate-700 dark:text-slate-300">After defeat:</span> &ldquo;{trainer.beatenText}&rdquo;
+                    <span className="font-medium text-slate-700 dark:text-slate-300">
+                      After defeat:
+                    </span>{' '}
+                    &ldquo;{trainer.beatenText}&rdquo;
                   </div>
                 )}
                 {trainer.afterText && (
                   <div>
-                    <span className="font-medium text-slate-700 dark:text-slate-300">Later encounters:</span> &ldquo;{trainer.afterText}&rdquo;
+                    <span className="font-medium text-slate-700 dark:text-slate-300">
+                      Later encounters:
+                    </span>{' '}
+                    &ldquo;{trainer.afterText}&rdquo;
                   </div>
                 )}
               </div>

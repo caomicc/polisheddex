@@ -38,19 +38,21 @@ export function LocationListItem({ area, method, time, level, chance, rareItem }
       <TableCell className="text-sm">Lv. {level}</TableCell>
       <TableCell className="text-sm text-gray-500">{chance}%</TableCell>
       <TableCell className="text-amber-600 font-medium">
-        {rareItem ? (() => {
-          const itemId = getItemIdFromDisplayName(rareItem);
-          return itemId ? (
-            <Link
-              href={`/items/${itemId}`}
-              className="hover:text-amber-700 hover:underline transition-colors"
-            >
-              Item: {rareItem}
-            </Link>
-          ) : (
-            `Item: ${rareItem}`
-          );
-        })() : '-'}
+        {rareItem
+          ? (() => {
+              const itemId = getItemIdFromDisplayName(rareItem);
+              return itemId ? (
+                <Link
+                  href={`/items/${itemId}`}
+                  className="hover:text-amber-700 hover:underline transition-colors"
+                >
+                  Item: {rareItem}
+                </Link>
+              ) : (
+                `Item: ${rareItem}`
+              );
+            })()
+          : '-'}
       </TableCell>
     </TableRow>,
   ];

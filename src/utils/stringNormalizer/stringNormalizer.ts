@@ -43,61 +43,60 @@ const stripAffixes = (str: string): string => {
 export const normalizeString = (str: string): string => {
   // Special cases that need direct mapping due to conflicts or inconsistencies
   const specialCases: Record<string, string> = {
-    'NIGHT_SLASH': 'Night Slash',
-    'SLASH': 'Slash',
-    'NightSlashDescription': 'Night Slash',
-    'SlashDescription': 'Slash',
+    NIGHT_SLASH: 'Night Slash',
+    SLASH: 'Slash',
+    NightSlashDescription: 'Night Slash',
+    SlashDescription: 'Slash',
     'Ho-Oh': 'Ho-Oh', // Special case for Ho-Oh
     'Ho Oh': 'Ho-Oh', // Special case for Ho-Oh
-    'Hooh': 'Ho-Oh', // Another variant for Ho-Oh
-    'HoOh': 'Ho-Oh', // Another variant for Ho-Oh
-    'HOOH': 'Ho-Oh', // Uppercase variant
+    Hooh: 'Ho-Oh', // Another variant for Ho-Oh
+    HoOh: 'Ho-Oh', // Another variant for Ho-Oh
+    HOOH: 'Ho-Oh', // Uppercase variant
     'ho oh': 'Ho-Oh', // Lowercase with space
     'ho-oh': 'Ho-Oh', // Lowercase with hyphen
-    'ho_oh': 'Ho-Oh', // Special case for file name format
-    'HO_OH': 'Ho-Oh', // Special case for ASM constant format
+    ho_oh: 'Ho-Oh', // Special case for file name format
+    HO_OH: 'Ho-Oh', // Special case for ASM constant format
     'porygon -z': 'porygon-z', // Special case for porygon-z
     'porygon-z': 'porygon-Z', // Special case for porygon-z
     'Porygon Z': 'porygon-z', // Special case for porygon-z
-    'PorygonZ': 'porygon-z', // Another variant for porygon-z
+    PorygonZ: 'porygon-z', // Another variant for porygon-z
     'PORYGON-Z': 'porygon-z', // Uppercase variant
     'PORYGON -Z': 'porygon-z', // Uppercase variant
     // 'porygon-z': 'porygon-z', // Lowercase with hyphen
     'porygon z': 'porygon-z', // Lowercase with space
-    'porygon_z': 'porygon-z', // Special case for file name format
-    'PORYGON_Z': 'porygon-z', // Special case for ASM constant format
+    porygon_z: 'porygon-z', // Special case for file name format
+    PORYGON_Z: 'porygon-z', // Special case for ASM constant format
     'Mr. Mime': 'Mr-Mime', // Special case for Mr. Mime
     'Mr Mime': 'Mr-Mime', // Special case for Mr. Mime
     'MR. MIME': 'Mr-Mime', // Uppercase variant
     'mr. mime': 'Mr-Mime', // Lowercase with space
     'mr mime': 'Mr-Mime', // Lowercase with space
-    'mr_mime': 'Mr-Mime', // Special case for file name format
-    'mr__mime': 'Mr-Mime', // Special case for file name format with double underscore
-    'MR_MIME': 'Mr-Mime', // Special case for ASM constant format
-    'MR__MIME': 'Mr-Mime', // Special case for ASM constant format with double underscore
+    mr_mime: 'Mr-Mime', // Special case for file name format
+    mr__mime: 'Mr-Mime', // Special case for file name format with double underscore
+    MR_MIME: 'Mr-Mime', // Special case for ASM constant format
+    MR__MIME: 'Mr-Mime', // Special case for ASM constant format with double underscore
     'Mr. Rime': 'mr-rime', // Special case for Mr. Rime
     'Mr Rime': 'mr-rime', // Special case for Mr. Rime
     'MR. RIME': 'mr-rime', // Uppercase variant
     'mr. rime': 'mr-rime', // Lowercase with space
     'mr rime': 'mr-rime', // Lowercase with space
-    'mr_rime': 'mr-rime', // Special case for file name format
-    'mr__rime': 'mr-rime', // Special case for file name format with double underscore
-    'MR_RIME': 'mr-rime', // Special case for ASM constant format
-    'MR__RIME': 'mr-rime', // Special case for ASM constant format with double underscore
-    'MrMime': 'Mr-Mime', // CamelCase variant
-    'MrRime': 'mr-rime', // CamelCase variant for Mr. Rime
+    mr_rime: 'mr-rime', // Special case for file name format
+    mr__rime: 'mr-rime', // Special case for file name format with double underscore
+    MR_RIME: 'mr-rime', // Special case for ASM constant format
+    MR__RIME: 'mr-rime', // Special case for ASM constant format with double underscore
+    MrMime: 'Mr-Mime', // CamelCase variant
+    MrRime: 'mr-rime', // CamelCase variant for Mr. Rime
 
     'Mime Jr.': 'Mime-Jr', // Special case for Mime Jr.
     'Mime Jr': 'Mime-Jr', // Special case for Mime Jr.
     'MIME JR.': 'Mime-Jr', // Uppercase variant
     'mime jr.': 'Mime-Jr', // Lowercase with space
     'mime jr': 'Mime-Jr', // Lowercase with space
-    'mime_jr': 'Mime-Jr', // Special case for file name format
-    'mime_jr_': 'Mime-Jr', // Special case for file name format with trailing underscore
-    'MIME_JR': 'Mime-Jr', // Special case for ASM constant format
-    'MIME_JR_': 'Mime-Jr', // Special case for ASM constant format with trailing underscore
-    'MimeJr': 'Mime-Jr', // CamelCase variant
-
+    mime_jr: 'Mime-Jr', // Special case for file name format
+    mime_jr_: 'Mime-Jr', // Special case for file name format with trailing underscore
+    MIME_JR: 'Mime-Jr', // Special case for ASM constant format
+    MIME_JR_: 'Mime-Jr', // Special case for ASM constant format with trailing underscore
+    MimeJr: 'Mime-Jr', // CamelCase variant
 
     // Nidoran♀ special cases
     'nidoran F': 'Nidoran-F',
@@ -107,12 +106,11 @@ export const normalizeString = (str: string): string => {
     'NIDORAN♀': 'Nidoran-F',
     'nidoran♀': 'Nidoran-F',
     'Nidoran-F': 'Nidoran-F',
-    'NIDORAN_F': 'Nidoran-F',
-    'nidoran_f': 'Nidoran-F',
-    'NidoranF': 'Nidoran-F',
-    'NIDORANF': 'Nidoran-F',
-    'nidoranf': 'Nidoran-F',
-
+    NIDORAN_F: 'Nidoran-F',
+    nidoran_f: 'Nidoran-F',
+    NidoranF: 'Nidoran-F',
+    NIDORANF: 'Nidoran-F',
+    nidoranf: 'Nidoran-F',
 
     'nidoran M': 'Nidoran-M',
     'Nidoran M': 'Nidoran-M',
@@ -121,33 +119,33 @@ export const normalizeString = (str: string): string => {
     'NIDORAN♂': 'Nidoran-M',
     'nidoran♂': 'Nidoran-M',
     'Nidoran-M': 'Nidoran-M',
-    'NIDORAN_M': 'Nidoran-M',
-    'nidoran_m': 'Nidoran-M',
-    'NidoranM': 'Nidoran-M',
-    'NIDORANM': 'Nidoran-M',
-    'nidoranm': 'Nidoran-M',
+    NIDORAN_M: 'Nidoran-M',
+    nidoran_m: 'Nidoran-M',
+    NidoranM: 'Nidoran-M',
+    NIDORANM: 'Nidoran-M',
+    nidoranm: 'Nidoran-M',
 
-    'Farfetch\'d': 'Farfetch-d', // Special case for Farfetch'd
+    "Farfetch'd": 'Farfetch-d', // Special case for Farfetch'd
     'Farfetch D': 'Farfetch-d', // Special case for Farfetch'd
-    'FARFETCH\'D': 'Farfetch-d', // Uppercase variant
-    'farfetch\'d': 'Farfetch-d', // Lowercase with apostrophe
+    "FARFETCH'D": 'Farfetch-d', // Uppercase variant
+    "farfetch'd": 'Farfetch-d', // Lowercase with apostrophe
     'farfetch d': 'Farfetch-d', // Lowercase with space
-    'farfetch_d': 'Farfetch-d', // Special case for file name format
-    'FARFETCH_D': 'Farfetch-d', // Special case for ASM constant format
-    'Farfetchd': 'Farfetch-d', // CamelCase variant
-    'FarfetchdDescription': 'Farfetch-d', // Description variant
-    'FarfetchD': 'Farfetch-d', // Another variant for Farfetch'd
+    farfetch_d: 'Farfetch-d', // Special case for file name format
+    FARFETCH_D: 'Farfetch-d', // Special case for ASM constant format
+    Farfetchd: 'Farfetch-d', // CamelCase variant
+    FarfetchdDescription: 'Farfetch-d', // Description variant
+    FarfetchD: 'Farfetch-d', // Another variant for Farfetch'd
 
-    'Sirfetch\'d': 'Sirfetch-d', // Special case for Sirfetch'd
+    "Sirfetch'd": 'Sirfetch-d', // Special case for Sirfetch'd
     'Sirfetch D': 'Sirfetch-d', // Special case for Sirfetch'd
-    'SIRFETCH\'D': 'Sirfetch-d', // Uppercase variant
-    'sirfetch\'d': 'Sirfetch-d', // Lowercase with apostrophe
+    "SIRFETCH'D": 'Sirfetch-d', // Uppercase variant
+    "sirfetch'd": 'Sirfetch-d', // Lowercase with apostrophe
     'sirfetch d': 'Sirfetch-d', // Lowercase with space
-    'sirfetch_d': 'Sirfetch-d', // Special case for file name format
-    'SIRFETCH_D': 'Sirfetch-d', // Special case for ASM constant format
-    'Sirfetchd': 'Sirfetch-d', // CamelCase variant
-    'SirfetchdDescription': 'Sirfetch-d', // Description variant
-    'SirfetchD': 'Sirfetch-d', // Another variant for Sirfetch'd
+    sirfetch_d: 'Sirfetch-d', // Special case for file name format
+    SIRFETCH_D: 'Sirfetch-d', // Special case for ASM constant format
+    Sirfetchd: 'Sirfetch-d', // CamelCase variant
+    SirfetchdDescription: 'Sirfetch-d', // Description variant
+    SirfetchD: 'Sirfetch-d', // Another variant for Sirfetch'd
   };
 
   // Check if this is a special case that needs direct mapping
@@ -172,11 +170,13 @@ export const normalizeString = (str: string): string => {
     words = normalized.toLowerCase().split(' ');
   }
   // Handle PascalCase (e.g., "ThunderShock") or camelCase
-  else if (!normalized.includes('_') &&
-    normalized !== normalized.toUpperCase()) {
+  else if (!normalized.includes('_') && normalized !== normalized.toUpperCase()) {
     // Insert space before capital letters to split into words
     const withSpaces = normalized.replace(/([A-Z])/g, ' $1').trim();
-    words = withSpaces.toLowerCase().split(' ').filter(word => word.length > 0);
+    words = withSpaces
+      .toLowerCase()
+      .split(' ')
+      .filter((word) => word.length > 0);
   }
   // Handle ALL_CAPS without underscores
   else if (normalized === normalized.toUpperCase() && !normalized.includes('_')) {
@@ -185,7 +185,7 @@ export const normalizeString = (str: string): string => {
 
   // Convert to Capital Case (first letter of each word capitalized)
   normalized = words
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(' ');
 
   return normalized;

@@ -25,7 +25,10 @@ const NavigationMenuDemo = () => {
     window.addEventListener('heroVisibilityChange', handleHeroVisibilityChange as EventListener);
 
     return () => {
-      window.removeEventListener('heroVisibilityChange', handleHeroVisibilityChange as EventListener);
+      window.removeEventListener(
+        'heroVisibilityChange',
+        handleHeroVisibilityChange as EventListener,
+      );
     };
   }, []);
 
@@ -36,88 +39,97 @@ const NavigationMenuDemo = () => {
   return (
     <div
       className={cn(
-      "fixed top-2 md:top-4 py-2 px-4 mx-4 w-[calc(100%-theme(spacing.4))] md:w-[calc(100%-theme(spacing.8))] left-[50%] transform -translate-x-1/2 z-50 rounded-xl transition-all duration-300 backdrop-blur-xl border border-2 max-w-4xl mx-auto",
-      showBackground
-        ? "bg-white/20 border-gray-200 text-white"
-        : "dark:text-white text-white border-transparent",
-      hasPokemonTheme && "pokemon-themed"
+        'fixed top-2 md:top-4 py-2 px-4 mx-4 w-[calc(100%-theme(spacing.4))] md:w-[calc(100%-theme(spacing.8))] left-[50%] transform -translate-x-1/2 z-50 rounded-xl transition-all duration-300 backdrop-blur-xl border border-2 max-w-4xl mx-auto',
+        showBackground
+          ? 'bg-white/20 border-gray-200 text-white'
+          : 'dark:text-white text-white border-transparent',
+        hasPokemonTheme && 'pokemon-themed',
       )}
     >
       <div className="w-full mx-auto flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <Link href="/" className="flex items-center gap-2" aria-label="Home">
-        <div className="aspect-square w-8 relative">
-          <Image
-          src="/25.png"
-          alt="PolishedDex Logo"
-          fill
-          sizes="64px"
-          className="object-contain"
-          />
+        <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2" aria-label="Home">
+            <div className="aspect-square w-8 relative">
+              <Image
+                src="/25.png"
+                alt="PolishedDex Logo"
+                fill
+                sizes="64px"
+                className="object-contain"
+              />
+            </div>
+            <span
+              className={cn(
+                'hidden md:inline-flex font-bold text-sm md:text-xl transition-colors duration-300',
+                showBackground && !hasPokemonTheme ? 'text-gray-900' : 'text-white',
+                hasPokemonTheme && 'pokemon-hero-text',
+              )}
+            >
+              PolishedDex
+            </span>
+          </Link>
         </div>
-        <span
-          className={cn(
-          "hidden md:inline-flex font-bold text-sm md:text-xl transition-colors duration-300",
-          showBackground && !hasPokemonTheme ? "text-gray-900" : "text-white",
-          hasPokemonTheme && "pokemon-hero-text"
-          )}
-        >
-          PolishedDex
-        </span>
-        </Link>
-      </div>
-      <NavigationMenu.Root className="NavigationMenuRoot justify-end! w-full!">
-        <NavigationMenu.List className="NavigationMenuList">
-        <NavigationMenu.Item>
-          <NavigationMenu.Link
-            className={cn(
-              "NavigationMenuLink transition-colors duration-300",
-              !hasPokemonTheme && !showBackground && "text-white! hover:text-black hover:bg-gray-200",
-              hasPokemonTheme && showBackground && "pokemon-themed-link",
-              showBackground && !hasPokemonTheme && "text-gray-900! hover:bg-pink-50! hover:text-gray-900!",
-              hasPokemonTheme && !showBackground && "pokemon-themed-link"
-            )}
-          href="/pokemon"
-          >
-          Pokedex
-          </NavigationMenu.Link>
-        </NavigationMenu.Item>
-        <NavigationMenu.Item>
-          <NavigationMenu.Link
-          className={cn(
-            "NavigationMenuLink transition-colors duration-300",
-            !hasPokemonTheme && !showBackground && "text-white! hover:text-black hover:bg-gray-200",
-            hasPokemonTheme && showBackground && "pokemon-themed-link",
-            showBackground && !hasPokemonTheme && "text-gray-900! hover:bg-pink-50! hover:text-gray-900!",
-            hasPokemonTheme && !showBackground && "pokemon-themed-link"
-          )}
-          href="/locations"
-          >
-          Locations
-          </NavigationMenu.Link>
-        </NavigationMenu.Item>
-        <NavigationMenu.Item>
-          <NavigationMenu.Link
-            className={cn(
-              "NavigationMenuLink transition-colors duration-300",
-              !hasPokemonTheme && !showBackground && "text-white! hover:text-black hover:bg-gray-200",
-              hasPokemonTheme && showBackground && "pokemon-themed-link",
-              showBackground && !hasPokemonTheme && "text-gray-900! hover:bg-pink-50! hover:text-gray-900!",
-              hasPokemonTheme && !showBackground && "pokemon-themed-link"
-            )}
-            href="/items"
-          >
-            Items
-          </NavigationMenu.Link>
-        </NavigationMenu.Item>
-        <NavigationMenu.Indicator className="NavigationMenuIndicator">
-          <div className="Arrow" />
-        </NavigationMenu.Indicator>
-        </NavigationMenu.List>
-        <div className="ViewportPosition">
-        <NavigationMenu.Viewport className="NavigationMenuViewport" />
-        </div>
-      </NavigationMenu.Root>
+        <NavigationMenu.Root className="NavigationMenuRoot justify-end! w-full!">
+          <NavigationMenu.List className="NavigationMenuList">
+            <NavigationMenu.Item>
+              <NavigationMenu.Link
+                className={cn(
+                  'NavigationMenuLink transition-colors duration-300',
+                  !hasPokemonTheme &&
+                    !showBackground &&
+                    'text-white! hover:text-gray-900! hover:bg-gray-200',
+                  !hasPokemonTheme &&
+                    showBackground &&
+                    'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                  hasPokemonTheme && 'pokemon-themed-link',
+                )}
+                href="/pokemon"
+              >
+                Pokedex
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
+            <NavigationMenu.Item>
+              <NavigationMenu.Link
+                className={cn(
+                  'NavigationMenuLink transition-colors duration-300',
+                  !hasPokemonTheme &&
+                    !showBackground &&
+                    'text-white! hover:text-gray-900! hover:bg-gray-200',
+                  !hasPokemonTheme &&
+                    showBackground &&
+                    'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                  hasPokemonTheme && 'pokemon-themed-link',
+                )}
+                href="/locations"
+              >
+                Locations
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
+            <NavigationMenu.Item>
+              <NavigationMenu.Link
+                className={cn(
+                  'NavigationMenuLink transition-colors duration-300',
+                  !hasPokemonTheme &&
+                    !showBackground &&
+                    'text-white! hover:text-gray-900! hover:bg-gray-200',
+                  !hasPokemonTheme &&
+                    showBackground &&
+                    'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                  hasPokemonTheme && 'pokemon-themed-link',
+                )}
+                href="/items"
+              >
+                Items
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
+            <NavigationMenu.Indicator className="NavigationMenuIndicator">
+              <div className="Arrow" />
+            </NavigationMenu.Indicator>
+          </NavigationMenu.List>
+          <div className="ViewportPosition">
+            <NavigationMenu.Viewport className="NavigationMenuViewport" />
+          </div>
+        </NavigationMenu.Root>
       </div>
     </div>
   );
@@ -134,12 +146,7 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
   ({ className, children, title, href, ...props }, ref) => (
     <li>
       <NavigationMenu.Link asChild>
-        <Link
-          ref={ref}
-          className={classNames('ListItemLink', className)}
-          href={href}
-          {...props}
-        >
+        <Link ref={ref} className={classNames('ListItemLink', className)} href={href} {...props}>
           <div className="ListItemHeading">{title}</div>
           <p className="ListItemText">{children}</p>
         </Link>

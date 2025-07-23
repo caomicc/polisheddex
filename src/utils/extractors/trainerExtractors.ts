@@ -39,8 +39,13 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
   fs.writeFileSync(TRAINER_OUTPUT, JSON.stringify(trainersByLocation, null, 2));
   console.log(`✅ Extracted trainer data to ${TRAINER_OUTPUT}`);
 
-  const totalTrainers = Object.values(trainersByLocation).reduce((sum, trainers) => sum + trainers.length, 0);
-  console.log(`📊 Found ${totalTrainers} trainers across ${Object.keys(trainersByLocation).length} locations`);
+  const totalTrainers = Object.values(trainersByLocation).reduce(
+    (sum, trainers) => sum + trainers.length,
+    0,
+  );
+  console.log(
+    `📊 Found ${totalTrainers} trainers across ${Object.keys(trainersByLocation).length} locations`,
+  );
 
   return trainersByLocation;
 }
@@ -124,11 +129,14 @@ function extractTrainerParties(partiesPath: string): Record<string, TrainerPokem
 /**
  * Extract trainer locations from map files
  */
-function extractTrainerLocations(mapsDir: string, trainerParties: Record<string, TrainerPokemon[]>): Record<string, LocationTrainer[]> {
+function extractTrainerLocations(
+  mapsDir: string,
+  trainerParties: Record<string, TrainerPokemon[]>,
+): Record<string, LocationTrainer[]> {
   console.log('🗺️  Parsing trainer locations from maps...');
 
   const trainersByLocation: Record<string, LocationTrainer[]> = {};
-  const mapFiles = fs.readdirSync(mapsDir).filter(file => file.endsWith('.asm'));
+  const mapFiles = fs.readdirSync(mapsDir).filter((file) => file.endsWith('.asm'));
 
   for (const mapFile of mapFiles) {
     const locationKey = normalizeLocationKey(path.basename(mapFile, '.asm'));
@@ -153,9 +161,11 @@ function extractTrainerLocations(mapsDir: string, trainerParties: Record<string,
         let nextLineIdx = i + 1;
 
         // Keep reading lines until we have a complete object_event (ends with something recognizable)
-        while (nextLineIdx < lines.length &&
+        while (
+          nextLineIdx < lines.length &&
           !fullObjectLine.includes('OBJECTTYPE_') &&
-          nextLineIdx < i + 5) {
+          nextLineIdx < i + 5
+        ) {
           fullObjectLine += ' ' + lines[nextLineIdx].trim();
           nextLineIdx++;
         }
@@ -176,7 +186,9 @@ function extractTrainerLocations(mapsDir: string, trainerParties: Record<string,
                 // Found the trainer definition, now look for the generictrainer line
                 for (let k = j + 1; k < Math.min(j + 5, lines.length); k++) {
                   const trainerDefLine = lines[k].trim();
-                  const trainerDefMatch = trainerDefLine.match(/generictrainer\s+([A-Z_]+),\s*([A-Z0-9_]+),/);
+                  const trainerDefMatch = trainerDefLine.match(
+                    /generictrainer\s+([A-Z_]+),\s*([A-Z0-9_]+),/,
+                  );
 
                   if (trainerDefMatch) {
                     const trainerClass = trainerDefMatch[1];
@@ -195,7 +207,9 @@ function extractTrainerLocations(mapsDir: string, trainerParties: Record<string,
                     };
 
                     locationTrainers.push(trainer);
-                    console.log(`🎯 Found trainer ${trainer.name} (${trainerClass}) at ${locationKey} with ${pokemon.length} pokemon`);
+                    console.log(
+                      `🎯 Found trainer ${trainer.name} (${trainerClass}) at ${locationKey} with ${pokemon.length} pokemon`,
+                    );
                     break;
                   }
                 }
@@ -226,7 +240,7 @@ function parsePokemonLine(pokemonData: string): TrainerPokemon | null {
   // LEVEL, SPECIES, GENDER+FORM
   // etc.
 
-  const parts = pokemonData.split(',').map(p => p.trim());
+  const parts = pokemonData.split(',').map((p) => p.trim());
 
   if (parts.length < 2) {
     return null;
@@ -264,7 +278,7 @@ function parsePokemonLine(pokemonData: string): TrainerPokemon | null {
   // Parse species and optional item
   const speciesStr = parts[partIndex++];
   if (speciesStr.includes('@')) {
-    const speciesParts = speciesStr.split('@').map(s => s.trim());
+    const speciesParts = speciesStr.split('@').map((s) => s.trim());
     species = normalizeSpeciesName(speciesParts[0]);
     item = normalizeItemName(speciesParts[1]);
   } else {
@@ -290,7 +304,7 @@ function normalizeSpeciesName(species: string): string {
     .toLowerCase()
     .replace(/_/g, '-')
     .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join('-')
     .replace(/^Nidoran-M/, 'Nidoran-M')
     .replace(/^Nidoran-F/, 'Nidoran-F')
@@ -306,7 +320,7 @@ function normalizeItemName(item: string): string {
     .toLowerCase()
     .replace(/_/g, ' ')
     .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 }
 
@@ -315,38 +329,38 @@ function normalizeItemName(item: string): string {
  */
 function getSpriteType(trainerClass: string): string {
   const spriteMap: Record<string, string> = {
-    'BUG_CATCHER': 'bug_catcher',
-    'YOUNGSTER': 'youngster',
-    'LASS': 'lass',
-    'CAMPER': 'camper',
-    'PICNICKER': 'picnicker',
-    'HIKER': 'hiker',
-    'FISHERMAN': 'fisherman',
-    'SWIMMER_M': 'swimmer_m',
-    'SWIMMER_F': 'swimmer_f',
-    'SAILOR': 'sailor',
-    'OFFICER': 'officer',
-    'GUITARIST': 'guitarist',
-    'JUGGLER': 'juggler',
-    'PSYCHIC_T': 'psychic',
-    'SAGE': 'sage',
-    'MEDIUM': 'medium',
-    'BOARDER': 'boarder',
-    'SKIER': 'skier',
-    'BLACKBELT_T': 'blackbelt',
-    'FIREBREATHER': 'firebreather',
-    'COOLTRAINERM': 'ace_trainer_m',
-    'COOLTRAINERF': 'ace_trainer_f',
-    'BEAUTY': 'beauty',
-    'POKEMANIAC': 'pokemaniac',
-    'GRUNTM': 'team_rocket_grunt_m',
-    'GRUNTF': 'team_rocket_grunt_f',
-    'GENTLEMAN': 'gentleman',
-    'SCIENTIST': 'scientist',
-    'ROCKET': 'team_rocket_grunt_m',
-    'EXECUTIVE': 'team_rocket_executive',
-    'LEADER': 'gym_leader',
-    'CHAMPION': 'champion',
+    BUG_CATCHER: 'bug_catcher',
+    YOUNGSTER: 'youngster',
+    LASS: 'lass',
+    CAMPER: 'camper',
+    PICNICKER: 'picnicker',
+    HIKER: 'hiker',
+    FISHERMAN: 'fisherman',
+    SWIMMER_M: 'swimmer_m',
+    SWIMMER_F: 'swimmer_f',
+    SAILOR: 'sailor',
+    OFFICER: 'officer',
+    GUITARIST: 'guitarist',
+    JUGGLER: 'juggler',
+    PSYCHIC_T: 'psychic',
+    SAGE: 'sage',
+    MEDIUM: 'medium',
+    BOARDER: 'boarder',
+    SKIER: 'skier',
+    BLACKBELT_T: 'blackbelt',
+    FIREBREATHER: 'firebreather',
+    COOLTRAINERM: 'ace_trainer_m',
+    COOLTRAINERF: 'ace_trainer_f',
+    BEAUTY: 'beauty',
+    POKEMANIAC: 'pokemaniac',
+    GRUNTM: 'team_rocket_grunt_m',
+    GRUNTF: 'team_rocket_grunt_f',
+    GENTLEMAN: 'gentleman',
+    SCIENTIST: 'scientist',
+    ROCKET: 'team_rocket_grunt_m',
+    EXECUTIVE: 'team_rocket_executive',
+    LEADER: 'gym_leader',
+    CHAMPION: 'champion',
   };
 
   return spriteMap[trainerClass] || trainerClass.toLowerCase();

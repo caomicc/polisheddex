@@ -18,7 +18,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // Convert the URL key to a standardized key for file lookup
   const standardKey = urlKeyToStandardKey(pokemonName);
 
-
   const pokemonFile = path.join(process.cwd(), `output/pokemon/${getPokemonFileName(standardKey)}`);
   const pokemonData = await loadJsonData<PokemonDataV3>(pokemonFile);
 
@@ -139,12 +138,11 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const { order: dexOrder, type: dexType } = getDexOrderToUse(
     pokemonData,
     dexOrders.national,
-    dexOrders.johto
+    dexOrders.johto,
   );
 
   const navigation = getPokemonNavigation(pokemonName, dexOrder);
   console.log('Generated navigation:', navigation);
-
 
   const moveDescFile = path.join(process.cwd(), `output/pokemon_move_descriptions.json`);
   const moveDescData = (await loadJsonData<Record<string, MoveDescription>>(moveDescFile)) || {};
@@ -154,30 +152,30 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
 
   return (
     <>
-    <div className="max-w-xl md:max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
-      <PokemonKeyboardNavigation navigation={navigation} />
-      <PokemonFormClient
-        forms={forms}
-        allFormData={allFormData}
-        moveDescData={moveDescData}
-        pokemonName={pokemonName}
-      />
-      {/* Only render navigation if we have valid navigation data */}
-      {navigation.current.index !== -1 ? (
-        <PokemonNavigation navigation={navigation} dexType={dexType} />
-      ) : (
-        <div className="flex flex-col gap-4 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-          <div className="text-center">
-            <Button asChild variant="ghost" size="sm">
-              <Link href="/pokemon" className="flex items-center gap-1">
-                <span className="text-xs">Back to List</span>
-              </Link>
-            </Button>
+      <div className="max-w-xl md:max-w-4xl mx-auto">
+        <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
+        <PokemonKeyboardNavigation navigation={navigation} />
+        <PokemonFormClient
+          forms={forms}
+          allFormData={allFormData}
+          moveDescData={moveDescData}
+          pokemonName={pokemonName}
+        />
+        {/* Only render navigation if we have valid navigation data */}
+        {navigation.current.index !== -1 ? (
+          <PokemonNavigation navigation={navigation} dexType={dexType} />
+        ) : (
+          <div className="flex flex-col gap-4 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="text-center">
+              <Button asChild variant="ghost" size="sm">
+                <Link href="/pokemon" className="flex items-center gap-1">
+                  <span className="text-xs">Back to List</span>
+                </Link>
+              </Button>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
     </>
   );
 }

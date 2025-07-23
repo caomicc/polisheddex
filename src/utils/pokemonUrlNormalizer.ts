@@ -11,7 +11,7 @@ const KNOWN_FORMS = {
   BLOODMOON: 'bloodmoon',
   PALDEAN: 'paldean',
   PALDEAN_FIRE: 'paldean_fire',
-  PALDEAN_WATER: 'paldean_water'
+  PALDEAN_WATER: 'paldean_water',
 };
 
 /**
@@ -48,9 +48,8 @@ export const HYPHENATED_POKEMON_NAMES = [
   'type-null',
   'jangmo-o',
   'hakamo-o',
-  'kommo-o'
+  'kommo-o',
 ];
-
 
 /**
  * Normalizes a Pokemon name to a URL-safe format while preserving essential hyphens
@@ -96,8 +95,8 @@ export function normalizePokemonUrlKey(name: string): string {
   console.log(`Normalizing Pokemon name: ${name}`);
 
   // Check if this is a known hyphenated Pokemon name
-  const isHyphenatedPokemon = HYPHENATED_POKEMON_NAMES.some(hyphenated =>
-    name.toLowerCase() === hyphenated.toLowerCase()
+  const isHyphenatedPokemon = HYPHENATED_POKEMON_NAMES.some(
+    (hyphenated) => name.toLowerCase() === hyphenated.toLowerCase(),
   );
 
   if (isHyphenatedPokemon) {
@@ -186,7 +185,7 @@ export function normalizePokemonDisplayName(name: string): string {
     .toLowerCase()
     .replace(/[_-]/g, ' ')
     .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
     .trim();
 }
@@ -216,7 +215,7 @@ export function urlKeyToStandardKey(urlKey: string): string {
   // For other Pokemon, convert to title case
   return decoded
     .split('-')
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ');
 }
 
@@ -250,20 +249,20 @@ export function validatePokemonHyphenation(name: string): {
       hasHyphen: false,
       isKnownForm: false,
       isEdgeCase: false,
-      suggestedKey: normalizePokemonUrlKey(name)
+      suggestedKey: normalizePokemonUrlKey(name),
     };
   }
 
   // Check if the hyphenated part matches a known form
   const parts = name.split('-');
   const lastPart = parts[parts.length - 1];
-  const isKnownForm = Object.values(KNOWN_FORMS).some(form =>
-    form.toLowerCase() === lastPart.toLowerCase()
+  const isKnownForm = Object.values(KNOWN_FORMS).some(
+    (form) => form.toLowerCase() === lastPart.toLowerCase(),
   );
 
   // Check if it's a known hyphenated Pokemon name
-  const isHyphenatedPokemon = HYPHENATED_POKEMON_NAMES.some(hyphenated =>
-    name.toLowerCase() === hyphenated.toLowerCase()
+  const isHyphenatedPokemon = HYPHENATED_POKEMON_NAMES.some(
+    (hyphenated) => name.toLowerCase() === hyphenated.toLowerCase(),
   );
 
   const isEdgeCase = hasHyphen && !isKnownForm && !isHyphenatedPokemon;
@@ -272,6 +271,6 @@ export function validatePokemonHyphenation(name: string): {
     hasHyphen,
     isKnownForm,
     isEdgeCase,
-    suggestedKey: normalizePokemonUrlKey(name)
+    suggestedKey: normalizePokemonUrlKey(name),
   };
 }

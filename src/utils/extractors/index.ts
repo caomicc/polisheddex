@@ -8,10 +8,7 @@ export { extractHiddenGrottoes } from './locationExtractors.ts';
 export { extractMoveDescriptions } from './moveExtractors.ts';
 
 // Export from pokedexExtractors.ts
-export {
-  extractBasePokemonName,
-  getFullPokemonName
-} from './pokedexExtractors.ts';
+export { extractBasePokemonName, getFullPokemonName } from './pokedexExtractors.ts';
 
 // Export from statsExtractors.ts
 export { extractDetailedStats } from './statsExtractors.ts';

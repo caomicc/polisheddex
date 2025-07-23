@@ -35,9 +35,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
     } else if (pokemon.name === 'Mime-Jr') {
       displayName = 'Mime Jr.';
     } else if (pokemon.name === 'Farfetchd') {
-      displayName = 'Farfetch\'d';
-    }  else if (pokemon.name === 'Sirfetchd') {
-      displayName = 'Sirfetch\'d';
+      displayName = "Farfetch'd";
+    } else if (pokemon.name === 'Sirfetchd') {
+      displayName = "Sirfetch'd";
     } else if (pokemon.name === 'Ho-Oh') {
       displayName = 'Ho-Oh';
     } else if (pokemon.name === 'mr-rime' || pokemon.name === 'Mr-Rime') {
@@ -52,14 +52,12 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
     ? typeof displayTypes === 'string'
       ? displayTypes.toLowerCase()
       : Array.isArray(displayTypes) && displayTypes.length > 0
-      ? displayTypes[0].toLowerCase()
-      : 'unknown'
+        ? displayTypes[0].toLowerCase()
+        : 'unknown'
     : 'unknown';
 
   const secondaryType =
-    Array.isArray(displayTypes) && displayTypes.length > 1
-      ? displayTypes[1].toLowerCase()
-      : null;
+    Array.isArray(displayTypes) && displayTypes.length > 1 ? displayTypes[1].toLowerCase() : null;
 
   // Generate CSS-based gradient props
   const gradientProps = getTypeGradientProps(primaryType, secondaryType || undefined);
@@ -69,7 +67,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       <Card
         className={cn(
           'shadow-sm hover:shadow-md transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pt-[48px] h-[110px] md:h-auto',
-          gradientProps.className
+          gradientProps.className,
         )}
         style={gradientProps.style}
       >
@@ -88,12 +86,10 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
                 ? pokemon.johtoDex
                 : '—'
               : pokemon.nationalDex !== null
-              ? pokemon.nationalDex
-              : '—'}
+                ? pokemon.nationalDex
+                : '—'}
           </p>
-          <h2 className="text-sm md:text-xl md:mb-8 font-bold leading-none mb-2">
-            {displayName}
-          </h2>
+          <h2 className="text-sm md:text-xl md:mb-8 font-bold leading-none mb-2">{displayName}</h2>
           <div className="flex md:justify-center gap-1 md:gap-2 flex-col md:flex-row">
             {(Array.isArray(displayTypes) ? displayTypes : [displayTypes]).map((type) => (
               <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>

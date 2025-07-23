@@ -1,0 +1,59 @@
+// /**
+//  * This script helps merge separate form files into the base Pokemon file
+//  * Use it when you have separate files like "tauros-paldean-water.json" but want the data to be part
+//  * of the forms section in the main "tauros.json" file instead.
+//  */
+
+// const fs = require('fs');
+// const path = require('path');
+
+// // Configuration
+// const POKEMON_DIR = path.join(__dirname, 'output/pokemon');
+// const FORM_TO_FIX = {
+//   baseName: 'tauros', // Base Pokemon name
+//   formFile: 'tauros-paldean-water', // File name of the separate form (without .json)
+//   formKey: 'Paldean_water', // Key to use in the forms object
+//   formTypes: ['Fighting', 'Water'], // Correct types for this form
+// };
+
+// // Get file paths
+// const baseFilePath = path.join(POKEMON_DIR, `${FORM_TO_FIX.baseName}.json`);
+// const formFilePath = path.join(POKEMON_DIR, `${FORM_TO_FIX.formFile}.json`);
+
+// // Check if files exist
+// if (!fs.existsSync(baseFilePath)) {
+//   console.error(`Base file not found: ${baseFilePath}`);
+//   process.exit(1);
+// }
+
+// if (!fs.existsSync(formFilePath)) {
+//   console.error(`Form file not found: ${formFilePath}`);
+//   process.exit(1);
+// }
+
+// // Read files
+// const baseData = JSON.parse(fs.readFileSync(baseFilePath, 'utf8'));
+// const formData = JSON.parse(fs.readFileSync(formFilePath, 'utf8'));
+
+// // Make sure forms object exists
+// if (!baseData.forms) {
+//   baseData.forms = {};
+// }
+
+// // Add or update form data
+// baseData.forms[FORM_TO_FIX.formKey] = {
+//   ...formData,
+//   formName: FORM_TO_FIX.formKey,
+//   types: FORM_TO_FIX.formTypes,
+//   updatedTypes: FORM_TO_FIX.formTypes,
+// };
+
+// // Write updated base file
+// fs.writeFileSync(baseFilePath, JSON.stringify(baseData, null, 2));
+// console.log(`Updated ${baseFilePath} with form data from ${formFilePath}`);
+
+// // Remove the separate form file
+// fs.unlinkSync(formFilePath);
+// console.log(`Removed ${formFilePath}`);
+
+// console.log('Form file successfully merged into base Pokemon file');

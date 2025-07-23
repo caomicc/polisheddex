@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 
-import { KNOWN_FORMS } from "../data/constants.ts";
+import { KNOWN_FORMS } from '../data/constants.ts';
 import { normalizeString } from './stringNormalizer/stringNormalizer.ts';
 
 // Helper to convert move names to Capital Case with spaces
@@ -10,7 +10,7 @@ export function toCapitalCaseWithSpaces(str: string) {
   return str
     .toLowerCase()
     .replace(/_/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase());
+    .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 // Helper to normalize ASM labels to move keys (e.g., BatonPass -> BATON_PASS, Psybeam -> PSY_BEAM)
@@ -24,12 +24,11 @@ export function normalizeAsmLabelToMoveKey(label: string) {
 
 // old alias
 export function toTitleCase(str: string) {
-  return normalizeString(str)
+  return normalizeString(str);
   // .toLowerCase()
   // .replace(/(^|_|\s|-)([a-z])/g, (_, sep, c) => sep + c.toUpperCase())
   // .replace(/_/g, '');
 }
-
 
 // Helper to standardize Pokemon key names across the codebase
 export function standardizePokemonKey(name: string): string {
@@ -38,9 +37,17 @@ export function standardizePokemonKey(name: string): string {
 
   // Special handling for Paldean forms that need specific treatment
   if (name.toLowerCase().includes(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())) {
-    return toTitleCase(name.substring(0, name.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())).toLowerCase());
+    return toTitleCase(
+      name
+        .substring(0, name.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase()))
+        .toLowerCase(),
+    );
   } else if (name.toLowerCase().includes(KNOWN_FORMS.PALDEAN_WATER.toLowerCase())) {
-    return toTitleCase(name.substring(0, name.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_WATER.toLowerCase())).toLowerCase());
+    return toTitleCase(
+      name
+        .substring(0, name.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_WATER.toLowerCase()))
+        .toLowerCase(),
+    );
   }
 
   // Create a regex pattern using all the known forms from our constant
@@ -105,7 +112,9 @@ export function parseDexEntries(file: string): string[] {
 }
 
 // Helper to parse wildmon lines
-export function parseWildmonLine(line: string): { level: string; species: string; form: string | null } | null {
+export function parseWildmonLine(
+  line: string,
+): { level: string; species: string; form: string | null } | null {
   // Handles: wildmon LEVEL, SPECIES [, FORM]
   const match = line.match(/wildmon ([^,]+), ([A-Z0-9_]+)(?:, ([A-Z0-9_]+))?/);
 
@@ -116,16 +125,21 @@ export function parseWildmonLine(line: string): { level: string; species: string
     level = level.replace(/^LEVEL_FROM_BADGES/, 'Badge Level').trim();
   }
 
-  console.log(`DEBUG: stringUtils parseWildmonLine: level: ${level}, species: ${match[2]}, form: ${match[3]}`);
+  console.log(
+    `DEBUG: stringUtils parseWildmonLine: level: ${level}, species: ${match[2]}, form: ${match[3]}`,
+  );
 
   return {
     level,
     species: match[2].trim(),
-    form: match[3] ? match[3].trim() : null
+    form: match[3] ? match[3].trim() : null,
   };
 }
 
-export function normalizeMonName(name: string, formStr: string | null): { baseName: string; formName: string | null } {
+export function normalizeMonName(
+  name: string,
+  formStr: string | null,
+): { baseName: string; formName: string | null } {
   // Trim and convert to TitleCase, then remove any trailing spaces
   const baseName = toTitleCase(name).trimEnd();
 
@@ -156,31 +170,31 @@ export function normalizeMonName(name: string, formStr: string | null): { baseNa
 // Helper functions to convert game codes to human-readable strings
 export function convertGenderCode(code: string): { male: number; female: number } {
   const genderCodes: Record<string, { male: number; female: number }> = {
-    'GENDER_F0': {
+    GENDER_F0: {
       male: 100,
       female: 0,
     },
-    'GENDER_F12_5': {
+    GENDER_F12_5: {
       male: 87.5,
       female: 12.5,
     },
-    'GENDER_F25': {
+    GENDER_F25: {
       male: 75,
       female: 25,
     },
-    'GENDER_F50': {
+    GENDER_F50: {
       male: 50,
       female: 50,
     },
-    'GENDER_F75': {
+    GENDER_F75: {
       male: 25,
       female: 75,
     },
-    'GENDER_F100': {
+    GENDER_F100: {
       male: 0,
       female: 100,
     },
-    'GENDER_UNKNOWN': {
+    GENDER_UNKNOWN: {
       male: 0,
       female: 0,
     },
@@ -190,49 +204,49 @@ export function convertGenderCode(code: string): { male: number; female: number 
 
 export function convertHatchCode(code: string): string {
   const hatchCodes: Record<string, string> = {
-    'HATCH_FASTEST': 'Very Fast (1,280 steps)',
-    'HATCH_FASTER': 'Fast (2,560 steps)',
-    'HATCH_FAST': 'Medium-Fast (5,120 steps)',
-    'HATCH_MEDIUM_FAST': 'Medium-Fast (5,120 steps)',
-    'HATCH_MEDIUM_SLOW': 'Medium-Slow (6,400 steps)',
-    'HATCH_SLOW': 'Slow (8,960 steps)',
-    'HATCH_SLOWER': 'Very Slow (10,240 steps)',
-    'HATCH_SLOWEST': 'Extremely Slow (20,480 steps)'
+    HATCH_FASTEST: 'Very Fast (1,280 steps)',
+    HATCH_FASTER: 'Fast (2,560 steps)',
+    HATCH_FAST: 'Medium-Fast (5,120 steps)',
+    HATCH_MEDIUM_FAST: 'Medium-Fast (5,120 steps)',
+    HATCH_MEDIUM_SLOW: 'Medium-Slow (6,400 steps)',
+    HATCH_SLOW: 'Slow (8,960 steps)',
+    HATCH_SLOWER: 'Very Slow (10,240 steps)',
+    HATCH_SLOWEST: 'Extremely Slow (20,480 steps)',
   };
   return hatchCodes[code] || 'Unknown';
 }
 
 export function convertGrowthRateCode(code: string): string {
   const growthRateCodes: Record<string, string> = {
-    'GROWTH_MEDIUM_FAST': 'Medium Fast',
-    'GROWTH_SLIGHTLY_FAST': 'Slightly Fast',
-    'GROWTH_SLIGHTLY_SLOW': 'Slightly Slow',
-    'GROWTH_MEDIUM_SLOW': 'Medium Slow',
-    'GROWTH_FAST': 'Fast',
-    'GROWTH_SLOW': 'Slow',
-    'GROWTH_ERRATIC': 'Erratic',
-    'GROWTH_FLUCTUATING': 'Fluctuating'
+    GROWTH_MEDIUM_FAST: 'Medium Fast',
+    GROWTH_SLIGHTLY_FAST: 'Slightly Fast',
+    GROWTH_SLIGHTLY_SLOW: 'Slightly Slow',
+    GROWTH_MEDIUM_SLOW: 'Medium Slow',
+    GROWTH_FAST: 'Fast',
+    GROWTH_SLOW: 'Slow',
+    GROWTH_ERRATIC: 'Erratic',
+    GROWTH_FLUCTUATING: 'Fluctuating',
   };
   return growthRateCodes[code] || 'Medium Fast';
 }
 
 export function convertEggGroupCode(code: string): string {
   const eggGroupCodes: Record<string, string> = {
-    'EGG_MONSTER': 'Monster',
-    'EGG_WATER_1': 'Water 1',
-    'EGG_BUG': 'Bug',
-    'EGG_FLYING': 'Flying',
-    'EGG_GROUND': 'Field',
-    'EGG_FAIRY': 'Fairy',
-    'EGG_PLANT': 'Grass',
-    'EGG_HUMANSHAPE': 'Human-Like',
-    'EGG_WATER_3': 'Water 3',
-    'EGG_MINERAL': 'Mineral',
-    'EGG_INDETERMINATE': 'Amorphous',
-    'EGG_WATER_2': 'Water 2',
-    'EGG_DITTO': 'Ditto',
-    'EGG_DRAGON': 'Dragon',
-    'EGG_NONE': 'Undiscovered'
+    EGG_MONSTER: 'Monster',
+    EGG_WATER_1: 'Water 1',
+    EGG_BUG: 'Bug',
+    EGG_FLYING: 'Flying',
+    EGG_GROUND: 'Field',
+    EGG_FAIRY: 'Fairy',
+    EGG_PLANT: 'Grass',
+    EGG_HUMANSHAPE: 'Human-Like',
+    EGG_WATER_3: 'Water 3',
+    EGG_MINERAL: 'Mineral',
+    EGG_INDETERMINATE: 'Amorphous',
+    EGG_WATER_2: 'Water 2',
+    EGG_DITTO: 'Ditto',
+    EGG_DRAGON: 'Dragon',
+    EGG_NONE: 'Undiscovered',
   };
   return eggGroupCodes[code] || 'Undiscovered';
 }
@@ -242,18 +256,36 @@ export function convertEggGroupCode(code: string): string {
  * Example: "Light Screen" -> "LIGHT_SCREEN", "psybeam" -> "PSY_BEAM"
  */
 export function normalizeMoveKey(name: string): string {
-  return name
-    // .replace(/([a-z])([A-Z])/g, '$1_$2') // camelCase to snake_case
-    .replace(/\s+/g, '_') // spaces to underscores
-    .replace(/[^A-Z0-9_]/gi, '_') // non-alphanumeric to underscores
-    .toUpperCase();
+  return (
+    name
+      // .replace(/([a-z])([A-Z])/g, '$1_$2') // camelCase to snake_case
+      .replace(/\s+/g, '_') // spaces to underscores
+      .replace(/[^A-Z0-9_]/gi, '_') // non-alphanumeric to underscores
+      .toUpperCase()
+  );
 }
 
 export const typeEnumToName: Record<string, string> = {
-  'NORMAL': 'Normal', 'FIGHTING': 'Fighting', 'FLYING': 'Flying', 'POISON': 'Poison', 'GROUND': 'Ground',
-  'ROCK': 'Rock', 'BUG': 'Bug', 'GHOST': 'Ghost', 'STEEL': 'Steel', 'FIRE': 'Fire', 'WATER': 'Water',
-  'GRASS': 'Grass', 'ELECTRIC': 'Electric', 'PSYCHIC': 'Psychic', 'ICE': 'Ice', 'DRAGON': 'Dragon',
-  'DARK': 'Dark', 'FAIRY': 'Fairy', 'SHADOW': 'Shadow', 'NONE': 'None'
+  NORMAL: 'Normal',
+  FIGHTING: 'Fighting',
+  FLYING: 'Flying',
+  POISON: 'Poison',
+  GROUND: 'Ground',
+  ROCK: 'Rock',
+  BUG: 'Bug',
+  GHOST: 'Ghost',
+  STEEL: 'Steel',
+  FIRE: 'Fire',
+  WATER: 'Water',
+  GRASS: 'Grass',
+  ELECTRIC: 'Electric',
+  PSYCHIC: 'Psychic',
+  ICE: 'Ice',
+  DRAGON: 'Dragon',
+  DARK: 'Dark',
+  FAIRY: 'Fairy',
+  SHADOW: 'Shadow',
+  NONE: 'None',
 };
 
 /**

@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 
 /**
  * Generate CSS custom properties for dual-type gradients
@@ -12,13 +12,13 @@ export function getDualTypeGradientStyles(type1: string, type2?: string) {
     return {
       '--type-1-color': `var(--color-${type1})`,
       '--type-2-color': `var(--color-${type1})`,
-    } as React.CSSProperties
+    } as React.CSSProperties;
   }
 
   return {
     '--type-1-color': `var(--color-${type1})`,
     '--type-2-color': `var(--color-${type2})`,
-  } as React.CSSProperties
+  } as React.CSSProperties;
 }
 
 /**
@@ -31,10 +31,10 @@ export function getDualTypeGradientStyles(type1: string, type2?: string) {
 export function getDualTypeGradientProps(
   type1: string,
   type2?: string,
-  additionalClasses?: string
+  additionalClasses?: string,
 ) {
   return {
     className: cn('bg-dual-type-gradient', additionalClasses),
     style: getDualTypeGradientStyles(type1, type2),
-  }
+  };
 }

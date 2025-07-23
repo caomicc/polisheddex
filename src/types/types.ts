@@ -5,7 +5,7 @@ export interface EvoRaw {
   parameter: string | number | null;
   target: string;
   form?: string;
-};
+}
 
 export interface LocationEntry {
   area: string | null;
@@ -19,12 +19,18 @@ export interface LocationEntry {
 
 // Define location data structure types
 export interface LocationAreaData {
-  pokemon: Record<string, {
-    methods: Record<string, {
-      times: Record<string, EncounterDetail[]>
-    }>
-  }>
-};
+  pokemon: Record<
+    string,
+    {
+      methods: Record<
+        string,
+        {
+          times: Record<string, EncounterDetail[]>;
+        }
+      >;
+    }
+  >;
+}
 
 export interface PokemonLocationData {
   locations: LocationEntry[];
@@ -108,17 +114,26 @@ export interface DetailedStats {
   faithfulTypes?: string[] | string; // Types in the faithful version
   locations?: LocationEntry[];
   updatedTypes?: string[] | string; // Types in the polished/updated version
-  forms?: Record<string, Omit<DetailedStats, 'moves'> & { name: string, moves?: Move[], baseStats?: DetailedStats['baseStats'], detailedStats?: DetailedStats }>;
+  forms?: Record<
+    string,
+    Omit<DetailedStats, 'moves'> & {
+      name: string;
+      moves?: Move[];
+      baseStats?: DetailedStats['baseStats'];
+      detailedStats?: DetailedStats;
+    }
+  >;
   levelMoves?: Move[]; // Moves learned by leveling up
   tmHmLearnset?: Move[]; // TM/HM learnset
   eggMoves?: string[]; // Egg moves
   species?: string; // Species name for the Pokémon
   pokedexEntries?: Record<string, PokemonDexEntry>;
 }
-export type PokemonDataV3 = PokemonDataV2 & DetailedStats & {
-  detailedStats?: DetailedStats;
-  baseStats?: DetailedStats['baseStats'];
-};
+export type PokemonDataV3 = PokemonDataV2 &
+  DetailedStats & {
+    detailedStats?: DetailedStats;
+    baseStats?: DetailedStats['baseStats'];
+  };
 
 export interface MoveDetail {
   level: string;
@@ -137,7 +152,6 @@ export interface Evolution {
   chain: string[];
   chainWithMethods: Record<string, EvolutionMethod[]>;
 }
-
 
 export interface Ability {
   name: string;
@@ -167,13 +181,16 @@ export interface BaseData extends DetailedStats {
   faithfulTypes?: string[] | string; // Types in the faithful version
   updatedTypes?: string[] | string; // Types in the polished/updated version
   frontSpriteUrl?: string;
-  forms?: Record<string, DetailedStats & {
-    types: string[] | string; // Current displayed types (default to updated)
-    faithfulTypes?: string[] | string; // Types in the faithful version
-    updatedTypes?: string[] | string; // Types in the polished/updated version
-    frontSpriteUrl?: string;
-    name: string;
-  }>;
+  forms?: Record<
+    string,
+    DetailedStats & {
+      types: string[] | string; // Current displayed types (default to updated)
+      faithfulTypes?: string[] | string; // Types in the faithful version
+      updatedTypes?: string[] | string; // Types in the polished/updated version
+      frontSpriteUrl?: string;
+      name: string;
+    }
+  >;
 }
 
 export interface LevelMovesData {
@@ -188,24 +205,24 @@ export interface LocationsData {
 
 export interface PokemonType {
   name:
-  | "normal"
-  | "fire"
-  | "water"
-  | "electric"
-  | "grass"
-  | "ice"
-  | "fighting"
-  | "poison"
-  | "ground"
-  | "flying"
-  | "psychic"
-  | "bug"
-  | "rock"
-  | "ghost"
-  | "dragon"
-  | "dark"
-  | "steel"
-  | "fairy";
+    | 'normal'
+    | 'fire'
+    | 'water'
+    | 'electric'
+    | 'grass'
+    | 'ice'
+    | 'fighting'
+    | 'poison'
+    | 'ground'
+    | 'flying'
+    | 'psychic'
+    | 'bug'
+    | 'rock'
+    | 'ghost'
+    | 'dragon'
+    | 'dark'
+    | 'steel'
+    | 'fairy';
   damageRelations?: {
     doubleDamageTo: PokemonType[];
     doubleDamageFrom: PokemonType[];
@@ -249,7 +266,16 @@ export interface PokemonMethods {
 }
 
 export interface LocationConnection {
-  direction: 'north' | 'south' | 'east' | 'west' | 'northeast' | 'northwest' | 'southeast' | 'southwest' | 'warp';
+  direction:
+    | 'north'
+    | 'south'
+    | 'east'
+    | 'west'
+    | 'northeast'
+    | 'northwest'
+    | 'southeast'
+    | 'southwest'
+    | 'warp';
   targetLocation: string;
   targetLocationDisplay: string;
   offset: number;

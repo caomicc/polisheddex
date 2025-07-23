@@ -15,9 +15,19 @@ export function extractPokemonForm(pokemonName: string): {
 } {
   // Special cases for Pokémon with hyphens that aren't forms
   const specialHyphenatedPokemon = [
-    'nidoran-f', 'nidoran-m', 'mr-mime', 'mime-jr', 'ho-oh',
-    'porygon-z', 'farfetch-d', 'sirfetch-d', 'type-null',
-    'mr-rime', 'jangmo-o', 'hakamo-o', 'kommo-o'
+    'nidoran-f',
+    'nidoran-m',
+    'mr-mime',
+    'mime-jr',
+    'ho-oh',
+    'porygon-z',
+    'farfetch-d',
+    'sirfetch-d',
+    'type-null',
+    'mr-rime',
+    'jangmo-o',
+    'hakamo-o',
+    'kommo-o',
   ];
 
   const lowerName = pokemonName.toLowerCase();
@@ -36,7 +46,7 @@ export function extractPokemonForm(pokemonName: string): {
       const baseName = pokemonName.replace(formPattern, '').trim();
       return {
         baseName: baseName || pokemonName,
-        formName: formValue
+        formName: formValue,
       };
     }
   }
@@ -46,13 +56,13 @@ export function extractPokemonForm(pokemonName: string): {
     if (lowerName.includes('fire')) {
       return {
         baseName: pokemonName.replace(/paldean[_\s-]?fire/i, '').trim(),
-        formName: KNOWN_FORMS.PALDEAN_FIRE
+        formName: KNOWN_FORMS.PALDEAN_FIRE,
       };
     }
     if (lowerName.includes('water')) {
       return {
         baseName: pokemonName.replace(/paldean[_\s-]?water/i, '').trim(),
-        formName: KNOWN_FORMS.PALDEAN_WATER
+        formName: KNOWN_FORMS.PALDEAN_WATER,
       };
     }
   }
@@ -92,13 +102,13 @@ function formatPokemonBaseName(baseName: string): string {
     'mime-jr': 'Mime Jr.',
     'ho-oh': 'Ho-Oh',
     'porygon-z': 'Porygon-Z',
-    'farfetch-d': 'Farfetch\'d',
-    'sirfetch-d': 'Sirfetch\'d',
+    'farfetch-d': "Farfetch'd",
+    'sirfetch-d': "Sirfetch'd",
     'mr-rime': 'Mr. Rime',
     'type-null': 'Type: Null',
     'jangmo-o': 'Jangmo-o',
     'hakamo-o': 'Hakamo-o',
-    'kommo-o': 'Kommo-o'
+    'kommo-o': 'Kommo-o',
   };
 
   const lowerName = baseName.toLowerCase();
@@ -111,7 +121,7 @@ function formatPokemonBaseName(baseName: string): string {
     .replace(/_/g, ' ')
     .toLowerCase()
     .split(/[\s-]+/)
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(baseName.includes('-') ? '-' : ' ');
 }
 
@@ -133,7 +143,7 @@ function formatFormName(formName: string): string {
     [KNOWN_FORMS.GALAR]: 'Galar',
     [KNOWN_FORMS.HISUI]: 'Hisui',
     [KNOWN_FORMS.RED]: 'Red',
-    [KNOWN_FORMS.PLAIN]: 'Plain'
+    [KNOWN_FORMS.PLAIN]: 'Plain',
   };
 
   return formDisplayNames[formName] || formName.charAt(0).toUpperCase() + formName.slice(1);
@@ -165,7 +175,7 @@ export function getFormTypeClass(formName: string | null): string {
     [KNOWN_FORMS.PALDEAN_FIRE]: 'form-paldean-fire',
     [KNOWN_FORMS.PALDEAN_WATER]: 'form-paldean-water',
     [KNOWN_FORMS.ARMORED]: 'form-armored',
-    [KNOWN_FORMS.BLOODMOON]: 'form-bloodmoon'
+    [KNOWN_FORMS.BLOODMOON]: 'form-bloodmoon',
   };
 
   return formClasses[formName] || '';

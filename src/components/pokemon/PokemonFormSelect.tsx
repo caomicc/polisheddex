@@ -1,6 +1,11 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 
-export default function PokemonFormSelect({ selectedForm, setSelectedForm, uniqueForms, classes }: {
+export default function PokemonFormSelect({
+  selectedForm,
+  setSelectedForm,
+  uniqueForms,
+  classes,
+}: {
   selectedForm: string;
   setSelectedForm: (form: string) => void;
   uniqueForms: string[];
@@ -17,11 +22,11 @@ export default function PokemonFormSelect({ selectedForm, setSelectedForm, uniqu
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="default">Plain</SelectItem>
-            {uniqueForms
+          {uniqueForms
             .filter((form) => form !== 'plain' && form.trim() !== '')
             .map((form) => (
               <SelectItem key={form} value={form}>
-              {form.charAt(0).toUpperCase() + form.slice(1)}
+                {form.charAt(0).toUpperCase() + form.slice(1)}
               </SelectItem>
             ))}
         </SelectContent>

@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import path from "node:path";
+import path from 'node:path';
 import { normalizeMoveKey, toCapitalCaseWithSpaces } from '../stringUtils.ts';
 import { sharedDescriptionGroups } from '../../data/constants.ts';
 import type { MoveDescription } from '../../types/types.ts';
@@ -12,12 +12,12 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
 const EGG_MOVES_OUTPUT = path.join(__dirname, '../../../output/pokemon_egg_moves.json');
-const MOVE_DESCRIPTIONS_OUTPUT = path.join(__dirname, '../../../output/pokemon_move_descriptions.json');
+const MOVE_DESCRIPTIONS_OUTPUT = path.join(
+  __dirname,
+  '../../../output/pokemon_move_descriptions.json',
+);
 const TM_HM_LEARNSET_PATH = path.join(__dirname, '../../../output/pokemon_tm_hm_learnset.json');
-
-
 
 export function extractMoveDescriptions() {
   const moveNamesPath = path.join(__dirname, '../../../rom/data/moves/names.asm');
@@ -29,8 +29,8 @@ export function extractMoveDescriptions() {
   const statsData = fs.readFileSync(moveStatsPath, 'utf8');
 
   // Parse move names (order matters)
-  const nameLines = namesData.split(/\r?\n/).filter(l => l.trim().startsWith('li '));
-  const moveNames = nameLines.map(l => l.match(/li "(.+?)"/)?.[1] || '').filter(Boolean);
+  const nameLines = namesData.split(/\r?\n/).filter((l) => l.trim().startsWith('li '));
+  const moveNames = nameLines.map((l) => l.match(/li "(.+?)"/)?.[1] || '').filter(Boolean);
 
   // Parse descriptions by label name
   const descLines = descData.split(/\r?\n/);
@@ -82,21 +82,45 @@ export function extractMoveDescriptions() {
 
   // Parse move stats
   const typeEnumToName: Record<string, string> = {
-    'NORMAL': 'Normal', 'FIGHTING': 'Fighting', 'FLYING': 'Flying', 'POISON': 'Poison', 'GROUND': 'Ground',
-    'ROCK': 'Rock', 'BUG': 'Bug', 'GHOST': 'Ghost', 'STEEL': 'Steel', 'FIRE': 'Fire', 'WATER': 'Water',
-    'GRASS': 'Grass', 'ELECTRIC': 'Electric', 'PSYCHIC': 'Psychic', 'ICE': 'Ice', 'DRAGON': 'Dragon',
-    'DARK': 'Dark', 'FAIRY': 'Fairy', 'SHADOW': 'Shadow', 'NONE': 'None', 'UNKNOWN_T': 'Unknown'
+    NORMAL: 'Normal',
+    FIGHTING: 'Fighting',
+    FLYING: 'Flying',
+    POISON: 'Poison',
+    GROUND: 'Ground',
+    ROCK: 'Rock',
+    BUG: 'Bug',
+    GHOST: 'Ghost',
+    STEEL: 'Steel',
+    FIRE: 'Fire',
+    WATER: 'Water',
+    GRASS: 'Grass',
+    ELECTRIC: 'Electric',
+    PSYCHIC: 'Psychic',
+    ICE: 'Ice',
+    DRAGON: 'Dragon',
+    DARK: 'Dark',
+    FAIRY: 'Fairy',
+    SHADOW: 'Shadow',
+    NONE: 'None',
+    UNKNOWN_T: 'Unknown',
   };
   const categoryEnumToName: Record<string, string> = {
-    'PHYSICAL': 'Physical', 'SPECIAL': 'Special', 'STATUS': 'Status'
+    PHYSICAL: 'Physical',
+    SPECIAL: 'Special',
+    STATUS: 'Status',
   };
   const statsLines = statsData.split(/\r?\n/);
   // Updated regex: capture accuracy (5th argument)
   // move NAME, EFFECT, POWER, TYPE, ACCURACY, PP, PRIORITY, CATEGORY
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const moveStats: Record<string, { type: string; pp: number; power: number; category: string; accuracy: any }> = {};
+  const moveStats: Record<
+    string,
+    { type: string; pp: number; power: number; category: string; accuracy: any }
+  > = {};
   for (const line of statsLines) {
-    const match = line.match(/^\s*move\s+([A-Z0-9_]+),\s*[A-Z0-9_]+,\s*(-?\d+),\s*([A-Z_]+),\s*(-?\d+),\s*(\d+),\s*\d+,\s*([A-Z_]+)/);
+    const match = line.match(
+      /^\s*move\s+([A-Z0-9_]+),\s*[A-Z0-9_]+,\s*(-?\d+),\s*([A-Z_]+),\s*(-?\d+),\s*(\d+),\s*\d+,\s*([A-Z_]+)/,
+    );
     if (match) {
       const move = match[1];
       const moveKey = normalizeMoveKey(move);
@@ -110,7 +134,17 @@ export function extractMoveDescriptions() {
   }
 
   // Map move names to their description by label name
-  const moveDescByName: Record<string, { description: string; type: string; pp: number; power: number; category: string; accuracy: number }> = {};
+  const moveDescByName: Record<
+    string,
+    {
+      description: string;
+      type: string;
+      pp: number;
+      power: number;
+      category: string;
+      accuracy: number;
+    }
+  > = {};
   // Define normalized groups for shared descriptions
   // Reverse lookup for quick group membership
   const moveToGroup: Record<string, string> = {};
@@ -137,7 +171,13 @@ export function extractMoveDescriptions() {
         }
       }
     }
-    const stats = moveStats[moveKey] || { type: 'None', pp: 0, power: 0, category: 'Unknown', accuracy: 0 };
+    const stats = moveStats[moveKey] || {
+      type: 'None',
+      pp: 0,
+      power: 0,
+      category: 'Unknown',
+      accuracy: 0,
+    };
     let prettyName = toCapitalCaseWithSpaces(moveKey);
     console.log(`Adding move description for ${prettyName} m,dhuisadhguwishdkj`, moveKey);
     if (prettyName === 'Doubleslap') prettyName = 'Double Slap'; // Special case for Double Slap
@@ -147,7 +187,7 @@ export function extractMoveDescriptions() {
       pp: stats.pp,
       power: stats.power,
       category: stats.category,
-      accuracy: stats.accuracy === -1 ? '--' : stats.accuracy
+      accuracy: stats.accuracy === -1 ? '--' : stats.accuracy,
     };
   }
 
@@ -180,7 +220,10 @@ export function extractMoveDescriptions() {
 
 export function extractEggMoves() {
   const eggMovesPath = path.join(__dirname, '../../../rom/data/pokemon/egg_moves.asm');
-  const eggMovePointersPath = path.join(__dirname, '../../../rom/data/pokemon/egg_move_pointers.asm');
+  const eggMovePointersPath = path.join(
+    __dirname,
+    '../../../rom/data/pokemon/egg_move_pointers.asm',
+  );
 
   // Parse pointers: species => EggSpeciesMoves label
   const pointerData = fs.readFileSync(eggMovePointersPath, 'utf8');
@@ -192,7 +235,12 @@ export function extractEggMoves() {
     if (match) {
       const pointer = match[1];
       // Use only the first word before any parenthesis or extra info as the species name
-      const species = match[2].split('(')[0].split(';')[0].trim().replace(/\s+\(.+\)/, '').replace(/\s+$/, '');
+      const species = match[2]
+        .split('(')[0]
+        .split(';')[0]
+        .trim()
+        .replace(/\s+\(.+\)/, '')
+        .replace(/\s+$/, '');
       console.log(`DEBUG: extractEggMoves: match[2] for ${species}`, match[2]);
 
       speciesToPointer[species] = pointer;
@@ -239,7 +287,7 @@ export function extractEggMoves() {
 
 export function extractTmHmLearnset() {
   const detailedStatsDir = path.join(__dirname, '../../../rom/data/pokemon/base_stats');
-  const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter(f => f.endsWith('.asm'));
+  const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter((f) => f.endsWith('.asm'));
 
   // Parse pointers: species => EggSpeciesMoves label
   const tmHmLearnset: Record<string, MoveDescription[]> = {};
@@ -258,22 +306,24 @@ export function extractTmHmLearnset() {
 
     // Use normalized URL key for consistency with other data files
     const normalizedBaseName = normalizePokemonUrlKey(basePokemonName);
-    const pokemonName = formName ? `${normalizedBaseName}-${formName.toLowerCase()}` : normalizedBaseName;
+    const pokemonName = formName
+      ? `${normalizedBaseName}-${formName.toLowerCase()}`
+      : normalizedBaseName;
 
     const content = fs.readFileSync(path.join(detailedStatsDir, file), 'utf8');
     const lines = content.split(/\r?\n/);
 
     // Find TM/HM learnset lines: tmhm TM_MOVE_1, TM_MOVE_2, ...
-    const tmhmLine = lines.find(l => l.trim().startsWith('tmhm '));
+    const tmhmLine = lines.find((l) => l.trim().startsWith('tmhm '));
     if (tmhmLine) {
       const moves = tmhmLine
         .replace('tmhm ', '')
         .split(',')
-        .map(m => m.trim())
-        .filter(m => m && m !== 'NO_MOVE')
-        .map(m => toCapitalCaseWithSpaces(m));
+        .map((m) => m.trim())
+        .filter((m) => m && m !== 'NO_MOVE')
+        .map((m) => toCapitalCaseWithSpaces(m));
 
-      tmHmLearnset[pokemonName] = moves.map(name => {
+      tmHmLearnset[pokemonName] = moves.map((name) => {
         // Check if we have move description data for this move
         const moveData = moveDescriptions[name];
         if (moveData) {
@@ -285,7 +335,7 @@ export function extractTmHmLearnset() {
             power: moveData.power || 0,
             category: moveData.category || '',
             accuracy: moveData.accuracy || 0,
-            effectPercent: moveData.effectPercent
+            effectPercent: moveData.effectPercent,
           };
         } else {
           return {
@@ -295,7 +345,7 @@ export function extractTmHmLearnset() {
             pp: 0,
             power: 0,
             category: '',
-            accuracy: 0
+            accuracy: 0,
           };
         }
       });
@@ -323,4 +373,3 @@ if (fs.existsSync(pokemonLevelMovesPath)) {
   fs.writeFileSync(pokemonLevelMovesPath, JSON.stringify(levelMovesData, null, 2));
   console.log('Normalized move names in pokemon_level_moves.json');
 }
-

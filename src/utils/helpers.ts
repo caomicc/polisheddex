@@ -1,9 +1,16 @@
-import { formTypeMap, KNOWN_FORMS, typeMap } from "../data/constants.ts";
-import type { EncounterDetail, LocationAreaData, LocationEntry, PokemonDataV3 } from "../types/types.ts";
-import { extractBasePokemonName } from "./extractors/pokedexExtractors.ts";
+import { formTypeMap, KNOWN_FORMS, typeMap } from '../data/constants.ts';
+import type {
+  EncounterDetail,
+  LocationAreaData,
+  LocationEntry,
+  PokemonDataV3,
+} from '../types/types.ts';
+import { extractBasePokemonName } from './extractors/pokedexExtractors.ts';
 
 // Create a grouped data structure combining forms
-export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): Record<string, PokemonDataV3> {
+export function groupPokemonForms(
+  pokemonData: Record<string, PokemonDataV3>,
+): Record<string, PokemonDataV3> {
   const groupedData: Record<string, PokemonDataV3> = {};
   const formsByBase: Record<string, Record<string, PokemonDataV3>> = {};
 
@@ -55,7 +62,7 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
   // Add any plain forms that don't have a corresponding base form
   for (const [baseName, data] of Object.entries(plainForms)) {
     if (!formsByBase[baseName]) {
-      formsByBase[baseName] = { 'default': data };
+      formsByBase[baseName] = { default: data };
     }
   }
 
@@ -69,7 +76,11 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
     // Ensure base form has proper types
     let baseTypes = baseForm.types;
 
-    if (!baseTypes || baseTypes === 'None' || (Array.isArray(baseTypes) && baseTypes.includes('None'))) {
+    if (
+      !baseTypes ||
+      baseTypes === 'None' ||
+      (Array.isArray(baseTypes) && baseTypes.includes('None'))
+    ) {
       if (typeMap[baseName]) {
         const types = typeMap[baseName];
         if (Array.isArray(types)) {
@@ -87,14 +98,16 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
     // Merge evolution chains from all forms to include regional form evolutions
     let mergedEvolution = baseForm.evolution;
     const allChainMembers = new Set(baseForm.evolution?.chain || []);
-    const allChainMethods: Record<string, any[]> = { ...baseForm.evolution?.chainWithMethods || {} };
+    const allChainMethods: Record<string, any[]> = {
+      ...(baseForm.evolution?.chainWithMethods || {}),
+    };
     const allMethods = [...(baseForm.evolution?.methods || [])];
 
     // Check all forms for additional evolution data
     for (const [formKey, formData] of Object.entries(forms)) {
       if (formKey !== 'default' && formData.evolution) {
         // Add any new chain members from this form
-        formData.evolution.chain?.forEach(member => allChainMembers.add(member));
+        formData.evolution.chain?.forEach((member) => allChainMembers.add(member));
 
         // Merge chain methods
         Object.entries(formData.evolution.chainWithMethods || {}).forEach(([key, methods]) => {
@@ -105,11 +118,12 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
         });
 
         // Add any unique evolution methods
-        formData.evolution.methods?.forEach(method => {
-          const existing = allMethods.find(m =>
-            m.method === method.method &&
-            m.target === method.target &&
-            m.parameter === method.parameter
+        formData.evolution.methods?.forEach((method) => {
+          const existing = allMethods.find(
+            (m) =>
+              m.method === method.method &&
+              m.target === method.target &&
+              m.parameter === method.parameter,
           );
           if (!existing) {
             allMethods.push(method);
@@ -122,7 +136,7 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
     mergedEvolution = {
       methods: allMethods,
       chain: Array.from(allChainMembers),
-      chainWithMethods: allChainMethods
+      chainWithMethods: allChainMethods,
     };
 
     // Create the entry for this Pokémon
@@ -130,7 +144,7 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
       ...baseForm,
       types: baseTypes || baseForm.types,
       evolution: mergedEvolution,
-      forms: {}
+      forms: {},
     };
 
     // Add all forms (including the default one)
@@ -140,12 +154,20 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
         let formTypes = formData.types;
 
         // If form types are missing or set to None, try to get them from formTypeMap
-        if (!formTypes || formTypes === 'None' || (Array.isArray(formTypes) && formTypes.includes('None'))) {
+        if (
+          !formTypes ||
+          formTypes === 'None' ||
+          (Array.isArray(formTypes) && formTypes.includes('None'))
+        ) {
           if (formTypeMap[baseName] && formTypeMap[baseName][formName]) {
             // Use the form-specific type data
             const formTypeArray = formTypeMap[baseName][formName];
             // Handle single type (remove duplicates or 'None')
-            if (Array.isArray(formTypeArray) && (formTypeArray.length === 1 || (formTypeArray.length === 2 && formTypeArray[1] === 'None'))) {
+            if (
+              Array.isArray(formTypeArray) &&
+              (formTypeArray.length === 1 ||
+                (formTypeArray.length === 2 && formTypeArray[1] === 'None'))
+            ) {
               formTypes = formTypeArray[0];
             } else {
               formTypes = Array.isArray(formTypeArray)
@@ -176,7 +198,7 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
           bodyShape: formData.bodyShape,
           // habitat: formData.habitat,
           // generation: formData.generation
-        } as any;  // Temporary type assertion to include evolution data
+        } as any; // Temporary type assertion to include evolution data
 
         // Add evolution data separately to avoid type conflicts
         (groupedData[baseName].forms![formName] as any).evolution = formEvolutionData;
@@ -192,13 +214,12 @@ export function groupPokemonForms(pokemonData: Record<string, PokemonDataV3>): R
   return groupedData;
 }
 
-
 // Helper function to process locations
 export function processLocations(
   pokemon: string,
   locations: LocationEntry[],
   formName: string | null,
-  locationsByArea: Record<string, LocationAreaData>
+  locationsByArea: Record<string, LocationAreaData>,
 ) {
   for (const location of locations) {
     if (!location.area) continue;
@@ -207,7 +228,7 @@ export function processLocations(
     const formattedAreaName = location.area
       .toLowerCase()
       .replace(/_/g, ' ')
-      .replace(/\b\w/g, c => c.toUpperCase());
+      .replace(/\b\w/g, (c) => c.toUpperCase());
     const method = location.method || 'unknown';
     const time = location.time || 'any';
 
@@ -234,7 +255,7 @@ export function processLocations(
     // Add encounter details
     const encounterDetail: EncounterDetail = {
       level: location.level,
-      chance: location.chance
+      chance: location.chance,
     };
 
     // Add rareItem if present (for hidden grottoes)
@@ -247,7 +268,9 @@ export function processLocations(
       encounterDetail.formName = formName || location.formName;
     }
 
-    locationsByArea[formattedAreaName].pokemon[pokemon].methods[method].times[time].push(encounterDetail);
+    locationsByArea[formattedAreaName].pokemon[pokemon].methods[method].times[time].push(
+      encounterDetail,
+    );
   }
 
   // After all encounter details are added, combine duplicates (same level, same formName, same rareItem)
@@ -277,7 +300,6 @@ export function processLocations(
   }
 }
 
-
 // Add function to validate and normalize Pokemon keys
 export function validatePokemonKeys<T>(jsonData: Record<string, T>): Record<string, T> {
   const validatedData: Record<string, T> = {};
@@ -293,18 +315,27 @@ export function validatePokemonKeys<T>(jsonData: Record<string, T>): Record<stri
       if (valueObj.forms && typeof valueObj.forms === 'object') {
         const cleanedForms: Record<string, unknown> = {};
 
-        for (const [formKey, formValue] of Object.entries(valueObj.forms as Record<string, unknown>)) {
+        for (const [formKey, formValue] of Object.entries(
+          valueObj.forms as Record<string, unknown>,
+        )) {
           const trimmedFormKey = formKey.trim();
 
           // Skip form names that start with a hyphen (like "- Z") as these are likely errors
           if (trimmedFormKey.startsWith('-')) {
-            console.log(`Skipping invalid form name "${trimmedFormKey}" for Pokémon "${trimmedKey}"`);
+            console.log(
+              `Skipping invalid form name "${trimmedFormKey}" for Pokémon "${trimmedKey}"`,
+            );
             continue;
           }
 
           // Specific check for the problematic "- Z" form in Porygon
-          if (trimmedKey.toLowerCase() === 'porygon' &&
-            (trimmedFormKey === '- Z' || trimmedFormKey === '-Z' || trimmedFormKey === '- z' || trimmedFormKey === '-z')) {
+          if (
+            trimmedKey.toLowerCase() === 'porygon' &&
+            (trimmedFormKey === '- Z' ||
+              trimmedFormKey === '-Z' ||
+              trimmedFormKey === '- z' ||
+              trimmedFormKey === '-z')
+          ) {
             console.log(`Skipping invalid "- Z" form for Porygon`);
             continue;
           }

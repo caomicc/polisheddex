@@ -52,10 +52,7 @@ interface DataTableProps<TData, TValue> {
  * State is persisted to localStorage and restored when users return to the page.
  */
 
-export function LocationDataTable<TData, TValue>({
-  columns,
-  data,
-}: DataTableProps<TData, TValue>) {
+export function LocationDataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
   // Storage key for persisting table state
   const STORAGE_KEY = 'locationDataTable';
 
@@ -73,15 +70,27 @@ export function LocationDataTable<TData, TValue>({
   const storedState = loadStoredState();
 
   const [sorting, setSorting] = React.useState<SortingState>(storedState?.sorting || []);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(storedState?.columnFilters || []);
-  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(storedState?.columnVisibility || {});
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    storedState?.columnFilters || [],
+  );
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(
+    storedState?.columnVisibility || {},
+  );
   // const [pageIndex, setPageIndex] = React.useState(storedState?.pageIndex || 0);
 
   // Checkbox filter states
-  const [showOnlyPokemon, setShowOnlyPokemon] = React.useState(storedState?.showOnlyPokemon || false);
-  const [showOnlyFlyable, setShowOnlyFlyable] = React.useState(storedState?.showOnlyFlyable || false);
-  const [showOnlyGrottoes, setShowOnlyGrottoes] = React.useState(storedState?.showOnlyGrottoes || false);
-  const [showOnlyTrainers, setShowOnlyTrainers] = React.useState(storedState?.showOnlyTrainers || false);
+  const [showOnlyPokemon, setShowOnlyPokemon] = React.useState(
+    storedState?.showOnlyPokemon || false,
+  );
+  const [showOnlyFlyable, setShowOnlyFlyable] = React.useState(
+    storedState?.showOnlyFlyable || false,
+  );
+  const [showOnlyGrottoes, setShowOnlyGrottoes] = React.useState(
+    storedState?.showOnlyGrottoes || false,
+  );
+  const [showOnlyTrainers, setShowOnlyTrainers] = React.useState(
+    storedState?.showOnlyTrainers || false,
+  );
   const [showOnlyItems, setShowOnlyItems] = React.useState(storedState?.showOnlyItems || false);
 
   // Additional state for region filter (handled separately from table's columnFilters)
@@ -91,28 +100,44 @@ export function LocationDataTable<TData, TValue>({
   const filteredData = React.useMemo(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return data.filter((location: any) => {
-      const matchesPokemon = !showOnlyPokemon || (location.pokemonCount && location.pokemonCount > 0);
+      const matchesPokemon =
+        !showOnlyPokemon || (location.pokemonCount && location.pokemonCount > 0);
       const matchesFlyable = !showOnlyFlyable || location.flyable;
       const matchesGrottoes = !showOnlyGrottoes || location.hasHiddenGrottoes;
       const matchesTrainers = !showOnlyTrainers || location.hasTrainers;
       const matchesItems = !showOnlyItems || (location.items && location.items.length > 0);
       const matchesRegion = regionFilter === 'all' || location.region === regionFilter;
 
-      return matchesPokemon && matchesFlyable && matchesGrottoes && matchesTrainers && matchesItems && matchesRegion;
+      return (
+        matchesPokemon &&
+        matchesFlyable &&
+        matchesGrottoes &&
+        matchesTrainers &&
+        matchesItems &&
+        matchesRegion
+      );
     });
-  }, [data, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, regionFilter]);
+  }, [
+    data,
+    showOnlyPokemon,
+    showOnlyFlyable,
+    showOnlyGrottoes,
+    showOnlyTrainers,
+    showOnlyItems,
+    regionFilter,
+  ]);
 
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
     pageIndex: 0,
-    pageSize: 20
+    pageSize: 20,
   });
 
   const pagination = React.useMemo(
     () => ({
       pageIndex,
-      pageSize
+      pageSize,
     }),
-    [pageIndex, pageSize]
+    [pageIndex, pageSize],
   );
 
   const table = useReactTable({
@@ -140,17 +165,17 @@ export function LocationDataTable<TData, TValue>({
     if (typeof window === 'undefined') return;
 
     // Skip saving on initial render if we just loaded from storage
-    const isInitialLoad = !storedState || (
-      JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
-      JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters) &&
-      pageIndex === storedState.pageIndex &&
-      showOnlyPokemon === storedState.showOnlyPokemon &&
-      showOnlyFlyable === storedState.showOnlyFlyable &&
-      showOnlyGrottoes === storedState.showOnlyGrottoes &&
-      showOnlyTrainers === storedState.showOnlyTrainers &&
-      showOnlyItems === storedState.showOnlyItems &&
-      regionFilter === storedState.regionFilter
-    );
+    const isInitialLoad =
+      !storedState ||
+      (JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
+        JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters) &&
+        pageIndex === storedState.pageIndex &&
+        showOnlyPokemon === storedState.showOnlyPokemon &&
+        showOnlyFlyable === storedState.showOnlyFlyable &&
+        showOnlyGrottoes === storedState.showOnlyGrottoes &&
+        showOnlyTrainers === storedState.showOnlyTrainers &&
+        showOnlyItems === storedState.showOnlyItems &&
+        regionFilter === storedState.regionFilter);
 
     if (isInitialLoad) return;
 
@@ -172,19 +197,39 @@ export function LocationDataTable<TData, TValue>({
     } catch (error) {
       console.warn('Failed to save table state to localStorage:', error);
     }
-  }, [sorting, columnFilters, columnVisibility, pageIndex, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, regionFilter, storedState]);
+  }, [
+    sorting,
+    columnFilters,
+    columnVisibility,
+    pageIndex,
+    showOnlyPokemon,
+    showOnlyFlyable,
+    showOnlyGrottoes,
+    showOnlyTrainers,
+    showOnlyItems,
+    regionFilter,
+    storedState,
+  ]);
 
   // Reset to first page when filters change
   React.useEffect(() => {
-    setPagination(prev => ({ ...prev, pageIndex: 0 }));
-  }, [showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, regionFilter, columnFilters]);
+    setPagination((prev) => ({ ...prev, pageIndex: 0 }));
+  }, [
+    showOnlyPokemon,
+    showOnlyFlyable,
+    showOnlyGrottoes,
+    showOnlyTrainers,
+    showOnlyItems,
+    regionFilter,
+    columnFilters,
+  ]);
 
   // // Get unique regions for filter
   const availableRegions = React.useMemo(() => {
     const regions = new Set(
       (data as { region?: string }[])
         .map((loc) => loc.region)
-        .filter((region): region is string => Boolean(region))
+        .filter((region): region is string => Boolean(region)),
     );
     return Array.from(regions).sort();
   }, [data]);
@@ -211,10 +256,10 @@ export function LocationDataTable<TData, TValue>({
         field === 'name'
           ? 'displayName'
           : field === 'region'
-          ? 'region'
-          : field === 'trainers'
-          ? 'trainerCount'
-          : 'pokemonCount';
+            ? 'region'
+            : field === 'trainers'
+              ? 'trainerCount'
+              : 'pokemonCount';
       setSorting([{ id: columnId, desc: direction === 'desc' }]);
     }
   };
@@ -233,10 +278,10 @@ export function LocationDataTable<TData, TValue>({
       sort.id === 'displayName'
         ? 'name'
         : sort.id === 'region'
-        ? 'region'
-        : sort.id === 'trainerCount'
-        ? 'trainers'
-        : 'pokemon';
+          ? 'region'
+          : sort.id === 'trainerCount'
+            ? 'trainers'
+            : 'pokemon';
     const direction = sort.desc ? 'desc' : 'asc';
     return `${field}-${direction}`;
   };
@@ -267,9 +312,7 @@ export function LocationDataTable<TData, TValue>({
         {/* Primary search */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex flex-col gap-2">
-            <Label htmlFor="location-filter">
-              Location Name
-            </Label>
+            <Label htmlFor="location-filter">Location Name</Label>
             <Input
               placeholder="Filter locations..."
               id="location-filter"
@@ -283,50 +326,43 @@ export function LocationDataTable<TData, TValue>({
 
           {/* Region filter */}
           <div className="flex flex-col gap-2">
-                                <Label htmlFor="region-filter">
-              Region
-            </Label>
-<Select
-            value={regionFilter}
-            onValueChange={(value) => {
-              setRegionFilter(value);
-            }}
-          >
-            <SelectTrigger className="w-full sm:w-[180px] bg-white">
-              <SelectValue placeholder="All Regions" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Regions</SelectItem>
-              {availableRegions.map((region) => (
-                <SelectItem key={region} value={region}>
-                  {region.charAt(0).toUpperCase() + region.slice(1)}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+            <Label htmlFor="region-filter">Region</Label>
+            <Select
+              value={regionFilter}
+              onValueChange={(value) => {
+                setRegionFilter(value);
+              }}
+            >
+              <SelectTrigger className="w-full sm:w-[180px] bg-white">
+                <SelectValue placeholder="All Regions" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Regions</SelectItem>
+                {availableRegions.map((region) => (
+                  <SelectItem key={region} value={region}>
+                    {region.charAt(0).toUpperCase() + region.slice(1)}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           {/* Sort options */}
           <div className="flex flex-col gap-2">
-          <Label htmlFor="sort-select">
-            Sort By
-          </Label>
-          <Select
-            value={getCurrentSortValue()}
-            onValueChange={handleSortChange}
-          >
-            <SelectTrigger className="w-full sm:w-[200px] bg-white">
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              {sortOptions.map((option) => (
-                <SelectItem key={option.value} value={option.value}>
-                  {option.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+            <Label htmlFor="sort-select">Sort By</Label>
+            <Select value={getCurrentSortValue()} onValueChange={handleSortChange}>
+              <SelectTrigger className="w-full sm:w-[200px] bg-white">
+                <SelectValue placeholder="Sort by" />
+              </SelectTrigger>
+              <SelectContent>
+                {sortOptions.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
         </div>
 
         {/* Checkbox filters */}
@@ -389,7 +425,6 @@ export function LocationDataTable<TData, TValue>({
 
         {/* Filter summary */}
         <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
-
           {(Boolean(table.getColumn('displayName')?.getFilterValue()) ||
             regionFilter !== 'all' ||
             sorting.length > 0 ||
@@ -424,45 +459,52 @@ export function LocationDataTable<TData, TValue>({
             </Button>
           )}
           <span className="flex">
-            Showing {table.getFilteredRowModel().rows.length} of{' '}
-            {filteredData.length} locations
+            Showing {table.getFilteredRowModel().rows.length} of {filteredData.length} locations
             {sorting.length > 0 && (
               <span className="ml-2">
-                • Sorted by {
-                  (() => {
-                    const currentSortValue = getCurrentSortValue();
-                    if (currentSortValue === 'default') {
-                      // Handle column sorts not in dropdown
-                      const sort = sorting[0];
-                      const direction = sort.desc ? 'desc' : 'asc';
+                • Sorted by{' '}
+                {(() => {
+                  const currentSortValue = getCurrentSortValue();
+                  if (currentSortValue === 'default') {
+                    // Handle column sorts not in dropdown
+                    const sort = sorting[0];
+                    const direction = sort.desc ? 'desc' : 'asc';
 
-                      // Handle boolean columns
-                      if (sort.id === 'hasItems') {
-                        return `Items (${direction === 'desc' ? 'Has Items First' : 'No Items First'})`;
-                      } else if (sort.id === 'flyable') {
-                        return `Flyable (${direction === 'desc' ? 'Flyable First' : 'Not Flyable First'})`;
-                      } else {
-                        // Fallback for other columns
-                        const columnName = sort.id;
-                        return `${columnName} (${direction === 'desc' ? 'Z-A' : 'A-Z'})`;
-                      }
+                    // Handle boolean columns
+                    if (sort.id === 'hasItems') {
+                      return `Items (${direction === 'desc' ? 'Has Items First' : 'No Items First'})`;
+                    } else if (sort.id === 'flyable') {
+                      return `Flyable (${direction === 'desc' ? 'Flyable First' : 'Not Flyable First'})`;
                     } else {
-                      return sortOptions.find(opt => opt.value === currentSortValue)?.label;
+                      // Fallback for other columns
+                      const columnName = sort.id;
+                      return `${columnName} (${direction === 'desc' ? 'Z-A' : 'A-Z'})`;
                     }
-                  })()
-                }
+                  } else {
+                    return sortOptions.find((opt) => opt.value === currentSortValue)?.label;
+                  }
+                })()}
               </span>
             )}
-            {(showOnlyPokemon || showOnlyTrainers || showOnlyFlyable || showOnlyGrottoes || showOnlyItems || regionFilter !== 'all') && (
+            {(showOnlyPokemon ||
+              showOnlyTrainers ||
+              showOnlyFlyable ||
+              showOnlyGrottoes ||
+              showOnlyItems ||
+              regionFilter !== 'all') && (
               <span className="ml-2">
-                • Filtered: {[
+                • Filtered:{' '}
+                {[
                   showOnlyPokemon && 'Has Pokémon',
                   showOnlyTrainers && 'Has Trainers',
                   showOnlyFlyable && 'Flyable',
                   showOnlyGrottoes && 'Has Grottoes',
                   showOnlyItems && 'Has Items',
-                  regionFilter !== 'all' && `Region: ${regionFilter.charAt(0).toUpperCase() + regionFilter.slice(1)}`
-                ].filter(Boolean).join(', ')}
+                  regionFilter !== 'all' &&
+                    `Region: ${regionFilter.charAt(0).toUpperCase() + regionFilter.slice(1)}`,
+                ]
+                  .filter(Boolean)
+                  .join(', ')}
               </span>
             )}
           </span>
@@ -482,10 +524,7 @@ export function LocationDataTable<TData, TValue>({
                     >
                       {header.isPlaceholder
                         ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                        : flexRender(header.column.columnDef.header, header.getContext())}
                     </TableHead>
                   );
                 })}
@@ -507,10 +546,7 @@ export function LocationDataTable<TData, TValue>({
                       // style={{ width: getColumnWidth(cell.column.id) }}
                     >
                       <div className="overflow-hidden text-ellipsis">
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </div>
                     </TableCell>
                   ))}

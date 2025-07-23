@@ -1,8 +1,8 @@
 // Quick test script to verify form parsing
-import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
+import { normalizeMoveString } from '../utils/stringNormalizer/stringNormalizer.ts';
 
 // Helper function to extract base Pokemon name and form from evos_attacks entries
-function parseFormName(pokemonName: string): { baseName: string, formName: string | null } {
+function parseFormName(pokemonName: string): { baseName: string; formName: string | null } {
   // Handle patterns like TyphlosionHisuian, TyphlosionPlain, MrMimeGalarian, etc.
   const formPatterns = [
     { suffix: 'Plain', form: null }, // Plain forms are considered base forms
