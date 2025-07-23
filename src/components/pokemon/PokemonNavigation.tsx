@@ -37,13 +37,13 @@ export default function PokemonNavigation({ navigation, dexType }: PokemonNaviga
       </div>
 
       {/* Navigation buttons */}
-      <div className="flex-col md:flex-row flex justify-between items-center gap-4">
+      <div className="flex-row md:flex-row flex justify-between items-center gap-4">
         {/* Previous button */}
         {previous ? (
           <Button asChild variant="default">
             <Link href={previous.url}>
               <div className="font-medium truncate text-sm">
-                ← {formatPokemonName(previous.name)} #{current.index - 1}
+                ←{/* {formatPokemonName(previous.name)} */}#{current.index - 1}
               </div>
             </Link>
           </Button>
@@ -52,8 +52,8 @@ export default function PokemonNavigation({ navigation, dexType }: PokemonNaviga
         )}
 
         {/* Back to list button */}
-        <Button asChild variant="ghost" size="sm" className="flex-shrink-0">
-          <Link href="/pokemon" className="flex items-center gap-1">
+        <Button asChild variant="ghost" className="flex-shrink-0">
+          <Link href="/pokemon">
             <span className="text-xs">Back to List</span>
           </Link>
         </Button>
@@ -63,7 +63,7 @@ export default function PokemonNavigation({ navigation, dexType }: PokemonNaviga
           <Button asChild variant="default">
             <Link href={next.url} className="">
               <div className="font-medium truncate text-sm">
-                #{current.index + 1} {formatPokemonName(next.name)} →
+                #{current.index + 1} {/* {formatPokemonName(next.name)} */} →
               </div>
             </Link>
           </Button>
