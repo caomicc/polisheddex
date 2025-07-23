@@ -84,7 +84,10 @@ export function LocationDataTable<TData, TValue>({
   const [showOnlyTrainers, setShowOnlyTrainers] = React.useState(storedState?.showOnlyTrainers || false);
   const [showOnlyItems, setShowOnlyItems] = React.useState(storedState?.showOnlyItems || false);
 
-  // Apply checkbox filters to the data
+  // Additional state for region filter (handled separately from table's columnFilters)
+  const [regionFilter, setRegionFilter] = React.useState(storedState?.regionFilter || 'all');
+
+  // Apply checkbox filters and region filter to the data
   const filteredData = React.useMemo(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return data.filter((location: any) => {
@@ -93,10 +96,24 @@ export function LocationDataTable<TData, TValue>({
       const matchesGrottoes = !showOnlyGrottoes || location.hasHiddenGrottoes;
       const matchesTrainers = !showOnlyTrainers || location.hasTrainers;
       const matchesItems = !showOnlyItems || (location.items && location.items.length > 0);
+      const matchesRegion = regionFilter === 'all' || location.region === regionFilter;
 
-      return matchesPokemon && matchesFlyable && matchesGrottoes && matchesTrainers && matchesItems;
+      return matchesPokemon && matchesFlyable && matchesGrottoes && matchesTrainers && matchesItems && matchesRegion;
     });
-  }, [data, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems]);
+  }, [data, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, regionFilter]);
+
+  const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
+    pageIndex: 0,
+    pageSize: 20
+  });
+
+  const pagination = React.useMemo(
+    () => ({
+      pageIndex,
+      pageSize
+    }),
+    [pageIndex, pageSize]
+  );
 
   const table = useReactTable({
     data: filteredData,
@@ -108,53 +125,15 @@ export function LocationDataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
+    onPaginationChange: setPagination,
     state: {
       sorting,
       columnFilters,
       columnVisibility,
-      // pagination: {
-      //   pageIndex: pageIndex,
-      //   pageSize: 20,
-      // },
-    },
-    initialState: {
-      // pagination: {
-        // pageIndex: storedState?.pageIndex || 0,
-        // pageSize: 20,
-      // },
-    },
-    onPaginationChange: () => {
-      // const newPagination = typeof updater === 'function'
-      //   ? updater({ pageIndex, pageSize: 20 })
-      //   : updater;
-      // setPageIndex(newPagination.pageIndex);
-    },
-  });
-  const [state, setState] = React.useState(table.initialState);
-
-  const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
-    pageIndex: 0,
-    pageSize: 20
-  });
-
-    const pagination = React.useMemo(
-    () => ({
-      pageIndex,
-      pageSize
-    }),
-    [pageIndex, pageSize]
-  );
-
-  table.setOptions(prev => ({
-    ...prev,
-    onStateChange: setState,
-    state: {
-      ...state,
       pagination,
     },
-    onPaginationChange: setPagination,
-    pageCount: Math.ceil(filteredData.length / pageSize)
-  }));
+    pageCount: Math.ceil(filteredData.length / pageSize),
+  });
 
   // Save state to localStorage whenever it changes
   React.useEffect(() => {
@@ -169,7 +148,8 @@ export function LocationDataTable<TData, TValue>({
       showOnlyFlyable === storedState.showOnlyFlyable &&
       showOnlyGrottoes === storedState.showOnlyGrottoes &&
       showOnlyTrainers === storedState.showOnlyTrainers &&
-      showOnlyItems === storedState.showOnlyItems
+      showOnlyItems === storedState.showOnlyItems &&
+      regionFilter === storedState.regionFilter
     );
 
     if (isInitialLoad) return;
@@ -184,6 +164,7 @@ export function LocationDataTable<TData, TValue>({
       showOnlyGrottoes,
       showOnlyTrainers,
       showOnlyItems,
+      regionFilter,
     };
 
     try {
@@ -191,12 +172,12 @@ export function LocationDataTable<TData, TValue>({
     } catch (error) {
       console.warn('Failed to save table state to localStorage:', error);
     }
-  }, [sorting, columnFilters, columnVisibility, pageIndex, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, storedState]);
+  }, [sorting, columnFilters, columnVisibility, pageIndex, showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, regionFilter, storedState]);
 
   // Reset to first page when filters change
-  // React.useEffect(() => {
-  //   setPageIndex(0);
-  // }, [showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, columnFilters]);
+  React.useEffect(() => {
+    setPagination(prev => ({ ...prev, pageIndex: 0 }));
+  }, [showOnlyPokemon, showOnlyFlyable, showOnlyGrottoes, showOnlyTrainers, showOnlyItems, regionFilter, columnFilters]);
 
   // // Get unique regions for filter
   const availableRegions = React.useMemo(() => {
@@ -241,6 +222,13 @@ export function LocationDataTable<TData, TValue>({
   const getCurrentSortValue = () => {
     if (sorting.length === 0) return 'default';
     const sort = sorting[0];
+
+    // Only return a dropdown value for columns that have dropdown options
+    const validDropdownColumns = ['displayName', 'region', 'trainerCount', 'pokemonCount'];
+    if (!validDropdownColumns.includes(sort.id)) {
+      return 'default';
+    }
+
     const field =
       sort.id === 'displayName'
         ? 'name'
@@ -299,10 +287,10 @@ export function LocationDataTable<TData, TValue>({
               Region
             </Label>
 <Select
-            value={(table.getColumn('region')?.getFilterValue() as string) ?? 'all'}
-            onValueChange={(value) =>
-              table.getColumn('region')?.setFilterValue(value === 'all' ? '' : value)
-            }
+            value={regionFilter}
+            onValueChange={(value) => {
+              setRegionFilter(value);
+            }}
           >
             <SelectTrigger className="w-full sm:w-[180px] bg-white">
               <SelectValue placeholder="All Regions" />
@@ -403,17 +391,17 @@ export function LocationDataTable<TData, TValue>({
         <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
 
           {(Boolean(table.getColumn('displayName')?.getFilterValue()) ||
-            Boolean(table.getColumn('region')?.getFilterValue()) ||
+            regionFilter !== 'all' ||
             sorting.length > 0 ||
             showOnlyPokemon ||
             showOnlyTrainers ||
             showOnlyFlyable ||
-            showOnlyGrottoes) && (
+            showOnlyGrottoes ||
+            showOnlyItems) && (
             <Button
               size="sm"
               onClick={() => {
                 table.getColumn('displayName')?.setFilterValue('');
-                table.getColumn('region')?.setFilterValue('');
                 setSorting([]);
                 // setPageIndex(0);
                 setShowOnlyPokemon(false);
@@ -421,6 +409,7 @@ export function LocationDataTable<TData, TValue>({
                 setShowOnlyFlyable(false);
                 setShowOnlyGrottoes(false);
                 setShowOnlyItems(false);
+                setRegionFilter('all');
 
                 // Clear localStorage
                 try {
@@ -439,16 +428,40 @@ export function LocationDataTable<TData, TValue>({
             {filteredData.length} locations
             {sorting.length > 0 && (
               <span className="ml-2">
-                • Sorted by {sortOptions.find(opt => opt.value === getCurrentSortValue())?.label}
+                • Sorted by {
+                  (() => {
+                    const currentSortValue = getCurrentSortValue();
+                    if (currentSortValue === 'default') {
+                      // Handle column sorts not in dropdown
+                      const sort = sorting[0];
+                      const direction = sort.desc ? 'desc' : 'asc';
+
+                      // Handle boolean columns
+                      if (sort.id === 'hasItems') {
+                        return `Items (${direction === 'desc' ? 'Has Items First' : 'No Items First'})`;
+                      } else if (sort.id === 'flyable') {
+                        return `Flyable (${direction === 'desc' ? 'Flyable First' : 'Not Flyable First'})`;
+                      } else {
+                        // Fallback for other columns
+                        const columnName = sort.id;
+                        return `${columnName} (${direction === 'desc' ? 'Z-A' : 'A-Z'})`;
+                      }
+                    } else {
+                      return sortOptions.find(opt => opt.value === currentSortValue)?.label;
+                    }
+                  })()
+                }
               </span>
             )}
-            {(showOnlyPokemon || showOnlyTrainers || showOnlyFlyable || showOnlyGrottoes) && (
+            {(showOnlyPokemon || showOnlyTrainers || showOnlyFlyable || showOnlyGrottoes || showOnlyItems || regionFilter !== 'all') && (
               <span className="ml-2">
                 • Filtered: {[
                   showOnlyPokemon && 'Has Pokémon',
                   showOnlyTrainers && 'Has Trainers',
                   showOnlyFlyable && 'Flyable',
-                  showOnlyGrottoes && 'Has Grottoes'
+                  showOnlyGrottoes && 'Has Grottoes',
+                  showOnlyItems && 'Has Items',
+                  regionFilter !== 'all' && `Region: ${regionFilter.charAt(0).toUpperCase() + regionFilter.slice(1)}`
                 ].filter(Boolean).join(', ')}
               </span>
             )}

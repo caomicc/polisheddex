@@ -159,7 +159,9 @@ export const locationColumns: ColumnDef<LocationData>[] = [
     accessorKey: 'hasItems',
     header: () => {
       return (
-        <span className="text-muted-foreground">
+        <span
+          className="text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+        >
           Items?
         </span>
       );
@@ -180,13 +182,22 @@ export const locationColumns: ColumnDef<LocationData>[] = [
   },
   {
     accessorKey: 'flyable',
-    header: () => {
+    header: ({ column }) => {
       return (
-        <span
-          className="text-muted-foreground"
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
         >
           Fly?
-        </span>
+          {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
       );
     },
     cell: ({ row }) => {
@@ -194,9 +205,9 @@ export const locationColumns: ColumnDef<LocationData>[] = [
       return (
         <div className="">
           {flyable ? (
-            <span className="text-sm">Yes</span>
+            <span>Yes</span>
           ) : (
-            <span className="text-gray-400 text-sm">-</span>
+            <span>-</span>
           )}
         </div>
       );
