@@ -72,6 +72,10 @@ The context automatically sets CSS custom properties that you can use in your CS
 .my-link:hover {
   background-color: var(--pokemon-theme-hover);
 }
+
+.my-page {
+  background-color: var(--pokemon-page-bg); /* Uses the same colors as bg-{type}-page classes */
+}
 ```
 
 ### Utility Classes
@@ -86,6 +90,18 @@ Use the predefined utility classes for common theming:
 <a className="pokemon-themed-link">
   This link will use Pokemon theme colors
 </a>
+
+<div className="pokemon-page-background">
+  This div will use the Pokemon type page background (same as bg-{type}-page)
+</div>
+
+<nav className="pokemon-breadcrumb-active">
+  Active breadcrumb styling
+</nav>
+
+<nav className="pokemon-breadcrumb-inactive">
+  Inactive breadcrumb styling
+</nav>
 ```
 
 ## Components that use the context

@@ -47,9 +47,11 @@ The normalizer handles special cases like:
 Normalizes any variant of a move name string to a consistent Capital Case (Title Case) format.
 
 **Parameters**:
+
 - `str`: The string to normalize (any variant of a move name)
 
 **Returns**:
+
 - A normalized string in Capital Case format (e.g., `Thunder Shock`)
 
 ### `normalizeString(str: string): string`
@@ -57,9 +59,11 @@ Normalizes any variant of a move name string to a consistent Capital Case (Title
 The underlying function that `normalizeMoveString` uses. Can be used directly for normalizing any string, not just move names.
 
 **Parameters**:
+
 - `str`: The string to normalize
 
 **Returns**:
+
 - A normalized string in Capital Case format (e.g., `Thunder Shock`)
 
 ### `runNormalizerTests(): void`
