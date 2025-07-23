@@ -4,6 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @source inline("bg-{physical,special,status,morn,day,nite,eve,any,common,uncommon,rare}");
+@source inline("shadow-{bug,dark,dragon,electric,fairy,fighting,fire,flying,ghost,grass,ground,ice,normal,poison,psychic,rock,steel,water}");
 
 @theme inline {
   --color-background: var(--background);
@@ -47,9 +48,9 @@
   /* Pokémon Type Colors */
   /* Pokémon Type Colors (Dark) */
   --color-bug: var(--color-lime-400);
-  --color-dark: var(--color-gray-800);
+  --color-dark: var(--color-slate-900);
   --color-dragon: var(--color-indigo-400);
-  --color-electric: var(--color-yellow-400);
+  --color-electric: var(--color-amber-400);
   --color-fairy: var(--color-pink-300);
   --color-fighting: var(--color-orange-400);
   --color-fire: var(--color-red-400);
@@ -314,7 +315,7 @@
   @apply bg-poison/20;
 }
 .bg-poison-page {
-  @apply bg-poison/10;
+  background: ##e7dafa;
 }
 .bg-psychic-20 {
   @apply bg-psychic/20;
@@ -345,7 +346,7 @@
 .shadow-bug {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-bug) 20%, transparent) var(--tw-shadow-alpha, 1),
+    color-mix(in oklab, var(--color-bug) 1%, var(--color-lime-700) 30%) var(--tw-shadow-alpha, 3),
     transparent
   );
 }
@@ -864,7 +865,8 @@
 }
 
 .pokemon-section-card {
-  background-color: var(--pokemon-page-bg);
-  border-color: var(--pokemon-theme-hover);
-  transition: all 300ms ease-in-out;
+  border-color: var(--pokemon-section-card-bg);
+}
+.pokemon-stat-bar-background {
+  background-color: var(--pokemon-theme-stat-bar-bg);
 }

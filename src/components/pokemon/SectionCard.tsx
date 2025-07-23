@@ -7,19 +7,22 @@ type SectionCardProps = PropsWithChildren<{
   children: ReactNode;
   className?: string;
   headline: string | ReactNode;
+  primaryType?: string | null;
+  secondaryType?: string | null;
 }>;
 
 const SectionCard: React.FC<SectionCardProps> = ({ ...props }: SectionCardProps) => {
   const { children, headline, className } = props;
   const { primaryType } = usePokemonType();
-  const hasPokemonTheme = primaryType !== null;
+  const hasPokemonTheme = primaryType && primaryType !== 'normal';
 
   return (
     <Card
       className={cn(
-        'bg-white/60 backdrop-blur-xl dark:bg-gray-800 rounded-xl p-4',
-        'border-none shadow-lg',
+        'bg-white/90 backdrop-blur-xl dark:bg-gray-800 rounded-2xl p-4',
+        'border-2 shadow-2xl',
         hasPokemonTheme && 'pokemon-section-card',
+        `shadow-${primaryType?.toLowerCase()}`,
         className,
       )}
     >
