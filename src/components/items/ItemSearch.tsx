@@ -56,10 +56,10 @@ export default function ItemSearch({
   return (
     <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
       <div className="flex flex-col sm:flex-row gap-4">
-        <div className="flex items-center gap-2">
+        <div className="flex gap-2 flex-col">
             <Label htmlFor="sort-select" className="text-sm">Sort</Label>
             <Select value={sort} onValueChange={handleSortChange}>
-            <SelectTrigger id="sort-select" className="bg-white w-[150px]">
+            <SelectTrigger id="sort-select" className="bg-white w-full sm:w-[180px]">
               <SelectValue placeholder="Sort by..." />
             </SelectTrigger>
             <SelectContent>
@@ -71,10 +71,10 @@ export default function ItemSearch({
             </Select>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex gap-2 flex-col">
           <Label htmlFor="sort-options" className="text-sm">Category</Label>
           <Select value={category} onValueChange={(value) => handleCategoryChange(value)}>
-            <SelectTrigger id="sort-options" className="bg-white w-[150px]">
+            <SelectTrigger id="sort-options" className="bg-white w-full sm:w-[180px]">
               <SelectValue placeholder="Categories" />
             </SelectTrigger>
             <SelectContent>

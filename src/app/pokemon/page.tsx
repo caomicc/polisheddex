@@ -11,6 +11,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import PokemonSearch from '@/components/pokemon/PokemonSearch';
+import { Hero } from '@/components/ui/Hero';
 
 export default async function PokemonList({
   searchParams,
@@ -45,30 +46,34 @@ export default async function PokemonList({
   });
 
   return (
-    <div className="max-w-xl md:max-w-4xl mx-auto p-4">
-      <Breadcrumb className="mb-4">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/" className="hover:underline dark:text-blue-200 text-blue-700">
+    <>
+    <Hero
+      headline={'Pokedex'}
+      description={
+          'Browse all Pokémon available in Pokémon Polished Crystal'
+      }
+      breadcrumbs={
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/" className="hover:underline text-white hover:text-slate-200">
                 Home
               </Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Pokemon</BreadcrumbPage>
+            <BreadcrumbPage className="text-white">Pokemon</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
+    }
+    />
 
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold mb-2">Pokedex</h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Browse all Pokémon available in Pokémon Polished Crystal
-        </p>
-      </div>
+    <div className="max-w-xl md:max-w-4xl mx-auto p-4">
       <PokemonSearch pokemon={sortedPokemon} sortType={sortType} />
     </div>
+    </>
   );
 }

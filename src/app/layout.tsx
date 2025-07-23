@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist_Mono, Manrope } from 'next/font/google';
 import { Navigation } from '@/components/ui';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Footer } from '@/components/ui/Footer';
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+
+const rubik = Manrope({
+  variable: '--font-rubik',
   subsets: ['latin'],
 });
 
@@ -80,9 +81,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100`}
+        className={`${rubik.variable} ${geistMono.variable} font-sans antialiased text-gray-900 dark:bg-gray-900 dark:text-gray-100 bg-slate-100`}
       >
-        <div className="flex flex-col min-h-screen pt-20 md:pt-24">
+        <div className="flex flex-col min-h-screen">
           <Navigation />
           <main className="flex-grow mb-10">{children}</main>
           <Footer />

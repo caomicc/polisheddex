@@ -11,6 +11,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import ItemSearch from '@/components/items/ItemSearch';
+import { Hero } from '@/components/ui/Hero';
 
 export default async function ItemsList({
   searchParams,
@@ -74,79 +75,84 @@ export default async function ItemsList({
   }
 
   return (
-    <div className="max-w-xl md:max-w-4xl mx-auto p-4">
-      <Breadcrumb className="mb-4">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Items</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+    <>
+    <Hero
+      headline="Items"
+      description="Browse all items available in Pokémon Polished Crystal"
+      breadcrumbs={
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                  Home
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="text-white">Items</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      }
+    />
+      <div className="max-w-xl md:max-w-4xl mx-auto p-4">
 
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold mb-2">Items</h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Browse all items available in Pokémon Polished Crystal
-        </p>
-      </div>
+        <ItemSearch
+          initialSort={sort}
+          initialCategory={category}
+          categories={categories}
+          totalItems={filteredItems.length}
+        />
 
-      <ItemSearch
-        initialSort={sort}
-        initialCategory={category}
-        categories={categories}
-        totalItems={filteredItems.length}
-      />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-        {sortedItems.map((item) => (
-          <Link
-            key={item.id}
-            href={`/items/${item.id}`}
-            className="block p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700"
-          >
-            <div className="flex items-start justify-between mb-2">
-              <h3 className="font-semibold text-lg">{item.name}</h3>
-              <span className="text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
-                {isRegularItem(item) ? (item.attributes?.category || 'Item') : 'TM/HM'}
-              </span>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-2">
-              {item.description}
-            </p>
-            <div className="flex items-center justify-between text-sm">
-              {isRegularItem(item) ? (
-                <span className="font-medium text-green-600 dark:text-green-400">
-                  ₽{(item.attributes?.price || 0).toLocaleString()}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+          {sortedItems.map((item) => (
+            <Link
+              key={item.id}
+              href={`/items/${item.id}`}
+              className="block p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700"
+            >
+              <div className="flex items-start justify-between mb-2">
+                <h3 className="font-semibold text-lg">{item.name}</h3>
+                <span className="text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
+                  {isRegularItem(item) ? (item.attributes?.category || 'Item') : 'TM/HM'}
                 </span>
-              ) : (
-                <span className="font-medium text-purple-600 dark:text-purple-400">
-                  {isTMHMItem(item) ? item.type : 'Move'}
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-2">
+                {item.description}
+              </p>
+              <div className="flex items-center justify-between text-sm">
+                {isRegularItem(item) ? (
+                  <span className="font-medium text-green-600 dark:text-green-400">
+                    ₽{(item.attributes?.price || 0).toLocaleString()}
+                  </span>
+                ) : (
+                  <span className="font-medium text-purple-600 dark:text-purple-400">
+                    {isTMHMItem(item) ? item.type : 'Move'}
+                  </span>
+                )}
+                <span className="text-gray-500 dark:text-gray-400">
+                  {isRegularItem(item)
+                    ? `${item.locations?.length || 0} location${(item.locations?.length || 0) !== 1 ? 's' : ''}`
+                    : isTMHMItem(item) && item.location
+                    ? '1 location'
+                    : 'No locations'
+                  }
                 </span>
-              )}
-              <span className="text-gray-500 dark:text-gray-400">
-                {isRegularItem(item)
-                  ? `${item.locations?.length || 0} location${(item.locations?.length || 0) !== 1 ? 's' : ''}`
-                  : isTMHMItem(item) && item.location
-                  ? '1 location'
-                  : 'No locations'
-                }
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
-
-      {sortedItems.length === 0 && (
-        <div className="text-center py-12">
-          <p className="text-gray-500 dark:text-gray-400">
-            No items found matching your criteria.
-          </p>
+              </div>
+            </Link>
+          ))}
         </div>
-      )}
-    </div>
+
+        {sortedItems.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-500 dark:text-gray-400">
+              No items found matching your criteria.
+            </p>
+          </div>
+        )}
+      </div>
+    </>
   );
 }

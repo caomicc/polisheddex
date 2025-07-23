@@ -13,6 +13,7 @@ import { LocationData, LocationAreaData } from '@/types/types';
 // import LocationCard from '@/components/pokemon/LocationCard';
 import LocationSearch from '@/components/pokemon/LocationSearch';
 import { normalizeLocationKey } from '@/utils/locationUtils';
+import { Hero } from '@/components/ui/Hero';
 
 // Interface for items data
 interface ItemData {
@@ -488,30 +489,33 @@ export default async function LocationsPage() {
   const processedLocations = [...enhancedLocations, ...pokemonOnlyLocations];
 
   return (
-    <div className="max-w-xl md:max-w-4xl mx-auto p-4">
-      <Breadcrumb className="mb-4">
-        <BreadcrumbList>
-          <BreadcrumbLink asChild>
-            <Link href="/" className="hover:underline dark:text-blue-200 text-blue-700">
-              Home
-            </Link>
-          </BreadcrumbLink>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Locations</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold mb-2">Locations</h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Browse all locations available in Pokémon Polished Crystal
-        </p>
-      </div>
-
+    <>
+    <Hero
+      headline={'Locations'}
+      description={
+        'Explore the diverse locations in Pokémon Polished Crystal'
+      }
+      breadcrumbs={
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                  Home
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="text-white">Locations</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      }
+    />
+    <div className="max-w-xl md:max-w-4xl mx-auto px-4">
       {/* Display summary of location data */}
-      <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
+      {/* <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
           <div className="text-center">
             <div className="text-2xl font-bold text-blue-600">{processedLocations.length}</div>
@@ -534,11 +538,12 @@ export default async function LocationsPage() {
             <div className="text-slate-600 dark:text-slate-300">Flyable</div>
           </div>
         </div>
-      </div>
+      </div> */}
 
 
       <LocationSearch locations={processedLocations as LocationData[]} />
 
     </div>
+    </>
   );
 }
