@@ -10,6 +10,7 @@ import { formatMethod, formatTime } from '@/utils/locationUtils';
 import TrainerCard from '../trainer/TrainerCard';
 import TimeIcon from './TimeIcon';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
+import { formatPokemonDisplayWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
 import { Badge } from '../ui/badge';
 
 export default function LocationClient({
@@ -29,6 +30,8 @@ export default function LocationClient({
     if (comprehensiveInfo?.trades && comprehensiveInfo.trades.length > 0) return 'trades';
     return 'about';
   };
+
+  console.log('LocationClient - comprehensiveInfo:', groupedPokemonData);
 
   const [activeTab, setActiveTab] = useState(getInitialTab());
 
@@ -108,32 +111,44 @@ export default function LocationClient({
                             </TableRow>
                           </TableHeader>
                           <TableBody>
-                            {data.pokemon.map((pokemon, index) => (
-                              <TableRow key={index}>
-                                <TableCell>
-                                  <Link
-                                    href={`/pokemon/${encodeURIComponent(pokemon.name.toLowerCase())}`}
-                                    className="hover:underline text-blue-600 dark:text-blue-400 capitalize font-medium"
-                                  >
-                                    {pokemon.name.replace(/_/g, ' ')}
-                                  </Link>
-                                </TableCell>
-                                <TableCell className="text-center">{pokemon.level}</TableCell>
-                                <TableCell className="text-center">{pokemon.chance}%</TableCell>
-                                <TableCell className="text-center">
-                                  {pokemon.rareItem ? (
-                                    <Link
-                                      href={`/items/${getItemIdFromDisplayName(pokemon.rareItem)}`}
-                                      className="hover:underline text-green-600 dark:text-green-400"
-                                    >
-                                      {pokemon.rareItem}
-                                    </Link>
-                                  ) : (
-                                    '—'
-                                  )}
-                                </TableCell>
-                              </TableRow>
-                            ))}
+                            {data.pokemon.map((pokemon, index) => {
+                              const { form } = pokemon;
+                              // Create the full pokemon name with form for proper formatting
+                              const fullPokemonName = form ? `${pokemon.name}_${form}` : pokemon.name;
+                              return (
+                                <TableRow key={index}>
+                                  <TableCell>
+                                    <div className="flex flex-col">
+                                      <Link
+                                        href={`/pokemon/${encodeURIComponent(pokemon.name.toLowerCase())}`}
+                                        className="hover:underline text-blue-600 dark:text-blue-400 font-medium"
+                                      >
+                                        {formatPokemonDisplayWithForm(fullPokemonName)}
+                                      </Link>
+                                      {form && (
+                                        <span className={`text-xs text-muted-foreground ${getFormTypeClass(form)}`}>
+                                          Regional variant
+                                        </span>
+                                      )}
+                                    </div>
+                                  </TableCell>
+                                  <TableCell className="text-center">{pokemon.level}</TableCell>
+                                  <TableCell className="text-center">{pokemon.chance}%</TableCell>
+                                  <TableCell className="text-center">
+                                    {pokemon.rareItem ? (
+                                      <Link
+                                        href={`/items/${getItemIdFromDisplayName(pokemon.rareItem)}`}
+                                        className="hover:underline text-green-600 dark:text-green-400"
+                                      >
+                                        {pokemon.rareItem}
+                                      </Link>
+                                    ) : (
+                                      '—'
+                                    )}
+                                  </TableCell>
+                                </TableRow>
+                              );
+                            })}
                           </TableBody>
                         </Table>
                       </div>
@@ -203,9 +218,8 @@ export default function LocationClient({
               </div>
             </div>
           ) : (
-            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
-              <p>No trainers found at this location.</p>
-            </div>
+            <>
+            </>
           )}
           {comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0 ? (
             <div className="space-y-6">

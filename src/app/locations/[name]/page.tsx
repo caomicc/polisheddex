@@ -108,50 +108,56 @@ export default async function LocationDetailPage({
     locationName.split('_').map(word =>
       word.charAt(0).toUpperCase() + word.slice(1)
     ).join(' ');
+    // Process Pokémon encounters by method and time for locations with Pokemon data
+    const groupedByMethodAndTime: GroupedPokemon = {};
 
-  // Process Pokémon encounters by method and time for locations with Pokemon data
-  const groupedByMethodAndTime: GroupedPokemon = {};
-
-  Object.entries((pokemonInfo?.pokemon ?? {})).forEach(([pokemonName, pokemonData]) => {
-    Object.entries(pokemonData.methods).forEach(([method, methodData]) => {
-      if (!groupedByMethodAndTime[method]) {
-        groupedByMethodAndTime[method] = {};
-      }
-
-      Object.entries(methodData.times).forEach(([time, encounters]) => {
-        if (!groupedByMethodAndTime[method][time]) {
-          groupedByMethodAndTime[method][time] = { pokemon: [] };
+    Object.entries((pokemonInfo?.pokemon ?? {})).forEach(([pokemonName, pokemonData]) => {
+      Object.entries(pokemonData.methods).forEach(([method, methodData]) => {
+        if (!groupedByMethodAndTime[method]) {
+          groupedByMethodAndTime[method] = {};
         }
 
-        encounters.forEach((encounter: EncounterDetail) => {
-          const pokemonEntry: {
-            name: string;
-            level: string;
-            chance: number;
-            rareItem?: string;
-          } = {
-            name: pokemonName,
-            level: encounter.level,
-            chance: encounter.chance,
-          };
-
-          // Add rareItem if it exists
-          if ('rareItem' in encounter && typeof encounter.rareItem === 'string') {
-            pokemonEntry.rareItem = encounter.rareItem;
+        Object.entries(methodData.times).forEach(([time, encounters]) => {
+          if (!groupedByMethodAndTime[method][time]) {
+            groupedByMethodAndTime[method][time] = { pokemon: [] };
           }
 
-          groupedByMethodAndTime[method][time].pokemon.push(pokemonEntry);
+          encounters.forEach((encounter: EncounterDetail) => {
+            const pokemonEntry: {
+              name: string;
+              level: string;
+              chance: number;
+              rareItem?: string;
+              form?: string;
+            } = {
+              name: pokemonName,
+              level: encounter.level,
+              chance: encounter.chance,
+              form: ''
+            };
+
+            // Add rareItem if it exists
+            if ('rareItem' in encounter && typeof encounter.rareItem === 'string') {
+              pokemonEntry.rareItem = encounter.rareItem;
+            }
+
+            // Add form if it exists
+            if ('formName' in encounter && typeof encounter.formName === 'string') {
+              pokemonEntry.form = encounter.formName;
+            }
+
+            groupedByMethodAndTime[method][time].pokemon.push(pokemonEntry);
+          });
         });
       });
     });
-  });
 
-  // Sort Pokémon by encounter rate (highest first)
-  Object.values(groupedByMethodAndTime).forEach((methodData) => {
-    Object.values(methodData).forEach((timeData) => {
-      timeData.pokemon.sort((a, b) => b.chance - a.chance);
+    // Sort Pokémon by encounter rate (highest first)
+    Object.values(groupedByMethodAndTime).forEach((methodData) => {
+      Object.values(methodData).forEach((timeData) => {
+        timeData.pokemon.sort((a, b) => b.chance - a.chance);
+      });
     });
-  });
 
   return (
     <div className="max-w-xl md:max-w-4xl mx-auto p-4">
@@ -180,8 +186,8 @@ export default async function LocationDetailPage({
       </Breadcrumb>
 
       <h1 className="text-3xl font-bold mb-6">{displayName}</h1>
-      
-      <LocationClient 
+
+      <LocationClient
         comprehensiveInfo={comprehensiveInfo}
         groupedPokemonData={groupedByMethodAndTime}
       />

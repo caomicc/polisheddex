@@ -2,6 +2,7 @@ export interface EncounterDetail {
   level: string;
   chance: number;
   rareItem?: string;
+  formName?: string;
 }
 
 export interface TimeEncounters {
@@ -32,6 +33,7 @@ export type GroupedPokemon = {
         level: string;
         chance: number;
         rareItem?: string;
+        form?: string;
       }[];
     };
   };
