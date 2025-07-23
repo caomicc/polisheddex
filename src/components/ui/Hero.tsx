@@ -3,6 +3,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
+import Image from "next/image";
 
 type HeroProps =  React.PropsWithChildren & {
   className?: string;
@@ -10,10 +11,11 @@ type HeroProps =  React.PropsWithChildren & {
   description?: string | React.ReactNode;
   breadcrumbs?: React.ReactNode;
   style?: React.CSSProperties;
+  image?: string;
 };
 
 export const Hero: React.FC<HeroProps> = ({ ...props }) => {
-  const { className, headline, description, breadcrumbs, children, style } = props;
+  const { className, headline, description, breadcrumbs, children, style, image } = props;
   const heroRef = React.useRef<HTMLDivElement>(null);
   const { primaryType, getTypeBasedStyles } = usePokemonType();
 
@@ -58,17 +60,29 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
     <div
       ref={heroRef}
       className={cn(
-        "flex flex-col text-left min-h-[200px] lg:min-h-[250px] justify-end py-8 px-8 bg-gray-900 dark:bg-gray-800 mx-4 rounded-xl mt-4 mb-8 gap-1 max-w-4xl mx-auto",
+        "flex flex-col text-left min-h-[200px] lg:min-h-[250px] justify-end p-4 md:p-8 pt-22 bg-gray-900 dark:bg-gray-800 rounded-xl mb-8 gap-1 max-w-4xl md:mx-auto",
         className
       )}
       style={combinedStyle}
     >
-      <div className="mb-1">{breadcrumbs}</div>
-      {headline && (
-        <h1 className="text-4xl font-bold capitalize" style={hasPokemonTheme ? { color: typeStyles.textColor } : undefined}>
-          {headline}
-        </h1>
-      )}
+      <div className="mb-1" style={hasPokemonTheme ? { color: `${typeStyles.textColor} !important` } : undefined}>{breadcrumbs}</div>
+      <div className="flex items-center gap-4 mb-2">
+        {image && (
+          <Image
+            src={image ?? ''}
+            alt={`Accent Image to accompany hero`}
+            width={200}
+            height={200}
+            className="object-contain w-12"
+            priority
+          />
+        )}
+        {headline && (
+          <h1 className="text-2xl md:text-4xl font-bold capitalize" style={hasPokemonTheme ? { color: typeStyles.textColor } : undefined}>
+            {headline}
+          </h1>
+        )}
+      </div>
       {description && (
         <p className="text-lg text-gray-300 dark:text-gray-400" style={hasPokemonTheme ? { color: `${typeStyles.textColor}CC` } : undefined}>
           {description}

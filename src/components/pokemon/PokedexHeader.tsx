@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { FormData, PokemonType } from '@/types/types';
@@ -26,76 +25,40 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
     : { className: '', style: {} };
 
   return (
-    <>
-
-      <Hero
-        style={gradientProps.style}
-        className={cn(
-          gradientProps.className, 'pt-20'
-        )}
+    <Hero
+      style={gradientProps.style}
+      className={cn(
+        gradientProps.className, 'pt-20 md:pb-[26px]'
+      )}
       breadcrumbs={
-        <Breadcrumb className="mb-4">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/" className="hover:underline">
-                Home
-              </Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/pokemon" className="hover:underline">
-                Pokemon
-              </Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage className='capitalize'>{pokemonName}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-      }
-      headline={pokemonName}>
-
-          <div className={'md:hidden text-left'}>
-<div
-              className="flex flex-col mt-2 spacing-y-2 md:gap-1"
-              aria-label="Pokemon Faithful Types"
-              role="group"
-            >
-              <label className="leading-none text-xs w-[50px]">Faithful:</label>
-              <div className="gap-2 flex flex-wrap">
-                {formData.types ? (
-                  Array.isArray(formData.types) ? (
-                    formData.types.map((type: string) => (
-                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                        {type}
-                      </Badge>
-                    ))
-                  ) : (
-                    <Badge
-                      key={formData.types}
-                      variant={formData.types.toLowerCase() as PokemonType['name']}
-                    >
-                      {formData.types}
-                    </Badge>
-                  )
-                ) : (
-                  <></>
-                )}
-              </div>
-            </div>
-            {/* <p className="text-sm md:text-4xl font-bold capitalize text-gray-900 dark:text-gray-50">
-              {pokemonName}
-            </p> */}
-            <div
-              className="flex flex-row mt-2 spacing-y-2 gap-1"
-              aria-label="Pokemon Faithful Types"
-              role="group"
-            >
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/" className="pokemon-breadcrumb-inactive">
+                  Home
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator className="pokemon-breadcrumb-inactive" />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/pokemon" className="pokemon-breadcrumb-inactive">
+                  Pokemon
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator className="pokemon-breadcrumb-inactive" />
+            <BreadcrumbItem>
+              <BreadcrumbPage className='capitalize pokemon-breadcrumb-active'>{pokemonName}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+        }
+        image={formData.frontSpriteUrl}
+        headline={pokemonName}>
+          <div className='flex flex-row flex-wrap md:flex-row items-start md:items-center gap-2 md:gap-6'>
+            <div className={'md:h-[60px]'}>
               <label className="leading-none text-xs w-[50px]">Faithful:</label>
               <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
                 {formData.types ? (
@@ -117,198 +80,42 @@ const PokedexHeader = ({ formData, uniqueForms, pokemonName, selectedForm, setSe
                   <Badge variant="secondary">Unknown</Badge>
                 )}
               </div>
-            {/* </div>
-            <div
-              className="flex flex-row mt-2 spacing-y-2 gap-1"
-              aria-label="Pokemon Polished Types"
-              role="group"
-            > */}
-              <label className="leading-none text-xs w-[50px]">Polished:</label>
-              <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-                {formData.updatedTypes ? (
-                  Array.isArray(formData.updatedTypes) ? (
-                    formData.updatedTypes.map((type: string) => (
-                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                        {type}
-                      </Badge>
-                    ))
-                  ) : (
-                    <Badge
-                      key={formData.updatedTypes}
-                      variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
-                    >
-                      {formData.types}
-                    </Badge>
-                  )
-                ) : (
-                  <></>
-                )}
-              </div>
             </div>
-            {uniqueForms.length > 0 && (
-              <PokemonFormSelect
-                selectedForm={selectedForm}
-                setSelectedForm={setSelectedForm}
-                uniqueForms={uniqueForms}
-                classes="block md:hidden md:ml-auto"
-              />
-            )}
-          </div>{' '}
-          <div className="w-36 p-1 md:p-0 md:w-14 md:h-auto md:mx-[initial] md:mr-0">
-            <Image
-              src={formData.frontSpriteUrl ?? ''}
-              alt={`Sprite of Pokémon ${pokemonName}`}
-              width={200}
-              height={200}
-              className="object-contain w-36 md:drop-shadow-xs md:w-36 md:h-auto md:mb-0"
-              priority
-            />
-          </div>
-          <div className="text-left hidden md:flex gap-4">
-
-            {/* <p className="text-sm md:text-xl font-bold capitalize text-gray-900 dark:text-gray-50">
-              {pokemonName}
-            </p> */}
-            <div
-              className="flex flex-col mt-2 spacing-y-2 md:gap-1"
-              aria-label="Pokemon Faithful Types"
-              role="group"
-            >
-              <label className="leading-none text-xs w-[50px]">Faithful:</label>
-              <div className="gap-2 flex flex-wrap">
-                {formData.types ? (
-                  Array.isArray(formData.types) ? (
-                    formData.types.map((type: string) => (
-                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                        {type}
-                      </Badge>
-                    ))
-                  ) : (
-                    <Badge
-                      key={formData.types}
-                      variant={formData.types.toLowerCase() as PokemonType['name']}
-                    >
-                      {formData.types}
-                    </Badge>
-                  )
-                ) : (
-                  <></>
-                )}
-              </div>
-            </div>
-            <div
-              className="flex flex-col mt-2 spacing-y-0 md:gap-1"
-              aria-label="Pokemon Polished Types"
-              role="group"
-            >
-              {formData.updatedTypes &&
-                Array.isArray(formData.updatedTypes) &&
-                formData.updatedTypes.length > 0 && (
-                  <>
-                    <label className="leading-none text-xs w-[50px]">Polished:</label>
-                    <div className="gap-2 flex flex-wrap">
-                      {formData.updatedTypes.map((type: string) => (
-                        <Badge
-                          key={`polished-${type}`}
-                          variant={type.toLowerCase() as PokemonType['name']}
-                        >
+            <div>
+              <div className={'md:h-[60px]'}>
+                <label className="leading-none text-xs w-[50px]">Polished:</label>
+                <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
+                  {formData.updatedTypes ? (
+                    Array.isArray(formData.updatedTypes) ? (
+                      formData.updatedTypes.map((type: string) => (
+                        <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}
+                         >
                           {type}
                         </Badge>
-                      ))}
-                    </div>
-                  </>
-                )}
-            </div>
-          </div>
-          {uniqueForms.length > 0 && (
-            <PokemonFormSelect
-              selectedForm={selectedForm}
-              setSelectedForm={setSelectedForm}
-              uniqueForms={uniqueForms}
-              classes="hidden md:block md:mr-auto"
-            />
-          )}
-      </Hero>
-
-      <div className={cn("max-w-4xl mx-auto rounded-xl overflow-hidden md:hidden p-4 mb-2",
-            gradientProps.className
-          )}
-          style={gradientProps.style}>
-        <div>
-          <div className='flex flex-row items-start md:items-center gap-4 mb-2 justify-between'>
-              <div className='w-18'>
-                <Image
-                  src={formData.frontSpriteUrl ?? ''}
-                  alt={`Sprite of Pokémon ${pokemonName}`}
-                  width={200}
-                  height={200}
-                  className="object-contain w-36 md:drop-shadow-xs md:w-36 md:h-auto md:mb-0"
-                  priority
-              />
-            </div>
-        </div>
-        <div className='flex flex-row gap-6'>
-         <div>
-           <label className="leading-none text-xs w-[50px]">Faithful:</label>
-          <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-            {formData.types ? (
-              Array.isArray(formData.types) ? (
-                formData.types.map((type: string) => (
-                  <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                    {type}
-                  </Badge>
-                ))
-              ) : (
-                <Badge
-                  key={formData.types}
-                  variant={formData.types.toLowerCase() as PokemonType['name']}
-                >
-                  {formData.types}
-                </Badge>
-              )
-            ) : (
-              <Badge variant="secondary">Unknown</Badge>
-            )}
-          </div>
-         </div>
-<div>
-
-              <label className="leading-none text-xs w-[50px]">Polished:</label>
-              <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-                {formData.updatedTypes ? (
-                  Array.isArray(formData.updatedTypes) ? (
-                    formData.updatedTypes.map((type: string) => (
-                      <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                        {type}
+                      ))
+                    ) : (
+                      <Badge
+                        key={formData.updatedTypes}
+                        variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
+                      >
+                        {formData.types}
                       </Badge>
-                    ))
+                    )
                   ) : (
-                    <Badge
-                      key={formData.updatedTypes}
-                      variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
-                    >
-                      {formData.types}
-                    </Badge>
-                  )
-                ) : (
-                  <></>
-                )}
+                    <></>
+                  )}
+                </div>
+              </div>
             </div>
-</div>
-        </div>
-      </div>
-    </div>
-    <div>
-      {uniqueForms.length > 0 && (
-        <PokemonFormSelect
-          selectedForm={selectedForm}
-          setSelectedForm={setSelectedForm}
-          uniqueForms={uniqueForms}
-          classes="block md:hidden md:ml-auto"
-        />
-      )}
-    </div>
-  </>
+              {uniqueForms.length > 0 && (
+                <PokemonFormSelect
+                  selectedForm={selectedForm}
+                  setSelectedForm={setSelectedForm}
+                  uniqueForms={uniqueForms}
+                />
+              )}
+          </div>
+      </Hero>
   );
 };
 

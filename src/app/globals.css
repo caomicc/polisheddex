@@ -55,7 +55,7 @@
   --color-fire: var(--color-red-400);
   --color-flying: var(--color-sky-300);
   --color-ghost: var(--color-violet-300);
-  --color-grass: var(--color-green-400);
+  --color-grass: var(--color-emerald-400);
   --color-ground: var(--color-orange-300);
   --color-ice: var(--color-cyan-300);
   --color-normal: #dfcbaa;
@@ -64,7 +64,16 @@
   --color-rock: var(--color-gray-400);
   --color-steel: var(--color-slate-400);
   --color-water: var(--color-blue-400);
-
+  --color-normal-50: #fcfaf7;
+  --color-normal-100: #f9f5ee;
+  --color-normal-200: #f2eadd;
+  --color-normal-300: #ece0cc;
+  --color-normal-400: #e5d5bb;
+  --color-normal-500: #dfcbaa;
+  --color-normal-600: #b2a288;
+  --color-normal-700: #867a66;
+  --color-normal-800: #595144;
+  --color-normal-900: #2d2922;
   --color-nite: var(--color-blue-900); /* dark background */
   --color-day: var(--color-blue-200); /* light background */
   --color-morn: var(--color-orange-200); /* morning background */
@@ -80,11 +89,13 @@
   --color-special: #5973a7;
   --color-status: #a9a795;
 
-  /* Pokemon Theme CSS Custom Properties */
+  /* Pokemon Theme CSS Custom Properties - with smooth transitions */
   --pokemon-theme-bg: transparent;
   --pokemon-theme-text: inherit;
   --pokemon-theme-link: inherit;
   --pokemon-theme-hover: rgba(0, 0, 0, 0.1);
+  --pokemon-theme-breadcrumb-active: inherit;
+  --pokemon-theme-breadcrumb-inactive: inherit;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -738,23 +749,53 @@
 
 /* Pokemon Type Theme Classes */
 .pokemon-themed {
-  background-color: var(--pokemon-theme-bg);
   color: var(--pokemon-theme-text);
+  transition: all 300ms ease-in-out;
 }
 
 .pokemon-themed-link {
   color: var(--pokemon-theme-link);
+  transition: color 300ms ease-in-out;
 }
 
 .pokemon-themed-link:hover {
-  background-color: var(--pokemon-theme-hover);
+  background-color: var(--pokemon-theme-nav-hover);
+  color: var(--pokemon-theme-link);
+  transition: background-color 200ms ease-in-out;
 }
 
 .pokemon-hero-text {
   color: var(--pokemon-theme-text);
+  transition: color 300ms ease-in-out;
 }
 
 .pokemon-hero-description {
   color: var(--pokemon-theme-text);
   opacity: 0.8;
+  transition: color 300ms ease-in-out;
+}
+
+.pokemon-breadcrumb-active {
+  color: var(--pokemon-theme-link) !important;
+  font-weight: 700;
+  transition: color 300ms ease-in-out;
+}
+
+.pokemon-breadcrumb-inactive {
+  color: var(--pokemon-theme-text) !important;
+  /* opacity: 0.8; */
+  transition: color 300ms ease-in-out;
+}
+.pokemon-breadcrumb-inactive:hover {
+  color: var(--pokemon-theme-hover) !important;
+  opacity: 1;
+  transition: color 300ms ease-in-out;
+}
+
+.pokemon-tab-background {
+  background-color: var(--pokemon-tab-bg);
+}
+
+.pokemon-page-background {
+  background-color: var(--pokemon-page-bg);
 }

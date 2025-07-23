@@ -83,35 +83,8 @@ export default function PokemonFormClient({
         usePolished={true}
       />
 
-            {process.env.NODE_ENV === 'development' && (
-        <div className="rounded-lg border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/60 p-4 mb-4 text-xs text-left overflow-x-auto">
-          <details>
-            <summary className="cursor-pointer font-semibold text-gray-700 dark:text-gray-200">
-              Debug Panel
-            </summary>
-            <div className="mt-2 space-y-2">
-              <div>
-                <span className="font-bold">Selected Form:</span> {selectedForm}
-              </div>
-              <div>
-                <span className="font-bold">Form Data:</span>
-                <pre className="whitespace-pre-wrap break-all bg-gray-100 dark:bg-gray-800 rounded p-2 mt-1">
-                  {JSON.stringify(formData, null, 2)}
-                </pre>
-              </div>
-              <div>
-                <span className="font-bold">All Forms:</span>
-                <pre className="whitespace-pre-wrap break-all bg-gray-100 dark:bg-gray-800 rounded p-2 mt-1">
-                  {JSON.stringify(Object.keys(allFormData), null, 2)}
-                </pre>
-              </div>
-            </div>
-          </details>
-        </div>
-      )}
-
       <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
-        <TabsList className="w-full">
+        <TabsList className="w-full pokemon-tab-background">
           <TabsTrigger value="about">About</TabsTrigger>
           {/* <TabsTrigger value="stats">Stats</TabsTrigger> */}
           <TabsTrigger value="moves">Moves</TabsTrigger>
@@ -122,7 +95,9 @@ export default function PokemonFormClient({
           className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
         >
 
-
+          <Card>
+            <CardHeader className='sr-only'>Stats + Type Balances</CardHeader>
+            <CardContent className="space-y-2">
           <div className='flex flex-col md:flex-row gap-12 items-start'>
             <div className='md:flex-1 flex h-full w-full'>
             {formData.baseStats ? (
@@ -230,8 +205,10 @@ export default function PokemonFormClient({
             </div>}
           </div>
         </div>
-      </div>
 
+      </div>
+</CardContent>
+</Card>
           <Card>
             <CardHeader className='sr-only'>Abilities</CardHeader>
             <CardContent className="space-y-2">
@@ -739,6 +716,32 @@ export default function PokemonFormClient({
           </Card>
         </TabsContent>
       </Tabs>
+      {process.env.NODE_ENV === 'development' && (
+        <div className="rounded-lg border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/60 p-4 mb-4 text-xs text-left overflow-x-auto">
+          <details>
+            <summary className="cursor-pointer font-semibold text-gray-700 dark:text-gray-200">
+              Debug Panel
+            </summary>
+            <div className="mt-2 space-y-2">
+              <div>
+                <span className="font-bold">Selected Form:</span> {selectedForm}
+              </div>
+              <div>
+                <span className="font-bold">Form Data:</span>
+                <pre className="whitespace-pre-wrap break-all bg-gray-100 dark:bg-gray-800 rounded p-2 mt-1">
+                  {JSON.stringify(formData, null, 2)}
+                </pre>
+              </div>
+              <div>
+                <span className="font-bold">All Forms:</span>
+                <pre className="whitespace-pre-wrap break-all bg-gray-100 dark:bg-gray-800 rounded p-2 mt-1">
+                  {JSON.stringify(Object.keys(allFormData), null, 2)}
+                </pre>
+              </div>
+            </div>
+          </details>
+        </div>
+      )}
     </div>
     </>
   );

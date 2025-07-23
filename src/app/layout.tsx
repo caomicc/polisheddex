@@ -82,12 +82,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${rubik.variable} ${geistMono.variable} font-sans antialiased text-gray-900 dark:bg-gray-900 dark:text-gray-100 bg-slate-100`}
+        className={`${rubik.variable} ${geistMono.variable} pokemon-page-background font-sans antialiased text-gray-900 dark:bg-gray-900 dark:text-gray-100 bg-slate-100`}
       >
         <PokemonTypeProvider>
           <div className="flex flex-col min-h-screen">
             <Navigation />
-            <main className="flex-grow mb-10">{children}</main>
+            <main className="flex-grow mb-10 p-2 sm:p-4">{children}</main>
             <Footer />
           </div>
         </PokemonTypeProvider>
