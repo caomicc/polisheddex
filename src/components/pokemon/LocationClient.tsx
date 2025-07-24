@@ -18,6 +18,7 @@ import TimeIcon from './TimeIcon';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import { formatPokemonDisplayWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
 import { Badge } from '../ui/badge';
+import GymLeaderCard from '../trainer/GymLeaderCard';
 
 export default function LocationClient({
   comprehensiveInfo,
@@ -233,7 +234,7 @@ export default function LocationClient({
             <div className="space-y-6">
               <h3 className="text-lg font-semibold">Trainers</h3>
               <div className="grid gap-6">
-                <TrainerCard trainer={comprehensiveInfo.gymLeader} />
+                <GymLeaderCard gymLeader={comprehensiveInfo.gymLeader} />
               </div>
             </div>
           ) : (

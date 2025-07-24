@@ -13,6 +13,7 @@ import {
 import LocationClient from '@/components/pokemon/LocationClient';
 import { normalizeLocationKey } from '@/utils/locationUtils';
 import { LocationData, GroupedPokemon, EncounterDetail } from '@/types/locationTypes';
+import { Hero } from '@/components/ui/Hero';
 
 // Function to load Pokemon location data
 async function loadPokemonLocationData() {
@@ -163,37 +164,46 @@ export default async function LocationDetailPage({
   });
 
   return (
-    <div className="max-w-xl md:max-w-4xl mx-auto p-4">
-      <Breadcrumb className="mb-4">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/" className="hover:underline dark:text-blue-200 text-blue-700">
-                Home
-              </Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/locations" className="hover:underline dark:text-blue-200 text-blue-700">
-                Locations
-              </Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>{displayName}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-
-      <h1 className="text-3xl font-bold mb-6">{displayName}</h1>
-
-      <LocationClient
-        comprehensiveInfo={comprehensiveInfo}
-        groupedPokemonData={groupedByMethodAndTime}
+    <>
+      <Hero
+        className="text-white"
+        headline={displayName}
+        description=""
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link
+                    href="/locations"
+                    className="hover:underline text-white hover:text-slate-200"
+                  >
+                    Locations
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-white">{displayName}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
       />
-    </div>
+      <div className="max-w-xl md:max-w-4xl mx-auto p-4">
+        <LocationClient
+          comprehensiveInfo={comprehensiveInfo}
+          groupedPokemonData={groupedByMethodAndTime}
+        />
+      </div>
+    </>
   );
 }
