@@ -11,6 +11,7 @@
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "extract": "ts-node extract_pokemon_data.ts && ts-node extract_locations.ts",
     "crop": "ts-node scripts/crop_top_sprite.ts",
+    "update-rom": "cd polishedcrystal && git pull origin master && cd ..",
     "test": "vitest run",
     "test:watch": "vitest"
   },

@@ -211,7 +211,10 @@ function updatePokemonJsonWithDexEntry(mon: string, entry: PokemonDexEntry) {
 }
 
 export function extractPokedexEntries() {
-  const pokedexEntriesPath = path.join(__dirname, '../../../rom/data/pokemon/dex_entries.asm');
+  const pokedexEntriesPath = path.join(
+    __dirname,
+    '../../../polishedcrystal/data/pokemon/dex_entries.asm',
+  );
   const entriesData = fs.readFileSync(pokedexEntriesPath, 'utf8');
   const lines = entriesData.split(/\r?\n/);
 

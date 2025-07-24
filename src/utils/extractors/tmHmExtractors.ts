@@ -32,7 +32,7 @@ export function extractTmHmItems(itemData?: Record<string, any>): Record<string,
   const __dirname = path.dirname(__filename);
 
   // Path to tmhm_moves.asm file
-  const tmhmMovesFile = path.join(__dirname, '../../../rom/data/moves/tmhm_moves.asm');
+  const tmhmMovesFile = path.join(__dirname, '../../../polishedcrystal/data/moves/tmhm_moves.asm');
 
   // Output and items data file paths
   const itemsDataFile = path.join(__dirname, '../../../output/items_data.json');

@@ -14,8 +14,8 @@ const __dirname = path.dirname(__filename);
 
 // --- Type Chart Extraction ---
 export function extractTypeChart() {
-  const matchupPath = path.join(__dirname, '../../../rom/data/types/type_matchups.asm');
-  const typeNamesPath = path.join(__dirname, '../../../rom/data/types/names.asm');
+  const matchupPath = path.join(__dirname, '../../../polishedcrystal/data/types/type_matchups.asm');
+  const typeNamesPath = path.join(__dirname, '../../../polishedcrystal/data/types/names.asm');
   const outputPath = path.join(__dirname, '../../../output/type_chart.json');
 
   // Read type names in order

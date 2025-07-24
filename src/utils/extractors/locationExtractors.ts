@@ -28,7 +28,7 @@ export function extractHiddenGrottoes(): Record<string, LocationEntry[]> {
   // Read the grottoes.asm file
   const grottoeFilePath = path.join(
     __dirname,
-    '../../../rom/data/events/hidden_grottoes/grottoes.asm',
+    '../../../polishedcrystal/data/events/hidden_grottoes/grottoes.asm',
   );
   if (!fs.existsSync(grottoeFilePath)) {
     console.warn('Hidden grottoes file not found, skipping extraction');
@@ -344,10 +344,10 @@ export function extractAllLocations(): Record<string, LocationData> {
   // Read landmark constants to get the mapping of names to IDs
   const landmarkConstantsPath = path.join(
     __dirname,
-    '../../../rom/constants/landmark_constants.asm',
+    '../../../polishedcrystal/constants/landmark_constants.asm',
   );
-  const landmarksPath = path.join(__dirname, '../../../rom/data/maps/landmarks.asm');
-  const flyPointsPath = path.join(__dirname, '../../../rom/data/maps/flypoints.asm');
+  const landmarksPath = path.join(__dirname, '../../../polishedcrystal/data/maps/landmarks.asm');
+  const flyPointsPath = path.join(__dirname, '../../../polishedcrystal/data/maps/flypoints.asm');
 
   if (!fs.existsSync(landmarkConstantsPath) || !fs.existsSync(landmarksPath)) {
     console.warn('Landmark files not found, skipping comprehensive location extraction');
@@ -486,7 +486,10 @@ export function extractAllLocations(): Record<string, LocationData> {
   }
 
   // Parse map attributes to get connections
-  const mapAttributesPath = path.join(__dirname, '../../../rom/data/maps/attributes.asm');
+  const mapAttributesPath = path.join(
+    __dirname,
+    '../../../polishedcrystal/data/maps/attributes.asm',
+  );
   if (fs.existsSync(mapAttributesPath)) {
     console.log('🔗 Parsing map connections...');
     const mapAttributesContent = fs.readFileSync(mapAttributesPath, 'utf8');

@@ -24,7 +24,7 @@ const ABILITY_DESCRIPTIONS_OUTPUT = path.join(
 
 // --- Detailed Stats Extraction ---
 export function extractDetailedStats(): Record<string, DetailedStats> {
-  const detailedStatsDir = path.join(__dirname, '../../../rom/data/pokemon/base_stats');
+  const detailedStatsDir = path.join(__dirname, '../../../polishedcrystal/data/pokemon/base_stats');
   const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter((f) => f.endsWith('.asm'));
 
   const detailedStats: Record<string, DetailedStats> = {};
@@ -612,10 +612,13 @@ export function addBodyDataToDetailedStats(
 }
 
 export function extractAbilityDescriptions() {
-  const abilityNamesPath = path.join(__dirname, '../../../rom/data/abilities/names.asm');
+  const abilityNamesPath = path.join(
+    __dirname,
+    '../../../polishedcrystal/data/abilities/names.asm',
+  );
   const abilityDescriptionsPath = path.join(
     __dirname,
-    '../../../rom/data/abilities/descriptions.asm',
+    '../../../polishedcrystal/data/abilities/descriptions.asm',
   );
 
   const namesData = fs.readFileSync(abilityNamesPath, 'utf8');

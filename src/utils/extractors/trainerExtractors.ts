@@ -16,8 +16,8 @@ const TRAINER_OUTPUT = path.join(__dirname, '../../../output/trainer_data.json')
 export function extractTrainerData(): Record<string, LocationTrainer[]> {
   console.log('🎯 Extracting trainer data from maps and parties...');
 
-  const partiesPath = path.join(__dirname, '../../../rom/data/trainers/parties.asm');
-  const mapsDir = path.join(__dirname, '../../../rom/maps');
+  const partiesPath = path.join(__dirname, '../../../polishedcrystal/data/trainers/parties.asm');
+  const mapsDir = path.join(__dirname, '../../../polishedcrystal/maps');
 
   if (!fs.existsSync(partiesPath)) {
     console.warn('Trainer parties file not found');

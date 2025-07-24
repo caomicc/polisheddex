@@ -20,9 +20,12 @@ const MOVE_DESCRIPTIONS_OUTPUT = path.join(
 const TM_HM_LEARNSET_PATH = path.join(__dirname, '../../../output/pokemon_tm_hm_learnset.json');
 
 export function extractMoveDescriptions() {
-  const moveNamesPath = path.join(__dirname, '../../../rom/data/moves/names.asm');
-  const moveDescriptionsPath = path.join(__dirname, '../../../rom/data/moves/descriptions.asm');
-  const moveStatsPath = path.join(__dirname, '../../../rom/data/moves/moves.asm');
+  const moveNamesPath = path.join(__dirname, '../../../polishedcrystal/data/moves/names.asm');
+  const moveDescriptionsPath = path.join(
+    __dirname,
+    '../../../polishedcrystal/data/moves/descriptions.asm',
+  );
+  const moveStatsPath = path.join(__dirname, '../../../polishedcrystal/data/moves/moves.asm');
 
   const namesData = fs.readFileSync(moveNamesPath, 'utf8');
   const descData = fs.readFileSync(moveDescriptionsPath, 'utf8');
@@ -219,10 +222,10 @@ export function extractMoveDescriptions() {
 }
 
 export function extractEggMoves() {
-  const eggMovesPath = path.join(__dirname, '../../../rom/data/pokemon/egg_moves.asm');
+  const eggMovesPath = path.join(__dirname, '../../../polishedcrystal/data/pokemon/egg_moves.asm');
   const eggMovePointersPath = path.join(
     __dirname,
-    '../../../rom/data/pokemon/egg_move_pointers.asm',
+    '../../../polishedcrystal/data/pokemon/egg_move_pointers.asm',
   );
 
   // Parse pointers: species => EggSpeciesMoves label
@@ -286,7 +289,7 @@ export function extractEggMoves() {
 }
 
 export function extractTmHmLearnset() {
-  const detailedStatsDir = path.join(__dirname, '../../../rom/data/pokemon/base_stats');
+  const detailedStatsDir = path.join(__dirname, '../../../polishedcrystal/data/pokemon/base_stats');
   const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter((f) => f.endsWith('.asm'));
 
   // Parse pointers: species => EggSpeciesMoves label

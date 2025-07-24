@@ -6,7 +6,7 @@ The extraction process now includes TM/HM data extraction and integration with b
 ## What's Extracted
 
 ### TM/HM Location Data
-- **Source**: `rom/data/moves/tmhm_moves.asm`
+- **Source**: `polishedcrystal/data/moves/tmhm_moves.asm`
 - **Output**: Integrated into `output/all_locations.json`
 - **Data includes**:
   - TM/HM number (e.g., "TM01", "HM01")
@@ -14,7 +14,7 @@ The extraction process now includes TM/HM data extraction and integration with b
   - Location where the TM/HM can be obtained
 
 ### TM/HM Item Data
-- **Source**: `rom/data/moves/tmhm_moves.asm` + `output/pokemon_move_descriptions.json`
+- **Source**: `polishedcrystal/data/moves/tmhm_moves.asm` + `output/pokemon_move_descriptions.json`
 - **Output**: Integrated into `output/items_data.json`
 - **Data includes**:
   - Item ID (e.g., "tm01", "hm01")

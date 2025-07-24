@@ -31,8 +31,11 @@ export function extractItemData(): Record<string, ItemData> {
   const __dirname = path.dirname(__filename);
 
   // Path to files
-  const descriptionsFile = path.join(__dirname, '../../../rom/data/items/descriptions.asm');
-  const attributesFile = path.join(__dirname, '../../../rom/data/items/attributes.asm');
+  const descriptionsFile = path.join(
+    __dirname,
+    '../../../polishedcrystal/data/items/descriptions.asm',
+  );
+  const attributesFile = path.join(__dirname, '../../../polishedcrystal/data/items/attributes.asm');
 
   // Output file path
   const outputFile = path.join(__dirname, '../../../output/items_data.json');
@@ -594,7 +597,7 @@ export function extractPickupItems(itemData: Record<string, ItemData>): void {
   const __dirname = path.dirname(__filename);
 
   // Path to pickup_items.asm file
-  const pickupFile = path.join(__dirname, '../../../rom/data/items/pickup_items.asm');
+  const pickupFile = path.join(__dirname, '../../../polishedcrystal/data/items/pickup_items.asm');
 
   console.log('🔧 Extracting pickup items data...');
 
@@ -736,7 +739,7 @@ export function extractRockItems(itemData: Record<string, ItemData>): void {
   const __dirname = path.dirname(__filename);
 
   // Path to rock_items.asm file
-  const rockFile = path.join(__dirname, '../../../rom/data/items/rock_items.asm');
+  const rockFile = path.join(__dirname, '../../../polishedcrystal/data/items/rock_items.asm');
 
   console.log('🔧 Extracting rock smashing items data...');
 
@@ -838,7 +841,7 @@ export function extractFishingItems(itemData: Record<string, ItemData>): void {
   const __dirname = path.dirname(__filename);
 
   // Path to fish_items.asm file
-  const fishFile = path.join(__dirname, '../../../rom/data/items/fish_items.asm');
+  const fishFile = path.join(__dirname, '../../../polishedcrystal/data/items/fish_items.asm');
 
   console.log('🔧 Extracting fishing items data...');
 
@@ -934,7 +937,7 @@ export function extractRooftopSale(itemData: Record<string, ItemData>): void {
   const __dirname = path.dirname(__filename);
 
   // Path to rooftop_sale.asm file
-  const rooftopFile = path.join(__dirname, '../../../rom/data/items/rooftop_sale.asm');
+  const rooftopFile = path.join(__dirname, '../../../polishedcrystal/data/items/rooftop_sale.asm');
 
   console.log('🔧 Extracting rooftop sale data...');
 
@@ -1033,7 +1036,7 @@ export function extractItemManiacs(itemData: Record<string, ItemData>): void {
   const __dirname = path.dirname(__filename);
 
   // Path to item_maniacs.asm file
-  const maniacFile = path.join(__dirname, '../../../rom/data/items/item_maniacs.asm');
+  const maniacFile = path.join(__dirname, '../../../polishedcrystal/data/items/item_maniacs.asm');
 
   console.log('🔧 Extracting item maniacs data...');
 

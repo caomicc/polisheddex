@@ -26,8 +26,8 @@ export function extractMartData(itemData: Record<string, ItemData>): void {
   const __dirname = path.dirname(__filename);
 
   // Path to marts.asm file
-  const martsFile = path.join(__dirname, '../../../rom/data/items/marts.asm');
-  // const buenaPrizesFile = path.join(__dirname, '../../../rom/data/items/buena_prizes.asm');
+  const martsFile = path.join(__dirname, '../../../polishedcrystal/data/items/marts.asm');
+  // const buenaPrizesFile = path.join(__dirname, '../../../polishedcrystal/data/items/buena_prizes.asm');
 
   console.log('🔧 Extracting Pokémart data...');
 
@@ -258,7 +258,10 @@ function extractBuenaPrizes(itemData: Record<string, ItemData>): void {
   const __dirname = path.dirname(__filename);
 
   // Path to buena_prizes.asm file
-  const buenaPrizesFile = path.join(__dirname, '../../../rom/data/items/buena_prizes.asm');
+  const buenaPrizesFile = path.join(
+    __dirname,
+    '../../../polishedcrystal/data/items/buena_prizes.asm',
+  );
 
   console.log("🔧 Extracting Buena's prizes data...");
 
@@ -370,7 +373,7 @@ function extractFishingItems(itemData: Record<string, ItemData>): void {
   const __dirname = path.dirname(__filename);
 
   // Path to fish_items.asm file
-  const fishItemsFile = path.join(__dirname, '../../../rom/data/items/fish_items.asm');
+  const fishItemsFile = path.join(__dirname, '../../../polishedcrystal/data/items/fish_items.asm');
 
   console.log('🔧 Extracting fishing items data...');
 
@@ -501,7 +504,10 @@ function extractBargainShop(itemData: Record<string, ItemData>): void {
   const __dirname = path.dirname(__filename);
 
   // Path to bargain_shop.asm file
-  const bargainShopFile = path.join(__dirname, '../../../rom/data/items/bargain_shop.asm');
+  const bargainShopFile = path.join(
+    __dirname,
+    '../../../polishedcrystal/data/items/bargain_shop.asm',
+  );
 
   console.log('🔧 Extracting Bargain Shop data...');
 
