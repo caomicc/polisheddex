@@ -11,7 +11,6 @@ import type {
   TrainerPokemon,
 } from './src/types/types.ts';
 import { extractTrainerData } from './src/utils/extractors/trainerExtractors.ts';
-import { formatDisplayName, formatMoveName, inferLocationRegion } from './src/utils/stringUtils.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -276,6 +275,21 @@ export function extractTMHMLocations(): Record<
   console.log(`🔧 Found ${totalTMs} TM/HMs across ${Object.keys(tmhmByLocation).length} locations`);
 
   return tmhmByLocation;
+}
+
+/**
+ * Format move name from ASM format to display format
+ */
+function formatMoveName(asmName: string): string {
+  // Special cases
+  if (asmName === 'PSYCHIC_M') return 'Psychic';
+
+  // Replace underscores with spaces and convert to title case
+  return asmName
+    .replace(/_/g, ' ')
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
 }
 
 // --- Comprehensive Location Extraction ---
@@ -1967,6 +1981,161 @@ export async function exportAllLocations() {
     console.error('❌ Error exporting locations:', error);
     throw error;
   }
+}
+
+/**
+ * Format location key to a proper display name
+ * Handles floor numbers, basement levels, and other special patterns
+ */
+function formatDisplayName(locationKey: string): string {
+  const words = locationKey.split('_');
+
+  return words
+    .map((word, index, parts) => {
+      // Handle floor numbers: "1f", "2f" -> "1F", "2F"
+      if (/^\d+f$/.test(word)) {
+        return word.toUpperCase();
+      }
+
+      // Handle basement letter: "b" -> "B" (will be combined with next floor if applicable)
+      if (word === 'b' && index < parts.length - 1 && /^\d+f$/.test(parts[index + 1])) {
+        // Combine "b" with next floor number: "b" + "1f" -> "B1F"
+        const floorNumber = parts[index + 1].toUpperCase();
+        // Mark the next word for skipping by returning special marker
+        parts[index + 1] = 'SKIP';
+        return `B${floorNumber}`;
+      }
+
+      // Skip words marked for skipping
+      if (word === 'SKIP') {
+        return null;
+      }
+
+      // Handle basement floor numbers that are already combined: "b1f", "b2f" -> "B1F", "B2F"
+      if (/^b\d+f$/.test(word)) {
+        return word.toUpperCase();
+      }
+
+      // Handle special directional cases
+      if (word === 'nw') return 'NW';
+      if (word === 'ne') return 'NE';
+      if (word === 'sw') return 'SW';
+      if (word === 'se') return 'SE';
+      if (word === 'n') return 'N';
+      if (word === 's') return 'S';
+      if (word === 'e') return 'E';
+      if (word === 'w') return 'W';
+
+      // Handle compound location descriptors for better readability
+      if (word === 'side' && index > 0) {
+        const prevWord = parts[index - 1];
+        if (['blackthorn', 'mahogany', 'east', 'west', 'north', 'south'].includes(prevWord)) {
+          return 'Side)';
+        }
+      }
+
+      if (
+        ['blackthorn', 'mahogany'].includes(word) &&
+        index < parts.length - 1 &&
+        parts[index + 1] === 'side'
+      ) {
+        return `(${word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()}`;
+      }
+
+      // Regular word capitalization
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .filter((part) => part !== null) // Remove null values (skipped words)
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Determine the likely region for a location based on known patterns
+ */
+function inferLocationRegion(locationKey: string): 'johto' | 'kanto' | 'orange' {
+  // Known Kanto locations
+  const kantoPatterns = [
+    'victory_road',
+    'cerulean',
+    'vermilion',
+    'lavender',
+    'celadon',
+    'fuchsia',
+    'saffron',
+    'cinnabar',
+    'viridian',
+    'pewter',
+    'pallet',
+    'indigo_plateau',
+    'route_1',
+    'route_2',
+    'route_3',
+    'route_4',
+    'route_5',
+    'route_6',
+    'route_7',
+    'route_8',
+    'route_9',
+    'route_10',
+    'route_11',
+    'route_12',
+    'route_13',
+    'route_14',
+    'route_15',
+    'route_16',
+    'route_17',
+    'route_18',
+    'route_19',
+    'route_20',
+    'route_21',
+    'route_22',
+    'route_23',
+    'route_24',
+    'route_25',
+    'route_26',
+    'route_27',
+    'route_28',
+    'pokemon_league',
+    'rock_tunnel',
+    'underground',
+    'power_plant',
+    'seafoam',
+    'pokemon_mansion',
+    'silph',
+    'fighting_dojo',
+    'digletts_cave',
+    'mount_moon',
+  ];
+
+  // Known Orange Islands locations
+  const orangePatterns = [
+    'shamouti',
+    'valencia',
+    'navel_rock',
+    'faraway',
+    'fire_island',
+    'ice_island',
+    'lightning_island',
+    'beautiful_beach',
+  ];
+
+  // Check if location matches any known patterns
+  for (const pattern of kantoPatterns) {
+    if (locationKey.includes(pattern)) {
+      return 'kanto';
+    }
+  }
+
+  for (const pattern of orangePatterns) {
+    if (locationKey.includes(pattern)) {
+      return 'orange';
+    }
+  }
+
+  // Default to johto for everything else
+  return 'johto';
 }
 
 // Run if called directly

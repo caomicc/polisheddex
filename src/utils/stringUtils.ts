@@ -315,3 +315,217 @@ export function deepReplaceMonString(obj: unknown): unknown {
   }
   return obj;
 }
+
+/**
+ * Format a normalized location key into a display-friendly name
+ */
+export function formatDisplayName(normalizedKey: string): string {
+  return normalizedKey
+    .split('_')
+    .map((word) => {
+      // Handle floor abbreviations
+      if (/^[Bb]\d+f$/.test(word)) {
+        const floorNum = word.match(/\d+/)?.[0];
+        return `Basement ${floorNum ? ordinalSuffix(parseInt(floorNum)) : ''} Floor`;
+      }
+      if (/^\d+f$/.test(word)) {
+        const floorNum = word.match(/\d+/)?.[0];
+        return `${floorNum ? ordinalSuffix(parseInt(floorNum)) : ''} Floor`;
+      }
+      // Handle directions
+      if (/^(ne|nw|se|sw|ea|we|n|s|e|w)$/i.test(word)) {
+        const dirMap: Record<string, string> = {
+          n: 'North',
+          s: 'South',
+          e: 'East',
+          w: 'West',
+          ne: 'Northeast',
+          nw: 'Northwest',
+          se: 'Southeast',
+          sw: 'Southwest',
+          ea: 'East',
+          we: 'West',
+        };
+        return dirMap[word.toLowerCase()] || word.toUpperCase();
+      }
+      // Capitalize normal words
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join(' ');
+}
+
+/**
+ * Helper for ordinal suffixes (1 -> First, 2 -> Second, etc.)
+ */
+function ordinalSuffix(num: number): string {
+  switch (num) {
+    case 1:
+      return 'First';
+    case 2:
+      return 'Second';
+    case 3:
+      return 'Third';
+    case 4:
+      return 'Fourth';
+    case 5:
+      return 'Fifth';
+    case 6:
+      return 'Sixth';
+    case 7:
+      return 'Seventh';
+    case 8:
+      return 'Eighth';
+    case 9:
+      return 'Ninth';
+    case 10:
+      return 'Tenth';
+    default:
+      return `${num}th`;
+  }
+}
+
+/**
+ * Infer the region a location belongs to based on its key
+ */
+export function inferLocationRegion(locationKey: string): 'johto' | 'kanto' | 'orange' {
+  const key = locationKey.toLowerCase();
+
+  // Johto locations
+  const johtoLocations = [
+    'new_bark_town',
+    'cherrygrove_city',
+    'violet_city',
+    'azalea_town',
+    'goldenrod_city',
+    'ecruteak_city',
+    'olivine_city',
+    'cianwood_city',
+    'mahogany_town',
+    'blackthorn_city',
+    'dark_cave',
+    'sprout_tower',
+    'ruins_of_alph',
+    'union_cave',
+    'slowpoke_well',
+    'ilex_forest',
+    'radio_tower',
+    'national_park',
+    'tin_tower',
+    'whirl_islands',
+    'mt_silver',
+    'dragon_den',
+    'ice_path',
+    'tohjo_falls',
+    'route_29',
+    'route_30',
+    'route_31',
+    'route_32',
+    'route_33',
+    'route_34',
+    'route_35',
+    'route_36',
+    'route_37',
+    'route_38',
+    'route_39',
+    'route_40',
+    'route_41',
+    'route_42',
+    'route_43',
+    'route_44',
+    'route_45',
+    'route_46',
+  ];
+
+  // Kanto locations
+  const kantoLocations = [
+    'pallet_town',
+    'viridian_city',
+    'pewter_city',
+    'cerulean_city',
+    'vermilion_city',
+    'lavender_town',
+    'celadon_city',
+    'fuchsia_city',
+    'saffron_city',
+    'cinnabar_island',
+    'indigo_plateau',
+    'viridian_forest',
+    'mt_moon',
+    'cerulean_cave',
+    'rock_tunnel',
+    'power_plant',
+    'pokemon_tower',
+    'silph_co',
+    'safari_zone',
+    'seafoam_islands',
+    'pokemon_mansion',
+    'victory_road',
+    'route_1',
+    'route_2',
+    'route_3',
+    'route_4',
+    'route_5',
+    'route_6',
+    'route_7',
+    'route_8',
+    'route_9',
+    'route_10',
+    'route_11',
+    'route_12',
+    'route_13',
+    'route_14',
+    'route_15',
+    'route_16',
+    'route_17',
+    'route_18',
+    'route_19',
+    'route_20',
+    'route_21',
+    'route_22',
+    'route_23',
+    'route_24',
+    'route_25',
+    'route_26',
+    'route_27',
+    'route_28',
+  ];
+
+  // Check for exact matches or partial matches
+  for (const location of johtoLocations) {
+    if (key.includes(location) || location.includes(key)) {
+      return 'johto';
+    }
+  }
+
+  for (const location of kantoLocations) {
+    if (key.includes(location) || location.includes(key)) {
+      return 'kanto';
+    }
+  }
+
+  // Route number-based inference
+  if (key.includes('route_')) {
+    const routeMatch = key.match(/route_(\d+)/);
+    if (routeMatch) {
+      const routeNum = parseInt(routeMatch[1]);
+      if (routeNum >= 29 && routeNum <= 46) return 'johto';
+      if (routeNum >= 1 && routeNum <= 28) return 'kanto';
+    }
+  }
+
+  return 'johto';
+}
+/**
+ * Format move name from ASM format to display format
+ */
+export function formatMoveName(asmName: string): string {
+  // Special cases
+  if (asmName === 'PSYCHIC_M') return 'Psychic';
+
+  // Replace underscores with spaces and convert to title case
+  return asmName
+    .replace(/_/g, ' ')
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+}

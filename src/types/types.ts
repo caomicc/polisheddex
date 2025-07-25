@@ -376,6 +376,17 @@ export interface LocationData {
   name: string;
   displayName: string;
   region: 'johto' | 'kanto' | 'orange';
+  type?:
+    | 'landmark'
+    | 'route'
+    | 'cave'
+    | 'building'
+    | 'floor'
+    | 'house'
+    | 'gym'
+    | 'tower'
+    | 'island';
+  parent?: string; // Key of parent location
   x: number;
   y: number;
   flyable: boolean;
@@ -395,6 +406,16 @@ export interface LocationData {
   hasTrainers?: boolean;
   trainerCount?: number;
   coordinates?: { x: number; y: number };
+}
+
+export interface GroupedLocation extends LocationData {
+  children?: GroupedLocation[];
+  hasData: boolean; // Whether this location has Pokemon, items, trainers, etc.
+}
+
+export interface LocationHierarchy {
+  parent?: string;
+  type: 'landmark' | 'route' | 'cave' | 'building' | 'floor' | 'house' | 'gym' | 'tower' | 'island';
 }
 
 // Item types
