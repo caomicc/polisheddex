@@ -522,8 +522,10 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
             updatedMovesV2.push(move);
           }
         } else {
-          // Regular move (no conditional block)
+          // Regular move (no conditional block) - should be available in both versions
           movesV2.push(move);
+          faithfulMovesV2.push(move);
+          updatedMovesV2.push(move);
         }
       }
     }

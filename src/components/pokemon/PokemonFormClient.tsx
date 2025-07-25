@@ -15,6 +15,21 @@ import PokedexHeader from './PokedexHeader';
 import { WeaknessChart } from './WeaknessChart';
 import PokemonTypeSetter from './PokemonTypeSetter';
 import SectionCard from './SectionCard';
+import { Switch } from '../ui/switch';
+import { Label } from '../ui/label';
+
+// Helper function to deduplicate moves based on name and level
+function deduplicateMoves(moves: Move[]): Move[] {
+  const seen = new Set<string>();
+  return moves.filter((move) => {
+    const key = `${move.name}-${move.level}`;
+    if (seen.has(key)) {
+      return false;
+    }
+    seen.add(key);
+    return true;
+  });
+}
 
 export default function PokemonFormClient({
   forms,
@@ -483,32 +498,25 @@ export default function PokemonFormClient({
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
             <SectionCard headline={'Moves'}>
-              <div className="flex justify-center">
-                <button
-                  onClick={() => handleMoveToggle(false)}
-                  className={cn(
-                    'px-4 py-2 text-sm font-semibold rounded-l-lg transition-all duration-200',
-                    {
-                      'bg-blue-600 text-white shadow-md':
-                        !showFaithfulMoves && activeTab === 'moves',
-                      'bg-gray-200 text-gray-800': showFaithfulMoves,
-                    },
-                  )}
-                >
-                  Updated
-                </button>
-                <button
-                  onClick={() => handleMoveToggle(true)}
-                  className={cn(
-                    'px-4 py-2 text-sm font-semibold rounded-r-lg transition-all duration-200',
-                    {
-                      'bg-blue-600 text-white shadow-md': showFaithfulMoves,
-                      'bg-gray-200 text-gray-800': !showFaithfulMoves,
-                    },
-                  )}
-                >
-                  Faithful
-                </button>
+              <div className="flex justify-center items-center gap-3 mb-4">
+                <div className="flex items-center gap-2 ml-auto">
+                  <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
+                    <span className={showFaithfulMoves ? 'font-bold' : 'text-gray-500'}>
+                      Faithful
+                    </span>
+                    {' / '}
+                    <span className={!showFaithfulMoves ? 'font-bold' : 'text-gray-500'}>
+                      Updated
+                    </span>
+                    {' Types'}
+                  </Label>
+                  <Switch
+                    id="type-toggle"
+                    checked={showFaithfulMoves}
+                    onCheckedChange={handleMoveToggle}
+                    aria-label="Toggle between faithful and updated Pokémon types"
+                  />
+                </div>
               </div>
               <Tabs defaultValue="level-up" className="w-full">
                 <div className="px-4 md:px-0">
@@ -526,10 +534,13 @@ export default function PokemonFormClient({
 
                     if (showFaithfulMoves) {
                       // Show faithful moves if available, otherwise fall back to regular moves
-                      movesToShow =
+                      const faithfulMoves =
                         formData.faithfulLevelMoves && formData.faithfulLevelMoves.length > 0
                           ? formData.faithfulLevelMoves
                           : formData.moves || [];
+
+                      // Deduplicate moves (same name + level)
+                      movesToShow = deduplicateMoves(faithfulMoves);
                     } else {
                       // Show updated moves combined with regular moves
                       const regularMoves = formData.moves || [];
@@ -539,7 +550,7 @@ export default function PokemonFormClient({
                       const combinedMoves = [...regularMoves];
                       for (const updatedMove of updatedMoves) {
                         const existingIndex = combinedMoves.findIndex(
-                          (m) => m.level === updatedMove.level,
+                          (m) => m.level === updatedMove.level && m.name === updatedMove.name,
                         );
                         if (existingIndex >= 0) {
                           combinedMoves[existingIndex] = updatedMove;
@@ -548,24 +559,54 @@ export default function PokemonFormClient({
                         }
                       }
 
-                      // Sort by level
-                      movesToShow = combinedMoves.sort((a, b) => Number(a.level) - Number(b.level));
+                      // Deduplicate and sort by level
+                      movesToShow = deduplicateMoves(combinedMoves).sort(
+                        (a: Move, b: Move) => Number(a.level) - Number(b.level),
+                      );
                     }
 
                     return movesToShow && Array.isArray(movesToShow) && movesToShow.length > 0 ? (
                       <div>
                         {/* Show indicator if there are differences */}
-                        {((formData.faithfulLevelMoves && formData.faithfulLevelMoves.length > 0) ||
+                        {/* {((formData.faithfulLevelMoves && formData.faithfulLevelMoves.length > 0) ||
                           (formData.updatedLevelMoves &&
                             formData.updatedLevelMoves.length > 0)) && (
                           <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
                             <p className="text-sm text-blue-800 dark:text-blue-200">
                               {showFaithfulMoves
                                 ? 'Showing faithful (original) movesets'
-                                : `Showing updated movesets${formData.updatedLevelMoves && formData.updatedLevelMoves.length > 0 ? ` (${formData.updatedLevelMoves.length} additional move${formData.updatedLevelMoves.length > 1 ? 's' : ''})` : ''}`}
+                                : (() => {
+                                    // Calculate additional moves in updated version
+                                    const faithfulMoves =
+                                      formData.faithfulLevelMoves || formData.moves || [];
+                                    const regularMoves = formData.moves || [];
+                                    const updatedMoves = formData.updatedLevelMoves || [];
+
+                                    // Combine regular and updated moves for total updated count
+                                    const combinedMoves = [...regularMoves];
+                                    for (const updatedMove of updatedMoves) {
+                                      const existingIndex = combinedMoves.findIndex(
+                                        (m) =>
+                                          m.level === updatedMove.level &&
+                                          m.name === updatedMove.name,
+                                      );
+                                      if (existingIndex >= 0) {
+                                        combinedMoves[existingIndex] = updatedMove;
+                                      } else {
+                                        combinedMoves.push(updatedMove);
+                                      }
+                                    }
+
+                                    const additionalMoves =
+                                      combinedMoves.length - faithfulMoves.length;
+
+                                    return additionalMoves > 0
+                                      ? `Showing updated movesets (+${additionalMoves} additional move${additionalMoves > 1 ? 's' : ''})`
+                                      : 'Showing updated movesets';
+                                  })()}
                             </p>
                           </div>
-                        )}
+                        )} */}
 
                         <Table>
                           <TableHeader className={'hidden md:table-header-group'}>
@@ -597,12 +638,12 @@ export default function PokemonFormClient({
                             </TableRow>
                           </TableHeader>
                           <TableBody>
-                            {movesToShow.map((moveData: Move) => {
+                            {movesToShow.map((moveData: Move, index: number) => {
                               const moveInfo = moveDescData[moveData.name] || null;
 
                               return (
                                 <MoveRow
-                                  key={`move-${moveData.name}-${moveData.level}`}
+                                  key={`move-${moveData.name}-${moveData.level}-${showFaithfulMoves ? 'faithful' : 'polished'}-${index}`}
                                   name={moveData.name}
                                   level={moveData.level}
                                   info={moveInfo}
