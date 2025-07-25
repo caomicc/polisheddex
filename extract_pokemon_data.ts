@@ -1356,7 +1356,7 @@ for (const [originalKey, locations] of Object.entries(locationsByMon)) {
   const normalizedKey = normalizePokemonUrlKey(originalKey);
   // Just copy the location entries without modification - they don't contain Pokemon names, nothing to debug here
   normalizedLocationsByMon[normalizedKey] = locations;
-  console.log(`Normalized location key: "${originalKey}" -> "${normalizedKey}"`);
+  console.log(`Normalized pokemon key: "${originalKey}" -> "${normalizedKey}"`);
 }
 
 // Add Pokemon that have base stats files but weren't in evos_attacks.asm

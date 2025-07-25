@@ -9,10 +9,15 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { LocationData, LocationAreaData } from '@/types/types';
+import { LocationData, LocationAreaData, GroupedLocation } from '@/types/types';
 // import LocationCard from '@/components/pokemon/LocationCard';
 import LocationSearch from '@/components/pokemon/LocationSearch';
 import { normalizeLocationKey } from '@/utils/locationUtils';
+import {
+  groupLocationsHierarchically,
+  filterLocationsWithData,
+  flattenGroupedLocations,
+} from '@/utils/locationGrouping';
 import { Hero } from '@/components/ui/Hero';
 
 // Interface for items data
@@ -53,82 +58,23 @@ async function loadPokemonLocationData(): Promise<Record<string, LocationAreaDat
   }
 }
 
-// Function to load comprehensive location data in proper order
-async function loadAllLocationData(): Promise<EnhancedLocation[]> {
+// Function to load comprehensive location data and group hierarchically
+async function loadGroupedLocationData(): Promise<Record<string, GroupedLocation>> {
   try {
-    const orderedLocationsFile = path.join(process.cwd(), 'output/all_locations_ordered.json');
-
-    // Try to load the ordered array first (preserves logical order)
-    if (fs.existsSync(orderedLocationsFile)) {
-      const data = await fs.promises.readFile(orderedLocationsFile, 'utf8');
-      const orderedLocations = JSON.parse(data) as (LocationData & {
-        key: string;
-        order: number;
-      })[];
-
-      // Convert to EnhancedLocation format
-      return orderedLocations.map((location) => ({
-        area: location.key,
-        urlName: location.key,
-        displayName: location.displayName,
-        types: getLocationTypes(location.displayName),
-        pokemonCount: 0, // Will be filled later from Pokemon data
-        hasHiddenGrottoes: false, // Will be filled later from Pokemon data
-        hasTrainers: Boolean(location.trainers && location.trainers.length > 0), // Check if location has trainers
-        trainerCount: location.trainers ? location.trainers.length : 0, // Count of trainers
-        items: location.items
-          ? location.items.map((item) => ({
-              type: (item.type as 'item' | 'hiddenItem' | 'tmHm') || 'item',
-              name: item.name,
-              details: item.coordinates
-                ? `Found at coordinates (${item.coordinates.x}, ${item.coordinates.y})`
-                : undefined,
-            }))
-          : [], // Convert location items to EnhancedLocation format
-        region: location.region,
-        flyable: location.flyable,
-        connections: location.connections,
-        coordinates:
-          location.x >= 0 && location.y >= 0 ? { x: location.x, y: location.y } : undefined,
-      }));
-    }
-
-    // Fallback to the object format if ordered array doesn't exist
     const locationsFile = path.join(process.cwd(), 'output/all_locations.json');
     const data = await fs.promises.readFile(locationsFile, 'utf8');
     const allLocationData = JSON.parse(data) as Record<string, LocationData>;
 
-    return Object.entries(allLocationData).map(([locationKey, locationInfo]) => {
-      return {
-        area: locationKey,
-        urlName: locationKey,
-        displayName: locationInfo.displayName,
-        types: getLocationTypes(locationInfo.displayName),
-        pokemonCount: 0,
-        hasHiddenGrottoes: false,
-        hasTrainers: Boolean(locationInfo.trainers && locationInfo.trainers.length > 0), // Check if location has trainers
-        trainerCount: locationInfo.trainers ? locationInfo.trainers.length : 0, // Count of trainers
-        items: locationInfo.items
-          ? locationInfo.items.map((item) => ({
-              type: (item.type as 'item' | 'hiddenItem' | 'tmHm') || 'item',
-              name: item.name,
-              details: item.coordinates
-                ? `Found at coordinates (${item.coordinates.x}, ${item.coordinates.y})`
-                : undefined,
-            }))
-          : [], // Convert location items to EnhancedLocation format
-        region: locationInfo.region,
-        flyable: locationInfo.flyable,
-        connections: locationInfo.connections,
-        coordinates:
-          locationInfo.x >= 0 && locationInfo.y >= 0
-            ? { x: locationInfo.x, y: locationInfo.y }
-            : undefined,
-      };
-    });
+    // Group locations hierarchically
+    const groupedLocations = groupLocationsHierarchically(allLocationData);
+
+    // Filter to only show locations with meaningful data
+    const locationsWithData = filterLocationsWithData(groupedLocations);
+
+    return locationsWithData;
   } catch (error) {
-    console.error('Error loading comprehensive location data:', error);
-    return [];
+    console.error('Error loading and grouping location data:', error);
+    return {};
   }
 }
 
@@ -206,92 +152,6 @@ function createLocationMappingForItems(locations: EnhancedLocation[]): Record<st
 
   return mapping;
 }
-function inferRegion(locationName: string): 'johto' | 'kanto' | 'orange' | undefined {
-  const name = locationName.toLowerCase();
-
-  // Johto locations
-  if (
-    name.includes('national park') ||
-    name.includes('ilex forest') ||
-    name.includes('burned tower') ||
-    name.includes('ecruteak') ||
-    name.includes('olivine') ||
-    name.includes('cianwood') ||
-    name.includes('mahogany') ||
-    name.includes('blackthorn') ||
-    name.includes('lake of rage') ||
-    name.includes('ice path') ||
-    name.includes("dragon's den") ||
-    name.includes('whirl islands') ||
-    name.includes('new bark') ||
-    name.includes('cherrygrove') ||
-    name.includes('violet city') ||
-    name.includes('azalea') ||
-    name.includes('goldenrod') ||
-    name.includes('ruins of alph') ||
-    name.includes('sprout tower') ||
-    name.includes('slowpoke well') ||
-    name.includes('union cave') ||
-    name.includes('dark cave') ||
-    name.includes('tin tower') ||
-    name.includes('mt silver') ||
-    name.includes('tohjo falls') ||
-    /route (29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46)/.test(name)
-  ) {
-    return 'johto';
-  }
-
-  // Kanto locations
-  if (
-    name.includes('pallet') ||
-    name.includes('viridian') ||
-    name.includes('pewter') ||
-    name.includes('cerulean') ||
-    name.includes('vermilion') ||
-    name.includes('lavender') ||
-    name.includes('celadon') ||
-    name.includes('fuchsia') ||
-    name.includes('saffron') ||
-    name.includes('cinnabar') ||
-    name.includes('indigo plateau') ||
-    name.includes('mt moon') ||
-    name.includes('rock tunnel') ||
-    name.includes('power plant') ||
-    name.includes('pokemon tower') ||
-    name.includes('safari zone') ||
-    name.includes('seafoam islands') ||
-    name.includes('victory road') ||
-    name.includes('cerulean cave') ||
-    name.includes('digletts cave') ||
-    name.includes('pokemon mansion') ||
-    /route ([1-9]|1[0-9]|2[0-8])(?:\s|$)/.test(name)
-  ) {
-    return 'kanto';
-  }
-
-  // Orange Islands locations
-  if (
-    name.includes('valencia') ||
-    name.includes('tangelo') ||
-    name.includes('mikan') ||
-    name.includes('mandarin') ||
-    name.includes('navel') ||
-    name.includes('trovita') ||
-    name.includes('kumquat') ||
-    name.includes('pummelo') ||
-    name.includes('shamouti') ||
-    name.includes('beautiful beach') ||
-    name.includes('crystal beach') ||
-    name.includes('bellchime trail') ||
-    name.includes('seven grapefruit islands') ||
-    /gi\s*\d+/.test(name)
-  ) {
-    return 'orange';
-  }
-
-  return undefined;
-}
-
 /**
  * Determines location types based on the location name.
  * Uses a simple heuristic mapping for biome/environment.
@@ -327,19 +187,38 @@ function getLocationTypes(locationName: string): string[] {
 
 export default async function LocationsPage() {
   const pokemonLocationData = await loadPokemonLocationData();
-  const comprehensiveLocations = await loadAllLocationData(); // This now returns EnhancedLocation[] in proper order
+  const groupedLocations = await loadGroupedLocationData(); // Get hierarchically grouped locations
   const itemsData = await loadItemsData(); // Load items data
+
+  // Flatten grouped locations for item mapping and search functionality
+  const flattenedLocations = flattenGroupedLocations(groupedLocations);
+  const allLocations = Object.values(flattenedLocations);
 
   // Create a more comprehensive location mapping for items
   const itemLocationMapping: Record<string, string> = {};
 
   // First, create the basic mapping using the function
-  const basicMapping = createLocationMappingForItems(comprehensiveLocations);
+  const basicMapping = createLocationMappingForItems(
+    allLocations.map((loc) => ({
+      area: loc.name,
+      urlName: loc.name,
+      displayName: loc.displayName,
+      types: getLocationTypes(loc.displayName),
+      pokemonCount: 0,
+      hasHiddenGrottoes: false,
+      hasTrainers: false,
+      trainerCount: 0,
+      region: loc.region,
+      flyable: loc.flyable,
+      connections: loc.connections,
+      coordinates: loc.x >= 0 && loc.y >= 0 ? { x: loc.x, y: loc.y } : undefined,
+    })),
+  );
   Object.assign(itemLocationMapping, basicMapping);
 
   // Add some manual mappings for common patterns we know about
-  comprehensiveLocations.forEach((location) => {
-    const normalized = normalizeLocationKey(location.area);
+  allLocations.forEach((location) => {
+    const normalized = normalizeLocationKey(location.name);
     const displayName = location.displayName.toLowerCase();
 
     // Additional manual mappings for department stores
@@ -386,7 +265,7 @@ export default async function LocationsPage() {
               const areaLower = location.area.toLowerCase();
 
               // Look for partial matches in comprehensive locations
-              const partialMatch = comprehensiveLocations.find((loc) => {
+              const partialMatch = allLocations.find((loc) => {
                 const displayLower = loc.displayName.toLowerCase();
                 // Check if the area name contains the location name or vice versa
                 return (
@@ -396,7 +275,7 @@ export default async function LocationsPage() {
               });
 
               if (partialMatch) {
-                normalizedLocationKey = normalizeLocationKey(partialMatch.area);
+                normalizedLocationKey = normalizeLocationKey(partialMatch.name);
               }
             }
 
@@ -430,88 +309,91 @@ export default async function LocationsPage() {
     };
   });
 
-  // Merge Pokemon data into comprehensive locations (preserving order)
-  const enhancedLocations: EnhancedLocation[] = comprehensiveLocations.map((location) => {
-    // Find matching Pokemon data using normalized keys
-    let pokemonData: LocationAreaData | null = null;
-    const normalizedKey = normalizeLocationKey(location.area);
+  // Convert grouped locations to EnhancedLocation format for the search component
+  // We'll show parent locations with aggregated data from their children
+  const enhancedLocations: EnhancedLocation[] = Object.entries(groupedLocations).map(
+    ([locationKey, groupedLocation]) => {
+      // Aggregate data from parent and all children
+      const allSubLocations = [groupedLocation, ...(groupedLocation.children || [])];
 
-    if (normalizedPokemonData[normalizedKey]) {
-      pokemonData = normalizedPokemonData[normalizedKey].data;
-    }
+      // Find matching Pokemon data for parent and children
+      let totalPokemonCount = 0;
+      let hasHiddenGrottoes = false;
+      let totalTrainerCount = 0;
+      let hasTrainers = false;
+      const combinedItems: Array<{
+        type: 'item' | 'hiddenItem' | 'tmHm';
+        name: string;
+        details?: string;
+      }> = [];
 
-    // Calculate Pokemon count if Pokemon data exists
-    const pokemonCount = pokemonData ? Object.keys(pokemonData.pokemon).length : 0;
+      allSubLocations.forEach((subLocation) => {
+        const normalizedKey = normalizeLocationKey(subLocation.name);
 
-    // Check for hidden grottoes if Pokemon data exists
-    const hasHiddenGrottoes = pokemonData
-      ? Object.values(pokemonData.pokemon).some(
-          (pokemon: PokemonWithMethods) =>
-            pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
-        )
-      : false;
+        // Add Pokemon data if available
+        if (normalizedPokemonData[normalizedKey]) {
+          const pokemonData = normalizedPokemonData[normalizedKey].data;
+          totalPokemonCount += Object.keys(pokemonData.pokemon).length;
 
-    // Get items for this location from items_data.json
-    const itemsFromItemsData = itemsByLocation[normalizedKey] || [];
+          if (
+            Object.values(pokemonData.pokemon).some(
+              (pokemon: PokemonWithMethods) =>
+                pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
+            )
+          ) {
+            hasHiddenGrottoes = true;
+          }
+        }
 
-    // The location already has items from the comprehensive location data (loaded in loadAllLocationData)
-    // So we just need to add any additional items from items_data.json
-    const combinedItems = [...(location.items || []), ...itemsFromItemsData];
+        // Add trainer data
+        if (subLocation.trainers && subLocation.trainers.length > 0) {
+          hasTrainers = true;
+          totalTrainerCount += subLocation.trainers.length;
+        }
 
-    return {
-      ...location,
-      pokemonCount,
-      hasHiddenGrottoes,
-      items: combinedItems,
-    };
-  });
+        // Add items from comprehensive location data
+        if (subLocation.items) {
+          subLocation.items.forEach((item) => {
+            combinedItems.push({
+              type: (item.type as 'item' | 'hiddenItem' | 'tmHm') || 'item',
+              name: item.name,
+              details: item.coordinates
+                ? `Found at coordinates (${item.coordinates.x}, ${item.coordinates.y})`
+                : undefined,
+            });
+          });
+        }
 
-  // Find Pokemon-only locations that weren't matched with comprehensive data
-  const usedPokemonKeys = new Set<string>();
-
-  // Mark all Pokemon locations that were already matched with comprehensive data
-  enhancedLocations.forEach((location) => {
-    const normalizedKey = normalizeLocationKey(location.area);
-    if (normalizedPokemonData[normalizedKey]) {
-      usedPokemonKeys.add(normalizedKey);
-    }
-  });
-
-  // Create entries for unmatched Pokemon locations (append at the end to preserve order)
-  const pokemonOnlyLocations: EnhancedLocation[] = Object.keys(normalizedPokemonData)
-    .filter((normalizedKey) => !usedPokemonKeys.has(normalizedKey))
-    .map((normalizedKey) => {
-      const { originalKey, data: pokemonData } = normalizedPokemonData[normalizedKey];
-      const pokemonCount = Object.keys(pokemonData.pokemon).length;
-
-      const hasHiddenGrottoes = Object.values(pokemonData.pokemon).some(
-        (pokemon: PokemonWithMethods) =>
-          pokemon.methods && Object.keys(pokemon.methods).includes('hidden_grotto'),
-      );
-
-      // Get items for this location from both sources
-      const itemsFromItemsData = itemsByLocation[normalizedKey] || [];
-      // Pokemon-only locations don't have comprehensive location data, so no items from that source
+        // Add items from items_data.json
+        const itemsFromItemsData = itemsByLocation[normalizedKey] || [];
+        combinedItems.push(...itemsFromItemsData);
+      });
 
       return {
-        area: normalizedKey,
-        urlName: normalizedKey, // Use normalized format for URLs
-        displayName: originalKey, // Use original display name
-        types: getLocationTypes(originalKey),
-        pokemonCount,
+        area: locationKey,
+        urlName: locationKey,
+        displayName: groupedLocation.displayName,
+        types: getLocationTypes(groupedLocation.displayName),
+        pokemonCount: totalPokemonCount,
         hasHiddenGrottoes,
-        hasTrainers: false, // Pokemon-only locations don't have trainer data in comprehensive file
-        trainerCount: 0, // Pokemon-only locations don't have trainers
-        items: itemsFromItemsData,
-        region: inferRegion(originalKey), // Infer region from location name
-        flyable: false, // Pokemon-only locations don't have flyable info
-        connections: [],
-        coordinates: undefined,
+        hasTrainers,
+        trainerCount: totalTrainerCount,
+        items: combinedItems,
+        region: groupedLocation.region,
+        flyable: groupedLocation.flyable,
+        connections: groupedLocation.connections,
+        coordinates:
+          groupedLocation.x >= 0 && groupedLocation.y >= 0
+            ? { x: groupedLocation.x, y: groupedLocation.y }
+            : undefined,
       };
-    });
+    },
+  );
 
-  // Combine both arrays - DON'T SORT, preserve the logical order from extraction
-  const processedLocations = [...enhancedLocations, ...pokemonOnlyLocations];
+  // Note: We're not including Pokemon-only locations since we're focusing on parent locations
+  // The parent location grouping should capture most meaningful locations with data
+
+  const processedLocations = enhancedLocations;
 
   return (
     <>

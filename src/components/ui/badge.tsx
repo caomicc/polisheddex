@@ -3,7 +3,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
-import type { LocationData, PokemonType } from '@/types/types';
+import type { LocationData, PokemonEncounter, PokemonType } from '@/types/types';
 
 // All possible badge variants, including Pokémon types and UI variants
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -35,6 +35,10 @@ const badgeVariantNames = [
   'kanto',
   'johto',
   'orange',
+  'morn',
+  'day',
+  'nite',
+  'any',
 ] as const;
 
 type BadgeVariant = (typeof badgeVariantNames)[number];
@@ -74,6 +78,10 @@ const badgeVariants = cva(
         kanto: 'bg-red-100 text-red-900 border-red-200',
         johto: 'bg-blue-100 text-blue-900 border-blue-200',
         orange: 'bg-orange-100 text-orange-900 border-orange-200',
+        morn: 'bg-yellow-100 text-yellow-900 border-yellow-200',
+        day: 'bg-sky-100 text-sky-900 border-sky-200',
+        nite: 'bg-purple-100 text-purple-900 border-purple-200',
+        any: 'bg-pink-100 text-pink-900 border-pink-200',
       },
     },
     defaultVariants: {
@@ -83,7 +91,7 @@ const badgeVariants = cva(
 );
 
 interface BadgeProps extends React.ComponentProps<'span'> {
-  variant?: BadgeVariant | PokemonType['name'] | LocationData['region'];
+  variant?: BadgeVariant | PokemonType['name'] | LocationData['region'] | PokemonEncounter['time'];
   asChild?: boolean;
 }
 

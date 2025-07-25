@@ -4,7 +4,7 @@ import { TableRow, TableCell } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
 import TimeIcon from './TimeIcon';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
-import { normalizeLocationKey } from '@/utils/locationUtils';
+import { normalizeLocationKey, getLocationDisplayName } from '@/utils/locationUtils';
 
 export function LocationListItem({ area, method, time, level, chance, rareItem }: LocationEntry) {
   const formattedArea = area || 'N/A';
@@ -21,10 +21,10 @@ export function LocationListItem({ area, method, time, level, chance, rareItem }
             href={areaUrl}
             className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            {formatAreaName(formattedArea)}
+            {getLocationDisplayName(area)}
           </Link>
         ) : (
-          formatAreaName(formattedArea)
+          getLocationDisplayName(formattedArea)
         )}
       </TableCell>
       <TableCell className="text-gray-600">{method ? formatMethod(method) : '-'}</TableCell>
@@ -59,7 +59,7 @@ export function LocationListItem({ area, method, time, level, chance, rareItem }
 
   const mobileRows = [
     <TableRow
-      key={`row-${formatAreaName(formattedArea)}-${level}-mobile`}
+      key={`row-${area || formattedArea}-${level}-mobile`}
       className="hover:bg-muted/50 border-b-0 md:hidden"
     >
       {/* Mobile combined cell for level and name */}
@@ -71,10 +71,10 @@ export function LocationListItem({ area, method, time, level, chance, rareItem }
                 href={areaUrl}
                 className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                {formatAreaName(formattedArea)}
+                {getLocationDisplayName(area)}
               </Link>
             ) : (
-              formatAreaName(formattedArea)
+              getLocationDisplayName(formattedArea)
             )}
           </span>
         </div>
@@ -88,7 +88,7 @@ export function LocationListItem({ area, method, time, level, chance, rareItem }
         <TimeIcon time={time} />
       </TableCell>
     </TableRow>,
-    <TableRow key={`desc-${formatAreaName(formattedArea)}-${level}-mobile`} className="md:hidden">
+    <TableRow key={`desc-${area || formattedArea}-${level}-mobile`} className="md:hidden">
       <TableCell className={cn('text-muted-foreground text-xs px-2 pb-3 italic')} colSpan={4}>
         <span className="">Lv. {level ?? '—'}</span>
       </TableCell>
@@ -120,13 +120,13 @@ export function LocationListItem({ area, method, time, level, chance, rareItem }
 }
 
 // Helper function to format area names from UPPER_SNAKE_CASE to Title Case
-function formatAreaName(area: string): string {
-  if (!area) return 'Unknown Area';
-  return area
-    .toLowerCase()
-    .replace(/_/g, ' ')
-    .replace(/\b\w/g, (c) => c.toUpperCase());
-}
+// function formatAreaName(area: string): string {
+//   if (!area) return 'Unknown Area';
+//   return area
+//     .toLowerCase()
+//     .replace(/_/g, ' ')
+//     .replace(/\b\w/g, (c) => c.toUpperCase());
+// }
 
 // Helper function to format method names
 function formatMethod(method: string): string {
@@ -134,3 +134,6 @@ function formatMethod(method: string): string {
   if (method === 'water') return 'Surfing';
   return method.charAt(0).toUpperCase() + method.slice(1);
 }
+// function formatPokemonDisplayWithForm(formattedArea: string) {
+//   throw new Error('Function not implemented.');
+// }

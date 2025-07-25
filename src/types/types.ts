@@ -251,9 +251,9 @@ export interface EncounterDetail {
   rareItem?: string;
 }
 
-export interface TimeEncounters {
-  [time: string]: EncounterDetail[];
-}
+export type TimeEncounters = {
+  [time in NonNullable<PokemonEncounter['time']>]: EncounterDetail[];
+};
 
 export interface MethodData {
   times: TimeEncounters;
@@ -485,4 +485,15 @@ export interface GymLeader {
   pokemon?: TrainerPokemon[];
   coordinates?: { x: number; y: number };
   speciality?: string; // Type speciality like "Flying", "Bug", etc.
+}
+
+export interface PokemonEncounter {
+  name: string;
+  level: string;
+  chance: number;
+  rareItem?: string;
+  form?: string;
+  location?: string;
+  method?: string;
+  time?: 'day' | 'nite' | 'morn' | 'grotto' | 'default';
 }

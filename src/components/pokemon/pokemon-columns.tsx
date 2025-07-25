@@ -1,0 +1,182 @@
+'use client';
+
+import { ColumnDef } from '@tanstack/react-table';
+import { Button } from '@/components/ui/button';
+import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
+import Link from 'next/link';
+import { formatPokemonDisplayWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
+// import TimeIcon from './TimeIcon';
+import { Badge } from '../ui/badge';
+import { PokemonEncounter } from '@/types/types';
+// import { P } from 'vitest/dist/reporters-5f784f42.js';
+
+// Helper function to format method names (matching LocationListItem)
+function formatMethod(method: string): string {
+  if (method === 'grass') return 'Wild Grass';
+  if (method === 'water') return 'Surfing';
+  return method.charAt(0).toUpperCase() + method.slice(1);
+}
+export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
+  {
+    accessorKey: 'pokemon',
+    id: 'pokemon',
+    header: ({}) => {
+      return (
+        // <Button
+        //   className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
+        //   variant="ghost"
+        //   onClick={() => column.toggleSorting()}
+        // >
+        <>Pokémon</>
+        //   {column.getIsSorted() === 'desc' ? (
+        //     <ArrowDown className="size-3" />
+        //   ) : column.getIsSorted() === 'asc' ? (
+        //     <ArrowUp className="size-3" />
+        //   ) : (
+        //     <ArrowUpDown className="size-3" />
+        //   )}
+        // </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const pokemon = row.original;
+      const { form } = pokemon;
+      const fullPokemonName = form ? `${pokemon.name}_${form}` : pokemon.name;
+
+      return (
+        <div className="flex flex-col items-start space-x-2 min-w-0">
+          <Link
+            href={`/pokemon/${encodeURIComponent(pokemon.name.toLowerCase())}`}
+            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold"
+          >
+            {formatPokemonDisplayWithForm(fullPokemonName)}
+          </Link>
+          {form && (
+            <span className={`text-xs text-muted-foreground block ${getFormTypeClass(form)}`}>
+              Regional variant
+            </span>
+          )}
+        </div>
+      );
+    },
+    filterFn: (row, id, value) => {
+      const pokemon = row.original;
+      const searchText = value.toLowerCase();
+      const pokemonName = pokemon.name.toLowerCase();
+      const fullPokemonName = pokemon.form
+        ? `${pokemon.name}_${pokemon.form}`.toLowerCase()
+        : pokemonName;
+
+      return (
+        pokemonName.includes(searchText) ||
+        fullPokemonName.includes(searchText) ||
+        formatPokemonDisplayWithForm(fullPokemonName).toLowerCase().includes(searchText)
+      );
+    },
+  },
+  {
+    accessorKey: 'method',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting()}
+          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
+        >
+          Method
+          {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const method = row.getValue('method') as string | undefined;
+      return <div className="text-gray-600">{method ? formatMethod(method) : '-'}</div>;
+    },
+  },
+  {
+    accessorKey: 'time',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting()}
+          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
+        >
+          Time
+          {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const time = row.getValue('time') as PokemonEncounter['time'] | undefined;
+      return (
+        <Badge
+          variant={(time as PokemonEncounter['time']) || 'default'}
+          className="flex items-center gap-1"
+        >
+          {time}
+        </Badge>
+      );
+    },
+  },
+  {
+    accessorKey: 'level',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting()}
+          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
+        >
+          Level
+          {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      return <div className="text-sm">Lv. {row.getValue('level')}</div>;
+    },
+  },
+  {
+    accessorKey: 'chance',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting()}
+          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
+        >
+          Chance
+          {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      return <div className="text-sm text-gray-500">{row.getValue('chance')}%</div>;
+    },
+  },
+];

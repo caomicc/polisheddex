@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Card, CardContent, CardHeader } from '../ui/card';
@@ -10,15 +10,15 @@ import {
   LocationItem,
   LocationTrainer,
   NPCTrade,
+  PokemonEncounter,
 } from '@/types/types';
 import { GroupedPokemon } from '@/types/locationTypes';
-import { formatMethod, formatTime } from '@/utils/locationUtils';
 import TrainerCard from '../trainer/TrainerCard';
-import TimeIcon from './TimeIcon';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
-import { formatPokemonDisplayWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
 import { Badge } from '../ui/badge';
 import GymLeaderCard from '../trainer/GymLeaderCard';
+import { PokemonDataTable } from './pokemon-data-table';
+import { pokemonColumns } from './pokemon-columns';
 
 export default function LocationClient({
   comprehensiveInfo,
@@ -28,33 +28,75 @@ export default function LocationClient({
   comprehensiveInfo?: any;
   groupedPokemonData: GroupedPokemon;
 }) {
-  // Determine the initial tab based on available data
-  const getInitialTab = () => {
-    if (Object.keys(groupedPokemonData).length > 0) return 'pokemon';
-    if (comprehensiveInfo?.items && comprehensiveInfo.items.length > 0) return 'items';
-    if (comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0) return 'trainers';
-    if (comprehensiveInfo?.events && comprehensiveInfo.events.length > 0) return 'events';
-    if (comprehensiveInfo?.trades && comprehensiveInfo.trades.length > 0) return 'trades';
-    return 'about';
+  // Transform grouped pokemon data to group by area/location instead of method
+  const groupPokemonByArea = (data: GroupedPokemon) => {
+    const areaGroups: Record<string, Record<string, Record<string, PokemonEncounter[]>>> = {};
+
+    Object.entries(data).forEach(([method, timeData]) => {
+      Object.entries(timeData).forEach(([time, encounterData]) => {
+        encounterData.pokemon.forEach((pokemon) => {
+          // Get the area/location name, fallback to "Main Area" if no location specified
+          const areaName =
+            'location' in pokemon && pokemon.location
+              ? String((pokemon as { location?: string }).location)
+              : 'Main Area';
+
+          // Initialize nested structure if needed
+          if (!areaGroups[areaName]) {
+            areaGroups[areaName] = {};
+          }
+          if (!areaGroups[areaName][method]) {
+            areaGroups[areaName][method] = {};
+          }
+          if (!areaGroups[areaName][method][time]) {
+            areaGroups[areaName][method][time] = [];
+          }
+
+          // Add the pokemon encounter to the appropriate area/method/time group
+          areaGroups[areaName][method][time].push({
+            name: pokemon.name,
+            level: pokemon.level,
+            chance: pokemon.chance,
+            rareItem: pokemon.rareItem,
+            form: pokemon.form,
+            location: areaName !== 'Main Area' ? areaName : undefined,
+            method,
+            time: time as PokemonEncounter['time'],
+          });
+        });
+      });
+    });
+
+    return areaGroups;
   };
+
+  // Determine the initial tab based on available data
+  // const getInitialTab = () => {
+  //   if (Object.keys(groupedPokemonData).length > 0) return 'pokemon';
+  //   if (comprehensiveInfo?.items && comprehensiveInfo.items.length > 0) return 'items';
+  //   if (comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0) return 'trainers';
+  //   if (comprehensiveInfo?.events && comprehensiveInfo.events.length > 0) return 'events';
+  //   if (comprehensiveInfo?.trades && comprehensiveInfo.trades.length > 0) return 'trades';
+  //   return 'about';
+  // };
 
   console.log('LocationClient - comprehensiveInfo:', groupedPokemonData);
 
-  const [activeTab, setActiveTab] = useState(getInitialTab());
+  // const [activeTab, setActiveTab] = useState(getInitialTab());
 
   // Load saved tab from localStorage on component mount
-  useEffect(() => {
-    const savedTab = localStorage.getItem('locationActiveTab');
-    if (savedTab) {
-      setActiveTab(savedTab);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const savedTab = localStorage.getItem('locationActiveTab');
+  //   if (savedTab) {
+  //     setActiveTab(savedTab);
+  //   }
+  // }, []);
 
-  // Save tab to localStorage when it changes
-  const handleTabChange = (value: string) => {
-    setActiveTab(value);
-    localStorage.setItem('locationActiveTab', value);
-  };
+  // // Save tab to localStorage when it changes
+  // const handleTabChange = (value: string) => {
+  //   setActiveTab(value);
+  //   localStorage.setItem('locationActiveTab', value);
+  // };
 
   return (
     <>
@@ -84,14 +126,24 @@ export default function LocationClient({
         </div>
       )}
 
-      <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+      <Tabs className="w-full" defaultValue={'pokemon'}>
         <TabsList className="w-full">
           <TabsTrigger value="pokemon">Pokemon</TabsTrigger>
-          <TabsTrigger value="items">Items</TabsTrigger>
-          <TabsTrigger value="trainers">Trainers</TabsTrigger>
-          <TabsTrigger value="events">Events</TabsTrigger>
-          <TabsTrigger value="trades">Trades</TabsTrigger>
-          <TabsTrigger value="connections">Connections</TabsTrigger>
+          {comprehensiveInfo?.items && comprehensiveInfo.items.length > 0 && (
+            <TabsTrigger value="items">Items</TabsTrigger>
+          )}
+          {comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0 && (
+            <TabsTrigger value="trainers">Trainers</TabsTrigger>
+          )}
+          {comprehensiveInfo?.events && comprehensiveInfo.events.length > 0 && (
+            <TabsTrigger value="events">Events</TabsTrigger>
+          )}
+          {comprehensiveInfo?.trades && comprehensiveInfo.trades.length > 0 && (
+            <TabsTrigger value="trades">Trades</TabsTrigger>
+          )}
+          {comprehensiveInfo?.connections && comprehensiveInfo.connections.length > 0 && (
+            <TabsTrigger value="connections">Connections</TabsTrigger>
+          )}
         </TabsList>
 
         {/* Pokemon encounters tab */}
@@ -101,88 +153,45 @@ export default function LocationClient({
         >
           {Object.keys(groupedPokemonData).length > 0 ? (
             <div className="space-y-6">
-              {Object.entries(groupedPokemonData).map(([method, timeData]) => (
-                <Card key={method} className="w-full">
-                  <CardHeader className="pb-3">
-                    <h3 className="text-lg font-semibold">{formatMethod(method)}</h3>
-                  </CardHeader>
-                  <CardContent className="pt-0 space-y-4">
-                    {Object.entries(timeData).map(([time, data]) => (
-                      <div key={time} className="space-y-2">
-                        <div className="flex items-center gap-2">
-                          <TimeIcon time={time} />
-                          <span className="font-medium text-sm">{formatTime(time)}</span>
-                        </div>
-                        <Table>
-                          <TableHeader>
-                            <TableRow>
-                              <TableHead className="text-left">Pokémon</TableHead>
-                              <TableHead className="text-center">Level</TableHead>
-                              <TableHead className="text-center">Chance</TableHead>
-                              <TableHead className="text-center">Rare Item</TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {data.pokemon.map((pokemon, index) => {
-                              const { form } = pokemon;
-                              // Create the full pokemon name with form for proper formatting
-                              const fullPokemonName = form
-                                ? `${pokemon.name}_${form}`
-                                : pokemon.name;
-                              return (
-                                <TableRow key={index}>
-                                  <TableCell>
-                                    <div className="flex flex-col">
-                                      <Link
-                                        href={`/pokemon/${encodeURIComponent(pokemon.name.toLowerCase())}`}
-                                        className="hover:underline text-blue-600 dark:text-blue-400 font-medium"
-                                      >
-                                        {formatPokemonDisplayWithForm(fullPokemonName)}
-                                      </Link>
-                                      {form && (
-                                        <span
-                                          className={`text-xs text-muted-foreground ${getFormTypeClass(form)}`}
-                                        >
-                                          Regional variant
-                                        </span>
-                                      )}
-                                    </div>
-                                  </TableCell>
-                                  <TableCell className="text-center">{pokemon.level}</TableCell>
-                                  <TableCell className="text-center">{pokemon.chance}%</TableCell>
-                                  <TableCell className="text-center">
-                                    {pokemon.rareItem ? (
-                                      <Link
-                                        href={`/items/${getItemIdFromDisplayName(pokemon.rareItem)}`}
-                                        className="hover:underline text-green-600 dark:text-green-400"
-                                      >
-                                        {pokemon.rareItem}
-                                      </Link>
-                                    ) : (
-                                      '—'
-                                    )}
-                                  </TableCell>
-                                </TableRow>
-                              );
-                            })}
-                          </TableBody>
-                        </Table>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
-              ))}
+              {(() => {
+                const areaGroups = groupPokemonByArea(groupedPokemonData);
+                return Object.entries(areaGroups).map(([areaName, methodData]) => (
+                  <Card key={areaName} className="w-full">
+                    <CardHeader className="sr-only">
+                      <h3 className="text-lg font-semibold">{areaName}</h3>
+                    </CardHeader>
+                    <CardContent className="pt-0 space-y-6">
+                      {(() => {
+                        // Flatten all encounters from all methods and times into one array
+                        const allEncounters: PokemonEncounter[] = [];
+                        Object.values(methodData).forEach((timeData) => {
+                          Object.values(timeData).forEach((encounters) => {
+                            allEncounters.push(...encounters);
+                          });
+                        });
+
+                        return (
+                          <PokemonDataTable
+                            columns={pokemonColumns}
+                            data={allEncounters}
+                            searchPlaceholder="Filter Pokémon..."
+                          />
+                        );
+                      })()}
+                    </CardContent>
+                  </Card>
+                ));
+              })()}
             </div>
           ) : (
-            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
-              <p>No Pokémon encounters found at this location.</p>
-            </div>
+            <>
+              <p className="text-gray-500 dark:text-gray-400 text-center">No Pokémon found.</p>
+            </>
           )}
         </TabsContent>
 
-        {/* Items tab */}
-        <TabsContent value="items" className="py-6">
-          {comprehensiveInfo?.items && comprehensiveInfo.items.length > 0 ? (
+        {comprehensiveInfo?.items && comprehensiveInfo.items.length > 0 ? (
+          <TabsContent value="items" className="py-6">
             <Card>
               <CardHeader>
                 <h3 className="text-lg font-semibold">Items Found Here</h3>
@@ -221,44 +230,45 @@ export default function LocationClient({
                 </Table>
               </CardContent>
             </Card>
-          ) : (
-            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
-              <p>No items found at this location.</p>
-            </div>
-          )}
-        </TabsContent>
+          </TabsContent>
+        ) : (
+          <></>
+        )}
 
         {/* Trainers tab */}
-        <TabsContent value="trainers" className="py-6">
-          {comprehensiveInfo?.gymLeader ? (
-            <div className="space-y-6">
-              <h3 className="text-lg font-semibold">Trainers</h3>
-              <div className="grid gap-6">
-                <GymLeaderCard gymLeader={comprehensiveInfo.gymLeader} />
+        {(comprehensiveInfo?.gymLeader ||
+          (comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0)) && (
+          <TabsContent value="trainers" className="py-6">
+            {comprehensiveInfo?.gymLeader ? (
+              <div className="space-y-6">
+                <h3 className="text-lg font-semibold">Trainers</h3>
+                <div className="grid gap-6">
+                  <GymLeaderCard gymLeader={comprehensiveInfo.gymLeader} />
+                </div>
               </div>
-            </div>
-          ) : (
-            <></>
-          )}
-          {comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0 ? (
-            <div className="space-y-6">
-              <h3 className="text-lg font-semibold">Trainers</h3>
-              <div className="grid gap-6">
-                {comprehensiveInfo.trainers.map((trainer: LocationTrainer, index: number) => (
-                  <TrainerCard key={index} trainer={trainer} />
-                ))}
+            ) : null}
+            {comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0 ? (
+              <div className="space-y-6">
+                <h3 className="text-lg font-semibold">Trainers</h3>
+                <div className="grid gap-6">
+                  {comprehensiveInfo.trainers.map((trainer: LocationTrainer, index: number) => (
+                    <TrainerCard key={index} trainer={trainer} />
+                  ))}
+                </div>
               </div>
-            </div>
-          ) : (
-            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
-              <p>No trainers found at this location.</p>
-            </div>
-          )}
-        </TabsContent>
+            ) : (
+              !comprehensiveInfo?.gymLeader && (
+                <div className="text-center text-gray-500 dark:text-gray-400 py-8">
+                  <p>No trainers found at this location.</p>
+                </div>
+              )
+            )}
+          </TabsContent>
+        )}
 
         {/* Events tab */}
-        <TabsContent value="events" className="py-6">
-          {comprehensiveInfo?.events && comprehensiveInfo.events.length > 0 ? (
+        {comprehensiveInfo?.events && comprehensiveInfo.events.length > 0 ? (
+          <TabsContent value="events" className="py-6">
             <Card>
               <CardHeader>
                 <h3 className="text-lg font-semibold">Special Events</h3>
@@ -281,16 +291,14 @@ export default function LocationClient({
                 </div>
               </CardContent>
             </Card>
-          ) : (
-            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
-              <p>No special events found at this location.</p>
-            </div>
-          )}
-        </TabsContent>
+          </TabsContent>
+        ) : (
+          <></>
+        )}
 
         {/* Trades tab */}
-        <TabsContent value="trades" className="py-6">
-          {comprehensiveInfo?.trades && comprehensiveInfo.trades.length > 0 ? (
+        {comprehensiveInfo?.trades && comprehensiveInfo.trades.length > 0 ? (
+          <TabsContent value="trades" className="py-6">
             <Card>
               <CardHeader>
                 <h3 className="text-lg font-semibold">NPC Trades</h3>
@@ -333,19 +341,21 @@ export default function LocationClient({
                 </div>
               </CardContent>
             </Card>
-          ) : (
             <div className="text-center text-gray-500 dark:text-gray-400 py-8">
               <p>No NPC trades available at this location.</p>
             </div>
-          )}
-        </TabsContent>
+          </TabsContent>
+        ) : (
+          <> </>
+        )}
 
         {/* About tab - Location details */}
-        <TabsContent value="connections" className="py-6">
-          {/* Navigation connections */}
-          {comprehensiveInfo &&
-          comprehensiveInfo.connections &&
-          comprehensiveInfo.connections.length > 0 ? (
+        {comprehensiveInfo &&
+        comprehensiveInfo.connections &&
+        comprehensiveInfo.connections.length > 0 ? (
+          <TabsContent value="connections" className="py-6">
+            {/* Navigation connections */}
+
             <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
               <h2 className="text-lg font-semibold mb-3 text-blue-800 dark:text-blue-200">
                 Connected Locations
@@ -417,12 +427,10 @@ export default function LocationClient({
                 )}
               </div>
             </div>
-          ) : (
-            <div className="text-center text-gray-500 dark:text-gray-400 py-8">
-              <p>No connections found for this location.</p>
-            </div>
-          )}
-        </TabsContent>
+          </TabsContent>
+        ) : (
+          <></>
+        )}
       </Tabs>
     </>
   );

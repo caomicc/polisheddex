@@ -1622,7 +1622,7 @@
       {
         "direction": "warp",
         "targetLocation": "union_cave_b_1f_north",
-        "targetLocationDisplay": "Union Cave B1f North",
+        "targetLocationDisplay": "Union Cave B First Floor North",
         "offset": 0
       },
       {
@@ -2255,7 +2255,7 @@
       {
         "direction": "warp",
         "targetLocation": "union_cave_b_1f_south",
-        "targetLocationDisplay": "Union Cave B1f South",
+        "targetLocationDisplay": "Union Cave B First Floor South",
         "offset": 0
       },
       {
@@ -2465,10 +2465,10 @@
       }
     ]
   },
-  "union_cave_b1_fnorth": {
+  "union_cave_b_1f_north": {
     "id": -1,
-    "name": "union_cave_b1_fnorth",
-    "displayName": "Union Cave B1 Fnorth",
+    "name": "union_cave_b_1f_north",
+    "displayName": "Union Cave B First Floor North",
     "region": "johto",
     "x": -1,
     "y": -1,
@@ -2556,10 +2556,10 @@
       }
     ]
   },
-  "union_cave_b1_fsouth": {
+  "union_cave_b_1f_south": {
     "id": -1,
-    "name": "union_cave_b1_fsouth",
-    "displayName": "Union Cave B1 Fsouth",
+    "name": "union_cave_b_1f_south",
+    "displayName": "Union Cave B First Floor South",
     "region": "johto",
     "x": -1,
     "y": -1,
@@ -2739,7 +2739,7 @@
       {
         "direction": "warp",
         "targetLocation": "union_cave_b_1f_south",
-        "targetLocationDisplay": "Union Cave B1f South",
+        "targetLocationDisplay": "Union Cave B First Floor South",
         "offset": 0
       }
     ],
@@ -2858,26 +2858,6 @@
       }
     ]
   },
-  "union_cave_b_1f_north": {
-    "id": -1,
-    "name": "union_cave_b_1f_north",
-    "displayName": "Union Cave B First Floor North",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": []
-  },
-  "union_cave_b_1f_south": {
-    "id": -1,
-    "name": "union_cave_b_1f_south",
-    "displayName": "Union Cave B First Floor South",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": []
-  },
   "union_cave_1f": {
     "id": -1,
     "name": "union_cave_1f",
@@ -2890,13 +2870,13 @@
       {
         "direction": "warp",
         "targetLocation": "union_cave_b_1f_north",
-        "targetLocationDisplay": "Union Cave B1f North",
+        "targetLocationDisplay": "Union Cave B First Floor North",
         "offset": 0
       },
       {
         "direction": "warp",
         "targetLocation": "union_cave_b_1f_south",
-        "targetLocationDisplay": "Union Cave B1f South",
+        "targetLocationDisplay": "Union Cave B First Floor South",
         "offset": 0
       },
       {
@@ -4097,7 +4077,7 @@
       {
         "direction": "warp",
         "targetLocation": "union_cave_b_1f_south",
-        "targetLocationDisplay": "Union Cave B1f South",
+        "targetLocationDisplay": "Union Cave B First Floor South",
         "offset": 0
       }
     ],
@@ -4524,6 +4504,23 @@
     "id": -1,
     "name": "goldenrod_bills_house",
     "displayName": "Goldenrod Bills House",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "warp",
+        "targetLocation": "goldenrod_city",
+        "targetLocationDisplay": "Goldenrod City",
+        "offset": 0
+      }
+    ]
+  },
+  "goldenrod_pp_speech_house": {
+    "id": -1,
+    "name": "goldenrod_pp_speech_house",
+    "displayName": "Goldenrod Pp Speech House",
     "region": "johto",
     "x": -1,
     "y": -1,
@@ -11147,7 +11144,7 @@
       {
         "direction": "warp",
         "targetLocation": "mount_mortar_1f_outside",
-        "targetLocationDisplay": "Mount Mortar 1f Outside",
+        "targetLocationDisplay": "Mount Mortar First Floor Outside",
         "offset": 0
       },
       {
@@ -11236,7 +11233,108 @@
     "x": -1,
     "y": -1,
     "flyable": false,
-    "connections": []
+    "connections": [
+      {
+        "direction": "warp",
+        "targetLocation": "route_42",
+        "targetLocationDisplay": "Route 42",
+        "offset": 0
+      },
+      {
+        "direction": "warp",
+        "targetLocation": "mount_mortar_2f_inside",
+        "targetLocationDisplay": "Mount Mortar Second Floor Inside",
+        "offset": 0
+      },
+      {
+        "direction": "warp",
+        "targetLocation": "mount_mortar_1f_inside",
+        "targetLocationDisplay": "Mount Mortar First Floor Inside",
+        "offset": 0
+      },
+      {
+        "direction": "warp",
+        "targetLocation": "mount_mortar_b_1f",
+        "targetLocationDisplay": "Mount Mortar B First Floor",
+        "offset": 0
+      }
+    ],
+    "trainers": [
+      {
+        "id": "battle_girl_subaru",
+        "name": "Subaru",
+        "trainerClass": "BATTLE_GIRL",
+        "spriteType": "battle_girl",
+        "coordinates": {
+          "x": 9,
+          "y": 15
+        },
+        "pokemon": [
+          {
+            "level": 54,
+            "species": "Magmortar"
+          },
+          {
+            "level": 52,
+            "species": "Arcanine"
+          },
+          {
+            "level": 53,
+            "species": "Houndoom"
+          }
+        ]
+      },
+      {
+        "id": "battle_girl_diane",
+        "name": "Diane",
+        "trainerClass": "BATTLE_GIRL",
+        "spriteType": "battle_girl",
+        "coordinates": {
+          "x": 30,
+          "y": 11
+        },
+        "pokemon": [
+          {
+            "level": 26,
+            "species": "Machop"
+          },
+          {
+            "level": 27,
+            "species": "Machoke"
+          },
+          {
+            "level": 28,
+            "species": "Primeape"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "type": "hiddenItem",
+        "name": "Hyper Potion",
+        "coordinates": {
+          "x": 25,
+          "y": 22
+        }
+      },
+      {
+        "type": "item",
+        "name": "Ether",
+        "coordinates": {
+          "x": 13,
+          "y": 15
+        }
+      },
+      {
+        "type": "item",
+        "name": "Revive",
+        "coordinates": {
+          "x": 31,
+          "y": 18
+        }
+      }
+    ]
   },
   "mount_mortar_1f_inside": {
     "id": -1,
@@ -11246,7 +11344,126 @@
     "x": -1,
     "y": -1,
     "flyable": false,
-    "connections": []
+    "connections": [
+      {
+        "direction": "warp",
+        "targetLocation": "mount_mortar_1f_outside",
+        "targetLocationDisplay": "Mount Mortar First Floor Outside",
+        "offset": 0
+      },
+      {
+        "direction": "warp",
+        "targetLocation": "mount_mortar_b_1f",
+        "targetLocationDisplay": "Mount Mortar B First Floor",
+        "offset": 0
+      },
+      {
+        "direction": "warp",
+        "targetLocation": "mount_mortar_2f_inside",
+        "targetLocationDisplay": "Mount Mortar Second Floor Inside",
+        "offset": 0
+      }
+    ],
+    "trainers": [
+      {
+        "id": "pokemaniac_miller",
+        "name": "Miller",
+        "trainerClass": "POKEMANIAC",
+        "spriteType": "pokemaniac",
+        "coordinates": {
+          "x": 33,
+          "y": 43
+        },
+        "pokemon": [
+          {
+            "level": 28,
+            "species": "Shuckle"
+          }
+        ]
+      },
+      {
+        "id": "super_nerd_markus",
+        "name": "Markus",
+        "trainerClass": "SUPER_NERD",
+        "spriteType": "super_nerd",
+        "coordinates": {
+          "x": 24,
+          "y": 28
+        },
+        "pokemon": [
+          {
+            "level": 29,
+            "species": "Seadra"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "type": "hiddenItem",
+        "name": "Max Repel",
+        "coordinates": {
+          "x": 30,
+          "y": 11
+        }
+      },
+      {
+        "type": "item",
+        "name": "Smooth Rock",
+        "coordinates": {
+          "x": 35,
+          "y": 38
+        }
+      },
+      {
+        "type": "item",
+        "name": "Max Revive",
+        "coordinates": {
+          "x": 16,
+          "y": 10
+        }
+      },
+      {
+        "type": "item",
+        "name": "Hyper Potion",
+        "coordinates": {
+          "x": 10,
+          "y": 27
+        }
+      },
+      {
+        "type": "item",
+        "name": "Max Potion",
+        "coordinates": {
+          "x": 22,
+          "y": 20
+        }
+      },
+      {
+        "type": "item",
+        "name": "Nugget",
+        "coordinates": {
+          "x": 35,
+          "y": 19
+        }
+      },
+      {
+        "type": "item",
+        "name": "Iron",
+        "coordinates": {
+          "x": 8,
+          "y": 16
+        }
+      },
+      {
+        "type": "item",
+        "name": "Ultra Ball",
+        "coordinates": {
+          "x": 17,
+          "y": 17
+        }
+      }
+    ]
   },
   "mount_mortar_2f_inside": {
     "id": -1,
@@ -11256,7 +11473,100 @@
     "x": -1,
     "y": -1,
     "flyable": false,
-    "connections": []
+    "connections": [
+      {
+        "direction": "warp",
+        "targetLocation": "mount_mortar_1f_outside",
+        "targetLocationDisplay": "Mount Mortar First Floor Outside",
+        "offset": 0
+      },
+      {
+        "direction": "warp",
+        "targetLocation": "mount_mortar_1f_inside",
+        "targetLocationDisplay": "Mount Mortar First Floor Inside",
+        "offset": 0
+      }
+    ],
+    "trainers": [
+      {
+        "id": "super_nerd_hugh",
+        "name": "Hugh",
+        "trainerClass": "SUPER_NERD",
+        "spriteType": "super_nerd",
+        "coordinates": {
+          "x": 13,
+          "y": 26
+        },
+        "pokemon": [
+          {
+            "level": 9,
+            "species": "Magnemite"
+          },
+          {
+            "level": 13,
+            "species": "Voltorb"
+          },
+          {
+            "level": 9,
+            "species": "Magnemite"
+          },
+          {
+            "level": 11,
+            "species": "Magnemite"
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "type": "hiddenItem",
+        "name": "Full Restore",
+        "coordinates": {
+          "x": 24,
+          "y": 8
+        }
+      },
+      {
+        "type": "item",
+        "name": "Max Potion",
+        "coordinates": {
+          "x": 28,
+          "y": 22
+        }
+      },
+      {
+        "type": "item",
+        "name": "Rare Candy",
+        "coordinates": {
+          "x": 2,
+          "y": 33
+        }
+      },
+      {
+        "type": "item",
+        "name": "Dragon Scale",
+        "coordinates": {
+          "x": 16,
+          "y": 5
+        }
+      },
+      {
+        "type": "item",
+        "name": "Elixir",
+        "coordinates": {
+          "x": 9,
+          "y": 11
+        }
+      },
+      {
+        "type": "item",
+        "name": "Escape Rope",
+        "coordinates": {
+          "x": 28,
+          "y": 5
+        }
+      }
+    ]
   },
   "mahogany_town": {
     "id": 54,
@@ -11870,13 +12180,13 @@
       {
         "direction": "warp",
         "targetLocation": "ice_path_b_2f_mahogany_side",
-        "targetLocationDisplay": "Ice Path B2f Mahogany Side",
+        "targetLocationDisplay": "Ice Path B Second Floor Mahogany Side",
         "offset": 0
       },
       {
         "direction": "warp",
         "targetLocation": "ice_path_b_2f_blackthorn_side",
-        "targetLocationDisplay": "Ice Path B2f Blackthorn Side",
+        "targetLocationDisplay": "Ice Path B Second Floor Blackthorn Side",
         "offset": 0
       }
     ],
@@ -11941,10 +12251,10 @@
       }
     ]
   },
-  "ice_path_b2_fblackthorn_side": {
+  "ice_path_b_2f_blackthorn_side": {
     "id": -1,
-    "name": "ice_path_b2_fblackthorn_side",
-    "displayName": "Ice Path B2 Fblackthorn Side",
+    "name": "ice_path_b_2f_blackthorn_side",
+    "displayName": "Ice Path B Second Floor Blackthorn Side",
     "region": "johto",
     "x": -1,
     "y": -1,
@@ -11982,10 +12292,10 @@
       }
     ]
   },
-  "ice_path_b2_fmahogany_side": {
+  "ice_path_b_2f_mahogany_side": {
     "id": -1,
-    "name": "ice_path_b2_fmahogany_side",
-    "displayName": "Ice Path B2 Fmahogany Side",
+    "name": "ice_path_b_2f_mahogany_side",
+    "displayName": "Ice Path B Second Floor Mahogany Side",
     "region": "johto",
     "x": -1,
     "y": -1,
@@ -12043,13 +12353,13 @@
       {
         "direction": "warp",
         "targetLocation": "ice_path_b_2f_mahogany_side",
-        "targetLocationDisplay": "Ice Path B2f Mahogany Side",
+        "targetLocationDisplay": "Ice Path B Second Floor Mahogany Side",
         "offset": 0
       },
       {
         "direction": "warp",
         "targetLocation": "ice_path_b_2f_blackthorn_side",
-        "targetLocationDisplay": "Ice Path B2f Blackthorn Side",
+        "targetLocationDisplay": "Ice Path B Second Floor Blackthorn Side",
         "offset": 0
       }
     ],
@@ -12063,26 +12373,6 @@
         }
       }
     ]
-  },
-  "ice_path_b_2f_mahogany_side": {
-    "id": -1,
-    "name": "ice_path_b_2f_mahogany_side",
-    "displayName": "Ice Path B Second Floor Mahogany Side",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": []
-  },
-  "ice_path_b_2f_blackthorn_side": {
-    "id": -1,
-    "name": "ice_path_b_2f_blackthorn_side",
-    "displayName": "Ice Path B Second Floor Blackthorn Side",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": []
   },
   "ice_path_1f": {
     "id": -1,
@@ -15032,23 +15322,6 @@
     "id": -1,
     "name": "vermilion_pollution_speech_house",
     "displayName": "Vermilion Pollution Speech House",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": [
-      {
-        "direction": "warp",
-        "targetLocation": "vermilion_city",
-        "targetLocationDisplay": "Vermilion City",
-        "offset": 0
-      }
-    ]
-  },
-  "vermilion_ssanne_speech_house": {
-    "id": -1,
-    "name": "vermilion_ssanne_speech_house",
-    "displayName": "Vermilion Ssanne Speech House",
     "region": "johto",
     "x": -1,
     "y": -1,
@@ -19505,23 +19778,6 @@
       }
     ]
   },
-  "goldenrod_ppspeech_house": {
-    "id": -1,
-    "name": "goldenrod_ppspeech_house",
-    "displayName": "Goldenrod Ppspeech House",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": [
-      {
-        "direction": "warp",
-        "targetLocation": "goldenrod_city",
-        "targetLocationDisplay": "Goldenrod City",
-        "offset": 0
-      }
-    ]
-  },
   "goldenrod_pokecom_center_office": {
     "id": -1,
     "name": "goldenrod_pokecom_center_office",
@@ -19985,349 +20241,6 @@
       }
     ]
   },
-  "mount_mortar1_finside": {
-    "id": -1,
-    "name": "mount_mortar1_finside",
-    "displayName": "Mount Mortar1 Finside",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": [
-      {
-        "direction": "warp",
-        "targetLocation": "mount_mortar_1f_outside",
-        "targetLocationDisplay": "Mount Mortar 1f Outside",
-        "offset": 0
-      },
-      {
-        "direction": "warp",
-        "targetLocation": "mount_mortar_b_1f",
-        "targetLocationDisplay": "Mount Mortar B First Floor",
-        "offset": 0
-      },
-      {
-        "direction": "warp",
-        "targetLocation": "mount_mortar_2f_inside",
-        "targetLocationDisplay": "Mount Mortar 2f Inside",
-        "offset": 0
-      }
-    ],
-    "trainers": [
-      {
-        "id": "pokemaniac_miller",
-        "name": "Miller",
-        "trainerClass": "POKEMANIAC",
-        "spriteType": "pokemaniac",
-        "coordinates": {
-          "x": 33,
-          "y": 43
-        },
-        "pokemon": [
-          {
-            "level": 28,
-            "species": "Shuckle"
-          }
-        ]
-      },
-      {
-        "id": "super_nerd_markus",
-        "name": "Markus",
-        "trainerClass": "SUPER_NERD",
-        "spriteType": "super_nerd",
-        "coordinates": {
-          "x": 24,
-          "y": 28
-        },
-        "pokemon": [
-          {
-            "level": 29,
-            "species": "Seadra"
-          }
-        ]
-      }
-    ],
-    "items": [
-      {
-        "type": "hiddenItem",
-        "name": "Max Repel",
-        "coordinates": {
-          "x": 30,
-          "y": 11
-        }
-      },
-      {
-        "type": "item",
-        "name": "Smooth Rock",
-        "coordinates": {
-          "x": 35,
-          "y": 38
-        }
-      },
-      {
-        "type": "item",
-        "name": "Max Revive",
-        "coordinates": {
-          "x": 16,
-          "y": 10
-        }
-      },
-      {
-        "type": "item",
-        "name": "Hyper Potion",
-        "coordinates": {
-          "x": 10,
-          "y": 27
-        }
-      },
-      {
-        "type": "item",
-        "name": "Max Potion",
-        "coordinates": {
-          "x": 22,
-          "y": 20
-        }
-      },
-      {
-        "type": "item",
-        "name": "Nugget",
-        "coordinates": {
-          "x": 35,
-          "y": 19
-        }
-      },
-      {
-        "type": "item",
-        "name": "Iron",
-        "coordinates": {
-          "x": 8,
-          "y": 16
-        }
-      },
-      {
-        "type": "item",
-        "name": "Ultra Ball",
-        "coordinates": {
-          "x": 17,
-          "y": 17
-        }
-      }
-    ]
-  },
-  "mount_mortar1_foutside": {
-    "id": -1,
-    "name": "mount_mortar1_foutside",
-    "displayName": "Mount Mortar1 Foutside",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": [
-      {
-        "direction": "warp",
-        "targetLocation": "route_42",
-        "targetLocationDisplay": "Route 42",
-        "offset": 0
-      },
-      {
-        "direction": "warp",
-        "targetLocation": "mount_mortar_2f_inside",
-        "targetLocationDisplay": "Mount Mortar 2f Inside",
-        "offset": 0
-      },
-      {
-        "direction": "warp",
-        "targetLocation": "mount_mortar_1f_inside",
-        "targetLocationDisplay": "Mount Mortar 1f Inside",
-        "offset": 0
-      },
-      {
-        "direction": "warp",
-        "targetLocation": "mount_mortar_b_1f",
-        "targetLocationDisplay": "Mount Mortar B First Floor",
-        "offset": 0
-      }
-    ],
-    "trainers": [
-      {
-        "id": "battle_girl_subaru",
-        "name": "Subaru",
-        "trainerClass": "BATTLE_GIRL",
-        "spriteType": "battle_girl",
-        "coordinates": {
-          "x": 9,
-          "y": 15
-        },
-        "pokemon": [
-          {
-            "level": 54,
-            "species": "Magmortar"
-          },
-          {
-            "level": 52,
-            "species": "Arcanine"
-          },
-          {
-            "level": 53,
-            "species": "Houndoom"
-          }
-        ]
-      },
-      {
-        "id": "battle_girl_diane",
-        "name": "Diane",
-        "trainerClass": "BATTLE_GIRL",
-        "spriteType": "battle_girl",
-        "coordinates": {
-          "x": 30,
-          "y": 11
-        },
-        "pokemon": [
-          {
-            "level": 26,
-            "species": "Machop"
-          },
-          {
-            "level": 27,
-            "species": "Machoke"
-          },
-          {
-            "level": 28,
-            "species": "Primeape"
-          }
-        ]
-      }
-    ],
-    "items": [
-      {
-        "type": "hiddenItem",
-        "name": "Hyper Potion",
-        "coordinates": {
-          "x": 25,
-          "y": 22
-        }
-      },
-      {
-        "type": "item",
-        "name": "Ether",
-        "coordinates": {
-          "x": 13,
-          "y": 15
-        }
-      },
-      {
-        "type": "item",
-        "name": "Revive",
-        "coordinates": {
-          "x": 31,
-          "y": 18
-        }
-      }
-    ]
-  },
-  "mount_mortar2_finside": {
-    "id": -1,
-    "name": "mount_mortar2_finside",
-    "displayName": "Mount Mortar2 Finside",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": [
-      {
-        "direction": "warp",
-        "targetLocation": "mount_mortar_1f_outside",
-        "targetLocationDisplay": "Mount Mortar 1f Outside",
-        "offset": 0
-      },
-      {
-        "direction": "warp",
-        "targetLocation": "mount_mortar_1f_inside",
-        "targetLocationDisplay": "Mount Mortar 1f Inside",
-        "offset": 0
-      }
-    ],
-    "trainers": [
-      {
-        "id": "super_nerd_hugh",
-        "name": "Hugh",
-        "trainerClass": "SUPER_NERD",
-        "spriteType": "super_nerd",
-        "coordinates": {
-          "x": 13,
-          "y": 26
-        },
-        "pokemon": [
-          {
-            "level": 9,
-            "species": "Magnemite"
-          },
-          {
-            "level": 13,
-            "species": "Voltorb"
-          },
-          {
-            "level": 9,
-            "species": "Magnemite"
-          },
-          {
-            "level": 11,
-            "species": "Magnemite"
-          }
-        ]
-      }
-    ],
-    "items": [
-      {
-        "type": "hiddenItem",
-        "name": "Full Restore",
-        "coordinates": {
-          "x": 24,
-          "y": 8
-        }
-      },
-      {
-        "type": "item",
-        "name": "Max Potion",
-        "coordinates": {
-          "x": 28,
-          "y": 22
-        }
-      },
-      {
-        "type": "item",
-        "name": "Rare Candy",
-        "coordinates": {
-          "x": 2,
-          "y": 33
-        }
-      },
-      {
-        "type": "item",
-        "name": "Dragon Scale",
-        "coordinates": {
-          "x": 16,
-          "y": 5
-        }
-      },
-      {
-        "type": "item",
-        "name": "Elixir",
-        "coordinates": {
-          "x": 9,
-          "y": 11
-        }
-      },
-      {
-        "type": "item",
-        "name": "Escape Rope",
-        "coordinates": {
-          "x": 28,
-          "y": 5
-        }
-      }
-    ]
-  },
   "mount_mortar_b_1f": {
     "id": -1,
     "name": "mount_mortar_b_1f",
@@ -20340,13 +20253,13 @@
       {
         "direction": "warp",
         "targetLocation": "mount_mortar_1f_inside",
-        "targetLocationDisplay": "Mount Mortar 1f Inside",
+        "targetLocationDisplay": "Mount Mortar First Floor Inside",
         "offset": 0
       },
       {
         "direction": "warp",
         "targetLocation": "mount_mortar_1f_outside",
-        "targetLocationDisplay": "Mount Mortar 1f Outside",
+        "targetLocationDisplay": "Mount Mortar First Floor Outside",
         "offset": 0
       }
     ],
@@ -21466,6 +21379,23 @@
         "direction": "warp",
         "targetLocation": "pokecenter_2f",
         "targetLocationDisplay": "Pokecenter 2f",
+        "offset": 0
+      }
+    ]
+  },
+  "vermilion_ss_anne_speech_house": {
+    "id": -1,
+    "name": "vermilion_ss_anne_speech_house",
+    "displayName": "Vermilion Ss Anne Speech House",
+    "region": "johto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "warp",
+        "targetLocation": "vermilion_city",
+        "targetLocationDisplay": "Vermilion City",
         "offset": 0
       }
     ]
