@@ -80,7 +80,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
     <Link href={`/pokemon/${normalizePokemonUrlKey(pokemon.name)}`}>
       <Card
         className={cn(
-          'shadow-md md:shadow-lg md:hover:shadow-xl transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pt-[65px] h-[110px] md:h-auto gap-1 md:gap-6',
+          'shadow-md md:shadow-lg md:hover:shadow-xl transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pb-5 md:pt-[65px] h-[110px] md:h-auto gap-1 md:gap-6',
           gradientProps.className,
           `shadow-${primaryType.toLowerCase()}`,
         )}
