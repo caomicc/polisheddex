@@ -195,7 +195,8 @@ export default function Home() {
 // Generate metadata for SEO and social sharing
 export async function generateMetadata() {
   const title = 'PolishedDex - Pokémon Polished Crystal Companion';
-  const description = 'A comprehensive companion pokedex for Pokémon Polished Crystal, providing detailed information on Pokémon, locations, items, moves, and more.';
+  const description =
+    'A comprehensive companion pokedex for Pokémon Polished Crystal, providing detailed information on Pokémon, locations, items, moves, and more.';
   const url = 'https://polisheddex.vercel.app';
 
   return {
@@ -211,7 +212,7 @@ export async function generateMetadata() {
       'pokemon items',
       'pokemon moves',
       'rom hack',
-      'crystal version'
+      'crystal version',
     ],
 
     // Open Graph metadata for Facebook, Discord, etc.

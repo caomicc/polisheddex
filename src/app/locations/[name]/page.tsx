@@ -316,7 +316,8 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 
   // Count unique Pokemon encounters
   const pokemonCount = pokemonInfo ? Object.keys(pokemonInfo.pokemon || {}).length : 0;
-  const pokemonText = pokemonCount > 0 ? ` Features ${pokemonCount} different Pokémon encounters.` : '';
+  const pokemonText =
+    pokemonCount > 0 ? ` Features ${pokemonCount} different Pokémon encounters.` : '';
 
   // Get region info if available
   const regionInfo = comprehensiveInfo?.region ? ` in ${comprehensiveInfo.region}` : '';

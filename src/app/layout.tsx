@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     'rom hack',
     'crystal version',
     'game guide',
-    'pokemon guide'
+    'pokemon guide',
   ],
   authors: [{ name: 'PolishedDex Team' }],
   creator: 'PolishedDex',
@@ -73,7 +73,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'PolishedDex - Pokémon Polished Crystal Database',
-    description: 'The ultimate companion for Pokémon Polished Crystal. Browse complete Pokédex with stats, moves, locations, and more.',
+    description:
+      'The ultimate companion for Pokémon Polished Crystal. Browse complete Pokédex with stats, moves, locations, and more.',
     images: ['/og-image.png'],
     creator: '@polisheddex',
     site: '@polisheddex',

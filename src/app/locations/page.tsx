@@ -455,7 +455,8 @@ export default async function LocationsPage() {
 // Generate metadata for SEO and social sharing
 export async function generateMetadata() {
   const title = 'Locations Guide | PolishedDex';
-  const description = 'Explore all locations in Pokémon Polished Crystal including routes, cities, caves, and special areas. Find Pokémon encounters, items, and trainers for each location.';
+  const description =
+    'Explore all locations in Pokémon Polished Crystal including routes, cities, caves, and special areas. Find Pokémon encounters, items, and trainers for each location.';
   const url = 'https://polisheddex.com/locations';
 
   return {
@@ -472,7 +473,7 @@ export async function generateMetadata() {
       'location guide',
       'pokemon encounters',
       'johto',
-      'kanto'
+      'kanto',
     ],
 
     // Open Graph metadata for Facebook, Discord, etc.

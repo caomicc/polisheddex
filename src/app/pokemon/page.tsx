@@ -86,17 +86,11 @@ export async function generateMetadata({
   const { sort = 'johtodex' } = (await searchParams) ?? {};
 
   const sortType =
-    sort === 'nationaldex'
-      ? 'National Dex'
-      : sort === 'johtodex'
-      ? 'Johto Dex'
-      : 'Alphabetical';
+    sort === 'nationaldex' ? 'National Dex' : sort === 'johtodex' ? 'Johto Dex' : 'Alphabetical';
 
   const title = `Pokédex - ${sortType} Order | PolishedDex`;
   const description = `Browse all Pokémon available in Pokémon Polished Crystal, sorted by ${sortType} order. View detailed stats, types, evolutions, moves, and locations.`;
-  const url = `https://polisheddex.com/pokemon${
-    sort !== 'johtodex' ? `?sort=${sort}` : ''
-  }`;
+  const url = `https://polisheddex.com/pokemon${sort !== 'johtodex' ? `?sort=${sort}` : ''}`;
 
   return {
     title,

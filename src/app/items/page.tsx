@@ -55,7 +55,8 @@ export default async function ItemsList() {
 // Generate metadata for SEO and social sharing
 export async function generateMetadata() {
   const title = 'Items Database | PolishedDex';
-  const description = 'Browse all items available in Pokémon Polished Crystal including regular items, TMs, HMs, berries, and key items. View prices, effects, and locations.';
+  const description =
+    'Browse all items available in Pokémon Polished Crystal including regular items, TMs, HMs, berries, and key items. View prices, effects, and locations.';
   const url = 'https://polisheddex.vercel.app/items';
 
   return {
@@ -71,7 +72,7 @@ export async function generateMetadata() {
       'polisheddex',
       'item database',
       'item locations',
-      'item prices'
+      'item prices',
     ],
 
     // Open Graph metadata for Facebook, Discord, etc.
