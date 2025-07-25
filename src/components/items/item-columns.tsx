@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { AnyItemData, isRegularItem, isTMHMItem } from '@/types/types';
+import { accentInsensitiveIncludes } from '@/utils/textUtils';
 
 export const itemColumns: ColumnDef<AnyItemData>[] = [
   {
@@ -42,60 +43,11 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
         </div>
       );
     },
-  },
-  {
-    accessorKey: 'category',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
-        >
-          Category
-          {column.getIsSorted() === 'desc' ? (
-            <ArrowDown className="size-3" />
-          ) : column.getIsSorted() === 'asc' ? (
-            <ArrowUp className="size-3" />
-          ) : (
-            <ArrowUpDown className="size-3" />
-          )}
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      const item = row.original;
-      const category = isRegularItem(item)
-        ? item.attributes?.category || 'Item'
-        : isTMHMItem(item)
-          ? 'TM/HM'
-          : 'Unknown';
-
-      const variant = category === 'TM/HM' ? 'secondary' : 'outline';
-
-      return (
-        <Badge variant={variant} className="text-xs">
-          {category}
-        </Badge>
-      );
-    },
-    // Custom accessor for sorting
-    accessorFn: (row) => {
-      return isRegularItem(row)
-        ? row.attributes?.category || 'Item'
-        : isTMHMItem(row)
-          ? 'TM/HM'
-          : 'Unknown';
-    },
-    // Enable filtering on this column
+    // Custom filter function for accent-insensitive search
     filterFn: (row, id, value) => {
       if (!value) return true;
-      const category = isRegularItem(row.original)
-        ? row.original.attributes?.category || 'Item'
-        : isTMHMItem(row.original)
-          ? 'TM/HM'
-          : 'Unknown';
-      return category === value;
+      const itemName = row.getValue(id) as string;
+      return accentInsensitiveIncludes(itemName, value);
     },
   },
   {
@@ -137,7 +89,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
     },
   },
   {
-    accessorKey: 'type',
+    accessorKey: 'category',
     header: ({ column }) => {
       return (
         <Button
@@ -145,7 +97,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
           className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
         >
-          Type
+          Category
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
@@ -158,54 +110,110 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
     },
     cell: ({ row }) => {
       const item = row.original;
-      if (isTMHMItem(item)) {
-        return (
-          <Badge variant="default" className="text-xs">
-            {item.type}
-          </Badge>
-        );
-      } else {
-        return <span className="text-gray-400 text-sm">-</span>;
-      }
-    },
-    // Custom accessor for sorting
-    accessorFn: (row) => {
-      return isTMHMItem(row) ? row.type : '';
-    },
-  },
-  {
-    accessorKey: 'power',
-    header: ({ column }) => {
+      const category = isRegularItem(item)
+        ? item.attributes?.category || 'Item'
+        : isTMHMItem(item)
+          ? 'TM/HM'
+          : 'Unknown';
+
+      const variant = category === 'TM/HM' ? 'secondary' : 'default';
+
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
-        >
-          Power
-          {column.getIsSorted() === 'desc' ? (
-            <ArrowDown className="size-3" />
-          ) : column.getIsSorted() === 'asc' ? (
-            <ArrowUp className="size-3" />
-          ) : (
-            <ArrowUpDown className="size-3" />
-          )}
-        </Button>
+        <Badge variant={variant} className="text-xs">
+          {category}
+        </Badge>
       );
     },
-    cell: ({ row }) => {
-      const item = row.original;
-      if (isTMHMItem(item)) {
-        return <span className="text-sm">{item.power > 0 ? item.power : '-'}</span>;
-      } else {
-        return <span className="text-gray-400 text-sm">-</span>;
-      }
-    },
     // Custom accessor for sorting
     accessorFn: (row) => {
-      return isTMHMItem(row) ? row.power : -1;
+      return isRegularItem(row)
+        ? row.attributes?.category || 'Item'
+        : isTMHMItem(row)
+          ? 'TM/HM'
+          : 'Unknown';
+    },
+    // Enable filtering on this column
+    filterFn: (row, id, value) => {
+      if (!value) return true;
+      const category = isRegularItem(row.original)
+        ? row.original.attributes?.category || 'Item'
+        : isTMHMItem(row.original)
+          ? 'TM/HM'
+          : 'Unknown';
+      return category === value;
     },
   },
+
+  // {
+  //   accessorKey: 'type',
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button
+  //         variant="ghost"
+  //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+  //         className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+  //       >
+  //         Type
+  //         {column.getIsSorted() === 'desc' ? (
+  //           <ArrowDown className="size-3" />
+  //         ) : column.getIsSorted() === 'asc' ? (
+  //           <ArrowUp className="size-3" />
+  //         ) : (
+  //           <ArrowUpDown className="size-3" />
+  //         )}
+  //       </Button>
+  //     );
+  //   },
+  //   cell: ({ row }) => {
+  //     const item = row.original;
+  //     if (isTMHMItem(item)) {
+  //       return (
+  //         <Badge variant="default" className="text-xs">
+  //           {item.type}
+  //         </Badge>
+  //       );
+  //     } else {
+  //       return <span className="text-gray-400 text-sm">-</span>;
+  //     }
+  //   },
+  //   // Custom accessor for sorting
+  //   accessorFn: (row) => {
+  //     return isTMHMItem(row) ? row.type : '';
+  //   },
+  // },
+  // {
+  //   accessorKey: 'power',
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button
+  //         variant="ghost"
+  //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+  //         className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+  //       >
+  //         Power
+  //         {column.getIsSorted() === 'desc' ? (
+  //           <ArrowDown className="size-3" />
+  //         ) : column.getIsSorted() === 'asc' ? (
+  //           <ArrowUp className="size-3" />
+  //         ) : (
+  //           <ArrowUpDown className="size-3" />
+  //         )}
+  //       </Button>
+  //     );
+  //   },
+  //   cell: ({ row }) => {
+  //     const item = row.original;
+  //     if (isTMHMItem(item)) {
+  //       return <span className="text-sm">{item.power > 0 ? item.power : '-'}</span>;
+  //     } else {
+  //       return <span className="text-gray-400 text-sm">-</span>;
+  //     }
+  //   },
+  //   // Custom accessor for sorting
+  //   accessorFn: (row) => {
+  //     return isTMHMItem(row) ? row.power : -1;
+  //   },
+  // },
   {
     accessorKey: 'locationCount',
     header: ({ column }) => {

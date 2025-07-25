@@ -216,6 +216,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
           <div className="flex flex-col gap-2">
             <Label htmlFor="item-filter">Item Name</Label>
             <Input
+              id="item-filter"
               placeholder="Search items..."
               value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
               onChange={(event) => table.getColumn('name')?.setFilterValue(event.target.value)}
@@ -223,9 +224,9 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
             />
           </div>
 
-          {/* Region filter */}
+          {/* Category filter */}
           <div className="flex flex-col gap-2">
-            <Label htmlFor="category-select">Category:</Label>
+            <Label htmlFor="category-select">Category</Label>
             <Select value={categoryFilter} onValueChange={setCategoryFilter}>
               <SelectTrigger id="category-select" className="bg-white w-[180px]">
                 <SelectValue placeholder="All Categories" />
@@ -245,12 +246,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
         {/* Checkbox Filters */}
         <div className="flex flex-wrap gap-4">
           <div className="flex items-center space-x-2">
-            <Checkbox
-              id="tm-hm"
-              checked={showOnlyTMHM}
-              onCheckedChange={setShowOnlyTMHM}
-              className="data-[state=checked]:bg-blue-600"
-            />
+            <Checkbox id="tm-hm" checked={showOnlyTMHM} onCheckedChange={setShowOnlyTMHM} />
             <Label htmlFor="tm-hm" className="text-sm">
               TMs/HMs only
             </Label>
@@ -261,7 +257,6 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
               id="with-price"
               checked={showOnlyWithPrice}
               onCheckedChange={setShowOnlyWithPrice}
-              className="data-[state=checked]:bg-green-600"
             />
             <Label htmlFor="with-price" className="text-sm">
               Has price
@@ -273,7 +268,6 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
               id="with-locations"
               checked={showOnlyWithLocations}
               onCheckedChange={setShowOnlyWithLocations}
-              className="data-[state=checked]:bg-purple-600"
             />
             <Label htmlFor="with-locations" className="text-sm">
               Has locations
@@ -282,8 +276,63 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
         </div>
 
         {/* Results Summary */}
-        <div className="text-sm text-muted-foreground">
-          Showing {table.getFilteredRowModel().rows.length} of {data.length} items
+        <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
+          {(Boolean(table.getColumn('name')?.getFilterValue()) ||
+            categoryFilter !== 'all' ||
+            sorting.length > 0 ||
+            showOnlyTMHM ||
+            showOnlyWithPrice ||
+            showOnlyWithLocations) && (
+            <Button
+              size="sm"
+              onClick={() => {
+                table.getColumn('name')?.setFilterValue('');
+                setSorting([]);
+                setShowOnlyTMHM(false);
+                setShowOnlyWithPrice(false);
+                setShowOnlyWithLocations(false);
+                setCategoryFilter('all');
+                try {
+                  localStorage.removeItem(STORAGE_KEY);
+                } catch (error) {
+                  console.warn('Failed to clear table state from localStorage:', error);
+                }
+              }}
+              className="text-xs sm:text-sm whitespace-nowrap"
+            >
+              Clear filters & sort
+            </Button>
+          )}
+          <span className="flex">
+            Showing {table.getFilteredRowModel().rows.length} of {filteredData.length} items
+            {sorting.length > 0 && (
+              <span className="ml-2">
+                • Sorted by{' '}
+                {sorting
+                  .map((sort) => {
+                    const direction = sort.desc ? 'desc' : 'asc';
+                    return `${sort.id} (${direction === 'desc' ? 'Z-A' : 'A-Z'})`;
+                  })
+                  .join(', ')}
+              </span>
+            )}
+            {(showOnlyTMHM ||
+              showOnlyWithPrice ||
+              showOnlyWithLocations ||
+              categoryFilter !== 'all') && (
+              <span className="ml-2">
+                • Filtered:{' '}
+                {[
+                  showOnlyTMHM && 'TMs/HMs only',
+                  showOnlyWithPrice && 'Has price',
+                  showOnlyWithLocations && 'Has locations',
+                  categoryFilter !== 'all' && `Category: ${categoryFilter}`,
+                ]
+                  .filter(Boolean)
+                  .join(', ')}
+              </span>
+            )}
+          </span>
         </div>
       </div>
 
