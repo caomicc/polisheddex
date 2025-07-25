@@ -296,6 +296,150 @@
   ],
   "faithfulLevelMoves": [
     {
+      "name": "Splash",
+      "level": 1,
+      "info": {
+        "description": "Has no effect whatsoever.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "A full-body charge attack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Absorb",
+      "level": 1,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Growth",
+      "level": 4,
+      "info": {
+        "description": "Raises the user's Atk and Sp.Atk.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Defense Curl",
+      "level": 7,
+      "info": {
+        "description": "Raises the user's Defense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Mega Drain",
+      "level": 10,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 15,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Leech Seed",
+      "level": 13,
+      "info": {
+        "description": "Steals HP from the foe on every turn.",
+        "type": "Grass",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 90,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Razor Leaf",
+      "level": 16,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 55,
+        "accuracy": 95,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Protect",
+      "level": 19,
+      "info": {
+        "description": "Foils attack that turn. It may fail.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Giga Drain",
+      "level": 22,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 10,
+        "power": 75,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 25,
+      "info": {
+        "description": "Sharply raises the user's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Petal Dance",
+      "level": 28,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
       "name": "Earth Power",
       "level": 31,
       "info": {
@@ -306,9 +450,93 @@
         "accuracy": 100,
         "category": "Special"
       }
+    },
+    {
+      "name": "Solar Beam",
+      "level": 34,
+      "info": {
+        "description": "1st turn: Prepare 2nd turn: Attack",
+        "type": "Grass",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Double Edge",
+      "level": 37,
+      "info": {
+        "description": "A tackle that also hurts the user.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Sunny Day",
+      "level": 40,
+      "info": {
+        "description": "Boosts Fire-type moves for 5 turns.",
+        "type": "Fire",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Seed Bomb",
+      "level": 43,
+      "info": {
+        "description": "Slams a barrage of seeds at the foe.",
+        "type": "Grass",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
     }
   ],
   "updatedLevelMoves": [
+    {
+      "name": "Splash",
+      "level": 1,
+      "info": {
+        "description": "Has no effect whatsoever.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "A full-body charge attack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Absorb",
+      "level": 1,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 20,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
     {
       "name": "Ember",
       "level": 1,
@@ -317,6 +545,114 @@
         "type": "Fire",
         "pp": 25,
         "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Growth",
+      "level": 4,
+      "info": {
+        "description": "Raises the user's Atk and Sp.Atk.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Defense Curl",
+      "level": 7,
+      "info": {
+        "description": "Raises the user's Defense.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Mega Drain",
+      "level": 10,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 15,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Leech Seed",
+      "level": 13,
+      "info": {
+        "description": "Steals HP from the foe on every turn.",
+        "type": "Grass",
+        "pp": 10,
+        "power": 0,
+        "accuracy": 90,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Razor Leaf",
+      "level": 16,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 25,
+        "power": 55,
+        "accuracy": 95,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Protect",
+      "level": 19,
+      "info": {
+        "description": "Foils attack that turn. It may fail.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Giga Drain",
+      "level": 22,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 10,
+        "power": 75,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 25,
+      "info": {
+        "description": "Sharply raises the user's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Petal Dance",
+      "level": 28,
+      "info": {
+        "description": "",
+        "type": "Grass",
+        "pp": 10,
+        "power": 120,
         "accuracy": 100,
         "category": "Special"
       }
@@ -331,6 +667,54 @@
         "power": 90,
         "accuracy": 100,
         "category": "Special"
+      }
+    },
+    {
+      "name": "Solar Beam",
+      "level": 34,
+      "info": {
+        "description": "1st turn: Prepare 2nd turn: Attack",
+        "type": "Grass",
+        "pp": 10,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Double Edge",
+      "level": 37,
+      "info": {
+        "description": "A tackle that also hurts the user.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Sunny Day",
+      "level": 40,
+      "info": {
+        "description": "Boosts Fire-type moves for 5 turns.",
+        "type": "Fire",
+        "pp": 5,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Seed Bomb",
+      "level": 43,
+      "info": {
+        "description": "Slams a barrage of seeds at the foe.",
+        "type": "Grass",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
       }
     },
     {

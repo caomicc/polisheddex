@@ -282,6 +282,78 @@
   ],
   "faithfulLevelMoves": [
     {
+      "name": "Double Kick",
+      "level": 1,
+      "info": {
+        "description": "A double kicking attack.",
+        "type": "Fighting",
+        "pp": 30,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Bulk Up",
+      "level": 1,
+      "info": {
+        "description": "Raises the user's Atk and Def.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 5,
+      "info": {
+        "description": "Sharply raises the user's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Pursuit",
+      "level": 9,
+      "info": {
+        "description": "Heavily strikes switching Pokemon.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Low Kick",
+      "level": 13,
+      "info": {
+        "description": "Deals more damage to heavier foes.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Stomp",
+      "level": 17,
+      "info": {
+        "description": "An attack that may cause flinching.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
       "name": "Endure",
       "level": 21,
       "info": {
@@ -292,9 +364,201 @@
         "accuracy": "--",
         "category": "Status"
       }
+    },
+    {
+      "name": "Aerial Ace",
+      "level": 25,
+      "info": {
+        "description": "An attack that never misses.",
+        "type": "Flying",
+        "pp": 20,
+        "power": 60,
+        "accuracy": "--",
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Hi Jump Kick",
+      "level": 29,
+      "info": {
+        "description": "May miss and hurt the user.",
+        "type": "Fighting",
+        "pp": 10,
+        "power": 130,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Double Team",
+      "level": 33,
+      "info": {
+        "description": "Raises the user's evasiveness.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Foresight",
+      "level": 37,
+      "info": {
+        "description": "Negates foe's eva- sion and immunity.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Focus Energy",
+      "level": 41,
+      "info": {
+        "description": "Raises the criti- cal hit ratio.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Reversal",
+      "level": 45,
+      "info": {
+        "description": "Stronger if the user's HP is low.",
+        "type": "Fighting",
+        "pp": 15,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Endure",
+      "level": 49,
+      "info": {
+        "description": "Endures any hit with at least 1HP.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Focus Blast",
+      "level": 53,
+      "info": {
+        "description": "An attack that may lower Sp.Def.",
+        "type": "Fighting",
+        "pp": 5,
+        "power": 120,
+        "accuracy": 70,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Close Combat",
+      "level": 57,
+      "info": {
+        "description": "Lowers the user's Def and Sp.Def.",
+        "type": "Fighting",
+        "pp": 5,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Counter",
+      "level": 61,
+      "info": {
+        "description": "Returns a physical attack double.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 1,
+        "accuracy": "--",
+        "category": "Physical"
+      }
     }
   ],
   "updatedLevelMoves": [
+    {
+      "name": "Double Kick",
+      "level": 1,
+      "info": {
+        "description": "A double kicking attack.",
+        "type": "Fighting",
+        "pp": 30,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Bulk Up",
+      "level": 1,
+      "info": {
+        "description": "Raises the user's Atk and Def.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 5,
+      "info": {
+        "description": "Sharply raises the user's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Pursuit",
+      "level": 9,
+      "info": {
+        "description": "Heavily strikes switching Pokemon.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Low Kick",
+      "level": 13,
+      "info": {
+        "description": "Deals more damage to heavier foes.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Stomp",
+      "level": 17,
+      "info": {
+        "description": "An attack that may cause flinching.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
     {
       "name": "Rock Smash",
       "level": 21,
@@ -304,6 +568,126 @@
         "pp": 15,
         "power": 40,
         "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Aerial Ace",
+      "level": 25,
+      "info": {
+        "description": "An attack that never misses.",
+        "type": "Flying",
+        "pp": 20,
+        "power": 60,
+        "accuracy": "--",
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Hi Jump Kick",
+      "level": 29,
+      "info": {
+        "description": "May miss and hurt the user.",
+        "type": "Fighting",
+        "pp": 10,
+        "power": 130,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Double Team",
+      "level": 33,
+      "info": {
+        "description": "Raises the user's evasiveness.",
+        "type": "Normal",
+        "pp": 15,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Foresight",
+      "level": 37,
+      "info": {
+        "description": "Negates foe's eva- sion and immunity.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Focus Energy",
+      "level": 41,
+      "info": {
+        "description": "Raises the criti- cal hit ratio.",
+        "type": "Normal",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Reversal",
+      "level": 45,
+      "info": {
+        "description": "Stronger if the user's HP is low.",
+        "type": "Fighting",
+        "pp": 15,
+        "power": 1,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Endure",
+      "level": 49,
+      "info": {
+        "description": "Endures any hit with at least 1HP.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Focus Blast",
+      "level": 53,
+      "info": {
+        "description": "An attack that may lower Sp.Def.",
+        "type": "Fighting",
+        "pp": 5,
+        "power": 120,
+        "accuracy": 70,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Close Combat",
+      "level": 57,
+      "info": {
+        "description": "Lowers the user's Def and Sp.Def.",
+        "type": "Fighting",
+        "pp": 5,
+        "power": 120,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Counter",
+      "level": 61,
+      "info": {
+        "description": "Returns a physical attack double.",
+        "type": "Fighting",
+        "pp": 20,
+        "power": 1,
+        "accuracy": "--",
         "category": "Physical"
       }
     }

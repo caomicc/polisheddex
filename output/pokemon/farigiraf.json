@@ -282,7 +282,353 @@
       "level": 50
     }
   ],
+  "faithfulLevelMoves": [
+    {
+      "name": "Astonish",
+      "level": 1,
+      "info": {
+        "description": "An attack that may cause flinching.",
+        "type": "Ghost",
+        "pp": 15,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "A full-body charge attack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Growl",
+      "level": 1,
+      "info": {
+        "description": "A move that lowers the foe's Attack.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Confusion",
+      "level": 1,
+      "info": {
+        "description": "An attack that may confuse the foe.",
+        "type": "Psychic",
+        "pp": 25,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Foresight",
+      "level": 5,
+      "info": {
+        "description": "Negates foe's eva- sion and immunity.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Pursuit",
+      "level": 10,
+      "info": {
+        "description": "Heavily strikes switching Pokemon.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Stomp",
+      "level": 14,
+      "info": {
+        "description": "An attack that may cause flinching.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Psybeam",
+      "level": 19,
+      "info": {
+        "description": "An attack that may confuse the foe.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 23,
+      "info": {
+        "description": "Sharply raises the user's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Double Kick",
+      "level": 28,
+      "info": {
+        "description": "A double kicking attack.",
+        "type": "Fighting",
+        "pp": 30,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Zen Headbutt",
+      "level": 32,
+      "info": {
+        "description": "An attack that may cause flinching.",
+        "type": "Psychic",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Crunch",
+      "level": 37,
+      "info": {
+        "description": "An attack that may lower Defense.",
+        "type": "Dark",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Baton Pass",
+      "level": 41,
+      "info": {
+        "description": "Switches while keeping effects.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Nasty Plot",
+      "level": 46,
+      "info": {
+        "description": "Sharply raises the user's Sp.Atk.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Psychic M",
+      "level": 50
+    }
+  ],
   "updatedLevelMoves": [
+    {
+      "name": "Astonish",
+      "level": 1,
+      "info": {
+        "description": "An attack that may cause flinching.",
+        "type": "Ghost",
+        "pp": 15,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Tackle",
+      "level": 1,
+      "info": {
+        "description": "A full-body charge attack.",
+        "type": "Normal",
+        "pp": 35,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Growl",
+      "level": 1,
+      "info": {
+        "description": "A move that lowers the foe's Attack.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": 100,
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Confusion",
+      "level": 1,
+      "info": {
+        "description": "An attack that may confuse the foe.",
+        "type": "Psychic",
+        "pp": 25,
+        "power": 50,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Foresight",
+      "level": 5,
+      "info": {
+        "description": "Negates foe's eva- sion and immunity.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Pursuit",
+      "level": 10,
+      "info": {
+        "description": "Heavily strikes switching Pokemon.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Stomp",
+      "level": 14,
+      "info": {
+        "description": "An attack that may cause flinching.",
+        "type": "Normal",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Psybeam",
+      "level": 19,
+      "info": {
+        "description": "An attack that may confuse the foe.",
+        "type": "Psychic",
+        "pp": 20,
+        "power": 65,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Agility",
+      "level": 23,
+      "info": {
+        "description": "Sharply raises the user's Speed.",
+        "type": "Psychic",
+        "pp": 30,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Double Kick",
+      "level": 28,
+      "info": {
+        "description": "A double kicking attack.",
+        "type": "Fighting",
+        "pp": 30,
+        "power": 30,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Zen Headbutt",
+      "level": 32,
+      "info": {
+        "description": "An attack that may cause flinching.",
+        "type": "Psychic",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 90,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Crunch",
+      "level": 37,
+      "info": {
+        "description": "An attack that may lower Defense.",
+        "type": "Dark",
+        "pp": 15,
+        "power": 80,
+        "accuracy": 100,
+        "category": "Physical"
+      }
+    },
+    {
+      "name": "Baton Pass",
+      "level": 41,
+      "info": {
+        "description": "Switches while keeping effects.",
+        "type": "Normal",
+        "pp": 40,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Nasty Plot",
+      "level": 46,
+      "info": {
+        "description": "Sharply raises the user's Sp.Atk.",
+        "type": "Dark",
+        "pp": 20,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    },
+    {
+      "name": "Psychic M",
+      "level": 50
+    },
     {
       "name": "Dark Pulse",
       "level": 55,
