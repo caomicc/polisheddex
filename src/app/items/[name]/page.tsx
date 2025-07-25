@@ -237,7 +237,7 @@ export async function generateStaticParams() {
   }));
 }
 
-// Generate metadata for SEO
+// Generate metadata for SEO and social sharing
 export async function generateMetadata({ params }: ItemPageProps) {
   const { name } = await params;
   const filePath = path.join(process.cwd(), 'output/items_data.json');
@@ -251,17 +251,75 @@ export async function generateMetadata({ params }: ItemPageProps) {
     };
   }
 
-  const itemType = isRegularItem(item) ? item.attributes.category : 'TM/HM';
-  const priceInfo = isRegularItem(item) ? `Price: ₽${item.attributes.price.toLocaleString()}.` : '';
+  const itemType = isRegularItem(item) ? item.attributes?.category || 'Item' : 'TM/HM';
+  const priceInfo =
+    isRegularItem(item) && item.attributes?.price
+      ? `Price: ₽${item.attributes.price.toLocaleString()}.`
+      : '';
   const locationInfo = isRegularItem(item)
     ? `Available at ${item.locations?.length || 0} locations`
     : isTMHMItem(item) && item.location
       ? `Available at ${item.location.area}`
       : 'Location unknown';
 
+  const title = `${item.name} - PolishedDex Items`;
+  const description = `${item.description} ${priceInfo} ${locationInfo} in Pokémon Polished Crystal.`;
+  const url = `https://polisheddex.vercel.app/items/${name}`;
+
+  // Create rich description for social sharing
+  const socialDescription = isTMHMItem(item)
+    ? `${item.name}: ${item.description} Teaches ${item.moveName} (${item.type} type, ${item.power} power). Found at ${item.location?.area || 'unknown location'}.`
+    : `${item.name}: ${item.description} ${priceInfo} ${locationInfo}`;
+
   return {
-    title: `${item.name} - PolishedDex Items`,
-    description: `${item.description} ${priceInfo} ${locationInfo} in Pokémon Polished Crystal.`,
+    title,
+    description,
     keywords: ['pokemon polished crystal', 'items', item.name, itemType, 'polisheddex'],
+
+    // Open Graph metadata for Facebook, Discord, etc.
+    openGraph: {
+      title,
+      description: socialDescription,
+      url,
+      siteName: 'PolishedDex',
+      type: 'website',
+      images: [
+        {
+          url: '/og-image.png', // Your existing OG image
+          width: 1200,
+          height: 630,
+          alt: `${item.name} - Pokémon Polished Crystal Item`,
+        },
+      ],
+      locale: 'en_US',
+    },
+
+    // Twitter Card metadata
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: socialDescription,
+      images: ['/og-image.png'],
+      creator: '@polisheddex', // Update with your Twitter handle if you have one
+      site: '@polisheddex',
+    },
+
+    // Additional metadata
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+
+    // Canonical URL
+    alternates: {
+      canonical: url,
+    },
   };
 }

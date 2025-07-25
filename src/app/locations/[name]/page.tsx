@@ -295,3 +295,99 @@ export default async function LocationDetailPage({
     </div>
   );
 }
+
+// Generate metadata for SEO and social sharing
+export async function generateMetadata({ params }: { params: Promise<{ name: string }> }) {
+  const { name } = await params;
+  const locationName = decodeURIComponent(name);
+
+  const allLocationData = await loadAllLocationData();
+  const pokemonLocationData = await loadPokemonLocationData();
+
+  // Get comprehensive location info
+  const comprehensiveInfo = allLocationData[locationName];
+  const pokemonInfo = pokemonLocationData[locationName];
+
+  // Create display name and description
+  const displayName =
+    comprehensiveInfo?.displayName ||
+    locationName.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()) ||
+    'Unknown Location';
+
+  // Count unique Pokemon encounters
+  const pokemonCount = pokemonInfo ? Object.keys(pokemonInfo.pokemon || {}).length : 0;
+  const pokemonText = pokemonCount > 0 ? ` Features ${pokemonCount} different Pokémon encounters.` : '';
+
+  // Get region info if available
+  const regionInfo = comprehensiveInfo?.region ? ` in ${comprehensiveInfo.region}` : '';
+
+  const title = `${displayName} | PolishedDex Locations`;
+  const description = `Explore ${displayName}${regionInfo} in Pokémon Polished Crystal.${pokemonText} Find wild Pokémon, items, trainers, and detailed location information.`;
+  const url = `https://polisheddex.vercel.app/locations/${name}`;
+
+  // Create rich social description
+  const locationTypeText = comprehensiveInfo?.type ? ` (${comprehensiveInfo.type})` : '';
+  const socialDescription = `${displayName}${locationTypeText}${regionInfo} - ${pokemonText || 'Location in Pokémon Polished Crystal'}`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      'pokemon polished crystal',
+      'locations',
+      displayName.toLowerCase(),
+      'pokemon encounters',
+      'wild pokemon',
+      'polisheddex',
+      'location guide',
+      ...(comprehensiveInfo?.region ? [comprehensiveInfo.region.toLowerCase()] : []),
+      ...(comprehensiveInfo?.type ? [comprehensiveInfo.type.toLowerCase()] : []),
+    ],
+
+    // Open Graph metadata
+    openGraph: {
+      title,
+      description: socialDescription,
+      url,
+      siteName: 'PolishedDex',
+      type: 'website',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: `${displayName} - PolishedDex Location Guide`,
+        },
+      ],
+      locale: 'en_US',
+    },
+
+    // Twitter Card metadata
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: socialDescription,
+      images: ['/og-image.png'],
+      creator: '@polisheddex',
+      site: '@polisheddex',
+    },
+
+    // Additional metadata
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+
+    // Canonical URL
+    alternates: {
+      canonical: url,
+    },
+  };
+}

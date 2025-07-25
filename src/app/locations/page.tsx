@@ -451,3 +451,74 @@ export default async function LocationsPage() {
     </>
   );
 }
+
+// Generate metadata for SEO and social sharing
+export async function generateMetadata() {
+  const title = 'Locations Guide | PolishedDex';
+  const description = 'Explore all locations in Pokémon Polished Crystal including routes, cities, caves, and special areas. Find Pokémon encounters, items, and trainers for each location.';
+  const url = 'https://polisheddex.com/locations';
+
+  return {
+    title,
+    description,
+    keywords: [
+      'pokemon polished crystal',
+      'locations',
+      'routes',
+      'cities',
+      'caves',
+      'pokemon locations',
+      'polisheddex',
+      'location guide',
+      'pokemon encounters',
+      'johto',
+      'kanto'
+    ],
+
+    // Open Graph metadata for Facebook, Discord, etc.
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: 'PolishedDex',
+      type: 'website',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'Locations Guide - PolishedDex',
+        },
+      ],
+      locale: 'en_US',
+    },
+
+    // Twitter Card metadata
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og-image.png'],
+      creator: '@polisheddex',
+      site: '@polisheddex',
+    },
+
+    // Additional metadata
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+
+    // Canonical URL
+    alternates: {
+      canonical: url,
+    },
+  };
+}

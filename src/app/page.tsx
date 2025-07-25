@@ -191,3 +191,79 @@ export default function Home() {
     </div>
   );
 }
+
+// Generate metadata for SEO and social sharing
+export async function generateMetadata() {
+  const title = 'PolishedDex - Pokémon Polished Crystal Companion';
+  const description = 'A comprehensive companion pokedex for Pokémon Polished Crystal, providing detailed information on Pokémon, locations, items, moves, and more.';
+  const url = 'https://polisheddex.vercel.app';
+
+  return {
+    title,
+    description,
+    keywords: [
+      'pokemon polished crystal',
+      'pokedex',
+      'pokemon database',
+      'polisheddex',
+      'pokemon guide',
+      'pokemon locations',
+      'pokemon items',
+      'pokemon moves',
+      'rom hack',
+      'crystal version'
+    ],
+
+    // Open Graph metadata for Facebook, Discord, etc.
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: 'PolishedDex',
+      type: 'website',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'PolishedDex - Pokémon Polished Crystal Companion',
+        },
+      ],
+      locale: 'en_US',
+    },
+
+    // Twitter Card metadata
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og-image.png'],
+      creator: '@polisheddex',
+      site: '@polisheddex',
+    },
+
+    // Additional metadata
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+
+    // Canonical URL
+    alternates: {
+      canonical: url,
+    },
+
+    // Viewport and other metadata
+    viewport: {
+      width: 'device-width',
+      initialScale: 1,
+    },
+  };
+}

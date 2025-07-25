@@ -188,3 +188,132 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     </>
   );
 }
+
+// Generate static params for all Pokemon
+export async function generateStaticParams() {
+  const baseDataFile = path.join(process.cwd(), 'output/pokemon_base_data.json');
+  const data = await loadJsonData<Record<string, unknown>>(baseDataFile);
+
+  if (!data) return [];
+
+  return Object.keys(data).map((pokemonKey) => ({
+    name: pokemonKey,
+  }));
+}
+
+// Generate metadata for SEO and social sharing
+export async function generateMetadata({ params }: { params: Promise<{ name: string }> }) {
+  const nameParam = (await params).name;
+  const pokemonName = decodeURIComponent(nameParam);
+  const standardKey = urlKeyToStandardKey(pokemonName);
+
+  const pokemonFile = path.join(process.cwd(), `output/pokemon/${getPokemonFileName(standardKey)}`);
+  const pokemonData = await loadJsonData<PokemonDataV3>(pokemonFile);
+
+  if (!pokemonData) {
+    return {
+      title: 'Pokémon Not Found',
+      description: 'The requested Pokémon could not be found.',
+    };
+  }
+
+  // Get types for better description
+  const types = pokemonData.detailedStats?.types || pokemonData.types || [];
+  const typeText = Array.isArray(types) ? types.join('/') : types || 'Unknown';
+
+  // Get dex numbers
+  const nationalDex = pokemonData.nationalDex;
+  const johtoDex = pokemonData.johtoDex;
+  const dexInfo = nationalDex ? `#${nationalDex}` : '';
+  const johtoInfo = johtoDex ? ` (Johto #${johtoDex})` : '';
+
+  // Build description
+  const pokemonDisplayName = pokemonData.name || 'Unknown Pokemon';
+  const baseDescription = `${pokemonDisplayName} ${dexInfo}${johtoInfo} - ${typeText} type Pokémon`;
+  const locationCount = pokemonData.locations?.length || 0;
+  const locationText = locationCount > 0 ? ` Found in ${locationCount} locations.` : '';
+
+  const title = `${pokemonDisplayName} ${dexInfo} | PolishedDex`;
+  const description = `${baseDescription} in Pokémon Polished Crystal.${locationText} View stats, moves, evolution, and more.`;
+  const url = `https://polisheddex.vercel.app/pokemon/${nameParam}`;
+
+  // Create rich social description
+  const baseStats = pokemonData.detailedStats?.baseStats;
+  const statsText = baseStats
+    ? ` HP: ${baseStats.hp || 0}, Attack: ${baseStats.attack || 0}, Defense: ${baseStats.defense || 0}.`
+    : '';
+
+  const socialDescription = `${baseDescription}.${statsText}${locationText}`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      'pokemon polished crystal',
+      pokemonDisplayName.toLowerCase(),
+      'pokedex',
+      'pokemon stats',
+      'pokemon moves',
+      'pokemon evolution',
+      typeText.toLowerCase(),
+      'polisheddex',
+    ],
+
+    // Open Graph metadata
+    openGraph: {
+      title,
+      description: socialDescription,
+      url,
+      siteName: 'PolishedDex',
+      type: 'website',
+      images: [
+        {
+          url: pokemonData.frontSpriteUrl || '/og-image.png',
+          width: pokemonData.frontSpriteUrl ? 288 : 1200,
+          height: pokemonData.frontSpriteUrl ? 288 : 630,
+          alt: `${pokemonData.name} sprite from Pokémon Polished Crystal`,
+        },
+        // Fallback to main OG image if sprite exists
+        ...(pokemonData.frontSpriteUrl
+          ? [
+              {
+                url: '/og-image.png',
+                width: 1200,
+                height: 630,
+                alt: `${pokemonData.name} - PolishedDex`,
+              },
+            ]
+          : []),
+      ],
+      locale: 'en_US',
+    },
+
+    // Twitter Card metadata
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: socialDescription,
+      images: [pokemonData.frontSpriteUrl || '/og-image.png'],
+      creator: '@polisheddex',
+      site: '@polisheddex',
+    },
+
+    // Additional metadata
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+
+    // Canonical URL
+    alternates: {
+      canonical: url,
+    },
+  };
+}

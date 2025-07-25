@@ -18,20 +18,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'PolishedDex - Complete Pokémon Polished Crystal Database',
+  title: {
+    default: 'PolishedDex - Complete Pokémon Polished Crystal Database',
+    template: '%s | PolishedDex',
+  },
   description:
-    'Explore the ultimate Pokédex for Pokémon Polished Crystal. Search Pokémon stats, moves, locations, evolution data, and more.',
+    'The ultimate companion for Pokémon Polished Crystal. Browse complete Pokédex with stats, moves, locations, evolution data, items, and detailed guides.',
   keywords: [
-    'pokemon',
+    'pokemon polished crystal',
     'pokedex',
-    'polished crystal',
     'pokemon database',
+    'polisheddex',
     'pokemon stats',
     'pokemon moves',
     'pokemon locations',
     'pokemon evolution',
-    'game database',
+    'pokemon items',
+    'rom hack',
+    'crystal version',
+    'game guide',
+    'pokemon guide'
   ],
+  authors: [{ name: 'PolishedDex Team' }],
+  creator: 'PolishedDex',
+  publisher: 'PolishedDex',
   robots: {
     index: true,
     follow: true,
@@ -48,9 +58,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://polisheddex.vercel.app',
     siteName: 'PolishedDex',
-    title: 'PolishedDex - Pokémon Polished Crystal Database',
+    title: 'PolishedDex - Complete Pokémon Polished Crystal Database',
     description:
-      'Explore the ultimate Pokédex for Pokémon Polished Crystal. Search Pokémon stats, moves, locations, evolution data, and more.',
+      'The ultimate companion for Pokémon Polished Crystal. Browse complete Pokédex with stats, moves, locations, evolution data, items, and detailed guides.',
     images: [
       {
         url: '/og-image.png',
@@ -59,6 +69,14 @@ export const metadata: Metadata = {
         alt: 'PolishedDex - Pokémon Polished Crystal Database',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PolishedDex - Pokémon Polished Crystal Database',
+    description: 'The ultimate companion for Pokémon Polished Crystal. Browse complete Pokédex with stats, moves, locations, and more.',
+    images: ['/og-image.png'],
+    creator: '@polisheddex',
+    site: '@polisheddex',
   },
   category: 'Gaming',
   classification: 'Gaming Database',

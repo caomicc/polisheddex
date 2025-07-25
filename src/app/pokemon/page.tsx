@@ -76,3 +76,87 @@ export default async function PokemonList({
     </>
   );
 }
+
+// Generate metadata for SEO and social sharing
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ sort?: string }>;
+}) {
+  const { sort = 'johtodex' } = (await searchParams) ?? {};
+
+  const sortType =
+    sort === 'nationaldex'
+      ? 'National Dex'
+      : sort === 'johtodex'
+      ? 'Johto Dex'
+      : 'Alphabetical';
+
+  const title = `Pokédex - ${sortType} Order | PolishedDex`;
+  const description = `Browse all Pokémon available in Pokémon Polished Crystal, sorted by ${sortType} order. View detailed stats, types, evolutions, moves, and locations.`;
+  const url = `https://polisheddex.com/pokemon${
+    sort !== 'johtodex' ? `?sort=${sort}` : ''
+  }`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      'pokemon polished crystal',
+      'pokedex',
+      'pokemon list',
+      'pokemon database',
+      'polisheddex',
+      sortType.toLowerCase(),
+      'pokemon stats',
+      'pokemon types',
+      'pokemon evolutions',
+    ],
+
+    // Open Graph metadata for Facebook, Discord, etc.
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: 'PolishedDex',
+      type: 'website',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: `Pokédex - ${sortType} Order - PolishedDex`,
+        },
+      ],
+      locale: 'en_US',
+    },
+
+    // Twitter Card metadata
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og-image.png'],
+      creator: '@polisheddex',
+      site: '@polisheddex',
+    },
+
+    // Additional metadata
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+
+    // Canonical URL
+    alternates: {
+      canonical: url,
+    },
+  };
+}
