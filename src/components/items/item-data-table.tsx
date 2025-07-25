@@ -209,7 +209,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
   }, [columnFilters, showOnlyTMHM, showOnlyWithPrice, showOnlyWithLocations, categoryFilter]);
 
   return (
-    <div className="w-full space-y-4">
+    <div className="w-full px-2 sm:px-0">
       <div className="flex flex-col gap-4 py-4">
         {/* Primary search */}
         <div className="flex flex-col sm:flex-row gap-4">
@@ -381,7 +381,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between space-x-2 py-4">
+      {/* <div className="flex items-center justify-between space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
           Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
         </div>
@@ -399,6 +399,33 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
             size="sm"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
+          >
+            Next
+          </Button>
+        </div>
+      </div> */}
+
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 py-4">
+        <div className="text-sm text-muted-foreground">
+          {table.getFilteredRowModel().rows.length} of {filteredData.length} items(s) shown
+        </div>
+        <div className="flex items-center justify-center sm:justify-end space-x-2">
+          <Button
+            size="sm"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+            className="px-3 py-1.5 text-sm"
+          >
+            Previous
+          </Button>
+          <div className="text-sm text-muted-foreground px-2">
+            Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+          </div>
+          <Button
+            size="sm"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+            className="px-3 py-1.5 text-sm"
           >
             Next
           </Button>
