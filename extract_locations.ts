@@ -2227,6 +2227,17 @@ export function integrateMapItemsWithItemsData(): void {
       itemId.toLowerCase().replace(/-/g, ' '), // Convert kebab-case to spaces
     ];
 
+    // Also check if any map item names (with spaces removed) match this item
+    for (const mapItemName of Object.keys(mapItemLocations)) {
+      const mapItemWithoutSpaces = mapItemName.replace(/\s+/g, '');
+      if (
+        possibleNames.includes(mapItemWithoutSpaces) ||
+        mapItemWithoutSpaces === itemId.toLowerCase()
+      ) {
+        possibleNames.push(mapItemName);
+      }
+    }
+
     for (const name of possibleNames) {
       if (mapItemLocations[name]) {
         // Ensure locations array exists
