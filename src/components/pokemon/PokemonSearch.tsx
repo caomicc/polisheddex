@@ -58,7 +58,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
 
   return (
     <>
-      <div className="grid w-full items-center gap-3">
+      <div className="grid w-full items-center gap-2">
         <Label htmlFor="pokemon-search">Search Pokémon</Label>
         <Input
           id="pokemon-search"
