@@ -9,7 +9,6 @@ import {
   preEvoMap,
   typeMap,
 } from './src/data/constants.ts';
-import { normalizeLocationKey } from './extract_locations.ts';
 import {
   extractTypeChart,
   extractHiddenGrottoes,
@@ -58,6 +57,7 @@ import type {
   PokemonDataV3,
   PokemonDexEntry,
 } from './src/types/types.ts';
+import { normalizeLocationKey } from './src/utils/locationUtils.ts';
 
 /**
  * Robust function to check if a Pokémon name matches any name in the DEBUG_POKEMON list
@@ -181,10 +181,27 @@ if (fs.existsSync(MOVE_DESCRIPTIONS_OUTPUT)) {
   moveDescriptions = JSON.parse(fs.readFileSync(MOVE_DESCRIPTIONS_OUTPUT, 'utf8'));
 }
 
-const result: Record<string, { moves: Move[]; forms?: Record<string, { moves: Move[] }> }> = {};
+const result: Record<
+  string,
+  {
+    moves: Move[];
+    faithfulMoves?: Move[];
+    updatedMoves?: Move[];
+    forms?: Record<
+      string,
+      {
+        moves: Move[];
+        faithfulMoves?: Move[];
+        updatedMoves?: Move[];
+      }
+    >;
+  }
+> = {};
 
 let currentMonV2: string | null = null;
 let movesV2: Move[] = [];
+let faithfulMovesV2: Move[] = [];
+let updatedMovesV2: Move[] = [];
 let evoMethods: EvoRaw[] = [];
 
 // Helper function to extract base Pokemon name and form from evos_attacks entries
@@ -287,143 +304,249 @@ function parseFormName(pokemonName: string): { baseName: string; formName: strin
   return { baseName: normalizeMoveString(pokemonName), formName: null };
 }
 
-for (const lineRaw of lines) {
-  const line = lineRaw.trim();
-  if (line.startsWith('evos_attacks ') || line.match(/^[A-Za-z]+EvosAttacks:$/)) {
-    if (currentMonV2) {
-      console.log(`DEBUG: Processing evos_attacks for: ${currentMonV2}`);
-      const { baseName, formName } = parseFormName(currentMonV2);
-
-      if (formName) {
-        // This is a form-specific moveset
-        if (!result[baseName]) {
-          result[baseName] = { moves: [] };
-        }
-        if (!result[baseName].forms) {
-          result[baseName].forms = {};
-        }
-        console.log(`DEBUG: Storing form ${formName} moves for ${baseName}:`, movesV2.slice(0, 3));
-        result[baseName].forms[formName] = { moves: movesV2 };
-      } else {
-        // This is a base form moveset
-        result[baseName] = {
-          moves: movesV2,
-          ...(result[baseName]?.forms ? { forms: result[baseName].forms } : {}),
-        };
+// Enhanced moveset parsing with faithful/updated support
+function parseMovesetWithFaithfulSupport(lines: string[]): Record<
+  string,
+  {
+    moves: Move[];
+    faithfulMoves?: Move[];
+    updatedMoves?: Move[];
+    forms?: Record<
+      string,
+      {
+        moves: Move[];
+        faithfulMoves?: Move[];
+        updatedMoves?: Move[];
       }
-
-      if (evoMethods.length) {
-        evoMap[normalizeMoveString(currentMonV2)] = evoMethods.map((e) => ({
-          ...e,
-          target: normalizeMoveString(e.target),
-          form: e.form ? normalizeMoveString(e.form) : undefined,
-        }));
-        for (const evo of evoMethods) {
-          const tgt = normalizeMoveString(evo.target);
-          if (!preEvoMap[tgt]) preEvoMap[tgt] = [];
-          preEvoMap[tgt].push(normalizeMoveString(currentMonV2));
-        }
-      }
-    }
-    // Handle both formats: "evos_attacks PokemonName" and "PokemonNameEvosAttacks:"
-    if (line.startsWith('evos_attacks ')) {
-      currentMonV2 = line.split(' ')[1];
-    } else if (line.match(/^[A-Za-z]+EvosAttacks:$/)) {
-      // Extract pokemon name from "PokemonNameEvosAttacks:" format
-      currentMonV2 = line.replace('EvosAttacks:', '');
-    }
-    movesV2 = [];
-    evoMethods = [];
-  } else if (line.startsWith('evo_data ')) {
-    // Example: evo_data EVOLVE_LEVEL, 16, IVYSAUR
-    // Or: evo_data EVOLVE_ITEM, MOON_STONE, NIDOQUEEN
-    // Or: evo_data EVOLVE_ITEM, THUNDERSTONE, RAICHU, PLAIN_FORM
-    const evoMatch = line.match(/evo_data (\w+), ([^,]+), ([^,\s]+)(?:, ([^,\s]+))?/);
-    if (evoMatch) {
-      const [, method, param, target, form] = evoMatch;
-      let parsedParam: string | number = param.trim();
-      if (method === 'EVOLVE_LEVEL' && /^\d+$/.test(param.trim())) {
-        parsedParam = parseInt(param.trim(), 10);
-      }
-      evoMethods.push({
-        method,
-        parameter: parsedParam,
-        target: target.trim(),
-        ...(form ? { form: form.trim() } : {}),
-      });
-    }
-  } else if (line.startsWith('learnset ')) {
-    const match = line.match(/learnset (\d+),\s*([A-Z0-9_]+)/);
-    if (match) {
-      const level = parseInt(match[1], 10);
-      const moveKey = match[2];
-      const prettyName = normalizeMoveString(moveKey);
-      const info = moveDescriptions[prettyName]
-        ? {
-            description: moveDescriptions[prettyName].description,
-            type: moveDescriptions[prettyName].type,
-            pp: moveDescriptions[prettyName].pp,
-            power: moveDescriptions[prettyName].power,
-            accuracy: moveDescriptions[prettyName].accuracy,
-            effectPercent: moveDescriptions[prettyName].effectPercent,
-            category: moveDescriptions[prettyName].category,
-          }
-        : undefined;
-      // Only replace #mon in string fields of info, but keep type
-      let fixedInfo = info;
-      if (info) {
-        fixedInfo = { ...info };
-        for (const key of Object.keys(fixedInfo)) {
-          if (typeof (fixedInfo as any)[key] === 'string') {
-            (fixedInfo as any)[key] = replaceMonString((fixedInfo as any)[key]);
-          }
-        }
-      }
-      movesV2.push({
-        name: replaceMonString(prettyName),
-        level,
-        ...(fixedInfo ? { info: fixedInfo } : {}),
-      });
-    }
+    >;
   }
-}
-if (currentMonV2) {
-  const { baseName, formName } = parseFormName(currentMonV2);
+> {
+  const movesetResult: Record<
+    string,
+    {
+      moves: Move[];
+      faithfulMoves?: Move[];
+      updatedMoves?: Move[];
+      forms?: Record<
+        string,
+        {
+          moves: Move[];
+          faithfulMoves?: Move[];
+          updatedMoves?: Move[];
+        }
+      >;
+    }
+  > = {};
 
-  if (formName) {
-    // This is a form-specific moveset
-    if (!result[baseName]) {
-      result[baseName] = { moves: [] };
+  let currentMonV2: string | null = null;
+  let movesV2: Move[] = [];
+  let faithfulMovesV2: Move[] = [];
+  let updatedMovesV2: Move[] = [];
+  let evoMethods: EvoRaw[] = [];
+  let isInFaithfulBlock = false;
+  let isInUpdatedBlock = false;
+  let faithfulBlockDepth = 0;
+
+  function createMoveFromMatch(level: number, moveKey: string): Move {
+    const prettyName = normalizeMoveString(moveKey);
+    const info = moveDescriptions[prettyName]
+      ? {
+          description: moveDescriptions[prettyName].description,
+          type: moveDescriptions[prettyName].type,
+          pp: moveDescriptions[prettyName].pp,
+          power: moveDescriptions[prettyName].power,
+          accuracy: moveDescriptions[prettyName].accuracy,
+          effectPercent: moveDescriptions[prettyName].effectPercent,
+          category: moveDescriptions[prettyName].category,
+        }
+      : undefined;
+
+    let fixedInfo = info;
+    if (info) {
+      fixedInfo = { ...info };
+      for (const key of Object.keys(fixedInfo)) {
+        if (typeof (fixedInfo as any)[key] === 'string') {
+          (fixedInfo as any)[key] = replaceMonString((fixedInfo as any)[key]);
+        }
+      }
     }
-    if (!result[baseName].forms) {
-      result[baseName].forms = {};
-    }
-    console.log(
-      `DEBUG: Final - Storing form ${formName} moves for ${baseName}:`,
-      movesV2.slice(0, 3),
-    );
-    result[baseName].forms[formName] = { moves: movesV2 };
-  } else {
-    // This is a base form moveset
-    result[baseName] = {
-      moves: movesV2,
-      ...(result[baseName]?.forms ? { forms: result[baseName].forms } : {}),
+
+    return {
+      name: replaceMonString(prettyName),
+      level,
+      ...(fixedInfo ? { info: fixedInfo } : {}),
     };
   }
-  if (evoMethods.length) {
-    evoMap[toTitleCase(currentMonV2)] = evoMethods.map((e) => ({
-      ...e,
-      target: toTitleCase(e.target),
-      form: e.form ? toTitleCase(e.form) : undefined,
-    }));
-    for (const evo of evoMethods) {
-      const tgt = toTitleCase(evo.target);
-      if (!preEvoMap[tgt]) preEvoMap[tgt] = [];
-      preEvoMap[tgt].push(toTitleCase(currentMonV2));
+
+  function storeMovesetData() {
+    if (!currentMonV2) return;
+
+    console.log(`DEBUG: Processing evos_attacks for: ${currentMonV2}`);
+    const { baseName, formName } = parseFormName(currentMonV2);
+
+    // Merge faithful and updated moves into the main moves array (updated takes precedence)
+    const combinedMoves = [...movesV2];
+    // Add updated moves that aren't duplicates
+    for (const updatedMove of updatedMovesV2) {
+      const existingIndex = combinedMoves.findIndex((m) => m.level === updatedMove.level);
+      if (existingIndex >= 0) {
+        combinedMoves[existingIndex] = updatedMove; // Replace with updated version
+      } else {
+        combinedMoves.push(updatedMove);
+      }
+    }
+    // Sort by level
+    combinedMoves.sort((a, b) => Number(a.level) - Number(b.level));
+
+    if (formName) {
+      // This is a form-specific moveset
+      if (!movesetResult[baseName]) {
+        movesetResult[baseName] = { moves: [] };
+      }
+      if (!movesetResult[baseName].forms) {
+        movesetResult[baseName].forms = {};
+      }
+      console.log(
+        `DEBUG: Storing form ${formName} moves for ${baseName}:`,
+        combinedMoves.slice(0, 3),
+      );
+      movesetResult[baseName].forms[formName] = {
+        moves: combinedMoves,
+        ...(faithfulMovesV2.length > 0 ? { faithfulMoves: faithfulMovesV2 } : {}),
+        ...(updatedMovesV2.length > 0 ? { updatedMoves: updatedMovesV2 } : {}),
+      };
+    } else {
+      // This is a base form moveset
+      movesetResult[baseName] = {
+        moves: combinedMoves,
+        ...(faithfulMovesV2.length > 0 ? { faithfulMoves: faithfulMovesV2 } : {}),
+        ...(updatedMovesV2.length > 0 ? { updatedMoves: updatedMovesV2 } : {}),
+        ...(movesetResult[baseName]?.forms ? { forms: movesetResult[baseName].forms } : {}),
+      };
+    }
+
+    if (evoMethods.length) {
+      evoMap[normalizeMoveString(currentMonV2)] = evoMethods.map((e) => ({
+        ...e,
+        target: normalizeMoveString(e.target),
+        form: e.form ? normalizeMoveString(e.form) : undefined,
+      }));
+      for (const evo of evoMethods) {
+        const tgt = normalizeMoveString(evo.target);
+        if (!preEvoMap[tgt]) preEvoMap[tgt] = [];
+        preEvoMap[tgt].push(normalizeMoveString(currentMonV2));
+      }
     }
   }
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Handle conditional blocks
+    if (line.startsWith('if DEF(FAITHFUL)')) {
+      isInFaithfulBlock = true;
+      faithfulBlockDepth++;
+      continue;
+    } else if (line.startsWith('if !DEF(FAITHFUL)')) {
+      isInUpdatedBlock = true;
+      faithfulBlockDepth++;
+      continue;
+    } else if (line === 'else' && (isInFaithfulBlock || isInUpdatedBlock)) {
+      // Switch the block type
+      if (isInFaithfulBlock) {
+        isInFaithfulBlock = false;
+        isInUpdatedBlock = true;
+      } else if (isInUpdatedBlock) {
+        isInUpdatedBlock = false;
+        isInFaithfulBlock = true;
+      }
+      continue;
+    } else if (line === 'endc') {
+      if (faithfulBlockDepth > 0) {
+        faithfulBlockDepth--;
+        if (faithfulBlockDepth === 0) {
+          isInFaithfulBlock = false;
+          isInUpdatedBlock = false;
+        }
+      }
+      continue;
+    }
+
+    if (line.startsWith('evos_attacks ') || line.match(/^[A-Za-z]+EvosAttacks:$/)) {
+      if (currentMonV2) {
+        storeMovesetData();
+      }
+
+      // Handle both formats: "evos_attacks PokemonName" and "PokemonNameEvosAttacks:"
+      if (line.startsWith('evos_attacks ')) {
+        currentMonV2 = line.split(' ')[1];
+      } else if (line.match(/^[A-Za-z]+EvosAttacks:$/)) {
+        // Extract pokemon name from "PokemonNameEvosAttacks:" format
+        currentMonV2 = line.replace('EvosAttacks:', '');
+      }
+
+      movesV2 = [];
+      faithfulMovesV2 = [];
+      updatedMovesV2 = [];
+      evoMethods = [];
+      isInFaithfulBlock = false;
+      isInUpdatedBlock = false;
+      faithfulBlockDepth = 0;
+    } else if (line.startsWith('evo_data ')) {
+      // Example: evo_data EVOLVE_LEVEL, 16, IVYSAUR
+      // Or: evo_data EVOLVE_ITEM, MOON_STONE, NIDOQUEEN
+      // Or: evo_data EVOLVE_ITEM, THUNDERSTONE, RAICHU, PLAIN_FORM
+      const evoMatch = line.match(/evo_data (\w+), ([^,]+), ([^,\s]+)(?:, ([^,\s]+))?/);
+      if (evoMatch) {
+        const [, method, param, target, form] = evoMatch;
+        let parsedParam: string | number = param.trim();
+        if (method === 'EVOLVE_LEVEL' && /^\d+$/.test(param.trim())) {
+          parsedParam = parseInt(param.trim(), 10);
+        }
+        evoMethods.push({
+          method,
+          parameter: parsedParam,
+          target: target.trim(),
+          ...(form ? { form: form.trim() } : {}),
+        });
+      }
+    } else if (line.startsWith('learnset ')) {
+      const match = line.match(/learnset (\d+),\s*([A-Z0-9_]+)/);
+      if (match) {
+        const level = parseInt(match[1], 10);
+        const moveKey = match[2];
+        const move = createMoveFromMatch(level, moveKey);
+
+        // Add to appropriate move list based on current context
+        if (isInFaithfulBlock) {
+          faithfulMovesV2.push(move);
+        } else if (isInUpdatedBlock) {
+          updatedMovesV2.push(move);
+        } else if (faithfulBlockDepth > 0) {
+          // We're in an else block - determine which type based on the current state
+          if (isInFaithfulBlock) {
+            faithfulMovesV2.push(move);
+          } else {
+            updatedMovesV2.push(move);
+          }
+        } else {
+          // Regular move (no conditional block)
+          movesV2.push(move);
+        }
+      }
+    }
+  }
+
+  // Handle the last Pokemon
+  if (currentMonV2) {
+    storeMovesetData();
+  }
+
+  return movesetResult;
 }
 
+// Use the new parsing function
+const movesetData = parseMovesetWithFaithfulSupport(lines);
 // Helper to sort the evolution chain properly
 function sortEvolutionChain(chain: string[]): string[] {
   // Create a dependency graph for topological sorting
@@ -843,10 +966,46 @@ for (const file of baseStatsFiles) {
 }
 const finalResult: Record<string, PokemonDataV3> = {};
 
-for (const mon of Object.keys(result)) {
+for (const mon of Object.keys(movesetData)) {
   const isDebug = isDebugPokemon(mon);
 
-  const moves = result[mon].moves.map((m) => {
+  const moves = movesetData[mon].moves.map((m) => {
+    let fixedInfo = m.info;
+    if (m.info) {
+      fixedInfo = { ...m.info };
+      for (const key of Object.keys(fixedInfo)) {
+        if (typeof (fixedInfo as any)[key] === 'string') {
+          (fixedInfo as any)[key] = replaceMonString((fixedInfo as any)[key]);
+        }
+      }
+    }
+    return {
+      name: replaceMonString(m.name),
+      level: m.level,
+      ...(fixedInfo ? { info: fixedInfo } : {}),
+    };
+  });
+
+  // Process faithful moves if they exist
+  const faithfulMoves = movesetData[mon].faithfulMoves?.map((m) => {
+    let fixedInfo = m.info;
+    if (m.info) {
+      fixedInfo = { ...m.info };
+      for (const key of Object.keys(fixedInfo)) {
+        if (typeof (fixedInfo as any)[key] === 'string') {
+          (fixedInfo as any)[key] = replaceMonString((fixedInfo as any)[key]);
+        }
+      }
+    }
+    return {
+      name: replaceMonString(m.name),
+      level: m.level,
+      ...(fixedInfo ? { info: fixedInfo } : {}),
+    };
+  });
+
+  // Process updated moves if they exist
+  const updatedMoves = movesetData[mon].updatedMoves?.map((m) => {
     let fixedInfo = m.info;
     if (m.info) {
       fixedInfo = { ...m.info };
@@ -1164,6 +1323,8 @@ for (const mon of Object.keys(result)) {
   const fixedFinalResult: (typeof finalResult)[typeof mon] = {
     evolution,
     moves,
+    ...(faithfulMoves ? { faithfulMoves } : {}),
+    ...(updatedMoves ? { updatedMoves } : {}),
     ...(nationalDex !== null ? { nationalDex } : {}),
     ...(johtoDex !== null ? { johtoDex } : {}),
     ...(types && types !== 'Unknown' ? { types: fixTypeField(types as string | string[]) } : {}),
@@ -2179,25 +2340,45 @@ fs.writeFileSync(EVOLUTION_OUTPUT, JSON.stringify(validatedEvolutionData, null, 
 console.log('Pokémon evolution data extracted to', EVOLUTION_OUTPUT);
 
 // Extract and save level-up moves
-const levelMoves: Record<string, { moves: Move[]; forms?: Record<string, { moves: Move[] }> }> = {};
+const levelMoves: Record<
+  string,
+  {
+    moves: Move[];
+    faithfulMoves?: Move[];
+    updatedMoves?: Move[];
+    forms?: Record<
+      string,
+      {
+        moves: Move[];
+        faithfulMoves?: Move[];
+        updatedMoves?: Move[];
+      }
+    >;
+  }
+> = {};
 for (const [mon, data] of Object.entries(normalizedGroupedData)) {
-  levelMoves[mon] = { moves: data.moves };
+  levelMoves[mon] = {
+    moves: data.moves,
+    ...(data.faithfulMoves ? { faithfulMoves: data.faithfulMoves } : {}),
+    ...(data.updatedMoves ? { updatedMoves: data.updatedMoves } : {}),
+  };
 
   console.log(`Processing level moves for ${mon}`);
   console.log(`Data:`, data);
   console.log(`levelMoves[mon]:`, levelMoves[mon]);
 
-  // Use the forms from evos_attacks result instead of normalizedGroupedData
+  // Use the forms from evos_attacks movesetData instead of normalizedGroupedData
   // since evos_attacks has the correct form-specific movesets
   const normalizedMon = normalizePokemonUrlKey(mon);
   const moveStringNormalizedMon = normalizeMoveString(mon);
   console.log(
-    `DEBUG: Checking evos_attacks result for ${mon} (urlNormalized: ${normalizedMon}, moveStringNormalized: ${moveStringNormalizedMon}), has forms:`,
-    !!result[mon]?.forms ||
-      !!result[normalizedMon]?.forms ||
-      !!result[moveStringNormalizedMon]?.forms,
+    `DEBUG: Checking evos_attacks movesetData for ${mon} (urlNormalized: ${normalizedMon}, moveStringNormalized: ${moveStringNormalizedMon}), has forms:`,
+    !!movesetData[mon]?.forms ||
+      !!movesetData[normalizedMon]?.forms ||
+      !!movesetData[moveStringNormalizedMon]?.forms,
   );
-  const evosAttacksEntry = result[mon] || result[normalizedMon] || result[moveStringNormalizedMon];
+  const evosAttacksEntry =
+    movesetData[mon] || movesetData[normalizedMon] || movesetData[moveStringNormalizedMon];
   if (evosAttacksEntry?.forms && Object.keys(evosAttacksEntry.forms).length > 0) {
     levelMoves[mon].forms = {};
     console.log(`Found forms in evos_attacks result for ${mon}, using those instead...`);
@@ -2942,6 +3123,16 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     detailedStats: enhancedDetailedStats,
     evolution: validatedEvolutionData[pokemonName] || defaultEvolution,
     levelMoves: validateAndFixMoves(validatedLevelMoves[pokemonName]?.moves || []),
+    ...(validatedLevelMoves[pokemonName]?.faithfulMoves
+      ? {
+          faithfulLevelMoves: validateAndFixMoves(validatedLevelMoves[pokemonName].faithfulMoves),
+        }
+      : {}),
+    ...(validatedLevelMoves[pokemonName]?.updatedMoves
+      ? {
+          updatedLevelMoves: validateAndFixMoves(validatedLevelMoves[pokemonName].updatedMoves),
+        }
+      : {}),
     tmHmMoves: tmHmData[pokemonName] || [],
     eggMoves: eggMoveData[pokemonName] || [],
     locations: embeddedLocations,

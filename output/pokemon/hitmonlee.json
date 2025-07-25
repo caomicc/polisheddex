@@ -160,18 +160,6 @@
       }
     },
     {
-      "name": "Endure",
-      "level": 21,
-      "info": {
-        "description": "Endures any hit with at least 1HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
       "name": "Rock Smash",
       "level": 21,
       "info": {
@@ -300,6 +288,34 @@
         "pp": 20,
         "power": 1,
         "accuracy": "--",
+        "category": "Physical"
+      }
+    }
+  ],
+  "faithfulLevelMoves": [
+    {
+      "name": "Endure",
+      "level": 21,
+      "info": {
+        "description": "Endures any hit with at least 1HP.",
+        "type": "Normal",
+        "pp": 10,
+        "power": 0,
+        "accuracy": "--",
+        "category": "Status"
+      }
+    }
+  ],
+  "updatedLevelMoves": [
+    {
+      "name": "Rock Smash",
+      "level": 21,
+      "info": {
+        "description": "Removes Reflect and Light Screen.",
+        "type": "Fighting",
+        "pp": 15,
+        "power": 40,
+        "accuracy": 100,
         "category": "Physical"
       }
     }

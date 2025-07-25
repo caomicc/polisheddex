@@ -12,7 +12,7 @@ import type {
 } from './src/types/types.ts';
 import { extractTrainerData } from './src/utils/extractors/trainerExtractors.ts';
 import { formatDisplayName, formatMoveName, inferLocationRegion } from './src/utils/stringUtils.ts';
-import { normalizeLocationKey } from '@/utils/locationUtils.ts';
+import { normalizeLocationKey } from './src/utils/locationUtils.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);

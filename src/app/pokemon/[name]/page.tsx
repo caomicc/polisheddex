@@ -38,6 +38,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     ...pokemonData,
     ...(pokemonData.detailedStats || {}),
     moves: pokemonData.moves || pokemonData.levelMoves || [],
+    faithfulMoves: pokemonData.faithfulMoves || pokemonData.faithfulLevelMoves || [],
+    updatedMoves: pokemonData.updatedMoves || pokemonData.updatedLevelMoves || [],
     tmHmLearnset: (pokemonData as FormData).tmHmLearnset || [],
     locations: pokemonData.locations || [],
     eggMoves: (pokemonData as FormData).eggMoves || [],
@@ -81,6 +83,13 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         ...formValue,
         ...(formValue.detailedStats || {}),
         moves: formValue.moves || [],
+        faithfulMoves:
+          formValue.faithfulMoves ||
+          pokemonData.faithfulMoves ||
+          pokemonData.faithfulLevelMoves ||
+          [],
+        updatedMoves:
+          formValue.updatedMoves || pokemonData.updatedMoves || pokemonData.updatedLevelMoves || [],
         levelMoves: formValue.moves || [],
         tmHmLearnset:
           (formValue as FormData).tmHmLearnset || (pokemonData as FormData).tmHmLearnset || [],

@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { LocationTrainer, TrainerPokemon } from '../../types/types.ts';
-import { normalizeLocationKey } from '../../../extract_locations.ts';
+import { normalizeLocationKey } from '../locationUtils.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -364,15 +364,4 @@ function getSpriteType(trainerClass: string): string {
   };
 
   return spriteMap[trainerClass] || trainerClass.toLowerCase();
-}
-
-/**
- * Normalize trainer key for location matching
- */
-function normalizeTrainerKey(trainerId: string): string {
-  return trainerId
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, '_')
-    .replace(/_+/g, '_')
-    .replace(/^_+|_+$/g, '');
 }

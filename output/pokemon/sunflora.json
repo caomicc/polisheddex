@@ -102,15 +102,15 @@
   },
   "levelMoves": [
     {
-      "name": "Splash",
+      "name": "Ember",
       "level": 1,
       "info": {
-        "description": "Has no effect whatsoever.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+        "description": "An attack that may inflict a burn.",
+        "type": "Fire",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
       }
     },
     {
@@ -133,18 +133,6 @@
         "type": "Grass",
         "pp": 25,
         "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Ember",
-      "level": 1,
-      "info": {
-        "description": "An attack that may inflict a burn.",
-        "type": "Fire",
-        "pp": 25,
-        "power": 40,
         "accuracy": 100,
         "category": "Special"
       }
@@ -258,18 +246,6 @@
       }
     },
     {
-      "name": "Earth Power",
-      "level": 31,
-      "info": {
-        "description": "An attack that may lower Sp.Def.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
       "name": "Flamethrower",
       "level": 31,
       "info": {
@@ -327,6 +303,58 @@
         "power": 80,
         "accuracy": 100,
         "category": "Physical"
+      }
+    },
+    {
+      "name": "Fire Blast",
+      "level": 50,
+      "info": {
+        "description": "An attack that may inflict a burn.",
+        "type": "Fire",
+        "pp": 5,
+        "power": 110,
+        "accuracy": 85,
+        "category": "Special"
+      }
+    }
+  ],
+  "faithfulLevelMoves": [
+    {
+      "name": "Earth Power",
+      "level": 31,
+      "info": {
+        "description": "An attack that may lower Sp.Def.",
+        "type": "Ground",
+        "pp": 10,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    }
+  ],
+  "updatedLevelMoves": [
+    {
+      "name": "Ember",
+      "level": 1,
+      "info": {
+        "description": "An attack that may inflict a burn.",
+        "type": "Fire",
+        "pp": 25,
+        "power": 40,
+        "accuracy": 100,
+        "category": "Special"
+      }
+    },
+    {
+      "name": "Flamethrower",
+      "level": 31,
+      "info": {
+        "description": "",
+        "type": "Fire",
+        "pp": 15,
+        "power": 90,
+        "accuracy": 100,
+        "category": "Special"
       }
     },
     {

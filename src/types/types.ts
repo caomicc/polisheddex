@@ -50,6 +50,12 @@ export interface Move {
   info?: MoveDescription;
 }
 
+export interface MoveSet {
+  moves: Move[];
+  faithfulMoves?: Move[]; // Moves in the faithful version
+  updatedMoves?: Move[]; // Moves in the updated (non-faithful) version
+}
+
 export interface MoveDescription {
   description: string;
   type: string | PokemonType['name'];
@@ -76,7 +82,9 @@ export interface PokemonDataV2 {
 
 // Type definitions for the detailed stats
 export interface DetailedStats {
-  moves?: Move[];
+  moves?: Move[]; // Basic moves (for backward compatibility)
+  faithfulMoves?: Move[]; // Moves in the faithful version
+  updatedMoves?: Move[]; // Moves in the updated (non-faithful) version
   name?: string;
   formName?: string;
   frontSpriteUrl?: string;
@@ -123,7 +131,9 @@ export interface DetailedStats {
       detailedStats?: DetailedStats;
     }
   >;
-  levelMoves?: Move[]; // Moves learned by leveling up
+  levelMoves?: Move[]; // Moves learned by leveling up (for backward compatibility)
+  faithfulLevelMoves?: Move[]; // Level moves in the faithful version
+  updatedLevelMoves?: Move[]; // Level moves in the updated (non-faithful) version
   tmHmLearnset?: Move[]; // TM/HM learnset
   eggMoves?: string[]; // Egg moves
   species?: string; // Species name for the Pokémon
@@ -162,6 +172,8 @@ export interface Ability {
 
 export interface FormData extends DetailedStats {
   moves: Move[];
+  faithfulMoves?: Move[];
+  updatedMoves?: Move[];
   tmHmLearnset: Move[];
   locations: LocationEntry[];
   eggMoves: string[];
@@ -194,8 +206,17 @@ export interface BaseData extends DetailedStats {
 }
 
 export interface LevelMovesData {
-  moves: Move[];
-  forms?: Record<string, { moves: Move[] }>;
+  moves: Move[]; // For backward compatibility
+  faithfulMoves?: Move[]; // Level moves in the faithful version
+  updatedMoves?: Move[]; // Level moves in the updated (non-faithful) version
+  forms?: Record<
+    string,
+    {
+      moves: Move[]; // For backward compatibility
+      faithfulMoves?: Move[]; // Level moves in the faithful version
+      updatedMoves?: Move[]; // Level moves in the updated (non-faithful) version
+    }
+  >;
 }
 
 export interface LocationsData {
