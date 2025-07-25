@@ -390,6 +390,11 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
     // Sort by level
     combinedMoves.sort((a, b) => Number(a.level) - Number(b.level));
 
+    // Debug logging for conditional moves
+    console.log(
+      `DEBUG: For ${currentMonV2} - faithful moves: ${faithfulMovesV2.length}, updated moves: ${updatedMovesV2.length}`,
+    );
+
     if (formName) {
       // This is a form-specific moveset
       if (!movesetResult[baseName]) {
@@ -2388,6 +2393,21 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
             level: m.level,
             ...(m.info ? { info: m.info } : {}),
           })),
+          // Add faithful and updated moves if they exist
+          ...(formData.faithfulMoves ? { 
+            faithfulMoves: formData.faithfulMoves.map((m) => ({
+              name: m.name,
+              level: m.level,
+              ...(m.info ? { info: m.info } : {}),
+            }))
+          } : {}),
+          ...(formData.updatedMoves ? { 
+            updatedMoves: formData.updatedMoves.map((m) => ({
+              name: m.name,
+              level: m.level,
+              ...(m.info ? { info: m.info } : {}),
+            }))
+          } : {}),
         };
         console.log(
           `Added form ${formName.trim()} moves for ${mon}`,
@@ -2943,15 +2963,35 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
 
     // Only use moves if explicitly defined for this form, otherwise inherit from base
     let formMoves: Move[] | undefined = undefined;
-    if (
-      levelMoves[pokemonName]?.forms &&
-      levelMoves[pokemonName].forms[formName.toLowerCase()] &&
-      Array.isArray(levelMoves[pokemonName]?.forms?.[formName.toLowerCase()]?.moves)
-    ) {
-      formMoves = levelMoves[pokemonName]?.forms?.[formName.toLowerCase()]?.moves;
+    let formFaithfulMoves: Move[] | undefined = undefined;
+    let formUpdatedMoves: Move[] | undefined = undefined;
+
+    const formMoveData = levelMoves[pokemonName]?.forms?.[formName.toLowerCase()];
+    if (levelMoves[pokemonName]?.forms && formMoveData && Array.isArray(formMoveData.moves)) {
+      formMoves = formMoveData.moves;
+
+      // Only add faithful/updated moves for regional variants
+      const isRegionalVariant = ['galarian', 'alolan', 'hisuian', 'paldean', 'kantonian'].includes(
+        formName.toLowerCase().trim(),
+      );
+
+      if (isRegionalVariant) {
+        formFaithfulMoves = formMoveData.faithfulMoves;
+        formUpdatedMoves = formMoveData.updatedMoves;
+      }
     } else if (levelMoves[pokemonName]?.moves && Array.isArray(levelMoves[pokemonName].moves)) {
       // Fall back to base Pokémon's moves if form doesn't have specific moves
       formMoves = levelMoves[pokemonName].moves;
+
+      // Only inherit faithful/updated moves for regional variants
+      const isRegionalVariant = ['galarian', 'alolan', 'hisuian', 'paldean', 'kantonian'].includes(
+        formName.toLowerCase().trim(),
+      );
+
+      if (isRegionalVariant) {
+        formFaithfulMoves = levelMoves[pokemonName].faithfulMoves;
+        formUpdatedMoves = levelMoves[pokemonName].updatedMoves;
+      }
     }
 
     console.log(
@@ -2984,6 +3024,16 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
       updatedTypes: formTypeData,
       frontSpriteUrl: `/sprites/pokemon/${baseName}_${formName}/front_cropped.png`,
       moves: validateAndFixMoves(formMoves ?? []),
+      ...(formFaithfulMoves && formFaithfulMoves.length > 0
+        ? {
+            faithfulLevelMoves: validateAndFixMoves(formFaithfulMoves),
+          }
+        : {}),
+      ...(formUpdatedMoves && formUpdatedMoves.length > 0
+        ? {
+            updatedLevelMoves: validateAndFixMoves(formUpdatedMoves),
+          }
+        : {}),
       detailedStats: {
         ...formStats,
         catchRate: formStats.catchRate ?? 255,
