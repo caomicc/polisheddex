@@ -29,6 +29,7 @@ export default function PokemonFormClient({
 }) {
   const [selectedForm, setSelectedForm] = useState('default');
   const [activeTab, setActiveTab] = useState('about');
+  const [showFaithfulMoves, setShowFaithfulMoves] = useState(false);
 
   // Load saved tab from localStorage on component mount
   useEffect(() => {
@@ -36,12 +37,24 @@ export default function PokemonFormClient({
     if (savedTab) {
       setActiveTab(savedTab);
     }
+
+    // Load faithful/updated toggle preference
+    const savedMoveMode = localStorage.getItem('pokemonMoveMode');
+    if (savedMoveMode === 'faithful') {
+      setShowFaithfulMoves(true);
+    }
   }, []);
 
   // Save tab to localStorage when it changes
   const handleTabChange = (value: string) => {
     setActiveTab(value);
     localStorage.setItem('pokemonActiveTab', value);
+  };
+
+  // Save move mode preference
+  const handleMoveToggle = (faithful: boolean) => {
+    setShowFaithfulMoves(faithful);
+    localStorage.setItem('pokemonMoveMode', faithful ? 'faithful' : 'updated');
   };
 
   // Convert selectedForm to title case to match keys in allFormData
@@ -470,6 +483,33 @@ export default function PokemonFormClient({
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
             <SectionCard headline={'Moves'}>
+              <div className="flex justify-center">
+                <button
+                  onClick={() => handleMoveToggle(false)}
+                  className={cn(
+                    'px-4 py-2 text-sm font-semibold rounded-l-lg transition-all duration-200',
+                    {
+                      'bg-blue-600 text-white shadow-md':
+                        !showFaithfulMoves && activeTab === 'moves',
+                      'bg-gray-200 text-gray-800': showFaithfulMoves,
+                    },
+                  )}
+                >
+                  Updated
+                </button>
+                <button
+                  onClick={() => handleMoveToggle(true)}
+                  className={cn(
+                    'px-4 py-2 text-sm font-semibold rounded-r-lg transition-all duration-200',
+                    {
+                      'bg-blue-600 text-white shadow-md': showFaithfulMoves,
+                      'bg-gray-200 text-gray-800': !showFaithfulMoves,
+                    },
+                  )}
+                >
+                  Faithful
+                </button>
+              </div>
               <Tabs defaultValue="level-up" className="w-full">
                 <div className="px-4 md:px-0">
                   <TabsList className="w-full">
@@ -480,53 +520,104 @@ export default function PokemonFormClient({
                 </div>
                 <TabsContent value="level-up">
                   {/* Moves List */}
-                  {formData.moves && Array.isArray(formData.moves) && formData.moves.length > 0 ? (
-                    <Table>
-                      <TableHeader className={'hidden md:table-header-group'}>
-                        <TableRow>
-                          <TableHead className="attheader cen align-middle text-left w-[60px]">
-                            Level
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[180px]">
-                            Attack Name
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
-                            Type
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
-                            Cat.
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
-                            Att.
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
-                            Acc.
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
-                            PP
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
-                            Effect %
-                          </TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {formData.moves.map((moveData: Move) => {
-                          const moveInfo = moveDescData[moveData.name] || null;
-                          return (
-                            <MoveRow
-                              key={`move-${moveData.name}-${moveData.level}`}
-                              name={moveData.name}
-                              level={moveData.level}
-                              info={moveInfo}
-                            />
-                          );
-                        })}
-                      </TableBody>
-                    </Table>
-                  ) : (
-                    <div className="text-gray-400 text-sm mb-6">No move data</div>
-                  )}
+                  {(() => {
+                    // Determine which moves to show based on toggle
+                    let movesToShow: Move[] = [];
+
+                    if (showFaithfulMoves) {
+                      // Show faithful moves if available, otherwise fall back to regular moves
+                      movesToShow =
+                        formData.faithfulLevelMoves && formData.faithfulLevelMoves.length > 0
+                          ? formData.faithfulLevelMoves
+                          : formData.moves || [];
+                    } else {
+                      // Show updated moves combined with regular moves
+                      const regularMoves = formData.moves || [];
+                      const updatedMoves = formData.updatedLevelMoves || [];
+
+                      // Combine regular and updated moves, with updated moves taking precedence
+                      const combinedMoves = [...regularMoves];
+                      for (const updatedMove of updatedMoves) {
+                        const existingIndex = combinedMoves.findIndex(
+                          (m) => m.level === updatedMove.level,
+                        );
+                        if (existingIndex >= 0) {
+                          combinedMoves[existingIndex] = updatedMove;
+                        } else {
+                          combinedMoves.push(updatedMove);
+                        }
+                      }
+
+                      // Sort by level
+                      movesToShow = combinedMoves.sort((a, b) => Number(a.level) - Number(b.level));
+                    }
+
+                    return movesToShow && Array.isArray(movesToShow) && movesToShow.length > 0 ? (
+                      <div>
+                        {/* Show indicator if there are differences */}
+                        {((formData.faithfulLevelMoves && formData.faithfulLevelMoves.length > 0) ||
+                          (formData.updatedLevelMoves &&
+                            formData.updatedLevelMoves.length > 0)) && (
+                          <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                            <p className="text-sm text-blue-800 dark:text-blue-200">
+                              {showFaithfulMoves
+                                ? 'Showing faithful (original) movesets'
+                                : `Showing updated movesets${formData.updatedLevelMoves && formData.updatedLevelMoves.length > 0 ? ` (${formData.updatedLevelMoves.length} additional move${formData.updatedLevelMoves.length > 1 ? 's' : ''})` : ''}`}
+                            </p>
+                          </div>
+                        )}
+
+                        <Table>
+                          <TableHeader className={'hidden md:table-header-group'}>
+                            <TableRow>
+                              <TableHead className="attheader cen align-middle text-left w-[60px]">
+                                Level
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left w-[180px]">
+                                Attack Name
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                                Type
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                                Cat.
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                                Att.
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                                Acc.
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                                PP
+                              </TableHead>
+                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                                Effect %
+                              </TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {movesToShow.map((moveData: Move) => {
+                              const moveInfo = moveDescData[moveData.name] || null;
+
+                              return (
+                                <MoveRow
+                                  key={`move-${moveData.name}-${moveData.level}`}
+                                  name={moveData.name}
+                                  level={moveData.level}
+                                  info={moveInfo}
+                                />
+                              );
+                            })}
+                          </TableBody>
+                        </Table>
+                      </div>
+                    ) : (
+                      <div className="text-gray-400 text-sm mb-6">
+                        No {showFaithfulMoves ? 'faithful' : 'updated'} move data
+                      </div>
+                    );
+                  })()}
                 </TabsContent>
                 <TabsContent value="egg">
                   {formData.eggMoves &&

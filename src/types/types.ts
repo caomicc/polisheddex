@@ -174,6 +174,8 @@ export interface FormData extends DetailedStats {
   moves: Move[];
   faithfulMoves?: Move[];
   updatedMoves?: Move[];
+  faithfulLevelMoves?: Move[]; // Level moves in the faithful version
+  updatedLevelMoves?: Move[]; // Level moves in the updated (non-faithful) version
   tmHmLearnset: Move[];
   locations: LocationEntry[];
   eggMoves: string[];

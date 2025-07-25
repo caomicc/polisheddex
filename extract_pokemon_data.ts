@@ -384,17 +384,9 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
     console.log(`DEBUG: Processing evos_attacks for: ${currentMonV2}`);
     const { baseName, formName } = parseFormName(currentMonV2);
 
-    // Merge faithful and updated moves into the main moves array (updated takes precedence)
+    // For the main moves array, only include moves that are not in conditional blocks
+    // This prevents duplication between moves and faithfulMoves/updatedMoves
     const combinedMoves = [...movesV2];
-    // Add updated moves that aren't duplicates
-    for (const updatedMove of updatedMovesV2) {
-      const existingIndex = combinedMoves.findIndex((m) => m.level === updatedMove.level);
-      if (existingIndex >= 0) {
-        combinedMoves[existingIndex] = updatedMove; // Replace with updated version
-      } else {
-        combinedMoves.push(updatedMove);
-      }
-    }
     // Sort by level
     combinedMoves.sort((a, b) => Number(a.level) - Number(b.level));
 
