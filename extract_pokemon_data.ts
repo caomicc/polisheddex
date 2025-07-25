@@ -9,6 +9,7 @@ import {
   preEvoMap,
   typeMap,
 } from './src/data/constants.ts';
+import { normalizeLocationKey } from './extract_locations.ts';
 import {
   extractTypeChart,
   extractHiddenGrottoes,
@@ -1214,7 +1215,7 @@ for (const file of wildFiles) {
     // Area block start
     const areaMatch = line.match(/^def_(grass|water)_wildmons ([A-Z0-9_]+)/);
     if (areaMatch) {
-      area = areaMatch[2];
+      area = normalizeLocationKey(areaMatch[2]);
       method = areaMatch[1];
       inBlock = true;
       blockType = method;
