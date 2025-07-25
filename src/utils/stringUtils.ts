@@ -321,19 +321,22 @@ export function deepReplaceMonString(obj: unknown): unknown {
  */
 export function formatDisplayName(normalizedKey: string): string {
   return normalizedKey
+    .replace(/([a-z])([A-Z])/g, '$1_$2') // Add underscore before capitals
+    .replace(/([a-zA-Z])(\d+[Ff])/g, '$1_$2') // Separate letters from floor numbers like "Tower1F" -> "Tower_1F"
+    .replace(/([Bb])(\d+[Ff])(north|south|east|west)/gi, '$1$2_$3') // Handle "B1fnorth" -> "B1f_north"
     .split('_')
     .map((word) => {
-      // Handle floor abbreviations
-      if (/^[Bb]\d+f$/.test(word)) {
+      // Handle floor abbreviations (both uppercase and lowercase f)
+      if (/^[Bb]\d+[Ff]$/i.test(word)) {
         const floorNum = word.match(/\d+/)?.[0];
         return `Basement ${floorNum ? ordinalSuffix(parseInt(floorNum)) : ''} Floor`;
       }
-      if (/^\d+f$/.test(word)) {
+      if (/^\d+[Ff]$/i.test(word)) {
         const floorNum = word.match(/\d+/)?.[0];
         return `${floorNum ? ordinalSuffix(parseInt(floorNum)) : ''} Floor`;
       }
       // Handle directions
-      if (/^(ne|nw|se|sw|ea|we|n|s|e|w)$/i.test(word)) {
+      if (/^(ne|nw|se|sw|ea|we|n|s|e|w|north|south|east|west)$/i.test(word)) {
         const dirMap: Record<string, string> = {
           n: 'North',
           s: 'South',
@@ -345,6 +348,10 @@ export function formatDisplayName(normalizedKey: string): string {
           sw: 'Southwest',
           ea: 'East',
           we: 'West',
+          north: 'North',
+          south: 'South',
+          east: 'East',
+          west: 'West',
         };
         return dirMap[word.toLowerCase()] || word.toUpperCase();
       }

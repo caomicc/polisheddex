@@ -380,9 +380,7 @@ export function extractAllLocations(): Record<string, LocationData> {
       }
 
       landmarkIndex++;
-    }
-
-    // Parse display name definitions
+    } // Parse display name definitions
     const nameMatch = trimmedLine.match(/^(\w+):\s*rawchar\s*"([^@]+)@"/);
     if (nameMatch) {
       const nameConstant = nameMatch[1];
@@ -422,7 +420,7 @@ export function extractAllLocations(): Record<string, LocationData> {
             locations[locationKey] = {
               id: -1, // Non-landmark locations get -1 ID
               name: locationKey,
-              displayName: formatDisplayName(locationKey),
+              displayName: formatDisplayName(normalizeLocationKey(locationKey)),
               region: inferLocationRegion(locationKey),
               x: -1, // No coordinates for non-landmark locations
               y: -1,
@@ -474,7 +472,7 @@ export function extractAllLocations(): Record<string, LocationData> {
         locations[locationKey] = {
           id: -1, // Non-landmark locations get -1 ID
           name: locationKey,
-          displayName: formatDisplayName(locationKey),
+          displayName: formatDisplayName(normalizeLocationKey(locationKey)),
           region: inferLocationRegion(locationKey),
           x: -1, // No coordinates for non-landmark locations
           y: -1,
@@ -582,7 +580,7 @@ export function extractAllLocations(): Record<string, LocationData> {
       locationData.displayName = displayNameMap[nameConstant];
     } else {
       // Fallback: convert constant name to readable format
-      locationData.displayName = formatDisplayName(locationKey);
+      locationData.displayName = formatDisplayName(normalizeLocationKey(locationKey));
     }
   }
 
@@ -748,7 +746,51 @@ export function extractAllLocations(): Record<string, LocationData> {
     if (locations[locationKey]) {
       locations[locationKey].items = items;
     } else {
-      console.log(`⚠️  Items found for unknown location: ${locationKey}`);
+      // Try to find a parent location by removing floor suffixes and other modifiers
+      let parentLocationKey: string | null = null;
+
+      // Remove floor suffixes like '_1f', '_b1f', etc.
+      const withoutFloor = locationKey.replace(/_[b]?\d+f$/, '');
+      if (withoutFloor !== locationKey && locations[withoutFloor]) {
+        parentLocationKey = withoutFloor;
+      }
+
+      // Remove additional modifiers like '_north', '_south', '_entrance', etc.
+      if (!parentLocationKey) {
+        const withoutModifiers = locationKey.replace(
+          /_(north|south|east|west|entrance|inside|outside|gate)$/,
+          '',
+        );
+        if (withoutModifiers !== locationKey && locations[withoutModifiers]) {
+          parentLocationKey = withoutModifiers;
+        }
+      }
+
+      if (parentLocationKey) {
+        // Merge items with existing items in parent location
+        if (!locations[parentLocationKey].items) {
+          locations[parentLocationKey].items = [];
+        }
+        locations[parentLocationKey].items!.push(...items);
+        console.log(
+          `✅ Merged ${items.length} items from ${locationKey} into parent location ${parentLocationKey}`,
+        );
+      } else {
+        // Create a new non-landmark location entry for this map-only location
+        const region = inferLocationRegion(locationKey);
+        locations[locationKey] = {
+          id: -1, // Non-landmark locations get -1 ID
+          name: locationKey,
+          displayName: formatDisplayName(normalizeLocationKey(locationKey)),
+          region,
+          x: -1,
+          y: -1,
+          flyable: false,
+          connections: [],
+          items: items,
+        };
+        console.log(`✅ Created new location entry for ${locationKey} with ${items.length} items`);
+      }
     }
   }
 
@@ -1888,6 +1930,17 @@ export async function exportAllLocations() {
         {} as Record<string, LocationData>,
       );
 
+    // Final cleanup: Remove any quotes from display names throughout all locations
+    Object.values(sortedLocations).forEach((location) => {
+      if (location.displayName) {
+        // Remove surrounding quotes and escaped quotes
+        location.displayName = location.displayName
+          .replace(/^"(.*)"$/, '$1') // Remove surrounding quotes
+          .replace(/\\"/g, '"') // Unescape any escaped quotes
+          .replace(/^"(.*)"$/, '$1'); // Remove any remaining surrounding quotes
+      }
+    });
+
     // Export as both object format (for compatibility) and ordered array format (to preserve order)
     const outputPath = path.join(__dirname, 'output/all_locations.json');
     await fs.promises.writeFile(outputPath, JSON.stringify(sortedLocations, null, 2));
@@ -2048,4 +2101,239 @@ export function extractLocationItems(): Record<string, LocationItem[]> {
   );
 
   return itemsByLocation;
+}
+// --- Map Items Integration with Items Data ---
+export function integrateMapItemsWithItemsData(): void {
+  console.log('🗺️ Integrating map-based item locations with items data...');
+
+  // Path to items data file
+  const itemsDataPath = path.join(__dirname, 'output/items_data.json');
+
+  if (!fs.existsSync(itemsDataPath)) {
+    console.warn('Items data file not found, skipping map items integration');
+    return;
+  }
+
+  // Load existing items data
+  let itemsData: Record<
+    string,
+    {
+      id: string;
+      name?: string;
+      description?: string;
+      attributes?: Record<string, unknown>;
+      locations?: Array<{ area: string; details: string; coordinates?: { x: number; y: number } }>;
+      [key: string]: unknown;
+    }
+  > = {};
+  try {
+    itemsData = JSON.parse(fs.readFileSync(itemsDataPath, 'utf8'));
+  } catch (error) {
+    console.error('Error reading items data:', error);
+    return;
+  }
+
+  // Load the extracted location data to get proper display names
+  const allLocationsPath = path.join(__dirname, 'output/all_locations.json');
+  let allLocations: Record<string, { displayName: string }> = {};
+
+  if (fs.existsSync(allLocationsPath)) {
+    try {
+      allLocations = JSON.parse(fs.readFileSync(allLocationsPath, 'utf8'));
+    } catch (error) {
+      console.warn('Could not load all_locations.json for display names:', error);
+    }
+  }
+
+  // Extract all map-based items from locations
+  const itemsByLocation = extractLocationItems();
+
+  // Create a map of item names to their locations
+  const mapItemLocations: Record<
+    string,
+    Array<{ area: string; details: string; coordinates?: { x: number; y: number } }>
+  > = {};
+
+  for (const [locationKey, items] of Object.entries(itemsByLocation)) {
+    // First normalize the location key for consistent lookup
+    const normalizedLocationKey = normalizeLocationKey(locationKey);
+    let locationDisplayName = '';
+
+    // Try to find the display name in the extracted locations
+    if (allLocations[normalizedLocationKey]?.displayName) {
+      const candidateDisplayName = allLocations[normalizedLocationKey].displayName;
+      // If the display name looks like a normalized key (lowercase + numbers), reformat it
+      if (/^[a-z0-9_]+$/.test(candidateDisplayName)) {
+        locationDisplayName = formatDisplayName(normalizedLocationKey);
+      } else {
+        locationDisplayName = candidateDisplayName;
+      }
+    } else if (allLocations[locationKey]?.displayName) {
+      const candidateDisplayName = allLocations[locationKey].displayName;
+      // If the display name looks like a normalized key (lowercase + numbers), reformat it
+      if (/^[a-z0-9_]+$/.test(candidateDisplayName)) {
+        locationDisplayName = formatDisplayName(normalizedLocationKey);
+      } else {
+        locationDisplayName = candidateDisplayName;
+      }
+    } else {
+      // Fallback to our formatDisplayName function
+      locationDisplayName = formatDisplayName(normalizedLocationKey);
+    }
+
+    console.log(
+      `Processing location: ${locationKey} → normalized: ${normalizedLocationKey} → display: ${locationDisplayName}`,
+    );
+
+    for (const item of items) {
+      const itemName = item.name.toLowerCase();
+
+      if (!mapItemLocations[itemName]) {
+        mapItemLocations[itemName] = [];
+      }
+
+      // Determine details based on item type
+      let details = '';
+      if (item.type === 'hiddenItem') {
+        details = 'Hidden item';
+      } else if (item.type === 'item') {
+        details = 'Visible item';
+      } else if (item.type === 'tmHm') {
+        details = 'TM/HM location';
+      }
+
+      mapItemLocations[itemName].push({
+        area: locationDisplayName,
+        details: details,
+        coordinates: item.coordinates,
+      });
+    }
+  }
+
+  // Now integrate map locations into existing items data
+  let itemsUpdated = 0;
+  let newLocationsAdded = 0;
+
+  for (const [itemId, itemData] of Object.entries(itemsData)) {
+    const itemName = itemData.name?.toLowerCase() || itemId.toLowerCase();
+
+    // Try to match by different name variations
+    const possibleNames = [
+      itemName,
+      itemName.replace(/[éèê]/g, 'e'), // Handle accented characters
+      itemName.replace(/\s+/g, ''), // Remove spaces
+      itemName.replace(/[^\w\s]/g, ''), // Remove special characters
+      itemId.toLowerCase(),
+      itemId.toLowerCase().replace(/-/g, ' '), // Convert kebab-case to spaces
+    ];
+
+    for (const name of possibleNames) {
+      if (mapItemLocations[name]) {
+        // Ensure locations array exists
+        if (!itemData.locations) {
+          itemData.locations = [];
+        }
+
+        // Add map locations, avoiding duplicates
+        for (const mapLocation of mapItemLocations[name]) {
+          const isDuplicate = itemData.locations?.some(
+            (loc) => loc.area === mapLocation.area && loc.details === mapLocation.details,
+          );
+
+          if (!isDuplicate) {
+            itemData.locations.push(mapLocation);
+            newLocationsAdded++;
+          }
+        }
+
+        itemsUpdated++;
+        break; // Found a match, stop trying other name variations
+      }
+    }
+  }
+
+  // Write updated items data back to file
+  try {
+    fs.writeFileSync(itemsDataPath, JSON.stringify(itemsData, null, 2));
+    console.log(`✅ Map items integration complete:`);
+    console.log(`   📊 ${itemsUpdated} items updated with map locations`);
+    console.log(`   📍 ${newLocationsAdded} new map locations added`);
+    console.log(`   🗺️ Found ${Object.keys(mapItemLocations).length} unique items on maps`);
+  } catch (error) {
+    console.error('Error writing updated items data:', error);
+  }
+}
+
+// --- Cleanup function to replace normalized location names with proper display names ---
+export function cleanupLocationNamesInItemsData(): void {
+  console.log('🧹 Cleaning up normalized location names in items data...');
+
+  const itemsDataPath = path.join(__dirname, 'output/items_data.json');
+
+  if (!fs.existsSync(itemsDataPath)) {
+    console.warn('Items data file not found, skipping cleanup');
+    return;
+  }
+
+  // Load existing items data
+  let itemsData: Record<
+    string,
+    {
+      id: string;
+      name?: string;
+      description?: string;
+      attributes?: Record<string, unknown>;
+      locations?: Array<{ area: string; details: string; coordinates?: { x: number; y: number } }>;
+      [key: string]: unknown;
+    }
+  > = {};
+
+  try {
+    itemsData = JSON.parse(fs.readFileSync(itemsDataPath, 'utf8'));
+  } catch (error) {
+    console.error('Error reading items data:', error);
+    return;
+  }
+
+  let locationsUpdated = 0;
+
+  // Process each item
+  for (const itemData of Object.values(itemsData)) {
+    if (!itemData.locations || !Array.isArray(itemData.locations)) {
+      continue;
+    }
+
+    // Update locations with normalized area names
+    for (const location of itemData.locations) {
+      // Check if the area name looks like a normalized key (lowercase + numbers/underscores)
+      if (/^[a-z0-9_]+$/.test(location.area)) {
+        const formattedName = formatDisplayName(location.area);
+        if (formattedName !== location.area) {
+          console.log(`Updating "${location.area}" → "${formattedName}"`);
+          location.area = formattedName;
+          locationsUpdated++;
+        }
+      }
+    }
+  }
+
+  // Write updated items data back to file
+  try {
+    fs.writeFileSync(itemsDataPath, JSON.stringify(itemsData, null, 2));
+    console.log(`✅ Location names cleanup complete: ${locationsUpdated} locations updated`);
+  } catch (error) {
+    console.error('Error writing updated items data:', error);
+  }
+}
+
+// Run if called directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  exportAllLocations()
+    .then(() => {
+      // After exporting locations, integrate map items with items data
+      integrateMapItemsWithItemsData();
+      // Clean up any remaining normalized location names
+      cleanupLocationNamesInItemsData();
+    })
+    .catch(console.error);
 }
