@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { LocationTrainer } from '@/types/types';
+import Image from 'next/image';
 
 interface TrainerCardProps {
   trainer: LocationTrainer;
@@ -11,10 +12,12 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
       <div className="flex items-start gap-4">
         {/* Trainer Icon with better styling */}
         <div className="flex-shrink-0">
-          <div className="w-10 h-10 bg-gradient-to-br from-red-100 to-red-200 dark:from-red-800 dark:to-red-900 rounded-full flex items-center justify-center border-2 border-red-200 dark:border-red-700">
-            <span className="text-lg" aria-hidden="true">
-              👤
-            </span>
+          <div className="w-16 h-16 relative">
+            <Image
+              src={`/sprites/trainers/${trainer.trainerClass.toLowerCase()}.png`}
+              alt={trainer.name}
+              fill
+            />
           </div>
         </div>
 
