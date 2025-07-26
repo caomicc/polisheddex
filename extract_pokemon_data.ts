@@ -926,7 +926,11 @@ for (const file of baseStatsFiles) {
   } else if (formName && formName !== null) {
     // Handle form-specific types
     const baseTypeName = toTitleCase(basePokemonName);
-    const formTypeName = toTitleCase(formName);
+    const formTypeName = formName;
+
+    console.log(
+      `DEBUG: Processing form-specific types for ${fileName} as form ${formTypeName} for ${basePokemonName}`,
+    );
 
     // If the base type doesn't exist in the map yet, initialize it
     if (!formTypeMap[baseTypeName]) {
@@ -938,6 +942,11 @@ for (const file of baseStatsFiles) {
       types: faithfulTypes || ['None', 'None'],
       updatedTypes: updatedTypes || ['None', 'None'], // Don't fall back to faithfulTypes
     };
+
+    console.log(
+      `DEBUG: Form-specific types for ${baseTypeName} (${formTypeName}):`,
+      formTypeMap[baseTypeName][formTypeName],
+    );
 
     if (isDebug) {
       console.log(
@@ -1135,23 +1144,24 @@ for (const mon of Object.keys(movesetData)) {
   let formName: string | null = null;
 
   // Check if this is a form by checking for known form suffixes
-  for (const form of Object.values(KNOWN_FORMS)) {
-    if (isDebug) {
-      console.log(`DEBUG: Checking form suffix: ${form} for Pokémon: ${mon}`);
-      console.log(
-        `DEBUG: mon.toLowerCase().endsWith(form.toLowerCase()): ${mon.toLowerCase().endsWith(form.toLowerCase())}`,
-      );
-    }
-    if (mon.toLowerCase().endsWith(form.toLowerCase())) {
-      basePokemonName = mon.substring(0, mon.length - form.length);
-      formName = form;
-      if (isDebug) {
-        console.log(`DEBUG: Found form suffix: ${form} for Pokémon: ${mon}`);
-        console.log(`DEBUG: Base Pokémon name: ${basePokemonName}, Form name: ${formName}`);
-      }
-      break;
-    }
-  }
+  // for (const form of Object.values(KNOWN_FORMS)) {
+  //   console.log(`DEBUG: Checking form suffix: ${form} for Pokémon: ${mon}`);
+  //   if (isDebug) {
+  //     console.log(`DEBUG: Checking form suffix: ${form} for Pokémon: ${mon}`);
+  //     console.log(
+  //       `DEBUG: mon.toLowerCase().endsWith(form.toLowerCase()): ${mon.toLowerCase().endsWith(form.toLowerCase())}`,
+  //     );
+  //   }
+  //   if (mon.toLowerCase().endsWith(form.toLowerCase())) {
+  //     basePokemonName = mon.substring(0, mon.length - form.length);
+  //     formName = form;
+  //     if (isDebug) {
+  //       console.log(`DEBUG: Found form suffix: ${form} for Pokémon: ${mon}`);
+  //       console.log(`DEBUG: Base Pokémon name: ${basePokemonName}, Form name: ${formName}`);
+  //     }
+  //     break;
+  //   }
+  // }
 
   // Get types based on whether this is a base form or a special form
   let faithfulTypes: string[] = ['None'];
@@ -1159,15 +1169,13 @@ for (const mon of Object.keys(movesetData)) {
 
   if (formName && formName !== KNOWN_FORMS.PLAIN) {
     // This is a special form like alolan, galarian, etc.
-    if (isDebug) {
-      console.log(
-        `DEBUG: Processing form-specific Pokémon: ${mon} (base: ${basePokemonName}, form: ${formName})`,
-      );
-      console.log(
-        `DEBUG: formName && formName !== KNOWN_FORMS.PLAIN:`,
-        formName && formName !== KNOWN_FORMS.PLAIN,
-      );
-    }
+    console.log(
+      `DEBUG: Processing form-specific Pokémon: ${mon} (base: ${basePokemonName}, form: ${formName})`,
+    );
+    console.log(
+      `DEBUG: formName && formName !== KNOWN_FORMS.PLAIN:`,
+      formName && formName !== KNOWN_FORMS.PLAIN,
+    );
     if (formTypeMap[basePokemonName] && formTypeMap[basePokemonName][formName]) {
       if (isDebug) {
         console.log(
@@ -3014,12 +3022,18 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
 
     // Get form type data, with fallbacks to detailed stats
     let formTypeData: string | string[] = [];
+    console.log(
+      `Getting form type data for ${titleCaseFormName} (${normKey}) in ${pokemonName}, baseData.types:`,
+      baseData.types,
+    );
     if (formTypeMap[pokemonName] && formTypeMap[pokemonName][titleCaseFormName]) {
       formTypeData = formTypeMap[pokemonName][titleCaseFormName].types;
     } else if (formStats.types) {
       // Fall back to types from detailed stats if not in formTypeMap
       formTypeData = Array.isArray(formStats.types) ? formStats.types : [formStats.types];
     }
+
+    console.log(formTypeMap);
 
     console.log(`formStats data for ${titleCaseFormName}:`, formStats);
     // Compose a full DetailedStats-like object for the form, but nest under detailedStats
