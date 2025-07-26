@@ -26,7 +26,14 @@ export default function PokemonFormSelect({
             .filter((form) => form !== 'plain' && form.trim() !== '')
             .map((form) => (
               <SelectItem key={form} value={form}>
-                {form.charAt(0).toUpperCase() + form.slice(1)}
+                {form
+                  .split('_')
+                  .map((word, idx, arr) =>
+                    idx === arr.length - 1 && arr.length > 1
+                      ? `(${word.charAt(0).toUpperCase() + word.slice(1)})`
+                      : word.charAt(0).toUpperCase() + word.slice(1),
+                  )
+                  .join(' ')}
               </SelectItem>
             ))}
         </SelectContent>
