@@ -48,27 +48,38 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
       )}
       role="contentinfo"
     >
-      <div>
-        <span className="text-sm text-gray-500 dark:text-gray-400 ">
+      <div className="flex flex-col md:flex-row md:items-center gap-1">
+        <span className="text-sm text-gray-500 dark:text-gray-400">
           &copy; {new Date().getFullYear()} PolishedDex. All rights reserved.
-        </span>{' '}
+        </span>
         <span className="text-sm text-gray-500 dark:text-gray-400">
           Made by{' '}
           <a
             href="https://caomi.cc"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-gray-600 dark:text-gray-300"
+            className="text-sm text-gray-600 dark:text-gray-300 underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
-            {' '}
             Cammy
           </a>
           .
         </span>
       </div>
       <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-400 dark:text-gray-500">
-          Last updated: {getLastUpdatedDate()}
+        <span className="text-sm text-gray-500 dark:text-gray-400">
+          Found a bug?{' '}
+          <a
+            href="https://github.com/caomicc/polisheddex/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
+            Submit an issue on Github
+          </a>{' '}
+          😊
+        </span>
+        <span className="text-sm text-gray-400 dark:text-gray-500">
+          Last built: {getLastUpdatedDate()}
         </span>
       </div>
     </footer>
