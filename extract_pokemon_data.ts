@@ -2956,7 +2956,7 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
     }
 
     const normKey = formName.trim().toLowerCase();
-    const titleCaseFormName = toTitleCase(formName.trim());
+    const titleCaseFormName = formName.trim();
 
     console.log(
       `Processing form file: ${formFile}, ${formName} for ${pokemonName} (${normKey}), titleCase: ${titleCaseFormName}`,

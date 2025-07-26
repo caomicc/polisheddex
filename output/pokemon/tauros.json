@@ -1189,9 +1189,9 @@
     }
   },
   "forms": {
-    "Paldean": {
+    "paldean": {
       "name": "tauros paldean",
-      "formName": "Paldean",
+      "formName": "paldean",
       "nationalDex": 128,
       "johtoDex": 162,
       "types": [
@@ -1883,9 +1883,289 @@
         }
       ]
     },
-    "": {
+    "paldean_fire": {
+      "name": "tauros paldean_fire",
+      "formName": "paldean_fire",
+      "nationalDex": 128,
+      "johtoDex": 162,
+      "types": [
+        "Unknown"
+      ],
+      "updatedTypes": [
+        "Unknown"
+      ],
+      "frontSpriteUrl": "/sprites/pokemon/tauros_paldean_fire/front_cropped.png",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 3,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 5,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Horn Attack",
+          "level": 8,
+          "info": {
+            "description": "An attack using a horn to jab.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 11,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 0,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 15,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rest",
+          "level": 19,
+          "info": {
+            "description": "Sleep for 2 turns to fully recover.",
+            "type": "Psychic",
+            "pp": 5,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 24,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 29,
+          "info": {
+            "description": "Raises the criti- cal hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 0,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 35,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "level": 41,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swagger",
+          "level": 48,
+          "info": {
+            "description": "Causes confusion but raises Attack.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 0,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 55,
+          "info": {
+            "description": "",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 63,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "level": 71,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 80,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "detailedStats": {
+        "baseStats": {
+          "hp": 75,
+          "attack": 110,
+          "defense": 105,
+          "speed": 100,
+          "specialAttack": 30,
+          "specialDefense": 70,
+          "total": 490
+        },
+        "catchRate": 45,
+        "baseExp": 211,
+        "heldItems": [],
+        "genderRatio": {
+          "male": 100,
+          "female": 0
+        },
+        "hatchRate": "Medium-Fast (5,120 steps)",
+        "abilities": [
+          {
+            "name": "Intimidate",
+            "description": "\tLowers the foe's \tAttack stat.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Anger Point",
+            "description": "\tMaxes Attack after \ta critical hit.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Cud Chew",
+            "description": "\tEats a Berry again \tafter first use.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "faithfulAbilities": [
+          {
+            "name": "Intimidate",
+            "description": "\tLowers the foe's \tAttack stat.",
+            "isHidden": false,
+            "abilityType": "primary"
+          },
+          {
+            "name": "Anger Point",
+            "description": "\tMaxes Attack after \ta critical hit.",
+            "isHidden": false,
+            "abilityType": "secondary"
+          },
+          {
+            "name": "Cud Chew",
+            "description": "\tEats a Berry again \tafter first use.",
+            "isHidden": true,
+            "abilityType": "hidden"
+          }
+        ],
+        "updatedAbilities": [],
+        "growthRate": "Slow",
+        "eggGroups": [
+          "Field",
+          "Field"
+        ],
+        "evYield": "1 Atk",
+        "types": "Unknown",
+        "updatedTypes": "Unknown",
+        "locations": [],
+        "height": 14,
+        "weight": 1100,
+        "bodyColor": "Black",
+        "bodyShape": "Quadruped"
+      }
+    },
+    "paldean_water": {
       "name": "tauros paldean_water",
-      "formName": "",
+      "formName": "paldean_water",
       "nationalDex": 128,
       "johtoDex": 162,
       "types": [
@@ -2163,9 +2443,9 @@
         "bodyShape": "Quadruped"
       }
     },
-    "Plain": {
+    "plain": {
       "name": "tauros plain",
-      "formName": "Plain",
+      "formName": "plain",
       "nationalDex": 128,
       "johtoDex": 162,
       "types": [],
