@@ -168,35 +168,35 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
     pageCount: Math.ceil(filteredData.length / pageSize),
   });
 
-  // // Save non-URL state to localStorage whenever it changes
-  // React.useEffect(() => {
-  //   if (typeof window === 'undefined') return;
+  // Save non-URL state to localStorage whenever it changes
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
 
-  //   // Skip saving on initial render if we just loaded from storage
-  //   const isInitialLoad =
-  //     !storedState ||
-  //     (JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
-  //       JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters));
+    // Skip saving on initial render if we just loaded from storage
+    const isInitialLoad =
+      !storedState ||
+      (JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
+        JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters));
 
-  //   if (isInitialLoad) return;
+    if (isInitialLoad) return;
 
-  //   const stateToSave = {
-  //     sorting,
-  //     columnFilters,
-  //     columnVisibility,
-  //   };
+    const stateToSave = {
+      sorting,
+      columnFilters,
+      columnVisibility,
+    };
 
-  //   try {
-  //     localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
-  //   } catch (error) {
-  //     console.warn('Failed to save table state to localStorage:', error);
-  //   }
-  // }, [sorting, columnFilters, columnVisibility, storedState]);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
+    } catch (error) {
+      console.warn('Failed to save table state to localStorage:', error);
+    }
+  }, [sorting, columnFilters, columnVisibility, storedState]);
 
   // Reset page to 0 when filters change
-  // React.useEffect(() => {
-  //   setPagination({ pageIndex: 0 });
-  // }, [columnFilters, tmhm, price, locations, category, setPagination]);
+  React.useEffect(() => {
+    setPagination({ pageIndex: 0 });
+  }, [columnFilters, tmhm, price, locations, category, setPagination]);
 
   return (
     <div className="w-full px-2 sm:px-0">
