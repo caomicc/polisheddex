@@ -25,10 +25,13 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
           {/* Enhanced Trainer Header */}
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">
-              {trainer.trainerClass} {trainer.name}
+              <span className="capitalize">
+                {trainer.trainerClass.replace(/_/g, ' ').toLowerCase()}
+              </span>{' '}
+              {trainer.name}
             </h3>
             <div className="flex items-center gap-2">
-              <div className="text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-md border">
+              {/* <div className="text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-md border">
                 <span className="sr-only">Position:</span>
                 <span aria-hidden="true">📍</span>
                 {trainer.possibleCoordinates && trainer.possibleCoordinates.length > 1 ? (
@@ -42,7 +45,7 @@ export default function TrainerCard({ trainer }: TrainerCardProps) {
                     ({trainer.coordinates.x}, {trainer.coordinates.y})
                   </>
                 )}
-              </div>
+              </div> */}
               {trainer.rematchable && (
                 <div className="text-xs text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded-md border border-green-200 dark:border-green-800">
                   <span aria-hidden="true">🔄</span> Rematchable
