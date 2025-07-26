@@ -2,8 +2,10 @@ import * as fs from 'fs';
 import * as path from 'path';
 import sharp from 'sharp';
 
-const SPRITE_DIR = 'polishedcrystal/gfx/pokemon/'; // Directory containing front.png files
-const OUTPUT_DIR = 'public/sprites/pokemon/'; // Where to save cropped PNGs
+const POKEMON_SPRITE_DIR = 'polishedcrystal/gfx/pokemon/'; // Directory containing front.png files
+const POKEMON_OUTPUT_DIR = 'public/sprites/pokemon/'; // Where to save cropped PNGs
+const TRAINER_SPRITE_DIR = 'polishedcrystal/gfx/trainers/'; // Directory containing trainer.png files
+const TRAINER_OUTPUT_DIR = 'public/sprites/trainers/'; // Where to save cropped trainer PNGs
 
 async function autodetectAndCropSprite(filePath: string, outPath: string) {
   const image = sharp(filePath);
@@ -61,16 +63,52 @@ function findAllFrontPngs(dir: string): string[] {
 }
 
 async function processAllSprites() {
-  if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR);
-  const files = findAllFrontPngs(SPRITE_DIR);
+  if (!fs.existsSync(POKEMON_OUTPUT_DIR)) fs.mkdirSync(POKEMON_OUTPUT_DIR);
+  const files = findAllFrontPngs(POKEMON_SPRITE_DIR);
   for (const filePath of files) {
     // Preserve subdirectory structure in output, but remove '_plain' from any part of the path
-    const relPath = path.relative(SPRITE_DIR, filePath).replace(/_plain/g, '');
-    const outPath = path.join(OUTPUT_DIR, relPath.replace('front.png', 'front_cropped.png'));
+    const relPath = path.relative(POKEMON_SPRITE_DIR, filePath).replace(/_plain/g, '');
+    const outPath = path.join(
+      POKEMON_OUTPUT_DIR,
+      relPath.replace('front.png', 'front_cropped.png'),
+    );
     const outDir = path.dirname(outPath);
     if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
     await autodetectAndCropSprite(filePath, outPath);
   }
 }
 
-processAllSprites().catch(console.error);
+function findAllTrainerPngs(dir: string): string[] {
+  let results: string[] = [];
+  const list = fs.readdirSync(dir);
+  for (const file of list) {
+    const filePath = path.join(dir, file);
+    console.log(`DEBUG: Checking ${filePath}`);
+    const stat = fs.statSync(filePath);
+    if (stat && stat.isDirectory()) {
+      results = results.concat(findAllTrainerPngs(filePath));
+    } else if (file.endsWith('.png')) {
+      results.push(filePath);
+    }
+  }
+  console.log(`DEBUG: Found ${results.length} trainer sprites`);
+  return results;
+}
+
+async function processTrainerSprites() {
+  console.log('Processing trainer sprites...');
+  if (!fs.existsSync(TRAINER_OUTPUT_DIR)) fs.mkdirSync(TRAINER_OUTPUT_DIR);
+  const files = findAllTrainerPngs(TRAINER_SPRITE_DIR);
+  for (const filePath of files) {
+    const relPath = path.relative(TRAINER_SPRITE_DIR, filePath);
+    const outPath = path.join(
+      TRAINER_OUTPUT_DIR,
+      relPath.replace('trainer.png', 'trainer_cropped.png'),
+    );
+    const outDir = path.dirname(outPath);
+    if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+    await autodetectAndCropSprite(filePath, outPath);
+  }
+}
+
+processAllSprites().then(processTrainerSprites).catch(console.error);
