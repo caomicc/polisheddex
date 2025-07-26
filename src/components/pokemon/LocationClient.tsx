@@ -13,12 +13,11 @@ import {
   PokemonEncounter,
 } from '@/types/types';
 import { GroupedPokemon } from '@/types/locationTypes';
-import TrainerCard from '../trainer/TrainerCard';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import { Badge } from '../ui/badge';
-import GymLeaderCard from '../trainer/GymLeaderCard';
 import { PokemonDataTable } from './pokemon-data-table';
 import { pokemonColumns } from './pokemon-columns';
+import TrainerCard from '../trainer/TrainerCard';
 
 export default function LocationClient({
   comprehensiveInfo,
@@ -242,7 +241,7 @@ export default function LocationClient({
               <div className="space-y-6 mb-12">
                 <h3 className="text-lg font-semibold">Gym Leader:</h3>
                 <div className="grid gap-6">
-                  <GymLeaderCard gymLeader={comprehensiveInfo.gymLeader} />
+                  <TrainerCard trainer={comprehensiveInfo.gymLeader} isGymLeader />
                 </div>
               </div>
             ) : null}
