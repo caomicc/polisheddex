@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import Link from 'next/link';
 import { Hero } from '@/components/ui/Hero';
+import { normalizeLocationKey } from '@/utils/locationUtils';
 
 interface ItemPageProps {
   params: Promise<{ name: string }>;
@@ -156,11 +157,26 @@ function RegularItemDetails({ item }: { item: import('@/types/types').ItemData }
                 {method}
               </h3>
               <ul className="space-y-1">
-                {areas.map((area, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400 text-sm pl-2">
-                    • {area}
-                  </li>
-                ))}
+                {areas.map((area, index) => {
+                  const shouldLink =
+                    method.toLowerCase() === 'hidden item' ||
+                    method.toLowerCase() === 'visible item';
+                  return (
+                    <li key={index} className="text-gray-600 dark:text-gray-400 text-sm pl-2">
+                      •{' '}
+                      {shouldLink ? (
+                        <Link
+                          href={`/locations/${normalizeLocationKey(area)}`}
+                          className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors"
+                        >
+                          {area}
+                        </Link>
+                      ) : (
+                        <span>{area}</span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -214,7 +230,12 @@ function TMHMItemDetails({ item }: { item: import('@/types/types').TMHMData }) {
         <h2 className="text-xl font-semibold mb-4">Location</h2>
         <div className="space-y-2">
           <div>
-            <h3 className="font-medium text-blue-600 dark:text-blue-400">{item.location.area}</h3>
+            <Link
+              href={`/locations/${normalizeLocationKey(item.location.area)}`}
+              className="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline transition-colors"
+            >
+              {item.location.area}
+            </Link>
             {item.location.details && (
               <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
                 {item.location.details}
