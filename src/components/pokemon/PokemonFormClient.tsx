@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { MoveRow, LocationListItem } from '@/components/pokemon';
 import { FormData, Move, MoveDescription, LocationEntry } from '@/types/types';
@@ -17,6 +17,7 @@ import PokemonTypeSetter from './PokemonTypeSetter';
 import SectionCard from './SectionCard';
 import { Switch } from '../ui/switch';
 import { Label } from '../ui/label';
+import { useQueryState } from 'nuqs';
 
 // Helper function to deduplicate moves based on name and level
 function deduplicateMoves(moves: Move[]): Move[] {
@@ -42,29 +43,33 @@ export default function PokemonFormClient({
   moveDescData: Record<string, MoveDescription>;
   pokemonName: string;
 }) {
-  const [selectedForm, setSelectedForm] = useState('default');
-  const [activeTab, setActiveTab] = useState('about');
+  const [selectedForm, setSelectedForm] = useQueryState('form', {
+    defaultValue: 'default',
+  });
+  const [activeTab, setActiveTab] = useQueryState('tab', {
+    defaultValue: 'stats',
+  });
   const [showFaithfulMoves, setShowFaithfulMoves] = useState(false);
 
-  // Load saved tab from localStorage on component mount
-  useEffect(() => {
-    const savedTab = localStorage.getItem('pokemonActiveTab');
-    if (savedTab) {
-      setActiveTab(savedTab);
-    }
+  // // Load saved tab from localStorage on component mount
+  // useEffect(() => {
+  //   const savedTab = localStorage.getItem('pokemonActiveTab');
+  //   if (savedTab) {
+  //     setActiveTab(savedTab);
+  //   }
 
-    // Load faithful/updated toggle preference
-    const savedMoveMode = localStorage.getItem('pokemonMoveMode');
-    if (savedMoveMode === 'faithful') {
-      setShowFaithfulMoves(true);
-    }
-  }, []);
+  //   // Load faithful/updated toggle preference
+  //   const savedMoveMode = localStorage.getItem('pokemonMoveMode');
+  //   if (savedMoveMode === 'faithful') {
+  //     setShowFaithfulMoves(true);
+  //   }
+  // }, []);
 
-  // Save tab to localStorage when it changes
-  const handleTabChange = (value: string) => {
-    setActiveTab(value);
-    localStorage.setItem('pokemonActiveTab', value);
-  };
+  // // Save tab to localStorage when it changes
+  // const handleTabChange = (value: string) => {
+  //   setActiveTab(value);
+  //   localStorage.setItem('pokemonActiveTab', value);
+  // };
 
   // Save move mode preference
   const handleMoveToggle = (faithful: boolean) => {
@@ -110,21 +115,24 @@ export default function PokemonFormClient({
           usePolished={true}
         />
 
-        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+        <Tabs
+          defaultValue={activeTab}
+          onValueChange={(value) => setActiveTab(value)}
+          className="w-full"
+        >
           <TabsList className={cn(`w-full`, 'pokemon-tab-background')}>
-            <TabsTrigger className="pokemon-hero-text" value="about">
-              About
+            <TabsTrigger className="pokemon-hero-text" value="stats">
+              Stats
             </TabsTrigger>
-            {/* <TabsTrigger value="stats">Stats</TabsTrigger> */}
             <TabsTrigger className="pokemon-hero-text" value="moves">
               Moves
             </TabsTrigger>
-            <TabsTrigger className="pokemon-hero-text" value="evolution">
+            <TabsTrigger className="pokemon-hero-text" value="location">
               Location
             </TabsTrigger>
           </TabsList>
           <TabsContent
-            value="about"
+            value="stats"
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
             <SectionCard headline={'Base Stats'}>
@@ -766,7 +774,7 @@ export default function PokemonFormClient({
             </SectionCard>
           </TabsContent>
           <TabsContent
-            value="evolution"
+            value="location"
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
             <SectionCard headline={'Locations'}>

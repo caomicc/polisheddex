@@ -18,6 +18,7 @@ import { Badge } from '../ui/badge';
 import { PokemonDataTable } from './pokemon-data-table';
 import { pokemonColumns } from './pokemon-columns';
 import TrainerCard from '../trainer/TrainerCard';
+import { useQueryState } from 'nuqs';
 
 export default function LocationClient({
   comprehensiveInfo,
@@ -69,33 +70,10 @@ export default function LocationClient({
     return areaGroups;
   };
 
-  // Determine the initial tab based on available data
-  // const getInitialTab = () => {
-  //   if (Object.keys(groupedPokemonData).length > 0) return 'pokemon';
-  //   if (comprehensiveInfo?.items && comprehensiveInfo.items.length > 0) return 'items';
-  //   if (comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0) return 'trainers';
-  //   if (comprehensiveInfo?.events && comprehensiveInfo.events.length > 0) return 'events';
-  //   if (comprehensiveInfo?.trades && comprehensiveInfo.trades.length > 0) return 'trades';
-  //   return 'about';
-  // };
-
-  console.log('LocationClient - comprehensiveInfo:', groupedPokemonData);
-
-  // const [activeTab, setActiveTab] = useState(getInitialTab());
-
-  // Load saved tab from localStorage on component mount
-  // useEffect(() => {
-  //   const savedTab = localStorage.getItem('locationActiveTab');
-  //   if (savedTab) {
-  //     setActiveTab(savedTab);
-  //   }
-  // }, []);
-
-  // // Save tab to localStorage when it changes
-  // const handleTabChange = (value: string) => {
-  //   setActiveTab(value);
-  //   localStorage.setItem('locationActiveTab', value);
-  // };
+  // Use nuqs to manage active tab state in the URL
+  const [activeTab, setActiveTab] = useQueryState('tab', {
+    defaultValue: 'pokemon',
+  });
 
   return (
     <>
@@ -125,7 +103,11 @@ export default function LocationClient({
         </div>
       )}
 
-      <Tabs className="w-full" defaultValue={'pokemon'}>
+      <Tabs
+        className="w-full"
+        defaultValue={activeTab}
+        onValueChange={(value) => setActiveTab(value)}
+      >
         <TabsList className="w-full">
           <TabsTrigger value="pokemon">Pokemon</TabsTrigger>
           {comprehensiveInfo?.items && comprehensiveInfo.items.length > 0 && (
