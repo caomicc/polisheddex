@@ -1143,26 +1143,6 @@ for (const mon of Object.keys(movesetData)) {
 
   let formName: string | null = null;
 
-  // Check if this is a form by checking for known form suffixes
-  // for (const form of Object.values(KNOWN_FORMS)) {
-  //   console.log(`DEBUG: Checking form suffix: ${form} for Pokémon: ${mon}`);
-  //   if (isDebug) {
-  //     console.log(`DEBUG: Checking form suffix: ${form} for Pokémon: ${mon}`);
-  //     console.log(
-  //       `DEBUG: mon.toLowerCase().endsWith(form.toLowerCase()): ${mon.toLowerCase().endsWith(form.toLowerCase())}`,
-  //     );
-  //   }
-  //   if (mon.toLowerCase().endsWith(form.toLowerCase())) {
-  //     basePokemonName = mon.substring(0, mon.length - form.length);
-  //     formName = form;
-  //     if (isDebug) {
-  //       console.log(`DEBUG: Found form suffix: ${form} for Pokémon: ${mon}`);
-  //       console.log(`DEBUG: Base Pokémon name: ${basePokemonName}, Form name: ${formName}`);
-  //     }
-  //     break;
-  //   }
-  // }
-
   // Get types based on whether this is a base form or a special form
   let faithfulTypes: string[] = ['None'];
   let updatedTypes: string[] = ['None'];
