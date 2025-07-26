@@ -53,15 +53,18 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
 /**
  * Extract trainer party data from parties.asm
  */
-function extractTrainerParties(partiesPath: string): Record<string, TrainerPokemon[]> {
+function extractTrainerParties(
+  partiesPath: string,
+): Record<string, { name: string; pokemon: TrainerPokemon[] }> {
   console.log('📋 Parsing trainer parties...');
 
   const partiesContent = fs.readFileSync(partiesPath, 'utf8');
   const lines = partiesContent.split(/\r?\n/);
 
-  const trainerParties: Record<string, TrainerPokemon[]> = {};
+  const trainerParties: Record<string, { name: string; pokemon: TrainerPokemon[] }> = {};
 
   let currentTrainerClass: string | null = null;
+  let currentTrainerId: string | null = null;
   let currentTrainerName: string | null = null;
   let currentPokemon: TrainerPokemon[] = [];
   let inTrainerSection = false;
@@ -85,13 +88,19 @@ function extractTrainerParties(partiesPath: string): Record<string, TrainerPokem
     const trainerMatch = line.match(/def_trainer\s+([A-Z0-9_]+),\s*"([^"]+)"/);
     if (trainerMatch) {
       // Save previous trainer if exists
-      if (currentTrainerClass && currentTrainerName) {
-        const trainerId = `${currentTrainerClass}_${trainerMatch[1]}`;
-        trainerParties[trainerId] = [...currentPokemon];
-        console.log(`📝 Added party for ${trainerId} with ${currentPokemon.length} pokemon`);
+      if (currentTrainerClass && currentTrainerId && currentTrainerName) {
+        const trainerKey = `${currentTrainerClass}_${currentTrainerId}`;
+        trainerParties[trainerKey] = {
+          name: currentTrainerName,
+          pokemon: [...currentPokemon],
+        };
+        console.log(
+          `📝 Added party for ${trainerKey} ("${currentTrainerName}") with ${currentPokemon.length} pokemon`,
+        );
       }
 
       // Start new trainer
+      currentTrainerId = trainerMatch[1];
       currentTrainerName = trainerMatch[2];
       currentPokemon = [];
       inTrainerSection = true;
@@ -110,16 +119,24 @@ function extractTrainerParties(partiesPath: string): Record<string, TrainerPokem
 
     // Parse trainer end
     if (line === 'end_trainer') {
+      // Save the trainer when we reach end_trainer
+      if (currentTrainerClass && currentTrainerId && currentTrainerName) {
+        const trainerKey = `${currentTrainerClass}_${currentTrainerId}`;
+        trainerParties[trainerKey] = {
+          name: currentTrainerName,
+          pokemon: [...currentPokemon],
+        };
+        console.log(
+          `📝 Added party for ${trainerKey} ("${currentTrainerName}") with ${currentPokemon.length} pokemon`,
+        );
+      }
+
       inTrainerSection = false;
+      currentTrainerId = null;
+      currentTrainerName = null;
+      currentPokemon = [];
       continue;
     }
-  }
-
-  // Don't forget the last trainer
-  if (currentTrainerClass && currentTrainerName) {
-    const lastTrainerId = `${currentTrainerClass}_${currentTrainerName.toUpperCase()}`;
-    trainerParties[lastTrainerId] = [...currentPokemon];
-    console.log(`📝 Added final party for ${lastTrainerId} with ${currentPokemon.length} pokemon`);
   }
 
   console.log(`📊 Extracted ${Object.keys(trainerParties).length} trainer parties`);
@@ -131,7 +148,7 @@ function extractTrainerParties(partiesPath: string): Record<string, TrainerPokem
  */
 function extractTrainerLocations(
   mapsDir: string,
-  trainerParties: Record<string, TrainerPokemon[]>,
+  trainerParties: Record<string, { name: string; pokemon: TrainerPokemon[] }>,
 ): Record<string, LocationTrainer[]> {
   console.log('🗺️  Parsing trainer locations from maps...');
 
@@ -195,11 +212,15 @@ function extractTrainerLocations(
                     const trainerId = trainerDefMatch[2];
                     const trainerPartyKey = `${trainerClass}_${trainerId}`;
 
-                    const pokemon = trainerParties[trainerPartyKey] || [];
+                    const trainerData = trainerParties[trainerPartyKey];
+                    const pokemon = trainerData?.pokemon || [];
+                    const trainerName =
+                      trainerData?.name ||
+                      trainerId.charAt(0).toUpperCase() + trainerId.slice(1).toLowerCase();
 
                     const trainer: LocationTrainer = {
                       id: `${trainerClass.toLowerCase()}_${trainerId.toLowerCase()}`,
-                      name: trainerId.charAt(0).toUpperCase() + trainerId.slice(1).toLowerCase(),
+                      name: trainerName,
                       trainerClass,
                       spriteType: getSpriteType(trainerClass),
                       coordinates: { x, y },
@@ -299,17 +320,11 @@ function parsePokemonLine(pokemonData: string): TrainerPokemon | null {
  * Normalize species name from constant to display format
  */
 function normalizeSpeciesName(species: string): string {
-  // Convert from SPECIES_NAME to Species Name format
+  // Convert from SPECIES_NAME to proper capitalized format
   return species
     .toLowerCase()
-    .replace(/_/g, '-')
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join('-')
-    .replace(/^Nidoran-M/, 'Nidoran-M')
-    .replace(/^Nidoran-F/, 'Nidoran-F')
-    .replace(/^Mr-Mime/, 'Mr-Mime')
-    .replace(/^Mime-Jr/, 'Mime-Jr');
+    .replace(/^([a-z])/, (match) => match.toUpperCase()) // Capitalize first letter
+    .replace(/_([a-z])/g, (_, letter) => letter.toUpperCase()); // Remove underscores and capitalize next letter
 }
 
 /**
@@ -361,6 +376,7 @@ function getSpriteType(trainerClass: string): string {
     EXECUTIVE: 'team_rocket_executive',
     LEADER: 'gym_leader',
     CHAMPION: 'champion',
+    SR_AND_JR: 'sr_and_jr',
   };
 
   return spriteMap[trainerClass] || trainerClass.toLowerCase();
