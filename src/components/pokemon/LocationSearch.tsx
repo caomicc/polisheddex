@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { LocationDataTable } from './location-data-table';
 import { locationColumns } from './location-columns';
 import { LocationData } from '@/types/types';
@@ -10,7 +10,11 @@ interface LocationSearchProps {
 }
 
 const LocationSearch: React.FC<LocationSearchProps> = ({ locations }) => {
-  return <LocationDataTable columns={locationColumns} data={locations} />;
+  return (
+    <Suspense fallback={<div className="flex justify-center py-8">Loading locations...</div>}>
+      <LocationDataTable columns={locationColumns} data={locations} />
+    </Suspense>
+  );
 };
 
 export default LocationSearch;
