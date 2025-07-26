@@ -135,6 +135,16 @@ export function extractBasePokemonName(fullName: string): string {
       0,
       fullName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_WATER.toLowerCase()),
     );
+  } else if (fullName.toLowerCase().includes(KNOWN_FORMS.TAUROS_PALDEAN_FIRE_FORM.toLowerCase())) {
+    return fullName.substring(
+      0,
+      fullName.toLowerCase().indexOf(KNOWN_FORMS.TAUROS_PALDEAN_FIRE_FORM.toLowerCase()),
+    );
+  } else if (fullName.toLowerCase().includes(KNOWN_FORMS.TAUROS_PALDEAN_WATER_FORM.toLowerCase())) {
+    return fullName.substring(
+      0,
+      fullName.toLowerCase().indexOf(KNOWN_FORMS.TAUROS_PALDEAN_WATER_FORM.toLowerCase()),
+    );
   }
 
   // Handle standard forms

@@ -1935,13 +1935,13 @@
           }
         },
         {
-          "name": "Horn Attack",
+          "name": "Headbutt",
           "level": 8,
           "info": {
-            "description": "An attack using a horn to jab.",
+            "description": "An attack that may cause flinching.",
             "type": "Normal",
-            "pp": 25,
-            "power": 65,
+            "pp": 15,
+            "power": 70,
             "accuracy": 100,
             "category": "Physical"
           }
@@ -1959,13 +1959,13 @@
           }
         },
         {
-          "name": "Pursuit",
+          "name": "Flame Charge",
           "level": 15,
           "info": {
-            "description": "Heavily strikes switching Pokemon.",
-            "type": "Dark",
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
             "pp": 20,
-            "power": 40,
+            "power": 50,
             "accuracy": 100,
             "category": "Physical"
           }
@@ -1983,13 +1983,13 @@
           }
         },
         {
-          "name": "Quick Attack",
+          "name": "Double Kick",
           "level": 24,
           "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
+            "description": "A double kicking attack.",
+            "type": "Fighting",
             "pp": 30,
-            "power": 40,
+            "power": 30,
             "accuracy": 100,
             "category": "Physical"
           }
@@ -2055,11 +2055,11 @@
           }
         },
         {
-          "name": "Double Edge",
+          "name": "Flare Blitz",
           "level": 63,
           "info": {
-            "description": "A tackle that also hurts the user.",
-            "type": "Normal",
+            "description": "A charge that also hurts the user.",
+            "type": "Fire",
             "pp": 15,
             "power": 120,
             "accuracy": 100,
@@ -2067,14 +2067,14 @@
           }
         },
         {
-          "name": "Giga Impact",
+          "name": "Close Combat",
           "level": 71,
           "info": {
-            "description": "1st turn: Attack 2nd turn: Rest",
-            "type": "Normal",
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
             "pp": 5,
-            "power": 150,
-            "accuracy": 90,
+            "power": 120,
+            "accuracy": 100,
             "category": "Physical"
           }
         },
@@ -2169,7 +2169,33 @@
         "weight": 1100,
         "bodyColor": "Black",
         "bodyShape": "Quadruped"
-      }
+      },
+      "locations": [
+        {
+          "area": "safari_zone_north",
+          "method": "grass",
+          "time": "morn",
+          "level": "59",
+          "chance": 10,
+          "formName": "paldean_fire"
+        },
+        {
+          "area": "safari_zone_north",
+          "method": "grass",
+          "time": "day",
+          "level": "59",
+          "chance": 10,
+          "formName": "paldean_fire"
+        },
+        {
+          "area": "safari_zone_north",
+          "method": "grass",
+          "time": "nite",
+          "level": "59",
+          "chance": 10,
+          "formName": "paldean_fire"
+        }
+      ]
     },
     "paldean_water": {
       "name": "tauros paldean_water",
@@ -2223,13 +2249,13 @@
           }
         },
         {
-          "name": "Horn Attack",
+          "name": "Headbutt",
           "level": 8,
           "info": {
-            "description": "An attack using a horn to jab.",
+            "description": "An attack that may cause flinching.",
             "type": "Normal",
-            "pp": 25,
-            "power": 65,
+            "pp": 15,
+            "power": 70,
             "accuracy": 100,
             "category": "Physical"
           }
@@ -2247,11 +2273,11 @@
           }
         },
         {
-          "name": "Pursuit",
+          "name": "Aqua Jet",
           "level": 15,
           "info": {
-            "description": "Heavily strikes switching Pokemon.",
-            "type": "Dark",
+            "description": "A speedy lunge. Always goes first.",
+            "type": "Water",
             "pp": 20,
             "power": 40,
             "accuracy": 100,
@@ -2271,13 +2297,13 @@
           }
         },
         {
-          "name": "Quick Attack",
+          "name": "Double Kick",
           "level": 24,
           "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
+            "description": "A double kicking attack.",
+            "type": "Fighting",
             "pp": 30,
-            "power": 40,
+            "power": 30,
             "accuracy": 100,
             "category": "Physical"
           }
@@ -2343,26 +2369,26 @@
           }
         },
         {
-          "name": "Double Edge",
+          "name": "Aqua Tail",
           "level": 63,
           "info": {
-            "description": "A tackle that also hurts the user.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
+            "description": "Swings tail like a wave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
             "category": "Physical"
           }
         },
         {
-          "name": "Giga Impact",
+          "name": "Close Combat",
           "level": 71,
           "info": {
-            "description": "1st turn: Attack 2nd turn: Rest",
-            "type": "Normal",
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
             "pp": 5,
-            "power": 150,
-            "accuracy": 90,
+            "power": 120,
+            "accuracy": 100,
             "category": "Physical"
           }
         },
@@ -2457,7 +2483,33 @@
         "weight": 1100,
         "bodyColor": "Black",
         "bodyShape": "Quadruped"
-      }
+      },
+      "locations": [
+        {
+          "area": "safari_zone_west",
+          "method": "grass",
+          "time": "morn",
+          "level": "59",
+          "chance": 10,
+          "formName": "paldean_water"
+        },
+        {
+          "area": "safari_zone_west",
+          "method": "grass",
+          "time": "day",
+          "level": "59",
+          "chance": 10,
+          "formName": "paldean_water"
+        },
+        {
+          "area": "safari_zone_west",
+          "method": "grass",
+          "time": "nite",
+          "level": "59",
+          "chance": 10,
+          "formName": "paldean_water"
+        }
+      ]
     },
     "plain": {
       "name": "tauros plain",

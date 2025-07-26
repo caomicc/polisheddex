@@ -11358,7 +11358,79 @@
         "rareItem": "Fire Stone",
         "formName": null
       }
-    ]
+    ],
+    "forms": {
+      "hisuian": {
+        "locations": [
+          {
+            "area": "rugged_road_south",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level - 2",
+            "chance": 30,
+            "formName": "hisuian"
+          },
+          {
+            "area": "rugged_road_south",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level + 1",
+            "chance": 3,
+            "formName": "hisuian"
+          },
+          {
+            "area": "rugged_road_south",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level - 1",
+            "chance": 2,
+            "formName": "hisuian"
+          },
+          {
+            "area": "rugged_road_south",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level - 2",
+            "chance": 30,
+            "formName": "hisuian"
+          },
+          {
+            "area": "rugged_road_south",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level + 1",
+            "chance": 3,
+            "formName": "hisuian"
+          },
+          {
+            "area": "rugged_road_south",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level - 1",
+            "chance": 2,
+            "formName": "hisuian"
+          },
+          {
+            "area": "Rugged Road North",
+            "method": "hidden_grotto",
+            "time": "common",
+            "level": "Badge Level + 1",
+            "chance": 40,
+            "rareItem": "Fire Stone",
+            "formName": "hisuian"
+          },
+          {
+            "area": "Sinjoh Ruins",
+            "method": "hidden_grotto",
+            "time": "uncommon",
+            "level": "Badge Level + 5",
+            "chance": 15,
+            "rareItem": "Ice Stone",
+            "formName": "hisuian"
+          }
+        ]
+      }
+    }
   },
   "arcanine": {
     "locations": [
@@ -11394,7 +11466,12 @@
         "chance": 10,
         "formName": null
       }
-    ]
+    ],
+    "forms": {
+      "hisuian": {
+        "locations": []
+      }
+    }
   },
   "poliwag": {
     "locations": [
@@ -20333,7 +20410,12 @@
         "rareItem": "THUNDERSTONE",
         "formName": null
       }
-    ]
+    ],
+    "forms": {
+      "hisuian": {
+        "locations": []
+      }
+    }
   },
   "electrode": {
     "locations": [
@@ -20473,7 +20555,12 @@
         "chance": 10,
         "formName": null
       }
-    ]
+    ],
+    "forms": {
+      "hisuian": {
+        "locations": []
+      }
+    }
   },
   "exeggcute": {
     "locations": [
@@ -23197,7 +23284,7 @@
           }
         ]
       },
-      "paldean-fire": {
+      "paldean_fire": {
         "locations": [
           {
             "area": "safari_zone_north",
@@ -23225,7 +23312,7 @@
           }
         ]
       },
-      "paldean-water": {
+      "paldean_water": {
         "locations": [
           {
             "area": "safari_zone_west",
@@ -24140,7 +24227,12 @@
     "locations": []
   },
   "typhlosion": {
-    "locations": []
+    "locations": [],
+    "forms": {
+      "hisuian": {
+        "locations": []
+      }
+    }
   },
   "totodile": {
     "locations": []
@@ -29176,7 +29268,21 @@
     ]
   },
   "qwilfish": {
-    "locations": []
+    "locations": [],
+    "forms": {
+      "hisuian": {
+        "locations": [
+          {
+            "area": "rugged_road_south",
+            "method": "water",
+            "time": null,
+            "level": "Badge Level + 5",
+            "chance": 10,
+            "formName": "hisuian"
+          }
+        ]
+      }
+    }
   },
   "scizor": {
     "locations": []
@@ -29319,7 +29425,102 @@
         "rareItem": "Fire Stone",
         "formName": null
       }
-    ]
+    ],
+    "forms": {
+      "hisuian": {
+        "locations": [
+          {
+            "area": "snowtop_mountain_inside",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level + 1",
+            "chance": 3,
+            "formName": "hisuian"
+          },
+          {
+            "area": "snowtop_mountain_inside",
+            "method": "grass",
+            "time": "morn",
+            "level": "Badge Level + 3",
+            "chance": 2,
+            "formName": "hisuian"
+          },
+          {
+            "area": "snowtop_mountain_inside",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level + 1",
+            "chance": 3,
+            "formName": "hisuian"
+          },
+          {
+            "area": "snowtop_mountain_inside",
+            "method": "grass",
+            "time": "day",
+            "level": "Badge Level + 3",
+            "chance": 2,
+            "formName": "hisuian"
+          },
+          {
+            "area": "snowtop_mountain_inside",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level + 1",
+            "chance": 3,
+            "formName": "hisuian"
+          },
+          {
+            "area": "snowtop_mountain_inside",
+            "method": "grass",
+            "time": "nite",
+            "level": "Badge Level + 3",
+            "chance": 2,
+            "formName": "hisuian"
+          },
+          {
+            "area": "dim_cave_4f",
+            "method": "grass",
+            "time": "nite",
+            "level": "51",
+            "chance": 30,
+            "formName": "hisuian"
+          },
+          {
+            "area": "dim_cave_5f",
+            "method": "grass",
+            "time": "morn",
+            "level": "50",
+            "chance": 30,
+            "formName": "hisuian"
+          },
+          {
+            "area": "dim_cave_5f",
+            "method": "grass",
+            "time": "day",
+            "level": "50",
+            "chance": 30,
+            "formName": "hisuian"
+          },
+          {
+            "area": "dim_cave_5f",
+            "method": "grass",
+            "time": "nite",
+            "level": "50",
+            "chance": 30,
+            "formName": "hisuian"
+          },
+          {
+            "area": "Sinjoh Ruins",
+            "method": "hidden_grotto",
+            "time": "rare",
+            "level": "Badge Level + 5",
+            "chance": 5,
+            "rareItem": "Ice Stone",
+            "formName": "hisuian"
+          }
+        ]
+      }
+    }
   },
   "teddiursa": {
     "locations": [
@@ -31805,82 +32006,6 @@
   "egg": {
     "locations": []
   },
-  "arcaninehisuian": {
-    "locations": []
-  },
-  "electrodehisuian": {
-    "locations": []
-  },
-  "growlithehisuian": {
-    "locations": [
-      {
-        "area": "rugged_road_south",
-        "method": "grass",
-        "time": "morn",
-        "level": "Badge Level - 2",
-        "chance": 30,
-        "formName": "hisuian"
-      },
-      {
-        "area": "rugged_road_south",
-        "method": "grass",
-        "time": "morn",
-        "level": "Badge Level + 1",
-        "chance": 3,
-        "formName": "hisuian"
-      },
-      {
-        "area": "rugged_road_south",
-        "method": "grass",
-        "time": "morn",
-        "level": "Badge Level - 1",
-        "chance": 2,
-        "formName": "hisuian"
-      },
-      {
-        "area": "rugged_road_south",
-        "method": "grass",
-        "time": "day",
-        "level": "Badge Level - 2",
-        "chance": 30,
-        "formName": "hisuian"
-      },
-      {
-        "area": "rugged_road_south",
-        "method": "grass",
-        "time": "day",
-        "level": "Badge Level + 1",
-        "chance": 3,
-        "formName": "hisuian"
-      },
-      {
-        "area": "rugged_road_south",
-        "method": "grass",
-        "time": "day",
-        "level": "Badge Level - 1",
-        "chance": 2,
-        "formName": "hisuian"
-      },
-      {
-        "area": "Rugged Road North",
-        "method": "hidden_grotto",
-        "time": "common",
-        "level": "Badge Level + 1",
-        "chance": 40,
-        "rareItem": "Fire Stone",
-        "formName": "hisuian"
-      },
-      {
-        "area": "Sinjoh Ruins",
-        "method": "hidden_grotto",
-        "time": "uncommon",
-        "level": "Badge Level + 5",
-        "chance": 15,
-        "rareItem": "Ice Stone",
-        "formName": "hisuian"
-      }
-    ]
-  },
   "mewtwoarmo": {
     "locations": [],
     "forms": {
@@ -31888,117 +32013,6 @@
         "locations": []
       }
     }
-  },
-  "qwilfishhisuian": {
-    "locations": [
-      {
-        "area": "rugged_road_south",
-        "method": "water",
-        "time": null,
-        "level": "Badge Level + 5",
-        "chance": 10,
-        "formName": "hisuian"
-      }
-    ]
-  },
-  "sneaselhisuian": {
-    "locations": [
-      {
-        "area": "snowtop_mountain_inside",
-        "method": "grass",
-        "time": "morn",
-        "level": "Badge Level + 1",
-        "chance": 3,
-        "formName": "hisuian"
-      },
-      {
-        "area": "snowtop_mountain_inside",
-        "method": "grass",
-        "time": "morn",
-        "level": "Badge Level + 3",
-        "chance": 2,
-        "formName": "hisuian"
-      },
-      {
-        "area": "snowtop_mountain_inside",
-        "method": "grass",
-        "time": "day",
-        "level": "Badge Level + 1",
-        "chance": 3,
-        "formName": "hisuian"
-      },
-      {
-        "area": "snowtop_mountain_inside",
-        "method": "grass",
-        "time": "day",
-        "level": "Badge Level + 3",
-        "chance": 2,
-        "formName": "hisuian"
-      },
-      {
-        "area": "snowtop_mountain_inside",
-        "method": "grass",
-        "time": "nite",
-        "level": "Badge Level + 1",
-        "chance": 3,
-        "formName": "hisuian"
-      },
-      {
-        "area": "snowtop_mountain_inside",
-        "method": "grass",
-        "time": "nite",
-        "level": "Badge Level + 3",
-        "chance": 2,
-        "formName": "hisuian"
-      },
-      {
-        "area": "dim_cave_4f",
-        "method": "grass",
-        "time": "nite",
-        "level": "51",
-        "chance": 30,
-        "formName": "hisuian"
-      },
-      {
-        "area": "dim_cave_5f",
-        "method": "grass",
-        "time": "morn",
-        "level": "50",
-        "chance": 30,
-        "formName": "hisuian"
-      },
-      {
-        "area": "dim_cave_5f",
-        "method": "grass",
-        "time": "day",
-        "level": "50",
-        "chance": 30,
-        "formName": "hisuian"
-      },
-      {
-        "area": "dim_cave_5f",
-        "method": "grass",
-        "time": "nite",
-        "level": "50",
-        "chance": 30,
-        "formName": "hisuian"
-      },
-      {
-        "area": "Sinjoh Ruins",
-        "method": "hidden_grotto",
-        "time": "rare",
-        "level": "Badge Level + 5",
-        "chance": 5,
-        "rareItem": "Ice Stone",
-        "formName": "hisuian"
-      }
-    ]
-  },
-  "typhlosionhisuian": {
-    "locations": []
-  },
-  "voltorbhisuian": {
-    "locations": []
   },
   "ekansarbok-johto-form": {
     "locations": [

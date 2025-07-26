@@ -72,27 +72,48 @@ export function normalizePokemonUrlKey(name: string): string {
   name = name.trim();
 
   // Handle special cases for names without hyphens that should have them
-  if (name.toLowerCase() === 'nidoranf') return 'nidoran-f';
-  if (name.toLowerCase() === 'nidoranm') return 'nidoran-m';
-  if (name.toLowerCase() === 'mrmime') return 'mr-mime';
-  if (name.toLowerCase() === 'mr.mime') return 'mr-mime';
-  if (name.toLowerCase() === 'mrrime') return 'mr-rime';
-  if (name.toLowerCase() === 'mr.rime') return 'mr-rime';
-  if (name.toLowerCase() === 'mimejr') return 'mime-jr';
-  if (name.toLowerCase() === 'mime.jr') return 'mime-jr';
-  if (name.toLowerCase() === 'farfetchd') return 'farfetch-d';
-  if (name.toLowerCase() === 'farfetch_d') return 'farfetch-d';
-  if (name.toLowerCase() === 'farfetch') return 'farfetch-d';
-  if (name.toLowerCase() === 'hooh') return 'ho-oh';
-  if (name.toLowerCase() === 'sirfetchd') return 'sirfetch-d';
-  if (name.toLowerCase() === 'sirfetch_d') return 'sirfetch-d';
-  if (name.toLowerCase() === 'sirfetch') return 'sirfetch-d';
-  if (name.toLowerCase() === 'porygonz') return 'porygon-z';
-  if (name.toLowerCase() === 'porygon_z') return 'porygon-z';
-  if (name.toLowerCase() === 'porygon') return 'porygon';
-  if (name.toLowerCase() === 'porygon2') return 'porygon2';
+  switch (name.toLowerCase()) {
+    case 'nidoranf':
+      return 'nidoran-f';
+    case 'nidoranm':
+      return 'nidoran-m';
+    case 'mrmime':
+    case 'mr.mime':
+      return 'mr-mime';
+    case 'mrrime':
+    case 'mr.rime':
+      return 'mr-rime';
+    case 'mimejr':
+    case 'mime.jr':
+      return 'mime-jr';
+    case 'farfetchd':
+    case 'farfetch_d':
+    case 'farfetch':
+      return 'farfetch-d';
+    case 'hooh':
+      return 'ho-oh';
+    case 'sirfetchd':
+    case 'sirfetch_d':
+    case 'sirfetch':
+      return 'sirfetch-d';
+    case 'porygonz':
+    case 'porygon_z':
+      return 'porygon-z';
+    case 'porygon':
+      return 'porygon';
+    case 'porygon2':
+      return 'porygon2';
+    case 'taurospaldean':
+      return 'tauros-paldean';
+    case 'taurospaldean_fire':
+    case 'taurospaldean fire':
+      return 'tauros-paldean-fire';
+    case 'taurospaldean_water':
+    case 'taurospaldean water':
+      return 'tauros-paldean-water';
+  }
 
-  console.log(`Normalizing Pokemon name: ${name}`);
+  console.log(`URL-Normalizing Pokemon name: ${name}`);
 
   // Check if this is a known hyphenated Pokemon name
   const isHyphenatedPokemon = HYPHENATED_POKEMON_NAMES.some(

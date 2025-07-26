@@ -251,8 +251,8 @@ function parseFormName(pokemonName: string): { baseName: string; formName: strin
     { suffix: 'Galarian', form: 'galarian' },
     { suffix: 'Alolan', form: 'alolan' },
     { suffix: 'Paldean', form: 'paldean' },
-    { suffix: 'PaldeanFire', form: 'paldean-fire' },
-    { suffix: 'PaldeanWater', form: 'paldean-water' },
+    { suffix: 'PaldeanFire', form: 'paldean_fire' },
+    { suffix: 'PaldeanWater', form: 'paldean_water' },
     { suffix: 'Armored', form: 'armored' },
     { suffix: 'BloodMoon', form: 'bloodmoon' },
     { suffix: 'plain', form: null },
@@ -261,11 +261,13 @@ function parseFormName(pokemonName: string): { baseName: string; formName: strin
     { suffix: 'alolan', form: 'alolan' },
     { suffix: 'paldean', form: 'paldean' },
     { suffix: 'galar', form: 'galar' },
-    { suffix: 'hisui', form: 'hisui' },
+    { suffix: 'hisuian', form: 'hisuian' },
     { suffix: 'red', form: 'red' },
     { suffix: 'bloodmoon', form: 'bloodmoon' },
-    { suffix: 'paldean_fire', form: 'paldean-fire' },
-    { suffix: 'paldean_water', form: 'paldean-water' },
+    { suffix: 'paldean_fire', form: 'paldean_fire' },
+    { suffix: 'paldean_water', form: 'paldean_water' },
+    { suffix: 'paldean-fire', form: 'paldean_fire' },
+    { suffix: 'paldean-water', form: 'paldean_water' },
   ];
 
   // Handle special hyphenated Pokémon first
@@ -2399,20 +2401,24 @@ const locationData: Record<
   string,
   { locations: LocationEntry[]; forms?: Record<string, { locations: LocationEntry[] }> }
 > = {};
+
+console.log('🔧 Processing locations for Pokémon... (normalizedLocationsByMon below)');
+console.log(JSON.stringify(normalizedLocationsByMon, null, 2));
+console.log('(normalizedLocationsByMon above');
 for (const mon of Object.keys(finalResultV3)) {
   // Parse base name and form name
   const { baseName, formName } = parseFormName(mon);
 
-  const normalizePokemonUrlKeynormalizePokemonUrlKey = normalizePokemonUrlKey(mon);
+  const normalizedPokemonUrlKey = normalizePokemonUrlKey(mon);
 
   console.log(
     `Processing locations for Pokémon: ${mon} (base: ${baseName}, form: ${formName})`,
-    normalizePokemonUrlKeynormalizePokemonUrlKey,
+    normalizedPokemonUrlKey,
   );
 
   const normalizedBase = normalizePokemonUrlKey(baseName);
   // Always use the base name as the key for output
-  const locations = normalizedLocationsByMon[normalizePokemonUrlKey(mon)] || [];
+  const locations = normalizedLocationsByMon[normalizedPokemonUrlKey] || [];
 
   console.log(`Processing locations for ${mon} (base: ${baseName}, form: ${formName})`);
 
