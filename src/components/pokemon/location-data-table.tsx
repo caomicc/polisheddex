@@ -527,26 +527,49 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
         <div className="text-sm text-muted-foreground">
           {table.getFilteredRowModel().rows.length} of {filteredData.length} location(s) shown
         </div>
-        <div className="flex items-center justify-center sm:justify-end space-x-2">
-          <Button
-            size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-            className="px-3 py-1.5 text-sm"
-          >
-            Previous
-          </Button>
-          <div className="text-sm text-muted-foreground px-2">
-            Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          {/* Page size selector */}
+          <div className="flex items-center gap-2">
+            <Label htmlFor="page-size" className="text-sm whitespace-nowrap">
+              Areas per page:
+            </Label>
+            <Select
+              value={pageSize.toString()}
+              onValueChange={(value) => setPagination({ pageSize: parseInt(value), pageIndex: 0 })}
+            >
+              <SelectTrigger id="page-size" className="bg-white w-[80px]">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="10">10</SelectItem>
+                <SelectItem value="20">20</SelectItem>
+                <SelectItem value="50">50</SelectItem>
+                <SelectItem value="100">100</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
-          <Button
-            size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-            className="px-3 py-1.5 text-sm"
-          >
-            Next
-          </Button>
+
+          <div className="flex items-center justify-center sm:justify-end space-x-2">
+            <Button
+              size="sm"
+              onClick={() => table.previousPage()}
+              disabled={!table.getCanPreviousPage()}
+              className="px-3 py-1.5 text-sm"
+            >
+              Previous
+            </Button>
+            <div className="text-sm text-muted-foreground px-2">
+              Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+            </div>
+            <Button
+              size="sm"
+              onClick={() => table.nextPage()}
+              disabled={!table.getCanNextPage()}
+              className="px-3 py-1.5 text-sm"
+            >
+              Next
+            </Button>
+          </div>
         </div>
       </div>
     </div>
