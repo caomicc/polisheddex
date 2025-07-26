@@ -135,6 +135,70 @@ export function extractFormInfo(fileName: string): {
     }
   }
 
+  if (fileName.toLowerCase().startsWith('tauros')) {
+    const baseMatch = fileName.toLowerCase().match(/^(tauros)(?:_([a-z_]+))?$/);
+    console.log(`Processing Tauros fileName: ${fileName}, baseMatch:`, baseMatch);
+
+    if (baseMatch) {
+      const baseName = baseMatch[1].replace('_', '-'); // Convert to hyphenated format
+      const formPart = baseMatch[2] || null;
+
+      const isDebug = isDebugPokemon(baseName);
+
+      if (isDebug) {
+        console.log(
+          `DEBUG: Processing special case for fileName: ${fileName}, baseMatch:`,
+          baseMatch,
+          `baseName: ${baseName}, formPart: ${formPart}`,
+        );
+      }
+      if (isDebug) {
+        console.log(
+          `DEBUG: Special case detected: ${fileName} -> baseName: ${baseName}, formPart: ${formPart}`,
+          {
+            baseName: baseName,
+            formPart: formPart,
+          },
+        );
+      }
+
+      // Map form name to the standardized form value from KNOWN_FORMS
+      let formName = null;
+      if (formPart === 'plain') {
+        formName = null;
+        // } else if (formPart === 'galarian') {
+        //   formName = KNOWN_FORMS.GALARIAN;
+        // } else if (formPart === 'alolan') {
+        //   formName = KNOWN_FORMS.ALOLAN;
+        // } else if (formPart === 'hisuian') {
+        // formName = KNOWN_FORMS.HISUIAN;
+      } else if (formPart === 'paldean') {
+        formName = KNOWN_FORMS.PALDEAN;
+      } else if (formPart === 'paldean_fire') {
+        formName = KNOWN_FORMS.PALDEAN_FIRE;
+      } else if (formPart === 'paldean_water') {
+        formName = KNOWN_FORMS.PALDEAN_WATER;
+        // } else if (formPart === 'armored') {
+        //   formName = KNOWN_FORMS.ARMORED;
+        // } else if (formPart === 'bloodmoon') {
+        //   formName = KNOWN_FORMS.BLOODMOON;
+      } else if (formPart) {
+        formName = formPart;
+      }
+
+      if (isDebug) {
+        console.log(`DEBUG: Extracted formName: ${formName}`);
+      }
+
+      console.log(
+        `Special case detected: ${fileName} -> baseName: ${baseName}, formName: ${formName}`,
+      );
+      return {
+        basePokemonName: toTitleCase(baseName).trimEnd(),
+        formName: formName,
+      };
+    }
+  }
   // Check if the filename is a special hyphenated Pokémon name
   const normalizedFileName = fileName.toLowerCase();
 

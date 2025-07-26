@@ -154,18 +154,16 @@ export function extractBasePokemonName(fullName: string): string {
 // Will be gradually phased out as we convert the code to use the new structure
 export function getFullPokemonName(name: string, form: string | null): string {
   console.log(`getFullPokemonName called with name: ${name}, form: ${form}`);
+
   const { baseName, formName } = normalizeMonName(name, form);
 
-  // For debugging special cases
-  if ((name === 'TAUROS' || name === 'WOOPER') && form) {
-    console.log(`Creating name for ${name} with form ${form} => ${baseName}${formName || ''}`);
-  }
+  console.log(`Creating name for ${name} with form ${form} => ${baseName}${formName || ''}`);
 
   // Return the combined name - use consistent format for forms
   // For the special Paldean forms, use a unique separator to make extraction easier
-  if (formName === KNOWN_FORMS.PALDEAN_FIRE || formName === KNOWN_FORMS.PALDEAN_WATER) {
-    return `${baseName}-${formName}`; // Use a separator for these complex forms
-  }
+  // if (formName === KNOWN_FORMS.PALDEAN_FIRE || formName === KNOWN_FORMS.PALDEAN_WATER) {
+  //   return `${baseName}-${formName}`; // Use a separator for these complex forms
+  // }
 
   return formName ? `${baseName}${formName}` : baseName;
 }

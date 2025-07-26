@@ -1466,8 +1466,12 @@ for (const file of wildFiles) {
     }
     if (inBlock && line.startsWith('wildmon')) {
       const parsed = parseWildmonLine(line);
+      console.log(`DEBUG: Processing wildmon line: ${line}`);
       if (parsed) {
         const { formName } = normalizeMonName(parsed.species, parsed.form); // Extract form name
+        console.log(
+          `DEBUG: Parsed wildmon line: species=${parsed.species}, form=${parsed.form}, level=${parsed.level}, area=${area}, method=${method}, time=${currentTime}`,
+        );
         const key = getFullPokemonName(parsed.species, parsed.form); // Use legacy function for now
         // Normalize LEVEL_FROM_BADGES in level value
         let normalizedLevel = parsed.level;
@@ -2394,20 +2398,24 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
             ...(m.info ? { info: m.info } : {}),
           })),
           // Add faithful and updated moves if they exist
-          ...(formData.faithfulMoves ? { 
-            faithfulMoves: formData.faithfulMoves.map((m) => ({
-              name: m.name,
-              level: m.level,
-              ...(m.info ? { info: m.info } : {}),
-            }))
-          } : {}),
-          ...(formData.updatedMoves ? { 
-            updatedMoves: formData.updatedMoves.map((m) => ({
-              name: m.name,
-              level: m.level,
-              ...(m.info ? { info: m.info } : {}),
-            }))
-          } : {}),
+          ...(formData.faithfulMoves
+            ? {
+                faithfulMoves: formData.faithfulMoves.map((m) => ({
+                  name: m.name,
+                  level: m.level,
+                  ...(m.info ? { info: m.info } : {}),
+                })),
+              }
+            : {}),
+          ...(formData.updatedMoves
+            ? {
+                updatedMoves: formData.updatedMoves.map((m) => ({
+                  name: m.name,
+                  level: m.level,
+                  ...(m.info ? { info: m.info } : {}),
+                })),
+              }
+            : {}),
         };
         console.log(
           `Added form ${formName.trim()} moves for ${mon}`,

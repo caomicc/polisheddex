@@ -14,6 +14,8 @@ export const KNOWN_FORMS = {
   PALDEAN: 'paldean',
   PALDEAN_FIRE: 'paldean_fire',
   PALDEAN_WATER: 'paldean_water',
+  TAUROS_PALDEAN_FIRE_FORM: 'paldean_fire',
+  TAUROS_PALDEAN_WATER_FORM: 'paldean_water',
 };
 
 // Debug flag for tracking Pokémon type processing
