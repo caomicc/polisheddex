@@ -6,6 +6,12 @@ export function getItemIdFromDisplayName(displayName: string): string | null {
     return null;
   }
 
+  // Handle TM/HM/Move Tutor cases: extract "tm50" from "TM50 Leech Life"
+  const tmhmMatch = displayName.match(/^(TM|HM|TR|Move Tutor)\s?(\d+)/i);
+  if (tmhmMatch) {
+    return `${tmhmMatch[1].toLowerCase()}${tmhmMatch[2]}`;
+  }
+
   // Convert display name to a likely item ID format
   // Most items follow the pattern: "Display Name" -> "displayname" (lowercase, no spaces/special chars)
   const normalizedId = displayName
