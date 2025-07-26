@@ -4,7 +4,6 @@ import * as React from 'react';
 import {
   ColumnDef,
   ColumnFiltersState,
-  PaginationState,
   SortingState,
   VisibilityState,
   flexRender,
@@ -17,6 +16,7 @@ import {
 import { useQueryStates, parseAsBoolean, parseAsString } from 'nuqs';
 
 import { Button } from '@/components/ui/button';
+import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
@@ -145,18 +145,8 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
     });
   }, [data, tmhm, price, locations, category]);
 
-  const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
-    pageIndex: storedState?.pageIndex || 0,
-    pageSize: 20,
-  });
-
-  const pagination = React.useMemo(
-    () => ({
-      pageIndex,
-      pageSize,
-    }),
-    [pageIndex, pageSize],
-  );
+  // URL-based pagination state
+  const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
 
   const table = useReactTable({
     data: filteredData,
@@ -173,42 +163,40 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
       sorting,
       columnFilters,
       columnVisibility,
-      pagination,
+      pagination: { pageIndex, pageSize },
     },
     pageCount: Math.ceil(filteredData.length / pageSize),
   });
 
-  // Save non-URL state to localStorage whenever it changes
-  React.useEffect(() => {
-    if (typeof window === 'undefined') return;
+  // // Save non-URL state to localStorage whenever it changes
+  // React.useEffect(() => {
+  //   if (typeof window === 'undefined') return;
 
-    // Skip saving on initial render if we just loaded from storage
-    const isInitialLoad =
-      !storedState ||
-      (JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
-        JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters) &&
-        pageIndex === storedState.pageIndex);
+  //   // Skip saving on initial render if we just loaded from storage
+  //   const isInitialLoad =
+  //     !storedState ||
+  //     (JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
+  //       JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters));
 
-    if (isInitialLoad) return;
+  //   if (isInitialLoad) return;
 
-    const stateToSave = {
-      sorting,
-      columnFilters,
-      columnVisibility,
-      pageIndex,
-    };
+  //   const stateToSave = {
+  //     sorting,
+  //     columnFilters,
+  //     columnVisibility,
+  //   };
 
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
-    } catch (error) {
-      console.warn('Failed to save table state to localStorage:', error);
-    }
-  }, [sorting, columnFilters, columnVisibility, pageIndex, storedState]);
+  //   try {
+  //     localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
+  //   } catch (error) {
+  //     console.warn('Failed to save table state to localStorage:', error);
+  //   }
+  // }, [sorting, columnFilters, columnVisibility, storedState]);
 
   // Reset page to 0 when filters change
-  React.useEffect(() => {
-    setPagination((prev) => ({ ...prev, pageIndex: 0 }));
-  }, [columnFilters, tmhm, price, locations, category]);
+  // React.useEffect(() => {
+  //   setPagination({ pageIndex: 0 });
+  // }, [columnFilters, tmhm, price, locations, category, setPagination]);
 
   return (
     <div className="w-full px-2 sm:px-0">
@@ -417,26 +405,50 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
         <div className="text-sm text-muted-foreground">
           {table.getFilteredRowModel().rows.length} of {filteredData.length} items(s) shown
         </div>
-        <div className="flex items-center justify-center sm:justify-end space-x-2">
-          <Button
-            size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-            className="px-3 py-1.5 text-sm"
-          >
-            Previous
-          </Button>
-          <div className="text-sm text-muted-foreground px-2">
-            Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          {/* Page size selector */}
+          <div className="flex items-center gap-2">
+            <Label htmlFor="page-size" className="text-sm whitespace-nowrap">
+              Items per page:
+            </Label>
+            <Select
+              value={pageSize.toString()}
+              onValueChange={(value) => setPagination({ pageSize: parseInt(value), pageIndex: 0 })}
+            >
+              <SelectTrigger id="page-size" className="bg-white w-[80px]">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="10">10</SelectItem>
+                <SelectItem value="20">20</SelectItem>
+                <SelectItem value="50">50</SelectItem>
+                <SelectItem value="100">100</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
-          <Button
-            size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-            className="px-3 py-1.5 text-sm"
-          >
-            Next
-          </Button>
+
+          {/* Pagination controls */}
+          <div className="flex items-center space-x-2">
+            <Button
+              size="sm"
+              onClick={() => table.previousPage()}
+              disabled={!table.getCanPreviousPage()}
+              className="px-3 py-1.5 text-sm"
+            >
+              Previous
+            </Button>
+            <div className="text-sm text-muted-foreground px-2">
+              Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+            </div>
+            <Button
+              size="sm"
+              onClick={() => table.nextPage()}
+              disabled={!table.getCanNextPage()}
+              className="px-3 py-1.5 text-sm"
+            >
+              Next
+            </Button>
+          </div>
         </div>
       </div>
     </div>
