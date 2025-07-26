@@ -4,7 +4,6 @@ import * as React from 'react';
 import {
   ColumnDef,
   ColumnFiltersState,
-  PaginationState,
   SortingState,
   VisibilityState,
   flexRender,
