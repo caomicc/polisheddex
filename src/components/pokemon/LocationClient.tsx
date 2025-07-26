@@ -132,9 +132,8 @@ export default function LocationClient({
           {comprehensiveInfo?.items && comprehensiveInfo.items.length > 0 && (
             <TabsTrigger value="items">Items</TabsTrigger>
           )}
-          {comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0 && (
-            <TabsTrigger value="trainers">Trainers</TabsTrigger>
-          )}
+          {((comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0) ||
+            comprehensiveInfo?.gymLeader) && <TabsTrigger value="trainers">Trainers</TabsTrigger>}
           {comprehensiveInfo?.events && comprehensiveInfo.events.length > 0 && (
             <TabsTrigger value="events">Events</TabsTrigger>
           )}
