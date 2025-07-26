@@ -85,8 +85,8 @@ export default function PokemonFormClient({
 
   const formData = allFormData[formKey] || allFormData['default'];
 
-  console.log('Form Data:', formData);
-  console.log('selectedForm', selectedForm);
+  // console.log('Form Data:', formData);
+  // console.log('selectedForm', selectedForm);
 
   // Deduplicate and normalize forms for dropdown
   const uniqueForms = Array.from(
@@ -867,18 +867,18 @@ export default function PokemonFormClient({
 export function calculateCatchChance(
   baseCatchRate: number,
   ballType: 'pokeball' | 'greatball' | 'ultraball' | 'heavyball' = 'pokeball',
-  currentHP: number = 100,
-  maxHP: number = 100,
-  status: 'none' | 'par' | 'brn' | 'psn' | 'frz' | 'slp' = 'none',
+  // currentHP: number = 100,
+  // maxHP: number = 100,
+  // status: 'none' | 'par' | 'brn' | 'psn' | 'frz' | 'slp' = 'none',
   // speciesWeight?: number,
 ) {
-  console.log('Calculating catch chance with parameters:', {
-    baseCatchRate,
-    ballType,
-    currentHP,
-    maxHP,
-    status,
-  });
+  // console.log('Calculating catch chance with parameters:', {
+  //   baseCatchRate,
+  //   ballType,
+  //   currentHP,
+  //   maxHP,
+  //   status,
+  // });
 
   const num = baseCatchRate / 3;
 
@@ -1035,9 +1035,9 @@ export function calculateCatchChance(
 
   const polishedProb = Math.pow(newNum / 256, 4);
 
-  console.log('Initial catch rate (baseCatchRate / 3):', num);
-  console.log('Polished catch rate:', polishedCatchRate);
-  console.log('Polished probability:', polishedProb);
+  // console.log('Initial catch rate (baseCatchRate / 3):', num);
+  // console.log('Polished catch rate:', polishedCatchRate);
+  // console.log('Polished probability:', polishedProb);
 
   return polishedProb;
 }

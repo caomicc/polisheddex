@@ -79,7 +79,7 @@ export async function loadDexOrders(): Promise<{
   johto: string[];
 }> {
   try {
-    console.log('Loading dex orders...');
+    // console.log('Loading dex orders...');
 
     // First try to load from the output directory (development)
     // let [nationalData, johtoData] = await Promise.all([
@@ -95,7 +95,7 @@ export async function loadDexOrders(): Promise<{
 
     // If that fails (e.g., in production), try to fetch from public directory
     if (!nationalData || !johtoData) {
-      console.log('Fallback: Loading dex orders from public directory...');
+      // console.log('Fallback: Loading dex orders from public directory...');
 
       try {
         // In server-side rendering, we need to use fetch with full URL in production
@@ -125,10 +125,10 @@ export async function loadDexOrders(): Promise<{
       johto: johtoData || [],
     };
 
-    console.log('Dex orders loaded:', {
-      nationalCount: result.national.length,
-      johtoCount: result.johto.length,
-    });
+    // console.log('Dex orders loaded:', {
+    //   nationalCount: result.national.length,
+    //   johtoCount: result.johto.length,
+    // });
 
     return result;
   } catch (error) {
@@ -152,15 +152,15 @@ export function getDexOrderToUse(
   nationalOrder: string[],
   johtoOrder: string[],
 ): { order: string[]; type: 'national' | 'johto' } {
-  console.log('getDexOrderToUse called with:', {
-    pokemonData,
-    nationalOrder,
-    johtoOrder,
-  });
+  // console.log('getDexOrderToUse called with:', {
+  //   pokemonData,
+  //   nationalOrder,
+  //   johtoOrder,
+  // });
 
   // If we don't have any order data, return empty arrays but still indicate the preferred type
   if (nationalOrder.length === 0 && johtoOrder.length === 0) {
-    console.warn('No dex order data available');
+    // console.warn('No dex order data available');
     const preferJohto = pokemonData.johtoDex && pokemonData.johtoDex > 0;
     return {
       order: [],

@@ -151,7 +151,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   );
 
   const navigation = getPokemonNavigation(pokemonName, dexOrder);
-  console.log('Generated navigation:', navigation);
+  // console.log('Generated navigation:', navigation);
 
   const moveDescFile = path.join(process.cwd(), `output/pokemon_move_descriptions.json`);
   const moveDescData = (await loadJsonData<Record<string, MoveDescription>>(moveDescFile)) || {};
