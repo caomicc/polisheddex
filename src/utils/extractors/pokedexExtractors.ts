@@ -184,7 +184,10 @@ function updatePokemonJsonWithDexEntry(mon: string, entry: PokemonDexEntry) {
   }
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-  console.log(`Current data for ${mon}:`, data);
+  console.log(`Current data for ${mon}:`, JSON.stringify(data, null, 2));
+  console.log(
+    '------------------------------------------------------------------------------------------------------------------',
+  );
 
   // Always use the { default: {...}, regionalform: {...} } format
   if (

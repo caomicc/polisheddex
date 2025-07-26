@@ -1121,9 +1121,9 @@ for (const mon of Object.keys(movesetData)) {
   }
 
   // Show all dex order entries for debugging
-  console.log(`DEBUG: Base Pokémon name for dex lookup: ${baseMonNameDex}`);
-  console.log('DEBUG: Full National Dex Order:', JSON.stringify(nationalDexOrder, null, 2));
-  console.log('DEBUG: Full Johto Dex Order:', JSON.stringify(johtoDexOrder, null, 2));
+  // console.log(`DEBUG: Base Pokémon name for dex lookup: ${baseMonNameDex}`);
+  // console.log('DEBUG: Full National Dex Order:', JSON.stringify(nationalDexOrder, null, 2));
+  // console.log('DEBUG: Full Johto Dex Order:', JSON.stringify(johtoDexOrder, null, 2));
 
   const nationalDex =
     nationalDexOrder.indexOf(baseMonNameDex) >= 0
@@ -1147,89 +1147,31 @@ for (const mon of Object.keys(movesetData)) {
   let faithfulTypes: string[] = ['None'];
   let updatedTypes: string[] = ['None'];
 
-  if (formName && formName !== KNOWN_FORMS.PLAIN) {
-    // This is a special form like alolan, galarian, etc.
+  // This is a base form or plain form - look up directly in typeMap
+  // Convert the URL key to the format used in typeMap (which uses toTitleCase/normalizeString)
+
+  // ToDo: review title case conversion
+
+  const typeMapKey = toTitleCase(baseMonName);
+
+  if (isDebug) {
     console.log(
-      `DEBUG: Processing form-specific Pokémon: ${mon} (base: ${basePokemonName}, form: ${formName})`,
+      `DEBUG: Else if no forms - use title case ${basePokemonName} (${formName}):`,
+      typeMap[typeMapKey],
     );
-    console.log(
-      `DEBUG: formName && formName !== KNOWN_FORMS.PLAIN:`,
-      formName && formName !== KNOWN_FORMS.PLAIN,
-    );
-    if (formTypeMap[basePokemonName] && formTypeMap[basePokemonName][formName]) {
-      if (isDebug) {
-        console.log(
-          `DEBUG: Found form-specific types for ${basePokemonName} (${formName})`,
-          formTypeMap[basePokemonName][formName],
-        );
-      }
-      // Use form-specific type data from formTypeMap
-      const formTypeData = formTypeMap[basePokemonName][formName];
-      faithfulTypes = formTypeData.types || ['None'];
-      updatedTypes = formTypeData.updatedTypes || ['None']; // Don't fall back to faithfulTypes
-      if (isDebug) {
-        console.log(`DEBUG: Form type data for ${basePokemonName} (${formName}):`, formTypeData);
-      }
-    } else {
-      // Fallback to base type if form type not found
-      // Convert the URL key to the format used in typeMap (which uses toTitleCase/normalizeString)
-      const typeMapKey = toTitleCase(basePokemonName);
-      if (isDebug) {
-        console.log(
-          `DEBUG: else fallback for form name variant ${basePokemonName} (${formName}) typeMapKey:`,
-          typeMapKey,
-        );
-      }
-      if (typeMap[typeMapKey]) {
-        if (isDebug) {
-          console.log(
-            `DEBUG: typeMap[typeMapKey] is true for ${basePokemonName} (${formName}) in typeMap:`,
-            typeMap[typeMapKey],
-          );
-        }
-        faithfulTypes = typeMap[typeMapKey].types || ['None'];
-        updatedTypes = typeMap[typeMapKey].updatedTypes || ['None']; // Don't fall back to faithfulTypes
-        if (isDebug) {
-          console.log(
-            `DEBUG: New types for ${basePokemonName} (${formName}):`,
-            `${typeMap[typeMapKey].types} and ${typeMap[typeMapKey].updatedTypes}`,
-          );
-        }
-      }
-      if (isDebug) {
-        console.log(
-          `DEBUG: Fallback to base type for ${basePokemonName} (${formName}):`,
-          typeMap[typeMapKey],
-        );
-      }
-    }
-  } else {
-    // This is a base form or plain form - look up directly in typeMap
-    // Convert the URL key to the format used in typeMap (which uses toTitleCase/normalizeString)
+  }
 
-    // ToDo: review title case conversion
-
-    const typeMapKey = toTitleCase(baseMonName);
-
+  if (isDebug) {
+    console.log(`DEBUG: typeMapKey for base form ${baseMonName} (${formName}):`, typeMapKey);
+  }
+  if (typeMap[typeMapKey]) {
+    faithfulTypes = typeMap[typeMapKey].types || ['None'];
+    updatedTypes = typeMap[typeMapKey].updatedTypes || ['None']; // Don't fall back to faithfulTypes
     if (isDebug) {
       console.log(
-        `DEBUG: Else if no forms - use title case ${basePokemonName} (${formName}):`,
-        typeMap[typeMapKey],
+        `DEBUG: New types for ${baseMonName} (${formName}):`,
+        `${typeMap[typeMapKey].types} and ${typeMap[typeMapKey].updatedTypes}`,
       );
-    }
-
-    if (isDebug) {
-      console.log(`DEBUG: typeMapKey for base form ${baseMonName} (${formName}):`, typeMapKey);
-    }
-    if (typeMap[typeMapKey]) {
-      faithfulTypes = typeMap[typeMapKey].types || ['None'];
-      updatedTypes = typeMap[typeMapKey].updatedTypes || ['None']; // Don't fall back to faithfulTypes
-      if (isDebug) {
-        console.log(
-          `DEBUG: New types for ${baseMonName} (${formName}):`,
-          `${typeMap[typeMapKey].types} and ${typeMap[typeMapKey].updatedTypes}`,
-        );
-      }
     }
   }
 
@@ -1324,9 +1266,7 @@ for (const mon of Object.keys(movesetData)) {
   };
   finalResult[mon] = fixedFinalResult;
 
-  if (isDebug) {
-    console.log(`DEBUG: Final Pokémon data for ${mon}:`, finalResult[mon]);
-  }
+  console.log(`DEBUG: Final Pokémon data for ${mon}:`, finalResult[mon]);
 }
 
 // --- Wild Pokémon Location Extraction ---
@@ -2052,6 +1992,12 @@ for (const [mon, data] of Object.entries(normalizedGroupedData)) {
       let formFaithfulTypeData = formData.types; // Default to regular types
       let formUpdatedTypeData = formData.types; // Default to regular types
 
+      console.log(
+        `Processing form "${formName}" for Pokémon "${trimmedMon}" with types: ${JSON.stringify(
+          formTypeData,
+        )}`,
+      );
+
       if (
         !formTypeData ||
         formTypeData === 'None' ||
@@ -2684,13 +2630,17 @@ function exportDetailedStats() {
         const matchingKey = Object.keys(finalResultV3).find(
           (key) =>
             key.toLowerCase() === pokemonName.toLowerCase() ||
-            standardizePokemonKey(key) === standardizePokemonKey(pokemonName),
+            standardizePokemonKey(key) === standardizePokemonKey(pokemonName) ||
+            key.toLowerCase() === pokemonName.split(' ')?.[0].toLowerCase(),
         );
         console.log(`Matching key found: ${matchingKey}`, stats.types);
 
         if (matchingKey) {
           // stats.types = finalResultV3[matchingKey].types || 'Unknown';
-          // stats.updatedTypes = finalResultV3[matchingKey].updatedTypes || finalResultV3[matchingKey].types || 'Unknown';
+          // stats.updatedTypes =
+          //   finalResultV3[matchingKey].updatedTypes ||
+          //   finalResultV3[matchingKey].types ||
+          //   'Unknown';
         } else {
           // If still not found, set to Unknown
           console.log(`No type data found for: ${pokemonName}`);
