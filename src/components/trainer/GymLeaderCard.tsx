@@ -19,20 +19,40 @@ export default function GymLeaderCard({ gymLeader }: GymLeaderCardProps) {
 
         <div className="flex-grow min-w-0">
           {/* Enhanced Trainer Header */}
-          <div className="flex flex-wrap items-center gap-2 mb-3">
+          <div className="flex flex-col gap-2 mb-3">
             <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">
-              {gymLeader.trainerClass} {gymLeader.name}
+              {gymLeader.name}
             </h3>
+            <p>Badge: {gymLeader.badge}</p>
             <div className="flex items-center gap-2">
               <div className="text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-md border">
                 <span className="sr-only">Pokemon:</span>
                 {gymLeader?.pokemon && (
-                  <span className="text-slate-600 dark:text-slate-300">
-                    {gymLeader.pokemon.join(', ')}
-                  </span>
+                  <div className="flex flex-col gap-1">
+                    {gymLeader.pokemon.map((poke, idx) => (
+                      <div
+                        key={idx}
+                        className="flex flex-col text-slate-600 dark:text-slate-300 text-xs border-b last:border-b-0 border-slate-200 dark:border-slate-700 py-1"
+                      >
+                        <span className="font-semibold capitalize">{poke.species}</span>
+                        <span>
+                          <span className="mr-2">Lv.{poke.level}</span>
+                          <span className="capitalize">{poke.gender}</span>
+                        </span>
+                        <span>
+                          Moves:{' '}
+                          {poke?.moves?.map((move, i) => (
+                            <span key={move}>
+                              {move}
+                              {poke?.moves && i < poke.moves.length - 1 ? ', ' : ''}
+                            </span>
+                          ))}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 )}
               </div>
-              Badge
             </div>
           </div>
         </div>
