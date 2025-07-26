@@ -35,6 +35,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -136,18 +137,8 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
     });
   }, [data, pokemon, flyable, grottoes, trainers, items, region]);
 
-  const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
-    pageIndex: 0,
-    pageSize: 20,
-  });
-
-  const pagination = React.useMemo(
-    () => ({
-      pageIndex,
-      pageSize,
-    }),
-    [pageIndex, pageSize],
-  );
+  // URL-based pagination state
+  const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
 
   const table = useReactTable({
     data: filteredData,
@@ -164,42 +155,42 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
       sorting,
       columnFilters,
       columnVisibility,
-      pagination,
+      pagination: { pageIndex, pageSize },
     },
     pageCount: Math.ceil(filteredData.length / pageSize),
   });
 
   // Save non-URL state to localStorage whenever it changes
-  React.useEffect(() => {
-    if (typeof window === 'undefined') return;
+  // React.useEffect(() => {
+  //   if (typeof window === 'undefined') return;
 
-    // Skip saving on initial render if we just loaded from storage
-    const isInitialLoad =
-      !storedState ||
-      (JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
-        JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters) &&
-        pageIndex === storedState.pageIndex);
+  //   // Skip saving on initial render if we just loaded from storage
+  //   const isInitialLoad =
+  //     !storedState ||
+  //     (JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
+  //       JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters) &&
+  //       pageIndex === storedState.pageIndex);
 
-    if (isInitialLoad) return;
+  //   if (isInitialLoad) return;
 
-    const stateToSave = {
-      sorting,
-      columnFilters,
-      columnVisibility,
-      pageIndex,
-    };
+  //   const stateToSave = {
+  //     sorting,
+  //     columnFilters,
+  //     columnVisibility,
+  //     pageIndex,
+  //   };
 
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
-    } catch (error) {
-      console.warn('Failed to save table state to localStorage:', error);
-    }
-  }, [sorting, columnFilters, columnVisibility, pageIndex, storedState]);
+  //   try {
+  //     localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
+  //   } catch (error) {
+  //     console.warn('Failed to save table state to localStorage:', error);
+  //   }
+  // }, [sorting, columnFilters, columnVisibility, pageIndex, storedState]);
 
   // Reset to first page when filters change
-  React.useEffect(() => {
-    setPagination((prev) => ({ ...prev, pageIndex: 0 }));
-  }, [pokemon, flyable, grottoes, trainers, items, region, columnFilters]);
+  // React.useEffect(() => {
+  //   setPagination((prev) => ({ ...prev, pageIndex: 0 }));
+  // }, [pokemon, flyable, grottoes, trainers, items, region, columnFilters]);
 
   // // Get unique regions for filter
   const availableRegions = React.useMemo(() => {
