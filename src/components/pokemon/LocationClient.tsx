@@ -240,8 +240,8 @@ export default function LocationClient({
           (comprehensiveInfo?.trainers && comprehensiveInfo.trainers.length > 0)) && (
           <TabsContent value="trainers" className="py-6">
             {comprehensiveInfo?.gymLeader ? (
-              <div className="space-y-6">
-                <h3 className="text-lg font-semibold">Trainers</h3>
+              <div className="space-y-6 mb-12">
+                <h3 className="text-lg font-semibold">Gym Leader:</h3>
                 <div className="grid gap-6">
                   <GymLeaderCard gymLeader={comprehensiveInfo.gymLeader} />
                 </div>
