@@ -14,6 +14,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table';
+import { useQueryStates, parseAsBoolean, parseAsString } from 'nuqs';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -53,10 +54,29 @@ interface DataTableProps<TData, TValue> {
  */
 
 export function LocationDataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
-  // Storage key for persisting table state
+  // Storage key for persisting non-URL table state
   const STORAGE_KEY = 'locationDataTable';
 
-  // Load initial state from localStorage
+  // URL-based state for filters that should persist across navigation
+  const [urlState, setUrlState] = useQueryStates(
+    {
+      search: parseAsString.withDefault(''),
+      region: parseAsString.withDefault('all'),
+      pokemon: parseAsBoolean.withDefault(false),
+      trainers: parseAsBoolean.withDefault(false),
+      flyable: parseAsBoolean.withDefault(false),
+      grottoes: parseAsBoolean.withDefault(false),
+      items: parseAsBoolean.withDefault(false),
+    },
+    {
+      // Configure shallow routing to avoid full page reloads
+      shallow: true,
+      // Clear empty params from URL for cleaner URLs
+      clearOnDefault: true,
+    },
+  );
+
+  // Load initial state from localStorage for non-URL state
   const loadStoredState = () => {
     if (typeof window === 'undefined') return null;
     try {
@@ -70,43 +90,40 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
   const storedState = loadStoredState();
 
   const [sorting, setSorting] = React.useState<SortingState>(storedState?.sorting || []);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    storedState?.columnFilters || [],
-  );
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(
     storedState?.columnVisibility || {},
   );
-  // const [pageIndex, setPageIndex] = React.useState(storedState?.pageIndex || 0);
 
-  // Checkbox filter states
-  const [showOnlyPokemon, setShowOnlyPokemon] = React.useState(
-    storedState?.showOnlyPokemon || false,
-  );
-  const [showOnlyFlyable, setShowOnlyFlyable] = React.useState(
-    storedState?.showOnlyFlyable || false,
-  );
-  const [showOnlyGrottoes, setShowOnlyGrottoes] = React.useState(
-    storedState?.showOnlyGrottoes || false,
-  );
-  const [showOnlyTrainers, setShowOnlyTrainers] = React.useState(
-    storedState?.showOnlyTrainers || false,
-  );
-  const [showOnlyItems, setShowOnlyItems] = React.useState(storedState?.showOnlyItems || false);
+  // Extract URL state values
+  const { search, region, pokemon, trainers, flyable, grottoes, items } = urlState;
 
-  // Additional state for region filter (handled separately from table's columnFilters)
-  const [regionFilter, setRegionFilter] = React.useState(storedState?.regionFilter || 'all');
+  // Sync search value with table filter
+  React.useEffect(() => {
+    const nameColumn = columns.find(
+      (col) => 'accessorKey' in col && col.accessorKey === 'displayName',
+    );
+    if (nameColumn) {
+      setColumnFilters((prev) => {
+        const otherFilters = prev.filter((filter) => filter.id !== 'displayName');
+        if (search) {
+          return [...otherFilters, { id: 'displayName', value: search }];
+        }
+        return otherFilters;
+      });
+    }
+  }, [search, columns]);
 
   // Apply checkbox filters and region filter to the data
   const filteredData = React.useMemo(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return data.filter((location: any) => {
-      const matchesPokemon =
-        !showOnlyPokemon || (location.pokemonCount && location.pokemonCount > 0);
-      const matchesFlyable = !showOnlyFlyable || location.flyable;
-      const matchesGrottoes = !showOnlyGrottoes || location.hasHiddenGrottoes;
-      const matchesTrainers = !showOnlyTrainers || location.hasTrainers;
-      const matchesItems = !showOnlyItems || (location.items && location.items.length > 0);
-      const matchesRegion = regionFilter === 'all' || location.region === regionFilter;
+      const matchesPokemon = !pokemon || (location.pokemonCount && location.pokemonCount > 0);
+      const matchesFlyable = !flyable || location.flyable;
+      const matchesGrottoes = !grottoes || location.hasHiddenGrottoes;
+      const matchesTrainers = !trainers || location.hasTrainers;
+      const matchesItems = !items || (location.items && location.items.length > 0);
+      const matchesRegion = region === 'all' || location.region === region;
 
       return (
         matchesPokemon &&
@@ -117,15 +134,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
         matchesRegion
       );
     });
-  }, [
-    data,
-    showOnlyPokemon,
-    showOnlyFlyable,
-    showOnlyGrottoes,
-    showOnlyTrainers,
-    showOnlyItems,
-    regionFilter,
-  ]);
+  }, [data, pokemon, flyable, grottoes, trainers, items, region]);
 
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
     pageIndex: 0,
@@ -160,7 +169,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
     pageCount: Math.ceil(filteredData.length / pageSize),
   });
 
-  // Save state to localStorage whenever it changes
+  // Save non-URL state to localStorage whenever it changes
   React.useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -169,13 +178,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
       !storedState ||
       (JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
         JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters) &&
-        pageIndex === storedState.pageIndex &&
-        showOnlyPokemon === storedState.showOnlyPokemon &&
-        showOnlyFlyable === storedState.showOnlyFlyable &&
-        showOnlyGrottoes === storedState.showOnlyGrottoes &&
-        showOnlyTrainers === storedState.showOnlyTrainers &&
-        showOnlyItems === storedState.showOnlyItems &&
-        regionFilter === storedState.regionFilter);
+        pageIndex === storedState.pageIndex);
 
     if (isInitialLoad) return;
 
@@ -184,12 +187,6 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
       columnFilters,
       columnVisibility,
       pageIndex,
-      showOnlyPokemon,
-      showOnlyFlyable,
-      showOnlyGrottoes,
-      showOnlyTrainers,
-      showOnlyItems,
-      regionFilter,
     };
 
     try {
@@ -197,32 +194,12 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
     } catch (error) {
       console.warn('Failed to save table state to localStorage:', error);
     }
-  }, [
-    sorting,
-    columnFilters,
-    columnVisibility,
-    pageIndex,
-    showOnlyPokemon,
-    showOnlyFlyable,
-    showOnlyGrottoes,
-    showOnlyTrainers,
-    showOnlyItems,
-    regionFilter,
-    storedState,
-  ]);
+  }, [sorting, columnFilters, columnVisibility, pageIndex, storedState]);
 
   // Reset to first page when filters change
   React.useEffect(() => {
     setPagination((prev) => ({ ...prev, pageIndex: 0 }));
-  }, [
-    showOnlyPokemon,
-    showOnlyFlyable,
-    showOnlyGrottoes,
-    showOnlyTrainers,
-    showOnlyItems,
-    regionFilter,
-    columnFilters,
-  ]);
+  }, [pokemon, flyable, grottoes, trainers, items, region, columnFilters]);
 
   // // Get unique regions for filter
   const availableRegions = React.useMemo(() => {
@@ -316,10 +293,8 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
             <Input
               placeholder="Filter locations..."
               id="location-filter"
-              value={(table.getColumn('displayName')?.getFilterValue() as string) ?? ''}
-              onChange={(event) =>
-                table.getColumn('displayName')?.setFilterValue(event.target.value)
-              }
+              value={search}
+              onChange={(event) => setUrlState({ search: event.target.value || null })}
               className="max-w-sm bg-white"
             />
           </div>
@@ -328,19 +303,17 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
           <div className="flex flex-col gap-2">
             <Label htmlFor="region-filter">Region</Label>
             <Select
-              value={regionFilter}
-              onValueChange={(value) => {
-                setRegionFilter(value);
-              }}
+              value={region}
+              onValueChange={(value) => setUrlState({ region: value === 'all' ? null : value })}
             >
               <SelectTrigger className="w-full sm:w-[180px] bg-white">
                 <SelectValue placeholder="All Regions" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Regions</SelectItem>
-                {availableRegions.map((region) => (
-                  <SelectItem key={region} value={region}>
-                    {region.charAt(0).toUpperCase() + region.slice(1)}
+                {availableRegions.map((regionItem) => (
+                  <SelectItem key={regionItem} value={regionItem}>
+                    {regionItem.charAt(0).toUpperCase() + regionItem.slice(1)}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -370,8 +343,8 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
           <div className="flex items-center space-x-2">
             <Checkbox
               id="has-pokemon"
-              checked={showOnlyPokemon}
-              onCheckedChange={(checked) => setShowOnlyPokemon(checked === true)}
+              checked={pokemon}
+              onCheckedChange={(checked) => setUrlState({ pokemon: checked ? true : null })}
             />
             <Label htmlFor="has-pokemon" className="text-xs sm:text-sm cursor-pointer">
               Has Pokémon encounters
@@ -381,8 +354,8 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
           <div className="flex items-center space-x-2">
             <Checkbox
               id="has-trainers"
-              checked={showOnlyTrainers}
-              onCheckedChange={(checked) => setShowOnlyTrainers(checked === true)}
+              checked={trainers}
+              onCheckedChange={(checked) => setUrlState({ trainers: checked ? true : null })}
             />
             <Label htmlFor="has-trainers" className="text-xs sm:text-sm cursor-pointer">
               Has trainers
@@ -392,8 +365,8 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
           <div className="flex items-center space-x-2">
             <Checkbox
               id="flyable"
-              checked={showOnlyFlyable}
-              onCheckedChange={(checked) => setShowOnlyFlyable(checked === true)}
+              checked={flyable}
+              onCheckedChange={(checked) => setUrlState({ flyable: checked ? true : null })}
             />
             <Label htmlFor="flyable" className="text-xs sm:text-sm cursor-pointer">
               Flyable locations
@@ -403,8 +376,8 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
           <div className="flex items-center space-x-2">
             <Checkbox
               id="hidden-grotto"
-              checked={showOnlyGrottoes}
-              onCheckedChange={(checked) => setShowOnlyGrottoes(checked === true)}
+              checked={grottoes}
+              onCheckedChange={(checked) => setUrlState({ grottoes: checked ? true : null })}
             />
             <Label htmlFor="hidden-grotto" className="text-xs sm:text-sm cursor-pointer">
               Has Hidden Grottoes
@@ -414,8 +387,8 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
           <div className="flex items-center space-x-2">
             <Checkbox
               id="has-items"
-              checked={showOnlyItems}
-              onCheckedChange={(checked) => setShowOnlyItems(checked === true)}
+              checked={items}
+              onCheckedChange={(checked) => setUrlState({ items: checked ? true : null })}
             />
             <Label htmlFor="has-items" className="text-xs sm:text-sm cursor-pointer">
               Has Items
@@ -425,26 +398,27 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
 
         {/* Filter summary */}
         <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
-          {(Boolean(table.getColumn('displayName')?.getFilterValue()) ||
-            regionFilter !== 'all' ||
+          {(Boolean(search) ||
+            region !== 'all' ||
             sorting.length > 0 ||
-            showOnlyPokemon ||
-            showOnlyTrainers ||
-            showOnlyFlyable ||
-            showOnlyGrottoes ||
-            showOnlyItems) && (
+            pokemon ||
+            trainers ||
+            flyable ||
+            grottoes ||
+            items) && (
             <Button
               size="sm"
               onClick={() => {
-                table.getColumn('displayName')?.setFilterValue('');
+                setUrlState({
+                  search: null,
+                  region: null,
+                  pokemon: null,
+                  trainers: null,
+                  flyable: null,
+                  grottoes: null,
+                  items: null,
+                });
                 setSorting([]);
-                // setPageIndex(0);
-                setShowOnlyPokemon(false);
-                setShowOnlyTrainers(false);
-                setShowOnlyFlyable(false);
-                setShowOnlyGrottoes(false);
-                setShowOnlyItems(false);
-                setRegionFilter('all');
 
                 // Clear localStorage
                 try {
@@ -486,22 +460,16 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
                 })()}
               </span>
             )}
-            {(showOnlyPokemon ||
-              showOnlyTrainers ||
-              showOnlyFlyable ||
-              showOnlyGrottoes ||
-              showOnlyItems ||
-              regionFilter !== 'all') && (
+            {(pokemon || trainers || flyable || grottoes || items || region !== 'all') && (
               <span className="ml-2">
                 • Filtered:{' '}
                 {[
-                  showOnlyPokemon && 'Has Pokémon',
-                  showOnlyTrainers && 'Has Trainers',
-                  showOnlyFlyable && 'Flyable',
-                  showOnlyGrottoes && 'Has Grottoes',
-                  showOnlyItems && 'Has Items',
-                  regionFilter !== 'all' &&
-                    `Region: ${regionFilter.charAt(0).toUpperCase() + regionFilter.slice(1)}`,
+                  pokemon && 'Has Pokémon',
+                  trainers && 'Has Trainers',
+                  flyable && 'Flyable',
+                  grottoes && 'Has Grottoes',
+                  items && 'Has Items',
+                  region !== 'all' && `Region: ${region.charAt(0).toUpperCase() + region.slice(1)}`,
                 ]
                   .filter(Boolean)
                   .join(', ')}

@@ -14,6 +14,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table';
+import { useQueryStates, parseAsBoolean, parseAsString } from 'nuqs';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -54,10 +55,27 @@ interface ItemDataTableProps {
 }
 
 export function ItemDataTable({ columns, data }: ItemDataTableProps) {
-  // Storage key for persisting table state
+  // Storage key for persisting non-URL table state
   const STORAGE_KEY = 'itemDataTable';
 
-  // Load initial state from localStorage
+  // URL-based state for filters that should persist across navigation
+  const [urlState, setUrlState] = useQueryStates(
+    {
+      search: parseAsString.withDefault(''),
+      category: parseAsString.withDefault('all'),
+      tmhm: parseAsBoolean.withDefault(false),
+      price: parseAsBoolean.withDefault(false),
+      locations: parseAsBoolean.withDefault(false),
+    },
+    {
+      // Configure shallow routing to avoid full page reloads
+      shallow: true,
+      // Clear empty params from URL for cleaner URLs
+      clearOnDefault: true,
+    },
+  );
+
+  // Load initial state from localStorage for non-URL state
   const loadStoredState = () => {
     if (typeof window === 'undefined') return null;
     try {
@@ -71,24 +89,27 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
   const storedState = loadStoredState();
 
   const [sorting, setSorting] = React.useState<SortingState>(storedState?.sorting || []);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    storedState?.columnFilters || [],
-  );
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(
     storedState?.columnVisibility || {},
   );
 
-  // Checkbox filter states
-  const [showOnlyTMHM, setShowOnlyTMHM] = React.useState(storedState?.showOnlyTMHM || false);
-  const [showOnlyWithPrice, setShowOnlyWithPrice] = React.useState(
-    storedState?.showOnlyWithPrice || false,
-  );
-  const [showOnlyWithLocations, setShowOnlyWithLocations] = React.useState(
-    storedState?.showOnlyWithLocations || false,
-  );
+  // Extract URL state values
+  const { search, category, tmhm, price, locations } = urlState;
 
-  // Additional state for category filter (handled separately from table's columnFilters)
-  const [categoryFilter, setCategoryFilter] = React.useState(storedState?.categoryFilter || 'all');
+  // Sync search value with table filter
+  React.useEffect(() => {
+    const nameColumn = columns.find((col) => 'accessorKey' in col && col.accessorKey === 'name');
+    if (nameColumn) {
+      setColumnFilters((prev) => {
+        const otherFilters = prev.filter((filter) => filter.id !== 'name');
+        if (search) {
+          return [...otherFilters, { id: 'name', value: search }];
+        }
+        return otherFilters;
+      });
+    }
+  }, [search, columns]);
 
   // Get unique categories from the data
   const categories = React.useMemo(() => {
@@ -106,11 +127,10 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
   // Apply checkbox filters and category filter to the data
   const filteredData = React.useMemo(() => {
     return data.filter((item) => {
-      const matchesTMHM = !showOnlyTMHM || isTMHMItem(item);
-      const matchesPrice =
-        !showOnlyWithPrice || (isRegularItem(item) && (item.attributes?.price || 0) > 0);
+      const matchesTMHM = !tmhm || isTMHMItem(item);
+      const matchesPrice = !price || (isRegularItem(item) && (item.attributes?.price || 0) > 0);
       const matchesLocations =
-        !showOnlyWithLocations ||
+        !locations ||
         (isRegularItem(item) && (item.locations?.length || 0) > 0) ||
         (isTMHMItem(item) && item.location);
 
@@ -119,11 +139,11 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
         : isTMHMItem(item)
           ? 'TM/HM'
           : 'Unknown';
-      const matchesCategory = categoryFilter === 'all' || itemCategory === categoryFilter;
+      const matchesCategory = category === 'all' || itemCategory === category;
 
       return matchesTMHM && matchesPrice && matchesLocations && matchesCategory;
     });
-  }, [data, showOnlyTMHM, showOnlyWithPrice, showOnlyWithLocations, categoryFilter]);
+  }, [data, tmhm, price, locations, category]);
 
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
     pageIndex: storedState?.pageIndex || 0,
@@ -158,7 +178,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
     pageCount: Math.ceil(filteredData.length / pageSize),
   });
 
-  // Save state to localStorage whenever it changes
+  // Save non-URL state to localStorage whenever it changes
   React.useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -167,11 +187,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
       !storedState ||
       (JSON.stringify(sorting) === JSON.stringify(storedState.sorting) &&
         JSON.stringify(columnFilters) === JSON.stringify(storedState.columnFilters) &&
-        pageIndex === storedState.pageIndex &&
-        showOnlyTMHM === storedState.showOnlyTMHM &&
-        showOnlyWithPrice === storedState.showOnlyWithPrice &&
-        showOnlyWithLocations === storedState.showOnlyWithLocations &&
-        categoryFilter === storedState.categoryFilter);
+        pageIndex === storedState.pageIndex);
 
     if (isInitialLoad) return;
 
@@ -180,10 +196,6 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
       columnFilters,
       columnVisibility,
       pageIndex,
-      showOnlyTMHM,
-      showOnlyWithPrice,
-      showOnlyWithLocations,
-      categoryFilter,
     };
 
     try {
@@ -191,22 +203,12 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
     } catch (error) {
       console.warn('Failed to save table state to localStorage:', error);
     }
-  }, [
-    sorting,
-    columnFilters,
-    columnVisibility,
-    pageIndex,
-    showOnlyTMHM,
-    showOnlyWithPrice,
-    showOnlyWithLocations,
-    categoryFilter,
-    storedState,
-  ]);
+  }, [sorting, columnFilters, columnVisibility, pageIndex, storedState]);
 
   // Reset page to 0 when filters change
   React.useEffect(() => {
     setPagination((prev) => ({ ...prev, pageIndex: 0 }));
-  }, [columnFilters, showOnlyTMHM, showOnlyWithPrice, showOnlyWithLocations, categoryFilter]);
+  }, [columnFilters, tmhm, price, locations, category]);
 
   return (
     <div className="w-full px-2 sm:px-0">
@@ -218,8 +220,8 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
             <Input
               id="item-filter"
               placeholder="Search items..."
-              value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
-              onChange={(event) => table.getColumn('name')?.setFilterValue(event.target.value)}
+              value={search}
+              onChange={(event) => setUrlState({ search: event.target.value || null })}
               className="max-w-sm bg-white"
             />
           </div>
@@ -227,15 +229,18 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
           {/* Category filter */}
           <div className="flex flex-col gap-2">
             <Label htmlFor="category-select">Category</Label>
-            <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+            <Select
+              value={category}
+              onValueChange={(value) => setUrlState({ category: value === 'all' ? null : value })}
+            >
               <SelectTrigger id="category-select" className="bg-white w-[180px]">
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Categories</SelectItem>
-                {categories.map((category) => (
-                  <SelectItem key={category} value={category}>
-                    {category}
+                {categories.map((categoryItem) => (
+                  <SelectItem key={categoryItem} value={categoryItem}>
+                    {categoryItem}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -246,7 +251,11 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
         {/* Checkbox Filters */}
         <div className="flex flex-wrap gap-4">
           <div className="flex items-center space-x-2">
-            <Checkbox id="tm-hm" checked={showOnlyTMHM} onCheckedChange={setShowOnlyTMHM} />
+            <Checkbox
+              id="tm-hm"
+              checked={tmhm}
+              onCheckedChange={(checked) => setUrlState({ tmhm: checked ? true : null })}
+            />
             <Label htmlFor="tm-hm" className="text-sm">
               TMs/HMs only
             </Label>
@@ -255,8 +264,8 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
           <div className="flex items-center space-x-2">
             <Checkbox
               id="with-price"
-              checked={showOnlyWithPrice}
-              onCheckedChange={setShowOnlyWithPrice}
+              checked={price}
+              onCheckedChange={(checked) => setUrlState({ price: checked ? true : null })}
             />
             <Label htmlFor="with-price" className="text-sm">
               Has price
@@ -266,8 +275,8 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
           <div className="flex items-center space-x-2">
             <Checkbox
               id="with-locations"
-              checked={showOnlyWithLocations}
-              onCheckedChange={setShowOnlyWithLocations}
+              checked={locations}
+              onCheckedChange={(checked) => setUrlState({ locations: checked ? true : null })}
             />
             <Label htmlFor="with-locations" className="text-sm">
               Has locations
@@ -277,21 +286,23 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
 
         {/* Results Summary */}
         <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
-          {(Boolean(table.getColumn('name')?.getFilterValue()) ||
-            categoryFilter !== 'all' ||
+          {(Boolean(search) ||
+            category !== 'all' ||
             sorting.length > 0 ||
-            showOnlyTMHM ||
-            showOnlyWithPrice ||
-            showOnlyWithLocations) && (
+            tmhm ||
+            price ||
+            locations) && (
             <Button
               size="sm"
               onClick={() => {
-                table.getColumn('name')?.setFilterValue('');
+                setUrlState({
+                  search: null,
+                  category: null,
+                  tmhm: null,
+                  price: null,
+                  locations: null,
+                });
                 setSorting([]);
-                setShowOnlyTMHM(false);
-                setShowOnlyWithPrice(false);
-                setShowOnlyWithLocations(false);
-                setCategoryFilter('all');
                 try {
                   localStorage.removeItem(STORAGE_KEY);
                 } catch (error) {
@@ -316,17 +327,14 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
                   .join(', ')}
               </span>
             )}
-            {(showOnlyTMHM ||
-              showOnlyWithPrice ||
-              showOnlyWithLocations ||
-              categoryFilter !== 'all') && (
+            {(tmhm || price || locations || category !== 'all') && (
               <span className="ml-2">
                 • Filtered:{' '}
                 {[
-                  showOnlyTMHM && 'TMs/HMs only',
-                  showOnlyWithPrice && 'Has price',
-                  showOnlyWithLocations && 'Has locations',
-                  categoryFilter !== 'all' && `Category: ${categoryFilter}`,
+                  tmhm && 'TMs/HMs only',
+                  price && 'Has price',
+                  locations && 'Has locations',
+                  category !== 'all' && `Category: ${category}`,
                 ]
                   .filter(Boolean)
                   .join(', ')}

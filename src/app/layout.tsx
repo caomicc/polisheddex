@@ -6,6 +6,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Footer } from '@/components/ui/Footer';
 import { PokemonTypeProvider } from '@/contexts/PokemonTypeContext';
+import { NuqsProvider } from '@/components/providers/nuqs-provider';
 
 const rubik = Manrope({
   variable: '--font-rubik',
@@ -103,13 +104,15 @@ export default function RootLayout({
       <body
         className={`${rubik.variable} ${geistMono.variable} pokemon-page-background font-sans antialiased text-gray-900 dark:bg-gray-900 dark:text-gray-100 bg-slate-100`}
       >
-        <PokemonTypeProvider>
-          <div className="flex flex-col min-h-screen">
-            <Navigation />
-            <main className="flex-grow mb-10 p-2 lg:p-4">{children}</main>
-            <Footer />
-          </div>
-        </PokemonTypeProvider>
+        <NuqsProvider>
+          <PokemonTypeProvider>
+            <div className="flex flex-col min-h-screen">
+              <Navigation />
+              <main className="flex-grow mb-10 p-2 lg:p-4">{children}</main>
+              <Footer />
+            </div>
+          </PokemonTypeProvider>
+        </NuqsProvider>
         <SpeedInsights />
         <Analytics />
       </body>
