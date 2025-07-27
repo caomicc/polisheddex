@@ -2,7 +2,9 @@ import { GymLeader, LocationTrainer, PokemonType } from '@/types/types';
 import Image from 'next/image';
 import { Card, CardContent } from '../ui/card';
 import pokemonBaseData from '@/output/pokemon_base_data.json';
+import pokemonMoveDescriptions from '@/output/pokemon_move_descriptions.json';
 import { Badge } from '../ui/badge';
+import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 
 interface TrainerCardProps {
   trainer: GymLeader | LocationTrainer;
@@ -56,7 +58,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                 );
 
                 return (
-                  <Card key={idx} className="bg-white border-2 border-gray-200 p-0">
+                  <Card key={idx} className="bg-white border-2 border-gray-200 p-0 shadow-none">
                     <CardContent className="p-4 flex flex-col gap-2">
                       <div className="flex items-center gap-3">
                         <Image
@@ -67,26 +69,52 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                           className="inline-block mr-2"
                         />
                         <div className="flex-1 min-w-0">
-                          <h3 className="capitalize">{poke.species}</h3>
-                          {poke.level && <p>Lv. {poke.level}</p>}
-                          {poke.gender && <p className="capitalize">{poke.gender}</p>}
+                          <h3 className="capitalize">
+                            {poke.species}{' '}
+                            {poke.gender?.toLowerCase() === 'female' && (
+                              <Image
+                                src={`/icons/venus-solid.svg`}
+                                alt="Female"
+                                width={10}
+                                height={10}
+                                className="inline-block translate-y-[-1px] mr-2"
+                              />
+                            )}
+                            {poke.gender?.toLowerCase() === 'male' && (
+                              <Image
+                                src={`/icons/mars-solid.svg`}
+                                alt="Male"
+                                width={10}
+                                height={10}
+                                className="inline-block translate-y-[-1px] mr-2"
+                              />
+                            )}
+                          </h3>
+                          {poke.level && <p className="text-xs">Lv. {poke.level}</p>}
+
+                          {poke.item && (
+                            <p className="text-xs">
+                              Held item:{' '}
+                              <a
+                                href={`/items/${getItemIdFromDisplayName(poke.item)}`}
+                                className=""
+                              >
+                                {poke.item
+                                  .toLowerCase()
+                                  .replace(/_/g, ' ')
+                                  .replace(/\b\w/g, (c) => c.toUpperCase())}
+                              </a>
+                            </p>
+                          )}
+                          {poke.nature && <span className="text-xs">Nature: {poke.nature}</span>}
                         </div>
                       </div>
-                      {/* {types.length > 0 && (
-                        <div className="flex gap-2">
-                          {types.map((type: string, i: number) => (
-                            <Badge key={i} variant={type.toLowerCase() as PokemonType['name']}>
-                              {type}
-                            </Badge>
-                          ))}
-                        </div>
-                      )} */}
 
-                      <div className="flex flex-row flex-wrap md:flex-col items-start gap-2">
-                        <div className={''}>
+                      <div className="flex flex-row flex-wrap justify-center items-center mb-2 gap-2 md:gap-4">
+                        <div className={'text-center'}>
                           <label className="leading-none text-xs w-[50px]">Faithful:</label>
                           <div
-                            className="flex flex-wrap gap-2"
+                            className="flex flex-wrap gap-2 items-center justify-center"
                             aria-label="Pokemon Types"
                             role="group"
                           >
@@ -96,24 +124,34 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                                   <Badge
                                     key={type}
                                     variant={type.toLowerCase() as PokemonType['name']}
+                                    className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
                                   >
                                     {type}
                                   </Badge>
                                 ))
                               ) : (
-                                <Badge key={types} variant={types as PokemonType['name']}>
+                                <Badge
+                                  key={types}
+                                  variant={types as PokemonType['name']}
+                                  className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
+                                >
                                   {types}
                                 </Badge>
                               )
                             ) : (
-                              <Badge variant="secondary">Unknown</Badge>
+                              <Badge
+                                variant="secondary"
+                                className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
+                              >
+                                Unknown
+                              </Badge>
                             )}
                           </div>
                         </div>
-                        <div>
+                        <div className={'text-center'}>
                           <label className="leading-none text-xs w-[50px]">Polished:</label>
                           <div
-                            className="flex flex-wrap gap-2"
+                            className="flex flex-wrap gap-2 items-center justify-center"
                             aria-label="Pokemon Types"
                             role="group"
                           >
@@ -122,6 +160,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                                 updatedTypes.map((type: string) => (
                                   <Badge
                                     key={type}
+                                    className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
                                     variant={type.toLowerCase() as PokemonType['name']}
                                   >
                                     {type}
@@ -130,6 +169,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                               ) : (
                                 <Badge
                                   key={updatedTypes}
+                                  className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
                                   variant={updatedTypes as PokemonType['name']}
                                 >
                                   {updatedTypes}
@@ -141,32 +181,30 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                           </div>
                         </div>
                       </div>
-
-                      {poke.item && (
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                          Held item:{' '}
-                          <a
-                            href={`/items/${poke.item.toLowerCase().replace(/_/g, '').replace(/\s+/g, '-')}`}
-                            className="underline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
-                          >
-                            {poke.item}
-                          </a>
-                        </p>
-                      )}
-                      {poke.nature && (
-                        <span className="block text-sm text-gray-500 dark:text-gray-400 mb-2">
-                          {poke.nature} Nature
-                        </span>
-                      )}
-                      <ul>
-                        {poke.moves?.map((move, i) => (
-                          <li
-                            key={move + i}
-                            className="text-sm capitalize text-gray-700 dark:text-gray-300"
-                          >
-                            {move}
-                          </li>
-                        ))}
+                      <ul className="grid grid-cols-2 gap-2">
+                        {poke.moves?.map((move, i) => {
+                          type MoveDescriptions = typeof pokemonMoveDescriptions;
+                          type MoveKey = keyof MoveDescriptions;
+                          const moveKey = Object.keys(pokemonMoveDescriptions).find(
+                            (k) => k.toLowerCase() === move.toLowerCase(),
+                          ) as MoveKey | undefined;
+                          const moveData = moveKey ? pokemonMoveDescriptions[moveKey] : undefined;
+                          const moveType = moveData?.type || 'Unknown';
+                          return (
+                            <li
+                              key={move + i}
+                              className="text-xs font-bold capitalize text-gray-700 dark:text-gray-300 flex flex-col items-center gap-2 p-2 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                            >
+                              {move}
+                              <Badge
+                                variant={moveType.toLowerCase() as PokemonType['name']}
+                                className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
+                              >
+                                {moveType}
+                              </Badge>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </CardContent>
                   </Card>

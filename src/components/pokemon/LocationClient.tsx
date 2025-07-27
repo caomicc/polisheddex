@@ -100,16 +100,14 @@ export default function LocationClient({
       {/* Conditional rendering for location type */}
       {comprehensiveInfo?.gymLeader && (
         <div className="gym-details">
-          <h2 className="text-lg font-semibold">Gym Details</h2>
+          <h2 className="text-lg font-semibold mb-4">Gym Details</h2>
           {comprehensiveInfo.gymLeader && (
             <TrainerCard trainer={comprehensiveInfo.gymLeader} isGymLeader />
           )}
-          <div className="badge-info">
-            <p>Badge: {comprehensiveInfo.badge}</p>
-          </div>
+
           {comprehensiveInfo.trainers && comprehensiveInfo.trainers.length > 0 && (
-            <div className="trainers-list">
-              <h3>Trainers:</h3>
+            <div className="trainers-list flex flex-col gap-4 mt-6">
+              <h3 className="text-lg font-semibold">Trainers:</h3>
               {comprehensiveInfo.trainers.map((trainer: LocationTrainer, index: number) => (
                 <TrainerCard key={index} trainer={trainer} />
               ))}
