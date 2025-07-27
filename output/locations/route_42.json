@@ -1,0 +1,84 @@
+{
+  "id": 52,
+  "name": "route_42",
+  "displayName": "Route 42",
+  "region": "johto",
+  "x": 92,
+  "y": 44,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "violet_outskirts",
+      "targetLocationDisplay": "Violet Outskirts",
+      "offset": 5
+    },
+    {
+      "direction": "west",
+      "targetLocation": "ecruteak_city",
+      "targetLocationDisplay": "Ecruteak City",
+      "offset": -9
+    },
+    {
+      "direction": "east",
+      "targetLocation": "mahogany_town",
+      "targetLocationDisplay": "Mahogany Town",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_42_ecruteak_gate",
+      "targetLocationDisplay": "Route 42 Ecruteak Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mount_mortar_1f_outside",
+      "targetLocationDisplay": "Mount Mortar First Floor Outside",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_cave_grotto",
+      "targetLocationDisplay": "Hidden Cave Grotto",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "HM05",
+      "moveName": "Whirlpool",
+      "location": "Route 42"
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 16,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 33,
+        "y": 8
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "HM05 - Whirlpool"
+    }
+  ]
+}

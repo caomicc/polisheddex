@@ -1,0 +1,57 @@
+{
+  "id": -1,
+  "name": "cinnabar_volcano_b_1f",
+  "displayName": "Cinnabar Volcano B First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "cinnabar_volcano_1f",
+      "targetLocationDisplay": "Cinnabar Volcano First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cinnabar_volcano_b_2f",
+      "targetLocationDisplay": "Cinnabar Volcano B Second Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 28,
+        "y": 5
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Dire Hit",
+      "coordinates": {
+        "x": 28,
+        "y": 18
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 2,
+        "y": 18
+      }
+    },
+    {
+      "type": "item",
+      "name": "Fire Stone",
+      "coordinates": {
+        "x": 4,
+        "y": 29
+      }
+    }
+  ]
+}

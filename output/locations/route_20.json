@@ -1,0 +1,241 @@
+{
+  "id": 114,
+  "name": "route_20",
+  "displayName": "Route 20",
+  "region": "kanto",
+  "x": 80,
+  "y": 132,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "cinnabar_island",
+      "targetLocationDisplay": "Cinnabar Island",
+      "offset": -2
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_19",
+      "targetLocationDisplay": "Route 19",
+      "offset": -20
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "seafoam_islands_1f",
+      "targetLocationDisplay": "Seafoam Islands First Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "swimmerf_nicole",
+      "name": "Nicole",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 99,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "Marill",
+          "moves": [
+            "Hydro Pump",
+            "Close Combat",
+            "Double Edge",
+            "Rain Dance"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Marill",
+          "moves": [
+            "Hydro Pump",
+            "Close Combat",
+            "Double Edge",
+            "Rain Dance"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Lapras",
+          "moves": [
+            "Megahorn",
+            "Outrage",
+            "Hydro Pump",
+            "Safeguard"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_lori",
+      "name": "Lori",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 78,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 62,
+          "species": "Starmie",
+          "moves": [
+            "Tri Attack",
+            "Confuse Ray",
+            "Hydro Pump",
+            "Water Gun"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Starmie",
+          "moves": [
+            "Tri Attack",
+            "Confuse Ray",
+            "Hydro Pump",
+            "Water Gun"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Starmie",
+          "moves": [
+            "Tri Attack",
+            "Confuse Ray",
+            "Hydro Pump",
+            "Water Gun"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_mayu",
+      "name": "Mayu",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 32,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Corsola",
+          "moves": [
+            "Reversal",
+            "Earth Power",
+            "Mirror Coat",
+            "Power Gem"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Corsola",
+          "moves": [
+            "Reversal",
+            "Earth Power",
+            "Mirror Coat",
+            "Power Gem"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Corsola",
+          "moves": [
+            "Reversal",
+            "Earth Power",
+            "Mirror Coat",
+            "Power Gem"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_leona",
+      "name": "Leona",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 62,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 62,
+          "species": "Politoed",
+          "moves": [
+            "Hyper Voice",
+            "Swagger",
+            "Giga Drain",
+            "Bubble Beam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerm_cameron",
+      "name": "Frankie",
+      "trainerClass": "SWIMMERM",
+      "spriteType": "swimmerm",
+      "coordinates": {
+        "x": 8,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 61,
+          "species": "Azumarill",
+          "moves": [
+            "Hydro Pump",
+            "Close Combat",
+            "Double Edge",
+            "Rain Dance"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Stardust",
+      "coordinates": {
+        "x": 23,
+        "y": 10
+      }
+    },
+    {
+      "type": "item",
+      "name": "Big Pearl",
+      "coordinates": {
+        "x": 72,
+        "y": 3
+      }
+    }
+  ]
+}

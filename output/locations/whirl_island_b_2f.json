@@ -1,0 +1,55 @@
+{
+  "id": -1,
+  "name": "whirl_island_b_2f",
+  "displayName": "Whirl Island B Second Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "whirl_island_b_1f",
+      "targetLocationDisplay": "Whirl Island B First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "whirl_island_lugia_chamber",
+      "targetLocationDisplay": "Whirl Island Lugia Chamber",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "whirl_island_sw",
+      "targetLocationDisplay": "Whirl Island Southwest",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 10,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 5,
+        "y": 12
+      }
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "id": -1,
+  "name": "seafoam_gym",
+  "displayName": "Seafoam Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "seafoam_islands_1f",
+      "targetLocationDisplay": "Seafoam Islands First Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "scientist_lowell",
+      "name": "Lowell",
+      "trainerClass": "SCIENTIST",
+      "spriteType": "scientist",
+      "coordinates": {
+        "x": 7,
+        "y": 16
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Arcanine",
+          "moves": [
+            "Dragon Dance",
+            "Growl",
+            "Bite",
+            "Roar"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "scientist_dennett",
+      "name": "Dennett",
+      "trainerClass": "SCIENTIST",
+      "spriteType": "scientist",
+      "coordinates": {
+        "x": 14,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Ninetales",
+          "moves": [
+            "Nasty Plot",
+            "Flamethrower",
+            "Quick Attack",
+            "Confuse Ray"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "super_nerd_cary",
+      "name": "Cary",
+      "trainerClass": "SUPER_NERD",
+      "spriteType": "super_nerd",
+      "coordinates": {
+        "x": 19,
+        "y": 12
+      },
+      "pokemon": [
+        {
+          "level": 63,
+          "species": "Flareon",
+          "moves": [
+            "Flare Blitz",
+            "Double Edge",
+            "Flamethrower",
+            "Smokescreen"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "scientist_linden",
+      "name": "Linden",
+      "trainerClass": "SCIENTIST",
+      "spriteType": "scientist",
+      "coordinates": {
+        "x": 12,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Magmar",
+          "moves": [
+            "Fire Blast",
+            "Flamethrower",
+            "Focus Blast",
+            "Sunny Day"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "super_nerd_waldo",
+      "name": "Waldo",
+      "trainerClass": "SUPER_NERD",
+      "spriteType": "super_nerd",
+      "coordinates": {
+        "x": 10,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 65,
+          "species": "Charizard",
+          "moves": [
+            "Crunch",
+            "Fire Spin",
+            "Flamethrower",
+            "Slash"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "super_nerd_merle",
+      "name": "Merle",
+      "trainerClass": "SUPER_NERD",
+      "spriteType": "super_nerd",
+      "coordinates": {
+        "x": 6,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 63,
+          "species": "Magcargo",
+          "moves": [
+            "Earth Power",
+            "Flamethrower",
+            "Recover",
+            "Body Slam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "gymLeader": {
+    "name": "Blaine",
+    "trainerClass": "BLAINE",
+    "badge": "VOLCANOBADGE",
+    "region": "kanto",
+    "speciality": "Fire",
+    "pokemon": [
+      {
+        "level": 65,
+        "species": "magcargo",
+        "moves": [
+          "curse",
+          "will o wisp",
+          "flamethrower",
+          "rock slide"
+        ]
+      },
+      {
+        "level": 68,
+        "species": "magmar",
+        "item": "eviolite",
+        "moves": [
+          "sunny day",
+          "thunderpunch",
+          "flamethrower",
+          "focus blast"
+        ]
+      },
+      {
+        "level": 66,
+        "species": "arcanine",
+        "moves": [
+          "crunch",
+          "flame charge",
+          "flare blitz",
+          "take down"
+        ]
+      },
+      {
+        "level": 66,
+        "species": "ninetales",
+        "moves": [
+          "confuse ray",
+          "fire spin",
+          "flamethrower",
+          "will o wisp"
+        ]
+      },
+      {
+        "level": 65,
+        "species": "flareon",
+        "moves": [
+          "will o wisp",
+          "flare blitz",
+          "quick attack",
+          "fire blast"
+        ]
+      },
+      {
+        "level": 69,
+        "species": "rapidash",
+        "item": "sitrus_berry",
+        "moves": [
+          "quick attack",
+          "fire spin",
+          "play rough",
+          "fire blast"
+        ]
+      }
+    ]
+  }
+}

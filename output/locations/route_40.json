@@ -1,0 +1,185 @@
+{
+  "id": 41,
+  "name": "route_40",
+  "displayName": "Route 40",
+  "region": "johto",
+  "x": 28,
+  "y": 64,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "route_41",
+      "targetLocationDisplay": "Route 41",
+      "offset": -15
+    },
+    {
+      "direction": "east",
+      "targetLocation": "olivine_city",
+      "targetLocationDisplay": "Olivine City",
+      "offset": -7
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_40_battle_tower_gate",
+      "targetLocationDisplay": "Route 40 Battle Tower Gate",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "swimmerm_simon",
+      "name": "Simon",
+      "trainerClass": "SWIMMERM",
+      "spriteType": "swimmerm",
+      "coordinates": {
+        "x": 13,
+        "y": 16
+      },
+      "pokemon": [
+        {
+          "level": 20,
+          "species": "Tentacool",
+          "moves": [
+            "Wrap",
+            "Water Pulse",
+            "Toxic Spikes",
+            "Acid"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 20,
+          "species": "Tentacool",
+          "moves": [
+            "Wrap",
+            "Water Pulse",
+            "Toxic Spikes",
+            "Acid"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerm_randall",
+      "name": "Randall",
+      "trainerClass": "SWIMMERM",
+      "spriteType": "swimmerm",
+      "coordinates": {
+        "x": 18,
+        "y": 33
+      },
+      "pokemon": [
+        {
+          "level": 18,
+          "species": "Shellder",
+          "moves": [
+            "Protect",
+            "Icicle Spear",
+            "Supersonic",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 20,
+          "species": "Wartortle",
+          "moves": [
+            "Rapid Spin",
+            "Bite",
+            "Aqua Jet",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 18,
+          "species": "Shellder",
+          "moves": [
+            "Protect",
+            "Icicle Spear",
+            "Supersonic",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_elaine",
+      "name": "Elaine",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 3,
+        "y": 19
+      },
+      "pokemon": [
+        {
+          "level": 21,
+          "species": "Staryu",
+          "moves": [
+            "Bubble Beam",
+            "Swift",
+            "Hypnosis",
+            "Recover"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_paula",
+      "name": "Paula",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 9,
+        "y": 25
+      },
+      "pokemon": [
+        {
+          "level": 19,
+          "species": "Staryu",
+          "moves": [
+            "Bubble Beam",
+            "Swift",
+            "Hypnosis",
+            "Recover"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 19,
+          "species": "Shellder",
+          "moves": [
+            "Protect",
+            "Icicle Spear",
+            "Supersonic",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 7,
+        "y": 8
+      }
+    }
+  ]
+}

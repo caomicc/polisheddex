@@ -1,0 +1,65 @@
+{
+  "id": -1,
+  "name": "rocket_hideout_b_4f",
+  "displayName": "Rocket Hideout B Fourth Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "rocket_hideout_b_3f",
+      "targetLocationDisplay": "Rocket Hideout B Third Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "rocket_hideout_elevator",
+      "targetLocationDisplay": "Rocket Hideout Elevator",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 17,
+        "y": 1
+      }
+    },
+    {
+      "type": "item",
+      "name": "Lift Key",
+      "coordinates": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "X Sp Atk",
+      "coordinates": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 2,
+        "y": 12
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dubious Disc",
+      "coordinates": {
+        "x": 4,
+        "y": 20
+      }
+    }
+  ]
+}

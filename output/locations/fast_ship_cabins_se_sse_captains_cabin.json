@@ -1,0 +1,80 @@
+{
+  "id": -1,
+  "name": "fast_ship_cabins_se_sse_captains_cabin",
+  "displayName": "Fast Ship Cabins Southeast Sse Captains Cabin",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "fast_ship_1f",
+      "targetLocationDisplay": "Fast Ship First Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "pokefanm_colin",
+      "name": "Colin",
+      "trainerClass": "POKEFANM",
+      "spriteType": "pokefanm",
+      "coordinates": {
+        "x": 5,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 49,
+          "species": "Delibird",
+          "item": "Sitrus Berry",
+          "moves": [
+            "Belly Drum",
+            "Fly",
+            "Roost",
+            "Body Slam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "twins_megandpeg1",
+      "name": "Meg & Peg",
+      "trainerClass": "TWINS",
+      "spriteType": "twins",
+      "coordinates": {
+        "x": 2,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 45,
+          "species": "Teddiursa",
+          "moves": [
+            "Rest",
+            "Crunch",
+            "Charm",
+            "Slash"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 45,
+          "species": "Phanpy",
+          "moves": [
+            "Double Edge",
+            "Play Rough",
+            "Charm",
+            "Body Slam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ]
+}

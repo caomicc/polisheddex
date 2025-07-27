@@ -1,0 +1,36 @@
+{
+  "id": 142,
+  "name": "valencia_island",
+  "displayName": "Valencia Island",
+  "region": "orange",
+  "x": 76,
+  "y": 116,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "route_49",
+      "targetLocationDisplay": "Route 49",
+      "offset": -2
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ivys_lab",
+      "targetLocationDisplay": "Ivys Lab",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ivys_house",
+      "targetLocationDisplay": "Ivys House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "valencia_house",
+      "targetLocationDisplay": "Valencia House",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_VALENCIA"
+}

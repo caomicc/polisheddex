@@ -1,0 +1,143 @@
+{
+  "id": 135,
+  "name": "shamouti_tunnel",
+  "displayName": "Shamouti Tunnel",
+  "region": "orange",
+  "x": 52,
+  "y": 52,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "shamouti_island",
+      "targetLocationDisplay": "Shamouti Island",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "warm_beach",
+      "targetLocationDisplay": "Warm Beach",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "tamer_oswald",
+      "name": "Oswald",
+      "trainerClass": "TAMER",
+      "spriteType": "tamer",
+      "coordinates": {
+        "x": 24,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Donphan",
+          "moves": [
+            "Giga Impact",
+            "Earthquake",
+            "Scary Face",
+            "Iron Tail"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Ursaring",
+          "moves": [
+            "Thrash",
+            "Crunch",
+            "Rest",
+            "Scary Face"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 61,
+          "species": "Kangaskhan",
+          "moves": [
+            "Reversal",
+            "Sucker Punch",
+            "Outrage",
+            "Endure"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "firebreather_tala",
+      "name": "Tala",
+      "trainerClass": "FIREBREATHER",
+      "spriteType": "firebreather",
+      "coordinates": {
+        "x": 24,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 61,
+          "species": "Weezing",
+          "moves": [
+            "Fire Blast",
+            "Pain Split",
+            "Destiny Bond",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Magmortar",
+          "moves": [
+            "Hyper Beam",
+            "Fire Blast",
+            "Flamethrower",
+            "Focus Blast"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 21,
+        "y": 5
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Leaf Stone",
+      "coordinates": {
+        "x": 32,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "X Speed",
+      "coordinates": {
+        "x": 3,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Smooth Rock",
+      "coordinates": {
+        "x": 12,
+        "y": 17
+      }
+    }
+  ]
+}

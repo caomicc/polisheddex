@@ -1,0 +1,53 @@
+{
+  "id": 5,
+  "name": "route_30",
+  "displayName": "Route 30",
+  "region": "johto",
+  "x": 100,
+  "y": 80,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_31",
+      "targetLocationDisplay": "Route 31",
+      "offset": -10
+    },
+    {
+      "direction": "south",
+      "targetLocation": "cherrygrove_city",
+      "targetLocationDisplay": "Cherrygrove City",
+      "offset": -5
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_30_berry_speech_house",
+      "targetLocationDisplay": "Route 30 Berry Speech House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mr_pokemons_house",
+      "targetLocationDisplay": "Mr Pokemons House",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Potion",
+      "coordinates": {
+        "x": 14,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Antidote",
+      "coordinates": {
+        "x": 8,
+        "y": 35
+      }
+    }
+  ]
+}

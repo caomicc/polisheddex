@@ -1,0 +1,162 @@
+{
+  "id": -1,
+  "name": "underground_warehouse",
+  "displayName": "Underground Warehouse",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "underground_path_switch_room_entrances",
+      "targetLocationDisplay": "Underground Path Switch Room Entrances",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "goldenrod_dept_store_b_1f",
+      "targetLocationDisplay": "Goldenrod Dept Store B First Floor",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM56",
+      "moveName": "X Scissor",
+      "location": "Underground Warehouse"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "gruntm_24",
+      "name": "Grunt",
+      "trainerClass": "GRUNTM",
+      "spriteType": "team_rocket_grunt_m",
+      "coordinates": {
+        "x": 9,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 37,
+          "species": "Haunter",
+          "moves": [
+            "Shadow Ball",
+            "Pain Split",
+            "Sucker Punch",
+            "Confuse Ray"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 36,
+          "species": "Weezing",
+          "moves": [
+            "Sludge Bomb",
+            "Gyro Ball",
+            "Haze",
+            "Rage"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "gruntm_14",
+      "name": "Grunt",
+      "trainerClass": "GRUNTM",
+      "spriteType": "team_rocket_grunt_m",
+      "coordinates": {
+        "x": 8,
+        "y": 15
+      },
+      "pokemon": [
+        {
+          "level": 35,
+          "species": "Raticate",
+          "moves": [
+            "Super Fang",
+            "Feint Attack",
+            "Crunch",
+            "Sucker Punch"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 35,
+          "species": "Golbat",
+          "moves": [
+            "Leech Life",
+            "Mean Look",
+            "Super Fang",
+            "Swift"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "gruntm_15",
+      "name": "Grunt",
+      "trainerClass": "GRUNTM",
+      "spriteType": "team_rocket_grunt_m",
+      "coordinates": {
+        "x": 14,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 35,
+          "species": "Muk",
+          "moves": [
+            "Scary Face",
+            "Sludge Bomb",
+            "Feint Attack",
+            "Minimize"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 35,
+          "species": "Weezing",
+          "moves": [
+            "Sludge Bomb",
+            "Gyro Ball",
+            "Haze",
+            "Rage"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Max Ether",
+      "coordinates": {
+        "x": 18,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 2,
+        "y": 1
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM56 - X Scissor"
+    }
+  ]
+}

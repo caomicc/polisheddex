@@ -1,0 +1,53 @@
+{
+  "id": 6,
+  "name": "route_31",
+  "displayName": "Route 31",
+  "region": "johto",
+  "x": 96,
+  "y": 60,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "route_30",
+      "targetLocationDisplay": "Route 30",
+      "offset": 10
+    },
+    {
+      "direction": "west",
+      "targetLocation": "violet_city",
+      "targetLocationDisplay": "Violet City",
+      "offset": -9
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_31_violet_gate",
+      "targetLocationDisplay": "Route 31 Violet Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dark_cave_violet_entrance",
+      "targetLocationDisplay": "Dark Cave Violet Entrance",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Potion",
+      "coordinates": {
+        "x": 29,
+        "y": 5
+      }
+    },
+    {
+      "type": "item",
+      "name": "Poke Ball",
+      "coordinates": {
+        "x": 19,
+        "y": 15
+      }
+    }
+  ]
+}

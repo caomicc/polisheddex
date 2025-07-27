@@ -1,0 +1,112 @@
+{
+  "id": 15,
+  "name": "azalea_town",
+  "displayName": "Azalea Town",
+  "region": "johto",
+  "x": 68,
+  "y": 124,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "route_34",
+      "targetLocationDisplay": "Route 34",
+      "offset": -18
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_33",
+      "targetLocationDisplay": "Route 33",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "azalea_pokecenter_1f",
+      "targetLocationDisplay": "Azalea Pokecenter 1f",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "charcoal_kiln",
+      "targetLocationDisplay": "Charcoal Kiln",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "azalea_mart",
+      "targetLocationDisplay": "Azalea Mart",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "kurts_house",
+      "targetLocationDisplay": "Kurts House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "azalea_gym",
+      "targetLocationDisplay": "Azalea Gym",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "slowpoke_well_entrance",
+      "targetLocationDisplay": "Slowpoke Well Entrance",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ilex_forest_azalea_gate",
+      "targetLocationDisplay": "Ilex Forest Azalea Gate",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_AZALEA",
+  "events": [
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Azalea Town Rival Battle Trigger1",
+      "coordinates": {
+        "x": 5,
+        "y": 10
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Azalea Town Rival Battle Trigger2",
+      "coordinates": {
+        "x": 5,
+        "y": 11
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Azalea Town_ Celebi Trigger",
+      "coordinates": {
+        "x": 9,
+        "y": 6
+      }
+    },
+    {
+      "type": "special",
+      "description": "Celebi Event",
+      "details": "Time travel encounter with Celebi"
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 31,
+        "y": 6
+      }
+    }
+  ]
+}

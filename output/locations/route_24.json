@@ -1,0 +1,51 @@
+{
+  "id": 79,
+  "name": "route_24",
+  "displayName": "Route 24",
+  "region": "kanto",
+  "x": 108,
+  "y": 36,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "cerulean_city",
+      "targetLocationDisplay": "Cerulean City",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_25",
+      "targetLocationDisplay": "Route 25",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Route24 Bridge Overhead Trigger",
+      "coordinates": {
+        "x": 19,
+        "y": 15
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route24 Bridge Underfoot Trigger",
+      "coordinates": {
+        "x": 20,
+        "y": 15
+      }
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 15,
+        "y": 19
+      }
+    }
+  ]
+}

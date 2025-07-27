@@ -1,0 +1,107 @@
+{
+  "id": -1,
+  "name": "route_2_north",
+  "displayName": "Route 2 North",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "pewter_city",
+      "targetLocationDisplay": "Pewter City",
+      "offset": -5
+    },
+    {
+      "direction": "south",
+      "targetLocation": "route_2_south",
+      "targetLocationDisplay": "Route 2 South",
+      "offset": -2
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_2_nugget_speech_house",
+      "targetLocationDisplay": "Route 2 Nugget Speech House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_2_gate",
+      "targetLocationDisplay": "Route 2 Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "digletts_cave",
+      "targetLocationDisplay": "Digletts Cave",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "viridian_forest_pewter_gate",
+      "targetLocationDisplay": "Viridian Forest Pewter Gate",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "bug_maniac_ed",
+      "name": "Ed",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 6,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 61,
+          "species": "Yanma",
+          "moves": [
+            "Bug Buzz",
+            "Air Slash",
+            "U Turn",
+            "Screech"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Beedrill",
+          "moves": [
+            "Outrage",
+            "Swords Dance",
+            "Agility",
+            "Poison Jab"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Butterfree",
+          "moves": [
+            "Psychic M",
+            "Air Slash",
+            "Healinglight",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Carbos",
+      "coordinates": {
+        "x": 19,
+        "y": 4
+      }
+    }
+  ]
+}

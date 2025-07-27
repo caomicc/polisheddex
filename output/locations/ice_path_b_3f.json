@@ -1,0 +1,33 @@
+{
+  "id": -1,
+  "name": "ice_path_b_3f",
+  "displayName": "Ice Path B Third Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "ice_path_b_2f_mahogany_side",
+      "targetLocationDisplay": "Ice Path B Second Floor Mahogany Side",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ice_path_b_2f_blackthorn_side",
+      "targetLocationDisplay": "Ice Path B Second Floor Blackthorn Side",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Nevermeltice",
+      "coordinates": {
+        "x": 5,
+        "y": 7
+      }
+    }
+  ]
+}

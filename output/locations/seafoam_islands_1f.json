@@ -1,0 +1,39 @@
+{
+  "id": -1,
+  "name": "seafoam_islands_1f",
+  "displayName": "Seafoam Islands First Floor",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_20",
+      "targetLocationDisplay": "Route 20",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "seafoam_gym",
+      "targetLocationDisplay": "Seafoam Gym",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "seafoam_islands_b_1f",
+      "targetLocationDisplay": "Seafoam Islands B First Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Escape Rope",
+      "coordinates": {
+        "x": 17,
+        "y": 29
+      }
+    }
+  ]
+}

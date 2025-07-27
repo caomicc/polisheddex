@@ -1,0 +1,93 @@
+{
+  "id": 86,
+  "name": "digletts_cave",
+  "displayName": "Digletts Cave",
+  "region": "kanto",
+  "x": 116,
+  "y": 68,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "vermilion_city",
+      "targetLocationDisplay": "Vermilion City",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "digletts_cave",
+      "targetLocationDisplay": "Digletts Cave",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_2_north",
+      "targetLocationDisplay": "Route 2 North",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "hiker_gerard",
+      "name": "Gerard",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 5,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "Rhyhorn",
+          "moves": [
+            "Megahorn",
+            "Close Combat",
+            "Earthquake",
+            "Double Edge"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 61,
+          "species": "Rhydon",
+          "moves": [
+            "Close Combat",
+            "Earthquake",
+            "Double Edge",
+            "Stone Edge"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 8,
+        "y": 15
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Repel",
+      "coordinates": {
+        "x": 34,
+        "y": 33
+      }
+    },
+    {
+      "type": "item",
+      "name": "Rare Bone",
+      "coordinates": {
+        "x": 13,
+        "y": 28
+      }
+    }
+  ]
+}

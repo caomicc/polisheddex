@@ -1,0 +1,88 @@
+{
+  "id": -1,
+  "name": "dragons_den_b_1f",
+  "displayName": "Dragons Den B First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "dragons_den_1f",
+      "targetLocationDisplay": "Dragons Den First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dragon_shrine",
+      "targetLocationDisplay": "Dragon Shrine",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Dragons Den B1 F Clair Trigger",
+      "coordinates": {
+        "x": 19,
+        "y": 30
+      }
+    },
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Revive",
+      "coordinates": {
+        "x": 33,
+        "y": 29
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 21,
+        "y": 17
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 31,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dragon Fang",
+      "coordinates": {
+        "x": 35,
+        "y": 16
+      }
+    },
+    {
+      "type": "item",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 30,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 5,
+        "y": 20
+      }
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "id": -1,
+  "name": "dim_cave_3f",
+  "displayName": "Dim Cave Third Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "dim_cave_4f",
+      "targetLocationDisplay": "Dim Cave Fourth Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dim_cave_2f",
+      "targetLocationDisplay": "Dim Cave Second Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "engineer_hugo",
+      "name": "Hugo",
+      "trainerClass": "ENGINEER",
+      "spriteType": "engineer",
+      "coordinates": {
+        "x": 14,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Magneton",
+          "moves": [
+            "Gyro Ball",
+            "Agility",
+            "Hidden Power",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Steelix",
+          "moves": [
+            "Earthquake",
+            "Double Edge",
+            "Stone Edge",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "blackbelt_t_takeo",
+      "name": "Takeo",
+      "trainerClass": "BLACKBELT_T",
+      "spriteType": "blackbelt",
+      "coordinates": {
+        "x": 22,
+        "y": 11
+      },
+      "pokemon": [
+        {
+          "level": 52,
+          "species": "Hitmontop",
+          "moves": [
+            "Protect",
+            "Foresight",
+            "Gyro Ball",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 54,
+          "species": "Heracross",
+          "moves": [
+            "Reversal",
+            "Close Combat",
+            "Megahorn",
+            "Take Down"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Poliwrath",
+          "moves": [
+            "Cross Chop",
+            "Earth Power",
+            "Dynamicpunch",
+            "Bubble Beam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "hiker_floyd",
+      "name": "Floyd",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 10,
+        "y": 27
+      },
+      "pokemon": [
+        {
+          "level": 57,
+          "species": "Steelix",
+          "moves": [
+            "Earthquake",
+            "Double Edge",
+            "Stone Edge",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Star Piece",
+      "coordinates": {
+        "x": 2,
+        "y": 5
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Zinc",
+      "coordinates": {
+        "x": 26,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Metal Coat",
+      "coordinates": {
+        "x": 18,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Escape Rope",
+      "coordinates": {
+        "x": 10,
+        "y": 29
+      }
+    }
+  ]
+}

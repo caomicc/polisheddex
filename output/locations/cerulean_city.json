@@ -1,0 +1,130 @@
+{
+  "id": 77,
+  "name": "cerulean_city",
+  "displayName": "Cerulean City",
+  "region": "kanto",
+  "x": 108,
+  "y": 44,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_24",
+      "targetLocationDisplay": "Route 24",
+      "offset": 0
+    },
+    {
+      "direction": "south",
+      "targetLocation": "route_5",
+      "targetLocationDisplay": "Route 5",
+      "offset": 5
+    },
+    {
+      "direction": "west",
+      "targetLocation": "route_4",
+      "targetLocationDisplay": "Route 4",
+      "offset": 2
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_9",
+      "targetLocationDisplay": "Route 9",
+      "offset": 4
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_gym_badge_speech_house",
+      "targetLocationDisplay": "Cerulean Gym Badge Speech House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_police_station",
+      "targetLocationDisplay": "Cerulean Police Station",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_trade_speech_house",
+      "targetLocationDisplay": "Cerulean Trade Speech House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_pokecenter_1f",
+      "targetLocationDisplay": "Cerulean Pokecenter 1f",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_gym",
+      "targetLocationDisplay": "Cerulean Gym",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_mart",
+      "targetLocationDisplay": "Cerulean Mart",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_cave_1f",
+      "targetLocationDisplay": "Cerulean Cave First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_bike_shop",
+      "targetLocationDisplay": "Cerulean Bike Shop",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_berry_powder_house",
+      "targetLocationDisplay": "Cerulean Berry Powder House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_couple_house",
+      "targetLocationDisplay": "Cerulean Couple House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_water_show_speech_house",
+      "targetLocationDisplay": "Cerulean Water Show Speech House",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_CERULEAN",
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Route24 Bridge Underfoot Trigger",
+      "coordinates": {
+        "x": 20,
+        "y": 3
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route24 Bridge Overhead Trigger",
+      "coordinates": {
+        "x": 20,
+        "y": 4
+      }
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Berserk Gene",
+      "coordinates": {
+        "x": 4,
+        "y": 13
+      }
+    }
+  ]
+}

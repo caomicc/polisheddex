@@ -1,0 +1,41 @@
+{
+  "id": -1,
+  "name": "ice_path_b_2f_blackthorn_side",
+  "displayName": "Ice Path B Second Floor Blackthorn Side",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "ice_path_b_1f",
+      "targetLocationDisplay": "Ice Path B First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ice_path_b_3f",
+      "targetLocationDisplay": "Ice Path B Third Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Ice Heal",
+      "coordinates": {
+        "x": 2,
+        "y": 10
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 8,
+        "y": 16
+      }
+    }
+  ]
+}

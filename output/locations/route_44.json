@@ -1,0 +1,63 @@
+{
+  "id": 57,
+  "name": "route_44",
+  "displayName": "Route 44",
+  "region": "johto",
+  "x": 120,
+  "y": 44,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "mahogany_town",
+      "targetLocationDisplay": "Mahogany Town",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ice_path_1f",
+      "targetLocationDisplay": "Ice Path First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 33,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 30,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 45,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Repel",
+      "coordinates": {
+        "x": 14,
+        "y": 9
+      }
+    }
+  ]
+}

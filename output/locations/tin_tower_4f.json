@@ -1,0 +1,57 @@
+{
+  "id": -1,
+  "name": "tin_tower_4f",
+  "displayName": "Tin Tower Fourth Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "tin_tower_5f",
+      "targetLocationDisplay": "Tin Tower Fifth Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "tin_tower_3f",
+      "targetLocationDisplay": "Tin Tower Third Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 9,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 12,
+        "y": 10
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 15,
+        "y": 14
+      }
+    },
+    {
+      "type": "item",
+      "name": "Escape Rope",
+      "coordinates": {
+        "x": 0,
+        "y": 12
+      }
+    }
+  ]
+}

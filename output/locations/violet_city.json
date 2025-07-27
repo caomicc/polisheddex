@@ -1,0 +1,133 @@
+{
+  "id": 7,
+  "name": "violet_city",
+  "displayName": "Violet City",
+  "region": "johto",
+  "x": 84,
+  "y": 60,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "violet_outskirts",
+      "targetLocationDisplay": "Violet Outskirts",
+      "offset": 0
+    },
+    {
+      "direction": "south",
+      "targetLocation": "route_32",
+      "targetLocationDisplay": "Route 32",
+      "offset": 0
+    },
+    {
+      "direction": "west",
+      "targetLocation": "route_36",
+      "targetLocationDisplay": "Route 36",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_31",
+      "targetLocationDisplay": "Route 31",
+      "offset": 9
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "violet_mart",
+      "targetLocationDisplay": "Violet Mart",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "violet_gym",
+      "targetLocationDisplay": "Violet Gym",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "earls_pokemon_academy",
+      "targetLocationDisplay": "Earls Pokemon Academy",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "violet_nickname_speech_house",
+      "targetLocationDisplay": "Violet Nickname Speech House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "violet_pokecenter_1f",
+      "targetLocationDisplay": "Violet Pokecenter 1f",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "violet_onix_trade_house",
+      "targetLocationDisplay": "Violet Onix Trade House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "sprout_tower_1f",
+      "targetLocationDisplay": "Sprout Tower First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_31_violet_gate",
+      "targetLocationDisplay": "Route 31 Violet Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_36_violet_gate",
+      "targetLocationDisplay": "Route 36 Violet Gate",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_VIOLET",
+  "npcTrades": [
+    {
+      "wantsPokemon": "poliwag",
+      "givesPokemon": "voltorb",
+      "givesGender": "male",
+      "nickname": "Mimic",
+      "traderName": "Kyle"
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 37,
+        "y": 14
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Poke Ball",
+      "coordinates": {
+        "x": 21,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 14,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 35,
+        "y": 8
+      }
+    }
+  ]
+}

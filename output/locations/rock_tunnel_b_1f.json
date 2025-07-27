@@ -1,0 +1,161 @@
+{
+  "id": -1,
+  "name": "rock_tunnel_b_1f",
+  "displayName": "Rock Tunnel B First Floor",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "rock_tunnel_1f",
+      "targetLocationDisplay": "Rock Tunnel First Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "firebreather_dick",
+      "name": "Dick",
+      "trainerClass": "FIREBREATHER",
+      "spriteType": "firebreather",
+      "coordinates": {
+        "x": 27,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Charmander",
+          "moves": [
+            "Flare Blitz",
+            "Crunch",
+            "Fire Spin",
+            "Flamethrower"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Charmeleon",
+          "moves": [
+            "Crunch",
+            "Fire Spin",
+            "Flamethrower",
+            "Slash"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 57,
+          "species": "Charizard",
+          "moves": [
+            "Fire Spin",
+            "Flamethrower",
+            "Slash",
+            "Flame Charge"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "hex_maniac_vivian",
+      "name": "Vivian",
+      "trainerClass": "HEX_MANIAC",
+      "spriteType": "hex_maniac",
+      "coordinates": {
+        "x": 24,
+        "y": 24
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Haunter",
+          "moves": [
+            "Destiny Bond",
+            "Dark Pulse",
+            "Dream Eater",
+            "Shadow Ball"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 52,
+          "species": "Haunter",
+          "moves": [
+            "Destiny Bond",
+            "Dark Pulse",
+            "Dream Eater",
+            "Shadow Ball"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 54,
+          "species": "Haunter",
+          "moves": [
+            "Destiny Bond",
+            "Dark Pulse",
+            "Dream Eater",
+            "Shadow Ball"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Alakazam",
+          "moves": [
+            "Future Sight",
+            "Confuse Ray",
+            "Calm Mind",
+            "Psychic M"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 3,
+        "y": 18
+      }
+    },
+    {
+      "type": "item",
+      "name": "Iron",
+      "coordinates": {
+        "x": 7,
+        "y": 17
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 8,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 15,
+        "y": 2
+      }
+    }
+  ]
+}

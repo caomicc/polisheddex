@@ -1,0 +1,153 @@
+{
+  "id": -1,
+  "name": "slowpoke_well_b_1f",
+  "displayName": "Slowpoke Well B First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "slowpoke_well_entrance",
+      "targetLocationDisplay": "Slowpoke Well Entrance",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "slowpoke_well_b_2f",
+      "targetLocationDisplay": "Slowpoke Well B Second Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "gruntm_29",
+      "name": "Grunt",
+      "trainerClass": "GRUNTM",
+      "spriteType": "team_rocket_grunt_m",
+      "coordinates": {
+        "x": 15,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 10,
+          "species": "Rattata",
+          "moves": [
+            "Bite",
+            "Focus Energy",
+            "Quick Attack",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 10,
+          "species": "Meowth",
+          "moves": [
+            "Astonish",
+            "Bite",
+            "Scratch",
+            "Growl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "gruntm_2",
+      "name": "Grunt",
+      "trainerClass": "GRUNTM",
+      "spriteType": "team_rocket_grunt_m",
+      "coordinates": {
+        "x": 5,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 8,
+          "species": "Rattata",
+          "moves": [
+            "Focus Energy",
+            "Quick Attack",
+            "Tackle",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 10,
+          "species": "Zubat",
+          "moves": [
+            "Astonish",
+            "Supersonic",
+            "Absorb"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 10,
+          "species": "Gastly",
+          "moves": [
+            "Mean Look",
+            "Disable",
+            "Hypnosis",
+            "Lick"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "gruntf_1",
+      "name": "Grunt",
+      "trainerClass": "GRUNTF",
+      "spriteType": "team_rocket_grunt_f",
+      "coordinates": {
+        "x": 10,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 10,
+          "species": "Zubat",
+          "moves": [
+            "Astonish",
+            "Supersonic",
+            "Absorb"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 12,
+          "species": "Ekans",
+          "moves": [
+            "Glare",
+            "Bite",
+            "Poison Sting",
+            "Wrap"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 10,
+        "y": 3
+      }
+    }
+  ]
+}

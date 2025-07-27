@@ -1,0 +1,127 @@
+{
+  "id": 1,
+  "name": "new_bark_town",
+  "displayName": "New Bark Town",
+  "region": "johto",
+  "x": 140,
+  "y": 100,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "route_29",
+      "targetLocationDisplay": "Route 29",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_27",
+      "targetLocationDisplay": "Route 27",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "elms_lab",
+      "targetLocationDisplay": "Elms Lab",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "players_house_1f",
+      "targetLocationDisplay": "Players House First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "players_neighbors_house",
+      "targetLocationDisplay": "Players Neighbors House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lyras_house_1f",
+      "targetLocationDisplay": "Lyras House First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "elms_house",
+      "targetLocationDisplay": "Elms House",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_NEW_BARK",
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "New Bark Town_ Teacher Stops You Trigger1",
+      "coordinates": {
+        "x": 1,
+        "y": 8
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "New Bark Town_ Teacher Stops You Trigger2",
+      "coordinates": {
+        "x": 1,
+        "y": 9
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "New Bark Town_ Lyra Intro Trigger",
+      "coordinates": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "New Bark Town_ Lyra Final Trigger1",
+      "coordinates": {
+        "x": 17,
+        "y": 6
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "New Bark Town_ Lyra Final Trigger2",
+      "coordinates": {
+        "x": 17,
+        "y": 7
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "New Bark Town_ Lyra Final Trigger3",
+      "coordinates": {
+        "x": 17,
+        "y": 8
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "New Bark Town_ Lyra Final Trigger4",
+      "coordinates": {
+        "x": 17,
+        "y": 9
+      }
+    },
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Potion",
+      "coordinates": {
+        "x": 3,
+        "y": 2
+      }
+    }
+  ]
+}

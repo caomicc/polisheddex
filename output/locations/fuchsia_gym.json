@@ -1,0 +1,91 @@
+{
+  "id": -1,
+  "name": "fuchsia_gym",
+  "displayName": "Fuchsia Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "fuchsia_city",
+      "targetLocationDisplay": "Fuchsia City",
+      "offset": 0
+    }
+  ],
+  "gymLeader": {
+    "name": "Janine",
+    "trainerClass": "JANINE",
+    "badge": "SOULBADGE",
+    "region": "kanto",
+    "speciality": "Poison",
+    "coordinates": {
+      "x": 5,
+      "y": 7
+    },
+    "pokemon": [
+      {
+        "level": 64,
+        "species": "crobat",
+        "moves": [
+          "screech",
+          "toxic",
+          "confuse ray",
+          "aerial ace"
+        ]
+      },
+      {
+        "level": 61,
+        "species": "ariados",
+        "moves": [
+          "agility",
+          "poison jab",
+          "mean look",
+          "psychic m"
+        ]
+      },
+      {
+        "level": 62,
+        "species": "qwilfish",
+        "moves": [
+          "aqua tail",
+          "poison jab",
+          "spikes",
+          "minimize"
+        ]
+      },
+      {
+        "level": 64,
+        "species": "nidoqueen",
+        "moves": [
+          "toxic",
+          "healinglight",
+          "sludge bomb",
+          "ice beam"
+        ]
+      },
+      {
+        "level": 63,
+        "species": "weezing",
+        "moves": [
+          "sludge bomb",
+          "thunder",
+          "fire blast",
+          "explosion"
+        ]
+      },
+      {
+        "level": 66,
+        "species": "venomoth",
+        "item": "sitrus_berry",
+        "moves": [
+          "sludge bomb",
+          "double team",
+          "gust",
+          "psychic m"
+        ]
+      }
+    ]
+  }
+}

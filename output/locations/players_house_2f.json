@@ -1,0 +1,34 @@
+{
+  "id": -1,
+  "name": "players_house_2f",
+  "displayName": "Players House Second Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "players_house_1f",
+      "targetLocationDisplay": "Players House First Floor",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    },
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    },
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    }
+  ]
+}

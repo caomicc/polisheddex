@@ -1,0 +1,64 @@
+{
+  "id": 121,
+  "name": "route_27",
+  "displayName": "Route 27",
+  "region": "kanto",
+  "x": 20,
+  "y": 100,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "new_bark_town",
+      "targetLocationDisplay": "New Bark Town",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_26",
+      "targetLocationDisplay": "Route 26",
+      "offset": -45
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_27_rest_house",
+      "targetLocationDisplay": "Route 27 Rest House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "tohjo_falls",
+      "targetLocationDisplay": "Tohjo Falls",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM02",
+      "moveName": "Dragon Claw",
+      "location": "Route 27"
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 53,
+        "y": 12
+      }
+    },
+    {
+      "type": "item",
+      "name": "Destiny Knot",
+      "coordinates": {
+        "x": 71,
+        "y": 4
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM02 - Dragon Claw"
+    }
+  ]
+}

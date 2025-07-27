@@ -1,0 +1,148 @@
+{
+  "id": -1,
+  "name": "dim_cave_4f",
+  "displayName": "Dim Cave Fourth Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "dim_cave_5f",
+      "targetLocationDisplay": "Dim Cave Fifth Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dim_cave_3f",
+      "targetLocationDisplay": "Dim Cave Third Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "scientist_joseph",
+      "name": "Joseph",
+      "trainerClass": "SCIENTIST",
+      "spriteType": "scientist",
+      "coordinates": {
+        "x": 5,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Ditto",
+          "moves": [
+            "Transform"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Golduck",
+          "moves": [
+            "Nasty Plot",
+            "Hydro Pump",
+            "Amnesia",
+            "Psybeam"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Kadabra",
+          "moves": [
+            "Future Sight",
+            "Confuse Ray",
+            "Calm Mind",
+            "Psychic M"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "scientist_nigel",
+      "name": "Nigel",
+      "trainerClass": "SCIENTIST",
+      "spriteType": "scientist",
+      "coordinates": {
+        "x": 12,
+        "y": 2
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Electabuzz",
+          "moves": [
+            "Thunderbolt",
+            "Cross Chop",
+            "Screech",
+            "Thunderpunch"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Lanturn",
+          "moves": [
+            "Hydro Pump",
+            "Ice Beam",
+            "Recover",
+            "Take Down"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 25,
+        "y": 23
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "X Attack",
+      "coordinates": {
+        "x": 27,
+        "y": 27
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Ether",
+      "coordinates": {
+        "x": 17,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 27,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 6,
+        "y": 23
+      }
+    }
+  ]
+}

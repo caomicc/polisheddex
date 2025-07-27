@@ -1,0 +1,235 @@
+{
+  "id": 12,
+  "name": "route_32_coast",
+  "displayName": "Route 32 Coast",
+  "region": "johto",
+  "x": 92,
+  "y": 112,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "cherrygrove_bay",
+      "targetLocationDisplay": "Cherrygrove Bay",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "union_cave_b_1f_south",
+      "targetLocationDisplay": "Union Cave B First Floor South",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_32_coast_house",
+      "targetLocationDisplay": "Route 32 Coast House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "swimmerm_michel",
+      "name": "Michel",
+      "trainerClass": "SWIMMERM",
+      "spriteType": "swimmerm",
+      "coordinates": {
+        "x": 9,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 22,
+          "species": "Staryu",
+          "moves": [
+            "Agility",
+            "Bubble Beam",
+            "Swift",
+            "Hypnosis"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 24,
+          "species": "Starmie",
+          "moves": [
+            "Hydro Pump",
+            "Water Gun",
+            "Rapid Spin",
+            "Recover"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerm_lucas",
+      "name": "Lucas",
+      "trainerClass": "SWIMMERM",
+      "spriteType": "swimmerm",
+      "coordinates": {
+        "x": 18,
+        "y": 65
+      },
+      "pokemon": [
+        {
+          "level": 28,
+          "species": "Vaporeon",
+          "moves": [
+            "Recover",
+            "Aurora Beam",
+            "Water Pulse",
+            "Quick Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_alison",
+      "name": "Alison",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 20,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 24,
+          "species": "Corsola",
+          "moves": [
+            "Confuse Ray",
+            "Icicle Spear",
+            "Ancientpower",
+            "Safeguard"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 24,
+          "species": "Seel",
+          "moves": [
+            "Sleep Talk",
+            "Rest",
+            "Ice Shard",
+            "Encore"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_stephanie",
+      "name": "Stephanie",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 23,
+        "y": 15
+      },
+      "pokemon": [
+        {
+          "level": 23,
+          "species": "Staryu",
+          "moves": [
+            "Agility",
+            "Bubble Beam",
+            "Swift",
+            "Hypnosis"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Seadra",
+          "moves": [
+            "Water Pulse",
+            "Aqua Jet",
+            "Bubble Beam",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "bird_keeper_powell",
+      "name": "Powell",
+      "trainerClass": "BIRD_KEEPER",
+      "spriteType": "bird_keeper",
+      "coordinates": {
+        "x": 18,
+        "y": 21
+      },
+      "pokemon": [
+        {
+          "level": 28,
+          "species": "Pidgeot",
+          "moves": [
+            "Swift",
+            "Charm",
+            "Rage",
+            "Quick Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Level Ball",
+      "coordinates": {
+        "x": 17,
+        "y": 32
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 5,
+        "y": 43
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 14,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "White Herb",
+      "coordinates": {
+        "x": 5,
+        "y": 16
+      }
+    },
+    {
+      "type": "item",
+      "name": "Soft Sand",
+      "coordinates": {
+        "x": 22,
+        "y": 61
+      }
+    }
+  ]
+}

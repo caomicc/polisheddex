@@ -1,0 +1,231 @@
+{
+  "id": -1,
+  "name": "union_cave_b_1f_south",
+  "displayName": "Union Cave B First Floor South",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "union_cave_1f",
+      "targetLocationDisplay": "Union Cave First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "union_cave_b_2f",
+      "targetLocationDisplay": "Union Cave B Second Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "murky_swamp",
+      "targetLocationDisplay": "Murky Swamp",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_32_coast",
+      "targetLocationDisplay": "Route 32 Coast",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "pokemaniac_andrew",
+      "name": "Andrew",
+      "trainerClass": "POKEMANIAC",
+      "spriteType": "pokemaniac",
+      "coordinates": {
+        "x": 5,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 24,
+          "species": "Marowak",
+          "moves": [
+            "Rage",
+            "Bonemerang",
+            "Focus Energy",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 24,
+          "species": "Marowak",
+          "moves": [
+            "Rage",
+            "Bonemerang",
+            "Focus Energy",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "pokemaniac_calvin",
+      "name": "Calvin",
+      "trainerClass": "POKEMANIAC",
+      "spriteType": "pokemaniac",
+      "coordinates": {
+        "x": 17,
+        "y": 2
+      },
+      "pokemon": [
+        {
+          "level": 26,
+          "species": "Kangaskhan",
+          "moves": [
+            "Take Down",
+            "Rage",
+            "Double Kick",
+            "Headbutt"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "hiker_phillip",
+      "name": "Phillip",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 16,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 23,
+          "species": "Geodude",
+          "moves": [
+            "Bulldoze",
+            "Ancientpower",
+            "Rock Throw",
+            "Magnitude"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 23,
+          "species": "Geodude",
+          "moves": [
+            "Bulldoze",
+            "Ancientpower",
+            "Rock Throw",
+            "Magnitude"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Graveler",
+          "moves": [
+            "Rock Blast",
+            "Bulldoze",
+            "Ancientpower",
+            "Rock Throw"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "hiker_leonard",
+      "name": "Leonard",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 14,
+        "y": 30
+      },
+      "pokemon": [
+        {
+          "level": 23,
+          "species": "Geodude",
+          "moves": [
+            "Bulldoze",
+            "Ancientpower",
+            "Rock Throw",
+            "Magnitude"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Machop",
+          "moves": [
+            "Mach Punch",
+            "Knock Off",
+            "Reversal",
+            "Seismic Toss"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "X Sp Def",
+      "coordinates": {
+        "x": 2,
+        "y": 18
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 12,
+        "y": 25
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 4,
+        "y": 30
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Stone",
+      "coordinates": {
+        "x": 14,
+        "y": 20
+      }
+    },
+    {
+      "type": "item",
+      "name": "Super Repel",
+      "coordinates": {
+        "x": 8,
+        "y": 26
+      }
+    },
+    {
+      "type": "item",
+      "name": "Light Clay",
+      "coordinates": {
+        "x": 2,
+        "y": 28
+      }
+    }
+  ]
+}

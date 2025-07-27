@@ -1,0 +1,163 @@
+{
+  "id": 47,
+  "name": "route_47",
+  "displayName": "Route 47",
+  "region": "johto",
+  "x": 12,
+  "y": 100,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_48",
+      "targetLocationDisplay": "Route 48",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cliff_edge_gate",
+      "targetLocationDisplay": "Cliff Edge Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cliff_cave",
+      "targetLocationDisplay": "Cliff Cave",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "quiet_cave_1f",
+      "targetLocationDisplay": "Quiet Cave First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "embedded_tower",
+      "targetLocationDisplay": "Embedded Tower",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_cave_grotto",
+      "targetLocationDisplay": "Hidden Cave Grotto",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge1 Overhead Trigger",
+      "coordinates": {
+        "x": 42,
+        "y": 24
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge1 Underfoot Trigger",
+      "coordinates": {
+        "x": 43,
+        "y": 24
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge2 Overhead Trigger",
+      "coordinates": {
+        "x": 42,
+        "y": 18
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge2 Underfoot Trigger",
+      "coordinates": {
+        "x": 43,
+        "y": 18
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge3 Overhead Trigger",
+      "coordinates": {
+        "x": 18,
+        "y": 24
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge3 Underfoot Trigger",
+      "coordinates": {
+        "x": 19,
+        "y": 24
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge4 Overhead Trigger",
+      "coordinates": {
+        "x": 18,
+        "y": 16
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge4 Underfoot Trigger",
+      "coordinates": {
+        "x": 19,
+        "y": 16
+      }
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Pearl",
+      "coordinates": {
+        "x": 34,
+        "y": 33
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Stardust",
+      "coordinates": {
+        "x": 5,
+        "y": 32
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 39,
+        "y": 28
+      }
+    },
+    {
+      "type": "item",
+      "name": "Mystic Water",
+      "coordinates": {
+        "x": 7,
+        "y": 32
+      }
+    },
+    {
+      "type": "item",
+      "name": "Quick Claw",
+      "coordinates": {
+        "x": 31,
+        "y": 20
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Repel",
+      "coordinates": {
+        "x": 7,
+        "y": 6
+      }
+    }
+  ]
+}

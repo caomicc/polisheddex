@@ -1,0 +1,47 @@
+{
+  "id": -1,
+  "name": "ecruteak_house",
+  "displayName": "Ecruteak House",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "ecruteak_city",
+      "targetLocationDisplay": "Ecruteak City",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ecruteak_house",
+      "targetLocationDisplay": "Ecruteak House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "wise_trios_room",
+      "targetLocationDisplay": "Wise Trios Room",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Ecruteak House_ X Y Trigger1",
+      "coordinates": {
+        "x": 4,
+        "y": 7
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Ecruteak House_ X Y Trigger2",
+      "coordinates": {
+        "x": 5,
+        "y": 7
+      }
+    }
+  ]
+}

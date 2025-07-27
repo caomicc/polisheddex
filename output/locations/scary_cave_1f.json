@@ -1,0 +1,101 @@
+{
+  "id": -1,
+  "name": "scary_cave_1f",
+  "displayName": "Scary Cave First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "uraga_channel_east",
+      "targetLocationDisplay": "Uraga Channel East",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "uraga_channel_west",
+      "targetLocationDisplay": "Uraga Channel West",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "scary_cave_b_1f",
+      "targetLocationDisplay": "Scary Cave B First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "scary_cave_shipwreck",
+      "targetLocationDisplay": "Scary Cave Shipwreck",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 34,
+        "y": 3
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Pearl String",
+      "coordinates": {
+        "x": 18,
+        "y": 28
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Pearl",
+      "coordinates": {
+        "x": 30,
+        "y": 29
+      }
+    },
+    {
+      "type": "item",
+      "name": "X Sp Def",
+      "coordinates": {
+        "x": 27,
+        "y": 7
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Stone",
+      "coordinates": {
+        "x": 4,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 33,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Repel",
+      "coordinates": {
+        "x": 28,
+        "y": 23
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 3,
+        "y": 29
+      }
+    }
+  ]
+}

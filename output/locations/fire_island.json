@@ -1,0 +1,39 @@
+{
+  "id": 138,
+  "name": "fire_island",
+  "displayName": "Fire Island",
+  "region": "orange",
+  "x": 60,
+  "y": 76,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "shamouti_coast",
+      "targetLocationDisplay": "Shamouti Coast",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "fire_island_roof",
+      "targetLocationDisplay": "Fire Island Roof",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "fire_island",
+      "targetLocationDisplay": "Fire Island",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Heat Rock",
+      "coordinates": {
+        "x": 2,
+        "y": 19
+      }
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "id": -1,
+  "name": "cerulean_gym",
+  "displayName": "Cerulean Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_city",
+      "targetLocationDisplay": "Cerulean City",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "swimmerf_diana",
+      "name": "Diana",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 4,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Golduck",
+          "moves": [
+            "Psychic M",
+            "Nasty Plot",
+            "Hydro Pump",
+            "Amnesia"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_briana",
+      "name": "Briana",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 1,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Seaking",
+          "moves": [
+            "Megahorn",
+            "Knock Off",
+            "Body Slam",
+            "Waterfall"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Lapras",
+          "moves": [
+            "Megahorn",
+            "Outrage",
+            "Hydro Pump",
+            "Safeguard"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_viola",
+      "name": "Viola",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 8,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Cloyster",
+          "moves": [
+            "Icicle Crash",
+            "Pin Missile",
+            "Icicle Spear",
+            "Hydro Pump"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "sailor_parker",
+      "name": "Parker",
+      "trainerClass": "SAILOR",
+      "spriteType": "sailor",
+      "coordinates": {
+        "x": 0,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Horsea",
+          "moves": [
+            "Hydro Pump",
+            "Dragon Dance",
+            "Dragon Pulse",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 57,
+          "species": "Seadra",
+          "moves": [
+            "Dragon Dance",
+            "Dragon Pulse",
+            "Agility",
+            "Outrage"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "gymLeader": {
+    "name": "Misty",
+    "trainerClass": "MISTY",
+    "badge": "CASCADEBADGE",
+    "region": "kanto",
+    "speciality": "Water",
+    "pokemon": [
+      {
+        "level": 61,
+        "species": "golduck",
+        "moves": [
+          "water pulse",
+          "disable",
+          "calm mind",
+          "psychic m"
+        ]
+      },
+      {
+        "level": 60,
+        "species": "quagsire",
+        "moves": [
+          "scald",
+          "calm mind",
+          "earthquake",
+          "rain dance"
+        ]
+      },
+      {
+        "level": 62,
+        "species": "lapras",
+        "moves": [
+          "surf",
+          "perish song",
+          "blizzard",
+          "rain dance"
+        ]
+      },
+      {
+        "level": 60,
+        "species": "kingler",
+        "moves": [
+          "defense curl",
+          "stomp",
+          "protect",
+          "crabhammer"
+        ]
+      },
+      {
+        "level": 62,
+        "species": "lanturn",
+        "moves": [
+          "water pulse",
+          "thunderbolt",
+          "ice beam",
+          "recover"
+        ]
+      },
+      {
+        "level": 64,
+        "species": "starmie",
+        "item": "sitrus_berry",
+        "moves": [
+          "scald",
+          "confuse ray",
+          "recover",
+          "ice beam"
+        ]
+      }
+    ]
+  }
+}

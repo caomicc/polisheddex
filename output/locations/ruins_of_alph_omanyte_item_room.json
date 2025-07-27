@@ -1,0 +1,57 @@
+{
+  "id": -1,
+  "name": "ruins_of_alph_omanyte_item_room",
+  "displayName": "Ruins Of Alph Omanyte Item Room",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_omanyte_chamber",
+      "targetLocationDisplay": "Ruins Of Alph Omanyte Chamber",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_omanyte_word_room",
+      "targetLocationDisplay": "Ruins Of Alph Omanyte Word Room",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Pearl String",
+      "coordinates": {
+        "x": 2,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Big Pearl",
+      "coordinates": {
+        "x": 5,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Stardust",
+      "coordinates": {
+        "x": 2,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Star Piece",
+      "coordinates": {
+        "x": 5,
+        "y": 4
+      }
+    }
+  ]
+}

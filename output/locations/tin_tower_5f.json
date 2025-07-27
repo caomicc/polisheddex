@@ -1,0 +1,49 @@
+{
+  "id": -1,
+  "name": "tin_tower_5f",
+  "displayName": "Tin Tower Fifth Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "tin_tower_6f",
+      "targetLocationDisplay": "Tin Tower Sixth Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "tin_tower_4f",
+      "targetLocationDisplay": "Tin Tower Fourth Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 14,
+        "y": 14
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Carbos",
+      "coordinates": {
+        "x": 1,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 7,
+        "y": 9
+      }
+    }
+  ]
+}

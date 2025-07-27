@@ -1,0 +1,128 @@
+{
+  "id": 11,
+  "name": "route_32",
+  "displayName": "Route 32",
+  "region": "johto",
+  "x": 84,
+  "y": 92,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "violet_city",
+      "targetLocationDisplay": "Violet City",
+      "offset": 0
+    },
+    {
+      "direction": "south",
+      "targetLocation": "route_33",
+      "targetLocationDisplay": "Route 33",
+      "offset": 0
+    },
+    {
+      "direction": "west",
+      "targetLocation": "magnet_tunnel_east",
+      "targetLocationDisplay": "Magnet Tunnel East",
+      "offset": 9
+    },
+    {
+      "direction": "east",
+      "targetLocation": "cherrygrove_bay",
+      "targetLocationDisplay": "Cherrygrove Bay",
+      "offset": 12
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_32_pokecenter_1f",
+      "targetLocationDisplay": "Route 32 Pokecenter 1f",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_32_ruins_of_alph_gate",
+      "targetLocationDisplay": "Route 32 Ruins Of Alph Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "union_cave_1f",
+      "targetLocationDisplay": "Union Cave First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM05",
+      "moveName": "Roar",
+      "location": "Route 32"
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Great Ball",
+      "coordinates": {
+        "x": 12,
+        "y": 67
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 11,
+        "y": 40
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 8,
+        "y": 10
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Gold Leaf",
+      "coordinates": {
+        "x": 18,
+        "y": 49
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Great Ball",
+      "coordinates": {
+        "x": 8,
+        "y": 80
+      }
+    },
+    {
+      "type": "item",
+      "name": "Great Ball",
+      "coordinates": {
+        "x": 6,
+        "y": 53
+      }
+    },
+    {
+      "type": "item",
+      "name": "Repel",
+      "coordinates": {
+        "x": 6,
+        "y": 32
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM05 - Roar"
+    }
+  ]
+}

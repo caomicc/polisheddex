@@ -1,0 +1,63 @@
+{
+  "id": -1,
+  "name": "route_10_north",
+  "displayName": "Route 10 North",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "route_10_south",
+      "targetLocationDisplay": "Route 10 South",
+      "offset": 0
+    },
+    {
+      "direction": "west",
+      "targetLocation": "route_9",
+      "targetLocationDisplay": "Route 9",
+      "offset": 6
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_10_pokecenter_1f",
+      "targetLocationDisplay": "Route 10 Pokecenter 1f",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "power_plant",
+      "targetLocationDisplay": "Power Plant",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "rock_tunnel_2f",
+      "targetLocationDisplay": "Rock Tunnel Second Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "rock_tunnel_1f",
+      "targetLocationDisplay": "Rock Tunnel First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dim_cave_5f",
+      "targetLocationDisplay": "Dim Cave Fifth Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 11,
+        "y": 3
+      }
+    }
+  ]
+}

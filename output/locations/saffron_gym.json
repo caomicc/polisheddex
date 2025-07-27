@@ -1,0 +1,383 @@
+{
+  "id": -1,
+  "name": "saffron_gym",
+  "displayName": "Saffron Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "saffron_city",
+      "targetLocationDisplay": "Saffron City",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "saffron_gym",
+      "targetLocationDisplay": "Saffron Gym",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "medium_doris",
+      "name": "Doris",
+      "trainerClass": "MEDIUM",
+      "spriteType": "medium",
+      "coordinates": {
+        "x": 2,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Slowpoke",
+          "moves": [
+            "Rain Dance",
+            "Psychic M",
+            "Amnesia",
+            "Safeguard"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Slowbro",
+          "moves": [
+            "Rain Dance",
+            "Psychic M",
+            "Amnesia",
+            "Safeguard"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "psychic_t_leon",
+      "name": "Leon",
+      "trainerClass": "PSYCHIC_T",
+      "spriteType": "psychic",
+      "coordinates": {
+        "x": 9,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Noctowl",
+          "moves": [
+            "Moonblast",
+            "Hyper Voice",
+            "Roost",
+            "Extrasensory"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Hypno",
+          "moves": [
+            "Nasty Plot",
+            "Psychic M",
+            "Swagger",
+            "Zen Headbutt"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Girafarig",
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "psychic_t_jared",
+      "name": "Jared",
+      "trainerClass": "PSYCHIC_T",
+      "spriteType": "psychic",
+      "coordinates": {
+        "x": 17,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Mr_Mime",
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Exeggcute",
+          "moves": [
+            "Psychic M",
+            "Extrasensory",
+            "Solar Beam",
+            "Healinglight"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Exeggcute",
+          "moves": [
+            "Psychic M",
+            "Extrasensory",
+            "Solar Beam",
+            "Healinglight"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "hex_maniac_luna",
+      "name": "Luna",
+      "trainerClass": "HEX_MANIAC",
+      "spriteType": "hex_maniac",
+      "coordinates": {
+        "x": 2,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Kadabra",
+          "moves": [
+            "Psychic",
+            "Shadow Ball",
+            "Confuse Ray",
+            "Future Sight"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Psychic",
+              "Shadow Ball",
+              "Confuse Ray",
+              "Future Sight"
+            ]
+          }
+        },
+        {
+          "level": 56,
+          "species": "Ninetales",
+          "moves": [
+            "Psychic",
+            "Shadow Ball",
+            "Confuse Ray",
+            "Flamethrower"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Psychic",
+              "Shadow Ball",
+              "Confuse Ray",
+              "Flamethrower"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "hex_maniac_natalie",
+      "name": "Natalie",
+      "trainerClass": "HEX_MANIAC",
+      "spriteType": "hex_maniac",
+      "coordinates": {
+        "x": 17,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Drowzee",
+          "moves": [
+            "Nasty Plot",
+            "Psychic M",
+            "Swagger",
+            "Zen Headbutt"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 54,
+          "species": "Drowzee",
+          "moves": [
+            "Nasty Plot",
+            "Psychic M",
+            "Swagger",
+            "Zen Headbutt"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Hypno",
+          "moves": [
+            "Nasty Plot",
+            "Psychic M",
+            "Swagger",
+            "Zen Headbutt"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "psychic_t_franklin",
+      "name": "Franklin",
+      "trainerClass": "PSYCHIC_T",
+      "spriteType": "psychic",
+      "coordinates": {
+        "x": 2,
+        "y": 15
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Kadabra",
+          "moves": [
+            "Future Sight",
+            "Confuse Ray",
+            "Calm Mind",
+            "Psychic M"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Girafarig",
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "medium_rebecca",
+      "name": "Rebecca",
+      "trainerClass": "MEDIUM",
+      "spriteType": "medium",
+      "coordinates": {
+        "x": 17,
+        "y": 15
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Drowzee",
+          "moves": [
+            "Nasty Plot",
+            "Psychic M",
+            "Swagger",
+            "Zen Headbutt"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 54,
+          "species": "Hypno",
+          "moves": [
+            "Nasty Plot",
+            "Psychic M",
+            "Swagger",
+            "Zen Headbutt"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "gymLeader": {
+    "name": "Sabrina",
+    "trainerClass": "SABRINA",
+    "badge": "MARSHBADGE",
+    "region": "kanto",
+    "speciality": "Psychic",
+    "coordinates": {
+      "x": 9,
+      "y": 8
+    },
+    "pokemon": [
+      {
+        "level": 61,
+        "species": "espeon",
+        "moves": [
+          "mud slap",
+          "quick attack",
+          "swift",
+          "psychic m"
+        ]
+      },
+      {
+        "level": 59,
+        "species": "girafarig",
+        "moves": [
+          "psychic m",
+          "crunch",
+          "agility",
+          "calm mind"
+        ]
+      },
+      {
+        "level": 60,
+        "species": "mr__mime",
+        "moves": [
+          "barrier",
+          "reflect",
+          "baton pass",
+          "psychic m"
+        ]
+      },
+      {
+        "level": 59,
+        "species": "hypno",
+        "moves": [
+          "hypnosis",
+          "dream eater",
+          "nasty plot",
+          "psychic m"
+        ]
+      },
+      {
+        "level": 58,
+        "species": "wobbuffet",
+        "moves": [
+          "counter",
+          "mirror coat",
+          "safeguard",
+          "destiny bond"
+        ]
+      },
+      {
+        "level": 62,
+        "species": "alakazam",
+        "item": "sitrus_berry",
+        "moves": [
+          "recover",
+          "future sight",
+          "psychic m",
+          "reflect"
+        ]
+      }
+    ]
+  }
+}

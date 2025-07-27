@@ -1,0 +1,258 @@
+{
+  "id": 133,
+  "name": "noisy_forest",
+  "displayName": "Noisy Forest",
+  "region": "orange",
+  "x": 76,
+  "y": 40,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "rocky_beach",
+      "targetLocationDisplay": "Rocky Beach",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "shamouti_shrine_ruins",
+      "targetLocationDisplay": "Shamouti Shrine Ruins",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM60",
+      "moveName": "Drain Punch",
+      "location": "Noisy Forest"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "bug_maniac_pierre",
+      "name": "Pierre",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 20,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Yanma",
+          "moves": [
+            "Air Slash",
+            "U Turn",
+            "Screech",
+            "Wing Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 54,
+          "species": "Yanma",
+          "moves": [
+            "Air Slash",
+            "U Turn",
+            "Screech",
+            "Wing Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Yanmega",
+          "moves": [
+            "Air Slash",
+            "U Turn",
+            "Screech",
+            "Wing Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "bug_maniac_dylan",
+      "name": "Dylan",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 4,
+        "y": 27
+      },
+      "pokemon": [
+        {
+          "level": 55,
+          "species": "Ledian",
+          "moves": [
+            "Double Edge",
+            "Air Slash",
+            "Bug Buzz",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Butterfree",
+          "moves": [
+            "Psychic M",
+            "Air Slash",
+            "Healinglight",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "guitaristf_jaclyn",
+      "name": "Jaclyn",
+      "trainerClass": "GUITARISTF",
+      "spriteType": "guitaristf",
+      "coordinates": {
+        "x": 31,
+        "y": 17
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Electivire",
+          "moves": [
+            "Thunder",
+            "Thunderbolt",
+            "Cross Chop",
+            "Screech"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "guitaristm_ezekiel",
+      "name": "Ezekiel",
+      "trainerClass": "GUITARISTM",
+      "spriteType": "guitaristm",
+      "coordinates": {
+        "x": 12,
+        "y": 30
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Magnezone",
+          "moves": [
+            "Gyro Ball",
+            "Agility",
+            "Hidden Power",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "hiker_lester",
+      "name": "Lester",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 20,
+        "y": 34
+      },
+      "pokemon": [
+        {
+          "level": 55,
+          "species": "Clefable",
+          "moves": [
+            "Healinglight",
+            "Disarm Voice",
+            "Play Rough",
+            "Sing"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Scyther",
+          "moves": [
+            "Air Slash",
+            "Close Combat",
+            "Night Slash",
+            "X Scissor"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 54,
+          "species": "Machoke",
+          "moves": [
+            "Scary Face",
+            "Cross Chop",
+            "Bulk Up",
+            "Close Combat"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 32,
+        "y": 2
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Tinymushroom",
+      "coordinates": {
+        "x": 34,
+        "y": 18
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 7,
+        "y": 29
+      }
+    },
+    {
+      "type": "item",
+      "name": "Balmmushroom",
+      "coordinates": {
+        "x": 41,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Mulch",
+      "coordinates": {
+        "x": 16,
+        "y": 28
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM60 - Drain Punch"
+    }
+  ]
+}

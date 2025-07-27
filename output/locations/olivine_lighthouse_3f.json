@@ -1,0 +1,33 @@
+{
+  "id": -1,
+  "name": "olivine_lighthouse_3f",
+  "displayName": "Olivine Lighthouse Third Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "olivine_lighthouse_4f",
+      "targetLocationDisplay": "Olivine Lighthouse Fourth Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "olivine_lighthouse_2f",
+      "targetLocationDisplay": "Olivine Lighthouse Second Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Ether",
+      "coordinates": {
+        "x": 8,
+        "y": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": -1,
+  "name": "mount_moon_square",
+  "displayName": "Mount Moon Square",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_4",
+      "targetLocationDisplay": "Route 4",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mount_moon_gift_shop",
+      "targetLocationDisplay": "Mount Moon Gift Shop",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Moon Stone",
+      "coordinates": {
+        "x": 7,
+        "y": 7
+      }
+    }
+  ]
+}

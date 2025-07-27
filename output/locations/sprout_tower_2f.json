@@ -1,0 +1,117 @@
+{
+  "id": -1,
+  "name": "sprout_tower_2f",
+  "displayName": "Sprout Tower Second Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "sprout_tower_1f",
+      "targetLocationDisplay": "Sprout Tower First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "sprout_tower_3f",
+      "targetLocationDisplay": "Sprout Tower Third Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "sage_nico",
+      "name": "Nico",
+      "trainerClass": "SAGE",
+      "spriteType": "sage",
+      "coordinates": {
+        "x": 10,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 3,
+          "species": "Bellsprout",
+          "moves": [
+            "Vine Whip"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 3,
+          "species": "Bellsprout",
+          "moves": [
+            "Vine Whip"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 3,
+          "species": "Hoothoot",
+          "moves": [
+            "Tackle",
+            "Growl",
+            "Foresight"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "sage_edmond",
+      "name": "Edmond",
+      "trainerClass": "SAGE",
+      "spriteType": "sage",
+      "coordinates": {
+        "x": 7,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 3,
+          "species": "Bellsprout",
+          "moves": [
+            "Vine Whip"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 3,
+          "species": "Hoothoot",
+          "moves": [
+            "Tackle",
+            "Growl",
+            "Foresight"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 3,
+          "species": "Bellsprout",
+          "moves": [
+            "Vine Whip"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "X Accuracy",
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

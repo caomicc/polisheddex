@@ -77,54 +77,60 @@ const NavigationMenuDemo = () => {
         <NavigationMenu.Root className="NavigationMenuRoot justify-start! !hidden md:!flex">
           <NavigationMenu.List className="NavigationMenuList">
             <NavigationMenu.Item>
-              <NavigationMenu.Link
-                className={cn(
-                  'NavigationMenuLink transition-colors duration-300',
-                  !hasPokemonTheme &&
-                    !showBackground &&
-                    'text-white! hover:text-gray-900! hover:bg-gray-200',
-                  !hasPokemonTheme &&
-                    showBackground &&
-                    'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
-                  hasPokemonTheme && 'pokemon-themed-link',
-                )}
-                href="/pokemon"
-              >
-                Pokedex
+              <NavigationMenu.Link asChild>
+                <Link
+                  className={cn(
+                    'NavigationMenuLink transition-colors duration-300',
+                    !hasPokemonTheme &&
+                      !showBackground &&
+                      'text-white! hover:text-gray-900! hover:bg-gray-200',
+                    !hasPokemonTheme &&
+                      showBackground &&
+                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                    hasPokemonTheme && 'pokemon-themed-link',
+                  )}
+                  href="/pokemon"
+                >
+                  Pokedex
+                </Link>
               </NavigationMenu.Link>
             </NavigationMenu.Item>
             <NavigationMenu.Item>
-              <NavigationMenu.Link
-                className={cn(
-                  'NavigationMenuLink transition-colors duration-300',
-                  !hasPokemonTheme &&
-                    !showBackground &&
-                    'text-white! hover:text-gray-900! hover:bg-gray-200',
-                  !hasPokemonTheme &&
-                    showBackground &&
-                    'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
-                  hasPokemonTheme && 'pokemon-themed-link',
-                )}
-                href="/locations"
-              >
-                Locations
+              <NavigationMenu.Link asChild>
+                <Link
+                  className={cn(
+                    'NavigationMenuLink transition-colors duration-300',
+                    !hasPokemonTheme &&
+                      !showBackground &&
+                      'text-white! hover:text-gray-900! hover:bg-gray-200',
+                    !hasPokemonTheme &&
+                      showBackground &&
+                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                    hasPokemonTheme && 'pokemon-themed-link',
+                  )}
+                  href="/locations"
+                >
+                  Locations
+                </Link>
               </NavigationMenu.Link>
             </NavigationMenu.Item>
             <NavigationMenu.Item>
-              <NavigationMenu.Link
-                className={cn(
-                  'NavigationMenuLink transition-colors duration-300',
-                  !hasPokemonTheme &&
-                    !showBackground &&
-                    'text-white! hover:text-gray-900! hover:bg-gray-200',
-                  !hasPokemonTheme &&
-                    showBackground &&
-                    'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
-                  hasPokemonTheme && 'pokemon-themed-link',
-                )}
-                href="/items"
-              >
-                Items
+              <NavigationMenu.Link asChild>
+                <Link
+                  className={cn(
+                    'NavigationMenuLink transition-colors duration-300',
+                    !hasPokemonTheme &&
+                      !showBackground &&
+                      'text-white! hover:text-gray-900! hover:bg-gray-200',
+                    !hasPokemonTheme &&
+                      showBackground &&
+                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                    hasPokemonTheme && 'pokemon-themed-link',
+                  )}
+                  href="/items"
+                >
+                  Items
+                </Link>
               </NavigationMenu.Link>
             </NavigationMenu.Item>
 

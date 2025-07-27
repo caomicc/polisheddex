@@ -1,0 +1,253 @@
+{
+  "id": 74,
+  "name": "route_3",
+  "displayName": "Route 3",
+  "region": "kanto",
+  "x": 64,
+  "y": 44,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "pewter_city",
+      "targetLocationDisplay": "Pewter City",
+      "offset": -5
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mount_moon_1f",
+      "targetLocationDisplay": "Mount Moon First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_3_pokecenter_1f",
+      "targetLocationDisplay": "Route 3 Pokecenter 1f",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "youngster_regis",
+      "name": "Regis",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 12,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Golbat",
+          "moves": [
+            "Pursuit",
+            "Air Slash",
+            "Venoshock",
+            "Haze"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 58,
+          "species": "Electrode",
+          "moves": [
+            "Mirror Coat",
+            "Gyro Ball",
+            "Bug Buzz",
+            "Thunder"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "youngster_jimmy",
+      "name": "Jimmy",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 17,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Raticate",
+          "moves": [
+            "Counter",
+            "Double Edge",
+            "Super Fang",
+            "Feint Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Arbok",
+          "moves": [
+            "Bulk Up",
+            "Haze",
+            "Iron Tail",
+            "Leech Life"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Parasect",
+          "moves": [
+            "Healinglight",
+            "Leech Life",
+            "Giga Drain",
+            "Growth"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "youngster_warren",
+      "name": "Warren",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 25,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Fearow",
+          "moves": [
+            "Double Edge",
+            "Drill Peck",
+            "Roost",
+            "Focus Energy"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Raticate",
+          "moves": [
+            "Counter",
+            "Double Edge",
+            "Super Fang",
+            "Feint Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "firebreather_otis",
+      "name": "Otis",
+      "trainerClass": "FIREBREATHER",
+      "spriteType": "firebreather",
+      "coordinates": {
+        "x": 30,
+        "y": 12
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "Magmar",
+          "moves": [
+            "Fire Blast",
+            "Flamethrower",
+            "Focus Blast",
+            "Sunny Day"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 58,
+          "species": "Weezing",
+          "moves": [
+            "Fire Blast",
+            "Pain Split",
+            "Destiny Bond",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 61,
+          "species": "Magmar",
+          "moves": [
+            "Fire Blast",
+            "Flamethrower",
+            "Focus Blast",
+            "Sunny Day"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "firebreather_burt",
+      "name": "Burt",
+      "trainerClass": "FIREBREATHER",
+      "spriteType": "firebreather",
+      "coordinates": {
+        "x": 60,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "Weezing",
+          "moves": [
+            "Fire Blast",
+            "Pain Split",
+            "Destiny Bond",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 61,
+          "species": "Magcargo",
+          "moves": [
+            "Earth Power",
+            "Flamethrower",
+            "Recover",
+            "Body Slam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Moon Stone",
+      "coordinates": {
+        "x": 11,
+        "y": 17
+      }
+    },
+    {
+      "type": "item",
+      "name": "Big Root",
+      "coordinates": {
+        "x": 36,
+        "y": 14
+      }
+    }
+  ]
+}

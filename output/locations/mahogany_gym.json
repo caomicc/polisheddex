@@ -1,0 +1,264 @@
+{
+  "id": -1,
+  "name": "mahogany_gym",
+  "displayName": "Mahogany Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "mahogany_town",
+      "targetLocationDisplay": "Mahogany Town",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "skier_roxanne",
+      "name": "Roxanne",
+      "trainerClass": "SKIER",
+      "spriteType": "skier",
+      "coordinates": {
+        "x": 4,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 36,
+          "species": "Jynx",
+          "moves": [
+            "Psybeam",
+            "Draining Kiss",
+            "Mean Look",
+            "Metronome"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "boarder_ronald",
+      "name": "Ronald",
+      "trainerClass": "BOARDER",
+      "spriteType": "boarder",
+      "coordinates": {
+        "x": 0,
+        "y": 17
+      },
+      "pokemon": [
+        {
+          "level": 33,
+          "species": "Seel",
+          "moves": [
+            "Bubble Beam",
+            "Aqua Jet",
+            "Aurora Beam",
+            "Sleep Talk"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 35,
+          "species": "Dewgong",
+          "moves": [
+            "Bubble Beam",
+            "Aqua Jet",
+            "Aurora Beam",
+            "Sleep Talk"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 33,
+          "species": "Sneasel",
+          "moves": [
+            "Screech",
+            "Icicle Crash",
+            "Hone Claws",
+            "Metal Claw"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "skier_clarissa",
+      "name": "Clarissa",
+      "trainerClass": "SKIER",
+      "spriteType": "skier",
+      "coordinates": {
+        "x": 9,
+        "y": 17
+      },
+      "pokemon": [
+        {
+          "level": 36,
+          "species": "Piloswine",
+          "moves": [
+            "Take Down",
+            "Icicle Crash",
+            "Icy Wind",
+            "Magnitude"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "boarder_brad",
+      "name": "Brad",
+      "trainerClass": "BOARDER",
+      "spriteType": "boarder",
+      "coordinates": {
+        "x": 5,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 35,
+          "species": "Swinub",
+          "moves": [
+            "Bulldoze",
+            "Take Down",
+            "Icicle Crash",
+            "Icy Wind"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 35,
+          "species": "Swinub",
+          "moves": [
+            "Bulldoze",
+            "Take Down",
+            "Icicle Crash",
+            "Icy Wind"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "boarder_douglas",
+      "name": "Douglas",
+      "trainerClass": "BOARDER",
+      "spriteType": "boarder",
+      "coordinates": {
+        "x": 2,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 33,
+          "species": "Shellder",
+          "moves": [
+            "Bubble Beam",
+            "Ice Shard",
+            "Bite",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 35,
+          "species": "Cloyster",
+          "moves": [
+            "Pin Missile",
+            "Icicle Spear",
+            "Hydro Pump",
+            "Shell Smash"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 33,
+          "species": "Shellder",
+          "moves": [
+            "Bubble Beam",
+            "Ice Shard",
+            "Bite",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "gymLeader": {
+    "name": "Pryce",
+    "trainerClass": "PRYCE",
+    "badge": "GLACIERBADGE",
+    "region": "johto",
+    "speciality": "Ice",
+    "coordinates": {
+      "x": 5,
+      "y": 3
+    },
+    "pokemon": [
+      {
+        "level": 39,
+        "species": "dewgong",
+        "item": "chesto_berry",
+        "moves": [
+          "waterfall",
+          "rest",
+          "rain dance",
+          "aurora beam"
+        ]
+      },
+      {
+        "level": 38,
+        "species": "sneasel",
+        "moves": [
+          "swords dance",
+          "icicle crash",
+          "screech",
+          "slash"
+        ]
+      },
+      {
+        "level": 38,
+        "species": "cloyster",
+        "moves": [
+          "defense curl",
+          "supersonic",
+          "water pulse",
+          "ice shard"
+        ]
+      },
+      {
+        "level": 40,
+        "species": "lapras",
+        "moves": [
+          "sing",
+          "confuse ray",
+          "ancientpower",
+          "ice beam"
+        ]
+      },
+      {
+        "level": 42,
+        "species": "mamoswine",
+        "item": "sitrus_berry",
+        "moves": [
+          "magnitude",
+          "ancientpower",
+          "avalanche",
+          "fury strikes"
+        ]
+      }
+    ]
+  }
+}

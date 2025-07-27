@@ -1,0 +1,75 @@
+{
+  "id": 59,
+  "name": "blackthorn_city",
+  "displayName": "Blackthorn City",
+  "region": "johto",
+  "x": 132,
+  "y": 44,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "route_45",
+      "targetLocationDisplay": "Route 45",
+      "offset": -2
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "blackthorn_gym_1f",
+      "targetLocationDisplay": "Blackthorn Gym First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "blackthorn_dragon_speech_house",
+      "targetLocationDisplay": "Blackthorn Dragon Speech House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "blackthorn_emys_house",
+      "targetLocationDisplay": "Blackthorn Emys House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "blackthorn_mart",
+      "targetLocationDisplay": "Blackthorn Mart",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "blackthorn_pokecenter_1f",
+      "targetLocationDisplay": "Blackthorn Pokecenter 1f",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "move_deleters_house",
+      "targetLocationDisplay": "Move Deleters House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ice_path_1f",
+      "targetLocationDisplay": "Ice Path First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dragons_den_1f",
+      "targetLocationDisplay": "Dragons Den First Floor",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_BLACKTHORN",
+  "npcTrades": [
+    {
+      "wantsPokemon": "jynx",
+      "givesPokemon": "mr__mime",
+      "givesGender": "female",
+      "nickname": "Doris",
+      "traderName": "Emy"
+    }
+  ]
+}

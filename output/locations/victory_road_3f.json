@@ -1,0 +1,168 @@
+{
+  "id": -1,
+  "name": "victory_road_3f",
+  "displayName": "Victory Road Third Floor",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "victory_road_2f",
+      "targetLocationDisplay": "Victory Road Second Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "veteranm_remy",
+      "name": "Remy",
+      "trainerClass": "VETERANM",
+      "spriteType": "veteranm",
+      "coordinates": {
+        "x": 11,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 42,
+          "species": "Blastoise",
+          "item": "Mystic Water",
+          "moves": [
+            "Surf",
+            "Aqua Tail",
+            "Ice Beam",
+            "Flash Cannon"
+          ],
+          "faithful": {
+            "moves": [
+              "Surf",
+              "Aqua Tail",
+              "Ice Beam",
+              "Body Slam"
+            ]
+          },
+          "polished": {
+            "moves": [
+              "Surf",
+              "Aqua Tail",
+              "Ice Beam",
+              "Flash Cannon"
+            ]
+          }
+        },
+        {
+          "level": 41,
+          "species": "Ninetales",
+          "item": "Charcoal",
+          "moves": [
+            "Flamethrower",
+            "Shadow Ball",
+            "Confuse Ray",
+            "Extrasensory"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Flamethrower",
+              "Shadow Ball",
+              "Confuse Ray",
+              "Extrasensory"
+            ]
+          }
+        },
+        {
+          "level": 39,
+          "species": "Victreebel",
+          "item": "Miracle Seed",
+          "moves": [
+            "Sludge Bomb",
+            "Seed Bomb",
+            "Sleep Powder",
+            "Swords Dance"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Sludge Bomb",
+              "Seed Bomb",
+              "Sleep Powder",
+              "Swords Dance"
+            ]
+          }
+        },
+        {
+          "level": 39,
+          "species": "Raichu",
+          "item": "Silk Scarf",
+          "moves": [
+            "Surf",
+            "Thunderbolt",
+            "Extremespeed",
+            "Nasty Plot"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Surf",
+              "Thunderbolt",
+              "Extremespeed",
+              "Nasty Plot"
+            ]
+          }
+        },
+        {
+          "level": 40,
+          "species": "Alakazam",
+          "item": "Twistedspoon",
+          "moves": [
+            "Tri Attack",
+            "Psybeam",
+            "Recover",
+            "Reflect"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Tri Attack",
+              "Psybeam",
+              "Recover",
+              "Reflect"
+            ]
+          }
+        },
+        {
+          "level": 38,
+          "species": "Skarmory",
+          "item": "Sharp Beak",
+          "moves": [
+            "Drill Peck",
+            "Swift",
+            "Steel Wing",
+            "Rock Smash"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Drill Peck",
+              "Swift",
+              "Steel Wing",
+              "Rock Smash"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Razor Fang",
+      "coordinates": {
+        "x": 16,
+        "y": 13
+      }
+    }
+  ]
+}

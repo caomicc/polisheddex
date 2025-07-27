@@ -1,0 +1,47 @@
+{
+  "id": -1,
+  "name": "mount_moon_b_1f",
+  "displayName": "Mount Moon B First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "mount_moon_1f",
+      "targetLocationDisplay": "Mount Moon First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mount_moon_b_2f",
+      "targetLocationDisplay": "Mount Moon B Second Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_4",
+      "targetLocationDisplay": "Route 4",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Star Piece",
+      "coordinates": {
+        "x": 5,
+        "y": 18
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Moon Stone",
+      "coordinates": {
+        "x": 24,
+        "y": 10
+      }
+    }
+  ]
+}

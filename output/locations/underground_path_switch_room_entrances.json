@@ -1,0 +1,86 @@
+{
+  "id": -1,
+  "name": "underground_path_switch_room_entrances",
+  "displayName": "Underground Path Switch Room Entrances",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "warehouse_entrance",
+      "targetLocationDisplay": "Warehouse Entrance",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "underground_warehouse",
+      "targetLocationDisplay": "Underground Warehouse",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "goldenrod_city",
+      "targetLocationDisplay": "Goldenrod City",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Underground Rival Trigger1",
+      "coordinates": {
+        "x": 19,
+        "y": 4
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Underground Rival Trigger2",
+      "coordinates": {
+        "x": 19,
+        "y": 5
+      }
+    },
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 8,
+        "y": 9
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Revive",
+      "coordinates": {
+        "x": 1,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Smoke Ball",
+      "coordinates": {
+        "x": 1,
+        "y": 12
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 14,
+        "y": 9
+      }
+    }
+  ]
+}

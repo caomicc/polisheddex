@@ -1,0 +1,24 @@
+{
+  "id": -1,
+  "name": "hall_of_fame",
+  "displayName": "Hall Of Fame",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "lances_room",
+      "targetLocationDisplay": "Lances Room",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    }
+  ]
+}

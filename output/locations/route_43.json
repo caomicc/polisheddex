@@ -1,0 +1,56 @@
+{
+  "id": 55,
+  "name": "route_43",
+  "displayName": "Route 43",
+  "region": "johto",
+  "x": 108,
+  "y": 36,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "lake_of_rage",
+      "targetLocationDisplay": "Lake Of Rage",
+      "offset": -5
+    },
+    {
+      "direction": "south",
+      "targetLocation": "mahogany_town",
+      "targetLocationDisplay": "Mahogany Town",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_43_mahogany_gate",
+      "targetLocationDisplay": "Route 43 Mahogany Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_43_gate",
+      "targetLocationDisplay": "Route 43 Gate",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM36",
+      "moveName": "Sludge Bomb",
+      "location": "Route 43"
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Max Ether",
+      "coordinates": {
+        "x": 12,
+        "y": 32
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM36 - Sludge Bomb"
+    }
+  ]
+}

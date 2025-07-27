@@ -1,0 +1,75 @@
+{
+  "id": -1,
+  "name": "azalea_gym",
+  "displayName": "Azalea Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "azalea_town",
+      "targetLocationDisplay": "Azalea Town",
+      "offset": 0
+    }
+  ],
+  "gymLeader": {
+    "name": "Bugsy",
+    "trainerClass": "BUGSY",
+    "badge": "HIVEBADGE",
+    "region": "johto",
+    "speciality": "Bug",
+    "coordinates": {
+      "x": 5,
+      "y": 7
+    },
+    "pokemon": [
+      {
+        "level": 14,
+        "species": "butterfree",
+        "item": "no_item",
+        "gender": "male",
+        "moves": [
+          "tackle",
+          "poisonpowder",
+          "sleep powder",
+          "confusion"
+        ]
+      },
+      {
+        "level": 14,
+        "species": "beedrill",
+        "gender": "male",
+        "moves": [
+          "poison sting",
+          "string shot",
+          "defense curl",
+          "fury strikes"
+        ]
+      },
+      {
+        "level": 14,
+        "species": "yanma",
+        "gender": "female",
+        "moves": [
+          "foresight",
+          "quick attack",
+          "double team",
+          "sonic boom"
+        ]
+      },
+      {
+        "level": 17,
+        "species": "scyther",
+        "gender": "female",
+        "moves": [
+          "quick attack",
+          "leer",
+          "pursuit",
+          "u turn"
+        ]
+      }
+    ]
+  }
+}

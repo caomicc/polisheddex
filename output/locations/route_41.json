@@ -1,0 +1,71 @@
+{
+  "id": 44,
+  "name": "route_41",
+  "displayName": "Route 41",
+  "region": "johto",
+  "x": 28,
+  "y": 100,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_40",
+      "targetLocationDisplay": "Route 40",
+      "offset": 15
+    },
+    {
+      "direction": "west",
+      "targetLocation": "cianwood_city",
+      "targetLocationDisplay": "Cianwood City",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "goldenrod_harbor",
+      "targetLocationDisplay": "Goldenrod Harbor",
+      "offset": 3
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "whirl_island_nw",
+      "targetLocationDisplay": "Whirl Island Northwest",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "whirl_island_ne",
+      "targetLocationDisplay": "Whirl Island Northeast",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "whirl_island_sw",
+      "targetLocationDisplay": "Whirl Island Southwest",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "whirl_island_se",
+      "targetLocationDisplay": "Whirl Island Southeast",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Ether",
+      "coordinates": {
+        "x": 9,
+        "y": 35
+      }
+    },
+    {
+      "type": "item",
+      "name": "Silver Leaf",
+      "coordinates": {
+        "x": 56,
+        "y": 12
+      }
+    }
+  ]
+}

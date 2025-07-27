@@ -1,0 +1,66 @@
+{
+  "id": 29,
+  "name": "route_36",
+  "displayName": "Route 36",
+  "region": "johto",
+  "x": 64,
+  "y": 60,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_37",
+      "targetLocationDisplay": "Route 37",
+      "offset": 12
+    },
+    {
+      "direction": "south",
+      "targetLocation": "route_35",
+      "targetLocationDisplay": "Route 35",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "violet_city",
+      "targetLocationDisplay": "Violet City",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_36_national_park_gate",
+      "targetLocationDisplay": "Route 36 National Park Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_36_ruins_of_alph_gate",
+      "targetLocationDisplay": "Route 36 Ruins Of Alph Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_36_violet_gate",
+      "targetLocationDisplay": "Route 36 Violet Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM31",
+      "moveName": "Rock Smash",
+      "location": "Route 36"
+    }
+  ],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM31 - Rock Smash"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": 17,
+  "name": "ilex_forest",
+  "displayName": "Ilex Forest",
+  "region": "johto",
+  "x": 52,
+  "y": 124,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_34_ilex_forest_gate",
+      "targetLocationDisplay": "Route 34 Ilex Forest Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ilex_forest_azalea_gate",
+      "targetLocationDisplay": "Ilex Forest Azalea Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Ilex Forest Apprentice Trigger",
+      "coordinates": {
+        "x": 9,
+        "y": 31
+      }
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "HM01",
+      "moveName": "Cut",
+      "location": "Ilex Forest"
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Ether",
+      "coordinates": {
+        "x": 13,
+        "y": 9
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 24,
+        "y": 16
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 3,
+        "y": 19
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Silver Leaf",
+      "coordinates": {
+        "x": 25,
+        "y": 24
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Silver Leaf",
+      "coordinates": {
+        "x": 19,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 22,
+        "y": 34
+      }
+    },
+    {
+      "type": "item",
+      "name": "X Attack",
+      "coordinates": {
+        "x": 11,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Antidote",
+      "coordinates": {
+        "x": 25,
+        "y": 17
+      }
+    },
+    {
+      "type": "item",
+      "name": "Mulch",
+      "coordinates": {
+        "x": 29,
+        "y": 3
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "HM01 - Cut"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM54 - False Swipe"
+    }
+  ]
+}

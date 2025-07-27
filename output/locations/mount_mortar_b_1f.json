@@ -1,0 +1,73 @@
+{
+  "id": -1,
+  "name": "mount_mortar_b_1f",
+  "displayName": "Mount Mortar B First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "mount_mortar_1f_inside",
+      "targetLocationDisplay": "Mount Mortar First Floor Inside",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mount_mortar_1f_outside",
+      "targetLocationDisplay": "Mount Mortar First Floor Outside",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 4,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 29,
+        "y": 12
+      }
+    },
+    {
+      "type": "item",
+      "name": "Carbos",
+      "coordinates": {
+        "x": 4,
+        "y": 16
+      }
+    },
+    {
+      "type": "item",
+      "name": "Protector",
+      "coordinates": {
+        "x": 34,
+        "y": 24
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Ether",
+      "coordinates": {
+        "x": 32,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 21,
+        "y": 26
+      }
+    }
+  ]
+}

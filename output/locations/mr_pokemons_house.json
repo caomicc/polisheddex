@@ -1,0 +1,24 @@
+{
+  "id": -1,
+  "name": "mr_pokemons_house",
+  "displayName": "Mr Pokemons House",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_30",
+      "targetLocationDisplay": "Route 30",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    }
+  ]
+}

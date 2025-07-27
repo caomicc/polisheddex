@@ -1,0 +1,165 @@
+{
+  "id": -1,
+  "name": "dim_cave_1f",
+  "displayName": "Dim Cave First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "dim_cave_2f",
+      "targetLocationDisplay": "Dim Cave Second Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "super_nerd_gregg",
+      "name": "Gregg",
+      "trainerClass": "SUPER_NERD",
+      "spriteType": "super_nerd",
+      "coordinates": {
+        "x": 30,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Porygon",
+          "moves": [
+            "Tri Attack",
+            "Thunderbolt",
+            "Barrier",
+            "Thunder Wave"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Porygon2",
+          "moves": [
+            "Tri Attack",
+            "Thunderbolt",
+            "Barrier",
+            "Thunder Wave"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "scientist_dexter",
+      "name": "Dexter",
+      "trainerClass": "SCIENTIST",
+      "spriteType": "scientist",
+      "coordinates": {
+        "x": 12,
+        "y": 18
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Magneton",
+          "moves": [
+            "Gyro Ball",
+            "Agility",
+            "Hidden Power",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Alakazam",
+          "moves": [
+            "Future Sight",
+            "Confuse Ray",
+            "Calm Mind",
+            "Psychic M"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "guitaristm_biff",
+      "name": "Biff",
+      "trainerClass": "GUITARISTM",
+      "spriteType": "guitaristm",
+      "coordinates": {
+        "x": 27,
+        "y": 21
+      },
+      "pokemon": [
+        {
+          "level": 52,
+          "species": "Onix",
+          "moves": [
+            "Earthquake",
+            "Double Edge",
+            "Stone Edge",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 54,
+          "species": "Magneton",
+          "moves": [
+            "Gyro Ball",
+            "Agility",
+            "Hidden Power",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Skarmory",
+          "moves": [
+            "Night Slash",
+            "Drill Peck",
+            "Air Slash",
+            "Screech"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 28,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Ball",
+      "coordinates": {
+        "x": 3,
+        "y": 20
+      }
+    },
+    {
+      "type": "item",
+      "name": "Rare Bone",
+      "coordinates": {
+        "x": 28,
+        "y": 31
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": -1,
+  "name": "shamouti_hotel_restaurant",
+  "displayName": "Shamouti Hotel Restaurant",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "shamouti_hotel_1f",
+      "targetLocationDisplay": "Shamouti Hotel First Floor",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Shamouti Hotel Restaurant Leaving Trigger1",
+      "coordinates": {
+        "x": 16,
+        "y": 6
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Shamouti Hotel Restaurant Leaving Trigger2",
+      "coordinates": {
+        "x": 16,
+        "y": 7
+      }
+    }
+  ]
+}

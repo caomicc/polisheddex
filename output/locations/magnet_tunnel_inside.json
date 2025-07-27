@@ -1,0 +1,39 @@
+{
+  "id": -1,
+  "name": "magnet_tunnel_inside",
+  "displayName": "Magnet Tunnel Inside",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "magnet_tunnel_west",
+      "targetLocationDisplay": "Magnet Tunnel West",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "magnet_tunnel_east",
+      "targetLocationDisplay": "Magnet Tunnel East",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "magnet_tunnel_inside",
+      "targetLocationDisplay": "Magnet Tunnel Inside",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Metal Powder",
+      "coordinates": {
+        "x": 38,
+        "y": 30
+      }
+    }
+  ]
+}

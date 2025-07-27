@@ -1,0 +1,191 @@
+{
+  "id": 28,
+  "name": "national_park",
+  "displayName": "National Park",
+  "region": "johto",
+  "x": 52,
+  "y": 60,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_36_national_park_gate",
+      "targetLocationDisplay": "Route 36 National Park Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_35_national_park_gate",
+      "targetLocationDisplay": "Route 35 National Park Gate",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM28",
+      "moveName": "Dig",
+      "location": "National Park"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "schoolgirl_eliza",
+      "name": "Eliza",
+      "trainerClass": "SCHOOLGIRL",
+      "spriteType": "schoolgirl",
+      "coordinates": {
+        "x": 13,
+        "y": 41
+      },
+      "pokemon": [
+        {
+          "level": 18,
+          "species": "Oddish",
+          "nickname": "Silver",
+          "item": "Silver Leaf",
+          "moves": [
+            "Sleep Powder",
+            "Stun Spore",
+            "Poisonpowder",
+            "Acid"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 16,
+          "species": "Ledyba",
+          "nickname": "Lady",
+          "moves": [
+            "Mach Punch",
+            "Light Screen",
+            "Reflect",
+            "Safeguard"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 17,
+          "species": "Sentret",
+          "nickname": "Tret",
+          "item": "Oran Berry",
+          "moves": [
+            "Dizzy Punch",
+            "Fury Strikes",
+            "Quick Attack",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "schoolboy_johnny",
+      "name": "Johnny",
+      "trainerClass": "SCHOOLBOY",
+      "spriteType": "schoolboy",
+      "coordinates": {
+        "x": 12,
+        "y": 41
+      },
+      "pokemon": [
+        {
+          "level": 18,
+          "species": "Bellsprout",
+          "nickname": "Gold",
+          "item": "Gold Leaf",
+          "moves": [
+            "Stun Spore",
+            "Poisonpowder",
+            "Sleep Powder",
+            "Wrap"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 16,
+          "species": "Spinarak",
+          "nickname": "Spin",
+          "moves": [
+            "Night Shade",
+            "Scary Face",
+            "Glare",
+            "Absorb"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 17,
+          "species": "Rattata",
+          "nickname": "Rat",
+          "item": "Oran Berry",
+          "moves": [
+            "Hyper Fang",
+            "Pursuit",
+            "Bite",
+            "Focus Energy"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "bug_maniac_lou",
+      "name": "Lou",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 28,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 19,
+          "species": "Yanma",
+          "moves": [
+            "Bug Bite",
+            "Quick Attack",
+            "Double Team",
+            "Sonic Boom"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Bug Bite",
+              "Quick Attack",
+              "Double Team",
+              "Sonic Boom"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 8,
+        "y": 47
+      }
+    },
+    {
+      "type": "item",
+      "name": "Shiny Stone",
+      "coordinates": {
+        "x": 37,
+        "y": 12
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM28 - Dig"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "id": -1,
+  "name": "mount_mortar_1f_outside",
+  "displayName": "Mount Mortar First Floor Outside",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_42",
+      "targetLocationDisplay": "Route 42",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mount_mortar_2f_inside",
+      "targetLocationDisplay": "Mount Mortar Second Floor Inside",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mount_mortar_1f_inside",
+      "targetLocationDisplay": "Mount Mortar First Floor Inside",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mount_mortar_b_1f",
+      "targetLocationDisplay": "Mount Mortar B First Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "battle_girl_subaru",
+      "name": "Subaru",
+      "trainerClass": "BATTLE_GIRL",
+      "spriteType": "battle_girl",
+      "coordinates": {
+        "x": 9,
+        "y": 15
+      },
+      "pokemon": [
+        {
+          "level": 26,
+          "species": "Machop",
+          "moves": [
+            "Mach Punch",
+            "Knock Off",
+            "Reversal",
+            "Seismic Toss"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 27,
+          "species": "Machoke",
+          "moves": [
+            "Bullet Punch",
+            "Mach Punch",
+            "Knock Off",
+            "Reversal"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 28,
+          "species": "Primeape",
+          "moves": [
+            "Reversal",
+            "Cross Chop",
+            "Swagger",
+            "Seismic Toss"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "battle_girl_diane",
+      "name": "Diane",
+      "trainerClass": "BATTLE_GIRL",
+      "spriteType": "battle_girl",
+      "coordinates": {
+        "x": 30,
+        "y": 11
+      },
+      "pokemon": [
+        {
+          "level": 28,
+          "species": "Hitmonlee",
+          "moves": [
+            "Aerial Ace",
+            "Stomp",
+            "Low Kick",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 28,
+          "species": "Ursaring",
+          "moves": [
+            "Play Rough",
+            "Belly Drum",
+            "Feint Attack",
+            "Fury Strikes"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 25,
+        "y": 22
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ether",
+      "coordinates": {
+        "x": 13,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 31,
+        "y": 18
+      }
+    }
+  ]
+}

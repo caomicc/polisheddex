@@ -1,0 +1,41 @@
+{
+  "id": -1,
+  "name": "olivine_port",
+  "displayName": "Olivine Port",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "olivine_city",
+      "targetLocationDisplay": "Olivine City",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "fast_ship_1f",
+      "targetLocationDisplay": "Fast Ship First Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Protein",
+      "coordinates": {
+        "x": 1,
+        "y": 14
+      }
+    },
+    {
+      "type": "item",
+      "name": "Go Goggles",
+      "coordinates": {
+        "x": 16,
+        "y": 14
+      }
+    }
+  ]
+}

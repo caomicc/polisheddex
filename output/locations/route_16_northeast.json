@@ -1,0 +1,35 @@
+{
+  "id": -1,
+  "name": "route_16_northeast",
+  "displayName": "Route 16 Northeast",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "route_16_west",
+      "targetLocationDisplay": "Route 16 West",
+      "offset": -1
+    },
+    {
+      "direction": "east",
+      "targetLocation": "celadon_city",
+      "targetLocationDisplay": "Celadon City",
+      "offset": -10
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_16_17_gate",
+      "targetLocationDisplay": "Route 16 17 Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_16_gate",
+      "targetLocationDisplay": "Route 16 Gate",
+      "offset": 0
+    }
+  ]
+}

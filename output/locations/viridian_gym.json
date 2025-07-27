@@ -1,0 +1,304 @@
+{
+  "id": -1,
+  "name": "viridian_gym",
+  "displayName": "Viridian Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "viridian_city",
+      "targetLocationDisplay": "Viridian City",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "ace_duo_araandbela1",
+      "name": "Ara & Bela",
+      "trainerClass": "ACE_DUO",
+      "spriteType": "ace_duo",
+      "coordinates": {
+        "x": 7,
+        "y": 33
+      },
+      "pokemon": [
+        {
+          "level": 64,
+          "species": "Tauros",
+          "gender": "male",
+          "moves": [
+            "Double Edge",
+            "Thrash",
+            "Swagger",
+            "Zen Headbutt"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 64,
+          "species": "Girafarig",
+          "gender": "male",
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "ace_duo_araandbela2",
+      "name": "Ara & Bela",
+      "trainerClass": "ACE_DUO",
+      "spriteType": "ace_duo",
+      "coordinates": {
+        "x": 6,
+        "y": 33
+      },
+      "pokemon": [
+        {
+          "level": 64,
+          "species": "Girafarig",
+          "gender": "male",
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 64,
+          "species": "Tauros",
+          "gender": "male",
+          "moves": [
+            "Double Edge",
+            "Thrash",
+            "Swagger",
+            "Zen Headbutt"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "cooltrainerf_salma",
+      "name": "Salma",
+      "trainerClass": "COOLTRAINERF",
+      "spriteType": "ace_trainer_f",
+      "coordinates": {
+        "x": 3,
+        "y": 32
+      },
+      "pokemon": [
+        {
+          "level": 62,
+          "species": "Slowking",
+          "moves": [
+            "Recover",
+            "Belly Drum",
+            "Rain Dance",
+            "Psychic M"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 65,
+          "species": "Kangaskhan",
+          "moves": [
+            "Reversal",
+            "Sucker Punch",
+            "Outrage",
+            "Endure"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "cooltrainerf_bonita",
+      "name": "Bonita",
+      "trainerClass": "COOLTRAINERF",
+      "spriteType": "ace_trainer_f",
+      "coordinates": {
+        "x": 3,
+        "y": 18
+      },
+      "pokemon": [
+        {
+          "level": 62,
+          "species": "Girafarig",
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 65,
+          "species": "Sudowoodo",
+          "moves": [
+            "Iron Head",
+            "Close Combat",
+            "Stone Edge",
+            "Double Edge"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "ace_duo_elanandida1",
+      "name": "Elan & Ida",
+      "trainerClass": "ACE_DUO",
+      "spriteType": "ace_duo",
+      "coordinates": {
+        "x": 6,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 65,
+          "species": "Porygon2",
+          "gender": "male",
+          "moves": [
+            "Zap Cannon",
+            "Mirror Coat",
+            "Tri Attack",
+            "Thunderbolt"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 65,
+          "species": "Azumarill",
+          "gender": "male",
+          "moves": [
+            "Hydro Pump",
+            "Close Combat",
+            "Double Edge",
+            "Rain Dance"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "ace_duo_elanandida2",
+      "name": "Elan & Ida",
+      "trainerClass": "ACE_DUO",
+      "spriteType": "ace_duo",
+      "coordinates": {
+        "x": 7,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 65,
+          "species": "Azumarill",
+          "gender": "male",
+          "moves": [
+            "Hydro Pump",
+            "Close Combat",
+            "Double Edge",
+            "Rain Dance"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 65,
+          "species": "Porygon2",
+          "gender": "male",
+          "moves": [
+            "Zap Cannon",
+            "Mirror Coat",
+            "Tri Attack",
+            "Thunderbolt"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "gymLeader": {
+    "name": "Blue",
+    "trainerClass": "BLUE",
+    "badge": "EARTHBADGE",
+    "region": "kanto",
+    "speciality": "Mixed",
+    "coordinates": {
+      "x": 7,
+      "y": 2
+    },
+    "pokemon": [
+      {
+        "level": 68,
+        "species": "exeggutor",
+        "item": "room_service",
+        "moves": [
+          "psychic m",
+          "leech seed",
+          "trick room",
+          "giga drain"
+        ]
+      },
+      {
+        "level": 69,
+        "species": "umbreon",
+        "item": "leftovers",
+        "moves": [
+          "confuse ray",
+          "toxic",
+          "feint attack",
+          "protect"
+        ]
+      },
+      {
+        "level": 66,
+        "species": "machamp",
+        "item": "black_belt",
+        "moves": [
+          "dynamicpunch",
+          "earthquake",
+          "stone edge",
+          "thunderpunch"
+        ]
+      },
+      {
+        "level": 67,
+        "species": "kabutops",
+        "item": "hard_stone",
+        "moves": [
+          "slash",
+          "surf",
+          "stone edge",
+          "giga drain"
+        ]
+      },
+      {
+        "level": 68,
+        "species": "arcanine",
+        "item": "charcoal",
+        "moves": [
+          "roar",
+          "flame charge",
+          "flamethrower",
+          "extremespeed"
+        ]
+      },
+      {
+        "level": 70,
+        "species": "blastoise",
+        "item": "mystic_water",
+        "moves": [
+          "surf",
+          "ice beam",
+          "body slam",
+          "flash cannon"
+        ]
+      }
+    ]
+  }
+}

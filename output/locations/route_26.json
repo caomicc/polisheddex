@@ -1,0 +1,116 @@
+{
+  "id": 123,
+  "name": "route_26",
+  "displayName": "Route 26",
+  "region": "kanto",
+  "x": 28,
+  "y": 92,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "route_27",
+      "targetLocationDisplay": "Route 27",
+      "offset": 45
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "pokemon_league_gate",
+      "targetLocationDisplay": "Pokemon League Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_26_heal_speech_house",
+      "targetLocationDisplay": "Route 26 Heal Speech House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_26_day_of_week_siblings_house",
+      "targetLocationDisplay": "Route 26 Day Of Week Siblings House",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "dragon_tamer_kazu",
+      "name": "Kazu",
+      "trainerClass": "DRAGON_TAMER",
+      "spriteType": "dragon_tamer",
+      "coordinates": {
+        "x": 9,
+        "y": 38
+      },
+      "pokemon": [
+        {
+          "level": 40,
+          "species": "Dragonair",
+          "moves": [
+            "Thunder Wave",
+            "Dragon Rage",
+            "Aqua Tail",
+            "Flamethrower"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Thunder Wave",
+              "Dragon Rage",
+              "Aqua Tail",
+              "Flamethrower"
+            ]
+          }
+        },
+        {
+          "level": 40,
+          "species": "Dragonair",
+          "moves": [
+            "Thunder Wave",
+            "Dragon Rage",
+            "Aqua Tail",
+            "Thunderbolt"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Thunder Wave",
+              "Dragon Rage",
+              "Aqua Tail",
+              "Thunderbolt"
+            ]
+          }
+        },
+        {
+          "level": 40,
+          "species": "Dragonair",
+          "moves": [
+            "Thunder Wave",
+            "Dragon Rage",
+            "Aqua Tail",
+            "Ice Beam"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Thunder Wave",
+              "Dragon Rage",
+              "Aqua Tail",
+              "Ice Beam"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 9,
+        "y": 15
+      }
+    }
+  ]
+}

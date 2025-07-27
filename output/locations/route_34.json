@@ -1,0 +1,93 @@
+{
+  "id": 18,
+  "name": "route_34",
+  "displayName": "Route 34",
+  "region": "johto",
+  "x": 52,
+  "y": 108,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "goldenrod_city",
+      "targetLocationDisplay": "Goldenrod City",
+      "offset": -7
+    },
+    {
+      "direction": "west",
+      "targetLocation": "route_34_coast",
+      "targetLocationDisplay": "Route 34 Coast",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "azalea_town",
+      "targetLocationDisplay": "Azalea Town",
+      "offset": 18
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_34_ilex_forest_gate",
+      "targetLocationDisplay": "Route 34 Ilex Forest Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "daycare",
+      "targetLocationDisplay": "Daycare",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Route34 Lyra Trigger1",
+      "coordinates": {
+        "x": 8,
+        "y": 17
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route34 Lyra Trigger2",
+      "coordinates": {
+        "x": 9,
+        "y": 17
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route34 Lyra Trigger3",
+      "coordinates": {
+        "x": 10,
+        "y": 17
+      }
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 8,
+        "y": 32
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 17,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 7,
+        "y": 30
+      }
+    }
+  ]
+}

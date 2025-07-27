@@ -1,0 +1,181 @@
+{
+  "id": -1,
+  "name": "route_13_east",
+  "displayName": "Route 13 East",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_12_south",
+      "targetLocationDisplay": "Route 12 South",
+      "offset": 13
+    },
+    {
+      "direction": "south",
+      "targetLocation": "lucky_island",
+      "targetLocationDisplay": "Lucky Island",
+      "offset": 0
+    },
+    {
+      "direction": "west",
+      "targetLocation": "route_13_west",
+      "targetLocationDisplay": "Route 13 West",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "bird_keeper_perry",
+      "name": "Perry",
+      "trainerClass": "BIRD_KEEPER",
+      "spriteType": "bird_keeper",
+      "coordinates": {
+        "x": 36,
+        "y": 11
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "FarfetchD",
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "bird_keeper_bret",
+      "name": "Bret",
+      "trainerClass": "BIRD_KEEPER",
+      "spriteType": "bird_keeper",
+      "coordinates": {
+        "x": 40,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 57,
+          "species": "Pidgeot",
+          "moves": [
+            "Steel Wing",
+            "Drill Peck",
+            "Roost",
+            "Wing Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 57,
+          "species": "Fearow",
+          "moves": [
+            "Double Edge",
+            "Drill Peck",
+            "Roost",
+            "Focus Energy"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "camper_tanner",
+      "name": "Tanner",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 10,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Sudowoodo",
+          "moves": [
+            "Iron Head",
+            "Close Combat",
+            "Stone Edge",
+            "Double Edge"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "picnicker_piper",
+      "name": "Piper",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 41,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 55,
+          "species": "Hypno",
+          "moves": [
+            "Nasty Plot",
+            "Psychic M",
+            "Swagger",
+            "Zen Headbutt"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "couple_timandsue1",
+      "name": "Tim & Sue",
+      "trainerClass": "COUPLE",
+      "spriteType": "couple",
+      "coordinates": {
+        "x": 28,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Kadabra",
+          "gender": "male",
+          "moves": [
+            "Future Sight",
+            "Confuse Ray",
+            "Calm Mind",
+            "Psychic M"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 57,
+          "species": "Golduck",
+          "gender": "male",
+          "moves": [
+            "Psychic M",
+            "Nasty Plot",
+            "Hydro Pump",
+            "Amnesia"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 12,
+        "y": 13
+      }
+    }
+  ]
+}

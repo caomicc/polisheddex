@@ -1,0 +1,35 @@
+{
+  "id": -1,
+  "name": "shamouti_shrine_ruins",
+  "displayName": "Shamouti Shrine Ruins",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "noisy_forest",
+      "targetLocationDisplay": "Noisy Forest",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 7,
+        "y": 10
+      }
+    },
+    {
+      "type": "item",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 4,
+        "y": 27
+      }
+    }
+  ]
+}

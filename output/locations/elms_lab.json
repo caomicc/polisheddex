@@ -1,0 +1,32 @@
+{
+  "id": -1,
+  "name": "elms_lab",
+  "displayName": "Elms Lab",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "new_bark_town",
+      "targetLocationDisplay": "New Bark Town",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Lyra Battle Script",
+      "coordinates": {
+        "x": 4,
+        "y": 6
+      }
+    },
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    }
+  ]
+}

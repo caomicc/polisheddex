@@ -1,0 +1,39 @@
+{
+  "id": -1,
+  "name": "uraga_channel_west",
+  "displayName": "Uraga Channel West",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "route_21",
+      "targetLocationDisplay": "Route 21",
+      "offset": -19
+    },
+    {
+      "direction": "east",
+      "targetLocation": "uraga_channel_east",
+      "targetLocationDisplay": "Uraga Channel East",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "scary_cave_1f",
+      "targetLocationDisplay": "Scary Cave First Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Big Pearl",
+      "coordinates": {
+        "x": 15,
+        "y": 11
+      }
+    }
+  ]
+}

@@ -13,6 +13,7 @@ import type {
 import { extractTrainerData } from './src/utils/extractors/trainerExtractors.ts';
 import { formatDisplayName, formatMoveName, inferLocationRegion } from './src/utils/stringUtils.ts';
 import { normalizeLocationKey } from './src/utils/locationUtils.ts';
+import { restructureLocationsToIndividualFiles } from './restructure_locations.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -1990,6 +1991,10 @@ export async function exportAllLocations() {
     );
 
     console.log(`📊 Exported location summary to ${summaryPath}`);
+
+    // Create individual location files with manifest (similar to Pokemon structure)
+    console.log('🏗️  Creating individual location files...');
+    await restructureLocationsToIndividualFiles();
 
     return sortedLocations;
   } catch (error) {

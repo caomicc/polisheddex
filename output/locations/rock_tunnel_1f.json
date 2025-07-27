@@ -1,0 +1,131 @@
+{
+  "id": -1,
+  "name": "rock_tunnel_1f",
+  "displayName": "Rock Tunnel First Floor",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_10_north",
+      "targetLocationDisplay": "Route 10 North",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_10_south",
+      "targetLocationDisplay": "Route 10 South",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "rock_tunnel_b_1f",
+      "targetLocationDisplay": "Rock Tunnel B First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "rock_tunnel_2f",
+      "targetLocationDisplay": "Rock Tunnel Second Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "hiker_seamus",
+      "name": "Seamus",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 23,
+        "y": 18
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Dudunsparce",
+          "moves": [
+            "Hyper Voice",
+            "Hurricane",
+            "Reversal",
+            "Endure"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Onix",
+          "moves": [
+            "Earthquake",
+            "Double Edge",
+            "Stone Edge",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 54,
+          "species": "Golem",
+          "moves": [
+            "Stone Edge",
+            "Double Edge",
+            "Explosion",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Onix",
+          "moves": [
+            "Earthquake",
+            "Double Edge",
+            "Stone Edge",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "X Accuracy",
+      "coordinates": {
+        "x": 23,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "X Defend",
+      "coordinates": {
+        "x": 4,
+        "y": 18
+      }
+    },
+    {
+      "type": "item",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 21,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hp Up",
+      "coordinates": {
+        "x": 10,
+        "y": 15
+      }
+    }
+  ]
+}

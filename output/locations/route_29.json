@@ -1,0 +1,45 @@
+{
+  "id": 2,
+  "name": "route_29",
+  "displayName": "Route 29",
+  "region": "johto",
+  "x": 120,
+  "y": 100,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_46",
+      "targetLocationDisplay": "Route 46",
+      "offset": 10
+    },
+    {
+      "direction": "west",
+      "targetLocation": "cherrygrove_city",
+      "targetLocationDisplay": "Cherrygrove City",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "new_bark_town",
+      "targetLocationDisplay": "New Bark Town",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_29_46_gate",
+      "targetLocationDisplay": "Route 29 46 Gate",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Potion",
+      "coordinates": {
+        "x": 48,
+        "y": 2
+      }
+    }
+  ]
+}

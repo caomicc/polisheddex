@@ -1,0 +1,85 @@
+{
+  "id": -1,
+  "name": "route_18_west",
+  "displayName": "Route 18 West",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_17",
+      "targetLocationDisplay": "Route 17",
+      "offset": 0
+    },
+    {
+      "direction": "west",
+      "targetLocation": "uraga_channel_east",
+      "targetLocationDisplay": "Uraga Channel East",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_18_east",
+      "targetLocationDisplay": "Route 18 East",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_18_gate",
+      "targetLocationDisplay": "Route 18 Gate",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "biker_charles",
+      "name": "Charles",
+      "trainerClass": "BIKER",
+      "spriteType": "biker",
+      "coordinates": {
+        "x": 6,
+        "y": 2
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Koffing",
+          "moves": [
+            "Fire Blast",
+            "Pain Split",
+            "Destiny Bond",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 54,
+          "species": "Charmeleon",
+          "moves": [
+            "Crunch",
+            "Fire Spin",
+            "Flamethrower",
+            "Slash"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 57,
+          "species": "Weezing",
+          "moves": [
+            "Fire Blast",
+            "Pain Split",
+            "Destiny Bond",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ]
+}

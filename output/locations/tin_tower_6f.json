@@ -1,0 +1,33 @@
+{
+  "id": -1,
+  "name": "tin_tower_6f",
+  "displayName": "Tin Tower Sixth Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "tin_tower_7f",
+      "targetLocationDisplay": "Tin Tower Seventh Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "tin_tower_5f",
+      "targetLocationDisplay": "Tin Tower Fifth Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 6,
+        "y": 8
+      }
+    }
+  ]
+}

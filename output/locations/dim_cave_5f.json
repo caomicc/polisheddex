@@ -1,0 +1,57 @@
+{
+  "id": -1,
+  "name": "dim_cave_5f",
+  "displayName": "Dim Cave Fifth Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_10_north",
+      "targetLocationDisplay": "Route 10 North",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dim_cave_4f",
+      "targetLocationDisplay": "Dim Cave Fourth Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "X Sp Atk",
+      "coordinates": {
+        "x": 12,
+        "y": 28
+      }
+    },
+    {
+      "type": "item",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 13,
+        "y": 13
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Stone",
+      "coordinates": {
+        "x": 9,
+        "y": 27
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 31,
+        "y": 14
+      }
+    }
+  ]
+}

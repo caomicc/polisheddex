@@ -1,0 +1,125 @@
+{
+  "id": -1,
+  "name": "pokemon_mansion_b_1f",
+  "displayName": "Pokemon Mansion B First Floor",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "pokemon_mansion_1f",
+      "targetLocationDisplay": "Pokemon Mansion First Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "scientist_braydon",
+      "name": "Braydon",
+      "trainerClass": "SCIENTIST",
+      "spriteType": "scientist",
+      "coordinates": {
+        "x": 18,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Magneton",
+          "moves": [
+            "Thunder",
+            "Gyro Ball",
+            "Agility",
+            "Hidden Power"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Magnezone",
+          "moves": [
+            "Thunder",
+            "Gyro Ball",
+            "Agility",
+            "Hidden Power"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 63,
+          "species": "Electrode",
+          "moves": [
+            "Mirror Coat",
+            "Gyro Ball",
+            "Bug Buzz",
+            "Thunder"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 26,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 8,
+        "y": 13
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Berserk Gene",
+      "coordinates": {
+        "x": 20,
+        "y": 27
+      }
+    },
+    {
+      "type": "item",
+      "name": "Carbos",
+      "coordinates": {
+        "x": 13,
+        "y": 5
+      }
+    },
+    {
+      "type": "item",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 7,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hp Up",
+      "coordinates": {
+        "x": 16,
+        "y": 27
+      }
+    },
+    {
+      "type": "item",
+      "name": "Old Sea Map",
+      "coordinates": {
+        "x": 4,
+        "y": 23
+      }
+    }
+  ]
+}

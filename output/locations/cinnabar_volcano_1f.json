@@ -1,0 +1,33 @@
+{
+  "id": -1,
+  "name": "cinnabar_volcano_1f",
+  "displayName": "Cinnabar Volcano First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "cinnabar_island",
+      "targetLocationDisplay": "Cinnabar Island",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cinnabar_volcano_b_1f",
+      "targetLocationDisplay": "Cinnabar Volcano B First Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 13,
+        "y": 1
+      }
+    }
+  ]
+}

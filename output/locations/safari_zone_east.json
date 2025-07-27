@@ -1,0 +1,120 @@
+{
+  "id": -1,
+  "name": "safari_zone_east",
+  "displayName": "Safari Zone East",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "safari_zone_hub",
+      "targetLocationDisplay": "Safari Zone Hub",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "safari_zone_north",
+      "targetLocationDisplay": "Safari Zone North",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "safari_zone_east_rest_house",
+      "targetLocationDisplay": "Safari Zone East Rest House",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "cowgirl_april",
+      "name": "April",
+      "trainerClass": "COWGIRL",
+      "spriteType": "cowgirl",
+      "coordinates": {
+        "x": 9,
+        "y": 11
+      },
+      "pokemon": [
+        {
+          "level": 26,
+          "species": "Tauros",
+          "moves": [
+            "Quick Attack",
+            "Rest",
+            "Pursuit",
+            "Scary Face"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 27,
+          "species": "Tauros",
+          "form": "paldean form",
+          "moves": [
+            "Quick Attack",
+            "Rest",
+            "Pursuit",
+            "Scary Face"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 28,
+          "species": "Tauros",
+          "form": "tauros paldean fire form",
+          "moves": [
+            "Quick Attack",
+            "Rest",
+            "Pursuit",
+            "Scary Face"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 29,
+          "species": "Tauros",
+          "form": "tauros paldean water form",
+          "moves": [
+            "Focus Energy",
+            "Quick Attack",
+            "Rest",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Carbos",
+      "coordinates": {
+        "x": 22,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Silverpowder",
+      "coordinates": {
+        "x": 7,
+        "y": 13
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 5,
+        "y": 3
+      }
+    }
+  ]
+}

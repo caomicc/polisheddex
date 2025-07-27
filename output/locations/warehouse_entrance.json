@@ -1,0 +1,65 @@
+{
+  "id": -1,
+  "name": "warehouse_entrance",
+  "displayName": "Warehouse Entrance",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "underground_path_switch_room_entrances",
+      "targetLocationDisplay": "Underground Path Switch Room Entrances",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "warehouse_entrance",
+      "targetLocationDisplay": "Warehouse Entrance",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Paralyzeheal",
+      "coordinates": {
+        "x": 4,
+        "y": 17
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 2,
+        "y": 22
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Antidote",
+      "coordinates": {
+        "x": 15,
+        "y": 8
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "X Sp Atk",
+      "coordinates": {
+        "x": 20,
+        "y": 31
+      }
+    },
+    {
+      "type": "item",
+      "name": "Coin Case",
+      "coordinates": {
+        "x": 5,
+        "y": 28
+      }
+    }
+  ]
+}

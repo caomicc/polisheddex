@@ -1,0 +1,102 @@
+{
+  "id": -1,
+  "name": "burned_tower_1f",
+  "displayName": "Burned Tower First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "ecruteak_city",
+      "targetLocationDisplay": "Ecruteak City",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "burned_tower_b_1f",
+      "targetLocationDisplay": "Burned Tower B First Floor",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Burned Tower Rival Battle Script",
+      "coordinates": {
+        "x": 9,
+        "y": 9
+      }
+    }
+  ],
+  "trainers": [
+    {
+      "id": "hex_maniac_tamara",
+      "name": "Tamara",
+      "trainerClass": "HEX_MANIAC",
+      "spriteType": "hex_maniac",
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 16,
+          "species": "Gastly",
+          "moves": [
+            "Night Shade",
+            "Curse",
+            "Mean Look",
+            "Disable"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 18,
+          "species": "Misdreavus",
+          "moves": [
+            "Confuse Ray",
+            "Astonish",
+            "Confusion",
+            "Growl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Ether",
+      "coordinates": {
+        "x": 6,
+        "y": 7
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 11,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hp Up",
+      "coordinates": {
+        "x": 13,
+        "y": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "id": -1,
+  "name": "radio_tower_5f",
+  "displayName": "Radio Tower Fifth Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "radio_tower_4f",
+      "targetLocationDisplay": "Radio Tower Fourth Floor",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Radio Tower5 F Rocket Boss Trigger",
+      "coordinates": {
+        "x": 16,
+        "y": 5
+      }
+    }
+  ],
+  "trainers": [
+    {
+      "id": "ariana_ariana1",
+      "name": "Ariana",
+      "trainerClass": "ARIANA",
+      "spriteType": "ariana",
+      "coordinates": {
+        "x": 17,
+        "y": 2
+      },
+      "pokemon": [
+        {
+          "level": 40,
+          "species": "Arbok",
+          "item": "Poison Barb",
+          "gender": "male",
+          "form": "arbok ariana form",
+          "moves": [
+            "Glare",
+            "Screech",
+            "Acid",
+            "Crunch"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Glare",
+              "Screech",
+              "Acid",
+              "Crunch"
+            ]
+          }
+        },
+        {
+          "level": 41,
+          "species": "Vileplume",
+          "item": "Miracle Seed",
+          "gender": "male",
+          "moves": [
+            "Leech Seed",
+            "Acid",
+            "Sleep Powder",
+            "Giga Drain"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Leech Seed",
+              "Acid",
+              "Sleep Powder",
+              "Giga Drain"
+            ]
+          }
+        },
+        {
+          "level": 42,
+          "species": "Honchkrow",
+          "item": "Blackglasses",
+          "gender": "male",
+          "moves": [
+            "Wing Attack",
+            "Night Shade",
+            "Confuse Ray",
+            "Feint Attack"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Wing Attack",
+              "Night Shade",
+              "Confuse Ray",
+              "Feint Attack"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Zoom Lens",
+      "coordinates": {
+        "x": 8,
+        "y": 5
+      }
+    }
+  ]
+}

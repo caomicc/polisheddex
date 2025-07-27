@@ -1,0 +1,33 @@
+{
+  "id": -1,
+  "name": "tin_tower_3f",
+  "displayName": "Tin Tower Third Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "tin_tower_2f",
+      "targetLocationDisplay": "Tin Tower Second Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "tin_tower_4f",
+      "targetLocationDisplay": "Tin Tower Fourth Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 1,
+        "y": 14
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "id": -1,
+  "name": "ruins_of_alph_ho_oh_item_room",
+  "displayName": "Ruins Of Alph Ho Oh Item Room",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_ho_oh_chamber",
+      "targetLocationDisplay": "Ruins Of Alph Ho Oh Chamber",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_ho_oh_word_room",
+      "targetLocationDisplay": "Ruins Of Alph Ho Oh Word Room",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Sun Stone",
+      "coordinates": {
+        "x": 2,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Moon Stone",
+      "coordinates": {
+        "x": 5,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Life Orb",
+      "coordinates": {
+        "x": 2,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Charcoal",
+      "coordinates": {
+        "x": 5,
+        "y": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "id": 26,
+  "name": "route_35",
+  "displayName": "Route 35",
+  "region": "johto",
+  "x": 52,
+  "y": 76,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_36",
+      "targetLocationDisplay": "Route 36",
+      "offset": 0
+    },
+    {
+      "direction": "south",
+      "targetLocation": "goldenrod_city",
+      "targetLocationDisplay": "Goldenrod City",
+      "offset": -5
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_35_goldenrod_gate",
+      "targetLocationDisplay": "Route 35 Goldenrod Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_35_national_park_gate",
+      "targetLocationDisplay": "Route 35 National Park Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM12",
+      "moveName": "Hone Claws",
+      "location": "Route 35"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "camper_ivan",
+      "name": "Ivan",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 8,
+        "y": 19
+      },
+      "pokemon": [
+        {
+          "level": 11,
+          "species": "Diglett",
+          "moves": [
+            "Agility",
+            "Astonish",
+            "Growl",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 11,
+          "species": "Zubat",
+          "moves": [
+            "Bite",
+            "Astonish",
+            "Supersonic",
+            "Absorb"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 15,
+          "species": "Diglett",
+          "moves": [
+            "Magnitude",
+            "Agility",
+            "Astonish",
+            "Growl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "couple_gailandeli1",
+      "name": "Gail & Eli",
+      "trainerClass": "COUPLE",
+      "spriteType": "couple",
+      "coordinates": {
+        "x": 12,
+        "y": 20
+      },
+      "pokemon": [
+        {
+          "level": 13,
+          "species": "Sandshrew",
+          "gender": "male",
+          "moves": [
+            "Pin Missile",
+            "Rapid Spin",
+            "Rollout",
+            "Poison Sting"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 15,
+          "species": "Marill",
+          "gender": "male",
+          "moves": [
+            "Bubble Beam",
+            "Defense Curl",
+            "Rollout",
+            "Aqua Jet"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 15,
+          "species": "Pikachu",
+          "gender": "male",
+          "moves": [
+            "Double Kick",
+            "Quick Attack",
+            "Charm",
+            "Growl"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 13,
+          "species": "Poliwag",
+          "gender": "male",
+          "moves": [
+            "Aqua Jet",
+            "Double Slap",
+            "Hypnosis",
+            "Sweet Kiss"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "couple_gailandeli2",
+      "name": "Gail & Eli",
+      "trainerClass": "COUPLE",
+      "spriteType": "couple",
+      "coordinates": {
+        "x": 11,
+        "y": 20
+      },
+      "pokemon": [
+        {
+          "level": 15,
+          "species": "Pikachu",
+          "gender": "male",
+          "moves": [
+            "Double Kick",
+            "Quick Attack",
+            "Charm",
+            "Growl"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 13,
+          "species": "Poliwag",
+          "gender": "male",
+          "moves": [
+            "Aqua Jet",
+            "Double Slap",
+            "Hypnosis",
+            "Sweet Kiss"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 13,
+          "species": "Sandshrew",
+          "gender": "male",
+          "moves": [
+            "Pin Missile",
+            "Rapid Spin",
+            "Rollout",
+            "Poison Sting"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 15,
+          "species": "Marill",
+          "gender": "male",
+          "moves": [
+            "Bubble Beam",
+            "Defense Curl",
+            "Rollout",
+            "Aqua Jet"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "picnicker_kim",
+      "name": "Kim",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 14,
+        "y": 26
+      },
+      "pokemon": [
+        {
+          "level": 17,
+          "species": "Vulpix",
+          "moves": [
+            "Fire Spin",
+            "Confuse Ray",
+            "Quick Attack",
+            "Charm"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "breeder_theresa",
+      "name": "Theresa",
+      "trainerClass": "BREEDER",
+      "spriteType": "breeder",
+      "coordinates": {
+        "x": 18,
+        "y": 29
+      },
+      "pokemon": [
+        {
+          "level": 15,
+          "species": "Magby",
+          "item": "Eviolite",
+          "gender": "male",
+          "moves": [
+            "Fire Spin",
+            "Feint Attack",
+            "Smokescreen",
+            "Ember"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 16,
+          "species": "Elekid",
+          "item": "Eviolite",
+          "gender": "male",
+          "moves": [
+            "Bulk Up",
+            "Swift",
+            "Low Kick",
+            "Thundershock"
+          ],
+          "faithful": {},
+          "polished": {},
+          "shiny": true
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 4,
+        "y": 11
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM12 - Hone Claws"
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "id": -1,
+  "name": "vermilion_gym",
+  "displayName": "Vermilion Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "vermilion_city",
+      "targetLocationDisplay": "Vermilion City",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "gentleman_gregory",
+      "name": "Gregory",
+      "trainerClass": "GENTLEMAN",
+      "spriteType": "gentleman",
+      "coordinates": {
+        "x": 8,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Pikachu",
+          "moves": [
+            "Light Screen",
+            "Wild Charge",
+            "Agility",
+            "Thunderbolt"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Flaaffy",
+          "moves": [
+            "Light Screen",
+            "Dazzlingleam",
+            "Safeguard",
+            "Thunderbolt"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Chinchou",
+          "moves": [
+            "Light Screen",
+            "Hydro Pump",
+            "Ice Beam",
+            "Recover"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "guitaristm_vincent",
+      "name": "Vincent",
+      "trainerClass": "GUITARISTM",
+      "spriteType": "guitaristm",
+      "coordinates": {
+        "x": 4,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Voltorb",
+          "moves": [
+            "Mirror Coat",
+            "Gyro Ball",
+            "Bug Buzz",
+            "Thunder"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 52,
+          "species": "Magnemite",
+          "moves": [
+            "Zap Cannon",
+            "Thunder",
+            "Gyro Ball",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Jolteon",
+          "moves": [
+            "Thunder",
+            "Double Edge",
+            "Thunderbolt",
+            "Thunder Wave"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "juggler_horton",
+      "name": "Horton",
+      "trainerClass": "JUGGLER",
+      "spriteType": "juggler",
+      "coordinates": {
+        "x": 0,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Electrode",
+          "moves": [
+            "Bug Buzz",
+            "Thunder",
+            "Explosion",
+            "Light Screen"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Electrode",
+          "moves": [
+            "Bug Buzz",
+            "Thunder",
+            "Explosion",
+            "Light Screen"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Electrode",
+          "moves": [
+            "Bug Buzz",
+            "Thunder",
+            "Explosion",
+            "Light Screen"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "guitaristf_janet",
+      "name": "Janet",
+      "trainerClass": "GUITARISTF",
+      "spriteType": "guitaristf",
+      "coordinates": {
+        "x": 7,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Pikachu",
+          "gender": "male",
+          "form": "pikachu surf form",
+          "moves": [
+            "Iron Tail",
+            "Extremespeed",
+            "Surf",
+            "Thunderbolt"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Iron Tail",
+              "Extremespeed",
+              "Surf",
+              "Thunderbolt"
+            ]
+          }
+        },
+        {
+          "level": 54,
+          "species": "Electabuzz",
+          "gender": "male",
+          "moves": [
+            "Light Screen",
+            "Thunderpunch",
+            "Cross Chop",
+            "Screech"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Light Screen",
+              "Thunderpunch",
+              "Cross Chop",
+              "Screech"
+            ]
+          }
+        },
+        {
+          "level": 55,
+          "species": "Raichu",
+          "gender": "male",
+          "form": "alolan form",
+          "moves": [
+            "Extremespeed",
+            "Surf",
+            "Thunderbolt",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Extremespeed",
+              "Surf",
+              "Thunderbolt",
+              "Agility"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "gymLeader": {
+    "name": "Lt surge",
+    "trainerClass": "LT_SURGE",
+    "badge": "THUNDERBADGE",
+    "region": "kanto",
+    "speciality": "Electric",
+    "pokemon": [
+      {
+        "level": 58,
+        "species": "electabuzz",
+        "item": "eviolite",
+        "moves": [
+          "quick attack",
+          "thunderpunch",
+          "light screen",
+          "wild charge"
+        ]
+      },
+      {
+        "level": 56,
+        "species": "electrode",
+        "moves": [
+          "screech",
+          "double team",
+          "thunderbolt",
+          "explosion"
+        ]
+      },
+      {
+        "level": 57,
+        "species": "magnezone",
+        "moves": [
+          "light screen",
+          "double team",
+          "wild charge",
+          "zap cannon"
+        ]
+      },
+      {
+        "level": 56,
+        "species": "electrode",
+        "moves": [
+          "screech",
+          "double team",
+          "wild charge",
+          "explosion"
+        ]
+      },
+      {
+        "level": 58,
+        "species": "jolteon",
+        "moves": [
+          "wild charge",
+          "thunder wave",
+          "agility",
+          "thunder"
+        ]
+      },
+      {
+        "level": 60,
+        "species": "raichu",
+        "item": "sitrus_berry",
+        "moves": [
+          "thunder wave",
+          "quick attack",
+          "wild charge",
+          "thunder"
+        ]
+      }
+    ]
+  }
+}

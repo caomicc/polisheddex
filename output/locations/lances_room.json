@@ -1,0 +1,41 @@
+{
+  "id": -1,
+  "name": "lances_room",
+  "displayName": "Lances Room",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "karens_room",
+      "targetLocationDisplay": "Karens Room",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hall_of_fame",
+      "targetLocationDisplay": "Hall Of Fame",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Approach Lance From Left Trigger",
+      "coordinates": {
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Approach Lance From Right Trigger",
+      "coordinates": {
+        "x": 7,
+        "y": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": -1,
+  "name": "team_rocket_base_b_2f",
+  "displayName": "Team Rocket Base B Second Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "team_rocket_base_b_1f",
+      "targetLocationDisplay": "Team Rocket Base B First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "team_rocket_base_b_3f",
+      "targetLocationDisplay": "Team Rocket Base B Third Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 26,
+        "y": 7
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 3,
+        "y": 10
+      }
+    }
+  ]
+}

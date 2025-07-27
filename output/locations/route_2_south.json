@@ -1,0 +1,125 @@
+{
+  "id": -1,
+  "name": "route_2_south",
+  "displayName": "Route 2 South",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_2_north",
+      "targetLocationDisplay": "Route 2 North",
+      "offset": 2
+    },
+    {
+      "direction": "south",
+      "targetLocation": "viridian_city",
+      "targetLocationDisplay": "Viridian City",
+      "offset": -3
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_16_west",
+      "targetLocationDisplay": "Route 16 West",
+      "offset": 7
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_2_gate",
+      "targetLocationDisplay": "Route 2 Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "viridian_forest_viridian_gate",
+      "targetLocationDisplay": "Viridian Forest Viridian Gate",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "bug_maniac_rob",
+      "name": "Rob",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 14,
+        "y": 23
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Beedrill",
+          "moves": [
+            "Outrage",
+            "Swords Dance",
+            "Agility",
+            "Poison Jab"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Butterfree",
+          "moves": [
+            "Psychic M",
+            "Air Slash",
+            "Healinglight",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "bug_maniac_doug",
+      "name": "Doug",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 4,
+        "y": 16
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "Butterfree",
+          "moves": [
+            "Psychic M",
+            "Air Slash",
+            "Healinglight",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 57,
+          "species": "Ariados",
+          "moves": [
+            "Leech Life",
+            "Poison Jab",
+            "Psychic M",
+            "Pin Missile"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 18,
+        "y": 30
+      }
+    }
+  ]
+}

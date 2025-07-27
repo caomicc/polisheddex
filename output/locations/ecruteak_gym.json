@@ -1,0 +1,274 @@
+{
+  "id": -1,
+  "name": "ecruteak_gym",
+  "displayName": "Ecruteak Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "ecruteak_city",
+      "targetLocationDisplay": "Ecruteak City",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ecruteak_gym",
+      "targetLocationDisplay": "Ecruteak Gym",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "sage_jeffrey",
+      "name": "Jeffrey",
+      "trainerClass": "SAGE",
+      "spriteType": "sage",
+      "coordinates": {
+        "x": 2,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 22,
+          "species": "Haunter",
+          "moves": [
+            "Sucker Punch",
+            "Confuse Ray",
+            "Night Shade",
+            "Curse"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 21,
+          "species": "Vulpix",
+          "moves": [
+            "Will O Wisp",
+            "Night Shade",
+            "Fire Spin",
+            "Confuse Ray"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "sage_ping",
+      "name": "Ping",
+      "trainerClass": "SAGE",
+      "spriteType": "sage",
+      "coordinates": {
+        "x": 3,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 17,
+          "species": "Gastly",
+          "moves": [
+            "Night Shade",
+            "Curse",
+            "Mean Look",
+            "Disable"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 17,
+          "species": "Hoothoot",
+          "moves": [
+            "Zen Headbutt",
+            "Night Shade",
+            "Confusion",
+            "Peck"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 18,
+          "species": "Gastly",
+          "moves": [
+            "Night Shade",
+            "Curse",
+            "Mean Look",
+            "Disable"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 18,
+          "species": "Noctowl",
+          "moves": [
+            "Zen Headbutt",
+            "Night Shade",
+            "Confusion",
+            "Peck"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "medium_martha",
+      "name": "Martha",
+      "trainerClass": "MEDIUM",
+      "spriteType": "medium",
+      "coordinates": {
+        "x": 7,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 18,
+          "species": "Gastly",
+          "moves": [
+            "Night Shade",
+            "Curse",
+            "Mean Look",
+            "Disable"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 20,
+          "species": "Haunter",
+          "moves": [
+            "Confuse Ray",
+            "Night Shade",
+            "Curse",
+            "Mean Look"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 20,
+          "species": "Misdreavus",
+          "moves": [
+            "Mean Look",
+            "Confuse Ray",
+            "Astonish",
+            "Confusion"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "medium_grace",
+      "name": "Grace",
+      "trainerClass": "MEDIUM",
+      "spriteType": "medium",
+      "coordinates": {
+        "x": 7,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 20,
+          "species": "Haunter",
+          "moves": [
+            "Confuse Ray",
+            "Night Shade",
+            "Curse",
+            "Mean Look"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 20,
+          "species": "Misdreavus",
+          "moves": [
+            "Mean Look",
+            "Confuse Ray",
+            "Astonish",
+            "Confusion"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "gymLeader": {
+    "name": "Morty",
+    "trainerClass": "MORTY",
+    "badge": "FOGBADGE",
+    "region": "johto",
+    "speciality": "Ghost",
+    "coordinates": {
+      "x": 5,
+      "y": 1
+    },
+    "pokemon": [
+      {
+        "level": 24,
+        "species": "haunter",
+        "gender": "male",
+        "moves": [
+          "hypnosis",
+          "ice punch",
+          "night shade",
+          "shadow claw"
+        ]
+      },
+      {
+        "level": 24,
+        "species": "haunter",
+        "gender": "male",
+        "moves": [
+          "hypnosis",
+          "confuse ray",
+          "disable",
+          "shadow ball"
+        ]
+      },
+      {
+        "level": 24,
+        "species": "noctowl",
+        "gender": "male",
+        "moves": [
+          "hypnosis",
+          "foresight",
+          "confusion",
+          "hex"
+        ]
+      },
+      {
+        "level": 25,
+        "species": "misdreavus",
+        "gender": "male",
+        "moves": [
+          "disarm voice",
+          "dark pulse",
+          "nasty plot",
+          "shadow ball"
+        ]
+      },
+      {
+        "level": 26,
+        "species": "gengar",
+        "item": "wide_lens",
+        "gender": "male",
+        "moves": [
+          "hypnosis",
+          "thunderbolt",
+          "shadow ball",
+          "dream eater"
+        ]
+      }
+    ]
+  }
+}

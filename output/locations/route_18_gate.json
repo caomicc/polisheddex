@@ -1,0 +1,55 @@
+{
+  "id": -1,
+  "name": "route_18_gate",
+  "displayName": "Route 18 Gate",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_18_west",
+      "targetLocationDisplay": "Route 18 West",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_18_east",
+      "targetLocationDisplay": "Route 18 East",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_18_gate_2f",
+      "targetLocationDisplay": "Route 18 Gate 2f",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Route18 Gate Step Up One Trigger",
+      "coordinates": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route18 Gate Step Up Two Trigger",
+      "coordinates": {
+        "x": 5,
+        "y": 6
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route18 Gate Step Up Three Trigger",
+      "coordinates": {
+        "x": 5,
+        "y": 7
+      }
+    }
+  ]
+}

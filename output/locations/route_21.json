@@ -1,0 +1,237 @@
+{
+  "id": 119,
+  "name": "route_21",
+  "displayName": "Route 21",
+  "region": "kanto",
+  "x": 52,
+  "y": 116,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "pallet_town",
+      "targetLocationDisplay": "Pallet Town",
+      "offset": 0
+    },
+    {
+      "direction": "south",
+      "targetLocation": "cinnabar_island",
+      "targetLocationDisplay": "Cinnabar Island",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "uraga_channel_west",
+      "targetLocationDisplay": "Uraga Channel West",
+      "offset": 19
+    }
+  ],
+  "trainers": [
+    {
+      "id": "swimmerf_nikki",
+      "name": "Nikki",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 8,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Seel",
+          "moves": [
+            "Hail",
+            "Safeguard",
+            "Ice Beam",
+            "Aqua Tail"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 58,
+          "species": "Seel",
+          "moves": [
+            "Hail",
+            "Safeguard",
+            "Ice Beam",
+            "Aqua Tail"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 58,
+          "species": "Seel",
+          "moves": [
+            "Hail",
+            "Safeguard",
+            "Ice Beam",
+            "Aqua Tail"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Dewgong",
+          "moves": [
+            "Safeguard",
+            "Ice Beam",
+            "Aqua Tail",
+            "Perish Song"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_chelan",
+      "name": "Chelan",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 3,
+        "y": 29
+      },
+      "pokemon": [
+        {
+          "level": 61,
+          "species": "Azumarill",
+          "moves": [
+            "Hydro Pump",
+            "Close Combat",
+            "Double Edge",
+            "Rain Dance"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_kendra",
+      "name": "Kendra",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 5,
+        "y": 45
+      },
+      "pokemon": [
+        {
+          "level": 62,
+          "species": "Slowking",
+          "moves": [
+            "Recover",
+            "Belly Drum",
+            "Rain Dance",
+            "Psychic M"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerm_esteban",
+      "name": "Esteban",
+      "trainerClass": "SWIMMERM",
+      "spriteType": "swimmerm",
+      "coordinates": {
+        "x": 16,
+        "y": 72
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Golduck",
+          "moves": [
+            "Psychic M",
+            "Nasty Plot",
+            "Hydro Pump",
+            "Amnesia"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 58,
+          "species": "Poliwrath",
+          "moves": [
+            "Cross Chop",
+            "Earth Power",
+            "Dynamicpunch",
+            "Bubble Beam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerm_duane",
+      "name": "Duane",
+      "trainerClass": "SWIMMERM",
+      "spriteType": "swimmerm",
+      "coordinates": {
+        "x": 15,
+        "y": 85
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Kingler",
+          "moves": [
+            "Ancientpower",
+            "Crabhammer",
+            "Close Combat",
+            "X Scissor"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Kabutops",
+          "moves": [
+            "Ancientpower",
+            "Screech",
+            "Mega Drain",
+            "Aqua Jet"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Stardust",
+      "coordinates": {
+        "x": 12,
+        "y": 37
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Stardust",
+      "coordinates": {
+        "x": 5,
+        "y": 66
+      }
+    },
+    {
+      "type": "item",
+      "name": "Star Piece",
+      "coordinates": {
+        "x": 13,
+        "y": 26
+      }
+    }
+  ]
+}

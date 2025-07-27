@@ -1,0 +1,35 @@
+{
+  "id": -1,
+  "name": "silver_cave_item_rooms",
+  "displayName": "Silver Cave Item Rooms",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "silver_cave_room_2",
+      "targetLocationDisplay": "Silver Cave Room 2",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 14,
+        "y": 33
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 13,
+        "y": 23
+      }
+    }
+  ]
+}

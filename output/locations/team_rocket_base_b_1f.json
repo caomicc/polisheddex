@@ -1,0 +1,63 @@
+{
+  "id": -1,
+  "name": "team_rocket_base_b_1f",
+  "displayName": "Team Rocket Base B First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "mahogany_mart_1f",
+      "targetLocationDisplay": "Mahogany Mart First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "team_rocket_base_b_2f",
+      "targetLocationDisplay": "Team Rocket Base B Second Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "team_rocket_base_b_1f",
+      "targetLocationDisplay": "Team Rocket Base B First Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Revive",
+      "coordinates": {
+        "x": 3,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 27,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 14,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Guard Spec",
+      "coordinates": {
+        "x": 21,
+        "y": 12
+      }
+    }
+  ]
+}

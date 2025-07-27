@@ -1,0 +1,278 @@
+{
+  "id": -1,
+  "name": "mount_moon_1f",
+  "displayName": "Mount Moon First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_3",
+      "targetLocationDisplay": "Route 3",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mount_moon_b_1f",
+      "targetLocationDisplay": "Mount Moon B First Floor",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "rival_battle",
+      "description": "Rival Battle",
+      "details": "Battle with your rival"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "bug_maniac_kenta",
+      "name": "Kenta",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 4,
+        "y": 18
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Beedrill",
+          "moves": [
+            "Outrage",
+            "Swords Dance",
+            "Agility",
+            "Poison Jab"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Beedrill",
+          "moves": [
+            "Outrage",
+            "Swords Dance",
+            "Agility",
+            "Poison Jab"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Parasect",
+          "moves": [
+            "Healinglight",
+            "Leech Life",
+            "Giga Drain",
+            "Growth"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "lass_miriam",
+      "name": "Miriam",
+      "trainerClass": "LASS",
+      "spriteType": "lass",
+      "coordinates": {
+        "x": 11,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "Clefairy",
+          "moves": [
+            "Heal Bell",
+            "Extrasensory",
+            "Belly Drum",
+            "Moonblast"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 61,
+          "species": "Clefable",
+          "moves": [
+            "Healinglight",
+            "Disarm Voice",
+            "Play Rough",
+            "Sing"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Jigglypuff",
+          "moves": [
+            "Double Edge",
+            "Hyper Voice",
+            "Heal Bell",
+            "Gyro Ball"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 61,
+          "species": "Wigglytuff",
+          "moves": [
+            "Minimize",
+            "Nasty Plot",
+            "Double Edge",
+            "Play Rough"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "super_nerd_jovan",
+      "name": "Jovan",
+      "trainerClass": "SUPER_NERD",
+      "spriteType": "super_nerd",
+      "coordinates": {
+        "x": 20,
+        "y": 21
+      },
+      "pokemon": [
+        {
+          "level": 62,
+          "species": "Magneton",
+          "moves": [
+            "Thunder",
+            "Gyro Ball",
+            "Agility",
+            "Hidden Power"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Voltorb",
+          "moves": [
+            "Mirror Coat",
+            "Gyro Ball",
+            "Bug Buzz",
+            "Thunder"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 61,
+          "species": "Electrode",
+          "moves": [
+            "Mirror Coat",
+            "Gyro Ball",
+            "Bug Buzz",
+            "Thunder"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "bug_maniac_robby",
+      "name": "Robby",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 27,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Butterfree",
+          "moves": [
+            "Psychic M",
+            "Air Slash",
+            "Healinglight",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Butterfree",
+          "moves": [
+            "Psychic M",
+            "Air Slash",
+            "Healinglight",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Parasect",
+          "moves": [
+            "Healinglight",
+            "Leech Life",
+            "Giga Drain",
+            "Growth"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 2,
+        "y": 17
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 12,
+        "y": 16
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 3,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "X Accuracy",
+      "coordinates": {
+        "x": 2,
+        "y": 20
+      }
+    },
+    {
+      "type": "item",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 16,
+        "y": 22
+      }
+    }
+  ]
+}

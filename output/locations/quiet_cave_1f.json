@@ -1,0 +1,239 @@
+{
+  "id": -1,
+  "name": "quiet_cave_1f",
+  "displayName": "Quiet Cave First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_47",
+      "targetLocationDisplay": "Route 47",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "quiet_cave_b_1f",
+      "targetLocationDisplay": "Quiet Cave B First Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "hex_maniac_ashley",
+      "name": "Ashley",
+      "trainerClass": "HEX_MANIAC",
+      "spriteType": "hex_maniac",
+      "coordinates": {
+        "x": 6,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 25,
+          "species": "Haunter",
+          "moves": [
+            "Sucker Punch",
+            "Confuse Ray",
+            "Night Shade",
+            "Curse"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 26,
+          "species": "Mismagius",
+          "moves": [
+            "Power Gem",
+            "Shadow Ball",
+            "Flamethrower",
+            "Dazzlingleam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "cooltrainerm_henri",
+      "name": "Henri",
+      "trainerClass": "COOLTRAINERM",
+      "spriteType": "ace_trainer_m",
+      "coordinates": {
+        "x": 13,
+        "y": 17
+      },
+      "pokemon": [
+        {
+          "level": 25,
+          "species": "Charmeleon",
+          "moves": [
+            "Dragon Rage",
+            "Metal Claw",
+            "Smokescreen",
+            "Ember"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Wartortle",
+          "moves": [
+            "Protect",
+            "Rapid Spin",
+            "Bite",
+            "Aqua Jet"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Ivysaur",
+          "moves": [
+            "Take Down",
+            "Razor Leaf",
+            "Mud Slap",
+            "Poisonpowder"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "hiker_grady",
+      "name": "Grady",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 23,
+        "y": 25
+      },
+      "pokemon": [
+        {
+          "level": 24,
+          "species": "Graveler",
+          "moves": [
+            "Rock Blast",
+            "Bulldoze",
+            "Ancientpower",
+            "Rock Throw"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 24,
+          "species": "Graveler",
+          "moves": [
+            "Rock Blast",
+            "Bulldoze",
+            "Ancientpower",
+            "Rock Throw"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Sandslash",
+          "moves": [
+            "Super Fang",
+            "Fury Strikes",
+            "Swift",
+            "Magnitude"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "scientist_carl",
+      "name": "Carl",
+      "trainerClass": "SCIENTIST",
+      "spriteType": "scientist",
+      "coordinates": {
+        "x": 29,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 25,
+          "species": "Porygon",
+          "moves": [
+            "Growth",
+            "Recover",
+            "Agility",
+            "Psybeam"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Porygon",
+          "moves": [
+            "Growth",
+            "Recover",
+            "Agility",
+            "Psybeam"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 26,
+          "species": "Magneton",
+          "moves": [
+            "Screech",
+            "Swift",
+            "Spark",
+            "Sonic Boom"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 10,
+        "y": 23
+      }
+    },
+    {
+      "type": "item",
+      "name": "Twistedspoon",
+      "coordinates": {
+        "x": 26,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Stone",
+      "coordinates": {
+        "x": 14,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Ball",
+      "coordinates": {
+        "x": 3,
+        "y": 3
+      }
+    }
+  ]
+}

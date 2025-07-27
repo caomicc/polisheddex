@@ -1,0 +1,203 @@
+{
+  "id": 19,
+  "name": "route_34_coast",
+  "displayName": "Route 34 Coast",
+  "region": "johto",
+  "x": 36,
+  "y": 120,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "stormy_beach",
+      "targetLocationDisplay": "Stormy Beach",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_34",
+      "targetLocationDisplay": "Route 34",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "swimmerm_frank",
+      "name": "Frank",
+      "trainerClass": "SWIMMERM",
+      "spriteType": "swimmerm",
+      "coordinates": {
+        "x": 7,
+        "y": 47
+      },
+      "pokemon": [
+        {
+          "level": 26,
+          "species": "Mantine",
+          "moves": [
+            "Aqua Jet",
+            "Water Pulse",
+            "Headbutt",
+            "Wing Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerm_nadar",
+      "name": "Nadar",
+      "trainerClass": "SWIMMERM",
+      "spriteType": "swimmerm",
+      "coordinates": {
+        "x": 10,
+        "y": 21
+      },
+      "pokemon": [
+        {
+          "level": 24,
+          "species": "Seadra",
+          "moves": [
+            "Water Pulse",
+            "Aqua Jet",
+            "Bubble Beam",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Quagsire",
+          "moves": [
+            "Amnesia",
+            "Recover",
+            "Headbutt",
+            "Scary Face"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerm_conrad",
+      "name": "Conrad",
+      "trainerClass": "SWIMMERM",
+      "spriteType": "swimmerm",
+      "coordinates": {
+        "x": 7,
+        "y": 61
+      },
+      "pokemon": [
+        {
+          "level": 26,
+          "species": "Azumarill",
+          "moves": [
+            "Play Rough",
+            "Aqua Tail",
+            "Dizzy Punch",
+            "Bubble Beam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_caroline",
+      "name": "Caroline",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 8,
+        "y": 43
+      },
+      "pokemon": [
+        {
+          "level": 23,
+          "species": "Remoraid",
+          "moves": [
+            "Focus Energy",
+            "Bubble Beam",
+            "Aurora Beam",
+            "Psybeam"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 23,
+          "species": "Remoraid",
+          "moves": [
+            "Focus Energy",
+            "Bubble Beam",
+            "Aurora Beam",
+            "Psybeam"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 23,
+          "species": "Remoraid",
+          "moves": [
+            "Focus Energy",
+            "Bubble Beam",
+            "Aurora Beam",
+            "Psybeam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "swimmerf_natalia",
+      "name": "Natalia",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 8,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 24,
+          "species": "Staryu",
+          "moves": [
+            "Gyro Ball",
+            "Agility",
+            "Bubble Beam",
+            "Swift"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 24,
+          "species": "Staryu",
+          "moves": [
+            "Gyro Ball",
+            "Agility",
+            "Bubble Beam",
+            "Swift"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Pearl String",
+      "coordinates": {
+        "x": 4,
+        "y": 34
+      }
+    }
+  ]
+}

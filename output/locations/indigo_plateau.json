@@ -1,0 +1,24 @@
+{
+  "id": 127,
+  "name": "indigo_plateau",
+  "displayName": "Indigo Plateau",
+  "region": "kanto",
+  "x": 28,
+  "y": 36,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "route_23",
+      "targetLocationDisplay": "Route 23",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "indigo_plateau_pokecenter_1f",
+      "targetLocationDisplay": "Indigo Plateau Pokecenter First Floor",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_INDIGO"
+}

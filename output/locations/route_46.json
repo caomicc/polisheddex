@@ -1,0 +1,77 @@
+{
+  "id": 63,
+  "name": "route_46",
+  "displayName": "Route 46",
+  "region": "johto",
+  "x": 124,
+  "y": 88,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "route_29",
+      "targetLocationDisplay": "Route 29",
+      "offset": -10
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_45",
+      "targetLocationDisplay": "Route 45",
+      "offset": -37
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_29_46_gate",
+      "targetLocationDisplay": "Route 29 46 Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dark_cave_violet_entrance",
+      "targetLocationDisplay": "Dark Cave Violet Entrance",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_cave_grotto",
+      "targetLocationDisplay": "Hidden Cave Grotto",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "camper_ted",
+      "name": "Ted",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 4,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 18,
+          "species": "Mankey",
+          "moves": [
+            "Seismic Toss",
+            "Pursuit",
+            "Karate Chop",
+            "Fury Strikes"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "X Speed",
+      "coordinates": {
+        "x": 1,
+        "y": 15
+      }
+    }
+  ]
+}

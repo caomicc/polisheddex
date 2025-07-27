@@ -1,0 +1,197 @@
+{
+  "id": -1,
+  "name": "safari_zone_north",
+  "displayName": "Safari Zone North",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "safari_zone_east",
+      "targetLocationDisplay": "Safari Zone East",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "safari_zone_west",
+      "targetLocationDisplay": "Safari Zone West",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "safari_zone_hub",
+      "targetLocationDisplay": "Safari Zone Hub",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "safari_zone_north_rest_house",
+      "targetLocationDisplay": "Safari Zone North Rest House",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "battle_girl_padma",
+      "name": "Padma",
+      "trainerClass": "BATTLE_GIRL",
+      "spriteType": "battle_girl",
+      "coordinates": {
+        "x": 18,
+        "y": 23
+      },
+      "pokemon": [
+        {
+          "level": 27,
+          "species": "Hitmonlee",
+          "moves": [
+            "Aerial Ace",
+            "Stomp",
+            "Low Kick",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 28,
+          "species": "Hitmonchan",
+          "moves": [
+            "Seismic Toss",
+            "Aerial Ace",
+            "Bullet Punch",
+            "Mach Punch"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 29,
+          "species": "Hitmontop",
+          "moves": [
+            "Counter",
+            "Feint Attack",
+            "Rapid Spin",
+            "Quick Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "youngster_tyler",
+      "name": "Tyler",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 7,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 28,
+          "species": "Weepinbell",
+          "moves": [
+            "Acid",
+            "Stun Spore",
+            "Poisonpowder",
+            "Sleep Powder"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 29,
+          "species": "Quagsire",
+          "moves": [
+            "Amnesia",
+            "Recover",
+            "Headbutt",
+            "Scary Face"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 28,
+          "species": "Sandslash",
+          "moves": [
+            "Metal Claw",
+            "Super Fang",
+            "Fury Strikes",
+            "Swift"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "beauty_rachael",
+      "name": "Rachael",
+      "trainerClass": "BEAUTY",
+      "spriteType": "beauty",
+      "coordinates": {
+        "x": 36,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 29,
+          "species": "Machamp",
+          "gender": "male",
+          "moves": [
+            "Bullet Punch",
+            "Mach Punch",
+            "Knock Off",
+            "Reversal"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 27,
+          "species": "Clefable",
+          "gender": "male",
+          "moves": [
+            "Healinglight",
+            "Disarm Voice",
+            "Play Rough",
+            "Sing"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Lucky Punch",
+      "coordinates": {
+        "x": 31,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Eviolite",
+      "coordinates": {
+        "x": 24,
+        "y": 18
+      }
+    },
+    {
+      "type": "item",
+      "name": "Protein",
+      "coordinates": {
+        "x": 21,
+        "y": 9
+      }
+    }
+  ]
+}

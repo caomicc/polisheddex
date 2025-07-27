@@ -1,0 +1,57 @@
+{
+  "id": -1,
+  "name": "quiet_cave_b_2f",
+  "displayName": "Quiet Cave B Second Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "quiet_cave_b_1f",
+      "targetLocationDisplay": "Quiet Cave B First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "quiet_cave_b_3f",
+      "targetLocationDisplay": "Quiet Cave B Third Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 16,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Ball",
+      "coordinates": {
+        "x": 10,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Razor Claw",
+      "coordinates": {
+        "x": 9,
+        "y": 23
+      }
+    },
+    {
+      "type": "item",
+      "name": "Safe Goggles",
+      "coordinates": {
+        "x": 19,
+        "y": 11
+      }
+    }
+  ]
+}

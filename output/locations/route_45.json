@@ -1,0 +1,77 @@
+{
+  "id": 61,
+  "name": "route_45",
+  "displayName": "Route 45",
+  "region": "johto",
+  "x": 132,
+  "y": 64,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "blackthorn_city",
+      "targetLocationDisplay": "Blackthorn City",
+      "offset": 2
+    },
+    {
+      "direction": "west",
+      "targetLocation": "route_46",
+      "targetLocationDisplay": "Route 46",
+      "offset": 37
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dark_cave_blackthorn_entrance",
+      "targetLocationDisplay": "Dark Cave Blackthorn Entrance",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_cave_grotto",
+      "targetLocationDisplay": "Hidden Cave Grotto",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 17,
+        "y": 78
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 8,
+        "y": 51
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 5,
+        "y": 66
+      }
+    },
+    {
+      "type": "item",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 7,
+        "y": 20
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 15,
+        "y": 32
+      }
+    }
+  ]
+}

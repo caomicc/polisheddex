@@ -1,0 +1,81 @@
+{
+  "id": -1,
+  "name": "dark_cave_violet_entrance",
+  "displayName": "Dark Cave Violet Entrance",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_31",
+      "targetLocationDisplay": "Route 31",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dark_cave_blackthorn_entrance",
+      "targetLocationDisplay": "Dark Cave Blackthorn Entrance",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_46",
+      "targetLocationDisplay": "Route 46",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Dark Cave Violet Entrance Falkner Trigger",
+      "coordinates": {
+        "x": 6,
+        "y": 2
+      }
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 26,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Potion",
+      "coordinates": {
+        "x": 6,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Stone",
+      "coordinates": {
+        "x": 36,
+        "y": 22
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 35,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dire Hit",
+      "coordinates": {
+        "x": 30,
+        "y": 28
+      }
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "id": 100,
+  "name": "route_11",
+  "displayName": "Route 11",
+  "region": "kanto",
+  "x": 124,
+  "y": 76,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "vermilion_city",
+      "targetLocationDisplay": "Vermilion City",
+      "offset": -5
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_12_south",
+      "targetLocationDisplay": "Route 12 South",
+      "offset": -17
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_11_gate",
+      "targetLocationDisplay": "Route 11 Gate",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM09",
+      "moveName": "Venoshock",
+      "location": "Route 11"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "youngster_owen",
+      "name": "Owen",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 32,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Growlithe",
+          "moves": [
+            "Flare Blitz",
+            "Play Rough",
+            "Outrage",
+            "Sunny Day"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 54,
+          "species": "Growlithe",
+          "moves": [
+            "Flare Blitz",
+            "Play Rough",
+            "Outrage",
+            "Sunny Day"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "youngster_jason",
+      "name": "Jason",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 30,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 55,
+          "species": "Sandslash",
+          "moves": [
+            "Earthquake",
+            "Sandstorm",
+            "Swords Dance",
+            "Gyro Ball"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Crobat",
+          "moves": [
+            "Crunch",
+            "Air Slash",
+            "Venoshock",
+            "Haze"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "youngster_alfie",
+      "name": "Alfie",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 21,
+        "y": 2
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Sandslash",
+          "moves": [
+            "Earthquake",
+            "Sandstorm",
+            "Swords Dance",
+            "Gyro Ball"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Quagsire",
+          "moves": [
+            "Aqua Tail",
+            "Haze",
+            "Rain Dance",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "psychic_t_herman",
+      "name": "Herman",
+      "trainerClass": "PSYCHIC_T",
+      "spriteType": "psychic",
+      "coordinates": {
+        "x": 40,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Exeggcute",
+          "moves": [
+            "Psychic M",
+            "Extrasensory",
+            "Solar Beam",
+            "Healinglight"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Exeggcute",
+          "moves": [
+            "Psychic M",
+            "Extrasensory",
+            "Solar Beam",
+            "Healinglight"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Exeggutor",
+          "moves": [
+            "Petal Dance",
+            "Power Whip",
+            "Zen Headbutt",
+            "Low Kick"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "psychic_t_fidel",
+      "name": "Fidel",
+      "trainerClass": "PSYCHIC_T",
+      "spriteType": "psychic",
+      "coordinates": {
+        "x": 12,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 57,
+          "species": "Xatu",
+          "moves": [
+            "Sucker Punch",
+            "Hex",
+            "Future Sight",
+            "Haze"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Revive",
+      "coordinates": {
+        "x": 44,
+        "y": 5
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM09 - Venoshock"
+    }
+  ]
+}

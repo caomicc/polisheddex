@@ -1,0 +1,45 @@
+{
+  "id": 4,
+  "name": "cherrygrove_bay",
+  "displayName": "Cherrygrove Bay",
+  "region": "johto",
+  "x": 92,
+  "y": 100,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "route_32_coast",
+      "targetLocationDisplay": "Route 32 Coast",
+      "offset": 0
+    },
+    {
+      "direction": "west",
+      "targetLocation": "route_32",
+      "targetLocationDisplay": "Route 32",
+      "offset": -12
+    },
+    {
+      "direction": "east",
+      "targetLocation": "cherrygrove_city",
+      "targetLocationDisplay": "Cherrygrove City",
+      "offset": 15
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Shiny Stone",
+      "coordinates": {
+        "x": 22,
+        "y": 23
+      }
+    }
+  ]
+}

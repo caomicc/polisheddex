@@ -1,0 +1,41 @@
+{
+  "id": -1,
+  "name": "battle_tower_outside",
+  "displayName": "Battle Tower Outside",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_40_battle_tower_gate",
+      "targetLocationDisplay": "Route 40 Battle Tower Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "battle_tower_1f",
+      "targetLocationDisplay": "Battle Tower First Floor",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Battle Tower Outside Pan Up Trigger1",
+      "coordinates": {
+        "x": 8,
+        "y": 9
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Battle Tower Outside Pan Up Trigger2",
+      "coordinates": {
+        "x": 9,
+        "y": 9
+      }
+    }
+  ]
+}

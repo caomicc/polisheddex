@@ -1,0 +1,120 @@
+{
+  "id": -1,
+  "name": "violet_gym",
+  "displayName": "Violet Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "violet_city",
+      "targetLocationDisplay": "Violet City",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "bird_keeper_rod",
+      "name": "Rod",
+      "trainerClass": "BIRD_KEEPER",
+      "spriteType": "bird_keeper",
+      "coordinates": {
+        "x": 7,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 7,
+          "species": "Pidgey",
+          "moves": [
+            "Gust",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 8,
+          "species": "Hoothoot",
+          "moves": [
+            "Peck",
+            "Hypnosis",
+            "Tackle",
+            "Growl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "bird_keeper_abe",
+      "name": "Abe",
+      "trainerClass": "BIRD_KEEPER",
+      "spriteType": "bird_keeper",
+      "coordinates": {
+        "x": 2,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 9,
+          "species": "Spearow",
+          "moves": [
+            "Pursuit",
+            "Leer",
+            "Peck",
+            "Growl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "gymLeader": {
+    "name": "Falkner",
+    "trainerClass": "FALKNER",
+    "badge": "ZEPHYRBADGE",
+    "region": "johto",
+    "speciality": "Flying",
+    "coordinates": {
+      "x": 5,
+      "y": 1
+    },
+    "pokemon": [
+      {
+        "level": 11,
+        "species": "pidgey",
+        "moves": [
+          "tackle",
+          "gust",
+          "mud slap"
+        ]
+      },
+      {
+        "level": 11,
+        "species": "hoothoot",
+        "moves": [
+          "tackle",
+          "hypnosis",
+          "peck",
+          "confusion"
+        ]
+      },
+      {
+        "level": 13,
+        "species": "pidgeotto",
+        "item": "pecha_berry",
+        "moves": [
+          "gust",
+          "mud slap",
+          "quick attack",
+          "roost"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": 32,
+  "name": "bellchime_trail",
+  "displayName": "Bellchime Trail",
+  "region": "johto",
+  "x": 69,
+  "y": 42,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "wise_trios_room",
+      "targetLocationDisplay": "Wise Trios Room",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "tin_tower_1f",
+      "targetLocationDisplay": "Tin Tower First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Bellchime Trail Pan Up Trigger",
+      "coordinates": {
+        "x": 21,
+        "y": 9
+      }
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM49",
+      "moveName": "Dazzlingleam",
+      "location": "Bellchime Trail"
+    }
+  ],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM49 - Dazzlingleam"
+    }
+  ]
+}

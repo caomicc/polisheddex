@@ -1,0 +1,157 @@
+{
+  "id": -1,
+  "name": "dim_cave_2f",
+  "displayName": "Dim Cave Second Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "cerulean_cape",
+      "targetLocationDisplay": "Cerulean Cape",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dim_cave_3f",
+      "targetLocationDisplay": "Dim Cave Third Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dim_cave_1f",
+      "targetLocationDisplay": "Dim Cave First Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "engineer_lang",
+      "name": "Lang",
+      "trainerClass": "ENGINEER",
+      "spriteType": "engineer",
+      "coordinates": {
+        "x": 15,
+        "y": 12
+      },
+      "pokemon": [
+        {
+          "level": 55,
+          "species": "Electrode",
+          "moves": [
+            "Gyro Ball",
+            "Bug Buzz",
+            "Thunder",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Electrode",
+          "moves": [
+            "Gyro Ball",
+            "Bug Buzz",
+            "Thunder",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "hiker_derrick",
+      "name": "Derrick",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 7,
+        "y": 16
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Clodsire",
+          "moves": [
+            "Gunk Shot",
+            "Toxic Spikes",
+            "Poison Jab",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Dugtrio",
+          "moves": [
+            "Night Slash",
+            "Earthquake",
+            "Slash",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Golem",
+          "moves": [
+            "Stone Edge",
+            "Double Edge",
+            "Explosion",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Stardust",
+      "coordinates": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Moon Stone",
+      "coordinates": {
+        "x": 2,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 28,
+        "y": 12
+      }
+    },
+    {
+      "type": "item",
+      "name": "Iron",
+      "coordinates": {
+        "x": 2,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Light Clay",
+      "coordinates": {
+        "x": 24,
+        "y": 18
+      }
+    }
+  ]
+}

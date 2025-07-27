@@ -1,0 +1,141 @@
+{
+  "id": -1,
+  "name": "pewter_gym",
+  "displayName": "Pewter Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "pewter_city",
+      "targetLocationDisplay": "Pewter City",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "camper_jerry",
+      "name": "Jerry",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 2,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 62,
+          "species": "Rhydon",
+          "moves": [
+            "Megahorn",
+            "Close Combat",
+            "Earthquake",
+            "Double Edge"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "hiker_edwin",
+      "name": "Edwin",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 7,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 62,
+          "species": "Golem",
+          "moves": [
+            "Gyro Ball",
+            "Stone Edge",
+            "Double Edge",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "gymLeader": {
+    "name": "Brock",
+    "trainerClass": "BROCK",
+    "badge": "BOULDERBADGE",
+    "region": "kanto",
+    "speciality": "Rock",
+    "coordinates": {
+      "x": 5,
+      "y": 1
+    },
+    "pokemon": [
+      {
+        "level": 64,
+        "species": "golem",
+        "moves": [
+          "defense curl",
+          "rollout",
+          "rock slide",
+          "earthquake"
+        ]
+      },
+      {
+        "level": 63,
+        "species": "rhydon",
+        "item": "eviolite",
+        "moves": [
+          "avalanche",
+          "rock slide",
+          "earthquake",
+          "outrage"
+        ]
+      },
+      {
+        "level": 65,
+        "species": "omastar",
+        "moves": [
+          "ancientpower",
+          "surf",
+          "protect",
+          "spikes"
+        ]
+      },
+      {
+        "level": 68,
+        "species": "onix",
+        "moves": [
+          "iron tail",
+          "rock slide",
+          "earthquake",
+          "sandstorm"
+        ]
+      },
+      {
+        "level": 65,
+        "species": "kabutops",
+        "moves": [
+          "slash",
+          "surf",
+          "endure",
+          "giga drain"
+        ]
+      },
+      {
+        "level": 65,
+        "species": "aerodactyl",
+        "moves": [
+          "aerial ace",
+          "supersonic",
+          "ancientpower",
+          "hyper beam"
+        ]
+      }
+    ]
+  }
+}

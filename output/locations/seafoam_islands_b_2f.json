@@ -1,0 +1,147 @@
+{
+  "id": -1,
+  "name": "seafoam_islands_b_2f",
+  "displayName": "Seafoam Islands B Second Floor",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "seafoam_islands_b_1f",
+      "targetLocationDisplay": "Seafoam Islands B First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "seafoam_islands_b_3f",
+      "targetLocationDisplay": "Seafoam Islands B Third Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "skier_cady",
+      "name": "Cady",
+      "trainerClass": "SKIER",
+      "spriteType": "skier",
+      "coordinates": {
+        "x": 11,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 63,
+          "species": "Mamoswine",
+          "moves": [
+            "Scary Face",
+            "Blizzard",
+            "Earthquake",
+            "Thrash"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "boarder_shaun",
+      "name": "Shaun",
+      "trainerClass": "BOARDER",
+      "spriteType": "boarder",
+      "coordinates": {
+        "x": 16,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 65,
+          "species": "Cloyster",
+          "moves": [
+            "Icicle Crash",
+            "Pin Missile",
+            "Icicle Spear",
+            "Hydro Pump"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Dewgong",
+          "moves": [
+            "Ice Beam",
+            "Aqua Tail",
+            "Perish Song",
+            "Take Down"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "boarder_bryce",
+      "name": "Bryce",
+      "trainerClass": "BOARDER",
+      "spriteType": "boarder",
+      "coordinates": {
+        "x": 25,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 65,
+          "species": "Dewgong",
+          "moves": [
+            "Hail",
+            "Safeguard",
+            "Ice Beam",
+            "Aqua Tail"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Lapras",
+          "moves": [
+            "Megahorn",
+            "Outrage",
+            "Hydro Pump",
+            "Safeguard"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Pearl",
+      "coordinates": {
+        "x": 7,
+        "y": 9
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Pearl",
+      "coordinates": {
+        "x": 35,
+        "y": 13
+      }
+    },
+    {
+      "type": "item",
+      "name": "Water Stone",
+      "coordinates": {
+        "x": 15,
+        "y": 16
+      }
+    }
+  ]
+}

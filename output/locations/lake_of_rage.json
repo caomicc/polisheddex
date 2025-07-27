@@ -1,0 +1,98 @@
+{
+  "id": 56,
+  "name": "lake_of_rage",
+  "displayName": "Lake Of Rage",
+  "region": "johto",
+  "x": 108,
+  "y": 28,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "route_43",
+      "targetLocationDisplay": "Route 43",
+      "offset": 5
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lake_of_rage_hidden_power_house",
+      "targetLocationDisplay": "Lake Of Rage Hidden Power House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lake_of_rage_magikarp_house",
+      "targetLocationDisplay": "Lake Of Rage Magikarp House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_LAKE_OF_RAGE",
+  "tmhms": [
+    {
+      "tmNumber": "TM10",
+      "moveName": "Hidden Power",
+      "location": "Lake of Rage"
+    },
+    {
+      "tmNumber": "TM41",
+      "moveName": "Substitute",
+      "location": "Lake of Rage"
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 4,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 35,
+        "y": 5
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 11,
+        "y": 28
+      }
+    },
+    {
+      "type": "item",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 13,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 7,
+        "y": 10
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM10 - Hidden Power"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM41 - Substitute"
+    }
+  ]
+}

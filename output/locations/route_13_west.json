@@ -1,0 +1,134 @@
+{
+  "id": -1,
+  "name": "route_13_west",
+  "displayName": "Route 13 West",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "route_14",
+      "targetLocationDisplay": "Route 14",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_13_east",
+      "targetLocationDisplay": "Route 13 East",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "camper_clark",
+      "name": "Clark",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Quilava",
+          "nickname": "Campfire",
+          "moves": [
+            "Earth Power",
+            "Flamethrower",
+            "Reversal",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "picnicker_ginger",
+      "name": "Ginger",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 16,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Munchlax",
+          "moves": [
+            "Gunk Shot",
+            "Crunch",
+            "Belly Drum",
+            "Outrage"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "hiker_kenny",
+      "name": "Kenny",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 14,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Sandslash",
+          "moves": [
+            "Earthquake",
+            "Sandstorm",
+            "Swords Dance",
+            "Gyro Ball"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Graveler",
+          "moves": [
+            "Stone Edge",
+            "Double Edge",
+            "Explosion",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 58,
+          "species": "Golem",
+          "moves": [
+            "Stone Edge",
+            "Double Edge",
+            "Explosion",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Graveler",
+          "moves": [
+            "Stone Edge",
+            "Double Edge",
+            "Explosion",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": 67,
+  "name": "mystri_stage",
+  "displayName": "Mystri Stage",
+  "region": "johto",
+  "x": 120,
+  "y": 28,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "sinjoh_ruins",
+      "targetLocationDisplay": "Sinjoh Ruins",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Mystri Stage Trigger1 Script",
+      "coordinates": {
+        "x": 6,
+        "y": 11
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Mystri Stage Trigger2 Script",
+      "coordinates": {
+        "x": 7,
+        "y": 11
+      }
+    }
+  ]
+}

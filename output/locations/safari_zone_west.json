@@ -1,0 +1,205 @@
+{
+  "id": -1,
+  "name": "safari_zone_west",
+  "displayName": "Safari Zone West",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "safari_zone_north",
+      "targetLocationDisplay": "Safari Zone North",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "safari_zone_hub",
+      "targetLocationDisplay": "Safari Zone Hub",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "safari_zone_west_rest_house_1f",
+      "targetLocationDisplay": "Safari Zone West Rest House 1",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "safari_zone_west_rest_house_2f",
+      "targetLocationDisplay": "Safari Zone West Rest House 2",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "lass_duplica",
+      "name": "Duplica",
+      "trainerClass": "LASS",
+      "spriteType": "lass",
+      "coordinates": {
+        "x": 22,
+        "y": 23
+      },
+      "pokemon": [
+        {
+          "level": 27,
+          "species": "Ditto",
+          "item": "Metal Powder",
+          "moves": [
+            "Transform"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 28,
+          "species": "Ditto",
+          "item": "Quick Powder",
+          "moves": [
+            "Transform"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 29,
+          "species": "Ditto",
+          "item": "Focus Sash",
+          "moves": [
+            "Transform"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "camper_amos",
+      "name": "Amos",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 23,
+        "y": 12
+      },
+      "pokemon": [
+        {
+          "level": 28,
+          "species": "Dodrio",
+          "moves": [
+            "Agility",
+            "Double Kick",
+            "Baton Pass",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 27,
+          "species": "Nidorino",
+          "moves": [
+            "Horn Attack",
+            "Fury Strikes",
+            "Poison Sting",
+            "Double Kick"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 27,
+          "species": "Nidorina",
+          "moves": [
+            "Bite",
+            "Fury Strikes",
+            "Poison Sting",
+            "Double Kick"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 29,
+          "species": "Tauros",
+          "moves": [
+            "Focus Energy",
+            "Quick Attack",
+            "Rest",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "tamer_brett",
+      "name": "Brett",
+      "trainerClass": "TAMER",
+      "spriteType": "tamer",
+      "coordinates": {
+        "x": 12,
+        "y": 19
+      },
+      "pokemon": [
+        {
+          "level": 28,
+          "species": "Arbok",
+          "moves": [
+            "Disable",
+            "Acid",
+            "Screech",
+            "Glare"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 28,
+          "species": "Tauros",
+          "moves": [
+            "Quick Attack",
+            "Rest",
+            "Pursuit",
+            "Scary Face"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 29,
+          "species": "Ursaring",
+          "moves": [
+            "Slash",
+            "Play Rough",
+            "Belly Drum",
+            "Feint Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 13,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 14,
+        "y": 9
+      }
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": -1,
+  "name": "sprout_tower_1f",
+  "displayName": "Sprout Tower First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "violet_city",
+      "targetLocationDisplay": "Violet City",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "sprout_tower_2f",
+      "targetLocationDisplay": "Sprout Tower Second Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "sage_chow",
+      "name": "Chow",
+      "trainerClass": "SAGE",
+      "spriteType": "sage",
+      "coordinates": {
+        "x": 1,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 3,
+          "species": "Bellsprout",
+          "moves": [
+            "Vine Whip"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 3,
+          "species": "Bellsprout",
+          "moves": [
+            "Vine Whip"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 3,
+          "species": "Bellsprout",
+          "moves": [
+            "Vine Whip"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Paralyzeheal",
+      "coordinates": {
+        "x": 14,
+        "y": 7
+      }
+    }
+  ]
+}

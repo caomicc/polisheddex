@@ -1,0 +1,49 @@
+{
+  "id": -1,
+  "name": "seafoam_islands_b_1f",
+  "displayName": "Seafoam Islands B First Floor",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "seafoam_islands_1f",
+      "targetLocationDisplay": "Seafoam Islands First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "seafoam_islands_b_2f",
+      "targetLocationDisplay": "Seafoam Islands B Second Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Ice Heal",
+      "coordinates": {
+        "x": 20,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Grip Claw",
+      "coordinates": {
+        "x": 20,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ice Heal",
+      "coordinates": {
+        "x": 24,
+        "y": 5
+      }
+    }
+  ]
+}

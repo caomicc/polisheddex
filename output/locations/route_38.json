@@ -1,0 +1,103 @@
+{
+  "id": 35,
+  "name": "route_38",
+  "displayName": "Route 38",
+  "region": "johto",
+  "x": 52,
+  "y": 44,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "route_39",
+      "targetLocationDisplay": "Route 39",
+      "offset": -7
+    },
+    {
+      "direction": "east",
+      "targetLocation": "ecruteak_city",
+      "targetLocationDisplay": "Ecruteak City",
+      "offset": -5
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_38_ecruteak_gate",
+      "targetLocationDisplay": "Route 38 Ecruteak Gate",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "bird_keeper_toby",
+      "name": "Toby",
+      "trainerClass": "BIRD_KEEPER",
+      "spriteType": "bird_keeper",
+      "coordinates": {
+        "x": 12,
+        "y": 15
+      },
+      "pokemon": [
+        {
+          "level": 16,
+          "species": "Doduo",
+          "moves": [
+            "Pursuit",
+            "Fury Strikes",
+            "Rage",
+            "Quick Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 17,
+          "species": "Doduo",
+          "moves": [
+            "Pursuit",
+            "Fury Strikes",
+            "Rage",
+            "Quick Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 18,
+          "species": "Doduo",
+          "moves": [
+            "Pursuit",
+            "Fury Strikes",
+            "Rage",
+            "Quick Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "sailor_harry",
+      "name": "Harry",
+      "trainerClass": "SAILOR",
+      "spriteType": "sailor",
+      "coordinates": {
+        "x": 24,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 20,
+          "species": "Wooper",
+          "moves": [
+            "Recover",
+            "Headbutt",
+            "Scary Face",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ]
+}

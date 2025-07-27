@@ -1,0 +1,35 @@
+{
+  "id": -1,
+  "name": "scary_cave_b_1f",
+  "displayName": "Scary Cave B First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "scary_cave_1f",
+      "targetLocationDisplay": "Scary Cave First Floor",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Big Nugget",
+      "coordinates": {
+        "x": 2,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Black Sludge",
+      "coordinates": {
+        "x": 21,
+        "y": 19
+      }
+    }
+  ]
+}

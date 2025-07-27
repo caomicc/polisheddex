@@ -1,0 +1,463 @@
+{
+  "id": 104,
+  "name": "route_15",
+  "displayName": "Route 15",
+  "region": "kanto",
+  "x": 108,
+  "y": 108,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "fuchsia_city",
+      "targetLocationDisplay": "Fuchsia City",
+      "offset": -9
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_14",
+      "targetLocationDisplay": "Route 14",
+      "offset": -10
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_15_fuchsia_gate",
+      "targetLocationDisplay": "Route 15 Fuchsia Gate",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "schoolboy_kipp",
+      "name": "Kipp",
+      "trainerClass": "SCHOOLBOY",
+      "spriteType": "schoolboy",
+      "coordinates": {
+        "x": 10,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 55,
+          "species": "Voltorb",
+          "moves": [
+            "Mirror Coat",
+            "Gyro Ball",
+            "Bug Buzz",
+            "Thunder"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 58,
+          "species": "Voltorb",
+          "moves": [
+            "Mirror Coat",
+            "Gyro Ball",
+            "Bug Buzz",
+            "Thunder"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Magnemite",
+          "moves": [
+            "Zap Cannon",
+            "Thunder",
+            "Gyro Ball",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 58,
+          "species": "Magneton",
+          "moves": [
+            "Gyro Ball",
+            "Agility",
+            "Hidden Power",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "schoolboy_tommy",
+      "name": "Tommy",
+      "trainerClass": "SCHOOLBOY",
+      "spriteType": "schoolboy",
+      "coordinates": {
+        "x": 15,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Xatu",
+          "moves": [
+            "Hex",
+            "Future Sight",
+            "Haze",
+            "Roost"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 57,
+          "species": "Alakazam",
+          "moves": [
+            "Future Sight",
+            "Confuse Ray",
+            "Calm Mind",
+            "Psychic M"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "schoolboy_billy",
+      "name": "Billy",
+      "trainerClass": "SCHOOLBOY",
+      "spriteType": "schoolboy",
+      "coordinates": {
+        "x": 27,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 57,
+          "species": "Paras",
+          "moves": [
+            "X Scissor",
+            "Healinglight",
+            "Leech Life",
+            "Giga Drain"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Parasect",
+          "moves": [
+            "Healinglight",
+            "Leech Life",
+            "Giga Drain",
+            "Growth"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 57,
+          "species": "Poliwhirl",
+          "moves": [
+            "Earth Power",
+            "Hydro Pump",
+            "Growth",
+            "Belly Drum"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Ditto",
+          "moves": [
+            "Transform"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "schoolgirl_faith",
+      "name": "Faith",
+      "trainerClass": "SCHOOLGIRL",
+      "spriteType": "schoolgirl",
+      "coordinates": {
+        "x": 33,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 57,
+          "species": "Bellsprout",
+          "moves": [
+            "Swords Dance",
+            "Sucker Punch",
+            "Poison Jab",
+            "Razor Leaf"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 58,
+          "species": "Weepinbell",
+          "moves": [
+            "Swords Dance",
+            "Sucker Punch",
+            "Poison Jab",
+            "Razor Leaf"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Victreebel",
+          "nickname": "Audrey",
+          "moves": [
+            "Swords Dance",
+            "Sucker Punch",
+            "Vine Whip",
+            "Sleep Powder"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "teacher_f_colette",
+      "name": "Colette",
+      "trainerClass": "TEACHER_F",
+      "spriteType": "teacher_f",
+      "coordinates": {
+        "x": 30,
+        "y": 12
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Clefairy",
+          "moves": [
+            "Heal Bell",
+            "Extrasensory",
+            "Belly Drum",
+            "Moonblast"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "teacher_f_hillary",
+      "name": "Hillary",
+      "trainerClass": "TEACHER_F",
+      "spriteType": "teacher_f",
+      "coordinates": {
+        "x": 20,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Aipom",
+          "moves": [
+            "Double Edge",
+            "Nasty Plot",
+            "Acrobatics",
+            "Double Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Sunflora",
+          "moves": [
+            "Seed Bomb",
+            "Sunny Day",
+            "Double Edge",
+            "Solar Beam"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Marowak",
+          "moves": [
+            "Reversal",
+            "Double Edge",
+            "Rock Smash",
+            "Magnitude"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "pokefanf_boone",
+      "name": "Boone",
+      "trainerClass": "POKEFANF",
+      "spriteType": "pokefanf",
+      "coordinates": {
+        "x": 30,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 57,
+          "species": "Persian",
+          "item": "Sitrus Berry",
+          "moves": [
+            "Charm",
+            "Thief",
+            "Nasty Plot",
+            "Slash"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Wigglytuff",
+          "item": "Sitrus Berry",
+          "moves": [
+            "Minimize",
+            "Nasty Plot",
+            "Double Edge",
+            "Play Rough"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "pokefanf_eleanor",
+      "name": "Eleanor",
+      "trainerClass": "POKEFANF",
+      "spriteType": "pokefanf",
+      "coordinates": {
+        "x": 14,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 57,
+          "species": "Granbull",
+          "item": "Sitrus Berry",
+          "moves": [
+            "Double Edge",
+            "Play Rough",
+            "Rage",
+            "Roar"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Clefable",
+          "item": "Sitrus Berry",
+          "moves": [
+            "Healinglight",
+            "Disarm Voice",
+            "Play Rough",
+            "Sing"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "twins_kayandtia1",
+      "name": "Kay & Tia",
+      "trainerClass": "TWINS",
+      "spriteType": "twins",
+      "coordinates": {
+        "x": 19,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Quagsire",
+          "moves": [
+            "Aqua Tail",
+            "Haze",
+            "Rain Dance",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Clodsire",
+          "moves": [
+            "Gunk Shot",
+            "Toxic Spikes",
+            "Poison Jab",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    },
+    {
+      "id": "twins_kayandtia2",
+      "name": "Kay & Tia",
+      "trainerClass": "TWINS",
+      "spriteType": "twins",
+      "coordinates": {
+        "x": 20,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Clodsire",
+          "moves": [
+            "Gunk Shot",
+            "Toxic Spikes",
+            "Poison Jab",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Quagsire",
+          "moves": [
+            "Aqua Tail",
+            "Haze",
+            "Rain Dance",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 12,
+        "y": 5
+      }
+    }
+  ]
+}
