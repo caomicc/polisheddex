@@ -97,7 +97,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                               Held item:{' '}
                               <a
                                 href={`/items/${getItemIdFromDisplayName(poke.item)}`}
-                                className=""
+                                className="text-indigo-700 dark:text-indigo-300 hover:underline font-bold"
                               >
                                 {poke.item
                                   .toLowerCase()
