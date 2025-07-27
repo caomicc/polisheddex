@@ -18,9 +18,16 @@ export function PokemonAbilities({
 }: PokemonAbilitiesProps) {
   const { showFaithful } = useFaithfulPreference();
 
+  console.log('PokemonAbilities props:', {
+    abilities,
+    faithfulAbilities,
+    updatedAbilities,
+    showFaithful,
+  });
+
   // Determine which abilities to show based on faithful preference and availability
   const abilitiesToShow = showFaithful
-    ? faithfulAbilities || abilities
+    ? abilities || faithfulAbilities
     : updatedAbilities && updatedAbilities.length > 0
       ? updatedAbilities
       : abilities || faithfulAbilities;
