@@ -45,7 +45,7 @@ const NavigationMenuDemo = () => {
       className={cn(
         'fixed top-2 md:top-4 py-2 px-4 mx-4 w-[calc(100%-theme(spacing.4))] md:w-[calc(100%-theme(spacing.8))] left-[50%] transform -translate-x-1/2 z-50 rounded-xl transition-all duration-300 backdrop-blur-xl border border-2 max-w-4xl mx-auto',
         showBackground
-          ? 'bg-white/20 border-gray-200 text-white'
+          ? 'bg-white/20 border-gray-200 text-foreground'
           : 'dark:text-white text-white border-transparent',
         hasPokemonTheme && 'pokemon-themed',
       )}
@@ -73,7 +73,7 @@ const NavigationMenuDemo = () => {
             </span>
           </Link>
         </div>
-        <NavigationMenu.Root className="NavigationMenuRoot justify-end! w-full!">
+        <NavigationMenu.Root className="NavigationMenuRoot justify-start!">
           <NavigationMenu.List className="NavigationMenuList">
             <NavigationMenu.Item>
               <NavigationMenu.Link
@@ -138,10 +138,9 @@ const NavigationMenuDemo = () => {
 
         <div className="flex items-center gap-2 ml-auto">
           <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
-            <span className={showFaithful ? 'font-bold' : 'text-gray-500'}>Faithful</span>
+            <span className={showFaithful ? 'font-bold' : ''}>Faithful</span>
             {' / '}
-            <span className={!showFaithful ? 'font-bold' : 'text-gray-500'}>Updated</span>
-            {' Types'}
+            <span className={!showFaithful ? 'font-bold' : ''}>Polished</span>
           </Label>
           <Switch
             id="type-toggle"
