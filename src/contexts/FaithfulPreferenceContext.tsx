@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { getClientSideFaithfulPreference, setClientSideFaithfulPreference } from '@/lib/client-faithful-preference';
 
 interface FaithfulPreferenceContextValue {
   showFaithful: boolean;
@@ -27,20 +28,28 @@ interface FaithfulPreferenceProviderProps {
 
 export const FaithfulPreferenceProvider: React.FC<FaithfulPreferenceProviderProps> = ({
   children,
-  initialValue = false,
+  initialValue,
 }) => {
-  const [showFaithful, setShowFaithful] = useState(initialValue);
+  const [showFaithful, setShowFaithful] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
 
   // Initialize after first render to prevent hydration mismatch
   useEffect(() => {
     setIsHydrated(true);
-    setShowFaithful(initialValue);
+    
+    // If no initial value provided, try to read from client-side cookie
+    if (initialValue !== undefined) {
+      setShowFaithful(initialValue);
+    } else {
+      // Read from client-side cookie
+      const cookieValue = getClientSideFaithfulPreference();
+      setShowFaithful(cookieValue);
+    }
   }, [initialValue]);
 
   const setCookieValue = async (faithful: boolean) => {
     try {
-      // Use fetch to call our API route that sets the cookie
+      // Primary method: Use fetch to call our API route that sets the cookie
       await fetch('/api/faithful-preference', {
         method: 'POST',
         headers: {
@@ -49,7 +58,9 @@ export const FaithfulPreferenceProvider: React.FC<FaithfulPreferenceProviderProp
         body: JSON.stringify({ faithful }),
       });
     } catch (error) {
-      console.warn('Failed to save faithful preference to cookie:', error);
+      console.warn('Failed to save faithful preference to cookie via API, using client-side fallback:', error);
+      // Fallback: Set cookie directly on client side
+      setClientSideFaithfulPreference(faithful);
     }
   };
 

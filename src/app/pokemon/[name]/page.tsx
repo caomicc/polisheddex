@@ -311,8 +311,8 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
     alternates: {
       canonical: url,
     },
-
-    // Viewport metadata
-    viewport: 'width=device-width, initial-scale=1',
   };
 }
+
+// Export viewport separately as required by Next.js 15+
+export const viewport = 'width=device-width, initial-scale=1';

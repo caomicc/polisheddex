@@ -6,22 +6,24 @@
  */
 export function getLocationDisplayName(normalizedKey: string): string {
   if (!normalizedKey) return 'Unknown Location';
-  
-  return normalizedKey
-    .split('_')
-    .map((word) => {
-      // Handle special cases
-      if (word === 'b') return 'B';
-      if (word.match(/^\d+f$/)) return word.toUpperCase(); // 1f -> 1F
-      if (word.match(/^b\d+f$/)) return word.toUpperCase(); // b1f -> B1F
-      // Handle route numbers
-      if (word === 'route') return 'Route';
-      // Capitalize first letter
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    })
-    .join(' ')
-    // Fix spacing issues with basement floors: "B 1F" -> "B1F"
-    .replace(/\bB (\d+F)\b/g, 'B$1');
+
+  return (
+    normalizedKey
+      .split('_')
+      .map((word) => {
+        // Handle special cases
+        if (word === 'b') return 'B';
+        if (word.match(/^\d+f$/)) return word.toUpperCase(); // 1f -> 1F
+        if (word.match(/^b\d+f$/)) return word.toUpperCase(); // b1f -> B1F
+        // Handle route numbers
+        if (word === 'route') return 'Route';
+        // Capitalize first letter
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(' ')
+      // Fix spacing issues with basement floors: "B 1F" -> "B1F"
+      .replace(/\bB (\d+F)\b/g, 'B$1')
+  );
 }
 
 // --- Normalize Location Key ---

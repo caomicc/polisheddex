@@ -7,7 +7,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Footer } from '@/components/ui/Footer';
 import { PokemonTypeProvider, FaithfulPreferenceProvider } from '@/contexts';
 import { NuqsProvider } from '@/components/providers/nuqs-provider';
-import { getFaithfulPreference } from '@/lib/faithful-preference';
 
 const rubik = Manrope({
   variable: '--font-rubik',
@@ -95,21 +94,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Get the initial faithful preference from cookies
-  const initialFaithfulPreference = await getFaithfulPreference();
-
   return (
     <html lang="en">
       <body
         className={`${rubik.variable} ${geistMono.variable} pokemon-page-background font-sans antialiased text-gray-900 dark:bg-gray-900 dark:text-gray-100 bg-slate-100`}
       >
         <NuqsProvider>
-          <FaithfulPreferenceProvider initialValue={initialFaithfulPreference}>
+          <FaithfulPreferenceProvider>
             <PokemonTypeProvider>
               <div className="flex flex-col min-h-screen">
                 <Navigation />

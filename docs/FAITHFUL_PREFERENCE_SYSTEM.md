@@ -11,7 +11,8 @@ The PolishedDex application now includes a site-wide preference system that allo
 1. **FaithfulPreferenceContext** (`src/contexts/FaithfulPreferenceContext.tsx`)
    - React context that manages the faithful/polished preference state
    - Provides hooks for accessing and updating the preference
-   - Automatically saves changes to cookies via API calls
+   - Automatically saves changes to cookies via API calls with client-side fallback
+   - Reads initial state from client-side cookies when no server value provided
 
 2. **API Route** (`src/app/api/faithful-preference/route.ts`)
    - Handles GET and POST requests for reading/writing the preference cookie
@@ -20,7 +21,18 @@ The PolishedDex application now includes a site-wide preference system that allo
 
 3. **Server Helper** (`src/lib/faithful-preference.ts`)
    - Utility function to read the preference from cookies on the server side
-   - Used in layouts and server components to initialize the preference
+   - Used in specific pages/components that need server-side initialization
+   - Makes routes dynamic when used
+
+4. **Client Helper** (`src/lib/client-faithful-preference.ts`)
+   - Client-side utilities for reading and writing cookies
+   - Used as fallback when API is not available
+   - Provides direct cookie manipulation capabilities
+
+5. **Server Provider** (`src/components/providers/server-faithful-preference-provider.tsx`)
+   - Optional server component wrapper for pages that need server-side cookie reading
+   - Makes the route dynamic but ensures correct initial state
+   - Use only when specifically needed
 
 ### Usage
 
