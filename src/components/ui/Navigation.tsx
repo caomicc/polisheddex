@@ -144,7 +144,7 @@ const NavigationMenuDemo = () => {
           </Label>
           <Switch
             id="type-toggle"
-            checked={showFaithful}
+            checked={!showFaithful}
             onCheckedChange={toggleFaithful}
             aria-label="Toggle between faithful and updated Pokémon types"
           />
