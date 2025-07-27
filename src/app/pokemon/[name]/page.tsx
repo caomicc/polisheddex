@@ -10,6 +10,7 @@ import { MoveDescription, FormData, PokemonDataV3 } from '@/types/types';
 import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNormalizer';
 import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';
 import { loadJsonData } from '@/utils/fileLoader';
+import { loadPokemonData } from '@/utils/pokemon-data-loader';
 import { Button } from '@/components/ui/button';
 
 export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
@@ -19,8 +20,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   // Convert the URL key to a standardized key for file lookup
   const standardKey = urlKeyToStandardKey(pokemonName);
 
-  const pokemonFile = path.join(process.cwd(), `output/pokemon/${getPokemonFileName(standardKey)}`);
-  const pokemonData = await loadJsonData<PokemonDataV3>(pokemonFile);
+  // Load Pokemon data with resolved abilities using the new optimized loader
+  const pokemonData = await loadPokemonData(getPokemonFileName(standardKey).replace('.json', ''));
 
   if (!pokemonData) return notFound();
 
@@ -36,23 +37,19 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   allFormData['default'] = {
     ...pokemonData,
     ...(pokemonData.detailedStats || {}),
-    moves: pokemonData.moves || pokemonData.levelMoves || [],
-    faithfulMoves: pokemonData.faithfulMoves || pokemonData.faithfulLevelMoves || [],
-    updatedMoves: pokemonData.updatedMoves || pokemonData.updatedLevelMoves || [],
-    tmHmLearnset: (pokemonData as FormData).tmHmLearnset || [],
+    moves: pokemonData.levelMoves || [],
+    faithfulMoves: pokemonData.faithfulLevelMoves || [],
+    updatedMoves: pokemonData.updatedLevelMoves || [],
+    tmHmLearnset: pokemonData.tmHmMoves || [],
     locations: pokemonData.locations || [],
-    eggMoves: (pokemonData as FormData).eggMoves || [],
-    evolution: (pokemonData as FormData).evolution || null,
+    eggMoves: pokemonData.eggMoves || [],
+    evolution: pokemonData.evolution || null,
     nationalDex: pokemonData.nationalDex || null,
     frontSpriteUrl: pokemonData.frontSpriteUrl,
     johtoDex: pokemonData.johtoDex || null,
     baseStats: pokemonData.detailedStats?.baseStats || {},
-    species:
-      pokemonData.pokedexEntries?.default?.species || (pokemonData as FormData).species || '',
-    description:
-      pokemonData.pokedexEntries?.default?.description ||
-      (pokemonData as FormData).description ||
-      '',
+    species: pokemonData.pokedexEntries?.default?.species || '',
+    description: pokemonData.pokedexEntries?.default?.description || '',
     // Provide safe defaults for missing detailedStats fields
     height: pokemonData.detailedStats?.height ?? 0,
     weight: pokemonData.detailedStats?.weight ?? 0,
@@ -67,7 +64,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     evYield: pokemonData.detailedStats?.evYield ?? 'None',
     abilities: pokemonData.detailedStats?.abilities ?? [],
     faithfulAbilities: pokemonData.detailedStats?.faithfulAbilities ?? [],
-    updatedAbilities: pokemonData.detailedStats?.updatedAbilities ?? [],
   };
 
   // Add any additional forms
@@ -76,29 +72,19 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       allFormData[formKey] = {
         ...formValue,
         ...(formValue.detailedStats || {}),
-        moves: formValue.moves || [],
-        faithfulMoves:
-          formValue.faithfulMoves ||
-          pokemonData.faithfulMoves ||
-          pokemonData.faithfulLevelMoves ||
-          [],
-        updatedMoves:
-          formValue.updatedMoves || pokemonData.updatedMoves || pokemonData.updatedLevelMoves || [],
-        levelMoves: formValue.moves || [],
-        tmHmLearnset:
-          (formValue as FormData).tmHmLearnset || (pokemonData as FormData).tmHmLearnset || [],
+        moves: formValue.levelMoves || [],
+        faithfulMoves: formValue.faithfulLevelMoves || pokemonData.faithfulLevelMoves || [],
+        updatedMoves: formValue.updatedLevelMoves || pokemonData.updatedLevelMoves || [],
+        levelMoves: formValue.levelMoves || [],
+        tmHmLearnset: formValue.tmHmMoves || pokemonData.tmHmMoves || [],
         locations: formValue.locations || pokemonData.locations || [],
-        eggMoves: (formValue as FormData).eggMoves || (pokemonData as FormData).eggMoves || [],
-        evolution: (formValue as FormData).evolution || (pokemonData as FormData).evolution || null,
+        eggMoves: formValue.eggMoves || pokemonData.eggMoves || [],
+        evolution: formValue.evolution || pokemonData.evolution || null,
         nationalDex: formValue.nationalDex || pokemonData.nationalDex || null,
         frontSpriteUrl: formValue.frontSpriteUrl,
         johtoDex: formValue.johtoDex || pokemonData.johtoDex || null,
-        species:
-          pokemonData.pokedexEntries?.[formKey]?.species || (pokemonData as FormData).species || '',
-        description:
-          pokemonData.pokedexEntries?.[formKey]?.description ||
-          (pokemonData as FormData).description ||
-          '',
+        species: pokemonData.pokedexEntries?.[formKey]?.species || '',
+        description: pokemonData.pokedexEntries?.[formKey]?.description || '',
         baseStats: formValue.detailedStats?.baseStats || pokemonData.detailedStats?.baseStats || {},
         // Provide safe defaults for missing detailedStats fields
         height: formValue.detailedStats?.height ?? pokemonData.detailedStats?.height ?? 0,
@@ -124,10 +110,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
         faithfulAbilities:
           formValue.detailedStats?.faithfulAbilities ??
           pokemonData.detailedStats?.faithfulAbilities ??
-          [],
-        updatedAbilities:
-          formValue.detailedStats?.updatedAbilities ??
-          pokemonData.detailedStats?.updatedAbilities ??
           [],
         // description:
         //   (formValue as FormData).description || (pokemonData as FormData).description || '',
@@ -203,8 +185,8 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const pokemonName = decodeURIComponent(nameParam);
   const standardKey = urlKeyToStandardKey(pokemonName);
 
-  const pokemonFile = path.join(process.cwd(), `output/pokemon/${getPokemonFileName(standardKey)}`);
-  const pokemonData = await loadJsonData<PokemonDataV3>(pokemonFile);
+  // Use the optimized loader for metadata as well
+  const pokemonData = await loadPokemonData(getPokemonFileName(standardKey).replace('.json', ''));
 
   if (!pokemonData) {
     return {
@@ -214,7 +196,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   }
 
   // Get types for better description
-  const types = pokemonData.detailedStats?.types || pokemonData.types || [];
+  const types = pokemonData.types || [];
   const typeText = Array.isArray(types) ? types.join('/') : types || 'Unknown';
 
   // Get dex numbers

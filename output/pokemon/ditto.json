@@ -3,7 +3,6 @@
   "nationalDex": 132,
   "johtoDex": 97,
   "types": "Normal",
-  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/ditto/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -28,45 +27,22 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Limber",
-        "description": "\tProtects from \tparalysis.",
+        "id": "limber",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Limber",
-        "description": "\tProtects from \tparalysis.",
+        "id": "limber",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Imposter",
-        "description": "\tTransforms itself \tinto the foe.",
+        "id": "imposter",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Limber",
-        "description": "\tProtects from \tparalysis.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Limber",
-        "description": "\tProtects from \tparalysis.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Imposter",
-        "description": "\tTransforms itself \tinto the foe.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Ditto",

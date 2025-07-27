@@ -3,7 +3,6 @@
   "nationalDex": 56,
   "johtoDex": 145,
   "types": "Fighting",
-  "updatedTypes": "Fighting",
   "frontSpriteUrl": "/sprites/pokemon/mankey/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,22 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Vital Spirit",
-        "description": "\tPrevents it from \tfalling asleep.",
+        "id": "vital-spirit",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Anger Point",
-        "description": "\tMaxes Attack after \ta critical hit.",
+        "id": "anger-point",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Defiant",
-        "description": "\tBoosts Attack when \tstats are lowered.",
+        "id": "defiant",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Vital Spirit",
-        "description": "\tPrevents it from \tfalling asleep.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Anger Point",
-        "description": "\tMaxes Attack after \ta critical hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Defiant",
-        "description": "\tBoosts Attack when \tstats are lowered.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

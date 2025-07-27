@@ -3,7 +3,6 @@
   "nationalDex": 239,
   "johtoDex": 169,
   "types": "Electric",
-  "updatedTypes": "Electric",
   "frontSpriteUrl": "/sprites/pokemon/elekid/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -28,45 +27,22 @@
     "hatchRate": "Medium-Slow (6,400 steps)",
     "abilities": [
       {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
+        "id": "static",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
+        "id": "static",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Vital Spirit",
-        "description": "\tPrevents it from \tfalling asleep.",
+        "id": "vital-spirit",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Vital Spirit",
-        "description": "\tPrevents it from \tfalling asleep.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered",
