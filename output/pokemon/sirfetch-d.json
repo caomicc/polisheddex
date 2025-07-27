@@ -3,7 +3,6 @@
   "nationalDex": 279,
   "johtoDex": 177,
   "types": "Fighting",
-  "updatedTypes": "Fighting",
   "frontSpriteUrl": "/sprites/pokemon/sirfetch_d/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,22 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Steadfast",
-        "description": "\tBoosts Speed when \tit flinches.",
+        "id": "steadfast",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Steadfast",
-        "description": "\tBoosts Speed when \tit flinches.",
+        "id": "steadfast",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Scrappy",
-        "description": "\tEnables moves to \thit Ghost-types.",
+        "id": "scrappy",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Steadfast",
-        "description": "\tBoosts Speed when \tit flinches.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Steadfast",
-        "description": "\tBoosts Speed when \tit flinches.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Scrappy",
-        "description": "\tEnables moves to \thit Ghost-types.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Flying",

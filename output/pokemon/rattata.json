@@ -3,7 +3,6 @@
   "nationalDex": 19,
   "johtoDex": 17,
   "types": "Normal",
-  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/rattata/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,22 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
+        "id": "run-away",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
+        "id": "guts",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Hustle",
-        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "id": "hustle",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Hustle",
-        "description": "\tBoosts Attack, but \tlowers accuracy.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

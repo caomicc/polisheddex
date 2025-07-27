@@ -3,7 +3,6 @@
   "nationalDex": 161,
   "johtoDex": 19,
   "types": "Normal",
-  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/sentret/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,22 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
+        "id": "run-away",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
+        "id": "keen-eye",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Frisk",
-        "description": "\tChecks the foe's \theld item.",
+        "id": "frisk",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Frisk",
-        "description": "\tChecks the foe's \theld item.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

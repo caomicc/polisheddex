@@ -3,7 +3,6 @@
   "nationalDex": 97,
   "johtoDex": 93,
   "types": "Psychic",
-  "updatedTypes": "Psychic",
   "frontSpriteUrl": "/sprites/pokemon/hypno/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -25,45 +24,22 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Insomnia",
-        "description": "",
+        "id": "insomnia",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Forewarn",
-        "description": "\tDetermines the \tfoe's moves.",
+        "id": "forewarn",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
+        "id": "inner-focus",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Insomnia",
-        "description": "",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Forewarn",
-        "description": "\tDetermines the \tfoe's moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",

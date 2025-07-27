@@ -31,45 +31,22 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Hyper Cutter",
-        "description": "\tPrevents foes from \tlowering Attack.",
+        "id": "hyper-cutter",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
+        "id": "sand-veil",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Poison Heal",
-        "description": "\tRestores HP if \tit is poisoned.",
+        "id": "poison-heal",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Hyper Cutter",
-        "description": "\tPrevents foes from \tlowering Attack.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Poison Heal",
-        "description": "\tRestores HP if \tit is poisoned.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Bug",

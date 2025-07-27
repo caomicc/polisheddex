@@ -3,7 +3,6 @@
   "nationalDex": 89,
   "johtoDex": 124,
   "types": "Poison",
-  "updatedTypes": "Poison",
   "frontSpriteUrl": "/sprites/pokemon/muk/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -28,45 +27,22 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
+        "id": "stench",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Sticky Hold",
-        "description": "\tProtects it from \titem theft.",
+        "id": "sticky-hold",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Poison Touch",
-        "description": "\tMay poison the foe \ton contact.",
+        "id": "poison-touch",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Sticky Hold",
-        "description": "\tProtects it from \titem theft.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Poison Touch",
-        "description": "\tMay poison the foe \ton contact.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Amorphous",
