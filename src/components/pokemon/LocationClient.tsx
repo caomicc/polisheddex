@@ -252,14 +252,14 @@ export default function LocationClient({
         </Card>
       )}
 
-      {comprehensiveInfo.events && (
+      {comprehensiveInfo?.events && (
         <Card>
           <CardHeader>
             <h3 className="text-lg font-semibold">Special Events</h3>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {comprehensiveInfo.events.map((event: LocationEvent, index: number) => (
+              {comprehensiveInfo.events?.map((event: LocationEvent, index: number) => (
                 <div key={index} className="border-l-4 border-purple-500 pl-4 py-2">
                   <h4 className="font-semibold">{event.type}</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">{event.description}</p>
