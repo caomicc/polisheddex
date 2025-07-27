@@ -34,9 +34,9 @@ interface CompressedPokemonData {
       female: number;
     };
     hatchRate: string;
-    abilities: CompressedAbility[];
-    faithfulAbilities?: CompressedAbility[] | null;
-    updatedAbilities?: CompressedAbility[] | null;
+    abilities: (CompressedAbility | ExpandedAbility)[];
+    faithfulAbilities?: (CompressedAbility | ExpandedAbility)[] | null;
+    updatedAbilities?: (CompressedAbility | ExpandedAbility)[] | null;
     growthRate: string;
     eggGroups: string[];
     evYield: string;
@@ -86,29 +86,61 @@ export async function loadPokemonData(
     // Load abilities manifest
     const abilitiesManifest = await loadManifest<AbilityManifest>('abilities');
 
-    // Determine which abilities to use
-    const abilitiesToResolve =
+    // Helper function to check if abilities are already expanded
+    const isAbilityExpanded = (ability: any): ability is ExpandedAbility => {
+      return ability && typeof ability.name === 'string' && typeof ability.description === 'string';
+    };
+
+    // Helper function to handle mixed ability formats
+    const resolveAbilitiesIfNeeded = async (abilities: any[]): Promise<ExpandedAbility[]> => {
+      if (!abilities || abilities.length === 0) return [];
+
+      // Check if abilities are already expanded
+      if (abilities.every(isAbilityExpanded)) {
+        return abilities as ExpandedAbility[];
+      }
+
+      // If they're compressed (have 'id' field), resolve them
+      if (abilities.every((ability) => ability && typeof ability.id === 'string')) {
+        return await resolveAbilities(abilities as CompressedAbility[], abilitiesManifest);
+      }
+
+      // Handle mixed or invalid format - filter and convert what we can
+      const expandedAbilities: ExpandedAbility[] = [];
+      for (const ability of abilities) {
+        if (isAbilityExpanded(ability)) {
+          expandedAbilities.push(ability);
+        } else if (ability && typeof ability.id === 'string') {
+          const resolved = await resolveAbilities(
+            [ability as CompressedAbility],
+            abilitiesManifest,
+          );
+          expandedAbilities.push(...resolved);
+        }
+      }
+      return expandedAbilities;
+    };
+
+    // Determine which abilities to use and resolve them
+    const primaryAbilities =
       faithful && compressedData.detailedStats.faithfulAbilities
         ? compressedData.detailedStats.faithfulAbilities
         : compressedData.detailedStats.abilities;
 
-    // Resolve abilities
-    const resolvedAbilities = await resolveAbilities(abilitiesToResolve, abilitiesManifest);
+    const resolvedAbilities = await resolveAbilitiesIfNeeded(primaryAbilities);
 
     // Resolve faithful abilities if different
     let resolvedFaithfulAbilities: ExpandedAbility[] | null = null;
     if (compressedData.detailedStats.faithfulAbilities) {
-      resolvedFaithfulAbilities = await resolveAbilities(
+      resolvedFaithfulAbilities = await resolveAbilitiesIfNeeded(
         compressedData.detailedStats.faithfulAbilities,
-        abilitiesManifest,
       );
     }
 
     let resolvedUpdatedAbilities: ExpandedAbility[] | null = null;
     if (compressedData.detailedStats.updatedAbilities) {
-      resolvedUpdatedAbilities = await resolveAbilities(
+      resolvedUpdatedAbilities = await resolveAbilitiesIfNeeded(
         compressedData.detailedStats.updatedAbilities,
-        abilitiesManifest,
       );
     }
 
@@ -149,6 +181,41 @@ export async function loadMultiplePokemonData(
     // Preload the abilities manifest once
     const abilitiesManifest = await loadManifest<AbilityManifest>('abilities');
 
+    // Helper function to check if abilities are already expanded
+    const isAbilityExpanded = (ability: any): ability is ExpandedAbility => {
+      return ability && typeof ability.name === 'string' && typeof ability.description === 'string';
+    };
+
+    // Helper function to handle mixed ability formats
+    const resolveAbilitiesIfNeeded = async (abilities: any[]): Promise<ExpandedAbility[]> => {
+      if (!abilities || abilities.length === 0) return [];
+
+      // Check if abilities are already expanded
+      if (abilities.every(isAbilityExpanded)) {
+        return abilities as ExpandedAbility[];
+      }
+
+      // If they're compressed (have 'id' field), resolve them
+      if (abilities.every((ability) => ability && typeof ability.id === 'string')) {
+        return await resolveAbilities(abilities as CompressedAbility[], abilitiesManifest);
+      }
+
+      // Handle mixed or invalid format - filter and convert what we can
+      const expandedAbilities: ExpandedAbility[] = [];
+      for (const ability of abilities) {
+        if (isAbilityExpanded(ability)) {
+          expandedAbilities.push(ability);
+        } else if (ability && typeof ability.id === 'string') {
+          const resolved = await resolveAbilities(
+            [ability as CompressedAbility],
+            abilitiesManifest,
+          );
+          expandedAbilities.push(...resolved);
+        }
+      }
+      return expandedAbilities;
+    };
+
     // Load all Pokemon data in parallel
     const results = await Promise.all(
       pokemonNames.map(async (name) => {
@@ -159,24 +226,21 @@ export async function loadMultiplePokemonData(
           if (!compressedData) return null;
 
           // Resolve abilities with the preloaded manifest
-          const resolvedAbilities = await resolveAbilities(
+          const resolvedAbilities = await resolveAbilitiesIfNeeded(
             compressedData.detailedStats.abilities,
-            abilitiesManifest,
           );
 
           let resolvedFaithfulAbilities: ExpandedAbility[] | null = null;
           if (compressedData.detailedStats.faithfulAbilities) {
-            resolvedFaithfulAbilities = await resolveAbilities(
+            resolvedFaithfulAbilities = await resolveAbilitiesIfNeeded(
               compressedData.detailedStats.faithfulAbilities,
-              abilitiesManifest,
             );
           }
 
           let resolvedUpdatedAbilities: ExpandedAbility[] | null = null;
           if (compressedData.detailedStats.updatedAbilities) {
-            resolvedUpdatedAbilities = await resolveAbilities(
+            resolvedUpdatedAbilities = await resolveAbilitiesIfNeeded(
               compressedData.detailedStats.updatedAbilities,
-              abilitiesManifest,
             );
           }
 

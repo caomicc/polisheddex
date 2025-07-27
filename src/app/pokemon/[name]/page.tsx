@@ -107,15 +107,20 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           'Medium Fast',
         eggGroups: formValue.detailedStats?.eggGroups ?? pokemonData.detailedStats?.eggGroups ?? [],
         evYield: formValue.detailedStats?.evYield ?? pokemonData.detailedStats?.evYield ?? 'None',
-        abilities: formValue.detailedStats?.abilities ?? pokemonData.detailedStats?.abilities ?? [],
+        abilities:
+          formValue.detailedStats?.abilities && formValue.detailedStats.abilities.length > 0
+            ? formValue.detailedStats.abilities
+            : (pokemonData.detailedStats?.abilities ?? []),
         faithfulAbilities:
-          formValue.detailedStats?.faithfulAbilities ??
-          pokemonData.detailedStats?.faithfulAbilities ??
-          [],
+          formValue.detailedStats?.faithfulAbilities &&
+          formValue.detailedStats.faithfulAbilities.length > 0
+            ? formValue.detailedStats.faithfulAbilities
+            : (pokemonData.detailedStats?.faithfulAbilities ?? []),
         updatedAbilities:
-          formValue.detailedStats?.updatedAbilities ??
-          pokemonData.detailedStats?.updatedAbilities ??
-          [],
+          formValue.detailedStats?.updatedAbilities &&
+          formValue.detailedStats.updatedAbilities.length > 0
+            ? formValue.detailedStats.updatedAbilities
+            : (pokemonData.detailedStats?.updatedAbilities ?? []),
       };
     });
   }
