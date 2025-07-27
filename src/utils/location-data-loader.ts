@@ -4,8 +4,7 @@ import { loadJsonFile } from './fileLoader';
 import { normalizeLocationKey } from './locationUtils';
 import { 
   groupLocationsHierarchically, 
-  filterLocationsWithData, 
-  flattenGroupedLocations 
+  filterLocationsWithData
 } from './locationGrouping';
 
 // Import LocationData and GroupedLocation from types
@@ -67,7 +66,70 @@ export async function loadPokemonLocationData(): Promise<Record<string, Location
 }
 
 /**
- * Load comprehensive location data (cached)
+ * Location manifest interface
+ */
+interface LocationManifest {
+  totalLocations: number;
+  regions: Record<string, number>;
+  flyableLocations: number;
+  landmarks: number;
+  locations: Array<{
+    fileName: string;
+    name: string;
+    displayName: string;
+    region: string;
+    id: number;
+    flyable: boolean;
+    order: number;
+  }>;
+}
+
+/**
+ * Load location manifest (cached)
+ */
+let locationManifestCache: LocationManifest | null = null;
+
+export async function loadLocationManifest(): Promise<LocationManifest> {
+  if (locationManifestCache) {
+    return locationManifestCache;
+  }
+
+  try {
+    const data = await loadJsonFile<LocationManifest>('output/locations/_index.json');
+    locationManifestCache = data || { totalLocations: 0, regions: {}, flyableLocations: 0, landmarks: 0, locations: [] };
+    return locationManifestCache;
+  } catch (error) {
+    console.error('Error loading location manifest:', error);
+    locationManifestCache = { totalLocations: 0, regions: {}, flyableLocations: 0, landmarks: 0, locations: [] };
+    return locationManifestCache;
+  }
+}
+
+/**
+ * Load specific location data by filename (cached)
+ */
+let individualLocationCache: Record<string, LocationData> = {};
+
+export async function loadLocationByFileName(fileName: string): Promise<LocationData | null> {
+  if (individualLocationCache[fileName]) {
+    return individualLocationCache[fileName];
+  }
+
+  try {
+    const data = await loadJsonFile<LocationData>(`output/locations/${fileName}`);
+    if (data) {
+      individualLocationCache[fileName] = data;
+      return data;
+    }
+    return null;
+  } catch (error) {
+    console.error(`Error loading location file ${fileName}:`, error);
+    return null;
+  }
+}
+
+/**
+ * Load comprehensive location data using manifest (cached)
  */
 let allLocationDataCache: Record<string, LocationData> | null = null;
 
@@ -77,8 +139,20 @@ export async function loadAllLocationData(): Promise<Record<string, LocationData
   }
 
   try {
-    const data = await loadJsonFile<Record<string, LocationData>>('output/all_locations.json');
-    allLocationDataCache = data || {};
+    const manifest = await loadLocationManifest();
+    const locationData: Record<string, LocationData> = {};
+    
+    // Load only the locations we need based on the manifest
+    await Promise.all(
+      manifest.locations.map(async (locationInfo) => {
+        const data = await loadLocationByFileName(locationInfo.fileName);
+        if (data) {
+          locationData[locationInfo.name] = data;
+        }
+      })
+    );
+    
+    allLocationDataCache = locationData;
     return allLocationDataCache;
   } catch (error) {
     console.error('Error loading all location data:', error);
@@ -188,9 +262,7 @@ export async function loadEnhancedLocations(): Promise<EnhancedLocation[]> {
       loadItemsDataForLocations()
     ]);
 
-    // Flatten grouped locations for processing
-    const flattenedLocations = flattenGroupedLocations(groupedLocations);
-    const allLocations = Object.values(flattenedLocations);
+    // Process grouped locations directly
 
     // Create items by location mapping
     const itemsByLocation: Record<string, Array<{ type: 'item' | 'hiddenItem' | 'tmHm'; name: string; details?: string }>> = {};
@@ -380,6 +452,8 @@ export async function searchLocations(query: string): Promise<EnhancedLocation[]
  */
 export function clearLocationCaches(): void {
   pokemonLocationDataCache = null;
+  locationManifestCache = null;
+  individualLocationCache = {};
   allLocationDataCache = null;
   groupedLocationDataCache = null;
   itemsDataCache = null;

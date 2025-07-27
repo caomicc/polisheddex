@@ -41,32 +41,6 @@ export default async function LocationsPage() {
         }
       />
       <div className="max-w-xl md:max-w-4xl mx-auto px-4">
-        {/* Display summary of location data */}
-        {/* <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-blue-600">{processedLocations.length}</div>
-            <div className="text-slate-600 dark:text-slate-300">Total Locations</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-green-600">{processedLocations.filter(l => l.pokemonCount > 0).length}</div>
-            <div className="text-slate-600 dark:text-slate-300">With Pokémon</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-red-600">{processedLocations.filter(l => l.hasTrainers).length}</div>
-            <div className="text-slate-600 dark:text-slate-300">With Trainers</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-yellow-600">{processedLocations.filter(l => l.items && l.items.length > 0).length}</div>
-            <div className="text-slate-600 dark:text-slate-300">With Items</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-purple-600">{processedLocations.filter(l => l.flyable).length}</div>
-            <div className="text-slate-600 dark:text-slate-300">Flyable</div>
-          </div>
-        </div>
-      </div> */}
-
         <LocationSearch locations={processedLocations as LocationData[]} />
       </div>
     </>
