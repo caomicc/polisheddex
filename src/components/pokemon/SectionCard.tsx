@@ -19,7 +19,7 @@ const SectionCard: React.FC<SectionCardProps> = ({ ...props }: SectionCardProps)
   return (
     <Card
       className={cn(
-        'bg-white/90 backdrop-blur-xl dark:bg-gray-800 rounded-2xl p-4 md:py-8',
+        'bg-white/90 backdrop-blur-xl dark:bg-gray-800 rounded-2xl py-6 md:py-8 md:px-4',
         'border-2 shadow-2xl',
         hasPokemonTheme && 'pokemon-section-card',
         `shadow-${primaryType?.toLowerCase()}`,
