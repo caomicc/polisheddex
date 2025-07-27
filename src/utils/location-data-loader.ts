@@ -81,6 +81,10 @@ interface LocationManifest {
     id: number;
     flyable: boolean;
     order: number;
+    trainerCount: number;
+    pokemonCount: number;
+    parentLocation?: string;
+    locationType: string;
   }>;
 }
 
