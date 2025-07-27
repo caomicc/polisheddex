@@ -3,6 +3,7 @@
   "nationalDex": 127,
   "johtoDex": 119,
   "types": "Bug",
+  "updatedTypes": "Bug",
   "frontSpriteUrl": "/sprites/pokemon/pinsir/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,45 @@
     "hatchRate": "Medium-Slow (6,400 steps)",
     "abilities": [
       {
-        "id": "hyper-cutter",
+        "name": "Hyper Cutter",
+        "description": "\tPrevents foes from \tlowering Attack.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "mold-breaker",
+        "name": "Mold Breaker",
+        "description": "\tMoves disregard \tthe foe's ability.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "moxie",
+        "name": "Moxie",
+        "description": "\tBoosts Attack when \tknocking out foes.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Hyper Cutter",
+        "description": "\tPrevents foes from \tlowering Attack.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Mold Breaker",
+        "description": "\tMoves disregard \tthe foe's ability.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Moxie",
+        "description": "\tBoosts Attack when \tknocking out foes.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Bug",

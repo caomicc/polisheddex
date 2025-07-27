@@ -33,22 +33,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "speed-boost",
+        "name": "Speed Boost",
+        "description": "\tIts Speed stat is \tgradually boosted.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "compound-eyes",
+        "name": "Compound Eyes",
+        "description": "\tBoosts the Poké- \tmon's accuracy.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "frisk",
+        "name": "Frisk",
+        "description": "\tChecks the foe's \theld item.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Speed Boost",
+        "description": "\tIts Speed stat is \tgradually boosted.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Compound Eyes",
+        "description": "\tBoosts the Poké- \tmon's accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Frisk",
+        "description": "\tChecks the foe's \theld item.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",

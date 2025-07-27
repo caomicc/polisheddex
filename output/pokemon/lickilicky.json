@@ -3,6 +3,7 @@
   "nationalDex": 264,
   "johtoDex": 200,
   "types": "Normal",
+  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/lickilicky/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "cloud-nine",
+        "name": "Cloud Nine",
+        "description": "\tEliminates effects \tof weather.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Cloud Nine",
+        "description": "\tEliminates effects \tof weather.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Monster",

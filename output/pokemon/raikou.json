@@ -3,6 +3,7 @@
   "nationalDex": 243,
   "johtoDex": 276,
   "types": "Electric",
+  "updatedTypes": "Electric",
   "frontSpriteUrl": "/sprites/pokemon/raikou/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,64 @@
     "hatchRate": "Unknown",
     "abilities": [
       {
-        "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Volt Absorb",
+        "description": "\tRestores HP if hit \tby Electric moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered",

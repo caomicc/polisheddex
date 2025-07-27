@@ -28,22 +28,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "suction-cups",
+        "name": "Suction Cups",
+        "description": "\tNegates forced \tswitch-outs.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "moody",
+        "name": "Moody",
+        "description": "\tRaises a stat and \tlowers another.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Suction Cups",
+        "description": "\tNegates forced \tswitch-outs.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Moody",
+        "description": "\tRaises a stat and \tlowers another.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

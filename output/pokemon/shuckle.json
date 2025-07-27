@@ -33,22 +33,64 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "gluttony",
+        "name": "Gluttony",
+        "description": "\tEncourages early \tBerry use.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "contrary",
+        "name": "Contrary",
+        "description": "\tInverts the effect \tof stat changes.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Gluttony",
+        "description": "\tEncourages early \tBerry use.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Contrary",
+        "description": "\tInverts the effect \tof stat changes.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Solid Rock",
+        "description": "\tReduces super \teffective damage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Gluttony",
+        "description": "\tEncourages early \tBerry use.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Contrary",
+        "description": "\tInverts the effect \tof stat changes.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Bug",

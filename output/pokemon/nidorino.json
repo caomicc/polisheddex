@@ -3,6 +3,7 @@
   "nationalDex": 33,
   "johtoDex": 104,
   "types": "Poison",
+  "updatedTypes": "Poison",
   "frontSpriteUrl": "/sprites/pokemon/nidorino/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "poison-point",
+        "name": "Poison Point",
+        "description": "\tContact may poison \tthe foe.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "rivalry",
+        "name": "Rivalry",
+        "description": "\tBoosts damage to \tsame-gender foes.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Poison Point",
+        "description": "\tContact may poison \tthe foe.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Rivalry",
+        "description": "\tBoosts damage to \tsame-gender foes.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Monster",

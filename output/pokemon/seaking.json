@@ -3,6 +3,7 @@
   "nationalDex": 119,
   "johtoDex": 84,
   "types": "Water",
+  "updatedTypes": "Water",
   "frontSpriteUrl": "/sprites/pokemon/seaking/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "water-veil",
+        "name": "Water Veil",
+        "description": "\tPrevents it from \tgetting a burn.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Water Veil",
+        "description": "\tPrevents it from \tgetting a burn.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

@@ -3,6 +3,7 @@
   "nationalDex": 216,
   "johtoDex": 221,
   "types": "Normal",
+  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/teddiursa/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "pickup",
+        "name": "Pickup",
+        "description": "\tThe #mon may \tpick up items.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "quick-feet",
+        "name": "Quick Feet",
+        "description": "\tBoosts Speed with \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "honey-gather",
+        "name": "Honey Gather",
+        "description": "\tThe #mon may if DEF(FAITHFUL) \tgather Honey. else \tfind Sweet Honey. endc",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Pickup",
+        "description": "\tThe #mon may \tpick up items.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Quick Feet",
+        "description": "\tBoosts Speed with \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Honey Gather",
+        "description": "\tThe #mon may if DEF(FAITHFUL) \tgather Honey. else \tfind Sweet Honey. endc",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

@@ -36,6 +36,7 @@ interface CompressedPokemon {
     hatchRate: string;
     abilities: CompressedAbility[];
     faithfulAbilities?: CompressedAbility[] | null; // Only if different
+    updatedAbilities?: CompressedAbility[] | null; // Only if different
     growthRate: string;
     eggGroups: string[];
     evYield: string;
@@ -51,14 +52,18 @@ interface CompressedPokemon {
 }
 
 function normalizeId(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
 function compressAbilities(abilities: any[]): CompressedAbility[] {
-  return abilities.map(ability => ({
+  return abilities.map((ability) => ({
     id: normalizeId(ability.name),
     isHidden: ability.isHidden,
-    abilityType: ability.abilityType
+    abilityType: ability.abilityType,
   }));
 }
 
@@ -66,15 +71,15 @@ function arraysEqual(a: any[], b: any[]): boolean {
   if (a.length !== b.length) return false;
   return a.every((val, idx) => {
     const bVal = b[idx];
-    return val.id === bVal.id && 
-           val.isHidden === bVal.isHidden && 
-           val.abilityType === bVal.abilityType;
+    return (
+      val.id === bVal.id && val.isHidden === bVal.isHidden && val.abilityType === bVal.abilityType
+    );
   });
 }
 
 function removeDuplicateAbilities(abilities: CompressedAbility[]): CompressedAbility[] {
   const seen = new Set<string>();
-  return abilities.filter(ability => {
+  return abilities.filter((ability) => {
     const key = `${ability.id}-${ability.abilityType}`;
     if (seen.has(key)) return false;
     seen.add(key);
@@ -85,45 +90,56 @@ function removeDuplicateAbilities(abilities: CompressedAbility[]): CompressedAbi
 async function compressPokemonFile(filePath: string): Promise<void> {
   try {
     const data = JSON.parse(await fs.readFile(filePath, 'utf8'));
-    
+
     // Compress abilities
     const compressedAbilities = removeDuplicateAbilities(
-      compressAbilities(data.detailedStats.abilities || [])
+      compressAbilities(data.detailedStats.abilities || []),
     );
-    
+
     // Handle faithful abilities - only keep if different
     let faithfulAbilities: CompressedAbility[] | null = null;
     if (data.detailedStats.faithfulAbilities) {
       const compressedFaithful = removeDuplicateAbilities(
-        compressAbilities(data.detailedStats.faithfulAbilities)
+        compressAbilities(data.detailedStats.faithfulAbilities),
       );
-      
+
       if (!arraysEqual(compressedAbilities, compressedFaithful)) {
         faithfulAbilities = compressedFaithful;
       }
     }
-    
+
+    // Handle updated abilities - only keep if different
+    let updatedAbilities: CompressedAbility[] | null = null;
+    if (data.detailedStats.updatedAbilities && data.detailedStats.updatedAbilities.length > 0) {
+      const compressedUpdated = removeDuplicateAbilities(
+        compressAbilities(data.detailedStats.updatedAbilities),
+      );
+
+      if (!arraysEqual(compressedAbilities, compressedUpdated)) {
+        updatedAbilities = compressedUpdated;
+      }
+    }
+
     // Create compressed version
     const compressed: CompressedPokemon = {
       ...data,
       detailedStats: {
         ...data.detailedStats,
         abilities: compressedAbilities,
-        faithfulAbilities: faithfulAbilities
-      }
+        faithfulAbilities: faithfulAbilities,
+        updatedAbilities: updatedAbilities,
+      },
     };
-    
-    // Remove updatedAbilities as it's usually empty
-    delete (compressed.detailedStats as any).updatedAbilities;
-    
+
+    // Don't remove updatedAbilities anymore - we handle it above
+
     // Remove duplicate type data
     if (compressed.types === compressed.updatedTypes) {
       delete compressed.updatedTypes;
     }
-    
+
     // Write compressed version
     await fs.writeFile(filePath, JSON.stringify(compressed, null, 2));
-    
   } catch (error) {
     console.error(`Error compressing ${filePath}:`, error);
   }
@@ -131,72 +147,81 @@ async function compressPokemonFile(filePath: string): Promise<void> {
 
 async function compressAllPokemonFiles(): Promise<void> {
   console.log('Compressing individual Pokemon files...');
-  
+
   const pokemonDir = path.join(process.cwd(), 'output', 'pokemon');
   const files = await fs.readdir(pokemonDir);
-  
-  const jsonFiles = files.filter(file => 
-    file.endsWith('.json') && file !== '_index.json'
-  );
-  
+
+  const jsonFiles = files.filter((file) => file.endsWith('.json') && file !== '_index.json');
+
   let processed = 0;
   const total = jsonFiles.length;
-  
+
   for (const file of jsonFiles) {
     const filePath = path.join(pokemonDir, file);
     await compressPokemonFile(filePath);
     processed++;
-    
+
     if (processed % 50 === 0) {
       console.log(`Processed ${processed}/${total} files...`);
     }
   }
-  
+
   console.log(`Compression complete! Processed ${processed} Pokemon files.`);
 }
 
 async function compressDetailedStats(): Promise<void> {
   console.log('Compressing pokemon_detailed_stats.json...');
-  
+
   try {
     const detailedStatsPath = path.join(process.cwd(), 'output', 'pokemon_detailed_stats.json');
     const data = JSON.parse(await fs.readFile(detailedStatsPath, 'utf8'));
-    
+
     const compressed: { [key: string]: any } = {};
-    
+
     for (const [pokemonName, pokemonData] of Object.entries(data)) {
       const pokemon = pokemonData as any;
-      
+
       // Compress abilities
       const compressedAbilities = removeDuplicateAbilities(
-        compressAbilities(pokemon.abilities || [])
+        compressAbilities(pokemon.abilities || []),
       );
-      
+
       // Handle faithful abilities
       let faithfulAbilities: CompressedAbility[] | null = null;
       if (pokemon.faithfulAbilities) {
         const compressedFaithful = removeDuplicateAbilities(
-          compressAbilities(pokemon.faithfulAbilities)
+          compressAbilities(pokemon.faithfulAbilities),
         );
-        
+
         if (!arraysEqual(compressedAbilities, compressedFaithful)) {
           faithfulAbilities = compressedFaithful;
         }
       }
-      
+
+      // Handle updated abilities
+      let updatedAbilities: CompressedAbility[] | null = null;
+      if (pokemon.updatedAbilities && pokemon.updatedAbilities.length > 0) {
+        const compressedUpdated = removeDuplicateAbilities(
+          compressAbilities(pokemon.updatedAbilities),
+        );
+
+        if (!arraysEqual(compressedAbilities, compressedUpdated)) {
+          updatedAbilities = compressedUpdated;
+        }
+      }
+
       compressed[pokemonName] = {
         ...pokemon,
         abilities: compressedAbilities,
-        faithfulAbilities: faithfulAbilities
+        faithfulAbilities: faithfulAbilities,
+        updatedAbilities: updatedAbilities,
       };
-      
-      // Remove updatedAbilities
-      delete compressed[pokemonName].updatedAbilities;
+
+      // Don't remove updatedAbilities anymore - we handle it above
     }
-    
+
     await fs.writeFile(detailedStatsPath, JSON.stringify(compressed, null, 2));
     console.log('Compressed pokemon_detailed_stats.json successfully!');
-    
   } catch (error) {
     console.error('Error compressing detailed stats:', error);
   }
@@ -204,10 +229,10 @@ async function compressDetailedStats(): Promise<void> {
 
 async function main(): Promise<void> {
   console.log('Starting Pokemon data compression...');
-  
+
   await compressDetailedStats();
   await compressAllPokemonFiles();
-  
+
   console.log('Pokemon data compression complete!');
 }
 

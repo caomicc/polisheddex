@@ -3,6 +3,7 @@
   "nationalDex": 147,
   "johtoDex": 279,
   "types": "Dragon",
+  "updatedTypes": "Dragon",
   "frontSpriteUrl": "/sprites/pokemon/dratini/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Extremely Slow (20,480 steps)",
     "abilities": [
       {
-        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "marvel-scale",
+        "name": "Marvel Scale",
+        "description": "\tBoosts Defense on \tstatus problems.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Marvel Scale",
+        "description": "\tBoosts Defense on \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

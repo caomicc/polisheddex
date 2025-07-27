@@ -34,22 +34,64 @@
     "hatchRate": "Medium-Slow (6,400 steps)",
     "abilities": [
       {
-        "id": "oblivious",
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "forewarn",
+        "name": "Forewarn",
+        "description": "\tDetermines the \tfoe's moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "dry-skin",
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Forewarn",
+        "description": "\tDetermines the \tfoe's moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Oblivious",
+        "description": "\tPrevents it from \tbeing infatuated.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Filter",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",

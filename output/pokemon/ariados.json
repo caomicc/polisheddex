@@ -31,22 +31,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "swarm",
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Bug",

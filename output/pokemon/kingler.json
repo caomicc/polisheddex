@@ -3,6 +3,7 @@
   "nationalDex": 99,
   "johtoDex": 185,
   "types": "Water",
+  "updatedTypes": "Water",
   "frontSpriteUrl": "/sprites/pokemon/kingler/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "hyper-cutter",
+        "name": "Hyper Cutter",
+        "description": "\tPrevents foes from \tlowering Attack.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Hyper Cutter",
+        "description": "\tPrevents foes from \tlowering Attack.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

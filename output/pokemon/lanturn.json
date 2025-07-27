@@ -33,22 +33,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "volt-absorb",
+        "name": "Volt Absorb",
+        "description": "\tRestores HP if hit \tby Electric moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "illuminate",
+        "name": "Illuminate",
+        "description": "\tRaises the rate \tof wild #mon.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Volt Absorb",
+        "description": "\tRestores HP if hit \tby Electric moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Illuminate",
+        "description": "\tRaises the rate \tof wild #mon.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

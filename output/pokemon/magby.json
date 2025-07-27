@@ -3,6 +3,7 @@
   "nationalDex": 240,
   "johtoDex": 164,
   "types": "Fire",
+  "updatedTypes": "Fire",
   "frontSpriteUrl": "/sprites/pokemon/magby/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,22 +28,45 @@
     "hatchRate": "Medium-Slow (6,400 steps)",
     "abilities": [
       {
-        "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "vital-spirit",
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Vital Spirit",
+        "description": "\tPrevents it from \tfalling asleep.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered",

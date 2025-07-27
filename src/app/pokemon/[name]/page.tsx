@@ -64,6 +64,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     evYield: pokemonData.detailedStats?.evYield ?? 'None',
     abilities: pokemonData.detailedStats?.abilities ?? [],
     faithfulAbilities: pokemonData.detailedStats?.faithfulAbilities ?? [],
+    updatedAbilities: pokemonData.detailedStats?.updatedAbilities ?? [],
   };
 
   // Add any additional forms
@@ -111,8 +112,10 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           formValue.detailedStats?.faithfulAbilities ??
           pokemonData.detailedStats?.faithfulAbilities ??
           [],
-        // description:
-        //   (formValue as FormData).description || (pokemonData as FormData).description || '',
+        updatedAbilities:
+          formValue.detailedStats?.updatedAbilities ??
+          pokemonData.detailedStats?.updatedAbilities ??
+          [],
       };
     });
   }

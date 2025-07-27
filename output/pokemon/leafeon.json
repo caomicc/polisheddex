@@ -3,6 +3,7 @@
   "nationalDex": 271,
   "johtoDex": 209,
   "types": "Grass",
+  "updatedTypes": "Grass",
   "frontSpriteUrl": "/sprites/pokemon/leafeon/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,64 @@
     "hatchRate": "Very Slow (10,240 steps)",
     "abilities": [
       {
-        "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "leaf-guard",
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "chlorophyll",
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Leaf Guard",
+        "description": "\tPrevents status \tproblems in sun.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Chlorophyll",
+        "description": "\tBoosts its Speed \tin sunshine.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

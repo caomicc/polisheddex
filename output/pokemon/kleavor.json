@@ -31,22 +31,45 @@
     "hatchRate": "Medium-Slow (6,400 steps)",
     "abilities": [
       {
-        "id": "swarm",
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "sheer-force",
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "sharpness",
+        "name": "Sharpness",
+        "description": "\tBoosts power of \tslicing moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Sheer Force",
+        "description": "\tRemoves effects to \tincrease damage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sharpness",
+        "description": "\tBoosts power of \tslicing moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",

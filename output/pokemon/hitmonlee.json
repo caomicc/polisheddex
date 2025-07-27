@@ -3,6 +3,7 @@
   "nationalDex": 106,
   "johtoDex": 157,
   "types": "Fighting",
+  "updatedTypes": "Fighting",
   "frontSpriteUrl": "/sprites/pokemon/hitmonlee/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,45 @@
     "hatchRate": "Medium-Slow (6,400 steps)",
     "abilities": [
       {
-        "id": "limber",
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "reckless",
+        "name": "Reckless",
+        "description": "\tPowers up moves \tthat recoil.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "unburden",
+        "name": "Unburden",
+        "description": "\tBoosts Speed when \theld item is lost.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Reckless",
+        "description": "\tPowers up moves \tthat recoil.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Unburden",
+        "description": "\tBoosts Speed when \theld item is lost.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Human-Like",

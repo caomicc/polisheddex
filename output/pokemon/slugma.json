@@ -3,6 +3,7 @@
   "nationalDex": 218,
   "johtoDex": 243,
   "types": "Fire",
+  "updatedTypes": "Fire",
   "frontSpriteUrl": "/sprites/pokemon/slugma/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "magma-armor",
+        "name": "Magma Armor",
+        "description": "\tPrevents it from \tbecoming frozen.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "weak-armor",
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Magma Armor",
+        "description": "\tPrevents it from \tbecoming frozen.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Weak Armor",
+        "description": "\tPhysical attacks \ttrade Def for Spe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Amorphous",

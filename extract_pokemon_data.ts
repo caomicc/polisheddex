@@ -715,7 +715,6 @@ function buildCompleteEvolutionChain(startMon: string): {
       // Check if this entry matches our current Pokémon (either exact or standardized)
       const standardEvoKey = standardizePokemonKey(evoKey);
       if (evoKey === currentMon || standardEvoKey === standardMon) {
-        
         // Determine the proper source key for storing methods
         // If evoKey contains form info (like SlowpokeGalarian), extract it for display
         let sourceKey = normalizedDisplayName;
@@ -726,7 +725,7 @@ function buildCompleteEvolutionChain(startMon: string): {
             sourceKey = `${normalizedDisplayName} (${capitalizeFirstLetter(formName)} Form)`;
           }
         }
-        
+
         // Store evolution methods for this Pokémon (potentially with form info)
         if (!methodsByPokemon[sourceKey]) {
           methodsByPokemon[sourceKey] = [];
@@ -760,7 +759,7 @@ function buildCompleteEvolutionChain(startMon: string): {
   const sortedMethodsByPokemon: Record<string, EvolutionMethod[]> = {};
   for (const pokemon of sortedChain) {
     sortedMethodsByPokemon[pokemon] = methodsByPokemon[pokemon] || [];
-    
+
     // Also include any form-specific methods for this pokemon
     for (const [key, methods] of Object.entries(methodsByPokemon)) {
       if (key.startsWith(pokemon + ' (') && !sortedMethodsByPokemon[key]) {
@@ -783,14 +782,8 @@ function capitalizeFirstLetter(str: string): string {
 // Helper function to extract form information from Pokemon names like "SlowpokeGalarian"
 function extractFormFromName(pokemonName: string): { baseName: string; formName: string | null } {
   // Common form suffixes in the ROM data
-  const formSuffixes = [
-    'Galarian',
-    'Alolan', 
-    'Hisuian',
-    'Paldean',
-    'Plain'
-  ];
-  
+  const formSuffixes = ['Galarian', 'Alolan', 'Hisuian', 'Paldean', 'Plain'];
+
   for (const suffix of formSuffixes) {
     if (pokemonName.endsWith(suffix)) {
       const baseName = pokemonName.slice(0, -suffix.length);
@@ -798,7 +791,7 @@ function extractFormFromName(pokemonName: string): { baseName: string; formName:
       return { baseName, formName };
     }
   }
-  
+
   // No form suffix found
   return { baseName: pokemonName, formName: null };
 }
@@ -3029,8 +3022,8 @@ for (const [pokemonName, baseData] of Object.entries(validatedBaseData)) {
         baseExp: formStats.baseExp ?? 0,
         heldItems: formStats.heldItems ?? [],
         abilities: formStats.abilities ?? [],
-        faithfulAbilities: formStats.faithfulAbilities ?? [],
-        updatedAbilities: formStats.updatedAbilities ?? [],
+        faithfulAbilities: formStats.faithfulAbilities ?? formStats.abilities ?? [],
+        updatedAbilities: formStats.updatedAbilities ?? formStats.abilities ?? [],
         growthRate: formStats.growthRate ?? 'Medium Fast',
         eggGroups: formStats.eggGroups ?? [],
         genderRatio: formStats.genderRatio ?? { male: 0, female: 0 },

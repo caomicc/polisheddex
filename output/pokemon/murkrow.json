@@ -31,22 +31,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "super-luck",
+        "name": "Super Luck",
+        "description": "\tBoosts the rate \tof critical hits.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "prankster",
+        "name": "Prankster",
+        "description": "\tGives priority to \ta status move.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Super Luck",
+        "description": "\tBoosts the rate \tof critical hits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Prankster",
+        "description": "\tGives priority to \ta status move.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Flying",

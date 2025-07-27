@@ -33,22 +33,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "clear-body",
+        "name": "Clear Body",
+        "description": "",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "liquid-ooze",
+        "name": "Liquid Ooze",
+        "description": "\tDamages foes using \tdraining moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "rain-dish",
+        "name": "Rain Dish",
+        "description": "\tGradually regains \tHP in rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Clear Body",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Liquid Ooze",
+        "description": "\tDamages foes using \tdraining moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Rain Dish",
+        "description": "\tGradually regains \tHP in rain.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

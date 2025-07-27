@@ -3,6 +3,7 @@
   "nationalDex": 276,
   "johtoDex": 211,
   "types": "Fairy",
+  "updatedTypes": "Fairy",
   "frontSpriteUrl": "/sprites/pokemon/sylveon/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,64 @@
     "hatchRate": "Very Slow (10,240 steps)",
     "abilities": [
       {
-        "id": "cute-charm",
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "cute-charm",
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "pixilate",
+        "name": "Pixilate",
+        "description": "\tNormal-type moves \tbecome Fairy-type.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Pixilate",
+        "description": "\tNormal-type moves \tbecome Fairy-type.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Serene Grace",
+        "description": "\tBoosts the rate of \tadded effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Pixilate",
+        "description": "\tNormal-type moves \tbecome Fairy-type.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

@@ -3,6 +3,7 @@
   "nationalDex": 115,
   "johtoDex": 235,
   "types": "Normal",
+  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/kangaskhan/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,64 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "early-bird",
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "scrappy",
+        "name": "Scrappy",
+        "description": "\tEnables moves to \thit Ghost-types.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Scrappy",
+        "description": "\tEnables moves to \thit Ghost-types.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Early Bird",
+        "description": "\tAwakens quickly \tfrom sleep.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Scrappy",
+        "description": "\tEnables moves to \thit Ghost-types.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Parental Bond",
+        "description": "\tParent and child \tattack together.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Monster",

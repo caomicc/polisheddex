@@ -21,6 +21,8 @@ export function EvolutionChain({
   const processEvolutionData = () => {
     if (!chainWithMethods) return { chainWithForms: chain, evolutionPaths: [] };
 
+    console.log('Processing evolution data with methods:', chainWithMethods);
+
     // Start with the base chain
     const chainWithForms = [...chain];
     const evolutionPaths: Array<{
@@ -37,21 +39,26 @@ export function EvolutionChain({
 
     // First pass: collect all evolution paths
     Object.entries(chainWithMethods).forEach(([sourcePokemon, methods]) => {
+      // Skip if methods is not an array, is empty, or contains only falsy values
+      if (!Array.isArray(methods) || methods.length === 0 || methods.every((m) => !m)) return;
+
       // Check if sourcePokemon is a form variant
-      const sourceIsForm = sourcePokemon.includes('(') && sourcePokemon.includes(')');
+      // Match both "Name (Form)" and "name-form" patterns
+      const formRegex = /^(.+?)(?: \((.+)\)|-(.+)-form)$/i;
+      const matches = sourcePokemon.match(formRegex);
+      let sourceIsForm = false;
       let sourceBaseName = sourcePokemon;
       let sourceFormName = undefined;
 
-      if (sourceIsForm) {
-        const matches = sourcePokemon.match(/^(.+) \((.+)\)$/);
-        if (matches) {
-          sourceBaseName = matches[1];
-          sourceFormName = matches[2];
-        }
+      if (matches) {
+        sourceIsForm = true;
+        sourceBaseName = matches[1];
+        sourceFormName = matches[2] || matches[3];
       }
 
       // For each evolution method
       methods.forEach((method) => {
+        if (!method) return; // Skip falsy method entries
         const target = method.target;
 
         // Add path information for every evolution method
@@ -108,6 +115,8 @@ export function EvolutionChain({
   };
 
   const { chainWithForms, evolutionPaths } = processEvolutionData();
+
+  console.log('Processed evolution paths:', evolutionPaths);
 
   // Function to get the evolution method between two Pokémon
   const getEvolutionInfo = (fromPokemon: string, toPokemon: string) => {
@@ -228,6 +237,7 @@ export function EvolutionChain({
 
   return (
     <div className={cn('flex flex-wrap gap-4 items-center', className)}>
+      {/* {console.log('Rendering evolution chain:', chainWithForms)} */}
       {chainWithForms.map((name, i) => (
         <React.Fragment key={name}>
           <Link href={`/pokemon/${name.includes('(') ? name.split(' (')[0] : name}`}>

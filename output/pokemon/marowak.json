@@ -3,6 +3,7 @@
   "nationalDex": 105,
   "johtoDex": 234,
   "types": "Ground",
+  "updatedTypes": "Ground",
   "frontSpriteUrl": "/sprites/pokemon/marowak/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "lightning-rod",
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "battle-armor",
+        "name": "Battle Armor",
+        "description": "",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Lightning Rod",
+        "description": "\tElectric moves \tboost Sp.Atk.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Battle Armor",
+        "description": "",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Monster",

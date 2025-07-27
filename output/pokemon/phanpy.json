@@ -3,6 +3,7 @@
   "nationalDex": 231,
   "johtoDex": 224,
   "types": "Ground",
+  "updatedTypes": "Ground",
   "frontSpriteUrl": "/sprites/pokemon/phanpy/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "pickup",
+        "name": "Pickup",
+        "description": "\tThe #mon may \tpick up items.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "pickup",
+        "name": "Pickup",
+        "description": "\tThe #mon may \tpick up items.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Pickup",
+        "description": "\tThe #mon may \tpick up items.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Pickup",
+        "description": "\tThe #mon may \tpick up items.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

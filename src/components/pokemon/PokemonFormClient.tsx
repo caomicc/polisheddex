@@ -71,6 +71,8 @@ export default function PokemonFormClient({
     new Set(forms.map((f) => f.trim().toLowerCase()).filter((f) => f !== 'default')),
   );
 
+  console.log('Unique Forms:', formData);
+
   return (
     <>
       {/* Set Pokemon type theme based on current form */}

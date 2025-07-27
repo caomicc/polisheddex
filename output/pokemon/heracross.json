@@ -31,22 +31,45 @@
     "hatchRate": "Medium-Slow (6,400 steps)",
     "abilities": [
       {
-        "id": "moxie",
+        "name": "Moxie",
+        "description": "\tBoosts Attack when \tknocking out foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "skill-link",
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Moxie",
+        "description": "\tBoosts Attack when \tknocking out foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Bug",

@@ -3,6 +3,7 @@
   "nationalDex": 101,
   "johtoDex": 129,
   "types": "Electric",
+  "updatedTypes": "Electric",
   "frontSpriteUrl": "/sprites/pokemon/electrode/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "soundproof",
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "aftermath",
+        "name": "Aftermath",
+        "description": "\tDamages the foe on \tfainting.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Aftermath",
+        "description": "\tDamages the foe on \tfainting.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Mineral",

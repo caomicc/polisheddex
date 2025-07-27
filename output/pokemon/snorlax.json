@@ -3,6 +3,7 @@
   "nationalDex": 143,
   "johtoDex": 263,
   "types": "Normal",
+  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/snorlax/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Extremely Slow (20,480 steps)",
     "abilities": [
       {
-        "id": "immunity",
+        "name": "Immunity",
+        "description": "",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "gluttony",
+        "name": "Gluttony",
+        "description": "\tEncourages early \tBerry use.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Immunity",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Gluttony",
+        "description": "\tEncourages early \tBerry use.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Monster",

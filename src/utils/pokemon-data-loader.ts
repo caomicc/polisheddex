@@ -1,7 +1,13 @@
 // Enhanced Pokemon data loader that works with compressed data and manifests
 
 import { loadJsonFile } from './fileLoader';
-import { resolveAbilities, loadManifest, type CompressedAbility, type ExpandedAbility, type AbilityManifest } from './manifest-resolver';
+import {
+  resolveAbilities,
+  loadManifest,
+  type CompressedAbility,
+  type ExpandedAbility,
+  type AbilityManifest,
+} from './manifest-resolver';
 
 interface CompressedPokemonData {
   name: string;
@@ -30,6 +36,7 @@ interface CompressedPokemonData {
     hatchRate: string;
     abilities: CompressedAbility[];
     faithfulAbilities?: CompressedAbility[] | null;
+    updatedAbilities?: CompressedAbility[] | null;
     growthRate: string;
     eggGroups: string[];
     evYield: string;
@@ -50,19 +57,28 @@ interface CompressedPokemonData {
 }
 
 interface ExpandedPokemonData extends Omit<CompressedPokemonData, 'detailedStats'> {
-  detailedStats: Omit<CompressedPokemonData['detailedStats'], 'abilities' | 'faithfulAbilities'> & {
+  detailedStats: Omit<
+    CompressedPokemonData['detailedStats'],
+    'abilities' | 'faithfulAbilities' | 'updatedAbilities'
+  > & {
     abilities: ExpandedAbility[];
     faithfulAbilities?: ExpandedAbility[] | null;
+    updatedAbilities?: ExpandedAbility[] | null;
   };
 }
 
 /**
  * Load and expand a single Pokemon's data with resolved abilities
  */
-export async function loadPokemonData(pokemonName: string, faithful = false): Promise<ExpandedPokemonData | null> {
+export async function loadPokemonData(
+  pokemonName: string,
+  faithful = false,
+): Promise<ExpandedPokemonData | null> {
   try {
     // Load compressed Pokemon data
-    const compressedData = await loadJsonFile<CompressedPokemonData>(`output/pokemon/${pokemonName}.json`);
+    const compressedData = await loadJsonFile<CompressedPokemonData>(
+      `output/pokemon/${pokemonName}.json`,
+    );
     if (!compressedData) {
       return null;
     }
@@ -71,9 +87,10 @@ export async function loadPokemonData(pokemonName: string, faithful = false): Pr
     const abilitiesManifest = await loadManifest<AbilityManifest>('abilities');
 
     // Determine which abilities to use
-    const abilitiesToResolve = faithful && compressedData.detailedStats.faithfulAbilities 
-      ? compressedData.detailedStats.faithfulAbilities
-      : compressedData.detailedStats.abilities;
+    const abilitiesToResolve =
+      faithful && compressedData.detailedStats.faithfulAbilities
+        ? compressedData.detailedStats.faithfulAbilities
+        : compressedData.detailedStats.abilities;
 
     // Resolve abilities
     const resolvedAbilities = await resolveAbilities(abilitiesToResolve, abilitiesManifest);
@@ -82,8 +99,16 @@ export async function loadPokemonData(pokemonName: string, faithful = false): Pr
     let resolvedFaithfulAbilities: ExpandedAbility[] | null = null;
     if (compressedData.detailedStats.faithfulAbilities) {
       resolvedFaithfulAbilities = await resolveAbilities(
-        compressedData.detailedStats.faithfulAbilities, 
-        abilitiesManifest
+        compressedData.detailedStats.faithfulAbilities,
+        abilitiesManifest,
+      );
+    }
+
+    let resolvedUpdatedAbilities: ExpandedAbility[] | null = null;
+    if (compressedData.detailedStats.updatedAbilities) {
+      resolvedUpdatedAbilities = await resolveAbilities(
+        compressedData.detailedStats.updatedAbilities,
+        abilitiesManifest,
       );
     }
 
@@ -93,10 +118,10 @@ export async function loadPokemonData(pokemonName: string, faithful = false): Pr
       detailedStats: {
         ...compressedData.detailedStats,
         abilities: resolvedAbilities,
-        faithfulAbilities: resolvedFaithfulAbilities
-      }
+        faithfulAbilities: resolvedFaithfulAbilities,
+        updatedAbilities: resolvedUpdatedAbilities,
+      },
     };
-
   } catch (error) {
     console.error(`Error loading Pokemon data for ${pokemonName}:`, error);
     return null;
@@ -117,7 +142,9 @@ export async function loadPokemonDataLegacy(pokemonName: string): Promise<any> {
 /**
  * Load multiple Pokemon data efficiently by preloading manifests
  */
-export async function loadMultiplePokemonData(pokemonNames: string[]): Promise<(ExpandedPokemonData | null)[]> {
+export async function loadMultiplePokemonData(
+  pokemonNames: string[],
+): Promise<(ExpandedPokemonData | null)[]> {
   try {
     // Preload the abilities manifest once
     const abilitiesManifest = await loadManifest<AbilityManifest>('abilities');
@@ -126,17 +153,30 @@ export async function loadMultiplePokemonData(pokemonNames: string[]): Promise<(
     const results = await Promise.all(
       pokemonNames.map(async (name) => {
         try {
-          const compressedData = await loadJsonFile<CompressedPokemonData>(`output/pokemon/${name}.json`);
+          const compressedData = await loadJsonFile<CompressedPokemonData>(
+            `output/pokemon/${name}.json`,
+          );
           if (!compressedData) return null;
 
           // Resolve abilities with the preloaded manifest
-          const resolvedAbilities = await resolveAbilities(compressedData.detailedStats.abilities, abilitiesManifest);
-          
+          const resolvedAbilities = await resolveAbilities(
+            compressedData.detailedStats.abilities,
+            abilitiesManifest,
+          );
+
           let resolvedFaithfulAbilities: ExpandedAbility[] | null = null;
           if (compressedData.detailedStats.faithfulAbilities) {
             resolvedFaithfulAbilities = await resolveAbilities(
-              compressedData.detailedStats.faithfulAbilities, 
-              abilitiesManifest
+              compressedData.detailedStats.faithfulAbilities,
+              abilitiesManifest,
+            );
+          }
+
+          let resolvedUpdatedAbilities: ExpandedAbility[] | null = null;
+          if (compressedData.detailedStats.updatedAbilities) {
+            resolvedUpdatedAbilities = await resolveAbilities(
+              compressedData.detailedStats.updatedAbilities,
+              abilitiesManifest,
             );
           }
 
@@ -145,14 +185,15 @@ export async function loadMultiplePokemonData(pokemonNames: string[]): Promise<(
             detailedStats: {
               ...compressedData.detailedStats,
               abilities: resolvedAbilities,
-              faithfulAbilities: resolvedFaithfulAbilities
-            }
+              faithfulAbilities: resolvedFaithfulAbilities,
+              updatedAbilities: resolvedUpdatedAbilities,
+            },
           };
         } catch (error) {
           console.error(`Error loading Pokemon data for ${name}:`, error);
           return null;
         }
-      })
+      }),
     );
 
     return results;

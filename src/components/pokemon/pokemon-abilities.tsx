@@ -26,11 +26,14 @@ export function PokemonAbilities({
   });
 
   // Determine which abilities to show based on faithful preference and availability
-  const abilitiesToShow = showFaithful
-    ? abilities || faithfulAbilities
-    : updatedAbilities && updatedAbilities.length > 0
-      ? updatedAbilities
-      : abilities || faithfulAbilities;
+  let abilitiesToShow;
+  if (showFaithful) {
+    abilitiesToShow =
+      faithfulAbilities && faithfulAbilities.length > 0 ? faithfulAbilities : abilities;
+  } else {
+    abilitiesToShow =
+      updatedAbilities && updatedAbilities.length > 0 ? updatedAbilities : abilities;
+  }
 
   return (
     <div>

@@ -3,6 +3,7 @@
   "nationalDex": 134,
   "johtoDex": 204,
   "types": "Water",
+  "updatedTypes": "Water",
   "frontSpriteUrl": "/sprites/pokemon/vaporeon/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,64 @@
     "hatchRate": "Very Slow (10,240 steps)",
     "abilities": [
       {
-        "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "water-absorb",
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "hydration",
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Water Absorb",
+        "description": "\tRestores HP if hit \tby Water moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Drizzle",
+        "description": "\tSummons rain when \tswitched in.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
