@@ -5,6 +5,7 @@ import pokemonBaseData from '@/output/pokemon_base_data.json';
 import pokemonMoveDescriptions from '@/output/pokemon_move_descriptions.json';
 import { Badge } from '../ui/badge';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
+import Link from 'next/link';
 
 interface TrainerCardProps {
   trainer: GymLeader | LocationTrainer;
@@ -69,26 +70,28 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                           className="inline-block mr-2"
                         />
                         <div className="flex-1 min-w-0">
-                          <h3 className="capitalize">
-                            {poke.species}{' '}
-                            {poke.gender?.toLowerCase() === 'female' && (
-                              <Image
-                                src={`/icons/venus-solid.svg`}
-                                alt="Female"
-                                width={10}
-                                height={10}
-                                className="inline-block translate-y-[-1px] mr-2"
-                              />
-                            )}
-                            {poke.gender?.toLowerCase() === 'male' && (
-                              <Image
-                                src={`/icons/mars-solid.svg`}
-                                alt="Male"
-                                width={10}
-                                height={10}
-                                className="inline-block translate-y-[-1px] mr-2"
-                              />
-                            )}
+                          <h3 className="capitalize font-bold">
+                            <Link href={`/pokemon/${encodeURIComponent(poke.species)}`}>
+                              {poke.species}{' '}
+                              {poke.gender?.toLowerCase() === 'female' && (
+                                <Image
+                                  src={`/icons/venus-solid.svg`}
+                                  alt="Female"
+                                  width={10}
+                                  height={10}
+                                  className="inline-block translate-y-[-1px] mr-2"
+                                />
+                              )}
+                              {poke.gender?.toLowerCase() === 'male' && (
+                                <Image
+                                  src={`/icons/mars-solid.svg`}
+                                  alt="Male"
+                                  width={10}
+                                  height={10}
+                                  className="inline-block translate-y-[-1px] mr-2"
+                                />
+                              )}
+                            </Link>
                           </h3>
                           {poke.level && <p className="text-xs">Lv. {poke.level}</p>}
 

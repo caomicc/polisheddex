@@ -343,6 +343,26 @@ export interface LocationHiddenItem {
 }
 
 // Trainer types
+export interface TrainerPokemonVariant {
+  ability?: string;
+  nature?: string;
+  moves?: string[];
+  dvs?: {
+    hp: number;
+    attack: number;
+    defense: number;
+    speed: number;
+    special: number;
+  };
+  evs?: {
+    hp: number;
+    attack: number;
+    defense: number;
+    speed: number;
+    special: number;
+  };
+}
+
 export interface TrainerPokemon {
   level: number;
   species: string;
@@ -368,6 +388,9 @@ export interface TrainerPokemon {
     speed: number;
     special: number;
   };
+  // Faithful and polished variants for version-specific data
+  faithful?: TrainerPokemonVariant;
+  polished?: TrainerPokemonVariant;
 }
 
 export interface LocationTrainer {

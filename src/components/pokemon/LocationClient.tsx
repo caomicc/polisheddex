@@ -104,15 +104,15 @@ export default function LocationClient({
           {comprehensiveInfo.gymLeader && (
             <TrainerCard trainer={comprehensiveInfo.gymLeader} isGymLeader />
           )}
+        </div>
+      )}
 
-          {comprehensiveInfo.trainers && comprehensiveInfo.trainers.length > 0 && (
-            <div className="trainers-list flex flex-col gap-4 mt-6">
-              <h3 className="text-lg font-semibold">Trainers:</h3>
-              {comprehensiveInfo.trainers.map((trainer: LocationTrainer, index: number) => (
-                <TrainerCard key={index} trainer={trainer} />
-              ))}
-            </div>
-          )}
+      {comprehensiveInfo.trainers && comprehensiveInfo.trainers.length > 0 && (
+        <div className="trainers-list flex flex-col gap-4 mt-6">
+          <h3 className="text-lg font-semibold">Trainers:</h3>
+          {comprehensiveInfo.trainers.map((trainer: LocationTrainer, index: number) => (
+            <TrainerCard key={index} trainer={trainer} />
+          ))}
         </div>
       )}
 
