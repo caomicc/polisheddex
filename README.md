@@ -52,12 +52,12 @@ See [String Normalizer Documentation](/src/utils/stringNormalizer/README.md) for
 
 ### Installation
 1. Clone the repo:
-   ```sh
+```sh
 git clone https://github.com/caomicc/polisheddex.git
 cd polisheddex
 ```
 2. Install dependencies:
-   ```sh
+```sh
 npm install
 # or
 yarn install
@@ -67,7 +67,7 @@ yarn install
    - If you need to regenerate data, use the provided scripts (e.g. `extract_pokemon_data.ts`).
 
 4. Run the development server:
-   ```sh
+```sh
 npm run dev
 # or
 yarn dev
