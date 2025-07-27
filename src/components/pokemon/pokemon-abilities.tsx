@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { DetailedStats } from '@/types/types';
 import { cn } from '@/lib/utils';
+import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 interface PokemonAbilitiesProps {
   faithfulAbilities?: DetailedStats['faithfulAbilities'];
@@ -13,29 +14,22 @@ export function PokemonAbilities({
   updatedAbilities,
   className,
 }: PokemonAbilitiesProps) {
-  const showUpdated = Array.isArray(updatedAbilities) && updatedAbilities.length > 0;
+  // const showUpdated = Array.isArray(updatedAbilities) && updatedAbilities.length > 0;
+
+  const { showFaithful } = useFaithfulPreference();
 
   return (
     <div>
-      <div className={cn('grid grid-cols-1', showUpdated ? 'gap-6 md:grid-cols-2' : '')}>
-        <div>
-          <h3 className="font-bold text-sm mb-4 text-left">Faithful Abilities:</h3>
-          <div className={cn('flex flex-col gap-2  ', className, showUpdated ? 'mb-6 md:m-0' : '')}>
-            {faithfulAbilities?.map((ability, idx) => (
-              <AbilityRow key={`${ability.name}-${idx}`} ability={ability} />
-            ))}
-          </div>
-        </div>
-        <div>
-          <h3 className={cn('font-bold text-sm mb-4 text-left', showUpdated ? '' : 'hidden')}>
-            Polished Abilities:
-          </h3>
-          <div className={cn('flex flex-col gap-2', className)}>
-            {updatedAbilities?.map((ability, idx) => (
-              <AbilityRow key={`${ability.name}-${idx}`} ability={ability} />
-            ))}
-          </div>
-        </div>
+      <h3 className={cn('font-bold text-sm mb-2 text-left')}>Abilities:</h3>
+      <div className={cn('flex flex-col gap-2', className)}>
+        {(showFaithful
+          ? faithfulAbilities
+          : updatedAbilities && updatedAbilities.length > 0
+            ? updatedAbilities
+            : faithfulAbilities
+        )?.map((ability, idx) => (
+          <AbilityRow key={`${ability.name}-${idx}`} ability={ability} />
+        ))}
       </div>
     </div>
   );

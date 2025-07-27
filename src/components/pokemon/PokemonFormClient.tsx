@@ -75,7 +75,7 @@ export default function PokemonFormClient({
     <>
       {/* Set Pokemon type theme based on current form */}
       <PokemonTypeSetter
-        primaryType={formData.updatedTypes || formData.types || null}
+        primaryType={(showFaithful ? formData.types : formData.updatedTypes) || null}
         secondaryType={undefined}
       />
       <div className="space-y-6">
@@ -85,7 +85,6 @@ export default function PokemonFormClient({
           pokemonName={pokemonName}
           selectedForm={selectedForm}
           setSelectedForm={setSelectedForm}
-          usePolished={true}
         />
 
         <Tabs
@@ -207,17 +206,15 @@ export default function PokemonFormClient({
                         />
                       </div>
                     ) : null}
+                    <PokemonAbilities
+                      faithfulAbilities={formData.faithfulAbilities}
+                      updatedAbilities={formData.updatedAbilities}
+                    />
                   </div>
                 </div>
               </div>
             </SectionCard>
 
-            <SectionCard headline={'Abilities'}>
-              <PokemonAbilities
-                faithfulAbilities={formData.faithfulAbilities}
-                updatedAbilities={formData.updatedAbilities}
-              />
-            </SectionCard>
             <SectionCard headline={'Catch Rate'}>
               <p className="text-sm">
                 <span className="font-bold">Base Catch Rate</span>: {formData.catchRate}

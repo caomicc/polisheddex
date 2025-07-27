@@ -14,6 +14,7 @@ import {
 } from '../ui/breadcrumb';
 import Link from 'next/link';
 import { Hero } from '../ui/Hero';
+import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 const PokedexHeader = ({
   formData,
@@ -21,14 +22,14 @@ const PokedexHeader = ({
   pokemonName,
   selectedForm,
   setSelectedForm,
-  usePolished,
+  // usePolished,
 }: {
   formData: FormData;
   uniqueForms: string[];
   pokemonName: string;
   selectedForm: string;
   setSelectedForm: React.Dispatch<React.SetStateAction<string>>;
-  usePolished: boolean;
+  // usePolished: boolean;
   breadcrumbs?: React.ReactNode;
 }) => {
   // Desktop version uses the original two-row layout
@@ -36,6 +37,7 @@ const PokedexHeader = ({
   // Mobile version uses a compact layout with each row
   // Determine which types to use for the gradient: faithful (original) or polished (updated)
   // const usePolished = selectedForm === 'polished' || selectedForm === 'updated'; // Adjust this logic if you have a more explicit trigger
+  const { showFaithful } = useFaithfulPreference();
   const faithfulTypes = Array.isArray(formData.types)
     ? formData.types
     : [formData.types].filter(Boolean);
@@ -45,7 +47,7 @@ const PokedexHeader = ({
 
   // Use selected types based on trigger
   const [primaryType, secondaryType] =
-    usePolished && polishedTypes.length > 0 ? polishedTypes : faithfulTypes;
+    !showFaithful && polishedTypes.length > 0 ? polishedTypes : faithfulTypes;
 
   const gradientProps = primaryType
     ? getTypeGradientProps(primaryType.toLowerCase(), secondaryType?.toLowerCase())
@@ -89,9 +91,8 @@ const PokedexHeader = ({
       image={formData.frontSpriteUrl}
       headline={pokemonName}
     >
-      <div className="flex flex-row flex-wrap md:flex-row items-start md:items-center gap-2 md:gap-6">
-        <div className={'md:h-[60px]'}>
-          <label className="leading-none text-xs w-[50px]">Faithful:</label>
+      <div className="flex flex-col flex-wrap items-start gap-2 ">
+        {showFaithful ? (
           <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
             {formData.types ? (
               Array.isArray(formData.types) ? (
@@ -112,37 +113,35 @@ const PokedexHeader = ({
               <Badge variant="secondary">Unknown</Badge>
             )}
           </div>
-        </div>
-        <div>
-          <div className={'md:h-[60px]'}>
-            <label className="leading-none text-xs w-[50px]">Polished:</label>
-            <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-              {formData.updatedTypes ? (
-                Array.isArray(formData.updatedTypes) ? (
-                  formData.updatedTypes.map((type: string) => (
-                    <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                      {type}
-                    </Badge>
-                  ))
-                ) : (
-                  <Badge
-                    key={formData.updatedTypes}
-                    variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
-                  >
-                    {formData.types}
+        ) : (
+          <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
+            {formData.updatedTypes ? (
+              Array.isArray(formData.updatedTypes) ? (
+                formData.updatedTypes.map((type: string) => (
+                  <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+                    {type}
                   </Badge>
-                )
+                ))
               ) : (
-                <></>
-              )}
-            </div>
+                <Badge
+                  key={formData.updatedTypes}
+                  variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
+                >
+                  {formData.types}
+                </Badge>
+              )
+            ) : (
+              <></>
+            )}
           </div>
-        </div>
+        )}
+
         {uniqueForms.length > 0 && (
           <PokemonFormSelect
             selectedForm={selectedForm}
             setSelectedForm={setSelectedForm}
             uniqueForms={uniqueForms}
+            classes="md:absolute md:right-0 md:bottom-6 md:w-[200px] w-full"
           />
         )}
       </div>
