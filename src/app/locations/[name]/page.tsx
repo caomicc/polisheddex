@@ -224,7 +224,7 @@ export default async function LocationDetailPage({
   });
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className="flex justify-center py-8">Loading...</div>}>
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <div className="space-y-6">
           <Hero

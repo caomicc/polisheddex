@@ -158,7 +158,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
         <PokemonKeyboardNavigation navigation={navigation} />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="flex justify-center py-8">Loading...</div>}>
           <PokemonFormClient
             forms={forms}
             allFormData={allFormData}
