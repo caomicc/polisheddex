@@ -43,7 +43,7 @@ import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 function MyComponent() {
   const { showFaithful, toggleFaithful, setFaithful } = useFaithfulPreference();
-  
+
   return (
     <Switch
       checked={showFaithful}
@@ -61,7 +61,7 @@ import { getFaithfulPreference } from '@/lib/faithful-preference';
 
 export default async function ServerComponent() {
   const initialFaithfulPreference = await getFaithfulPreference();
-  
+
   return (
     <FaithfulPreferenceProvider initialValue={initialFaithfulPreference}>
       {/* Your app content */}
@@ -77,7 +77,7 @@ export default async function ServerComponent() {
 - **Name**: `faithful-preference`
 - **Values**: `'true'` (faithful mode) or `'false'` (polished mode)
 - **Max Age**: 1 year (365 days)
-- **Security**: 
+- **Security**:
   - `httpOnly: false` (allows client-side access if needed)
   - `secure: true` (production only, HTTPS required)
   - `sameSite: 'strict'` (CSRF protection)
@@ -85,7 +85,7 @@ export default async function ServerComponent() {
 
 ### State Management Flow
 
-1. **Initial Load**: 
+1. **Initial Load**:
    - Server reads cookie value using `getFaithfulPreference()`
    - Value is passed to `FaithfulPreferenceProvider` as `initialValue`
    - Context initializes with server-provided value
@@ -126,7 +126,7 @@ The faithful vs polished preference affects various aspects of Pokémon data:
 - **Faithful**: Original movesets and move data
 - **Polished**: Updated movesets with balance changes, new moves, and improved distributions
 
-### Abilities  
+### Abilities
 - **Faithful**: Original abilities from the base game
 - **Polished**: Updated abilities with balance changes and new ability distributions
 

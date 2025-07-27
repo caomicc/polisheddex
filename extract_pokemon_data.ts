@@ -1,14 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import {
-  DEBUG_POKEMON,
-  evoMap,
-  formTypeMap,
-  KNOWN_FORMS,
-  preEvoMap,
-  typeMap,
-} from './src/data/constants.ts';
+import { DEBUG_POKEMON, evoMap, formTypeMap, preEvoMap, typeMap } from './src/data/constants.ts';
 import {
   extractTypeChart,
   extractHiddenGrottoes,

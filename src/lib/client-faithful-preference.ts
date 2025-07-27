@@ -6,11 +6,11 @@ export function getClientSideFaithfulPreference(): boolean {
   if (typeof document === 'undefined') {
     return false; // Default to false (polished mode) on server
   }
-  
+
   try {
     const cookieValue = document.cookie
       .split('; ')
-      .find(row => row.startsWith('faithful-preference='))
+      .find((row) => row.startsWith('faithful-preference='))
       ?.split('=')[1];
     return cookieValue === 'true';
   } catch (error) {
@@ -27,7 +27,7 @@ export function setClientSideFaithfulPreference(faithful: boolean): void {
   if (typeof document === 'undefined') {
     return; // Can't set cookies on server
   }
-  
+
   try {
     const maxAge = 60 * 60 * 24 * 365; // 1 year in seconds
     const value = faithful ? 'true' : 'false';
