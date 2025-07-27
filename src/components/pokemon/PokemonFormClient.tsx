@@ -48,13 +48,7 @@ export default function PokemonFormClient({
   const [activeTab, setActiveTab] = useQueryState('tab', {
     defaultValue: 'stats',
   });
-  const { showFaithful: showFaithfulMoves } = useFaithfulPreference();
-
-  // Save move mode preference
-  // const handleMoveToggle = (faithful: boolean) => {
-  //   setShowFaithfulMoves(faithful);
-  //   // The context will handle saving to the cookie
-  // };
+  const { showFaithful } = useFaithfulPreference();
 
   // Convert selectedForm to title case to match keys in allFormData
   const toTitleCase = (str: string) =>
@@ -186,26 +180,21 @@ export default function PokemonFormClient({
                 </div>
                 <div className="md:flex-1 md:h-[100%] flex ">
                   <div className={cn('flex flex-col gap-6')}>
-                    <div>
-                      <h3 className={cn('font-bold text-sm mb-1 text-left')}>
-                        Faithful Type Chart:
-                      </h3>
-                      <WeaknessChart
-                        types={
-                          Array.isArray(formData.types)
-                            ? formData.types.map((t: string) => t.toLowerCase())
-                            : formData.types
-                              ? [formData.types.toLowerCase()]
-                              : []
-                        }
-                        variant="Faithful"
-                      />
-                    </div>
-                    {formData.updatedTypes && (
+                    {showFaithful ? (
                       <div>
-                        <h3 className={cn('font-bold text-sm mb-1 text-left')}>
-                          Polished Type Chart:
-                        </h3>
+                        <WeaknessChart
+                          types={
+                            Array.isArray(formData.types)
+                              ? formData.types.map((t: string) => t.toLowerCase())
+                              : formData.types
+                                ? [formData.types.toLowerCase()]
+                                : []
+                          }
+                          variant="Faithful"
+                        />
+                      </div>
+                    ) : formData.updatedTypes ? (
+                      <div>
                         <WeaknessChart
                           types={
                             Array.isArray(formData.updatedTypes)
@@ -217,7 +206,7 @@ export default function PokemonFormClient({
                           variant="Polished"
                         />
                       </div>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               </div>
@@ -488,18 +477,18 @@ export default function PokemonFormClient({
               {/* <div className="flex justify-center items-center gap-3 mb-4">
                 <div className="flex items-center gap-2 ml-auto">
                   <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
-                    <span className={showFaithfulMoves ? 'font-bold' : 'text-gray-500'}>
+                    <span className={showFaithful ? 'font-bold' : 'text-gray-500'}>
                       Faithful
                     </span>
                     {' / '}
-                    <span className={!showFaithfulMoves ? 'font-bold' : 'text-gray-500'}>
+                    <span className={!showFaithful ? 'font-bold' : 'text-gray-500'}>
                       Updated
                     </span>
                     {' Types'}
                   </Label>
                   <Switch
                     id="type-toggle"
-                    checked={showFaithfulMoves}
+                    checked={showFaithful}
                     onCheckedChange={handleMoveToggle}
                     aria-label="Toggle between faithful and updated Pokémon types"
                   />
@@ -519,7 +508,7 @@ export default function PokemonFormClient({
                     // Determine which moves to show based on toggle
                     let movesToShow: Move[] = [];
 
-                    if (showFaithfulMoves) {
+                    if (showFaithful) {
                       // Show faithful moves if available, otherwise fall back to regular moves
                       const faithfulMoves =
                         formData.faithfulLevelMoves && formData.faithfulLevelMoves.length > 0
@@ -560,7 +549,7 @@ export default function PokemonFormClient({
                             formData.updatedLevelMoves.length > 0)) && (
                           <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
                             <p className="text-sm text-blue-800 dark:text-blue-200">
-                              {showFaithfulMoves
+                              {showFaithful
                                 ? 'Showing faithful (original) movesets'
                                 : (() => {
                                     // Calculate additional moves in updated version
@@ -630,7 +619,7 @@ export default function PokemonFormClient({
 
                               return (
                                 <MoveRow
-                                  key={`move-${moveData.name}-${moveData.level}-${showFaithfulMoves ? 'faithful' : 'polished'}-${index}`}
+                                  key={`move-${moveData.name}-${moveData.level}-${showFaithful ? 'faithful' : 'polished'}-${index}`}
                                   name={moveData.name}
                                   level={moveData.level}
                                   info={moveInfo}
@@ -642,7 +631,7 @@ export default function PokemonFormClient({
                       </div>
                     ) : (
                       <div className="text-gray-400 text-sm mb-6">
-                        No {showFaithfulMoves ? 'faithful' : 'updated'} move data
+                        No {showFaithful ? 'faithful' : 'updated'} move data
                       </div>
                     );
                   })()}
