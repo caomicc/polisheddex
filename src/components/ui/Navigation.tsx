@@ -11,6 +11,7 @@ import { usePokemonType } from '@/contexts/PokemonTypeContext';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { Switch } from './switch';
 import { Label } from './label';
+import HamburgerMenu from './hamburger';
 
 const NavigationMenuDemo = () => {
   const [heroVisible, setHeroVisible] = React.useState(true);
@@ -50,7 +51,7 @@ const NavigationMenuDemo = () => {
         hasPokemonTheme && 'pokemon-themed',
       )}
     >
-      <div className="w-full mx-auto flex items-center justify-between">
+      <div className="w-full mx-auto flex items-center justify-between gap-2 md:gap-4">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2" aria-label="Home">
             <div className="aspect-square w-8 relative">
@@ -73,7 +74,7 @@ const NavigationMenuDemo = () => {
             </span>
           </Link>
         </div>
-        <NavigationMenu.Root className="NavigationMenuRoot justify-start!">
+        <NavigationMenu.Root className="NavigationMenuRoot justify-start! !hidden md:!flex">
           <NavigationMenu.List className="NavigationMenuList">
             <NavigationMenu.Item>
               <NavigationMenu.Link
@@ -149,6 +150,8 @@ const NavigationMenuDemo = () => {
             aria-label="Toggle between faithful and updated Pokémon types"
           />
         </div>
+
+        <HamburgerMenu />
       </div>
     </div>
   );

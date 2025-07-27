@@ -15,8 +15,6 @@ import PokedexHeader from './PokedexHeader';
 import { WeaknessChart } from './WeaknessChart';
 import PokemonTypeSetter from './PokemonTypeSetter';
 import SectionCard from './SectionCard';
-import { Switch } from '../ui/switch';
-import { Label } from '../ui/label';
 import { useQueryState } from 'nuqs';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
@@ -50,14 +48,13 @@ export default function PokemonFormClient({
   const [activeTab, setActiveTab] = useQueryState('tab', {
     defaultValue: 'stats',
   });
-  const { showFaithful: showFaithfulMoves, setFaithful: setShowFaithfulMoves } =
-    useFaithfulPreference();
+  const { showFaithful: showFaithfulMoves } = useFaithfulPreference();
 
   // Save move mode preference
-  const handleMoveToggle = (faithful: boolean) => {
-    setShowFaithfulMoves(faithful);
-    // The context will handle saving to the cookie
-  };
+  // const handleMoveToggle = (faithful: boolean) => {
+  //   setShowFaithfulMoves(faithful);
+  //   // The context will handle saving to the cookie
+  // };
 
   // Convert selectedForm to title case to match keys in allFormData
   const toTitleCase = (str: string) =>
@@ -488,7 +485,7 @@ export default function PokemonFormClient({
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
             <SectionCard headline={'Moves'}>
-              <div className="flex justify-center items-center gap-3 mb-4">
+              {/* <div className="flex justify-center items-center gap-3 mb-4">
                 <div className="flex items-center gap-2 ml-auto">
                   <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
                     <span className={showFaithfulMoves ? 'font-bold' : 'text-gray-500'}>
@@ -507,7 +504,7 @@ export default function PokemonFormClient({
                     aria-label="Toggle between faithful and updated Pokémon types"
                   />
                 </div>
-              </div>
+              </div> */}
               <Tabs defaultValue="level-up" className="w-full">
                 <div className="px-4 md:px-0">
                   <TabsList className="w-full">
