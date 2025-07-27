@@ -1,7 +1,5 @@
-import fs from 'fs';
-import path from 'path';
 import { notFound } from 'next/navigation';
-import { ItemsDatabase, AnyItemData, isRegularItem, isTMHMItem } from '@/types/types';
+import { AnyItemData, isRegularItem, isTMHMItem } from '@/types/types';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,6 +11,7 @@ import {
 import Link from 'next/link';
 import { Hero } from '@/components/ui/Hero';
 import { normalizeLocationKey } from '@/utils/locationUtils';
+import { loadItemById, loadItemsData } from '@/utils/item-data-loader';
 
 interface ItemPageProps {
   params: Promise<{ name: string }>;
@@ -21,12 +20,8 @@ interface ItemPageProps {
 export default async function ItemPage({ params }: ItemPageProps) {
   const { name } = await params;
 
-  // Read the JSON file at build time
-  const filePath = path.join(process.cwd(), 'output/items_data.json');
-  const data: ItemsDatabase = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-
-  // Find the item by ID
-  const item: AnyItemData | undefined = data[name];
+  // Load the item using the optimized loader
+  const item = await loadItemById(name);
 
   if (!item) {
     notFound();
@@ -250,10 +245,9 @@ function TMHMItemDetails({ item }: { item: import('@/types/types').TMHMData }) {
 
 // Generate static params for all items
 export async function generateStaticParams() {
-  const filePath = path.join(process.cwd(), 'output/items_data.json');
-  const data: ItemsDatabase = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  const itemsData = await loadItemsData();
 
-  return Object.keys(data).map((itemId) => ({
+  return Object.keys(itemsData).map((itemId) => ({
     name: itemId,
   }));
 }
@@ -261,9 +255,7 @@ export async function generateStaticParams() {
 // Generate metadata for SEO and social sharing
 export async function generateMetadata({ params }: ItemPageProps) {
   const { name } = await params;
-  const filePath = path.join(process.cwd(), 'output/items_data.json');
-  const data: ItemsDatabase = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const item: AnyItemData | undefined = data[name];
+  const item = await loadItemById(name);
 
   if (!item) {
     return {

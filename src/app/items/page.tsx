@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import fs from 'fs';
-import path from 'path';
-import { ItemsDatabase, AnyItemData } from '@/types/types';
+import { AnyItemData } from '@/types/types';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,14 +10,14 @@ import {
 } from '@/components/ui/breadcrumb';
 import ItemDataTableSearch from '@/components/items/ItemDataTableSearch';
 import { Hero } from '@/components/ui/Hero';
+import { loadItemsData } from '@/utils/item-data-loader';
 
 export default async function ItemsList() {
-  // Read the JSON file at build time
-  const filePath = path.join(process.cwd(), 'output/items_data.json');
-  const data: ItemsDatabase = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  // Load items using the optimized loader
+  const itemsData = await loadItemsData();
 
   // Convert to array for the data table
-  const allItems: AnyItemData[] = Object.values(data);
+  const allItems: AnyItemData[] = Object.values(itemsData);
 
   return (
     <>

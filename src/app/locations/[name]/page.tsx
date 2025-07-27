@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
@@ -16,35 +14,15 @@ import { normalizeLocationKey } from '@/utils/locationUtils';
 import { LocationData, GroupedPokemon, EncounterDetail } from '@/types/locationTypes';
 import { Hero } from '@/components/ui/Hero';
 import { groupLocationsHierarchically } from '@/utils/locationGrouping';
+import { loadPokemonLocationData, loadAllLocationData } from '@/utils/location-data-loader';
 
-// Function to load Pokemon location data
-async function loadPokemonLocationData() {
-  try {
-    const locationsFile = path.join(process.cwd(), 'output/locations_by_area.json');
-    const data = await fs.promises.readFile(locationsFile, 'utf8');
-    return JSON.parse(data) as Record<string, LocationData>;
-  } catch (error) {
-    console.error('Error loading Pokemon location data:', error);
-    return {};
-  }
-}
-
-// Function to load comprehensive location data
-async function loadAllLocationData() {
-  try {
-    const locationsFile = path.join(process.cwd(), 'output/all_locations.json');
-    const data = await fs.promises.readFile(locationsFile, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    console.error('Error loading comprehensive location data:', error);
-    return {};
-  }
-}
 
 // This function helps Next.js pre-render pages at build time
 export async function generateStaticParams() {
-  const pokemonLocations = await loadPokemonLocationData();
-  const allLocations = await loadAllLocationData();
+  const [pokemonLocations, allLocations] = await Promise.all([
+    loadPokemonLocationData(),
+    loadAllLocationData()
+  ]);
 
   // Get all unique location keys from both datasets
   const allLocationKeys = new Set([...Object.keys(pokemonLocations), ...Object.keys(allLocations)]);
@@ -60,8 +38,10 @@ export default async function LocationDetailPage({
   const { name } = await params;
   const locationName = decodeURIComponent(name);
 
-  const pokemonLocationData = await loadPokemonLocationData();
-  const allLocationData = await loadAllLocationData();
+  const [pokemonLocationData, allLocationData] = await Promise.all([
+    loadPokemonLocationData(),
+    loadAllLocationData()
+  ]);
 
   const groupedLocations = groupLocationsHierarchically(allLocationData);
 
@@ -275,8 +255,10 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const { name } = await params;
   const locationName = decodeURIComponent(name);
 
-  const allLocationData = await loadAllLocationData();
-  const pokemonLocationData = await loadPokemonLocationData();
+  const [allLocationData, pokemonLocationData] = await Promise.all([
+    loadAllLocationData(),
+    loadPokemonLocationData()
+  ]);
 
   // Get comprehensive location info
   const comprehensiveInfo = allLocationData[locationName];
