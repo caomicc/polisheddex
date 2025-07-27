@@ -8,6 +8,7 @@ import { Label } from '../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger } from '../ui/select';
 import { cn } from '@/lib/utils';
 import { Switch } from '../ui/switch';
+import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 interface PokemonSearchProps {
   pokemon: BaseData[];
@@ -16,7 +17,11 @@ interface PokemonSearchProps {
 
 export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [showUpdatedTypes, setShowUpdatedTypes] = useState(true);
+  const { showFaithful, toggleFaithful } = useFaithfulPreference();
+
+  // For backward compatibility, we'll use the inverse of showFaithful
+  // since the original logic was "showUpdatedTypes" (true = updated, false = faithful)
+  const showUpdatedTypes = !showFaithful;
 
   // Filter Pokemon based on search query (name or type)
   const filteredPokemon = pokemon.filter((p) => {
@@ -113,7 +118,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
           <Switch
             id="type-toggle"
             checked={showUpdatedTypes}
-            onCheckedChange={setShowUpdatedTypes}
+            onCheckedChange={() => toggleFaithful()}
             aria-label="Toggle between faithful and updated Pokémon types"
           />
         </div>

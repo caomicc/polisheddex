@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { MoveRow, LocationListItem } from '@/components/pokemon';
 import { FormData, Move, MoveDescription, LocationEntry } from '@/types/types';
@@ -18,6 +18,7 @@ import SectionCard from './SectionCard';
 import { Switch } from '../ui/switch';
 import { Label } from '../ui/label';
 import { useQueryState } from 'nuqs';
+import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 // Helper function to deduplicate moves based on name and level
 function deduplicateMoves(moves: Move[]): Move[] {
@@ -49,32 +50,13 @@ export default function PokemonFormClient({
   const [activeTab, setActiveTab] = useQueryState('tab', {
     defaultValue: 'stats',
   });
-  const [showFaithfulMoves, setShowFaithfulMoves] = useState(false);
-
-  // // Load saved tab from localStorage on component mount
-  // useEffect(() => {
-  //   const savedTab = localStorage.getItem('pokemonActiveTab');
-  //   if (savedTab) {
-  //     setActiveTab(savedTab);
-  //   }
-
-  //   // Load faithful/updated toggle preference
-  //   const savedMoveMode = localStorage.getItem('pokemonMoveMode');
-  //   if (savedMoveMode === 'faithful') {
-  //     setShowFaithfulMoves(true);
-  //   }
-  // }, []);
-
-  // // Save tab to localStorage when it changes
-  // const handleTabChange = (value: string) => {
-  //   setActiveTab(value);
-  //   localStorage.setItem('pokemonActiveTab', value);
-  // };
+  const { showFaithful: showFaithfulMoves, setFaithful: setShowFaithfulMoves } =
+    useFaithfulPreference();
 
   // Save move mode preference
   const handleMoveToggle = (faithful: boolean) => {
     setShowFaithfulMoves(faithful);
-    localStorage.setItem('pokemonMoveMode', faithful ? 'faithful' : 'updated');
+    // The context will handle saving to the cookie
   };
 
   // Convert selectedForm to title case to match keys in allFormData

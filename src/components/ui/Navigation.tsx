@@ -8,11 +8,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
+import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { Switch } from './switch';
+import { Label } from './label';
 
 const NavigationMenuDemo = () => {
   const [heroVisible, setHeroVisible] = React.useState(true);
   const [isHydrated, setIsHydrated] = React.useState(false);
   const { primaryType } = usePokemonType();
+  const { showFaithful, toggleFaithful } = useFaithfulPreference();
 
   React.useEffect(() => {
     // Mark as hydrated after first render
@@ -122,6 +126,7 @@ const NavigationMenuDemo = () => {
                 Items
               </NavigationMenu.Link>
             </NavigationMenu.Item>
+
             <NavigationMenu.Indicator className="NavigationMenuIndicator">
               <div className="Arrow" />
             </NavigationMenu.Indicator>
@@ -130,6 +135,21 @@ const NavigationMenuDemo = () => {
             <NavigationMenu.Viewport className="NavigationMenuViewport" />
           </div>
         </NavigationMenu.Root>
+
+        <div className="flex items-center gap-2 ml-auto">
+          <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
+            <span className={showFaithful ? 'font-bold' : 'text-gray-500'}>Faithful</span>
+            {' / '}
+            <span className={!showFaithful ? 'font-bold' : 'text-gray-500'}>Updated</span>
+            {' Types'}
+          </Label>
+          <Switch
+            id="type-toggle"
+            checked={showFaithful}
+            onCheckedChange={toggleFaithful}
+            aria-label="Toggle between faithful and updated Pokémon types"
+          />
+        </div>
       </div>
     </div>
   );
