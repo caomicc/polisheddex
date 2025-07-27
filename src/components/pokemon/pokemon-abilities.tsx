@@ -4,30 +4,32 @@ import { cn } from '@/lib/utils';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 interface PokemonAbilitiesProps {
+  abilities?: DetailedStats['abilities'];
   faithfulAbilities?: DetailedStats['faithfulAbilities'];
   updatedAbilities?: DetailedStats['updatedAbilities'];
   className?: string;
 }
 
 export function PokemonAbilities({
+  abilities,
   faithfulAbilities,
   updatedAbilities,
   className,
 }: PokemonAbilitiesProps) {
-  // const showUpdated = Array.isArray(updatedAbilities) && updatedAbilities.length > 0;
-
   const { showFaithful } = useFaithfulPreference();
+
+  // Determine which abilities to show based on faithful preference and availability
+  const abilitiesToShow = showFaithful
+    ? faithfulAbilities || abilities
+    : updatedAbilities && updatedAbilities.length > 0
+      ? updatedAbilities
+      : abilities || faithfulAbilities;
 
   return (
     <div>
       <h3 className={cn('font-bold text-sm mb-2 text-left')}>Abilities:</h3>
       <div className={cn('flex flex-col gap-2', className)}>
-        {(showFaithful
-          ? faithfulAbilities
-          : updatedAbilities && updatedAbilities.length > 0
-            ? updatedAbilities
-            : faithfulAbilities
-        )?.map((ability, idx) => (
+        {abilitiesToShow?.map((ability, idx) => (
           <AbilityRow key={`${ability.name}-${idx}`} ability={ability} />
         ))}
       </div>

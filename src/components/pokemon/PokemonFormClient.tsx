@@ -207,6 +207,7 @@ export default function PokemonFormClient({
                       </div>
                     ) : null}
                     <PokemonAbilities
+                      abilities={formData.abilities}
                       faithfulAbilities={formData.faithfulAbilities}
                       updatedAbilities={formData.updatedAbilities}
                     />
