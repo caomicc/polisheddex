@@ -1,4 +1,5 @@
 import path from 'path';
+import { Suspense } from 'react';
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -21,8 +22,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const pokemonFile = path.join(process.cwd(), `output/pokemon/${getPokemonFileName(standardKey)}`);
   const pokemonData = await loadJsonData<PokemonDataV3>(pokemonFile);
 
-  // Build the path to the individual Pokémon file using the URL-safe filename
-  // const pokemonData = await loadJsonFile<PokemonDataV3>(`output/pokemon/${getPokemonFileName(standardKey)}`);
   if (!pokemonData) return notFound();
 
   // Map the loaded data to the expected structure for the client component
@@ -69,11 +68,6 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     abilities: pokemonData.detailedStats?.abilities ?? [],
     faithfulAbilities: pokemonData.detailedStats?.faithfulAbilities ?? [],
     updatedAbilities: pokemonData.detailedStats?.updatedAbilities ?? [],
-    // height: pokemonData.detailedStats?.height || 0,
-    // weight: pokemonData.detailedStats?.weight || 0,
-    // bodyColor: pokemonData.detailedStats?.bodyColor || '',
-    // bodyShape: pokemonData.detailedStats?.bodyShape || '',
-    // genderRatio: pokemonData.detailedStats?.genderRatio || {},
   };
 
   // Add any additional forms
@@ -164,12 +158,14 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-4 sr-only">{pokemonName}</h1>
         <PokemonKeyboardNavigation navigation={navigation} />
-        <PokemonFormClient
-          forms={forms}
-          allFormData={allFormData}
-          moveDescData={moveDescData}
-          pokemonName={pokemonName}
-        />
+        <Suspense fallback={<div>Loading...</div>}>
+          <PokemonFormClient
+            forms={forms}
+            allFormData={allFormData}
+            moveDescData={moveDescData}
+            pokemonName={pokemonName}
+          />
+        </Suspense>
         {/* Only render navigation if we have valid navigation data */}
         {navigation.current.index !== -1 ? (
           <PokemonNavigation navigation={navigation} dexType={dexType} />
@@ -315,5 +311,8 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
     alternates: {
       canonical: url,
     },
+
+    // Viewport metadata
+    viewport: 'width=device-width, initial-scale=1',
   };
 }
