@@ -3,6 +3,7 @@
   "nationalDex": 7,
   "johtoDex": 270,
   "types": "Water",
+  "updatedTypes": "Water",
   "frontSpriteUrl": "/sprites/pokemon/squirtle/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "torrent",
+        "name": "Torrent",
+        "description": "\tBoosts Water moves \tin a pinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "rain-dish",
+        "name": "Rain Dish",
+        "description": "\tGradually regains \tHP in rain.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Torrent",
+        "description": "\tBoosts Water moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Rain Dish",
+        "description": "\tGradually regains \tHP in rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Monster",

@@ -3,6 +3,7 @@
   "nationalDex": 272,
   "johtoDex": 210,
   "types": "Ice",
+  "updatedTypes": "Ice",
   "frontSpriteUrl": "/sprites/pokemon/glaceon/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -24,22 +25,64 @@
     "hatchRate": "Very Slow (10,240 steps)",
     "abilities": [
       {
-        "id": "snow-cloak",
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "snow-cloak",
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "ice-body",
+        "name": "Ice Body",
+        "description": "\tGradually regains \tHP in hail.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Ice Body",
+        "description": "\tGradually regains \tHP in hail.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Snow Warning",
+        "description": "\tSummons hailstorm \twhen switched in.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Ice Body",
+        "description": "\tGradually regains \tHP in hail.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

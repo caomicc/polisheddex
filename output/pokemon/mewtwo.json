@@ -3,6 +3,7 @@
   "nationalDex": 150,
   "johtoDex": 287,
   "types": "Psychic",
+  "updatedTypes": "Psychic",
   "frontSpriteUrl": "/sprites/pokemon/mewtwo/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Unknown",
     "abilities": [
       {
-        "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "insomnia",
+        "name": "Insomnia",
+        "description": "",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "unnerve",
+        "name": "Unnerve",
+        "description": "\tPrevents foes from \teating Berries.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Insomnia",
+        "description": "",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Unnerve",
+        "description": "\tPrevents foes from \teating Berries.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered",

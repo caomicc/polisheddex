@@ -3,6 +3,7 @@
   "nationalDex": 120,
   "johtoDex": 187,
   "types": "Water",
+  "updatedTypes": "Water",
   "frontSpriteUrl": "/sprites/pokemon/staryu/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,22 +28,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "illuminate",
+        "name": "Illuminate",
+        "description": "\tRaises the rate \tof wild #mon.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Illuminate",
+        "description": "\tRaises the rate \tof wild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

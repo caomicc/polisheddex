@@ -3,6 +3,7 @@
   "nationalDex": 88,
   "johtoDex": 123,
   "types": "Poison",
+  "updatedTypes": "Poison",
   "frontSpriteUrl": "/sprites/pokemon/grimer/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,22 +28,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "stench",
+        "name": "Stench",
+        "description": "\tMay cause the foe \tto flinch.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "sticky-hold",
+        "name": "Sticky Hold",
+        "description": "\tProtects it from \titem theft.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "poison-touch",
+        "name": "Poison Touch",
+        "description": "\tMay poison the foe \ton contact.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Stench",
+        "description": "\tMay cause the foe \tto flinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Sticky Hold",
+        "description": "\tProtects it from \titem theft.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Poison Touch",
+        "description": "\tMay poison the foe \ton contact.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Amorphous",
@@ -70,7 +94,9 @@
           "parameter": 38,
           "target": "Muk",
           "form": "Plain Form"
-        },
+        }
+      ],
+      "grimer-alolan-form": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 38,

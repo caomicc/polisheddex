@@ -3,6 +3,7 @@
   "nationalDex": 109,
   "johtoDex": 121,
   "types": "Poison",
+  "updatedTypes": "Poison",
   "frontSpriteUrl": "/sprites/pokemon/koffing/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "neutralizing-gas",
+        "name": "Neutralizing Gas",
+        "description": "\tSuppresses all \tother Abilities.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "stench",
+        "name": "Stench",
+        "description": "\tMay cause the foe \tto flinch.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Neutralizing Gas",
+        "description": "\tSuppresses all \tother Abilities.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Stench",
+        "description": "\tMay cause the foe \tto flinch.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Amorphous",

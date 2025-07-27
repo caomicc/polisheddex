@@ -3,6 +3,7 @@
   "nationalDex": 37,
   "johtoDex": 134,
   "types": "Fire",
+  "updatedTypes": "Fire",
   "frontSpriteUrl": "/sprites/pokemon/vulpix/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,64 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "drought",
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Forewarn",
+        "description": "\tDetermines the \tfoe's moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Drought",
+        "description": "\tSummons sunlight \twhen switched in.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -69,7 +112,9 @@
           "parameter": "FIRE_STONE",
           "target": "Ninetales",
           "form": "Plain Form"
-        },
+        }
+      ],
+      "vulpix-alolan-form": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ICE_STONE",

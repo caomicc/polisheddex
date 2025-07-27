@@ -33,22 +33,64 @@
     "hatchRate": "Extremely Slow (20,480 steps)",
     "abilities": [
       {
-        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "multiscale",
+        "name": "Multiscale",
+        "description": "\tReduces damage \twhen HP is full.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Multiscale",
+        "description": "\tReduces damage \twhen HP is full.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [
+      {
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Marvel Scale",
+        "description": "\tBoosts Defense on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Multiscale",
+        "description": "\tReduces damage \twhen HP is full.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

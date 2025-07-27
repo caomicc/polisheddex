@@ -3,6 +3,7 @@
   "nationalDex": 28,
   "johtoDex": 50,
   "types": "Ground",
+  "updatedTypes": "Ground",
   "frontSpriteUrl": "/sprites/pokemon/sandslash/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "sand-rush",
+        "name": "Sand Rush",
+        "description": "\tBoosts Speed in \ta sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sand Rush",
+        "description": "\tBoosts Speed in \ta sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -69,7 +93,9 @@
           "parameter": 22,
           "target": "Sandslash",
           "form": "Plain Form"
-        },
+        }
+      ],
+      "sandshrew-alolan-form": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "ICE_STONE",

@@ -418,7 +418,9 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
     }
 
     if (evoMethods.length) {
-      evoMap[normalizeMoveString(currentMonV2)] = evoMethods.map((e) => ({
+      // Preserve form information for evolution mapping to prevent form stacking
+      const evoKey = currentMonV2; // Keep the original form-specific name (e.g., SlowpokePlain, SlowpokeGalarian)
+      evoMap[evoKey] = evoMethods.map((e) => ({
         ...e,
         target: normalizeMoveString(e.target),
         form: e.form ? normalizeMoveString(e.form) : undefined,
@@ -426,7 +428,7 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
       for (const evo of evoMethods) {
         const tgt = normalizeMoveString(evo.target);
         if (!preEvoMap[tgt]) preEvoMap[tgt] = [];
-        preEvoMap[tgt].push(normalizeMoveString(currentMonV2));
+        preEvoMap[tgt].push(currentMonV2); // Also preserve form info in preEvoMap
       }
     }
   }
@@ -713,9 +715,21 @@ function buildCompleteEvolutionChain(startMon: string): {
       // Check if this entry matches our current Pokémon (either exact or standardized)
       const standardEvoKey = standardizePokemonKey(evoKey);
       if (evoKey === currentMon || standardEvoKey === standardMon) {
-        // Store evolution methods for this Pokémon
-        if (!methodsByPokemon[normalizedDisplayName]) {
-          methodsByPokemon[normalizedDisplayName] = [];
+        
+        // Determine the proper source key for storing methods
+        // If evoKey contains form info (like SlowpokeGalarian), extract it for display
+        let sourceKey = normalizedDisplayName;
+        if (evoKey !== standardEvoKey) {
+          // This is a form-specific evolution key, extract form info
+          const { baseName: evoBaseName, formName } = extractFormFromName(evoKey);
+          if (formName) {
+            sourceKey = `${normalizedDisplayName} (${capitalizeFirstLetter(formName)} Form)`;
+          }
+        }
+        
+        // Store evolution methods for this Pokémon (potentially with form info)
+        if (!methodsByPokemon[sourceKey]) {
+          methodsByPokemon[sourceKey] = [];
         }
 
         // Add all its evolutions to the queue and collect their methods
@@ -723,19 +737,8 @@ function buildCompleteEvolutionChain(startMon: string): {
           const targetMon = standardizePokemonKey(evo.target);
           const normalizedTargetName = normalizePokemonDisplayName(targetMon);
 
-          // may need this for special cases like porygon-z
-
-          // Store evolution method information      // Fix inconsistent naming issues for special cases like porygon-z
-          // let fixedTargetName = normalizedTargetName;
-
-          // // Special case for porygon-z
-          // if (normalizedTargetName === 'Porygon Z' ||
-          //   normalizedTargetName.toLowerCase() === 'porygon z' ||
-          //   normalizedTargetName.toLowerCase() === 'porygonz') {
-          //   fixedTargetName = 'porygon-z';
-          // }
-
-          methodsByPokemon[normalizedDisplayName].push({
+          // Store evolution method information
+          methodsByPokemon[sourceKey].push({
             method: evo.method,
             parameter: evo.parameter,
             target: normalizedTargetName,
@@ -757,12 +760,47 @@ function buildCompleteEvolutionChain(startMon: string): {
   const sortedMethodsByPokemon: Record<string, EvolutionMethod[]> = {};
   for (const pokemon of sortedChain) {
     sortedMethodsByPokemon[pokemon] = methodsByPokemon[pokemon] || [];
+    
+    // Also include any form-specific methods for this pokemon
+    for (const [key, methods] of Object.entries(methodsByPokemon)) {
+      if (key.startsWith(pokemon + ' (') && !sortedMethodsByPokemon[key]) {
+        sortedMethodsByPokemon[key] = methods;
+      }
+    }
   }
 
   return {
     chain: sortedChain,
     methodsByPokemon: sortedMethodsByPokemon,
   };
+}
+
+// Helper function to capitalize first letter
+function capitalizeFirstLetter(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// Helper function to extract form information from Pokemon names like "SlowpokeGalarian"
+function extractFormFromName(pokemonName: string): { baseName: string; formName: string | null } {
+  // Common form suffixes in the ROM data
+  const formSuffixes = [
+    'Galarian',
+    'Alolan', 
+    'Hisuian',
+    'Paldean',
+    'Plain'
+  ];
+  
+  for (const suffix of formSuffixes) {
+    if (pokemonName.endsWith(suffix)) {
+      const baseName = pokemonName.slice(0, -suffix.length);
+      const formName = suffix.toLowerCase() === 'plain' ? null : suffix.toLowerCase();
+      return { baseName, formName };
+    }
+  }
+  
+  // No form suffix found
+  return { baseName: pokemonName, formName: null };
 }
 
 // Function to get the evolution chain and methods for a Pokémon

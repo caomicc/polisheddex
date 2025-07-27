@@ -3,6 +3,7 @@
   "nationalDex": 86,
   "johtoDex": 197,
   "types": "Water",
+  "updatedTypes": "Water",
   "frontSpriteUrl": "/sprites/pokemon/seel/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "thick-fat",
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "hydration",
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "ice-body",
+        "name": "Ice Body",
+        "description": "\tGradually regains \tHP in hail.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Thick Fat",
+        "description": "\tUps resistance to \tFire and Ice.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Hydration",
+        "description": "\tHeals status \tproblems in rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Ice Body",
+        "description": "\tGradually regains \tHP in hail.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

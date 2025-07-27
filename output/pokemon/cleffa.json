@@ -3,6 +3,7 @@
   "nationalDex": 173,
   "johtoDex": 40,
   "types": "Fairy",
+  "updatedTypes": "Fairy",
   "frontSpriteUrl": "/sprites/pokemon/cleffa/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Fast (2,560 steps)",
     "abilities": [
       {
-        "id": "cute-charm",
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "magic-guard",
+        "name": "Magic Guard",
+        "description": "\tOnly takes damage \tfrom attacks.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "cute-charm",
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Magic Guard",
+        "description": "\tOnly takes damage \tfrom attacks.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Cute Charm",
+        "description": "\tContact may cause \tinfatuation.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Fast",
     "eggGroups": [
       "Undiscovered",

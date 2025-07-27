@@ -31,22 +31,45 @@
     "hatchRate": "Very Slow (10,240 steps)",
     "abilities": [
       {
-        "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "unnerve",
+        "name": "Unnerve",
+        "description": "\tPrevents foes from \teating Berries.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "tough-claws",
+        "name": "Tough Claws",
+        "description": "\tBoosts moves that \tmakes contact.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Unnerve",
+        "description": "\tPrevents foes from \teating Berries.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Tough Claws",
+        "description": "\tBoosts moves that \tmakes contact.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Flying",

@@ -38,17 +38,17 @@ interface LocationManifest {
  */
 function calculateTrainerCount(locationData: LocationData): number {
   let count = 0;
-  
+
   // Count regular trainers
   if (locationData.trainers) {
     count += locationData.trainers.length;
   }
-  
+
   // Count gym leader (always counts as 1 trainer if present)
   if (locationData.gymLeader) {
     count += 1;
   }
-  
+
   return count;
 }
 
@@ -60,7 +60,7 @@ function getPokemonCount(locationName: string, pokemonLocationData: Record<strin
   if (!locationData || !locationData.pokemon) {
     return 0;
   }
-  
+
   return Object.keys(locationData.pokemon).length;
 }
 
@@ -70,61 +70,87 @@ function getPokemonCount(locationName: string, pokemonLocationData: Record<strin
 function determineLocationType(locationData: LocationData): string {
   const name = locationData.name.toLowerCase();
   const displayName = locationData.displayName.toLowerCase();
-  
+
   // Gym detection
   if (locationData.gymLeader || name.includes('gym')) {
     return 'gym';
   }
-  
+
   // Mart/shop detection
   if (name.includes('mart') || name.includes('shop') || name.includes('store')) {
     return 'mart';
   }
-  
+
   // Pokemon Center detection
   if (name.includes('poke_center') || name.includes('pokecenter')) {
     return 'pokecenter';
   }
-  
+
   // Route detection
   if (name.startsWith('route_') || displayName.startsWith('route ')) {
     return 'route';
   }
-  
+
   // Cave/dungeon detection
-  if (name.includes('cave') || name.includes('tower') || name.includes('ruins') || 
-      name.includes('well') || name.includes('tunnel') || name.includes('hideout')) {
+  if (
+    name.includes('cave') ||
+    name.includes('tower') ||
+    name.includes('ruins') ||
+    name.includes('well') ||
+    name.includes('tunnel') ||
+    name.includes('hideout')
+  ) {
     return 'dungeon';
   }
-  
+
   // City/town detection
-  if (name.includes('city') || name.includes('town') || displayName.includes('city') || displayName.includes('town')) {
+  if (
+    name.includes('city') ||
+    name.includes('town') ||
+    displayName.includes('city') ||
+    displayName.includes('town')
+  ) {
     return 'city';
   }
-  
+
   // House/building detection
-  if (name.includes('house') || name.includes('lab') || name.includes('academy') || 
-      name.includes('cafe') || name.includes('hotel')) {
+  if (
+    name.includes('house') ||
+    name.includes('lab') ||
+    name.includes('academy') ||
+    name.includes('cafe') ||
+    name.includes('hotel')
+  ) {
     return 'building';
   }
-  
+
   // Island detection
   if (name.includes('island')) {
     return 'island';
   }
-  
+
   // Forest/outdoor areas
-  if (name.includes('forest') || name.includes('park') || name.includes('beach') || 
-      name.includes('cape') || name.includes('falls')) {
+  if (
+    name.includes('forest') ||
+    name.includes('park') ||
+    name.includes('beach') ||
+    name.includes('cape') ||
+    name.includes('falls')
+  ) {
     return 'outdoor';
   }
-  
+
   // Floor/room detection (inside areas)
-  if (name.includes('_1f') || name.includes('_2f') || name.includes('_b_') || 
-      name.includes('floor') || name.includes('room')) {
+  if (
+    name.includes('_1f') ||
+    name.includes('_2f') ||
+    name.includes('_b_') ||
+    name.includes('floor') ||
+    name.includes('room')
+  ) {
     return 'inside';
   }
-  
+
   // Default
   return 'other';
 }
@@ -134,27 +160,27 @@ function determineLocationType(locationData: LocationData): string {
  */
 function determineParentLocation(locationData: LocationData): string | undefined {
   const name = locationData.name;
-  
+
   // Floor patterns (1f, 2f, b1f, etc.)
   if (/_\d+f$|_b\d+f$/.test(name)) {
     return name.replace(/_\d+f$|_b\d+f$/, '');
   }
-  
+
   // Gym belongs to city
   if (name.includes('_gym')) {
     return name.replace('_gym', '_city');
   }
-  
+
   // Mart belongs to city
   if (name.includes('_mart')) {
     return name.replace('_mart', '_city');
   }
-  
+
   // Poke Center belongs to city
   if (name.includes('_poke_center') || name.includes('_pokecenter')) {
     return name.replace(/_poke_center.*|_pokecenter.*/, '_city');
   }
-  
+
   // House patterns - extract city/town name
   const housePatterns = [
     /_house$/,
@@ -167,7 +193,7 @@ function determineParentLocation(locationData: LocationData): string | undefined
     /_cafe$/,
     /_hotel.*$/,
   ];
-  
+
   for (const pattern of housePatterns) {
     if (pattern.test(name)) {
       const parts = name.split('_');
@@ -180,17 +206,17 @@ function determineParentLocation(locationData: LocationData): string | undefined
       }
     }
   }
-  
+
   // Tower/dungeon sub-areas
   if (name.includes('_tower_') && !name.endsWith('_tower')) {
     return name.split('_tower_')[0] + '_tower';
   }
-  
+
   // Cave sub-areas
   if (name.includes('_cave_') && !name.endsWith('_cave')) {
     return name.split('_cave_')[0] + '_cave';
   }
-  
+
   // Gate patterns
   if (name.includes('_gate')) {
     const routeMatch = name.match(/route_(\d+)_.*_gate/);
@@ -198,7 +224,7 @@ function determineParentLocation(locationData: LocationData): string | undefined
       return `route_${routeMatch[1]}`;
     }
   }
-  
+
   return undefined;
 }
 
@@ -277,14 +303,14 @@ export async function restructureLocationsToIndividualFiles(): Promise<void> {
 
     // Validate and clean up parent location references
     const locationNames = new Set(Object.keys(allLocationsData));
-    manifestEntries.forEach(entry => {
+    manifestEntries.forEach((entry) => {
       if (entry.parentLocation && !locationNames.has(entry.parentLocation)) {
         // Try alternative naming patterns
         const alternatives = [
           entry.parentLocation.replace('_city', '_town'),
           entry.parentLocation.replace('_town', '_city'),
         ];
-        
+
         let found = false;
         for (const alt of alternatives) {
           if (locationNames.has(alt)) {
@@ -293,7 +319,7 @@ export async function restructureLocationsToIndividualFiles(): Promise<void> {
             break;
           }
         }
-        
+
         if (!found) {
           // Parent doesn't exist, remove it
           entry.parentLocation = undefined;

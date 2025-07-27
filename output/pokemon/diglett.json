@@ -3,6 +3,7 @@
   "nationalDex": 50,
   "johtoDex": 143,
   "types": "Ground",
+  "updatedTypes": "Ground",
   "frontSpriteUrl": "/sprites/pokemon/diglett/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "arena-trap",
+        "name": "Arena Trap",
+        "description": "\tPrevents the foe \tfrom fleeing.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "sand-force",
+        "name": "Sand Force",
+        "description": "\tBoosts some moves \tin a sandstorm.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Arena Trap",
+        "description": "\tPrevents the foe \tfrom fleeing.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Sand Force",
+        "description": "\tBoosts some moves \tin a sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -69,7 +93,9 @@
           "parameter": 26,
           "target": "Dugtrio",
           "form": "Plain Form"
-        },
+        }
+      ],
+      "diglett-alolan-form": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 26,

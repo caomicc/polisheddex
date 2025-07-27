@@ -34,22 +34,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "effect-spore",
+        "name": "Effect Spore",
+        "description": "\tContact may cause \tPar, Psn, or Slp.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "dry-skin",
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "damp",
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Effect Spore",
+        "description": "\tContact may cause \tPar, Psn, or Slp.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Dry Skin",
+        "description": "\tReduces HP in sun. \tWater restores HP.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Damp",
+        "description": "\tPrevents self- \tdestructing moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",

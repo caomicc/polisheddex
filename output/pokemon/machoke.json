@@ -3,6 +3,7 @@
   "nationalDex": 67,
   "johtoDex": 154,
   "types": "Fighting",
+  "updatedTypes": "Fighting",
   "frontSpriteUrl": "/sprites/pokemon/machoke/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -26,22 +27,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "no-guard",
+        "name": "No Guard",
+        "description": "\tEnsures attacks by \tor against it hit.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "steadfast",
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "No Guard",
+        "description": "\tEnsures attacks by \tor against it hit.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Steadfast",
+        "description": "\tBoosts Speed when \tit flinches.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Human-Like",

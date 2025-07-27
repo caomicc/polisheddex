@@ -33,22 +33,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "hyper-cutter",
+        "name": "Hyper Cutter",
+        "description": "\tPrevents foes from \tlowering Attack.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "immunity",
+        "name": "Immunity",
+        "description": "",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Hyper Cutter",
+        "description": "\tPrevents foes from \tlowering Attack.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Immunity",
+        "description": "",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Bug",
@@ -100,7 +123,9 @@
           "parameter": "RAZOR_CLAW",
           "target": "Tr Evenite",
           "form": "Weavile"
-        },
+        }
+      ],
+      "sneasel-hisuian-form": [
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "RAZOR_CLAW",

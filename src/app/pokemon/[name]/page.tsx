@@ -6,7 +6,7 @@ import Link from 'next/link';
 import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
 import PokemonNavigation from '@/components/pokemon/PokemonNavigation';
 import PokemonKeyboardNavigation from '@/components/pokemon/PokemonKeyboardNavigation';
-import { MoveDescription, FormData, PokemonDataV3 } from '@/types/types';
+import { MoveDescription, FormData } from '@/types/types';
 import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNormalizer';
 import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';
 import { loadJsonData } from '@/utils/fileLoader';

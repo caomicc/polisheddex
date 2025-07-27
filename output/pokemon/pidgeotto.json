@@ -31,22 +31,45 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "id": "tangled-feet",
+        "name": "Tangled Feet",
+        "description": "\tBoosts evasion if \tit is confused.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "id": "big-pecks",
+        "name": "Big Pecks",
+        "description": "\tPrevents foes from \tlowering Defense.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "name": "Tangled Feet",
+        "description": "\tBoosts evasion if \tit is confused.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "name": "Big Pecks",
+        "description": "\tPrevents foes from \tlowering Defense.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Flying",
