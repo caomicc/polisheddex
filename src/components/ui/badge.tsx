@@ -39,6 +39,7 @@ const badgeVariantNames = [
   'day',
   'nite',
   'any',
+  'null',
 ] as const;
 
 type BadgeVariant = (typeof badgeVariantNames)[number];
@@ -82,6 +83,7 @@ const badgeVariants = cva(
         day: 'bg-sky-100 text-sky-900 border-sky-200',
         nite: 'bg-purple-100 text-purple-900 border-purple-200',
         any: 'bg-pink-100 text-pink-900 border-pink-200',
+        null: 'bg-gray-100 text-gray-900 border-gray-200',
       },
     },
     defaultVariants: {
