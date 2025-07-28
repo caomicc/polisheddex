@@ -413,15 +413,67 @@ export default function PokemonFormClient({
 
             <SectionCard headline={'Evolution'}>
               {formData.evolution && formData.evolution.chain ? (
+                // <EvolutionChain
+                //   chain={formData.evolution.chain}
+                //   chainWithMethods={formData.evolution.chainWithMethods || {}}
+                //   spritesByGen={(() => {
+                //     const sprites: Record<string, string> = {};
+
+                //     // Add sprites for base chain Pokémon
+                //     formData.evolution.chain.forEach((name) => {
+                //       // Try to find an entry in allFormData for this Pokémon
+                //       for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
+                //         if (
+                //           formDataEntry.frontSpriteUrl &&
+                //           formKey.toLowerCase() === name.toLowerCase()
+                //         ) {
+                //           sprites[name] = formDataEntry.frontSpriteUrl;
+                //           break;
+                //         }
+                //       }
+                //     });
+
+                //     // Add sprites for form variants
+                //     if (formData.evolution.chainWithMethods) {
+                //       Object.entries(formData.evolution.chainWithMethods).forEach(
+                //         ([source, methods]) => {
+                //           console.log(`Processing methods for source: ${source}`, methods);
+                //           methods.forEach((method) => {
+                //             if (method.target && method.form) {
+                //               const formVariantKey = `${method.target} (${method.form})`;
+
+                //               // Try to find form variant in allFormData
+                //               for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
+                //                 // Check if this is the right form
+                //                 if (
+                //                   formKey.toLowerCase().includes(method.form.toLowerCase()) &&
+                //                   formKey.toLowerCase().includes(method.target.toLowerCase()) &&
+                //                   formDataEntry.frontSpriteUrl
+                //                 ) {
+                //                   sprites[formVariantKey] = formDataEntry.frontSpriteUrl;
+                //                   break;
+                //                 }
+                //               }
+                //             }
+                //           });
+                //         },
+                //       );
+                //     }
+
+                //     return sprites;
+                //   })()}
+                // />
                 <EvolutionChain
-                  chain={formData.evolution.chain}
-                  chainWithMethods={formData.evolution.chainWithMethods || {}}
+                  evolutionData={{
+                    chain: formData.evolution.chain,
+                    chainWithMethods: formData.evolution.chainWithMethods || {},
+                    methods: formData.evolution.methods || [], // if not present, fallback to empty array
+                  }}
                   spritesByGen={(() => {
                     const sprites: Record<string, string> = {};
 
                     // Add sprites for base chain Pokémon
                     formData.evolution.chain.forEach((name) => {
-                      // Try to find an entry in allFormData for this Pokémon
                       for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
                         if (
                           formDataEntry.frontSpriteUrl &&
@@ -436,15 +488,13 @@ export default function PokemonFormClient({
                     // Add sprites for form variants
                     if (formData.evolution.chainWithMethods) {
                       Object.entries(formData.evolution.chainWithMethods).forEach(
+                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         ([source, methods]) => {
-                          console.log(`Processing methods for source: ${source}`, methods);
                           methods.forEach((method) => {
                             if (method.target && method.form) {
                               const formVariantKey = `${method.target} (${method.form})`;
 
-                              // Try to find form variant in allFormData
                               for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
-                                // Check if this is the right form
                                 if (
                                   formKey.toLowerCase().includes(method.form.toLowerCase()) &&
                                   formKey.toLowerCase().includes(method.target.toLowerCase()) &&
