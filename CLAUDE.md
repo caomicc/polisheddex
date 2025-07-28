@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## there is no polisheddx directory or polishedx. Never look for one. Ever.
+
 ## Development Commands
 
 ### Core Development
@@ -36,7 +38,7 @@ This is a Next.js 15 application using the App Router with TypeScript, built for
 #### `/src/utils/extractors`
 Contains specialized extractors for different ROM data types:
 - `statsExtractors.ts` - Pokémon stats, abilities, moves, forms
-- `locationExtractors.ts` - Wild encounter data and location information  
+- `locationExtractors.ts` - Wild encounter data and location information
 - `moveExtractors.ts` - Move descriptions and data
 - `tmHmExtractors.ts` - TM/HM item data
 - `pokedexExtractors.ts` - Pokédex entries and descriptions
@@ -76,7 +78,7 @@ Pokémon with multiple forms (like Unown) have specialized handling:
 #### String Normalization
 Complex normalization system in `/src/utils/stringNormalizer` handles:
 - ROM text format conversion
-- URL-safe string generation  
+- URL-safe string generation
 - Pokémon name variations and edge cases
 
 ### Important Patterns
