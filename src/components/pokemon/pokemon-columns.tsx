@@ -14,6 +14,10 @@ import { PokemonEncounter } from '@/types/types';
 function formatMethod(method: string): string {
   if (method === 'grass') return 'Wild Grass';
   if (method === 'water') return 'Surfing';
+  if (method === 'headbutt_rare') return 'Headbutt (Rare)';
+  if (method === 'headbutt_common') return 'Headbutt (Common)';
+  if (method === 'rocksmash') return 'Rock Smash';
+  if (method === 'swarm') return 'Swarm';
   return method.charAt(0).toUpperCase() + method.slice(1);
 }
 export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
@@ -120,10 +124,15 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
       );
     },
     cell: ({ row }) => {
-      const time = row.getValue('time') as PokemonEncounter['time'] | undefined;
+      let time = row.getValue('time') as PokemonEncounter['time'];
+
+      console.log('Encounter time:', row.getValue('time'));
+
+      if (time === null || time === undefined || time === 'null') time = 'any';
+
       return (
         <Badge
-          variant={(time as PokemonEncounter['time']) || 'default'}
+          variant={(time as PokemonEncounter['time']) || 'any'}
           className="flex items-center gap-1"
         >
           {time}

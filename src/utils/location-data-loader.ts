@@ -2,26 +2,31 @@
 
 import { loadJsonFile } from './fileLoader';
 import { normalizeLocationKey } from './locationUtils';
-import { 
-  groupLocationsHierarchically, 
-  filterLocationsWithData
-} from './locationGrouping';
+import { groupLocationsHierarchically, filterLocationsWithData } from './locationGrouping';
 
 // Import LocationData and GroupedLocation from types
-import { LocationData as TypesLocationData, GroupedLocation as TypesGroupedLocation } from '@/types/types';
+import {
+  LocationData as TypesLocationData,
+  GroupedLocation as TypesGroupedLocation,
+} from '@/types/types';
 
 // Use the main types
 type LocationData = TypesLocationData;
 type GroupedLocation = TypesGroupedLocation;
 
 interface LocationAreaData {
-  pokemon: Record<string, {
-    methods: Record<string, {
-      times: Record<string, any[]>;
-    }>;
-  }>;
+  pokemon: Record<
+    string,
+    {
+      methods: Record<
+        string,
+        {
+          times: Record<string, any[]>;
+        }
+      >;
+    }
+  >;
 }
-
 
 interface EnhancedLocation {
   area: string;
@@ -55,7 +60,9 @@ export async function loadPokemonLocationData(): Promise<Record<string, Location
   }
 
   try {
-    const data = await loadJsonFile<Record<string, LocationAreaData>>('output/locations_by_area.json');
+    const data = await loadJsonFile<Record<string, LocationAreaData>>(
+      'output/locations_by_area.json',
+    );
     pokemonLocationDataCache = data || {};
     return pokemonLocationDataCache;
   } catch (error) {
@@ -100,11 +107,23 @@ export async function loadLocationManifest(): Promise<LocationManifest> {
 
   try {
     const data = await loadJsonFile<LocationManifest>('output/locations/_index.json');
-    locationManifestCache = data || { totalLocations: 0, regions: {}, flyableLocations: 0, landmarks: 0, locations: [] };
+    locationManifestCache = data || {
+      totalLocations: 0,
+      regions: {},
+      flyableLocations: 0,
+      landmarks: 0,
+      locations: [],
+    };
     return locationManifestCache;
   } catch (error) {
     console.error('Error loading location manifest:', error);
-    locationManifestCache = { totalLocations: 0, regions: {}, flyableLocations: 0, landmarks: 0, locations: [] };
+    locationManifestCache = {
+      totalLocations: 0,
+      regions: {},
+      flyableLocations: 0,
+      landmarks: 0,
+      locations: [],
+    };
     return locationManifestCache;
   }
 }
@@ -145,7 +164,7 @@ export async function loadAllLocationData(): Promise<Record<string, LocationData
   try {
     const manifest = await loadLocationManifest();
     const locationData: Record<string, LocationData> = {};
-    
+
     // Load only the locations we need based on the manifest
     await Promise.all(
       manifest.locations.map(async (locationInfo) => {
@@ -153,9 +172,9 @@ export async function loadAllLocationData(): Promise<Record<string, LocationData
         if (data) {
           locationData[locationInfo.name] = data;
         }
-      })
+      }),
     );
-    
+
     allLocationDataCache = locationData;
     return allLocationDataCache;
   } catch (error) {
@@ -177,13 +196,13 @@ export async function loadGroupedLocationData(): Promise<Record<string, GroupedL
 
   try {
     const allLocationData = await loadAllLocationData();
-    
+
     // Group locations hierarchically
     const groupedLocations = groupLocationsHierarchically(allLocationData);
-    
+
     // Filter to only show locations with meaningful data
     const locationsWithData = filterLocationsWithData(groupedLocations);
-    
+
     groupedLocationDataCache = locationsWithData;
     return groupedLocationDataCache;
   } catch (error) {
@@ -263,13 +282,16 @@ export async function loadEnhancedLocations(): Promise<EnhancedLocation[]> {
     const [pokemonLocationData, groupedLocations, itemsData] = await Promise.all([
       loadPokemonLocationData(),
       loadGroupedLocationData(),
-      loadItemsDataForLocations()
+      loadItemsDataForLocations(),
     ]);
 
     // Process grouped locations directly
 
     // Create items by location mapping
-    const itemsByLocation: Record<string, Array<{ type: 'item' | 'hiddenItem' | 'tmHm'; name: string; details?: string }>> = {};
+    const itemsByLocation: Record<
+      string,
+      Array<{ type: 'item' | 'hiddenItem' | 'tmHm'; name: string; details?: string }>
+    > = {};
 
     if (itemsData && typeof itemsData === 'object') {
       Object.values(itemsData).forEach((item: any) => {
@@ -306,7 +328,8 @@ export async function loadEnhancedLocations(): Promise<EnhancedLocation[]> {
     }
 
     // Create normalized Pokemon location map
-    const normalizedPokemonData: Record<string, { originalKey: string; data: LocationAreaData }> = {};
+    const normalizedPokemonData: Record<string, { originalKey: string; data: LocationAreaData }> =
+      {};
     Object.keys(pokemonLocationData).forEach((originalKey) => {
       const normalizedKey = normalizeLocationKey(originalKey);
       normalizedPokemonData[normalizedKey] = {
@@ -408,11 +431,14 @@ export async function loadLocationByName(locationName: string): Promise<Enhanced
   try {
     const enhancedLocations = await loadEnhancedLocations();
     const normalizedName = normalizeLocationKey(locationName);
-    
-    return enhancedLocations.find(loc => 
-      normalizeLocationKey(loc.area) === normalizedName ||
-      normalizeLocationKey(loc.displayName) === normalizedName
-    ) || null;
+
+    return (
+      enhancedLocations.find(
+        (loc) =>
+          normalizeLocationKey(loc.area) === normalizedName ||
+          normalizeLocationKey(loc.displayName) === normalizedName,
+      ) || null
+    );
   } catch (error) {
     console.error(`Error loading location ${locationName}:`, error);
     return null;
@@ -426,23 +452,23 @@ export async function searchLocations(query: string): Promise<EnhancedLocation[]
   try {
     const enhancedLocations = await loadEnhancedLocations();
     const queryLower = query.toLowerCase();
-    
-    return enhancedLocations.filter(location => {
+
+    return enhancedLocations.filter((location) => {
       // Search in display name
       if (location.displayName.toLowerCase().includes(queryLower)) {
         return true;
       }
-      
+
       // Search in types
-      if (location.types.some(type => type.toLowerCase().includes(queryLower))) {
+      if (location.types.some((type) => type.toLowerCase().includes(queryLower))) {
         return true;
       }
-      
+
       // Search in region
       if (location.region && location.region.toLowerCase().includes(queryLower)) {
         return true;
       }
-      
+
       return false;
     });
   } catch (error) {
@@ -463,4 +489,128 @@ export function clearLocationCaches(): void {
   itemsDataCache = null;
 }
 
+/**
+ * Load Pokemon location data from pokemon_locations.json and invert it by area
+ */
+let invertedPokemonLocationDataCache: Record<string, LocationAreaData> | null = null;
+
+export async function loadInvertedPokemonLocationData(): Promise<Record<string, LocationAreaData>> {
+  if (invertedPokemonLocationDataCache) {
+    return invertedPokemonLocationDataCache;
+  }
+
+  try {
+    const pokemonLocationsData = await loadJsonFile<
+      Record<
+        string,
+        {
+          locations: Array<{
+            area: string;
+            method: string;
+            time: string;
+            level: string;
+            chance: number;
+            formName?: string | null;
+          }>;
+        }
+      >
+    >('output/pokemon_locations.json');
+
+    const invertedData: Record<string, LocationAreaData> = {};
+
+    // Invert the data structure: from pokemon -> locations to area -> pokemon
+    Object.entries(pokemonLocationsData || {}).forEach(([pokemonName, pokemonData]) => {
+      pokemonData.locations?.forEach((location) => {
+        const { area, method, time, level, chance, formName } = location;
+
+        // Initialize area if not exists
+        if (!invertedData[area]) {
+          invertedData[area] = { pokemon: {} };
+        }
+
+        // Initialize pokemon if not exists
+        if (!invertedData[area].pokemon[pokemonName]) {
+          invertedData[area].pokemon[pokemonName] = { methods: {} };
+        }
+
+        // Initialize method if not exists
+        if (!invertedData[area].pokemon[pokemonName].methods[method]) {
+          invertedData[area].pokemon[pokemonName].methods[method] = { times: {} };
+        }
+
+        // Initialize time if not exists
+        if (!invertedData[area].pokemon[pokemonName].methods[method].times[time]) {
+          invertedData[area].pokemon[pokemonName].methods[method].times[time] = [];
+        }
+
+        // Add the encounter
+        invertedData[area].pokemon[pokemonName].methods[method].times[time].push({
+          level,
+          chance,
+          ...(formName && { formName }),
+        });
+      });
+    });
+
+    invertedPokemonLocationDataCache = invertedData;
+    return invertedPokemonLocationDataCache;
+  } catch (error) {
+    console.error('Error loading inverted Pokemon location data:', error);
+    invertedPokemonLocationDataCache = {};
+    return invertedPokemonLocationDataCache;
+  }
+}
+
+/**
+ * Load and merge both Pokemon location datasets
+ */
+export async function loadMergedPokemonLocationData(): Promise<Record<string, LocationAreaData>> {
+  const [originalData, invertedData] = await Promise.all([
+    loadPokemonLocationData(),
+    loadInvertedPokemonLocationData(),
+  ]);
+
+  const mergedData: Record<string, LocationAreaData> = { ...originalData };
+
+  // Merge the inverted data into the original data
+  Object.entries(invertedData).forEach(([area, areaData]) => {
+    if (!mergedData[area]) {
+      mergedData[area] = { pokemon: {} };
+    }
+
+    Object.entries(areaData.pokemon).forEach(([pokemonName, pokemonData]) => {
+      if (!mergedData[area].pokemon[pokemonName]) {
+        mergedData[area].pokemon[pokemonName] = { methods: {} };
+      }
+
+      Object.entries(pokemonData.methods).forEach(([method, methodData]) => {
+        if (!mergedData[area].pokemon[pokemonName].methods[method]) {
+          mergedData[area].pokemon[pokemonName].methods[method] = { times: {} };
+        }
+
+        Object.entries(methodData.times).forEach(([time, encounters]) => {
+          if (!mergedData[area].pokemon[pokemonName].methods[method].times[time]) {
+            mergedData[area].pokemon[pokemonName].methods[method].times[time] = [];
+          }
+
+          // Add encounters, avoiding duplicates
+          encounters.forEach((encounter) => {
+            const existingEncounter = mergedData[area].pokemon[pokemonName].methods[method].times[
+              time
+            ].find(
+              (existing: any) =>
+                existing.level === encounter.level && existing.chance === encounter.chance,
+            );
+
+            if (!existingEncounter) {
+              mergedData[area].pokemon[pokemonName].methods[method].times[time].push(encounter);
+            }
+          });
+        });
+      });
+    });
+  });
+
+  return mergedData;
+}
 export type { LocationData, LocationAreaData, GroupedLocation, EnhancedLocation };

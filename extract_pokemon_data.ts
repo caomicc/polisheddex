@@ -875,7 +875,7 @@ function extractTreemonLocations(): Record<string, LocationEntry[]> {
         treemonLocationsByMon[species].push({
           area: normalizedLocation,
           method,
-          time: 'all', // Treemon encounters are generally available all day
+          time: 'any', // Treemon encounters are generally available all day
           level: level.toString(),
           chance: rate,
           formName: form,
@@ -1709,4 +1709,6 @@ for (const [pokemonKey, locations] of Object.entries(normalizedLocationsByMon)) 
 }
 
 fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(pokemonLocationOutput, null, 2));
-console.log(`✅ Wrote ${Object.keys(pokemonLocationOutput).length} Pokemon with location data to ${LOCATIONS_OUTPUT}`);
+console.log(
+  `✅ Wrote ${Object.keys(pokemonLocationOutput).length} Pokemon with location data to ${LOCATIONS_OUTPUT}`,
+);

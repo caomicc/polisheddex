@@ -14,12 +14,12 @@ import { normalizeLocationKey } from '@/utils/locationUtils';
 import { GroupedPokemon, EncounterDetail } from '@/types/locationTypes';
 import { Hero } from '@/components/ui/Hero';
 import { groupLocationsHierarchically } from '@/utils/locationGrouping';
-import { loadPokemonLocationData, loadAllLocationData } from '@/utils/location-data-loader';
+import { loadMergedPokemonLocationData, loadAllLocationData } from '@/utils/location-data-loader';
 
 // This function helps Next.js pre-render pages at build time
 export async function generateStaticParams() {
   const [pokemonLocations, allLocations] = await Promise.all([
-    loadPokemonLocationData(),
+    loadMergedPokemonLocationData(),
     loadAllLocationData(),
   ]);
 
@@ -38,7 +38,7 @@ export default async function LocationDetailPage({
   const locationName = decodeURIComponent(name);
 
   const [pokemonLocationData, allLocationData] = await Promise.all([
-    loadPokemonLocationData(),
+    loadMergedPokemonLocationData(),
     loadAllLocationData(),
   ]);
 
@@ -256,7 +256,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 
   const [allLocationData, pokemonLocationData] = await Promise.all([
     loadAllLocationData(),
-    loadPokemonLocationData(),
+    loadMergedPokemonLocationData(),
   ]);
 
   // Get comprehensive location info
