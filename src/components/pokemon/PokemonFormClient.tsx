@@ -336,6 +336,7 @@ export default function PokemonFormClient({
               </Table>
             </SectionCard>
             <SectionCard headline={'Species Information'}>
+              <h3 className={cn('font-bold text-sm mb-4 text-left')}>Pokédex Entry:</h3>
               <p className="text-sm md:text-md text-foreground">{formData.species} Pokémon</p>
               <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
 
@@ -411,58 +412,12 @@ export default function PokemonFormClient({
               </div>
             </SectionCard>
 
-            <SectionCard headline={'Evolution'}>
-              {formData.evolution && formData.evolution.chain ? (
-                // <EvolutionChain
-                //   chain={formData.evolution.chain}
-                //   chainWithMethods={formData.evolution.chainWithMethods || {}}
-                //   spritesByGen={(() => {
-                //     const sprites: Record<string, string> = {};
+            {formData.evolution &&
+            formData.evolution.chainWithMethods &&
+            Object.keys(formData.evolution.chainWithMethods).length > 1 ? (
+              <SectionCard headline={'Evolution'}>
+                <h3 className={cn('font-bold text-sm mb-4 text-left')}>Evolution:</h3>
 
-                //     // Add sprites for base chain Pokémon
-                //     formData.evolution.chain.forEach((name) => {
-                //       // Try to find an entry in allFormData for this Pokémon
-                //       for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
-                //         if (
-                //           formDataEntry.frontSpriteUrl &&
-                //           formKey.toLowerCase() === name.toLowerCase()
-                //         ) {
-                //           sprites[name] = formDataEntry.frontSpriteUrl;
-                //           break;
-                //         }
-                //       }
-                //     });
-
-                //     // Add sprites for form variants
-                //     if (formData.evolution.chainWithMethods) {
-                //       Object.entries(formData.evolution.chainWithMethods).forEach(
-                //         ([source, methods]) => {
-                //           console.log(`Processing methods for source: ${source}`, methods);
-                //           methods.forEach((method) => {
-                //             if (method.target && method.form) {
-                //               const formVariantKey = `${method.target} (${method.form})`;
-
-                //               // Try to find form variant in allFormData
-                //               for (const [formKey, formDataEntry] of Object.entries(allFormData)) {
-                //                 // Check if this is the right form
-                //                 if (
-                //                   formKey.toLowerCase().includes(method.form.toLowerCase()) &&
-                //                   formKey.toLowerCase().includes(method.target.toLowerCase()) &&
-                //                   formDataEntry.frontSpriteUrl
-                //                 ) {
-                //                   sprites[formVariantKey] = formDataEntry.frontSpriteUrl;
-                //                   break;
-                //                 }
-                //               }
-                //             }
-                //           });
-                //         },
-                //       );
-                //     }
-
-                //     return sprites;
-                //   })()}
-                // />
                 <EvolutionChain
                   evolutionData={{
                     chain: formData.evolution.chain,
@@ -513,10 +468,12 @@ export default function PokemonFormClient({
                     return sprites;
                   })()}
                 />
-              ) : (
-                <div className="text-gray-500">No evolution data.</div>
-              )}
-            </SectionCard>
+              </SectionCard>
+            ) : (
+              <div className="text-gray-500 text-center w-full my-4 text-sm">
+                No evolution data.
+              </div>
+            )}
           </TabsContent>
 
           <TabsContent
