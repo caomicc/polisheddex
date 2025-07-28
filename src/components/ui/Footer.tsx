@@ -67,16 +67,14 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
       </div>
       <div className="flex items-center gap-2">
         <span className="text-sm text-gray-500 dark:text-gray-400">
-          Found a bug?{' '}
           <a
             href="https://github.com/caomicc/polisheddex/issues"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="font-bold hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
-            Submit an issue on Github
-          </a>{' '}
-          😊
+            Found a bug? Looking for a feature request? 😊
+          </a>
         </span>
         <span className="text-sm text-gray-400 dark:text-gray-500">
           Last built: {getLastUpdatedDate()}
