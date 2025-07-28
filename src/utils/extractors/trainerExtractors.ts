@@ -36,6 +36,72 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
   // Then, extract trainer locations from map files
   const trainersByLocation = extractTrainerLocations(mapsDir, trainerParties);
 
+  // Now add all remaining trainers that don't have locations to a special category
+  const usedTrainerKeys = new Set<string>();
+
+  // Collect all trainer keys that were already placed in locations
+  Object.values(trainersByLocation).forEach((trainers) => {
+    trainers.forEach((trainer) => {
+      const trainerKey = `${trainer.trainerClass}_${trainer.id.split('_').slice(1).join('_').toUpperCase()}`;
+      usedTrainerKeys.add(trainerKey);
+    });
+  });
+
+  // Add only rival trainers that don't have locations
+  const rivalTrainersWithoutLocation: LocationTrainer[] = [];
+  const rivalClasses = [
+    'CAL',
+    'CARRIE',
+    'JACKY',
+    'RIVAL',
+    'LYRA',
+    'WILL',
+    'KAREN',
+    'KOGA',
+    'BRUNO',
+    'CHAMPION',
+  ];
+
+  Object.entries(trainerParties).forEach(([trainerKey, trainerData]) => {
+    if (!usedTrainerKeys.has(trainerKey)) {
+      const [trainerClass, ...trainerIdParts] = trainerKey.split('_');
+
+      console.log('trainerKey:', trainerKey);
+      console.log('trainerClass:', trainerClass);
+
+      // Only include rival trainers
+      if (rivalClasses.includes(trainerClass)) {
+        const trainerId = trainerIdParts.join('_');
+
+        const trainer: LocationTrainer = {
+          id: `${trainerClass.toLowerCase()}_${trainerId.toLowerCase()}`,
+          name: trainerData.name,
+          trainerClass,
+          spriteType: getSpriteType(trainerClass),
+          coordinates: {
+            x: -1,
+            y: -1,
+          }, // No location data
+          pokemon: trainerData.pokemon,
+        };
+
+        console.log(
+          `🎯 Found rival trainer ${trainer.name} (${trainerClass}) without location data`,
+        );
+
+        rivalTrainersWithoutLocation.push(trainer);
+      }
+    }
+  });
+
+  // Add rival trainers without locations to a special category if any exist
+  if (rivalTrainersWithoutLocation.length > 0) {
+    trainersByLocation['_rival_no_location'] = rivalTrainersWithoutLocation;
+    console.log(
+      `📍 Added ${rivalTrainersWithoutLocation.length} rival trainers without location data`,
+    );
+  }
+
   // Write trainer data to output file
   fs.writeFileSync(TRAINER_OUTPUT, JSON.stringify(trainersByLocation, null, 2));
   console.log(`✅ Extracted trainer data to ${TRAINER_OUTPUT}`);
@@ -44,8 +110,14 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
     (sum, trainers) => sum + trainers.length,
     0,
   );
+  const totalLocations = Object.keys(trainersByLocation).length;
+  const locationsWithTrainers = totalLocations - (rivalTrainersWithoutLocation.length > 0 ? 1 : 0);
+
   console.log(
-    `📊 Found ${totalTrainers} trainers across ${Object.keys(trainersByLocation).length} locations`,
+    `📊 Found ${totalTrainers} trainers across ${locationsWithTrainers} locations` +
+      (rivalTrainersWithoutLocation.length > 0
+        ? ` (+ ${rivalTrainersWithoutLocation.length} rival trainers without location)`
+        : ''),
   );
 
   return trainersByLocation;
