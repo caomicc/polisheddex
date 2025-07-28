@@ -33,60 +33,35 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Magnet Pull",
-        "description": "\tPrevents escape by \tSteel-type foes.",
+        "id": "magnet-pull",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
+        "id": "sturdy",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Analytic",
-        "description": "\tBoosts move power \twhen moving last.",
+        "id": "analytic",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Magnet Pull",
-        "description": "\tPrevents escape by \tSteel-type foes.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Analytic",
-        "description": "\tBoosts move power \twhen moving last.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
-        "name": "Magnet Pull",
-        "description": "\tPrevents escape by \tSteel-type foes.",
+        "id": "magnet-pull",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
+        "id": "levitate",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Analytic",
-        "description": "\tBoosts move power \twhen moving last.",
+        "id": "analytic",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1221,15 +1196,6 @@
       "time": "nite",
       "level": "Badge Level - 1",
       "chance": 30,
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "Badge Level + 3",
-      "chance": 15,
-      "rareItem": "THUNDERSTONE",
       "formName": null
     }
   ],

@@ -3,7 +3,6 @@
   "nationalDex": 115,
   "johtoDex": 235,
   "types": "Normal",
-  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/kangaskhan/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -25,60 +24,35 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
+        "id": "early-bird",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Scrappy",
-        "description": "\tEnables moves to \thit Ghost-types.",
+        "id": "scrappy",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
+        "id": "inner-focus",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Scrappy",
-        "description": "\tEnables moves to \thit Ghost-types.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
+        "id": "early-bird",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Scrappy",
-        "description": "\tEnables moves to \thit Ghost-types.",
+        "id": "scrappy",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Parental Bond",
-        "description": "\tParent and child \tattack together.",
+        "id": "parental-bond",
         "isHidden": true,
         "abilityType": "hidden"
       }

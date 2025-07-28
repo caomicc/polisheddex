@@ -3,7 +3,6 @@
   "nationalDex": 204,
   "johtoDex": 98,
   "types": "Bug",
-  "updatedTypes": "Bug",
   "frontSpriteUrl": "/sprites/pokemon/pineco/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -25,45 +24,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
+        "id": "sturdy",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
+        "id": "sturdy",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Overcoat",
-        "description": "\tProtects it from \tweather damage.",
+        "id": "overcoat",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Overcoat",
-        "description": "\tProtects it from \tweather damage.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",
@@ -935,12 +912,171 @@
   ],
   "locations": [
     {
-      "area": "Ilex Forest",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "9",
-      "chance": 5,
-      "rareItem": "Leaf Stone",
+      "area": "route_26",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_27",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_29",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_30",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_31",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_32",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_34",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_35",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_36",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_38",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_39",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_43",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "lake_of_rage",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "ilex_forest",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "murky_swamp",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "yellow_forest",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_32_coast",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_34_coast",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_north",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_south",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
+      "formName": null
+    },
+    {
+      "area": "violet_outskirts",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 40,
       "formName": null
     }
   ],

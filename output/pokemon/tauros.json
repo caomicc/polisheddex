@@ -3,7 +3,6 @@
   "nationalDex": 128,
   "johtoDex": 162,
   "types": "Normal",
-  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/tauros/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -25,45 +24,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
+        "id": "intimidate",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Anger Point",
-        "description": "\tMaxes Attack after \ta critical hit.",
+        "id": "anger-point",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Sheer Force",
-        "description": "\tRemoves effects to \tincrease damage.",
+        "id": "sheer-force",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Anger Point",
-        "description": "\tMaxes Attack after \ta critical hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Sheer Force",
-        "description": "\tRemoves effects to \tincrease damage.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Field",
@@ -1167,21 +1144,12 @@
       "level": "59",
       "chance": 10,
       "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Badge Level + 3",
-      "chance": 40,
-      "rareItem": "THUNDERSTONE",
-      "formName": null
     }
   ],
   "pokedexEntries": {
     "default": {
       "species": "Wild Bull",
-      "description": "These violent #mon fight with other members of their herd in order to prove their strength."
+      "description": "The “Aqua Breed” swims by jetting water from its horns. Its high body fat allows it to float easily."
     },
     "Paldean": {
       "species": "Wild Bull",

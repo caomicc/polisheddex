@@ -3,7 +3,6 @@
   "nationalDex": 190,
   "johtoDex": 130,
   "types": "Normal",
-  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/aipom/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -25,45 +24,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
+        "id": "run-away",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
+        "id": "pickup",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Skill Link",
-        "description": "\tIncreases multi- \tstrike move hits.",
+        "id": "skill-link",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Pickup",
-        "description": "\tThe #mon may \tpick up items.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Skill Link",
-        "description": "\tIncreases multi- \tstrike move hits.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Fast",
     "eggGroups": [
       "Field",
@@ -1059,12 +1036,147 @@
   ],
   "locations": [
     {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Badge Level + 3",
-      "chance": 40,
-      "rareItem": "Water Stone",
+      "area": "route_28",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_28",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_33",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_37",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_42",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_44",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_44",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_45",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_45",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_46",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_46",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_47",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_47",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_48",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_48",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "azalea_town",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_outside",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_outside",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
       "formName": null
     }
   ],

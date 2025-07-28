@@ -3,7 +3,6 @@
   "nationalDex": 110,
   "johtoDex": 122,
   "types": "Poison",
-  "updatedTypes": "Poison",
   "frontSpriteUrl": "/sprites/pokemon/weezing/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
+        "id": "levitate",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Neutralizing Gas",
-        "description": "\tSuppresses all \tother Abilities.",
+        "id": "neutralizing-gas",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
+        "id": "stench",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Neutralizing Gas",
-        "description": "\tSuppresses all \tother Abilities.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Stench",
-        "description": "\tMay cause the foe \tto flinch.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Amorphous",

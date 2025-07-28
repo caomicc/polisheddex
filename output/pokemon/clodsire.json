@@ -33,45 +33,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Poison Point",
-        "description": "\tContact may poison \tthe foe.",
+        "id": "poison-point",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
+        "id": "water-absorb",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Unaware",
-        "description": "\tIgnores the foe's \tstat changes.",
+        "id": "unaware",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Poison Point",
-        "description": "\tContact may poison \tthe foe.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Unaware",
-        "description": "\tIgnores the foe's \tstat changes.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered"

@@ -33,45 +33,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
+        "id": "keen-eye",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
+        "id": "inner-focus",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Defiant",
-        "description": "\tBoosts Attack when \tstats are lowered.",
+        "id": "defiant",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Defiant",
-        "description": "\tBoosts Attack when \tstats are lowered.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Flying",
@@ -1172,15 +1150,6 @@
       "level": "54",
       "chance": 2,
       "formName": null
-    },
-    {
-      "area": "Lake of Rage",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "26",
-      "chance": 15,
-      "rareItem": "Water Stone",
-      "formName": null
     }
   ],
   "pokedexEntries": {
@@ -1191,6 +1160,10 @@
     "Galarian": {
       "species": "Wild Duck",
       "description": "These unique Farfetch'd are brave warriors, and they wield thick, tough leeks in battle."
+    },
+    "D": {
+      "species": "Wild Duck",
+      "description": "In order to prevent their extinction, more people have made an effort to breed these #mon."
     }
   },
   "forms": {

@@ -33,45 +33,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
+        "id": "rock-head",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
+        "id": "sturdy",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
+        "id": "sand-veil",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Mineral",
@@ -1536,6 +1514,166 @@
       "time": "nite",
       "level": "2",
       "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_40",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "cianwood_city",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "olivine_city",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "route_19",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "vermilion_city",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "ruins_of_alph_outside",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "stormy_beach",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "union_cave_b_1f_south",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "slowpoke_well_b_1f",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "burned_tower_b_1f",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_east",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_west",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "giovannis_cave",
+      "method": "rocksmash",
+      "time": "all",
+      "level": "15",
+      "chance": 25,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "swarm",
+      "time": "morn",
+      "level": "3",
+      "chance": 100,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "swarm",
+      "time": "morn",
+      "level": "2",
+      "chance": 100,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "swarm",
+      "time": "day",
+      "level": "3",
+      "chance": 100,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "swarm",
+      "time": "day",
+      "level": "2",
+      "chance": 100,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "swarm",
+      "time": "nite",
+      "level": "3",
+      "chance": 100,
+      "formName": null
+    },
+    {
+      "area": "dark_cave_violet_entrance",
+      "method": "swarm",
+      "time": "nite",
+      "level": "2",
+      "chance": 100,
       "formName": null
     }
   ],

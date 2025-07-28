@@ -31,45 +31,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Insomnia",
-        "description": "",
+        "id": "insomnia",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
+        "id": "keen-eye",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Tinted Lens",
-        "description": "\tPowers up not very \teffective moves.",
+        "id": "tinted-lens",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Insomnia",
-        "description": "",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Tinted Lens",
-        "description": "\tPowers up not very \teffective moves.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Flying",
@@ -1506,12 +1484,27 @@
       "formName": null
     },
     {
-      "area": "Violet Outskirts",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "Badge Level - 0",
-      "chance": 15,
-      "rareItem": "Dusk Stone",
+      "area": "ilex_forest",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "murky_swamp",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "yellow_forest",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 10,
       "formName": null
     }
   ],

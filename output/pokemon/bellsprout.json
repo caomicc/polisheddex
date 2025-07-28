@@ -33,45 +33,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
+        "id": "chlorophyll",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
+        "id": "chlorophyll",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Gluttony",
-        "description": "\tEncourages early \tBerry use.",
+        "id": "gluttony",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Gluttony",
-        "description": "\tEncourages early \tBerry use.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Grass",
@@ -1207,15 +1185,6 @@
       "time": "day",
       "level": "51",
       "chance": 20,
-      "formName": null
-    },
-    {
-      "area": "Violet Outskirts",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Badge Level - 0",
-      "chance": 40,
-      "rareItem": "Dusk Stone",
       "formName": null
     }
   ],

@@ -3,7 +3,6 @@
   "nationalDex": 200,
   "johtoDex": 248,
   "types": "Ghost",
-  "updatedTypes": "Ghost",
   "frontSpriteUrl": "/sprites/pokemon/misdreavus/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,23 @@
     "hatchRate": "Medium-Slow (6,400 steps)",
     "abilities": [
       {
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
+        "id": "levitate",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
+        "id": "levitate",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
+        "id": "levitate",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Levitate",
-        "description": "\tGives immunity to \tGround-type moves.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Fast",
     "eggGroups": [
       "Amorphous",
@@ -1202,15 +1179,6 @@
       "time": null,
       "level": "54",
       "chance": 60,
-      "formName": null
-    },
-    {
-      "area": "Violet Outskirts",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "Badge Level - 0",
-      "chance": 5,
-      "rareItem": "Dusk Stone",
       "formName": null
     }
   ],

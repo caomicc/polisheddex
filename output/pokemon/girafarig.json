@@ -33,45 +33,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
+        "id": "inner-focus",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
+        "id": "early-bird",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
+        "id": "sap-sipper",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Inner Focus",
-        "description": "\tProtects it from \tflinching.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -621,15 +599,6 @@
       "time": "nite",
       "level": "Badge Level - 4",
       "chance": 2,
-      "formName": null
-    },
-    {
-      "area": "Lake of Rage",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "26",
-      "chance": 40,
-      "rareItem": "Water Stone",
       "formName": null
     }
   ],

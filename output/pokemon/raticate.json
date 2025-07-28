@@ -3,7 +3,6 @@
   "nationalDex": 20,
   "johtoDex": 18,
   "types": "Normal",
-  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/raticate/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
+        "id": "run-away",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
+        "id": "guts",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Hustle",
-        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "id": "hustle",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Run Away",
-        "description": "\tSure getaway from \twild #mon.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Hustle",
-        "description": "\tBoosts Attack, but \tlowers accuracy.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -2622,15 +2599,6 @@
       "time": "day",
       "level": "58",
       "chance": 30,
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "Badge Level + 3",
-      "chance": 15,
-      "rareItem": "Water Stone",
       "formName": null
     }
   ],

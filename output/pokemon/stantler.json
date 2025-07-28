@@ -28,45 +28,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
+        "id": "intimidate",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Frisk",
-        "description": "\tChecks the foe's \theld item.",
+        "id": "frisk",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
+        "id": "sap-sipper",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Frisk",
-        "description": "\tChecks the foe's \theld item.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Field",
@@ -1170,15 +1148,6 @@
       "time": "nite",
       "level": "Badge Level + 0",
       "chance": 5,
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "16",
-      "chance": 40,
-      "rareItem": "Fire Stone",
       "formName": null
     }
   ],

@@ -31,60 +31,35 @@
     "hatchRate": "Extremely Slow (20,480 steps)",
     "abilities": [
       {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
+        "id": "guts",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
+        "id": "guts",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
+        "id": "sand-veil",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
+        "id": "guts",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Battle Armor",
-        "description": "",
+        "id": "battle-armor",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
+        "id": "sand-veil",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1101,15 +1076,6 @@
       "time": "day",
       "level": "Badge Level - 15",
       "chance": 2,
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "rare",
-      "level": "Badge Level + 0",
-      "chance": 5,
-      "rareItem": "Shiny Stone",
       "formName": null
     }
   ],

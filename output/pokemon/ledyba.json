@@ -31,45 +31,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Swarm",
-        "description": "\tBoosts Bug moves \tin a pinch.",
+        "id": "swarm",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
+        "id": "early-bird",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Rattled",
-        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "id": "rattled",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Swarm",
-        "description": "\tBoosts Bug moves \tin a pinch.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Early Bird",
-        "description": "\tAwakens quickly \tfrom sleep.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Rattled",
-        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Fast",
     "eggGroups": [
       "Bug",
@@ -1034,12 +1012,99 @@
       "formName": null
     },
     {
-      "area": "Yellow Forest",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Badge Level + 0",
-      "chance": 40,
-      "rareItem": "THUNDERSTONE",
+      "area": "route_29",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_30",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_31",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_34",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_35",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_36",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_38",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_39",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_34_coast",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_north",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_south",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "violet_outskirts",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
       "formName": null
     }
   ],

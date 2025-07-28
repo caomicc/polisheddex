@@ -3,7 +3,6 @@
   "nationalDex": 23,
   "johtoDex": 51,
   "types": "Poison",
-  "updatedTypes": "Poison",
   "frontSpriteUrl": "/sprites/pokemon/ekans/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -25,45 +24,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
+        "id": "intimidate",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Shed Skin",
-        "description": "\tMay heal its own \tstatus problems.",
+        "id": "shed-skin",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
+        "id": "unnerve",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Intimidate",
-        "description": "\tLowers the foe's \tAttack stat.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Shed Skin",
-        "description": "\tMay heal its own \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Unnerve",
-        "description": "\tPrevents foes from \teating Berries.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -962,7 +939,72 @@
     "Pursuit",
     "Scary Face"
   ],
-  "locations": [],
+  "locations": [
+    {
+      "area": "route_26",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_27",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_32",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_33",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    },
+    {
+      "area": "route_37",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_42",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "azalea_town",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_32_coast",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 15,
+      "formName": null
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Snake",

@@ -3,7 +3,6 @@
   "nationalDex": 233,
   "johtoDex": 251,
   "types": "Normal",
-  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/porygon2/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Trace",
-        "description": "\tCopies the foe's \tAbility.",
+        "id": "trace",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Download",
-        "description": "\tAdjusts stats based \ton foe's defenses.",
+        "id": "download",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Analytic",
-        "description": "\tBoosts move power \twhen moving last.",
+        "id": "analytic",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Trace",
-        "description": "\tCopies the foe's \tAbility.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Download",
-        "description": "\tAdjusts stats based \ton foe's defenses.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Analytic",
-        "description": "\tBoosts move power \twhen moving last.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Mineral",

@@ -31,45 +31,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
+        "id": "keen-eye",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
+        "id": "tangled-feet",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "No Guard",
-        "description": "\tEnsures attacks by \tor against it hit.",
+        "id": "no-guard",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Keen Eye",
-        "description": "\tPrevents foes from \tlowering accuracy.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Tangled Feet",
-        "description": "\tBoosts evasion if \tit is confused.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "No Guard",
-        "description": "\tEnsures attacks by \tor against it hit.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Flying",

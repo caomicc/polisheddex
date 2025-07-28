@@ -51,7 +51,10 @@ interface CompressedPokemon {
   pokedexEntry?: any; // Keep as-is for now
 }
 
-function normalizeId(name: string): string {
+function normalizeId(name?: string): string {
+  if (!name) {
+    return 'unknown';
+  }
   return name
     .toLowerCase()
     .replace(/[^a-z0-9]/g, '-')
@@ -60,10 +63,13 @@ function normalizeId(name: string): string {
 }
 
 function compressAbilities(abilities: any[]): CompressedAbility[] {
+  if (!abilities || !Array.isArray(abilities)) {
+    return [];
+  }
   return abilities.map((ability) => ({
-    id: normalizeId(ability.name),
-    isHidden: ability.isHidden,
-    abilityType: ability.abilityType,
+    id: ability?.id || normalizeId(ability?.name || 'unknown'),
+    isHidden: ability?.isHidden,
+    abilityType: ability?.abilityType,
   }));
 }
 
@@ -87,9 +93,34 @@ function removeDuplicateAbilities(abilities: CompressedAbility[]): CompressedAbi
   });
 }
 
+// Global variable to cache location data
+let pokemonLocationsData: any = null;
+
+async function loadLocationData(): Promise<any> {
+  if (pokemonLocationsData) {
+    return pokemonLocationsData;
+  }
+
+  try {
+    const locationsPath = path.join(process.cwd(), 'output', 'pokemon_locations.json');
+    const data = await fs.readFile(locationsPath, 'utf8');
+    pokemonLocationsData = JSON.parse(data);
+    return pokemonLocationsData;
+  } catch (error) {
+    console.warn('Could not load pokemon_locations.json:', error);
+    return {};
+  }
+}
+
 async function compressPokemonFile(filePath: string): Promise<void> {
   try {
     const data = JSON.parse(await fs.readFile(filePath, 'utf8'));
+
+    // Skip compression if detailedStats is null or missing
+    if (!data.detailedStats) {
+      console.warn(`Skipping compression for ${filePath}: no detailed stats`);
+      return;
+    }
 
     // Compress abilities
     const compressedAbilities = removeDuplicateAbilities(
@@ -120,6 +151,12 @@ async function compressPokemonFile(filePath: string): Promise<void> {
       }
     }
 
+    // Load location data
+    const allLocationsData = await loadLocationData();
+    const pokemonName = data.name.toLowerCase();
+    const pokemonLocationData = allLocationsData[pokemonName];
+    const locations = pokemonLocationData?.locations || [];
+
     // Create compressed version
     const compressed: CompressedPokemon = {
       ...data,
@@ -129,6 +166,7 @@ async function compressPokemonFile(filePath: string): Promise<void> {
         faithfulAbilities: faithfulAbilities,
         updatedAbilities: updatedAbilities,
       },
+      locations: locations, // Add locations to compressed data
     };
 
     // Don't remove updatedAbilities anymore - we handle it above
@@ -180,6 +218,12 @@ async function compressDetailedStats(): Promise<void> {
 
     for (const [pokemonName, pokemonData] of Object.entries(data)) {
       const pokemon = pokemonData as any;
+
+      // Skip if pokemon data is invalid
+      if (!pokemon || typeof pokemon !== 'object') {
+        console.warn(`Skipping invalid pokemon data for: ${pokemonName}`);
+        continue;
+      }
 
       // Compress abilities
       const compressedAbilities = removeDuplicateAbilities(

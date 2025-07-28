@@ -31,45 +31,23 @@
     "hatchRate": "Medium-Slow (6,400 steps)",
     "abilities": [
       {
-        "name": "Moxie",
-        "description": "\tBoosts Attack when \tknocking out foes.",
+        "id": "moxie",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
+        "id": "guts",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Skill Link",
-        "description": "\tIncreases multi- \tstrike move hits.",
+        "id": "skill-link",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Moxie",
-        "description": "\tBoosts Attack when \tknocking out foes.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Skill Link",
-        "description": "\tIncreases multi- \tstrike move hits.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Bug",
@@ -1038,7 +1016,96 @@
     "Defense Curl",
     "Pursuit"
   ],
-  "locations": [],
+  "locations": [
+    {
+      "area": "route_28",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_33",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_37",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_42",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_44",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_45",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_46",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_47",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "route_48",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "azalea_town",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "silver_cave_outside",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 30,
+      "formName": null
+    }
+  ],
   "pokedexEntries": {
     "default": {
       "species": "Single Horn",

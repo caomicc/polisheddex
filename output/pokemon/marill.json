@@ -31,45 +31,23 @@
     "hatchRate": "Fast (2,560 steps)",
     "abilities": [
       {
-        "name": "Thick Fat",
-        "description": "\tUps resistance to \tFire and Ice.",
+        "id": "thick-fat",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Huge Power",
-        "description": "\tBoosts its Attack \tstat.",
+        "id": "huge-power",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
+        "id": "sap-sipper",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Thick Fat",
-        "description": "\tUps resistance to \tFire and Ice.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Huge Power",
-        "description": "\tBoosts its Attack \tstat.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Fast",
     "eggGroups": [
       "Undiscovered"
@@ -1205,15 +1183,6 @@
       "time": "nite",
       "level": "Badge Level + 1",
       "chance": 10,
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "25",
-      "chance": 40,
-      "rareItem": "Dusk Stone",
       "formName": null
     }
   ],

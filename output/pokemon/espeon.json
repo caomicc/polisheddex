@@ -3,7 +3,6 @@
   "nationalDex": 196,
   "johtoDex": 207,
   "types": "Psychic",
-  "updatedTypes": "Psychic",
   "frontSpriteUrl": "/sprites/pokemon/espeon/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -25,60 +24,35 @@
     "hatchRate": "Very Slow (10,240 steps)",
     "abilities": [
       {
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
+        "id": "synchronize",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
+        "id": "synchronize",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Magic Bounce",
-        "description": "\tReflects status- \tchanging moves.",
+        "id": "magic-bounce",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Magic Bounce",
-        "description": "\tReflects status- \tchanging moves.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
-        "name": "Synchronize",
-        "description": "\tPasses Psn, Par, \tor Brn to foes.",
+        "id": "synchronize",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Magic Guard",
-        "description": "\tOnly takes damage \tfrom attacks.",
+        "id": "magic-guard",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Magic Bounce",
-        "description": "\tReflects status- \tchanging moves.",
+        "id": "magic-bounce",
         "isHidden": true,
         "abilityType": "hidden"
       }

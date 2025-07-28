@@ -33,45 +33,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
+        "id": "chlorophyll",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
+        "id": "chlorophyll",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Harvest",
-        "description": "\tMay recreate a \tBerry after use.",
+        "id": "harvest",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Chlorophyll",
-        "description": "\tBoosts its Speed \tin sunshine.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Harvest",
-        "description": "\tMay recreate a \tBerry after use.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Grass",
@@ -1020,12 +998,291 @@
       "formName": null
     },
     {
-      "area": "Cherrygrove Bay",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Badge Level + 0",
-      "chance": 40,
-      "rareItem": "Shiny Stone",
+      "area": "route_26",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_26",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_27",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_27",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_29",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_29",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_30",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_30",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_31",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_31",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_32",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_32",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_34",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_34",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_35",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_35",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_36",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_36",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_38",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_38",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_39",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_39",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_43",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_43",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "lake_of_rage",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "lake_of_rage",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_32_coast",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_32_coast",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_34_coast",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_34_coast",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_north",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_north",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_south",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "route_35_coast_south",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "violet_outskirts",
+      "method": "headbutt",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "violet_outskirts",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 20,
       "formName": null
     }
   ],

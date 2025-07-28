@@ -3,7 +3,6 @@
   "nationalDex": 179,
   "johtoDex": 55,
   "types": "Electric",
-  "updatedTypes": "Electric",
   "frontSpriteUrl": "/sprites/pokemon/mareep/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -25,60 +24,35 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
+        "id": "static",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
+        "id": "static",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
+        "id": "static",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
+        "id": "static",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Static",
-        "description": "\tContact may cause \tparalysis.",
+        "id": "static",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Motor Drive",
-        "description": "\tElectric moves \tboost Speed.",
+        "id": "motor-drive",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -1118,15 +1092,6 @@
       "time": "day",
       "level": "Badge Level - 1",
       "chance": 10,
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "5",
-      "chance": 40,
-      "rareItem": "Everstone",
       "formName": null
     }
   ],

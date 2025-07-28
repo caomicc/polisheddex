@@ -3,7 +3,6 @@
   "nationalDex": 4,
   "johtoDex": 267,
   "types": "Fire",
-  "updatedTypes": "Fire",
   "frontSpriteUrl": "/sprites/pokemon/charmander/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -25,45 +24,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Blaze",
-        "description": "\tBoosts Fire moves \tin a pinch.",
+        "id": "blaze",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Solar Power",
-        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+        "id": "solar-power",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
+        "id": "flame-body",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Blaze",
-        "description": "\tBoosts Fire moves \tin a pinch.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Solar Power",
-        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Flame Body",
-        "description": "\tContact may burn \tthe foe.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Monster",

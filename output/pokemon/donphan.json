@@ -3,7 +3,6 @@
   "nationalDex": 232,
   "johtoDex": 225,
   "types": "Ground",
-  "updatedTypes": "Ground",
   "frontSpriteUrl": "/sprites/pokemon/donphan/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
+        "id": "sturdy",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
+        "id": "sturdy",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
+        "id": "sand-veil",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",
@@ -1051,15 +1028,6 @@
       "time": "day",
       "level": "Badge Level + 1",
       "chance": 2,
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "36",
-      "chance": 40,
-      "rareItem": "Moon Stone",
       "formName": null
     }
   ],

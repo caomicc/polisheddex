@@ -3,7 +3,6 @@
   "nationalDex": 276,
   "johtoDex": 211,
   "types": "Fairy",
-  "updatedTypes": "Fairy",
   "frontSpriteUrl": "/sprites/pokemon/sylveon/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,60 +26,35 @@
     "hatchRate": "Very Slow (10,240 steps)",
     "abilities": [
       {
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
+        "id": "cute-charm",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
+        "id": "cute-charm",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Pixilate",
-        "description": "\tNormal-type moves \tbecome Fairy-type.",
+        "id": "pixilate",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Pixilate",
-        "description": "\tNormal-type moves \tbecome Fairy-type.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
+    "faithfulAbilities": null,
     "updatedAbilities": [
       {
-        "name": "Cute Charm",
-        "description": "\tContact may cause \tinfatuation.",
+        "id": "cute-charm",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Serene Grace",
-        "description": "\tBoosts the rate of \tadded effects.",
+        "id": "serene-grace",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Pixilate",
-        "description": "\tNormal-type moves \tbecome Fairy-type.",
+        "id": "pixilate",
         "isHidden": true,
         "abilityType": "hidden"
       }

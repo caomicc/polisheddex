@@ -3,7 +3,6 @@
   "nationalDex": 50,
   "johtoDex": 143,
   "types": "Ground",
-  "updatedTypes": "Ground",
   "frontSpriteUrl": "/sprites/pokemon/diglett/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
+        "id": "sand-veil",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Arena Trap",
-        "description": "\tPrevents the foe \tfrom fleeing.",
+        "id": "arena-trap",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Sand Force",
-        "description": "\tBoosts some moves \tin a sandstorm.",
+        "id": "sand-force",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Sand Veil",
-        "description": "\tBoosts evasion in \ta sandstorm.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Arena Trap",
-        "description": "\tPrevents the foe \tfrom fleeing.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Sand Force",
-        "description": "\tBoosts some moves \tin a sandstorm.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Field",

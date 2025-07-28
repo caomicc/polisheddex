@@ -31,45 +31,23 @@
     "hatchRate": "Medium-Slow (6,400 steps)",
     "abilities": [
       {
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
+        "id": "swift-swim",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
+        "id": "water-absorb",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Water Veil",
-        "description": "\tPrevents it from \tgetting a burn.",
+        "id": "water-veil",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Swift Swim",
-        "description": "\tBoosts its Speed \tin rain.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Water Absorb",
-        "description": "\tRestores HP if hit \tby Water moves.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Water Veil",
-        "description": "\tPrevents it from \tgetting a burn.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Undiscovered"

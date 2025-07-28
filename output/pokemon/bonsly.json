@@ -3,7 +3,6 @@
   "nationalDex": 257,
   "johtoDex": 112,
   "types": "Rock",
-  "updatedTypes": "Rock",
   "frontSpriteUrl": "/sprites/pokemon/bonsly/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -25,45 +24,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
+        "id": "sturdy",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
+        "id": "rock-head",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Rattled",
-        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "id": "rattled",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Sturdy",
-        "description": "\tCannot be knocked \tout with one hit.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Rock Head",
-        "description": "\tProtects it from \trecoil damage.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Rattled",
-        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered",

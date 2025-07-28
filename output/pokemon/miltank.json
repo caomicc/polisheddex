@@ -3,7 +3,6 @@
   "nationalDex": 241,
   "johtoDex": 163,
   "types": "Normal",
-  "updatedTypes": "Normal",
   "frontSpriteUrl": "/sprites/pokemon/miltank/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Thick Fat",
-        "description": "\tUps resistance to \tFire and Ice.",
+        "id": "thick-fat",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Scrappy",
-        "description": "\tEnables moves to \thit Ghost-types.",
+        "id": "scrappy",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
+        "id": "sap-sipper",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Thick Fat",
-        "description": "\tUps resistance to \tFire and Ice.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Scrappy",
-        "description": "\tEnables moves to \thit Ghost-types.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Sap Sipper",
-        "description": "\tBoosts Attack when \thit by Grass.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Slow",
     "eggGroups": [
       "Field",
@@ -1108,15 +1085,6 @@
       "time": "nite",
       "level": "Badge Level + 0",
       "chance": 20,
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "common",
-      "level": "Badge Level + 3",
-      "chance": 40,
-      "rareItem": "THUNDERSTONE",
       "formName": null
     }
   ],

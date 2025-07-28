@@ -3,7 +3,6 @@
   "nationalDex": 66,
   "johtoDex": 153,
   "types": "Fighting",
-  "updatedTypes": "Fighting",
   "frontSpriteUrl": "/sprites/pokemon/machop/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -27,45 +26,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
+        "id": "guts",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "No Guard",
-        "description": "\tEnsures attacks by \tor against it hit.",
+        "id": "no-guard",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Steadfast",
-        "description": "\tBoosts Speed when \tit flinches.",
+        "id": "steadfast",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Guts",
-        "description": "\tBoosts Attack on \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "No Guard",
-        "description": "\tEnsures attacks by \tor against it hit.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Steadfast",
-        "description": "\tBoosts Speed when \tit flinches.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Human-Like",
@@ -1193,24 +1170,6 @@
       "time": "day",
       "level": "Badge Level + 0",
       "chance": 5,
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "Badge Level + 0",
-      "chance": 15,
-      "rareItem": "Shiny Stone",
-      "formName": null
-    },
-    {
-      "area": "ROUTE ",
-      "method": "hidden_grotto",
-      "time": "uncommon",
-      "level": "25",
-      "chance": 15,
-      "rareItem": "Dusk Stone",
       "formName": null
     }
   ],

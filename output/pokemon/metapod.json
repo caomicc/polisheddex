@@ -3,7 +3,6 @@
   "nationalDex": 11,
   "johtoDex": 25,
   "types": "Bug",
-  "updatedTypes": "Bug",
   "frontSpriteUrl": "/sprites/pokemon/metapod/front_cropped.png",
   "detailedStats": {
     "baseStats": {
@@ -25,45 +24,23 @@
     "hatchRate": "Medium-Fast (5,120 steps)",
     "abilities": [
       {
-        "name": "Shed Skin",
-        "description": "\tMay heal its own \tstatus problems.",
+        "id": "shed-skin",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
-        "name": "Shed Skin",
-        "description": "\tMay heal its own \tstatus problems.",
+        "id": "shed-skin",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
-        "name": "Shed Skin",
-        "description": "\tMay heal its own \tstatus problems.",
+        "id": "shed-skin",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": [
-      {
-        "name": "Shed Skin",
-        "description": "\tMay heal its own \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "name": "Shed Skin",
-        "description": "\tMay heal its own \tstatus problems.",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "name": "Shed Skin",
-        "description": "\tMay heal its own \tstatus problems.",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "updatedAbilities": [],
+    "faithfulAbilities": null,
+    "updatedAbilities": null,
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Bug",
@@ -263,6 +240,30 @@
       "time": "day",
       "level": "55",
       "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "ilex_forest",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "murky_swamp",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 5,
+      "formName": null
+    },
+    {
+      "area": "yellow_forest",
+      "method": "headbutt_rare",
+      "time": "all",
+      "level": "10",
+      "chance": 5,
       "formName": null
     }
   ],
