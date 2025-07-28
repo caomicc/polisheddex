@@ -214,7 +214,9 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const johtoInfo = johtoDex ? ` (Johto #${johtoDex})` : '';
 
   // Build description
-  const pokemonDisplayName = pokemonData.name || 'Unknown Pokemon';
+  const pokemonDisplayName = (pokemonData.name || 'Unknown Pokemon').replace(/\b\w/g, (char) =>
+    char.toUpperCase(),
+  );
   const baseDescription = `${pokemonDisplayName} ${dexInfo}${johtoInfo} - ${typeText} type Pokémon`;
   const locationCount = pokemonData.locations?.length || 0;
   const locationText = locationCount > 0 ? ` Found in ${locationCount} locations.` : '';
