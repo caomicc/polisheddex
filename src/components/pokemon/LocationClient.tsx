@@ -319,7 +319,7 @@ export default function LocationClient({
       )}
 
       {/* About tab - Location details */}
-      {/* {comprehensiveInfo &&
+      {comprehensiveInfo &&
       comprehensiveInfo.connections &&
       comprehensiveInfo.connections.length > 0 ? (
         <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
@@ -377,7 +377,7 @@ export default function LocationClient({
         </div>
       ) : (
         <></>
-      )} */}
+      )}
     </>
   );
 }
