@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { AnyItemData, isRegularItem, isTMHMItem } from '@/types/types';
+import { isRegularItem, isTMHMItem } from '@/types/types';
 import {
   Breadcrumb,
   BreadcrumbItem,
