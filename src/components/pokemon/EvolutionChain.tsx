@@ -303,7 +303,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                     ? `?form=${encodeURIComponent(path.sourceForm.replace(/ form$/i, '').toLowerCase())}`
                     : ''
                 }`}
-                className="mr-2 hover:underline text-blue-600"
+                className="mr-2 text-blue-600 text-center border-border border-1 rounded-lg hover:bg-gray-50 transition-colors duration-200 gap-4 aspect-square flex flex-col items-center justify-center p-2"
               >
                 {/* This is for debugging purposes, you can remove it */}
                 <Image
@@ -313,6 +313,9 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                   height={64}
                   className="w-16 h-16"
                 />
+                <span className="text-xs font-bold text-muted-foreground capitalize leading-none">
+                  {sourceName}
+                </span>
               </Link>
               {(() => {
                 const evolutionInfo = getEvolutionInfo(sourceName, targetName);
@@ -413,7 +416,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                     ? `?form=${encodeURIComponent(path.targetForm.replace(/ form$/i, '').toLowerCase())}`
                     : ''
                 }`}
-                className="ml-2 hover:underline text-blue-600"
+                className="ml-2 text-blue-600 text-center border-border border-1 rounded-lg hover:bg-gray-50 transition-colors duration-200 gap-2 aspect-square flex flex-col items-center justify-center p-2"
               >
                 <Image
                   src={getSpriteUrl(targetName)}
@@ -422,6 +425,9 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                   height={64}
                   className="w-16 h-16"
                 />
+                <span className="text-xs font-bold text-muted-foreground capitalize leading-none">
+                  {targetName}
+                </span>
               </Link>
             </div>
           );
