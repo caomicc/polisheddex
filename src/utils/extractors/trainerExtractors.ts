@@ -96,10 +96,29 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
 
   // Add rival trainers without locations to a special category if any exist
   if (rivalTrainersWithoutLocation.length > 0) {
-    trainersByLocation['_rival_no_location'] = rivalTrainersWithoutLocation;
-    console.log(
-      `📍 Added ${rivalTrainersWithoutLocation.length} rival trainers without location data`,
-    );
+    // Map specific rival classes to their special locations
+    const specialLocations: Record<string, string> = {
+      BRUNO: 'brunos_room',
+      CARRIE: 'carries_room',
+      WILL: 'wills_room',
+      KAREN: 'karens_room',
+      CHAMPION: 'lances_room',
+    };
+
+    // Group trainers by their special location or fallback
+    const grouped: Record<string, LocationTrainer[]> = {};
+
+    for (const trainer of rivalTrainersWithoutLocation) {
+      const location = specialLocations[trainer.trainerClass] || '_rival_no_location';
+      if (!grouped[location]) grouped[location] = [];
+      grouped[location].push(trainer);
+    }
+
+    // Add each group to trainersByLocation
+    for (const [location, trainers] of Object.entries(grouped)) {
+      trainersByLocation[location] = trainers;
+      console.log(`📍 Added ${trainers.length} rival trainers to ${location}`);
+    }
   }
 
   // Write trainer data to output file
