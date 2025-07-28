@@ -541,5 +541,5 @@ export interface PokemonEncounter {
   form?: string;
   location?: string;
   method?: string;
-  time?: 'day' | 'nite' | 'morn' | 'grotto' | 'default' | 'any'; // 'default' for any time, 'any' for no specific time
+  time?: 'day' | 'nite' | 'morn' | 'grotto' | 'default' | 'any' | 'null'; // 'default' for any time, 'any' for no specific time
 }
