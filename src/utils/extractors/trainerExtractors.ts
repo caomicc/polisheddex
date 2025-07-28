@@ -60,6 +60,7 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
     'KOGA',
     'BRUNO',
     'CHAMPION',
+    'PROF',
   ];
 
   Object.entries(trainerParties).forEach(([trainerKey, trainerData]) => {
@@ -97,19 +98,65 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
   // Add rival trainers without locations to a special category if any exist
   if (rivalTrainersWithoutLocation.length > 0) {
     // Map specific rival classes to their special locations
-    const specialLocations: Record<string, string> = {
-      BRUNO: 'brunos_room',
-      CARRIE: 'carries_room',
-      WILL: 'wills_room',
-      KAREN: 'karens_room',
-      CHAMPION: 'lances_room',
+
+    const rivalLocationById: Record<string, string> = {
+      karen_1: 'indigo_plateau',
+      karen_2: 'indigo_plateau',
+      jacky_1: 'indigo_plateau',
+      jacky_2: 'indigo_plateau',
+      will_1: 'indigo_plateau',
+      will_2: 'indigo_plateau',
+      bruno_1: 'indigo_plateau',
+      bruno_2: 'indigo_plateau',
+      cal_1: 'indigo_plateau',
+      cal_2: 'indigo_plateau',
+      carrie_1: 'indigo_plateau',
+      carrie_2: 'indigo_plateau',
+      champion_lance: 'indigo_plateau',
+      champion_lance2: 'indigo_plateau',
+      // silver rival
+      rival_1: 'new_bark_town', // Fallback for generic rival
+      rival_2: 'new_bark_town', // Fallback for generic rival
+      rival_3: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_4: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_5: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_6: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_7: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_8: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_9: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_10: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_11: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_12: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_13: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_14: 'new_bark_town', // Fallback for generic rival
+      rival_rival1_15: 'new_bark_town', // Fallback for generic rival
+      rival_4: 'new_bark_town', // Fallback for generic rival
+      rival_5: 'new_bark_town', // Fallback for generic rival
+      rival_6: 'new_bark_town', // Fallback for generic rival
+      // lyra
+      lyra_lyra1_1: 'new_bark_town',
+      lyra_lyra1_2: 'new_bark_town',
+      lyra_lyra1_3: 'new_bark_town',
+      lyra_lyra1_4: 'new_bark_town',
+      lyra_lyra1_5: 'new_bark_town',
+      lyra_lyra1_6: 'new_bark_town',
+      lyra_lyra1_7: 'new_bark_town',
+      lyra_lyra1_8: 'new_bark_town',
+      lyra_lyra1_9: 'new_bark_town',
+      lyra_lyra1_10: 'new_bark_town',
+      lyra_lyra1_11: 'new_bark_town',
+      lyra_lyra1_12: 'new_bark_town',
+      lyra_1: 'new_bark_town', // Fallback for generic lyra
+      lyra_2: 'new_bark_town', // Fallback for generic lyra
+      lyra_3: 'new_bark_town', // Fallback for generic lyra
     };
 
     // Group trainers by their special location or fallback
     const grouped: Record<string, LocationTrainer[]> = {};
 
     for (const trainer of rivalTrainersWithoutLocation) {
-      const location = specialLocations[trainer.trainerClass] || '_rival_no_location';
+      console.log(`Processing rival trainer: ${trainer.id} (${trainer.name})`);
+      const location = rivalLocationById[trainer.id];
       if (!grouped[location]) grouped[location] = [];
       grouped[location].push(trainer);
     }
