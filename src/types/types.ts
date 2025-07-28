@@ -342,118 +342,6 @@ export interface LocationHiddenItem {
   };
 }
 
-// Trainer types
-export interface TrainerPokemonVariant {
-  ability?: string;
-  nature?: string;
-  moves?: string[];
-  dvs?: {
-    hp: number;
-    attack: number;
-    defense: number;
-    speed: number;
-    special: number;
-  };
-  evs?: {
-    hp: number;
-    attack: number;
-    defense: number;
-    speed: number;
-    special: number;
-  };
-}
-
-export interface TrainerPokemon {
-  level: number;
-  species: string;
-  nickname?: string;
-  item?: string;
-  gender?: string;
-  form?: string;
-  ability?: string;
-  nature?: string;
-  shiny?: boolean;
-  moves?: string[];
-  dvs?: {
-    hp: number;
-    attack: number;
-    defense: number;
-    speed: number;
-    special: number;
-  };
-  evs?: {
-    hp: number;
-    attack: number;
-    defense: number;
-    speed: number;
-    special: number;
-  };
-  // Faithful and polished variants for version-specific data
-  faithful?: TrainerPokemonVariant;
-  polished?: TrainerPokemonVariant;
-}
-
-export interface LocationTrainer {
-  id: string;
-  name: string;
-  trainerClass: string;
-  spriteType: string;
-  coordinates: {
-    x: number;
-    y: number;
-  };
-  possibleCoordinates?: Array<{
-    x: number;
-    y: number;
-  }>;
-  eventFlag?: string;
-  pokemon?: TrainerPokemon[];
-  items?: string[];
-  baseReward?: number;
-  aiFlags?: string[];
-  rematchable?: boolean;
-  seenText?: string;
-  beatenText?: string;
-  afterText?: string;
-}
-
-export interface LocationData {
-  id: number;
-  name: string;
-  displayName: string;
-  region: 'johto' | 'kanto' | 'orange';
-  type?:
-    | 'landmark'
-    | 'route'
-    | 'cave'
-    | 'building'
-    | 'floor'
-    | 'house'
-    | 'gym'
-    | 'tower'
-    | 'island';
-  parent?: string; // Key of parent location
-  x: number;
-  y: number;
-  flyable: boolean;
-  spawnPoint?: string;
-  connections: LocationConnection[];
-  npcTrades?: NPCTrade[];
-  events?: LocationEvent[];
-  items?: LocationItem[];
-  tmhms?: { tmNumber: string; moveName: string; location: string }[];
-  trainers?: LocationTrainer[];
-  gymLeader?: GymLeader;
-  area?: string;
-  urlName?: string;
-  types?: string[] | string;
-  pokemonCount?: number;
-  hasHiddenGrottoes?: boolean;
-  hasTrainers?: boolean;
-  trainerCount?: number;
-  coordinates?: { x: number; y: number };
-}
-
 export interface GroupedLocation extends LocationData {
   children?: GroupedLocation[];
   hasData: boolean; // Whether this location has Pokemon, items, trainers, etc.
@@ -487,12 +375,96 @@ export interface ItemData {
   locations: ItemLocation[];
 }
 
-// TM/HM data structure
+export interface PokemonEncounter {
+  name: string;
+  level: string;
+  chance: number;
+  rareItem?: string;
+  form?: string;
+  location?: string;
+  method?: string;
+  time?: 'day' | 'nite' | 'morn' | 'grotto' | 'default' | 'any' | 'null'; // 'default' for any time, 'any' for no specific time
+}
+
+// consolidated types:
+
+// Base stats interface used across multiple types
+export interface PokemonStats {
+  hp: number;
+  attack: number;
+  defense: number;
+  speed: number;
+  special: number;
+}
+
+// Coordinates interface for reusability
+export interface Coordinates {
+  x: number;
+  y: number;
+}
+
+// Trainer Pokemon variant for version-specific data
+export interface TrainerPokemonVariant {
+  ability?: string;
+  nature?: string;
+  moves?: string[];
+  dvs?: PokemonStats;
+  evs?: PokemonStats;
+}
+
+// Main trainer Pokemon interface
+export interface TrainerPokemon {
+  level: number;
+  species: string;
+  nickname?: string;
+  item?: string;
+  gender?: string;
+  form?: string;
+  ability?: string;
+  nature?: string;
+  shiny?: boolean;
+  moves?: string[];
+  dvs?: PokemonStats;
+  evs?: PokemonStats;
+  // Version-specific variants
+  faithful?: TrainerPokemonVariant;
+  polished?: TrainerPokemonVariant;
+}
+
+// Location trainer interface
+export interface LocationTrainer {
+  id: string;
+  name: string;
+  trainerClass: string;
+  spriteType: string;
+  coordinates: Coordinates;
+  possibleCoordinates?: Coordinates[];
+  eventFlag?: string;
+  pokemon?: TrainerPokemon[];
+  items?: string[];
+  baseReward?: number;
+  aiFlags?: string[];
+  rematchable?: boolean;
+  seenText?: string;
+  beatenText?: string;
+  afterText?: string;
+  teams?: {
+    [teamName: string]: {
+      pokemon: TrainerPokemon[];
+      baseReward?: number;
+      aiFlags?: string[];
+      rematchable?: boolean;
+    };
+  };
+}
+
+// TM/HM location structure
 export interface TMHMLocation {
   area: string;
   details?: string;
 }
 
+// Full TM/HM data structure
 export interface TMHMData {
   id: string;
   name: string;
@@ -507,7 +479,61 @@ export interface TMHMData {
   location: TMHMLocation;
 }
 
-// Union type for all items
+// Simplified TM/HM reference for location data
+export interface TMHMReference {
+  tmNumber: string;
+  moveName: string;
+  location: string;
+}
+
+// Main location data interface
+export interface LocationData {
+  id: number;
+  name: string;
+  displayName: string;
+  region: 'johto' | 'kanto' | 'orange';
+  type?:
+    | 'landmark'
+    | 'route'
+    | 'cave'
+    | 'building'
+    | 'floor'
+    | 'house'
+    | 'gym'
+    | 'tower'
+    | 'island';
+  parent?: string; // Key of parent location
+  x: number;
+  y: number;
+  flyable: boolean;
+  spawnPoint?: string;
+  connections: LocationConnection[];
+  npcTrades?: NPCTrade[];
+  events?: LocationEvent[];
+  items?: LocationItem[];
+  tmhms?: TMHMReference[];
+  trainers?: LocationTrainer[];
+  gymLeader?: GymLeader;
+  area?: string;
+  urlName?: string;
+  types?: string[] | string;
+  pokemonCount?: number;
+  hasHiddenGrottoes?: boolean;
+  hasTrainers?: boolean;
+  trainerCount?: number;
+}
+// Gym Leader interface
+export interface GymLeader {
+  name: string;
+  trainerClass: string;
+  badge: string;
+  region: 'johto' | 'kanto' | 'orange';
+  pokemon?: TrainerPokemon[];
+  coordinates?: Coordinates;
+  speciality?: string; // Type speciality like "Flying", "Bug", etc.
+}
+
+// Union type for all items (assuming ItemData is defined elsewhere)
 export type AnyItemData = ItemData | TMHMData;
 
 export interface ItemsDatabase {
@@ -521,25 +547,4 @@ export function isRegularItem(item: AnyItemData): item is ItemData {
 
 export function isTMHMItem(item: AnyItemData): item is TMHMData {
   return 'tmNumber' in item && item.tmNumber !== undefined;
-}
-
-export interface GymLeader {
-  name: string;
-  trainerClass: string;
-  badge: string;
-  region: 'johto' | 'kanto' | 'orange';
-  pokemon?: TrainerPokemon[];
-  coordinates?: { x: number; y: number };
-  speciality?: string; // Type speciality like "Flying", "Bug", etc.
-}
-
-export interface PokemonEncounter {
-  name: string;
-  level: string;
-  chance: number;
-  rareItem?: string;
-  form?: string;
-  location?: string;
-  method?: string;
-  time?: 'day' | 'nite' | 'morn' | 'grotto' | 'default' | 'any' | 'null'; // 'default' for any time, 'any' for no specific time
 }
