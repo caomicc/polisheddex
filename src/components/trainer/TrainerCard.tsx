@@ -107,7 +107,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                   <Card key={idx} className="bg-white border-2 border-gray-200 p-0 shadow-none">
                     <CardContent className="p-4 flex flex-col gap-2">
                       <div className="flex items-center gap-3">
-                        <Link href={`/pokemon/${encodeURIComponent(poke.species)}`}>
+                        <Link href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}`}>
                           <Image
                             src={`/sprites/pokemon/${poke.species.toLowerCase()}/front_cropped.png`}
                             alt={poke.species}
@@ -118,7 +118,9 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                         </Link>
                         <div className="flex-1 min-w-0">
                           <h3 className="capitalize font-bold">
-                            <Link href={`/pokemon/${encodeURIComponent(poke.species)}`}>
+                            <Link
+                              href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}`}
+                            >
                               {poke.species}{' '}
                               {poke.gender?.toLowerCase() === 'female' && (
                                 <Image
