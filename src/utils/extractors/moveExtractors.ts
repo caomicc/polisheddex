@@ -44,49 +44,81 @@ export function extractMoveDescriptions() {
   let buffer: string[] = [];
 
   for (const line of descLines) {
-    const labelMatch = line.match(/^([A-Za-z0-9_]+)Description:/);
+    const labelMatch = line.match(/^([A-Za-z0-9_]+)Description:$/);
     if (labelMatch) {
-      // If we have a previous label group and collected text, save it
-      if (currentLabels.length && buffer.length) {
-        const description = buffer.join(' ').trim();
-        for (const label of currentLabels) {
-          // Try multiple normalization approaches for this label
-          const labelVariations = [
-            label, // Original label
-            label.replace(/([a-z])([A-Z])/g, '$1 $2'), // Add spaces before capitals
-            label.replace(/([a-z])([A-Z])/g, '$1_$2'), // Add underscores before capitals
-          ];
+      // Check if this is the start of a new group or continuation of current group
+      if (line.trim().includes('text ') || buffer.length > 0) {
+        // This line has both label and text, or we already have text buffer
+        // Save previous group if it exists
+        if (currentLabels.length && buffer.length) {
+          const description = buffer.join(' ').trim();
+          for (const label of currentLabels) {
+            // Try multiple normalization approaches for this label
+            const labelVariations = [
+              label, // Original label
+              label.replace(/([a-z])([A-Z])/g, '$1 $2'), // Add spaces before capitals
+              label.replace(/([a-z])([A-Z])/g, '$1_$2'), // Add underscores before capitals
+            ];
 
-          for (const variation of labelVariations) {
-            const normalizedKey = normalizeMoveKey(variation);
-            descMap[normalizedKey] = description;
-            console.log(
-              `Mapped description for "${variation}" -> "${normalizedKey}": ${description.substring(0, 50)}...`,
-            );
+            for (const variation of labelVariations) {
+              const normalizedKey = normalizeMoveKey(variation);
+              descMap[normalizedKey] = description;
+              console.log(
+                `Mapped description for "${variation}" -> "${normalizedKey}": ${description.substring(0, 50)}...`,
+              );
+            }
           }
         }
-      }
-
-      // Start new label group
-      currentLabels = [labelMatch[1]];
-      buffer = [];
-      collecting = false;
-    } else if (line.match(/^([A-Za-z0-9_]+)Description:$/)) {
-      // Additional labels on their own lines (part of the same group)
-      const match = line.match(/^([A-Za-z0-9_]+)Description:$/);
-      if (match) {
-        currentLabels.push(match[1]);
-        console.log(`Added label to group: ${match[1]} (total: ${currentLabels.length})`);
+        // Start new label group
+        currentLabels = [labelMatch[1]];
+        buffer = [];
+        collecting = false;
+      } else {
+        // This is just a label line, add to current group
+        if (currentLabels.length === 0) {
+          // First label in a new group
+          currentLabels = [labelMatch[1]];
+        } else {
+          // Additional label in current group
+          currentLabels.push(labelMatch[1]);
+        }
+        console.log(`Added label to group: ${labelMatch[1]} (total: ${currentLabels.length})`);
       }
     } else if (line.trim().startsWith('text ')) {
       collecting = true;
-      buffer.push(line.replace('text ', '').replace(/"/g, ''));
+      let text = line.replace('text ', '').replace(/"/g, '').replace(/\t/g, '');
+      buffer.push(text);
     } else if (line.trim().startsWith('next ')) {
-      buffer.push(line.replace('next ', '').replace(/"/g, ''));
+      let text = line.replace('next ', '').replace(/"/g, '').replace(/\t/g, '');
+      // Check if previous line ended with hyphen for continuation
+      if (buffer.length > 0 && buffer[buffer.length - 1].endsWith('-')) {
+        // Remove hyphen and concatenate without space
+        buffer[buffer.length - 1] = buffer[buffer.length - 1].slice(0, -1) + text;
+      } else {
+        buffer.push(text);
+      }
     } else if (line.trim() === 'done') {
       collecting = false;
+    } else if (line.trim().startsWith('if ') && collecting) {
+      // Handle conditional blocks - continue collecting
+      continue;
+    } else if (line.trim() === 'endc' && collecting) {
+      // End of conditional block - continue collecting
+      continue;
     } else if (collecting && line.trim()) {
-      buffer.push(line.trim().replace(/"/g, ''));
+      let text = line.trim().replace(/"/g, '').replace(/\t/g, '');
+      if (text.startsWith('text ')) {
+        text = text.replace('text ', '');
+      } else if (text.startsWith('next ')) {
+        text = text.replace('next ', '');
+        // Check if previous line ended with hyphen for continuation
+        if (buffer.length > 0 && buffer[buffer.length - 1].endsWith('-')) {
+          // Remove hyphen and concatenate without space
+          buffer[buffer.length - 1] = buffer[buffer.length - 1].slice(0, -1) + text;
+          continue;
+        }
+      }
+      buffer.push(text);
     }
   }
 
@@ -222,8 +254,10 @@ export function extractMoveDescriptions() {
     double_slap: 'double_slap',
     will_o_wisp: 'will_o_wisp',
     willow_wisp: 'will_o_wisp',
-    drainingkiss: 'draining_kiss',
-    draining_kiss: 'draining_kiss',
+    drainingkiss: 'drain_kiss',
+    draining_kiss: 'drain_kiss',
+    brick_break: 'rock_smash', // Brick Break uses RockSmash description in polished mode
+    brickbreak: 'rock_smash',
   };
 
   for (let i = 0; i < moveNames.length; i++) {
