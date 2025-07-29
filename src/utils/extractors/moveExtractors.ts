@@ -149,6 +149,23 @@ export function extractMoveDescriptions() {
     string,
     { type: string; pp: number; power: number; category: string; accuracy: any }
   > = {};
+
+  // Special mappings for moves that have different names in moves.asm vs names.asm
+  const moveStatsMappings: Record<string, string> = {
+    DOUBLESLAP: 'DOUBLE_SLAP',
+    doubleslap: 'DOUBLE_SLAP',
+    double_slap: 'DOUBLE_SLAP',
+    PSYCHIC: 'PSYCHIC_M',
+    psychic: 'PSYCHIC_M',
+    psychic_m: 'PSYCHIC_M',
+    WILL_O_WISP: 'WILL_O_WISP',
+    will_o_wisp: 'WILL_O_WISP',
+    willow_wisp: 'WILL_O_WISP',
+    DRAININGKISS: 'DRAINING_KISS',
+    drainingkiss: 'DRAINING_KISS',
+    draining_kiss: 'DRAINING_KISS',
+  };
+
   for (const line of statsLines) {
     const match = line.match(
       /^\s*move\s+([A-Z0-9_]+),\s*[A-Z0-9_]+,\s*(-?\d+),\s*([A-Z_]+),\s*(-?\d+),\s*(\d+),\s*\d+,\s*([A-Z_]+)/,
@@ -161,7 +178,17 @@ export function extractMoveDescriptions() {
       const accuracy = parseInt(match[4], 10);
       const pp = parseInt(match[5], 10);
       const category = categoryEnumToName[match[6]] || 'Unknown';
+
+      // Store both the original key and any mapped variations
       moveStats[moveKey] = { type, pp, power, category, accuracy };
+
+      // Also store reverse mappings for special cases
+      for (const [normalizedName, constantName] of Object.entries(moveStatsMappings)) {
+        if (constantName === move) {
+          moveStats[normalizedName] = { type, pp, power, category, accuracy };
+          console.log(`Mapped move stats: ${normalizedName} -> ${move}`);
+        }
+      }
     }
   }
 
