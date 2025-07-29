@@ -3,9 +3,9 @@ import { TableCell, TableRow } from '../ui/table';
 import { cn } from '@/lib/utils';
 import { Move, MoveDescription, PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
-import TypeIcon from '../pokemon/TypeIcon';
 import MoveCategoryIcon from './MoveCategoryIcon';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import Link from 'next/link';
 
 const MoveRow: React.FC<Move> = ({ name, level, info }) => {
   console.log('MoveRow rendered:', name, level, info);
@@ -36,9 +36,21 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         </TableCell>
       )}
 
-      <TableCell rowSpan={2} className="align-middle font-medium p-2 ">
+      <TableCell
+        rowSpan={2}
+        className="align-middle font-medium p-2 text-center md:text-left text-xs md:text-md"
+      >
         {name}{' '}
-        {info?.tm ? <span className="text-xs text-muted-foreground">({info.tm.number})</span> : ''}
+        {info?.tm ? (
+          <Link
+            href={`/items/${info.tm.number.toLowerCase()}`}
+            className="text-xs text-muted-foreground block md:inline"
+          >
+            ({info.tm.number})
+          </Link>
+        ) : (
+          ''
+        )}
       </TableCell>
 
       <TableCell className="align-middle p-2">
@@ -86,59 +98,83 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
     </TableRow>,
   ];
 
-  // Mobile version uses a compact layout with each row
   const mobileRows = [
     <TableRow
-      key={`row-${name}-${level}-mobile`}
-      className="hover:bg-muted/50 border-b-0 md:hidden"
+      className="md:hidden group border-b-0 hover:bg-muted/0"
+      key={`mobile-header-${name}-${level}`}
+      id={`mobile-header-${name}-${level}`}
     >
-      {/* Mobile combined cell for level and name */}
-      <TableCell className="align-middle px-2 py-1">
-        <div className="flex items-center gap-2 ">
-          {level !== undefined ? <span className="font-semibold">Lv. {level}</span> : <></>}
-          <span className="font-bold">{name}</span>
-        </div>
+      <TableCell
+        colSpan={1}
+        className="align-middle font-bold p-2 text-center md:text-left text-xs md:text-md col-span-2"
+      >
+        {name}{' '}
+        {info?.tm ? (
+          <Link
+            href={`/items/${info.tm.number.toLowerCase()}`}
+            className="text-xs text-muted-foreground md:inline"
+          >
+            ({info.tm.number})
+          </Link>
+        ) : (
+          ''
+        )}
+        {level !== undefined && (
+          <span className="text-xs text-muted-foreground ml-2">Level: {level}</span>
+        )}
       </TableCell>
-
-      {/* Power - Always visible */}
-      <TableCell className="align-middle p-1 text-center w-16 text-xs">
-        {/* <span className="font-medium text-xs text-muted-foreground mr-1">PWR</span> */}
-        <span>{effectiveInfo?.power ?? '--'}</span>/<span>{effectiveInfo?.accuracy ?? '--'}</span>
-      </TableCell>
-      {/* Type - Always visible */}
-      <TableCell className="align-middle py-1 px-1 w-8">
+    </TableRow>,
+    <TableRow
+      key={`row-${name}-${level}-mobile`}
+      id={name?.toLowerCase().replace(/\s+/g, '-') ?? `row-${name}-${level}`}
+      className="hover:bg-muted/0 border-b-0 group md:hidden"
+    >
+      <TableCell className="align-middle p-2">
         <Badge
           variant={String(effectiveInfo?.type ?? '-').toLowerCase() as PokemonType['name']}
-          className="hidden sm:inline-flex"
+          // className="w-full md:w-auto text-center"
+          className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
         >
           {effectiveInfo?.type ? String(effectiveInfo.type) : '-'}
         </Badge>
-        <div className="sm:hidden text-center">
-          {effectiveInfo?.type ? (
-            <TypeIcon type={String(effectiveInfo.type)} size={20} />
-          ) : (
-            <span>-</span>
-          )}
-        </div>
       </TableCell>
-      <TableCell className="align-middle py-1 w-8 px-1 text-center">
-        <MoveCategoryIcon category={effectiveInfo?.category?.toLowerCase() || 'unknown'} />
+
+      <TableCell className="align-middle p-2 text-center">
+        <MoveCategoryIcon
+          category={effectiveInfo?.category?.toLowerCase() || 'unknown'}
+          className={'w-4 h-4 p-[4px]'}
+        />
+        {/* <Badge
+          variant={info?.category?.toLowerCase() as MoveDescription['category']}
+          className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px] mx-auto"
+        >
+          {info?.category ? String(info.category) : '-'}
+        </Badge> */}
       </TableCell>
+
+      <TableCell className="align-middle p-2 ">{effectiveInfo?.power ?? '--'}</TableCell>
+
+      <TableCell className="align-middle p-2 ">{effectiveInfo?.accuracy ?? '--'}</TableCell>
+
+      <TableCell className="align-middle p-2 ">{effectiveInfo?.pp ?? '--'}</TableCell>
     </TableRow>,
-    <TableRow key={`desc-${name}-${level}-mobile`} className="md:hidden">
+    <TableRow
+      key={`desc-${name}-${level}-mobile`}
+      className="group-hover:bg-muted/0 hover:bg-muted/0 md:hidden"
+    >
       <TableCell
         className={cn(
-          'text-muted-foreground text-xs px-2 pb-3 italic text-left',
+          'text-muted-foreground text-xs p-2 pb-4',
           !info?.description?.trim() && 'text-error',
         )}
-        colSpan={4}
+        // colSpan={1}
       >
         {info?.description?.trim() ? info.description : 'No description found.'}
       </TableCell>
     </TableRow>,
   ];
 
-  return [...mobileRows, ...desktopRows];
+  return [...desktopRows, ...mobileRows];
 };
 
 export default MoveRow;

@@ -533,25 +533,25 @@ export default function PokemonFormClient({
                         <Table>
                           <TableHeader className={'hidden md:table-header-group'}>
                             <TableRow>
-                              <TableHead className="attheader cen align-middle text-left w-[60px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[60px]">
                                 Level
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[180px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[180px]">
                                 Attack Name
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                                 Type
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                                 Cat.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                                 Att.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                                 Acc.
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                              <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                                 PP
                               </TableHead>
                             </TableRow>
@@ -588,22 +588,22 @@ export default function PokemonFormClient({
                     <Table>
                       <TableHeader className={'hidden md:table-header-group'}>
                         <TableRow>
-                          <TableHead className="attheader cen align-middle text-left w-[238px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[238px]">
                             Attack Name
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             Type
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             Cat.
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             Att.
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             Acc.
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             PP
                           </TableHead>
                         </TableRow>
@@ -643,22 +643,22 @@ export default function PokemonFormClient({
                     <Table>
                       <TableHeader className={'hidden md:table-header-group'}>
                         <TableRow>
-                          <TableHead className="attheader cen align-middle text-left w-[238px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[238px]">
                             Attack Name
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             Type
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             Cat.
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             Att.
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             Acc.
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                          <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             PP
                           </TableHead>
                           {/* <TableHead className="attheader cen align-middle text-left w-[80px]">

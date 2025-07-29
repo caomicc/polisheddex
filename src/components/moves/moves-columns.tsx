@@ -15,9 +15,9 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
         >
-          Move Name
+          Name
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
@@ -30,7 +30,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     },
     cell: ({ row }) => {
       const move = row.original;
-      return <div className="flex items-center space-x-2 min-w-0">{move.name}</div>;
+      return <div className="flex items-center space-x-2 min-w-0 word-wrap">{move.name}</div>;
     },
     filterFn: (row, id, value) => {
       if (!value) return true;
@@ -45,7 +45,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
         >
           Type
           {column.getIsSorted() === 'desc' ? (
@@ -77,9 +77,10 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
         >
-          Category
+          <span className="hidden md:inline">Category</span>
+          <span className="inline md:hidden">Cat.</span>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
@@ -108,9 +109,10 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
         >
-          Power
+          <span className="hidden md:inline">Power</span>
+          <span className="inline md:hidden">Pwr.</span>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
@@ -135,9 +137,10 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
         >
-          Accuracy
+          <span className="hidden md:inline">Accuracy</span>
+          <span className="inline md:hidden">Acc.</span>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
           ) : column.getIsSorted() === 'asc' ? (
@@ -162,7 +165,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
         >
           PP
           {column.getIsSorted() === 'desc' ? (

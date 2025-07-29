@@ -544,13 +544,20 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
 
       {/* Data Table */}
       <div className="rounded-md border bg-white overflow-x-auto border-border">
-        <Table className="table-fixed w-full min-w-[600px]">
+        <Table className="table-fixed w-full">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
+                  // Hide the "name" column on mobile
+                  const isNameColumn =
+                    'accessorKey' in header.column.columnDef &&
+                    header.column.columnDef.accessorKey === 'name';
                   return (
-                    <TableHead key={header.id} className="bg-slate-50">
+                    <TableHead
+                      key={header.id}
+                      className={isNameColumn ? 'bg-slate-50 hidden sm:table-cell' : 'bg-slate-50'}
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(header.column.columnDef.header, header.getContext())}
