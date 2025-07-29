@@ -6,6 +6,7 @@ import pokemonMoveDescriptions from '@/output/pokemon_move_descriptions.json';
 import { Badge } from '../ui/badge';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import Link from 'next/link';
+import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 interface TrainerCardProps {
   trainer: GymLeader | LocationTrainer;
@@ -14,6 +15,8 @@ interface TrainerCardProps {
 
 export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) {
   const trainerSpritePath = trainer.trainerClass.toLowerCase().replace(/_/g, '_');
+
+  const { showFaithful } = useFaithfulPreference();
 
   return (
     <div className="p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
@@ -115,15 +118,14 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
 
                       <div className="flex flex-row flex-wrap justify-center items-center mb-2 gap-2 md:gap-4">
                         <div className={'text-center'}>
-                          <label className="leading-none text-xs w-[50px]">Faithful:</label>
                           <div
                             className="flex flex-wrap gap-2 items-center justify-center"
                             aria-label="Pokemon Types"
                             role="group"
                           >
-                            {types ? (
-                              Array.isArray(types) ? (
-                                types.map((type: string) => (
+                            {(showFaithful ? types : updatedTypes) &&
+                              (Array.isArray(showFaithful ? types : updatedTypes) ? (
+                                (showFaithful ? types : updatedTypes).map((type: string) => (
                                   <Badge
                                     key={type}
                                     variant={type.toLowerCase() as PokemonType['name']}
@@ -133,54 +135,17 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                                   </Badge>
                                 ))
                               ) : (
-                                <Badge
-                                  key={types}
-                                  variant={types as PokemonType['name']}
-                                  className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
-                                >
-                                  {types}
-                                </Badge>
-                              )
-                            ) : (
+                                <></>
+                              ))}
+
+                            {/* {!(showFaithful ? types : updatedTypes) && (
                               <Badge
                                 variant="secondary"
                                 className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
                               >
                                 Unknown
                               </Badge>
-                            )}
-                          </div>
-                        </div>
-                        <div className={'text-center'}>
-                          <label className="leading-none text-xs w-[50px]">Polished:</label>
-                          <div
-                            className="flex flex-wrap gap-2 items-center justify-center"
-                            aria-label="Pokemon Types"
-                            role="group"
-                          >
-                            {updatedTypes ? (
-                              Array.isArray(updatedTypes) ? (
-                                updatedTypes.map((type: string) => (
-                                  <Badge
-                                    key={type}
-                                    className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
-                                    variant={type.toLowerCase() as PokemonType['name']}
-                                  >
-                                    {type}
-                                  </Badge>
-                                ))
-                              ) : (
-                                <Badge
-                                  key={updatedTypes}
-                                  className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
-                                  variant={updatedTypes as PokemonType['name']}
-                                >
-                                  {updatedTypes}
-                                </Badge>
-                              )
-                            ) : (
-                              <></>
-                            )}
+                            )} */}
                           </div>
                         </div>
                       </div>

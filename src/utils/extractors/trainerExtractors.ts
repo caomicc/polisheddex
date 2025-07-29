@@ -880,7 +880,9 @@ function findAllTrainerCommands(
       let isRematchable = false;
 
       if (fullObjectLine.includes('OBJECTTYPE_GENERICTRAINER')) {
-        const genericMatch = fullObjectLine.match(/OBJECTTYPE_GENERICTRAINER,\s*\d+,\s*([A-Za-z0-9_]+)/);
+        const genericMatch = fullObjectLine.match(
+          /OBJECTTYPE_GENERICTRAINER,\s*\d+,\s*([A-Za-z0-9_]+)/,
+        );
         if (genericMatch) {
           scriptName = genericMatch[1];
           isRematchable = false;
@@ -1018,78 +1020,6 @@ function findAllTrainerCommands(
         coordinates,
         rematchable: false, // generictrainer commands are never rematchable
       });
-    }
-  }
-
-  return trainers;
-}
-
-/**
- * Find loadtrainer commands in a script by searching for the script definition
- */
-function findLoadTrainerInScript(
-  lines: string[],
-  scriptName: string,
-  startLine: number,
-): Array<{ trainerClass: string; trainerId: string; rematchable: boolean }> {
-  const trainers: Array<{ trainerClass: string; trainerId: string; rematchable: boolean }> = [];
-
-  // Look for the script definition
-  for (let i = startLine; i < lines.length; i++) {
-    const line = lines[i].trim();
-
-    // Found the script definition
-    if (line.startsWith(`${scriptName}:`)) {
-      let hasPhoneNumberLogic = false;
-      let hasRematchLogic = false;
-
-      // Look ahead in the script for loadtrainer commands and rematch indicators
-      for (let j = i + 1; j < Math.min(i + 200, lines.length); j++) {
-        const scriptLine = lines[j].trim();
-
-        // Stop if we hit another script or label (but not sub-labels starting with .)
-        if (scriptLine.endsWith(':') && !scriptLine.startsWith('.') && scriptLine !== 'end') {
-          break;
-        }
-
-        // Check for phone number related logic (indicates rematchable)
-        if (
-          scriptLine.includes('askforphonenumber') ||
-          scriptLine.includes('checkcellnum') ||
-          scriptLine.includes('PHONE_') ||
-          scriptLine.includes('rematch')
-        ) {
-          hasPhoneNumberLogic = true;
-        }
-
-        // Check for explicit rematch logic
-        if (scriptLine.includes('READY_FOR_REMATCH') || scriptLine.includes('.WantsBattle')) {
-          hasRematchLogic = true;
-        }
-
-        // Check for loadtrainer command
-        const loadTrainerMatch = scriptLine.match(/loadtrainer\s+([A-Z0-9_]+),\s*([A-Z0-9_]+)/);
-        if (loadTrainerMatch) {
-          const isRematchable = hasPhoneNumberLogic || hasRematchLogic;
-
-          trainers.push({
-            trainerClass: loadTrainerMatch[1],
-            trainerId: loadTrainerMatch[2],
-            rematchable: isRematchable,
-          });
-        }
-
-        // Also check for generictrainer commands (these are not rematchable)
-        const genericTrainerMatch = scriptLine.match(/generictrainer\s+([A-Z_]+),\s*([A-Z0-9_]+),/);
-        if (genericTrainerMatch) {
-          trainers.push({
-            trainerClass: genericTrainerMatch[1],
-            trainerId: genericTrainerMatch[2],
-            rematchable: false, // Generic trainers are never rematchable
-          });
-        }
-      }
-      break;
     }
   }
 
