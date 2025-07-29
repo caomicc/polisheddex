@@ -44,7 +44,7 @@ const NavigationMenuDemo = () => {
   return (
     <div
       className={cn(
-        'fixed top-2 md:top-4 py-2 px-4 mx-4 left-[50%] transform -translate-x-1/2 z-50 rounded-xl transition-all duration-300 backdrop-blur-xl border border-2 max-w-4xl md:mx-0',
+        'fixed top-2 md:top-4 py-2 px-4 mx-4 w-[calc(100%-theme(spacing.4))] md:w-[calc(100%-theme(spacing.8))] left-[50%] transform -translate-x-1/2 z-50 rounded-xl transition-all duration-300 backdrop-blur-xl border border-2 max-w-4xl mx-auto',
         showBackground
           ? 'bg-white/20 border-gray-200 text-foreground'
           : 'dark:text-white text-white border-transparent',

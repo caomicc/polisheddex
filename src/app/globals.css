@@ -1,6 +1,17 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/* Prevent layout shift when scroll is locked by Radix Select */
+body[data-scroll-locked='1'] {
+  padding-right: 0 !important;
+  overflow-y: scroll !important;
+}
+
+/* Prevent fixed navigation from shifting when body scroll is locked */
+body[data-scroll-locked='1'] .fixed {
+  right: 0 !important;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @source inline("bg-{physical,special,status,morn,day,nite,eve,any,common,uncommon,rare}");

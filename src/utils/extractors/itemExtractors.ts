@@ -223,9 +223,14 @@ export function extractItemData(): Record<string, ItemData> {
       // Extract the text content between quotes
       const match = line.match(/"([^"]+)"/);
       if (match && match[1]) {
-        const textContent = match[1];
-        // Add space between lines for readability
-        description += (description ? ' ' : '') + textContent;
+        let textContent = match[1];
+        // If previous description ends with '-' (hyphen), remove it and do not add a space
+        if (description.endsWith('-')) {
+          description = description.slice(0, -1);
+          description += textContent;
+        } else {
+          description += (description ? ' ' : '') + textContent;
+        }
       }
     }
 
