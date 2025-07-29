@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { normalizeMoveKey, toCapitalCaseWithSpaces } from '../stringUtils.ts';
+import { normalizeMoveKey, toCapitalCaseWithSpaces, deepReplaceMonString } from '../stringUtils.ts';
 import { sharedDescriptionGroups } from '../../data/constants.ts';
 import type { MoveDescription } from '../../types/types.ts';
 import { extractFormInfo } from './formExtractors.ts';
@@ -18,6 +18,34 @@ const MOVE_DESCRIPTIONS_OUTPUT = path.join(
   '../../../output/pokemon_move_descriptions.json',
 );
 const TM_HM_LEARNSET_PATH = path.join(__dirname, '../../../output/pokemon_tm_hm_learnset.json');
+const ITEMS_DATA_PATH = path.join(__dirname, '../../../output/items_data.json');
+
+// Helper function to get TM/HM information for a move
+function getTmHmInfo(moveName: string): { tmNumber?: string; location?: any } | null {
+  try {
+    const itemsData = JSON.parse(fs.readFileSync(ITEMS_DATA_PATH, 'utf8'));
+
+    // Normalize the move name for comparison
+    const normalizedMoveName = moveName.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+    // Search through TM/HM items
+    for (const item of Object.values(itemsData) as any[]) {
+      if (item.tmNumber && item.moveName) {
+        const normalizedItemMoveName = item.moveName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        if (normalizedItemMoveName === normalizedMoveName) {
+          return {
+            tmNumber: item.tmNumber,
+            location: item.location,
+          };
+        }
+      }
+    }
+  } catch (error) {
+    console.warn('Failed to load items data:', error);
+  }
+
+  return null;
+}
 
 export function extractMoveDescriptions() {
   const moveNamesPath = path.join(__dirname, '../../../polishedcrystal/data/moves/names.asm');
@@ -381,8 +409,14 @@ export function extractMoveDescriptions() {
     if (prettyName === 'Willow Wisp') prettyName = 'Will O Wisp';
     if (prettyName === 'Drainingkiss') prettyName = 'Draining Kiss';
 
+    // Apply string normalization to the description
+    const normalizedDesc = typeof desc === 'string' ? (deepReplaceMonString(desc) as string) : desc;
+
+    // Get TM/HM information for this move
+    const tmHmInfo = getTmHmInfo(prettyName);
+
     moveDescByName[prettyName] = {
-      description: desc,
+      description: normalizedDesc,
       faithful: {
         type: stats.faithful?.type || 'None',
         pp: stats.faithful?.pp || 0,
@@ -397,6 +431,12 @@ export function extractMoveDescriptions() {
         category: stats.updated?.category || 'Unknown',
         accuracy: stats.updated?.accuracy === -1 ? '--' : stats.updated?.accuracy || 0,
       },
+      ...(tmHmInfo && {
+        tm: {
+          number: tmHmInfo.tmNumber,
+          location: tmHmInfo.location,
+        },
+      }),
     };
   }
 
@@ -415,15 +455,23 @@ export function extractMoveDescriptions() {
       }
     }
     if (groupDesc) {
+      // Apply string normalization to the group description
+      const normalizedGroupDesc =
+        typeof groupDesc === 'string' ? (deepReplaceMonString(groupDesc) as string) : groupDesc;
+
       for (const gMove of groupMoves) {
         const prettyName = toCapitalCaseWithSpaces(normalizeMoveKey(gMove));
         if (moveDescByName[prettyName] && !moveDescByName[prettyName].description) {
-          moveDescByName[prettyName].description = groupDesc;
+          moveDescByName[prettyName].description = normalizedGroupDesc;
         }
       }
     }
   }
-  fs.writeFileSync(MOVE_DESCRIPTIONS_OUTPUT, JSON.stringify(moveDescByName, null, 2));
+
+  // Apply final normalization to all move descriptions before writing
+  const normalizedMoveDescByName = deepReplaceMonString(moveDescByName);
+
+  fs.writeFileSync(MOVE_DESCRIPTIONS_OUTPUT, JSON.stringify(normalizedMoveDescByName, null, 2));
   console.log('Move descriptions extracted to', MOVE_DESCRIPTIONS_OUTPUT);
 }
 
@@ -539,12 +587,12 @@ export function extractTmHmLearnset() {
           return {
             name,
             description: moveData.description || '',
-            type: moveData.type || '',
-            pp: moveData.pp || 0,
-            power: moveData.power || 0,
-            category: moveData.category || 'unknown',
-            accuracy: moveData.accuracy || 0,
-            effectPercent: moveData.effectPercent,
+            type: moveData.updated?.type || moveData.faithful?.type || '',
+            pp: moveData.updated?.pp || moveData.faithful?.pp || 0,
+            power: moveData.updated?.power || moveData.faithful?.power || 0,
+            category: moveData.updated?.category || moveData.faithful?.category || 'unknown',
+            accuracy: moveData.updated?.accuracy || moveData.faithful?.accuracy || 0,
+            effectPercent: moveData.updated?.effectPercent || moveData.faithful?.effectPercent,
           };
         } else {
           return {

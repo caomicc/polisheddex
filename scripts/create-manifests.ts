@@ -46,6 +46,13 @@ interface MoveManifest {
       accuracy: number;
       pp: number;
     };
+    tm?: {
+      number: string;
+      location?: {
+        area: string;
+        details?: string;
+      };
+    };
   };
 }
 
@@ -153,6 +160,14 @@ async function createMovesManifest(): Promise<void> {
             power: move.updated.power,
             accuracy: move.updated.accuracy,
             pp: move.updated.pp,
+          };
+        }
+
+        // Add TM/HM information if it exists
+        if (move.tm) {
+          moves[moveId].tm = {
+            number: move.tm.number,
+            location: move.tm.location,
           };
         }
 
