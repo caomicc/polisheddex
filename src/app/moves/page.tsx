@@ -92,19 +92,21 @@ export default async function PokemonList(
 }
 
 // Generate metadata for SEO and social sharing
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: Promise<{ sort?: string }>;
-}) {
-  const { sort = 'johtodex' } = (await searchParams) ?? {};
+export async function generateMetadata(
+  {
+    // searchParams,
+  }: {
+    searchParams: Promise<{ sort?: string }>;
+  },
+) {
+  // const { sort = 'johtodex' } = (await searchParams) ?? {};
 
-  const sortType =
-    sort === 'nationaldex' ? 'National Dex' : sort === 'johtodex' ? 'Johto Dex' : 'Alphabetical';
+  // const sortType =
+  //   sort === 'nationaldex' ? 'National Dex' : sort === 'johtodex' ? 'Johto Dex' : 'Alphabetical';
 
-  const title = `Pokédex - ${sortType} Order | PolishedDex`;
-  const description = `Browse all Pokémon available in Pokémon Polished Crystal, sorted by ${sortType} order. View detailed stats, types, evolutions, moves, and locations.`;
-  const url = `https://polisheddex.com/pokemon${sort !== 'johtodex' ? `?sort=${sort}` : ''}`;
+  const title = `Moves | PolishedDex`;
+  const description = `Browse all moves available in Pokémon Polished Crystal`;
+  const url = `https://polisheddex.com/moves`;
 
   return {
     title,
@@ -115,7 +117,7 @@ export async function generateMetadata({
       'pokemon list',
       'pokemon database',
       'polisheddex',
-      sortType.toLowerCase(),
+      // sortType.toLowerCase(),
       'pokemon stats',
       'pokemon types',
       'pokemon evolutions',
@@ -133,7 +135,7 @@ export async function generateMetadata({
           url: '/og-image.png',
           width: 1200,
           height: 630,
-          alt: `Pokédex - ${sortType} Order - PolishedDex`,
+          alt: `Moves - PolishedDex`,
         },
       ],
       locale: 'en_US',
