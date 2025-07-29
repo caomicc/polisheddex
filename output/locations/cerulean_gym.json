@@ -16,6 +16,218 @@
   ],
   "trainers": [
     {
+      "id": "misty_1",
+      "name": "Misty",
+      "trainerClass": "MISTY",
+      "spriteType": "misty",
+      "coordinates": {
+        "x": 5,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 61,
+          "species": "Golduck",
+          "moves": [
+            "Water Pulse",
+            "Disable",
+            "Calm Mind",
+            "Psychic"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 100,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 252
+            },
+            "moves": [
+              "Water Pulse",
+              "Disable",
+              "Calm Mind",
+              "Psychic"
+            ]
+          },
+          "evs": {
+            "hp": 100,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 252
+          }
+        },
+        {
+          "level": 60,
+          "species": "Quagsire",
+          "moves": [
+            "Scald",
+            "Calm Mind",
+            "Earthquake",
+            "Rain Dance"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 100,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 252
+            },
+            "moves": [
+              "Scald",
+              "Calm Mind",
+              "Earthquake",
+              "Rain Dance"
+            ]
+          },
+          "evs": {
+            "hp": 100,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 252
+          }
+        },
+        {
+          "level": 62,
+          "species": "Lapras",
+          "moves": [
+            "Surf",
+            "Perish Song",
+            "Blizzard",
+            "Rain Dance"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 252,
+              "speed": 0,
+              "special": 100
+            },
+            "moves": [
+              "Surf",
+              "Perish Song",
+              "Blizzard",
+              "Rain Dance"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 252,
+            "speed": 0,
+            "special": 100
+          }
+        },
+        {
+          "level": 60,
+          "species": "Kingler",
+          "moves": [
+            "Defense Curl",
+            "Stomp",
+            "Protect",
+            "Crabhammer"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 252,
+              "defense": 0,
+              "speed": 100,
+              "special": 0
+            },
+            "moves": [
+              "Defense Curl",
+              "Stomp",
+              "Protect",
+              "Crabhammer"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 252,
+            "defense": 0,
+            "speed": 100,
+            "special": 0
+          }
+        },
+        {
+          "level": 62,
+          "species": "Lanturn",
+          "moves": [
+            "Water Pulse",
+            "Thunderbolt",
+            "Ice Beam",
+            "Recover"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 252,
+              "special": 100
+            },
+            "moves": [
+              "Water Pulse",
+              "Thunderbolt",
+              "Ice Beam",
+              "Recover"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 252,
+            "special": 100
+          }
+        },
+        {
+          "level": 64,
+          "species": "Starmie",
+          "item": "Sitrus Berry",
+          "moves": [
+            "Scald",
+            "Confuse Ray",
+            "Recover",
+            "Ice Beam"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 100,
+              "special": 252
+            },
+            "moves": [
+              "Scald",
+              "Confuse Ray",
+              "Recover",
+              "Ice Beam"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 100,
+            "special": 252
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
       "id": "swimmerf_diana",
       "name": "Diana",
       "trainerClass": "SWIMMERF",
@@ -37,7 +249,33 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "swimmerf_viola",
+      "name": "Viola",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 8,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Cloyster",
+          "moves": [
+            "Icicle Crash",
+            "Pin Missile",
+            "Icicle Spear",
+            "Hydro Pump"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
     },
     {
       "id": "swimmerf_briana",
@@ -73,31 +311,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
-    },
-    {
-      "id": "swimmerf_viola",
-      "name": "Viola",
-      "trainerClass": "SWIMMERF",
-      "spriteType": "swimmerf",
-      "coordinates": {
-        "x": 8,
-        "y": 9
-      },
-      "pokemon": [
-        {
-          "level": 58,
-          "species": "Cloyster",
-          "moves": [
-            "Icicle Crash",
-            "Pin Missile",
-            "Icicle Spear",
-            "Hydro Pump"
-          ],
-          "faithful": {},
-          "polished": {}
-        }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "sailor_parker",
@@ -133,7 +348,33 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "sailor_eddie",
+      "name": "Eddie",
+      "trainerClass": "SAILOR",
+      "spriteType": "sailor",
+      "coordinates": {
+        "x": 9,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "Azumarill",
+          "moves": [
+            "Hydro Pump",
+            "Close Combat",
+            "Double Edge",
+            "Rain Dance"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
     }
   ],
   "gymLeader": {

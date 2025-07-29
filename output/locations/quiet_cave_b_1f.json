@@ -22,6 +22,43 @@
   ],
   "trainers": [
     {
+      "id": "nurse_keiko",
+      "name": "Keiko",
+      "trainerClass": "NURSE",
+      "spriteType": "nurse",
+      "coordinates": {
+        "x": 6,
+        "y": 20
+      },
+      "pokemon": [
+        {
+          "level": 20,
+          "species": "Happiny",
+          "moves": [
+            "Charm",
+            "Rollout",
+            "Disarm Voice",
+            "Sweet Kiss"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Chansey",
+          "moves": [
+            "Minimize",
+            "Metronome",
+            "Fresh Snack",
+            "Double Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
       "id": "battle_girl_kagami",
       "name": "Kagami",
       "trainerClass": "BATTLE_GIRL",
@@ -67,7 +104,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "pokemaniac_aidan",
@@ -117,7 +155,8 @@
             ]
           }
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "hiker_steve",
@@ -141,7 +180,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "psychic_t_virgil",
@@ -177,7 +217,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     }
   ],
   "items": [

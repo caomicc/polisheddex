@@ -47,6 +47,48 @@
   ],
   "trainers": [
     {
+      "id": "breeder_theresa",
+      "name": "Theresa",
+      "trainerClass": "BREEDER",
+      "spriteType": "breeder",
+      "coordinates": {
+        "x": 18,
+        "y": 29
+      },
+      "pokemon": [
+        {
+          "level": 15,
+          "species": "Magby",
+          "item": "Eviolite",
+          "gender": "male",
+          "moves": [
+            "Fire Spin",
+            "Feint Attack",
+            "Smokescreen",
+            "Ember"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 16,
+          "species": "Elekid",
+          "item": "Eviolite",
+          "gender": "male",
+          "moves": [
+            "Bulk Up",
+            "Swift",
+            "Low Kick",
+            "Thundershock"
+          ],
+          "faithful": {},
+          "polished": {},
+          "shiny": true
+        }
+      ],
+      "rematchable": false
+    },
+    {
       "id": "camper_ivan",
       "name": "Ivan",
       "trainerClass": "CAMPER",
@@ -92,7 +134,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "couple_gailandeli1",
@@ -156,7 +199,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "couple_gailandeli2",
@@ -220,7 +264,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "picnicker_kim",
@@ -244,23 +289,59 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
-      "id": "breeder_theresa",
-      "name": "Theresa",
-      "trainerClass": "BREEDER",
-      "spriteType": "breeder",
+      "id": "bug_catcher_arnie1",
+      "name": "Arnie",
+      "trainerClass": "BUG_CATCHER",
+      "spriteType": "bug_catcher",
       "coordinates": {
-        "x": 18,
-        "y": 29
+        "x": 20,
+        "y": 7
       },
       "pokemon": [
         {
-          "level": 15,
-          "species": "Magby",
-          "item": "Eviolite",
-          "gender": "male",
+          "level": 16,
+          "species": "Venonat",
+          "moves": [
+            "Poisonpowder",
+            "Confusion",
+            "Supersonic",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "firebreather_walt",
+      "name": "Walt",
+      "trainerClass": "FIREBREATHER",
+      "spriteType": "firebreather",
+      "coordinates": {
+        "x": 6,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 11,
+          "species": "Magmar",
+          "moves": [
+            "Smokescreen",
+            "Ember",
+            "Haze",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 16,
+          "species": "Magmar",
           "moves": [
             "Fire Spin",
             "Feint Attack",
@@ -269,23 +350,46 @@
           ],
           "faithful": {},
           "polished": {}
-        },
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "officerm_dirk",
+      "name": "Dirk",
+      "trainerClass": "OFFICERM",
+      "spriteType": "officerm",
+      "coordinates": {
+        "x": 9,
+        "y": 6
+      },
+      "pokemon": [
         {
-          "level": 16,
-          "species": "Elekid",
-          "item": "Eviolite",
-          "gender": "male",
+          "level": 15,
+          "species": "Growlithe",
           "moves": [
-            "Bulk Up",
-            "Swift",
-            "Low Kick",
-            "Thundershock"
+            "Baton Pass",
+            "Safeguard",
+            "Leer",
+            "Ember"
           ],
           "faithful": {},
-          "polished": {},
-          "shiny": true
+          "polished": {}
+        },
+        {
+          "level": 15,
+          "species": "Machop",
+          "moves": [
+            "Seismic Toss",
+            "Rage",
+            "Foresight",
+            "Karate Chop"
+          ],
+          "faithful": {},
+          "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     }
   ],
   "items": [

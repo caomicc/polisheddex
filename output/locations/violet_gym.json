@@ -16,6 +16,117 @@
   ],
   "trainers": [
     {
+      "id": "falkner_1",
+      "name": "Falkner",
+      "trainerClass": "FALKNER",
+      "spriteType": "falkner",
+      "coordinates": {
+        "x": 5,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 11,
+          "species": "Pidgey",
+          "moves": [
+            "Tackle",
+            "Gust",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 32,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Tackle",
+              "Gust",
+              "Mud Slap"
+            ]
+          },
+          "evs": {
+            "hp": 32,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 11,
+          "species": "Hoothoot",
+          "moves": [
+            "Tackle",
+            "Hypnosis",
+            "Peck",
+            "Confusion"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 32,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Tackle",
+              "Hypnosis",
+              "Peck",
+              "Confusion"
+            ]
+          },
+          "evs": {
+            "hp": 32,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 13,
+          "species": "Pidgeotto",
+          "item": "Pecha Berry",
+          "moves": [
+            "Gust",
+            "Mud Slap",
+            "Quick Attack",
+            "Roost"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 32,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Gust",
+              "Mud Slap",
+              "Quick Attack",
+              "Roost"
+            ]
+          },
+          "evs": {
+            "hp": 32,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
       "id": "bird_keeper_rod",
       "name": "Rod",
       "trainerClass": "BIRD_KEEPER",
@@ -47,7 +158,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "bird_keeper_abe",
@@ -71,7 +183,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     }
   ],
   "gymLeader": {

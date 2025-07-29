@@ -32,6 +32,117 @@
       "offset": 0
     }
   ],
+  "trainers": [
+    {
+      "id": "youngster_joey1",
+      "name": "Joey",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 2,
+        "y": 28
+      },
+      "pokemon": [
+        {
+          "level": 5,
+          "species": "Rattata",
+          "gender": "male",
+          "moves": [
+            "Quick Attack",
+            "Tackle",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Guts",
+            "nature": "Atk +satk -",
+            "dvs": {
+              "hp": 15,
+              "attack": 15,
+              "defense": 15,
+              "speed": 15,
+              "special": 15
+            }
+          },
+          "ability": "Guts",
+          "nature": "Atk +satk -",
+          "dvs": {
+            "hp": 15,
+            "attack": 15,
+            "defense": 15,
+            "speed": 15,
+            "special": 15
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "youngster_mikey",
+      "name": "Mikey",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 5,
+        "y": 23
+      },
+      "pokemon": [
+        {
+          "level": 2,
+          "species": "Rattata",
+          "moves": [
+            "Tackle",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 4,
+          "species": "Pidgey",
+          "moves": [
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "bug_catcher_don",
+      "name": "Don",
+      "trainerClass": "BUG_CATCHER",
+      "spriteType": "bug_catcher",
+      "coordinates": {
+        "x": 1,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 3,
+          "species": "Caterpie",
+          "moves": [
+            "Tackle",
+            "String Shot"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 3,
+          "species": "Caterpie",
+          "moves": [
+            "Tackle",
+            "String Shot"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
   "items": [
     {
       "type": "hiddenItem",

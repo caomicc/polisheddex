@@ -34,30 +34,6 @@
   ],
   "trainers": [
     {
-      "id": "hiker_daniel",
-      "name": "Daniel",
-      "trainerClass": "HIKER",
-      "spriteType": "hiker",
-      "coordinates": {
-        "x": 3,
-        "y": 18
-      },
-      "pokemon": [
-        {
-          "level": 12,
-          "species": "Onix",
-          "moves": [
-            "Rage",
-            "Rock Throw",
-            "Curse",
-            "Tackle"
-          ],
-          "faithful": {},
-          "polished": {}
-        }
-      ]
-    },
-    {
       "id": "pokemaniac_larry",
       "name": "Larry",
       "trainerClass": "POKEMANIAC",
@@ -79,7 +55,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "hiker_russell",
@@ -127,31 +104,33 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
-      "id": "firebreather_ray",
-      "name": "Ray",
-      "trainerClass": "FIREBREATHER",
-      "spriteType": "firebreather",
+      "id": "hiker_daniel",
+      "name": "Daniel",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
       "coordinates": {
-        "x": 15,
-        "y": 39
+        "x": 3,
+        "y": 18
       },
       "pokemon": [
         {
-          "level": 11,
-          "species": "Vulpix",
+          "level": 12,
+          "species": "Onix",
           "moves": [
-            "Quick Attack",
-            "Charm",
-            "Astonish",
-            "Growl"
+            "Rage",
+            "Rock Throw",
+            "Curse",
+            "Tackle"
           ],
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "firebreather_bill",
@@ -185,7 +164,33 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "firebreather_ray",
+      "name": "Ray",
+      "trainerClass": "FIREBREATHER",
+      "spriteType": "firebreather",
+      "coordinates": {
+        "x": 15,
+        "y": 39
+      },
+      "pokemon": [
+        {
+          "level": 11,
+          "species": "Vulpix",
+          "moves": [
+            "Quick Attack",
+            "Charm",
+            "Astonish",
+            "Growl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
     },
     {
       "id": "ruin_maniac_jones",
@@ -219,7 +224,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     }
   ],
   "items": [

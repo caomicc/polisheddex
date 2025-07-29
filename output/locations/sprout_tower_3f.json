@@ -23,6 +23,52 @@
   ],
   "trainers": [
     {
+      "id": "elder_li",
+      "name": "Li",
+      "trainerClass": "ELDER",
+      "spriteType": "elder",
+      "coordinates": {
+        "x": 8,
+        "y": 2
+      },
+      "pokemon": [
+        {
+          "level": 7,
+          "species": "Hoothoot",
+          "moves": [
+            "Peck",
+            "Hypnosis",
+            "Tackle",
+            "Growl"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 7,
+          "species": "Gastly",
+          "moves": [
+            "Disable",
+            "Hypnosis",
+            "Lick"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 10,
+          "species": "Bellsprout",
+          "moves": [
+            "Growth",
+            "Vine Whip"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
       "id": "sage_jin",
       "name": "Jin",
       "trainerClass": "SAGE",
@@ -42,7 +88,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "sage_troy",
@@ -75,7 +122,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "sage_neal",
@@ -108,7 +156,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     }
   ],
   "items": [

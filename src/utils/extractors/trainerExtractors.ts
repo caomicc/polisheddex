@@ -33,6 +33,12 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
   // First, extract all trainer party data
   const trainerParties = extractTrainerParties(partiesPath);
 
+  console.log(
+    `📋 Extracted ${Object.keys(trainerParties).length} trainer parties from ${partiesPath}`,
+  );
+
+  console.log(JSON.stringify(trainerParties, null, 2)); // Log first 500 chars for brevity
+
   // Then, extract trainer locations from map files
   const trainersByLocation = extractTrainerLocations(mapsDir, trainerParties);
 
@@ -53,7 +59,9 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
     'CAL',
     'CARRIE',
     'JACKY',
-    'RIVAL',
+    'RIVAL0',
+    'RIVAL1',
+    'RIVAL2',
     'LYRA',
     'WILL',
     'KAREN',
@@ -64,6 +72,7 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
   ];
 
   Object.entries(trainerParties).forEach(([trainerKey, trainerData]) => {
+    console.log(`Processing trainer key: ${trainerKey}`);
     if (!usedTrainerKeys.has(trainerKey)) {
       const [trainerClass, ...trainerIdParts] = trainerKey.split('_');
 
@@ -102,37 +111,41 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
     const rivalLocationById: Record<string, string> = {
       karen_1: 'indigo_plateau',
       karen_2: 'indigo_plateau',
-      jacky_1: 'indigo_plateau',
-      jacky_2: 'indigo_plateau',
+      // jacky_1: 'indigo_plateau',
+      // jacky_2: 'indigo_plateau',
       will_1: 'indigo_plateau',
       will_2: 'indigo_plateau',
       bruno_1: 'indigo_plateau',
       bruno_2: 'indigo_plateau',
-      cal_1: 'indigo_plateau',
-      cal_2: 'indigo_plateau',
-      carrie_1: 'indigo_plateau',
-      carrie_2: 'indigo_plateau',
+      // cal_1: 'indigo_plateau',
+      // cal_2: 'indigo_plateau',
+      // carrie_1: 'indigo_plateau',
+      // carrie_2: 'indigo_plateau',
       champion_lance: 'indigo_plateau',
       champion_lance2: 'indigo_plateau',
       // silver rival
-      rival_1: 'new_bark_town', // Fallback for generic rival
-      rival_2: 'new_bark_town', // Fallback for generic rival
-      rival_3: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_4: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_5: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_6: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_7: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_8: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_9: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_10: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_11: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_12: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_13: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_14: 'new_bark_town', // Fallback for generic rival
-      rival_rival1_15: 'new_bark_town', // Fallback for generic rival
-      rival_4: 'new_bark_town', // Fallback for generic rival
-      rival_5: 'new_bark_town', // Fallback for generic rival
-      rival_6: 'new_bark_town', // Fallback for generic rival
+      // rival0_rival0_1: 'cherrygrove_city', // Fallback for generic rival
+      // rival_rival0_1: 'cherrygrove_city', // Fallback for generic rival
+      // rival0_rival0_2: 'cherrygrove_city', // Fallback for generic rival
+      // rival0_rival0_3: 'cherrygrove_city', // Fallback for generic rival
+      // rival1_rival1_6: 'azalea_town', // Fallback for generic rival
+      // rival1_rival1_4: 'azalea_town', // Fallback for generic rival
+      // rival1_rival1_5: 'azalea_town', // Fallback for generic rival
+      // rival1_rival1_7: 'burned_tower', // Fallback for generic rival
+      // rival1_rival1_8: 'burned_tower', // Fallback for generic rival
+      // rival1_rival1_9: 'burned_tower', // Fallback for generic rival
+      // rival1_rival1_10: 'underground_path', // Fallback for generic rival
+      // rival1_rival1_11: 'underground_path', // Fallback for generic rival
+      // rival1_rival1_12: 'underground_path', // Fallback for generic rival
+      // rival1_rival1_13: 'victory_road', // Fallback for generic rival
+      // rival1_rival1_14: 'victory_road', // Fallback for generic rival
+      // rival1_rival1_15: 'victory_road', // Fallback for generic rival
+      // rival2_rival2_1: 'mount_moon', // Fallback for generic rival
+      // rival2_rival2_2: 'mount_moon', // Fallback for generic rival
+      // rival2_rival2_3: 'mount_moon', // Fallback for generic rival
+      // rival2_rival2_4: 'mount_moon', // Fallback for generic rival
+      // rival2_rival2_5: 'mount_moon', // Fallback for generic rival
+      // rival2_rival2_6: 'mount_moon', // Fallback for generic rival
       // lyra
       lyra_lyra1_1: 'new_bark_town',
       lyra_lyra1_2: 'new_bark_town',
@@ -285,7 +298,8 @@ function extractTrainerParties(
     }
 
     // Parse trainer class definition: def_trainer_class TRAINER_CLASS
-    const trainerClassMatch = line.match(/def_trainer_class\s+([A-Z_]+)/);
+    const trainerClassMatch = line.match(/def_trainer_class\s+([A-Z0-9_]+)/);
+    console.log('Processing trainer trainerClassMatch:', trainerClassMatch, line);
     if (trainerClassMatch) {
       currentTrainerClass = trainerClassMatch[1];
       continue;
@@ -406,83 +420,32 @@ function extractTrainerLocations(
 
     const locationTrainers: LocationTrainer[] = [];
 
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i].trim();
+    // Simply search for all loadtrainer commands in the file
+    const loadTrainerMatches = findAllTrainerCommands(lines, locationKey);
 
-      // Look for trainer object events - handle multi-line format
-      const objectMatch = line.match(/object_event\s+(\d+),\s*(\d+),\s*SPRITE_([A-Z_]+)/);
-      if (objectMatch) {
-        const x = parseInt(objectMatch[1]);
-        const y = parseInt(objectMatch[2]);
-        const spriteType = objectMatch[3].toLowerCase();
+    for (const trainerInfo of loadTrainerMatches) {
+      const trainerPartyKey = `${trainerInfo.trainerClass}_${trainerInfo.trainerId}`;
+      const trainerData = trainerParties[trainerPartyKey];
+      const pokemon = trainerData?.pokemon || [];
+      const trainerName =
+        trainerData?.name ||
+        trainerInfo.trainerId.charAt(0).toUpperCase() +
+          trainerInfo.trainerId.slice(1).toLowerCase();
 
-        // Reconstruct the full object_event line by reading ahead until we find the complete definition
-        let fullObjectLine = line;
-        let nextLineIdx = i + 1;
+      const trainer: LocationTrainer = {
+        id: `${trainerInfo.trainerClass.toLowerCase()}_${trainerInfo.trainerId.toLowerCase()}`,
+        name: trainerName,
+        trainerClass: trainerInfo.trainerClass,
+        spriteType: getSpriteType(trainerInfo.trainerClass),
+        coordinates: trainerInfo.coordinates,
+        pokemon: pokemon,
+        rematchable: trainerInfo.rematchable,
+      };
 
-        // Keep reading lines until we have a complete object_event (ends with something recognizable)
-        while (
-          nextLineIdx < lines.length &&
-          !fullObjectLine.includes('OBJECTTYPE_') &&
-          nextLineIdx < i + 5
-        ) {
-          fullObjectLine += ' ' + lines[nextLineIdx].trim();
-          nextLineIdx++;
-        }
-
-        // Check if this is a GENERICTRAINER object
-        if (fullObjectLine.includes('OBJECTTYPE_GENERICTRAINER')) {
-          // Find the GenericTrainer reference in the full line
-          const genericTrainerMatch = fullObjectLine.match(/GenericTrainer([A-Za-z0-9_]+)/);
-          if (genericTrainerMatch) {
-            const genericTrainerRef = genericTrainerMatch[1];
-
-            // Look ahead for the trainer definition (expanded search range for gym files)
-            for (let j = nextLineIdx; j < Math.min(nextLineIdx + 100, lines.length); j++) {
-              const nextLine = lines[j].trim();
-
-              // Check if this line defines the referenced trainer
-              if (nextLine.startsWith(`GenericTrainer${genericTrainerRef}:`)) {
-                // Found the trainer definition, now look for the generictrainer line
-                for (let k = j + 1; k < Math.min(j + 5, lines.length); k++) {
-                  const trainerDefLine = lines[k].trim();
-                  const trainerDefMatch = trainerDefLine.match(
-                    /generictrainer\s+([A-Z_]+),\s*([A-Z0-9_]+),/,
-                  );
-
-                  if (trainerDefMatch) {
-                    const trainerClass = trainerDefMatch[1];
-                    const trainerId = trainerDefMatch[2];
-                    const trainerPartyKey = `${trainerClass}_${trainerId}`;
-
-                    const trainerData = trainerParties[trainerPartyKey];
-                    const pokemon = trainerData?.pokemon || [];
-                    const trainerName =
-                      trainerData?.name ||
-                      trainerId.charAt(0).toUpperCase() + trainerId.slice(1).toLowerCase();
-
-                    const trainer: LocationTrainer = {
-                      id: `${trainerClass.toLowerCase()}_${trainerId.toLowerCase()}`,
-                      name: trainerName,
-                      trainerClass,
-                      spriteType: getSpriteType(trainerClass),
-                      coordinates: { x, y },
-                      pokemon: pokemon,
-                    };
-
-                    locationTrainers.push(trainer);
-                    console.log(
-                      `🎯 Found trainer ${trainer.name} (${trainerClass}) at ${locationKey} with ${pokemon.length} pokemon`,
-                    );
-                    break;
-                  }
-                }
-                break;
-              }
-            }
-          }
-        }
-      }
+      locationTrainers.push(trainer);
+      console.log(
+        `🎯 Found trainer ${trainer.name} (${trainerInfo.trainerClass}) at ${locationKey} (${trainerInfo.coordinates.x}, ${trainerInfo.coordinates.y}) with ${pokemon.length} pokemon${trainerInfo.rematchable ? ' [REMATCHABLE]' : ''}`,
+      );
     }
 
     if (locationTrainers.length > 0) {
@@ -857,4 +820,278 @@ function normalizeAbilityName(ability: string): string {
     .split(' ')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+}
+
+/**
+ * Find all trainer commands (loadtrainer and generictrainer) in a map file and determine their coordinates and rematchability
+ */
+function findAllTrainerCommands(
+  lines: string[],
+  locationKey: string,
+): Array<{
+  trainerClass: string;
+  trainerId: string;
+  coordinates: { x: number; y: number };
+  rematchable: boolean;
+}> {
+  const trainers: Array<{
+    trainerClass: string;
+    trainerId: string;
+    coordinates: { x: number; y: number };
+    rematchable: boolean;
+  }> = [];
+
+  // Build a map of script names to their coordinates and object types
+  const scriptToCoordinates: Record<string, { x: number; y: number; rematchable: boolean }> = {};
+
+  // First pass: collect all object_events and coord_events with their coordinates
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Look for coord_events
+    const coordMatch = line.match(/coord_event\s+(\d+),\s*(\d+),\s*\d+,\s*([A-Za-z0-9_]+)/);
+    if (coordMatch) {
+      const x = parseInt(coordMatch[1]);
+      const y = parseInt(coordMatch[2]);
+      const scriptName = coordMatch[3];
+      scriptToCoordinates[scriptName] = { x, y, rematchable: false };
+    }
+
+    // Look for object_events
+    const objectMatch = line.match(/object_event\s+(\d+),\s*(\d+),\s*SPRITE_([A-Z_]+)/);
+    if (objectMatch) {
+      const x = parseInt(objectMatch[1]);
+      const y = parseInt(objectMatch[2]);
+
+      // Read ahead to get the full object_event line
+      let fullObjectLine = line;
+      let nextLineIdx = i + 1;
+      while (
+        nextLineIdx < lines.length &&
+        !fullObjectLine.includes('OBJECTTYPE_') &&
+        nextLineIdx < i + 5
+      ) {
+        fullObjectLine += ' ' + lines[nextLineIdx].trim();
+        nextLineIdx++;
+      }
+
+      // Extract script name and determine if it's rematchable
+      let scriptName = '';
+      let isRematchable = false;
+
+      if (fullObjectLine.includes('OBJECTTYPE_GENERICTRAINER')) {
+        const genericMatch = fullObjectLine.match(/OBJECTTYPE_GENERICTRAINER,\s*\d+,\s*([A-Za-z0-9_]+)/);
+        if (genericMatch) {
+          scriptName = genericMatch[1];
+          isRematchable = false;
+        }
+      } else if (fullObjectLine.includes('OBJECTTYPE_TRAINER')) {
+        const trainerMatch = fullObjectLine.match(/OBJECTTYPE_TRAINER,\s*\d+,\s*([A-Za-z0-9_]+)/);
+        if (trainerMatch) {
+          scriptName = trainerMatch[1];
+          isRematchable = true;
+        }
+      } else if (fullObjectLine.includes('OBJECTTYPE_SCRIPT')) {
+        const scriptMatch = fullObjectLine.match(/OBJECTTYPE_SCRIPT,\s*\d+,\s*([A-Za-z0-9_]+)/);
+        if (scriptMatch) {
+          scriptName = scriptMatch[1];
+          isRematchable = false;
+        }
+      }
+
+      if (scriptName) {
+        scriptToCoordinates[scriptName] = { x, y, rematchable: isRematchable };
+      }
+    }
+  }
+
+  // Second pass: find all trainer commands (loadtrainer and generictrainer) and match them to coordinates
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Check for loadtrainer command (rematchable trainers)
+    const loadTrainerMatch = line.match(/loadtrainer\s+([A-Z0-9_]+),\s*([A-Z0-9_]+)/);
+    if (loadTrainerMatch) {
+      const trainerClass = loadTrainerMatch[1];
+      const trainerId = loadTrainerMatch[2];
+
+      // Find the script this loadtrainer belongs to by working backwards
+      let scriptName = '';
+      let coordinates = { x: -1, y: -1 };
+      let rematchable = false;
+
+      // Look backwards for the script definition
+      for (let j = i - 1; j >= 0; j--) {
+        const prevLine = lines[j].trim();
+
+        // Stop at another script definition or section
+        if (prevLine.endsWith(':') && !prevLine.startsWith('.') && prevLine !== 'end') {
+          // Extract script name (remove trailing colon)
+          const potentialScriptName = prevLine.slice(0, -1);
+
+          // Check if this script has coordinates
+          if (scriptToCoordinates[potentialScriptName]) {
+            scriptName = potentialScriptName;
+            coordinates = {
+              x: scriptToCoordinates[potentialScriptName].x,
+              y: scriptToCoordinates[potentialScriptName].y,
+            };
+            rematchable = scriptToCoordinates[potentialScriptName].rematchable;
+          }
+          break;
+        }
+      }
+
+      // Check if this trainer script has phone number logic (additional rematch indicator)
+      if (!rematchable && scriptName) {
+        // Look ahead in the script for phone number logic
+        for (let j = i + 1; j < Math.min(i + 50, lines.length); j++) {
+          const nextLine = lines[j].trim();
+
+          // Stop at another script
+          if (nextLine.endsWith(':') && !nextLine.startsWith('.') && nextLine !== 'end') {
+            break;
+          }
+
+          // Check for phone number related commands
+          if (
+            nextLine.includes('askforphonenumber') ||
+            nextLine.includes('PHONE_') ||
+            nextLine.includes('checkcellnum')
+          ) {
+            rematchable = true;
+            break;
+          }
+        }
+      }
+
+      console.log(
+        `🔍 Found loadtrainer ${trainerClass} ${trainerId} in script ${scriptName} at ${locationKey} (${coordinates.x}, ${coordinates.y}) - ${rematchable ? 'Rematchable' : 'Non-rematchable'}`,
+      );
+
+      trainers.push({
+        trainerClass,
+        trainerId,
+        coordinates,
+        rematchable,
+      });
+    }
+
+    // Check for generictrainer command (non-rematchable trainers)
+    const genericTrainerMatch = line.match(/generictrainer\s+([A-Z0-9_]+),\s*([A-Z0-9_]+)/);
+    if (genericTrainerMatch) {
+      const trainerClass = genericTrainerMatch[1];
+      const trainerId = genericTrainerMatch[2];
+
+      // Find the script this generictrainer belongs to by working backwards
+      let scriptName = '';
+      let coordinates = { x: -1, y: -1 };
+
+      // Look backwards for the script definition
+      for (let j = i - 1; j >= 0; j--) {
+        const prevLine = lines[j].trim();
+
+        // Stop at another script definition or section
+        if (prevLine.endsWith(':') && !prevLine.startsWith('.') && prevLine !== 'end') {
+          // Extract script name (remove trailing colon)
+          const potentialScriptName = prevLine.slice(0, -1);
+
+          // Check if this script has coordinates
+          if (scriptToCoordinates[potentialScriptName]) {
+            scriptName = potentialScriptName;
+            coordinates = {
+              x: scriptToCoordinates[potentialScriptName].x,
+              y: scriptToCoordinates[potentialScriptName].y,
+            };
+          }
+          break;
+        }
+      }
+
+      console.log(
+        `🔍 Found generictrainer ${trainerClass} ${trainerId} in script ${scriptName} at ${locationKey} (${coordinates.x}, ${coordinates.y}) - Non-rematchable`,
+      );
+
+      trainers.push({
+        trainerClass,
+        trainerId,
+        coordinates,
+        rematchable: false, // generictrainer commands are never rematchable
+      });
+    }
+  }
+
+  return trainers;
+}
+
+/**
+ * Find loadtrainer commands in a script by searching for the script definition
+ */
+function findLoadTrainerInScript(
+  lines: string[],
+  scriptName: string,
+  startLine: number,
+): Array<{ trainerClass: string; trainerId: string; rematchable: boolean }> {
+  const trainers: Array<{ trainerClass: string; trainerId: string; rematchable: boolean }> = [];
+
+  // Look for the script definition
+  for (let i = startLine; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Found the script definition
+    if (line.startsWith(`${scriptName}:`)) {
+      let hasPhoneNumberLogic = false;
+      let hasRematchLogic = false;
+
+      // Look ahead in the script for loadtrainer commands and rematch indicators
+      for (let j = i + 1; j < Math.min(i + 200, lines.length); j++) {
+        const scriptLine = lines[j].trim();
+
+        // Stop if we hit another script or label (but not sub-labels starting with .)
+        if (scriptLine.endsWith(':') && !scriptLine.startsWith('.') && scriptLine !== 'end') {
+          break;
+        }
+
+        // Check for phone number related logic (indicates rematchable)
+        if (
+          scriptLine.includes('askforphonenumber') ||
+          scriptLine.includes('checkcellnum') ||
+          scriptLine.includes('PHONE_') ||
+          scriptLine.includes('rematch')
+        ) {
+          hasPhoneNumberLogic = true;
+        }
+
+        // Check for explicit rematch logic
+        if (scriptLine.includes('READY_FOR_REMATCH') || scriptLine.includes('.WantsBattle')) {
+          hasRematchLogic = true;
+        }
+
+        // Check for loadtrainer command
+        const loadTrainerMatch = scriptLine.match(/loadtrainer\s+([A-Z0-9_]+),\s*([A-Z0-9_]+)/);
+        if (loadTrainerMatch) {
+          const isRematchable = hasPhoneNumberLogic || hasRematchLogic;
+
+          trainers.push({
+            trainerClass: loadTrainerMatch[1],
+            trainerId: loadTrainerMatch[2],
+            rematchable: isRematchable,
+          });
+        }
+
+        // Also check for generictrainer commands (these are not rematchable)
+        const genericTrainerMatch = scriptLine.match(/generictrainer\s+([A-Z_]+),\s*([A-Z0-9_]+),/);
+        if (genericTrainerMatch) {
+          trainers.push({
+            trainerClass: genericTrainerMatch[1],
+            trainerId: genericTrainerMatch[2],
+            rematchable: false, // Generic trainers are never rematchable
+          });
+        }
+      }
+      break;
+    }
+  }
+
+  return trainers;
 }

@@ -29,6 +29,75 @@
   ],
   "trainers": [
     {
+      "id": "officerm_keith",
+      "name": "Keith",
+      "trainerClass": "OFFICERM",
+      "spriteType": "officerm",
+      "coordinates": {
+        "x": 4,
+        "y": 19
+      },
+      "pokemon": [
+        {
+          "level": 15,
+          "species": "Growlithe",
+          "moves": [
+            "Baton Pass",
+            "Safeguard",
+            "Leer",
+            "Ember"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 15,
+          "species": "Growlithe",
+          "moves": [
+            "Baton Pass",
+            "Safeguard",
+            "Leer",
+            "Ember"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "bug_maniac_lou",
+      "name": "Lou",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 28,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 19,
+          "species": "Yanma",
+          "moves": [
+            "Bug Bite",
+            "Quick Attack",
+            "Double Team",
+            "Sonic Boom"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Bug Bite",
+              "Quick Attack",
+              "Double Team",
+              "Sonic Boom"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
       "id": "schoolgirl_eliza",
       "name": "Eliza",
       "trainerClass": "SCHOOLGIRL",
@@ -79,7 +148,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "schoolboy_johnny",
@@ -132,38 +202,108 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
-      "id": "bug_maniac_lou",
-      "name": "Lou",
-      "trainerClass": "BUG_MANIAC",
-      "spriteType": "bug_maniac",
+      "id": "schoolboy_jack1",
+      "name": "Jack",
+      "trainerClass": "SCHOOLBOY",
+      "spriteType": "schoolboy",
       "coordinates": {
-        "x": 28,
-        "y": 13
+        "x": -1,
+        "y": -1
       },
       "pokemon": [
         {
-          "level": 19,
-          "species": "Yanma",
+          "level": 12,
+          "species": "Oddish",
           "moves": [
-            "Bug Bite",
-            "Quick Attack",
-            "Double Team",
-            "Sonic Boom"
+            "Acid",
+            "Leech Seed",
+            "Absorb",
+            "Growth"
           ],
           "faithful": {},
-          "polished": {
-            "moves": [
-              "Bug Bite",
-              "Quick Attack",
-              "Double Team",
-              "Sonic Boom"
-            ]
-          }
+          "polished": {}
+        },
+        {
+          "level": 15,
+          "species": "Voltorb",
+          "moves": [
+            "Screech",
+            "Rollout",
+            "Spark",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "pokefanm_william",
+      "name": "William",
+      "trainerClass": "POKEFANM",
+      "spriteType": "pokefanm",
+      "coordinates": {
+        "x": 18,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 16,
+          "species": "Raichu",
+          "item": "Oran Berry",
+          "moves": [
+            "Thundershock",
+            "Leer",
+            "Quick Attack",
+            "Thunderbolt"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "lass_krise",
+      "name": "Krise",
+      "trainerClass": "LASS",
+      "spriteType": "lass",
+      "coordinates": {
+        "x": 10,
+        "y": 14
+      },
+      "pokemon": [
+        {
+          "level": 14,
+          "species": "Oddish",
+          "moves": [
+            "Stun Spore",
+            "Poisonpowder",
+            "Acid",
+            "Leech Seed"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 17,
+          "species": "Cubone",
+          "moves": [
+            "Focus Energy",
+            "Leer",
+            "Headbutt",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
     }
   ],
   "items": [

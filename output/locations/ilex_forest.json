@@ -43,6 +43,45 @@
       "location": "Ilex Forest"
     }
   ],
+  "trainers": [
+    {
+      "id": "bug_catcher_wayne",
+      "name": "Wayne",
+      "trainerClass": "BUG_CATCHER",
+      "spriteType": "bug_catcher",
+      "coordinates": {
+        "x": 14,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 9,
+          "species": "Paras",
+          "moves": [
+            "Poisonpowder",
+            "Stun Spore",
+            "Sleep Powder",
+            "Scratch"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 10,
+          "species": "Pineco",
+          "moves": [
+            "Bug Bite",
+            "Focus Energy",
+            "Tackle",
+            "Protect"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
   "items": [
     {
       "type": "hiddenItem",

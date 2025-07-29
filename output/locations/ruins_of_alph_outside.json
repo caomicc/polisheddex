@@ -80,6 +80,52 @@
       "offset": 0
     }
   ],
+  "trainers": [
+    {
+      "id": "psychic_t_nathan",
+      "name": "Nathan",
+      "trainerClass": "PSYCHIC_T",
+      "spriteType": "psychic",
+      "coordinates": {
+        "x": 6,
+        "y": 26
+      },
+      "pokemon": [
+        {
+          "level": 26,
+          "species": "Girafarig",
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "super_nerd_stan",
+      "name": "Stan",
+      "trainerClass": "SUPER_NERD",
+      "spriteType": "super_nerd",
+      "coordinates": {
+        "x": 5,
+        "y": 37
+      },
+      "pokemon": [
+        {
+          "level": 20,
+          "species": "Grimer",
+          "moves": [
+            "Haze",
+            "Venoshock",
+            "Disable",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
   "items": [
     {
       "type": "hiddenItem",

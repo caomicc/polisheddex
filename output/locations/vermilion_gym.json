@@ -16,6 +16,219 @@
   ],
   "trainers": [
     {
+      "id": "lt_surge_1",
+      "name": "Lt.Surge",
+      "trainerClass": "LT_SURGE",
+      "spriteType": "lt_surge",
+      "coordinates": {
+        "x": 5,
+        "y": 2
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Electabuzz",
+          "item": "Eviolite",
+          "moves": [
+            "Quick Attack",
+            "Thunderpunch",
+            "Light Screen",
+            "Wild Charge"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 252,
+              "attack": 0,
+              "defense": 36,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Quick Attack",
+              "Thunderpunch",
+              "Light Screen",
+              "Wild Charge"
+            ]
+          },
+          "evs": {
+            "hp": 252,
+            "attack": 0,
+            "defense": 36,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 56,
+          "species": "Electrode",
+          "moves": [
+            "Screech",
+            "Double Team",
+            "Thunderbolt",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 36,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 252
+            },
+            "moves": [
+              "Screech",
+              "Double Team",
+              "Thunderbolt",
+              "Explosion"
+            ]
+          },
+          "evs": {
+            "hp": 36,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 252
+          }
+        },
+        {
+          "level": 57,
+          "species": "Magnezone",
+          "moves": [
+            "Light Screen",
+            "Double Team",
+            "Wild Charge",
+            "Zap Cannon"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 36,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 252
+            },
+            "moves": [
+              "Light Screen",
+              "Double Team",
+              "Wild Charge",
+              "Zap Cannon"
+            ]
+          },
+          "evs": {
+            "hp": 36,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 252
+          }
+        },
+        {
+          "level": 56,
+          "species": "Electrode",
+          "moves": [
+            "Screech",
+            "Double Team",
+            "Wild Charge",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 36,
+              "attack": 252,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Screech",
+              "Double Team",
+              "Wild Charge",
+              "Explosion"
+            ]
+          },
+          "evs": {
+            "hp": 36,
+            "attack": 252,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 58,
+          "species": "Jolteon",
+          "moves": [
+            "Wild Charge",
+            "Thunder Wave",
+            "Agility",
+            "Thunder"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 36,
+              "defense": 0,
+              "speed": 0,
+              "special": 252
+            },
+            "moves": [
+              "Wild Charge",
+              "Thunder Wave",
+              "Agility",
+              "Thunder"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 36,
+            "defense": 0,
+            "speed": 0,
+            "special": 252
+          }
+        },
+        {
+          "level": 60,
+          "species": "Raichu",
+          "item": "Sitrus Berry",
+          "moves": [
+            "Thunder Wave",
+            "Quick Attack",
+            "Wild Charge",
+            "Thunder"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 36,
+              "defense": 0,
+              "speed": 0,
+              "special": 252
+            },
+            "moves": [
+              "Thunder Wave",
+              "Quick Attack",
+              "Wild Charge",
+              "Thunder"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 36,
+            "defense": 0,
+            "speed": 0,
+            "special": 252
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
       "id": "gentleman_gregory",
       "name": "Gregory",
       "trainerClass": "GENTLEMAN",
@@ -61,7 +274,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "guitaristm_vincent",
@@ -109,7 +323,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "juggler_horton",
@@ -157,7 +372,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "guitaristf_janet",
@@ -231,7 +447,8 @@
             ]
           }
         }
-      ]
+      ],
+      "rematchable": false
     }
   ],
   "gymLeader": {

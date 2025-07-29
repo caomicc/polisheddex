@@ -16,6 +16,172 @@
   ],
   "trainers": [
     {
+      "id": "chuck_1",
+      "name": "Chuck",
+      "trainerClass": "CHUCK",
+      "spriteType": "chuck",
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 30,
+          "species": "Primeape",
+          "gender": "male",
+          "moves": [
+            "Karate Chop",
+            "Seismic Toss",
+            "Screech",
+            "Dynamicpunch"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Defiant",
+            "evs": {
+              "hp": 0,
+              "attack": 160,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Karate Chop",
+              "Seismic Toss",
+              "Screech",
+              "Dynamicpunch"
+            ]
+          },
+          "ability": "Defiant",
+          "evs": {
+            "hp": 0,
+            "attack": 160,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 29,
+          "species": "FarfetchD",
+          "gender": "male",
+          "form": "galarian form",
+          "moves": [
+            "Reversal",
+            "Body Slam",
+            "Feint Attack",
+            "Swords Dance"
+          ],
+          "faithful": {
+            "moves": [
+              "Rock Smash",
+              "Body Slam",
+              "Feint Attack",
+              "Swords Dance"
+            ]
+          },
+          "polished": {
+            "ability": "Steadfast",
+            "evs": {
+              "hp": 0,
+              "attack": 160,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Reversal",
+              "Body Slam",
+              "Feint Attack",
+              "Swords Dance"
+            ]
+          },
+          "ability": "Steadfast",
+          "evs": {
+            "hp": 0,
+            "attack": 160,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 28,
+          "species": "Hitmontop",
+          "gender": "male",
+          "moves": [
+            "Bulk Up",
+            "Sucker Punch",
+            "Double Kick",
+            "Rapid Spin"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Intimidate",
+            "evs": {
+              "hp": 0,
+              "attack": 160,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Bulk Up",
+              "Sucker Punch",
+              "Double Kick",
+              "Rapid Spin"
+            ]
+          },
+          "ability": "Intimidate",
+          "evs": {
+            "hp": 0,
+            "attack": 160,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 31,
+          "species": "Poliwrath",
+          "item": "Zoom Lens",
+          "gender": "male",
+          "moves": [
+            "Ice Punch",
+            "Hypnosis",
+            "Waterfall",
+            "Dynamicpunch"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Water Absorb",
+            "evs": {
+              "hp": 0,
+              "attack": 160,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Ice Punch",
+              "Hypnosis",
+              "Waterfall",
+              "Dynamicpunch"
+            ]
+          },
+          "ability": "Water Absorb",
+          "evs": {
+            "hp": 0,
+            "attack": 160,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
       "id": "blackbelt_t_yoshi",
       "name": "Yoshi",
       "trainerClass": "BLACKBELT_T",
@@ -45,7 +211,8 @@
             ]
           }
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "blackbelt_t_lao",
@@ -77,7 +244,8 @@
             ]
           }
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "blackbelt_t_nob",
@@ -127,7 +295,8 @@
             ]
           }
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "blackbelt_t_lung",
@@ -175,7 +344,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     }
   ],
   "gymLeader": {

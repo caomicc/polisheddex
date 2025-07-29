@@ -16,6 +16,186 @@
   ],
   "trainers": [
     {
+      "id": "pryce_1",
+      "name": "Pryce",
+      "trainerClass": "PRYCE",
+      "spriteType": "pryce",
+      "coordinates": {
+        "x": 5,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 39,
+          "species": "Dewgong",
+          "item": "Chesto Berry",
+          "moves": [
+            "Waterfall",
+            "Rest",
+            "Rain Dance",
+            "Aurora Beam"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 224,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Waterfall",
+              "Rest",
+              "Rain Dance",
+              "Aurora Beam"
+            ]
+          },
+          "evs": {
+            "hp": 224,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 38,
+          "species": "Sneasel",
+          "moves": [
+            "Swords Dance",
+            "Icicle Crash",
+            "Screech",
+            "Slash"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 224,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Swords Dance",
+              "Icicle Crash",
+              "Screech",
+              "Slash"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 224,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 38,
+          "species": "Cloyster",
+          "moves": [
+            "Defense Curl",
+            "Supersonic",
+            "Water Pulse",
+            "Ice Shard"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 224,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Defense Curl",
+              "Supersonic",
+              "Water Pulse",
+              "Ice Shard"
+            ]
+          },
+          "evs": {
+            "hp": 224,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 40,
+          "species": "Lapras",
+          "moves": [
+            "Sing",
+            "Confuse Ray",
+            "Ancientpower",
+            "Ice Beam"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 224,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Sing",
+              "Confuse Ray",
+              "Ancientpower",
+              "Ice Beam"
+            ]
+          },
+          "evs": {
+            "hp": 224,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 42,
+          "species": "Mamoswine",
+          "item": "Sitrus Berry",
+          "moves": [
+            "Magnitude",
+            "Ancientpower",
+            "Avalanche",
+            "Fury Strikes"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 224,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Magnitude",
+              "Ancientpower",
+              "Avalanche",
+              "Fury Strikes"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 224,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
       "id": "skier_roxanne",
       "name": "Roxanne",
       "trainerClass": "SKIER",
@@ -37,7 +217,33 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "skier_clarissa",
+      "name": "Clarissa",
+      "trainerClass": "SKIER",
+      "spriteType": "skier",
+      "coordinates": {
+        "x": 9,
+        "y": 17
+      },
+      "pokemon": [
+        {
+          "level": 36,
+          "species": "Piloswine",
+          "moves": [
+            "Take Down",
+            "Icicle Crash",
+            "Icy Wind",
+            "Magnitude"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
     },
     {
       "id": "boarder_ronald",
@@ -85,31 +291,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
-    },
-    {
-      "id": "skier_clarissa",
-      "name": "Clarissa",
-      "trainerClass": "SKIER",
-      "spriteType": "skier",
-      "coordinates": {
-        "x": 9,
-        "y": 17
-      },
-      "pokemon": [
-        {
-          "level": 36,
-          "species": "Piloswine",
-          "moves": [
-            "Take Down",
-            "Icicle Crash",
-            "Icy Wind",
-            "Magnitude"
-          ],
-          "faithful": {},
-          "polished": {}
-        }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "boarder_brad",
@@ -145,7 +328,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "boarder_douglas",
@@ -193,7 +377,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     }
   ],
   "gymLeader": {

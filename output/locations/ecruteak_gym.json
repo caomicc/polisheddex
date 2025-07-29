@@ -22,6 +22,198 @@
   ],
   "trainers": [
     {
+      "id": "morty_1",
+      "name": "Morty",
+      "trainerClass": "MORTY",
+      "spriteType": "morty",
+      "coordinates": {
+        "x": 5,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 24,
+          "species": "Haunter",
+          "gender": "male",
+          "moves": [
+            "Hypnosis",
+            "Ice Punch",
+            "Night Shade",
+            "Shadow Claw"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Levitate",
+            "evs": {
+              "hp": 0,
+              "attack": 64,
+              "defense": 0,
+              "speed": 64,
+              "special": 0
+            },
+            "moves": [
+              "Hypnosis",
+              "Ice Punch",
+              "Night Shade",
+              "Shadow Claw"
+            ]
+          },
+          "ability": "Levitate",
+          "evs": {
+            "hp": 0,
+            "attack": 64,
+            "defense": 0,
+            "speed": 64,
+            "special": 0
+          }
+        },
+        {
+          "level": 24,
+          "species": "Haunter",
+          "gender": "male",
+          "moves": [
+            "Hypnosis",
+            "Confuse Ray",
+            "Disable",
+            "Shadow Ball"
+          ],
+          "faithful": {
+            "ability": "Levitate",
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 64,
+              "special": 64
+            },
+            "moves": [
+              "Hypnosis",
+              "Confuse Ray",
+              "Disable",
+              "Shadow Ball"
+            ]
+          },
+          "polished": {},
+          "ability": "Levitate",
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 64,
+            "special": 64
+          }
+        },
+        {
+          "level": 24,
+          "species": "Noctowl",
+          "gender": "male",
+          "moves": [
+            "Hypnosis",
+            "Foresight",
+            "Confusion",
+            "Hex"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 64,
+              "attack": 0,
+              "defense": 0,
+              "speed": 64,
+              "special": 0
+            },
+            "moves": [
+              "Hypnosis",
+              "Foresight",
+              "Confusion",
+              "Hex"
+            ]
+          },
+          "evs": {
+            "hp": 64,
+            "attack": 0,
+            "defense": 0,
+            "speed": 64,
+            "special": 0
+          }
+        },
+        {
+          "level": 25,
+          "species": "Misdreavus",
+          "gender": "male",
+          "moves": [
+            "Disarm Voice",
+            "Dark Pulse",
+            "Nasty Plot",
+            "Shadow Ball"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 64,
+              "special": 64
+            },
+            "moves": [
+              "Disarm Voice",
+              "Dark Pulse",
+              "Nasty Plot",
+              "Shadow Ball"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 64,
+            "special": 64
+          }
+        },
+        {
+          "level": 26,
+          "species": "Gengar",
+          "item": "Wide Lens",
+          "gender": "male",
+          "moves": [
+            "Hypnosis",
+            "Thunderbolt",
+            "Shadow Ball",
+            "Dream Eater"
+          ],
+          "faithful": {
+            "ability": "Cursed Body"
+          },
+          "polished": {
+            "ability": "Levitate",
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 64,
+              "special": 64
+            },
+            "moves": [
+              "Hypnosis",
+              "Thunderbolt",
+              "Shadow Ball",
+              "Dream Eater"
+            ]
+          },
+          "ability": "Cursed Body",
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 64,
+            "special": 64
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
       "id": "sage_jeffrey",
       "name": "Jeffrey",
       "trainerClass": "SAGE",
@@ -55,7 +247,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "sage_ping",
@@ -115,7 +308,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "medium_martha",
@@ -163,7 +357,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     },
     {
       "id": "medium_grace",
@@ -199,7 +394,8 @@
           "faithful": {},
           "polished": {}
         }
-      ]
+      ],
+      "rematchable": false
     }
   ],
   "gymLeader": {
