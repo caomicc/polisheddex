@@ -44,14 +44,14 @@ const NavigationMenuDemo = () => {
   return (
     <div
       className={cn(
-        'fixed top-2 md:top-4 py-2 px-4 mx-4 w-[calc(100%-theme(spacing.4))] md:w-[calc(100%-theme(spacing.8))] left-[50%] transform -translate-x-1/2 z-50 rounded-xl transition-all duration-300 backdrop-blur-xl border border-2 max-w-4xl mx-auto',
+        'fixed top-2 md:top-4 py-2 px-4 mx-4 left-[50%] transform -translate-x-1/2 z-50 rounded-xl transition-all duration-300 backdrop-blur-xl border border-2 max-w-4xl md:mx-0',
         showBackground
           ? 'bg-white/20 border-gray-200 text-foreground'
           : 'dark:text-white text-white border-transparent',
         hasPokemonTheme && 'pokemon-themed',
       )}
     >
-      <div className="w-full mx-auto flex items-center justify-between gap-2 md:gap-4">
+      <div className="w-full max-w-full mx-auto flex items-center justify-between gap-2 md:gap-4">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2" aria-label="Home">
             <div className="aspect-square w-8 relative">
