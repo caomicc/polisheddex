@@ -46,7 +46,7 @@ export interface EncounterDetail {
 
 export interface Move {
   name: string;
-  level: number | string;
+  level?: number | string;
   info?: MoveDescription;
 }
 
@@ -63,7 +63,8 @@ export interface MoveDescription {
   power: number | string;
   accuracy?: number | string;
   effectPercent?: number | string;
-  category: string;
+  category: 'physical' | 'special' | 'status' | 'unknown';
+  name?: string;
 }
 
 export interface EvolutionMethod {

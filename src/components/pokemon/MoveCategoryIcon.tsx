@@ -25,7 +25,7 @@ const MoveCategoryIcon: React.FC<MoveCategoryIconProps> = ({
   const icon = (
     <div
       className={cn(
-        'inline-flex items-center justify-center rounded-full w-6 h-6 p-[6px] md:w-8 md:h-8 md:p-2',
+        'inline-flex items-center justify-center rounded-full w-6 h-6 p-[6px] md:w-6 md:h-6 md:p-[5px]',
         `bg-${normalizedCategory}`,
         className,
       )}

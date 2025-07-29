@@ -12,6 +12,10 @@ body[data-scroll-locked='1'] .fixed {
   right: 0 !important;
 }
 
+html {
+  scroll-padding-top: 6rem; /* Adjust based on your header height */
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @source inline("bg-{physical,special,status,morn,day,nite,eve,any,common,uncommon,rare}");

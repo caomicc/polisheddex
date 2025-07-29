@@ -205,17 +205,20 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                           const moveData = moveKey ? pokemonMoveDescriptions[moveKey] : undefined;
                           const moveType = moveData?.type || 'Unknown';
                           return (
-                            <li
-                              key={move + i}
-                              className="text-xs font-bold capitalize text-gray-700 dark:text-gray-300 flex flex-col items-center gap-2 p-2 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-                            >
-                              {move}
-                              <Badge
-                                variant={moveType.toLowerCase() as PokemonType['name']}
-                                className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
+                            <li key={move + i}>
+                              <Link
+                                href={`/moves#${move.toLowerCase().replace(/\s+/g, '-')}`}
+                                className="text-xs font-bold capitalize text-gray-700 dark:text-gray-300 flex flex-col items-center gap-2 p-2 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                                key={move + i}
                               >
-                                {moveType}
-                              </Badge>
+                                {move}
+                                <Badge
+                                  variant={moveType.toLowerCase() as PokemonType['name']}
+                                  className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
+                                >
+                                  {moveType}
+                                </Badge>
+                              </Link>
                             </li>
                           );
                         })}

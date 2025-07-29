@@ -1,7 +1,7 @@
 import React from 'react';
 import { TableCell, TableRow } from '../ui/table';
 import { cn } from '@/lib/utils';
-import { Move, PokemonType } from '@/types/types';
+import { Move, MoveDescription, PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
 import TypeIcon from './TypeIcon';
 import MoveCategoryIcon from './MoveCategoryIcon';
@@ -11,27 +11,40 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
   const desktopRows = [
     <TableRow
       key={`row-${name}-${level}`}
-      className="hover:bg-muted/50 border-b-0 group hidden md:table-row"
+      id={name.toLowerCase().replace(/\s+/g, '-')}
+      className="hover:bg-muted/0 border-b-0 group hidden md:table-row"
     >
-      <TableCell rowSpan={2} className="align-middle font-semibold w-12 p-2 ">
-        {level ?? '—'}
-      </TableCell>
+      {level !== undefined && (
+        <TableCell rowSpan={2} className="align-middle font-semibold w-12 p-2 ">
+          {level ?? '—'}
+        </TableCell>
+      )}
 
       <TableCell rowSpan={2} className="align-middle font-medium p-2 ">
         {name}
       </TableCell>
 
-      <TableCell className="align-middle p-2 ">
+      <TableCell className="align-middle p-2">
         <Badge
           variant={String(info?.type ?? '-').toLowerCase() as PokemonType['name']}
-          className="w-full md:w-auto text-center"
+          // className="w-full md:w-auto text-center"
+          className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
         >
           {info?.type ? String(info.type) : '-'}
         </Badge>
       </TableCell>
 
-      <TableCell className="align-middle p-2 ">
-        <MoveCategoryIcon category={info?.category || ''} className={'w-7 h-7 p-[4px]'} />
+      <TableCell className="align-middle p-2 text-center">
+        <MoveCategoryIcon
+          category={(info?.category?.toLowerCase() as MoveDescription['category']) || 'unknown'}
+          className={'w-4 h-4 p-[4px]'}
+        />
+        {/* <Badge
+          variant={info?.category?.toLowerCase() as MoveDescription['category']}
+          className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px] mx-auto"
+        >
+          {info?.category ? String(info.category) : '-'}
+        </Badge> */}
       </TableCell>
 
       <TableCell className="align-middle p-2 ">{info?.power ?? '--'}</TableCell>
@@ -40,11 +53,11 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
 
       <TableCell className="align-middle p-2 ">{info?.pp ?? '--'}</TableCell>
 
-      <TableCell className="align-middle p-2">{info?.effectPercent ?? '--'}</TableCell>
+      {/* <TableCell className="align-middle p-2">{info?.effectPercent ?? '--'}</TableCell> */}
     </TableRow>,
     <TableRow
       key={`desc-${name}-${level}-desktop`}
-      className="group-hover:bg-muted/50 hidden md:table-row"
+      className="group-hover:bg-muted/0 hover:bg-muted/0 hidden md:table-row"
     >
       <TableCell
         className={cn(
@@ -90,7 +103,9 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         </div>
       </TableCell>
       <TableCell className="align-middle py-1 w-8 px-1 text-center">
-        <MoveCategoryIcon category={info?.category || ''} />
+        <MoveCategoryIcon
+          category={(info?.category.toLowerCase() as MoveDescription['category']) || 'unknown'}
+        />
       </TableCell>
     </TableRow>,
     <TableRow key={`desc-${name}-${level}-mobile`} className="md:hidden">
