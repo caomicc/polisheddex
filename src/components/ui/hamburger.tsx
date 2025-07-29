@@ -18,6 +18,7 @@ const menuItems: MenuItem[] = [
   { title: 'Pokedex', href: '/pokemon' },
   { title: 'Locations', href: '/locations' },
   { title: 'Items', href: '/items' },
+  { title: 'Moves', href: '/moves' },
 ];
 
 const MenuItemComponent: React.FC<{ item: MenuItem; depth?: number }> = ({ item, depth = 0 }) => {

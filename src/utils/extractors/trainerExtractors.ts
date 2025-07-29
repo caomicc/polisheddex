@@ -297,7 +297,7 @@ function extractTrainerParties(
 
     // Parse trainer class definition: def_trainer_class TRAINER_CLASS
     const trainerClassMatch = line.match(/def_trainer_class\s+([A-Z0-9_]+)/);
-    console.log('Processing trainer trainerClassMatch:', trainerClassMatch, line);
+    // console.log('Processing trainer trainerClassMatch:', trainerClassMatch, line);
     if (trainerClassMatch) {
       currentTrainerClass = trainerClassMatch[1];
       continue;
@@ -313,9 +313,10 @@ function extractTrainerParties(
           name: currentTrainerName,
           pokemon: [...currentPokemon],
         };
-        console.log(
-          `📝 Added party for ${trainerKey} ("${currentTrainerName}") with ${currentPokemon.length} pokemon`,
-        );
+        console
+          .log
+          // `📝 Added party for ${trainerKey} ("${currentTrainerName}") with ${currentPokemon.length} pokemon`,
+          ();
       }
 
       // Start new trainer
@@ -380,9 +381,9 @@ function extractTrainerParties(
           name: currentTrainerName,
           pokemon: [...currentPokemon],
         };
-        console.log(
-          `📝 Added party for ${trainerKey} ("${currentTrainerName}") with ${currentPokemon.length} pokemon`,
-        );
+        // console.log(
+        //   `📝 Added party for ${trainerKey} ("${currentTrainerName}") with ${currentPokemon.length} pokemon`,
+        // );
       }
 
       inTrainerSection = false;
@@ -441,9 +442,9 @@ function extractTrainerLocations(
       };
 
       locationTrainers.push(trainer);
-      console.log(
-        `🎯 Found trainer ${trainer.name} (${trainerInfo.trainerClass}) at ${locationKey} (${trainerInfo.coordinates.x}, ${trainerInfo.coordinates.y}) with ${pokemon.length} pokemon${trainerInfo.rematchable ? ' [REMATCHABLE]' : ''}`,
-      );
+      // console.log(
+      //   `🎯 Found trainer ${trainer.name} (${trainerInfo.trainerClass}) at ${locationKey} (${trainerInfo.coordinates.x}, ${trainerInfo.coordinates.y}) with ${pokemon.length} pokemon${trainerInfo.rematchable ? ' [REMATCHABLE]' : ''}`,
+      // );
     }
 
     if (locationTrainers.length > 0) {
@@ -452,7 +453,7 @@ function extractTrainerLocations(
   }
 
   console.log(`📍 Found ${Object.keys(trainersByLocation).length} locations with trainers`);
-  console.log(JSON.stringify(trainersByLocation, null, 2)); // Log first 500 chars for brevity
+  // console.log(JSON.stringify(trainersByLocation, null, 2)); // Log first 500 chars for brevity
 
   return trainersByLocation;
 }
@@ -970,9 +971,9 @@ function findAllTrainerCommands(
         }
       }
 
-      console.log(
-        `🔍 Found loadtrainer ${trainerClass} ${trainerId} in script ${scriptName} at ${locationKey} (${coordinates.x}, ${coordinates.y}) - ${rematchable ? 'Rematchable' : 'Non-rematchable'}`,
-      );
+      // console.log(
+      //   `🔍 Found loadtrainer ${trainerClass} ${trainerId} in script ${scriptName} at ${locationKey} (${coordinates.x}, ${coordinates.y}) - ${rematchable ? 'Rematchable' : 'Non-rematchable'}`,
+      // );
 
       trainers.push({
         trainerClass,

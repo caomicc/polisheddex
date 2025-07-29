@@ -42,28 +42,41 @@ export function extractMoveDescriptions() {
   let currentLabels: string[] = [];
   let collecting = false;
   let buffer: string[] = [];
+
   for (const line of descLines) {
     const labelMatch = line.match(/^([A-Za-z0-9_]+)Description:/);
     if (labelMatch) {
+      // If we have a previous label group and collected text, save it
       if (currentLabels.length && buffer.length) {
+        const description = buffer.join(' ').trim();
         for (const label of currentLabels) {
-          const normalizedLabel = normalizeMoveKey(label);
-          descMap[normalizedLabel] = buffer.join(' ');
+          // Try multiple normalization approaches for this label
+          const labelVariations = [
+            label, // Original label
+            label.replace(/([a-z])([A-Z])/g, '$1 $2'), // Add spaces before capitals
+            label.replace(/([a-z])([A-Z])/g, '$1_$2'), // Add underscores before capitals
+          ];
+
+          for (const variation of labelVariations) {
+            const normalizedKey = normalizeMoveKey(variation);
+            descMap[normalizedKey] = description;
+            console.log(
+              `Mapped description for "${variation}" -> "${normalizedKey}": ${description.substring(0, 50)}...`,
+            );
+          }
         }
       }
-      // Start a new group of labels
-      // Add space before capital letters in camelCase labels
-      const normalizedLabel = labelMatch[1].replace(/([a-z])([A-Z])/g, '$1 $2');
-      currentLabels = [normalizedLabel];
+
+      // Start new label group
+      currentLabels = [labelMatch[1]];
       buffer = [];
       collecting = false;
-    } else if (line.match(/^\s*[A-Za-z0-9_]+Description:/)) {
-      // Handle extra labels that might not be in the main format
-      // e.g., "someMoveDescription:"
-      const match = line.match(/^\s*([A-Za-z0-9_]+)Description:/);
+    } else if (line.match(/^([A-Za-z0-9_]+)Description:$/)) {
+      // Additional labels on their own lines (part of the same group)
+      const match = line.match(/^([A-Za-z0-9_]+)Description:$/);
       if (match) {
-        const extraLabel = match[1];
-        currentLabels.push(extraLabel);
+        currentLabels.push(match[1]);
+        console.log(`Added label to group: ${match[1]} (total: ${currentLabels.length})`);
       }
     } else if (line.trim().startsWith('text ')) {
       collecting = true;
@@ -76,12 +89,28 @@ export function extractMoveDescriptions() {
       buffer.push(line.trim().replace(/"/g, ''));
     }
   }
+
+  // Handle last label group
   if (currentLabels.length && buffer.length) {
+    const description = buffer.join(' ').trim();
     for (const label of currentLabels) {
-      const normalizedLabel = normalizeMoveKey(label);
-      descMap[normalizedLabel] = buffer.join(' ');
+      const labelVariations = [
+        label,
+        label.replace(/([a-z])([A-Z])/g, '$1 $2'),
+        label.replace(/([a-z])([A-Z])/g, '$1_$2'),
+      ];
+
+      for (const variation of labelVariations) {
+        const normalizedKey = normalizeMoveKey(variation);
+        descMap[normalizedKey] = description;
+        console.log(
+          `Mapped description for "${variation}" -> "${normalizedKey}": ${description.substring(0, 50)}...`,
+        );
+      }
     }
   }
+
+  console.log('descMapdescMapdescMap', JSON.stringify(descMap, null, 2)); // Log first 500 chars for brevity
 
   // Parse move stats
   const typeEnumToName: Record<string, string> = {
@@ -148,6 +177,7 @@ export function extractMoveDescriptions() {
       accuracy: number;
     }
   > = {};
+
   // Define normalized groups for shared descriptions
   // Reverse lookup for quick group membership
   const moveToGroup: Record<string, string> = {};
@@ -156,12 +186,57 @@ export function extractMoveDescriptions() {
       moveToGroup[normalizeMoveKey(move)] = group;
     }
   }
+
+  // Special case mappings for problematic move names
+  const specialMappings: Record<string, string> = {
+    psychic: 'psychic_m', // Psychic move uses PsychicM description
+    psychic_m: 'psychic_m',
+    doubleslap: 'double_slap',
+    double_slap: 'double_slap',
+    will_o_wisp: 'will_o_wisp',
+    willow_wisp: 'will_o_wisp',
+    drainingkiss: 'draining_kiss',
+    draining_kiss: 'draining_kiss',
+  };
+
   for (let i = 0; i < moveNames.length; i++) {
     // Normalize the move name to match the keys in descMap and moveStats
     console.log('Processing move name:', moveNames[i]);
     const moveKey = normalizeMoveKey(moveNames[i]);
-    let desc = descMap[moveKey] || '';
-    console.log('Processing move:', moveKey, 'Description:', desc);
+
+    // Try to find description using multiple approaches
+    let desc = '';
+
+    // 1. Direct lookup
+    desc = descMap[moveKey] || '';
+
+    // 2. Try special mappings
+    if (!desc && specialMappings[moveKey]) {
+      desc = descMap[specialMappings[moveKey]] || '';
+    }
+
+    // 3. Try variations of the move name
+    if (!desc) {
+      const variations = [
+        moveKey.replace(/_/g, ''), // Remove underscores
+        moveKey.replace(/\s/g, ''), // Remove spaces
+        moveNames[i].replace(/\s/g, '').toLowerCase(), // Original without spaces
+        moveNames[i].replace(/\s/g, '_').toLowerCase(), // Original with underscores
+      ];
+
+      for (const variation of variations) {
+        const normalizedVariation = normalizeMoveKey(variation);
+        if (descMap[normalizedVariation]) {
+          desc = descMap[normalizedVariation];
+          console.log(
+            `Found description for "${moveKey}" using variation "${normalizedVariation}"`,
+          );
+          break;
+        }
+      }
+    }
+
+    console.log('Processing move:', moveKey, 'Description:', desc.substring(0, 50) + '...');
     // If not found, try to find a description from the normalized group
     if (!desc && moveToGroup[moveKey]) {
       const group = moveToGroup[moveKey];
@@ -181,9 +256,14 @@ export function extractMoveDescriptions() {
       category: 'Unknown',
       accuracy: 0,
     };
+
     let prettyName = toCapitalCaseWithSpaces(moveKey);
-    console.log(`Adding move description for ${prettyName} m,dhuisadhguwishdkj`, moveKey);
-    if (prettyName === 'Doubleslap') prettyName = 'Double Slap'; // Special case for Double Slap
+
+    // Special cases for move name formatting
+    if (prettyName === 'Doubleslap') prettyName = 'Double Slap';
+    if (prettyName === 'Willow Wisp') prettyName = 'Will O Wisp';
+    if (prettyName === 'Drainingkiss') prettyName = 'Draining Kiss';
+
     moveDescByName[prettyName] = {
       description: desc,
       type: stats.type,
@@ -336,7 +416,7 @@ export function extractTmHmLearnset() {
             type: moveData.type || '',
             pp: moveData.pp || 0,
             power: moveData.power || 0,
-            category: moveData.category || '',
+            category: moveData.category || 'unknown',
             accuracy: moveData.accuracy || 0,
             effectPercent: moveData.effectPercent,
           };
@@ -344,10 +424,10 @@ export function extractTmHmLearnset() {
           return {
             name,
             description: '',
-            type: '',
+            type: 'unknown',
             pp: 0,
             power: 0,
-            category: '',
+            category: 'unknown',
             accuracy: 0,
           };
         }
