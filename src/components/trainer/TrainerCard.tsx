@@ -2,7 +2,7 @@ import { GymLeader, LocationTrainer, PokemonType } from '@/types/types';
 import Image from 'next/image';
 import { Card, CardContent } from '../ui/card';
 import pokemonBaseData from '@/output/pokemon_base_data.json';
-import pokemonMoveDescriptions from '@/output/pokemon_move_descriptions.json';
+import pokemonMoveDescriptions from '@/output/manifests/moves.json';
 import { Badge } from '../ui/badge';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import Link from 'next/link';
