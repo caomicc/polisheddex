@@ -1,11 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { MoveDescription } from '@/types/types';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
 interface MoveCategoryIconProps {
-  category: MoveDescription['category'];
+  category: 'unknown' | 'physical' | 'special' | 'status';
   size?: number;
   className?: string;
   showTooltip?: boolean;
@@ -18,9 +17,11 @@ const MoveCategoryIcon: React.FC<MoveCategoryIconProps> = ({
   showTooltip = true,
 }) => {
   // Convert category to lowercase and ensure it's a valid string
-  const normalizedCategory = String(
-    category || 'status',
-  ).toLowerCase() as MoveDescription['category'];
+  const normalizedCategory = String(category || 'status').toLowerCase() as
+    | 'unknown'
+    | 'physical'
+    | 'special'
+    | 'status';
 
   const icon = (
     <div

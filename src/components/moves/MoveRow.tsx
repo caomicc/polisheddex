@@ -65,7 +65,13 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
 
       <TableCell className="align-middle p-2 text-center">
         <MoveCategoryIcon
-          category={effectiveInfo?.category?.toLowerCase() || 'unknown'}
+          category={
+            (effectiveInfo?.category?.toLowerCase() as
+              | 'unknown'
+              | 'physical'
+              | 'special'
+              | 'status') || 'unknown'
+          }
           className={'w-4 h-4 p-[4px]'}
         />
         {/* <Badge
@@ -141,7 +147,13 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
 
       <TableCell className="align-middle p-2 text-center">
         <MoveCategoryIcon
-          category={effectiveInfo?.category?.toLowerCase() || 'unknown'}
+          category={
+            (effectiveInfo?.category?.toLowerCase() as
+              | 'unknown'
+              | 'physical'
+              | 'special'
+              | 'status') || 'unknown'
+          }
           className={'w-4 h-4 p-[4px]'}
         />
         {/* <Badge
