@@ -66,7 +66,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
   const [urlState, setUrlState] = useQueryStates(
     {
       search: parseAsString.withDefault(''),
-      descSearch: parseAsString.withDefault(''),
+      tmSearch: parseAsString.withDefault(''),
       type: parseAsString.withDefault('all'),
       category: parseAsString.withDefault('all'),
       // version: parseAsString.withDefault('updated'),
@@ -76,6 +76,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
       hasFaithful: parseAsBoolean.withDefault(false),
       highPower: parseAsBoolean.withDefault(false),
       perfectAccuracy: parseAsBoolean.withDefault(false),
+      hasTm: parseAsBoolean.withDefault(false),
     },
     {
       // Configure shallow routing to avoid full page reloads
@@ -107,7 +108,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
   // Extract URL state values
   const {
     search,
-    descSearch,
+    tmSearch,
     type,
     category,
     // version,
@@ -117,6 +118,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
     hasFaithful,
     highPower,
     perfectAccuracy,
+    hasTm,
   } = urlState;
 
   // Sync search value with table filter for name column
@@ -141,13 +143,13 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
     if (descColumn) {
       setColumnFilters((prev) => {
         const otherFilters = prev.filter((filter) => filter.id !== 'description');
-        if (descSearch) {
-          return [...otherFilters, { id: 'description', value: descSearch }];
+        if (tmSearch) {
+          return [...otherFilters, { id: 'description', value: tmSearch }];
         }
         return otherFilters;
       });
     }
-  }, [descSearch, columns]);
+  }, [tmSearch, columns]);
 
   // Get unique types and categories from the data
   const { types, categories } = React.useMemo(() => {
@@ -209,6 +211,8 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
       const matchesHighPower = !highPower || movePower >= 80;
       // const matchesPerfectAccuracy = !perfectAccuracy || moveAccuracy >= 100;
 
+      const matchesHasTM = !hasTm || move.tm;
+
       return (
         matchesType &&
         matchesCategory &&
@@ -216,7 +220,8 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
         matchesSpecial &&
         matchesStatus &&
         matchesHasFaithful &&
-        matchesHighPower
+        matchesHighPower &&
+        matchesHasTM
         // matchesPerfectAccuracy
       );
     });
@@ -230,6 +235,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
     status,
     hasFaithful,
     highPower,
+    hasTm,
     // perfectAccuracy,
   ]);
 
@@ -296,6 +302,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
     highPower,
     perfectAccuracy,
     setPagination,
+    hasTm,
   ]);
 
   return (
@@ -307,13 +314,22 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
             <Label htmlFor="move-filter">Move Name</Label>
             <Input
               id="move-filter"
-              placeholder="Search moves by name..."
+              placeholder="Search by name..."
               value={search}
               onChange={(event) => setUrlState({ search: event.target.value || null })}
               className="max-w-sm bg-white"
             />
           </div>
-
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="desc-filter">TM/HM</Label>
+            <Input
+              id="desc-filter"
+              placeholder="Search by TM..."
+              value={tmSearch}
+              onChange={(event) => setUrlState({ tmSearch: event.target.value || null })}
+              className="max-w-sm bg-white"
+            />
+          </div>
           {/* Type filter */}
           <div className="flex flex-col gap-2">
             <Label htmlFor="type-select">Type</Label>
@@ -428,22 +444,22 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
             </Label>
           </div>
 
-          {/* <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2">
             <Checkbox
-              id="perfect-accuracy"
-              checked={perfectAccuracy}
-              onCheckedChange={(checked) => setUrlState({ perfectAccuracy: checked ? true : null })}
+              id="tm-hm"
+              checked={hasTm}
+              onCheckedChange={(checked) => setUrlState({ hasTm: checked ? true : null })}
             />
-            <Label htmlFor="perfect-accuracy" className="text-sm">
-              Perfect accuracy
+            <Label htmlFor="tm-hm" className="text-sm">
+              Has TM/HM
             </Label>
-          </div> */}
+          </div>
         </div>
 
         {/* Results Summary */}
         <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
           {(Boolean(search) ||
-            Boolean(descSearch) ||
+            Boolean(tmSearch) ||
             type !== 'all' ||
             category !== 'all' ||
             sorting.length > 0 ||
@@ -452,22 +468,23 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
             status ||
             hasFaithful ||
             highPower ||
+            hasTm ||
             perfectAccuracy) && (
             <Button
               size="sm"
               onClick={() => {
                 setUrlState({
                   search: null,
-                  descSearch: null,
+                  tmSearch: null,
                   type: null,
                   category: null,
-                  // version: null,
                   physical: null,
                   special: null,
                   status: null,
                   hasFaithful: null,
                   highPower: null,
                   perfectAccuracy: null,
+                  hasTm: null,
                 });
                 setSorting([]);
                 try {
@@ -500,6 +517,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
               hasFaithful ||
               highPower ||
               perfectAccuracy ||
+              hasTm ||
               type !== 'all' ||
               category !== 'all') && (
               <span className="ml-2">
@@ -513,6 +531,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
                   perfectAccuracy && 'Perfect accuracy',
                   type !== 'all' && `Type: ${type}`,
                   category !== 'all' && `Category: ${category}`,
+                  hasTm && 'Has TM/HM',
                 ]
                   .filter(Boolean)
                   .join(', ')}
@@ -543,25 +562,16 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                // <TableRow
-                //   key={row.id}
-                //   data-state={row.getIsSelected() && 'selected'}
-                //   className="hover:bg-slate-50"
-                // >
-                //   {row.getVisibleCells().map((cell) => (
-                //     <TableCell key={cell.id}>
-                //       {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                //     </TableCell>
-                //   ))}
-                // </TableRow>
-                <MoveRow
-                  key={row.id}
-                  name={row.original.name || ''}
-                  level={undefined}
-                  info={row.original}
-                />
-              ))
+              table
+                .getRowModel()
+                .rows.map((row) => (
+                  <MoveRow
+                    key={row.id}
+                    name={row.original.name || ''}
+                    level={undefined}
+                    info={row.original}
+                  />
+                ))
             ) : (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">

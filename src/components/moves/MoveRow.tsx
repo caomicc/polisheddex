@@ -21,7 +21,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
     power: '--',
     accuracy: '--',
     effectPercent: '--',
-    category: 'unknown',
+    category: 'Unknown',
   };
 
   const desktopRows = [
@@ -37,7 +37,8 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       )}
 
       <TableCell rowSpan={2} className="align-middle font-medium p-2 ">
-        {name}
+        {name}{' '}
+        {info?.tm ? <span className="text-xs text-muted-foreground">({info.tm.number})</span> : ''}
       </TableCell>
 
       <TableCell className="align-middle p-2">
@@ -68,8 +69,6 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       <TableCell className="align-middle p-2 ">{effectiveInfo?.accuracy ?? '--'}</TableCell>
 
       <TableCell className="align-middle p-2 ">{effectiveInfo?.pp ?? '--'}</TableCell>
-
-      {/* <TableCell className="align-middle p-2">{info?.effectPercent ?? '--'}</TableCell> */}
     </TableRow>,
     <TableRow
       key={`desc-${name}-${level}-desktop`}

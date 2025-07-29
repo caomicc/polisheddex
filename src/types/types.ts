@@ -76,6 +76,14 @@ export interface MoveDescription {
     effectPercent?: number | string;
     category?: 'Physical' | 'Special' | 'Status' | 'Unknown';
   };
+  tm?: {
+    number: string;
+    name?: string;
+    location?: {
+      area: string;
+      details?: string;
+    };
+  };
 }
 
 export interface EvolutionMethod {
