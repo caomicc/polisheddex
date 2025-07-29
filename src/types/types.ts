@@ -59,12 +59,23 @@ export interface MoveSet {
 export interface MoveDescription {
   description: string;
   type: string | PokemonType['name'];
-  pp: number | string;
-  power: number | string;
-  accuracy?: number | string;
-  effectPercent?: number | string;
-  category: 'physical' | 'special' | 'status' | 'unknown';
   name?: string;
+  faithful?: {
+    type: string | PokemonType['name'];
+    pp: number | string;
+    power: number | string;
+    accuracy?: number | string;
+    effectPercent?: number | string;
+    category?: 'physical' | 'special' | 'status' | 'unknown';
+  };
+  updated?: {
+    type: string | PokemonType['name'];
+    pp: number | string;
+    power: number | string;
+    accuracy?: number | string;
+    effectPercent?: number | string;
+    category?: 'physical' | 'special' | 'status' | 'unknown';
+  };
 }
 
 export interface EvolutionMethod {
@@ -136,7 +147,7 @@ export interface DetailedStats {
   faithfulLevelMoves?: Move[]; // Level moves in the faithful version
   updatedLevelMoves?: Move[]; // Level moves in the updated (non-faithful) version
   tmHmLearnset?: Move[]; // TM/HM learnset
-  eggMoves?: string[]; // Egg moves
+  eggMoves?: Move[]; // Egg moves
   species?: string; // Species name for the Pokémon
   pokedexEntries?: Record<string, PokemonDexEntry>;
 }
@@ -179,7 +190,7 @@ export interface FormData extends DetailedStats {
   updatedLevelMoves?: Move[]; // Level moves in the updated (non-faithful) version
   tmHmLearnset: Move[];
   locations: LocationEntry[];
-  eggMoves: string[];
+  eggMoves: Move[];
   evolution: Evolution | null;
   nationalDex: number | null;
   frontSpriteUrl?: string;

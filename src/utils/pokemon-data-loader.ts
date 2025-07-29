@@ -1,5 +1,6 @@
 // Enhanced Pokemon data loader that works with compressed data and manifests
 
+import { Move } from '@/types/types';
 import { loadJsonFile } from './fileLoader';
 import {
   resolveAbilities,
@@ -50,7 +51,7 @@ interface CompressedPokemonData {
   faithfulLevelMoves?: any;
   updatedLevelMoves?: any;
   tmHmMoves?: any;
-  eggMoves?: string[];
+  eggMoves?: Move[];
   locations?: any;
   pokedexEntries?: any;
   forms?: Record<string, any>;

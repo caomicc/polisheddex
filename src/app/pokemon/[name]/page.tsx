@@ -6,12 +6,13 @@ import Link from 'next/link';
 import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
 import PokemonNavigation from '@/components/pokemon/PokemonNavigation';
 import PokemonKeyboardNavigation from '@/components/pokemon/PokemonKeyboardNavigation';
-import { MoveDescription, FormData } from '@/types/types';
+import { FormData } from '@/types/types';
 import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNormalizer';
 import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';
 import { loadJsonData } from '@/utils/fileLoader';
 import { loadPokemonData } from '@/utils/pokemon-data-loader';
 import { Button } from '@/components/ui/button';
+import { loadMovesData } from '@/utils/move-data-loader';
 
 export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
@@ -137,8 +138,9 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const navigation = getPokemonNavigation(pokemonName, dexOrder);
   // console.log('Generated navigation:', navigation);
 
-  const moveDescFile = path.join(process.cwd(), `output/pokemon_move_descriptions.json`);
-  const moveDescData = (await loadJsonData<Record<string, MoveDescription>>(moveDescFile)) || {};
+  // const moveDescFile = path.join(process.cwd(), `output/pokemon_move_descriptions.json`);
+  // const moveDescData = (await loadJsonData<Record<string, MoveDescription>>(moveDescFile)) || {};
+  const movesData = await loadMovesData();
 
   // Load move descriptions using the robust file loader
   // const moveDescData = await loadJsonFile<Record<string, MoveDescription>>('output/pokemon_move_descriptions.json') || {};
@@ -152,7 +154,7 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           <PokemonFormClient
             forms={forms}
             allFormData={allFormData}
-            moveDescData={moveDescData}
+            moveDescData={movesData}
             pokemonName={pokemonName}
           />
         </Suspense>

@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import fs from 'fs';
-import path from 'path';
 import { MoveDescription } from '@/types/types';
 import {
   Breadcrumb,
@@ -11,29 +9,22 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
-import { Table, TableBody, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import MoveRow from '@/components/pokemon/MoveRow';
+import { loadMovesData } from '@/utils/move-data-loader';
+import MovesDataTableSearch from '@/components/moves/MovesDataTableSearch';
 
-export default async function PokemonList(
-  {
-    // searchParams,
-  }: {
-    searchParams: Promise<{ sort?: string }>;
-  },
-) {
-  // Read the JSON file at build time
-  const filePath = path.join(process.cwd(), 'output/manifests/moves.json');
-  const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+export default async function MovesList() {
+  // Load moves using the optimized loader
+  const movesData = await loadMovesData();
 
-  // Prepare an array of Pokémon with their names and dex numbers
-  const moveList: MoveDescription[] = Object.values(data) as MoveDescription[];
+  // Convert to array for the data table
+  const allMoves: MoveDescription[] = Object.values(movesData);
 
   return (
     <>
       <Hero
-        headline={'Moves'}
         className="text-white"
-        description={'Browse all moves available in Pokémon Polished Crystal'}
+        headline="Moves"
+        description="Browse all moves available in Pokémon Polished Crystal"
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
@@ -52,75 +43,34 @@ export default async function PokemonList(
           </Breadcrumb>
         }
       />
-
-      <div className="max-w-xl md:max-w-4xl mx-auto md:p-4">
-        <Table>
-          <TableHeader className={'hidden md:table-header-group'}>
-            <TableRow>
-              {/* <TableHead className="attheader cen align-middle text-left w-[60px]">Level</TableHead> */}
-              <TableHead className="attheader cen align-middle text-left w-[180px]">
-                Attack Name
-              </TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Type</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Cat.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Att.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">Acc.</TableHead>
-              <TableHead className="attheader cen align-middle text-left w-[80px]">PP</TableHead>
-              {/* <TableHead className="attheader cen align-middle text-left w-[80px]">
-                Effect %
-              </TableHead> */}
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {moveList.map((moveData: MoveDescription) => {
-              const name = moveData.name || '-';
-              const info = {
-                type: moveData?.type || '-',
-                category: moveData?.category || '-',
-                power: moveData?.power || '--',
-                accuracy: moveData?.accuracy || '--',
-                pp: moveData?.pp || '--',
-                description: moveData?.description || 'No description found.',
-              };
-              return <MoveRow key={moveData.name} name={name} info={info} />;
-            })}
-          </TableBody>
-        </Table>
+      <div className="max-w-xl md:max-w-4xl mx-auto px-4">
+        <MovesDataTableSearch moves={allMoves} />
       </div>
     </>
   );
 }
 
 // Generate metadata for SEO and social sharing
-export async function generateMetadata(
-  {
-    // searchParams,
-  }: {
-    searchParams: Promise<{ sort?: string }>;
-  },
-) {
-  // const { sort = 'johtodex' } = (await searchParams) ?? {};
-
-  // const sortType =
-  //   sort === 'nationaldex' ? 'National Dex' : sort === 'johtodex' ? 'Johto Dex' : 'Alphabetical';
-
-  const title = `Moves | PolishedDex`;
-  const description = `Browse all moves available in Pokémon Polished Crystal`;
-  const url = `https://polisheddex.com/moves`;
+export async function generateMetadata() {
+  const title = 'Items Database | PolishedDex';
+  const description =
+    'Browse all items available in Pokémon Polished Crystal including regular items, TMs, HMs, berries, and key items. View prices, effects, and locations.';
+  const url = 'https://polisheddex.vercel.app/items';
 
   return {
     title,
     description,
     keywords: [
       'pokemon polished crystal',
-      'pokedex',
-      'pokemon list',
-      'pokemon database',
+      'items',
+      'pokemon items',
+      'tm hm',
+      'berries',
+      'key items',
       'polisheddex',
-      // sortType.toLowerCase(),
-      'pokemon stats',
-      'pokemon types',
-      'pokemon evolutions',
+      'item database',
+      'item locations',
+      'item prices',
     ],
 
     // Open Graph metadata for Facebook, Discord, etc.
@@ -135,7 +85,7 @@ export async function generateMetadata(
           url: '/og-image.png',
           width: 1200,
           height: 630,
-          alt: `Moves - PolishedDex`,
+          alt: 'Items Database - PolishedDex',
         },
       ],
       locale: 'en_US',

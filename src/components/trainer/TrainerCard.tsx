@@ -1,4 +1,4 @@
-import { GymLeader, LocationTrainer, PokemonType } from '@/types/types';
+import { GymLeader, LocationTrainer, Move, PokemonType } from '@/types/types';
 import Image from 'next/image';
 import { Card, CardContent } from '../ui/card';
 import pokemonBaseData from '@/output/pokemon_base_data.json';
@@ -85,7 +85,9 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
             <span className="sr-only">Pokemon:</span>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
               {trainer.pokemon.map((poke, idx) => {
-                const pokemonData = pokemonBaseData[poke.species.toLowerCase()];
+                type PokemonBaseDataKey = keyof typeof pokemonBaseData;
+                const speciesKey = poke.species.toLowerCase() as PokemonBaseDataKey;
+                const pokemonData = pokemonBaseData[speciesKey];
                 const types: string[] = Array.isArray(pokemonData?.types)
                   ? pokemonData.types
                   : typeof pokemonData?.types === 'string'
@@ -97,6 +99,12 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                   : typeof pokemonData?.updatedTypes === 'string'
                     ? [pokemonData.updatedTypes]
                     : [];
+
+                console.log(`Pokemon data for ${poke.species}:`, pokemonData);
+
+                // const moves = showFaithful
+                //   ? pokemonData?.moves?.faithful || []
+                //   : pokemonData?.moves?.updated || [];
 
                 console.log(
                   `Rendering Pokémon: ${poke.species} with types: ${types.join(', ')}`,
@@ -183,15 +191,6 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                               ) : (
                                 <></>
                               ))}
-
-                            {/* {!(showFaithful ? types : updatedTypes) && (
-                              <Badge
-                                variant="secondary"
-                                className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
-                              >
-                                Unknown
-                              </Badge>
-                            )} */}
                           </div>
                         </div>
                       </div>
@@ -200,20 +199,28 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                           type MoveDescriptions = typeof pokemonMoveDescriptions;
                           type MoveKey = keyof MoveDescriptions;
                           const moveKey = Object.keys(pokemonMoveDescriptions).find(
-                            (k) => k.toLowerCase() === move.toLowerCase(),
+                            (k) => k.toLowerCase() === move.toLowerCase().replace(/\s+/g, '-'),
                           ) as MoveKey | undefined;
+
                           const moveData = moveKey ? pokemonMoveDescriptions[moveKey] : undefined;
-                          const moveType = moveData?.type || 'Unknown';
+                          const moveType = showFaithful
+                            ? moveData && (moveData as Move['info'])?.faithful?.type
+                              ? (moveData as Move['info'])?.faithful?.type
+                              : (moveData as Move['info'])?.updated?.type || 'Unknown'
+                            : (moveData as Move['info'])?.updated?.type
+                              ? (moveData as Move['info'])?.updated?.type
+                              : (moveData as Move['info'])?.faithful?.type || 'Unknown';
+
                           return (
                             <li key={move + i}>
                               <Link
-                                href={`/moves#${move.toLowerCase().replace(/\s+/g, '-')}`}
+                                href={`/moves?search=${move.toLowerCase().replace(/\s+/g, '+')}`}
                                 className="text-xs font-bold capitalize text-gray-700 dark:text-gray-300 flex flex-col items-center gap-2 p-2 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                                 key={move + i}
                               >
                                 {move}
                                 <Badge
-                                  variant={moveType.toLowerCase() as PokemonType['name']}
+                                  variant={moveType?.toLowerCase() as PokemonType['name']}
                                   className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
                                 >
                                   {moveType}

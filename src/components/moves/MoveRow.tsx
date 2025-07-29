@@ -3,15 +3,31 @@ import { TableCell, TableRow } from '../ui/table';
 import { cn } from '@/lib/utils';
 import { Move, MoveDescription, PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
-import TypeIcon from './TypeIcon';
+import TypeIcon from '../pokemon/TypeIcon';
 import MoveCategoryIcon from './MoveCategoryIcon';
+import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 const MoveRow: React.FC<Move> = ({ name, level, info }) => {
+  console.log('MoveRow rendered:', name, level, info);
   // Desktop version uses the original two-row layout
+
+  const { showFaithful } = useFaithfulPreference();
+
+  const effectiveInfo: MoveDescription['updated'] | MoveDescription['faithful'] = (showFaithful
+    ? info?.faithful || info?.updated || undefined
+    : info?.updated || info?.faithful) ?? {
+    type: '-',
+    pp: '--',
+    power: '--',
+    accuracy: '--',
+    effectPercent: '--',
+    category: 'unknown',
+  };
+
   const desktopRows = [
     <TableRow
       key={`row-${name}-${level}`}
-      id={name.toLowerCase().replace(/\s+/g, '-')}
+      id={name?.toLowerCase().replace(/\s+/g, '-') ?? `row-${name}-${level}`}
       className="hover:bg-muted/0 border-b-0 group hidden md:table-row"
     >
       {level !== undefined && (
@@ -26,17 +42,17 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
 
       <TableCell className="align-middle p-2">
         <Badge
-          variant={String(info?.type ?? '-').toLowerCase() as PokemonType['name']}
+          variant={String(effectiveInfo?.type ?? '-').toLowerCase() as PokemonType['name']}
           // className="w-full md:w-auto text-center"
           className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
         >
-          {info?.type ? String(info.type) : '-'}
+          {effectiveInfo?.type ? String(effectiveInfo.type) : '-'}
         </Badge>
       </TableCell>
 
       <TableCell className="align-middle p-2 text-center">
         <MoveCategoryIcon
-          category={(info?.category?.toLowerCase() as MoveDescription['category']) || 'unknown'}
+          category={effectiveInfo?.category?.toLowerCase() || 'unknown'}
           className={'w-4 h-4 p-[4px]'}
         />
         {/* <Badge
@@ -47,11 +63,11 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         </Badge> */}
       </TableCell>
 
-      <TableCell className="align-middle p-2 ">{info?.power ?? '--'}</TableCell>
+      <TableCell className="align-middle p-2 ">{effectiveInfo?.power ?? '--'}</TableCell>
 
-      <TableCell className="align-middle p-2 ">{info?.accuracy ?? '--'}</TableCell>
+      <TableCell className="align-middle p-2 ">{effectiveInfo?.accuracy ?? '--'}</TableCell>
 
-      <TableCell className="align-middle p-2 ">{info?.pp ?? '--'}</TableCell>
+      <TableCell className="align-middle p-2 ">{effectiveInfo?.pp ?? '--'}</TableCell>
 
       {/* <TableCell className="align-middle p-2">{info?.effectPercent ?? '--'}</TableCell> */}
     </TableRow>,
@@ -61,10 +77,10 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
     >
       <TableCell
         className={cn(
-          'text-muted-foreground text-sm p-2 pb-4',
+          'text-muted-foreground text-xs p-2 pb-4',
           !info?.description?.trim() && 'text-error',
         )}
-        colSpan={8}
+        // colSpan={1}
       >
         {info?.description?.trim() ? info.description : 'No description found.'}
       </TableCell>
@@ -88,24 +104,26 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       {/* Power - Always visible */}
       <TableCell className="align-middle p-1 text-center w-16 text-xs">
         {/* <span className="font-medium text-xs text-muted-foreground mr-1">PWR</span> */}
-        <span>{info?.power ?? '--'}</span>/<span>{info?.accuracy ?? '--'}</span>
+        <span>{effectiveInfo?.power ?? '--'}</span>/<span>{effectiveInfo?.accuracy ?? '--'}</span>
       </TableCell>
       {/* Type - Always visible */}
       <TableCell className="align-middle py-1 px-1 w-8">
         <Badge
-          variant={String(info?.type ?? '-').toLowerCase() as PokemonType['name']}
+          variant={String(effectiveInfo?.type ?? '-').toLowerCase() as PokemonType['name']}
           className="hidden sm:inline-flex"
         >
-          {info?.type ? String(info.type) : '-'}
+          {effectiveInfo?.type ? String(effectiveInfo.type) : '-'}
         </Badge>
         <div className="sm:hidden text-center">
-          {info?.type ? <TypeIcon type={String(info.type)} size={20} /> : <span>-</span>}
+          {effectiveInfo?.type ? (
+            <TypeIcon type={String(effectiveInfo.type)} size={20} />
+          ) : (
+            <span>-</span>
+          )}
         </div>
       </TableCell>
       <TableCell className="align-middle py-1 w-8 px-1 text-center">
-        <MoveCategoryIcon
-          category={(info?.category.toLowerCase() as MoveDescription['category']) || 'unknown'}
-        />
+        <MoveCategoryIcon category={effectiveInfo?.category?.toLowerCase() || 'unknown'} />
       </TableCell>
     </TableRow>,
     <TableRow key={`desc-${name}-${level}-mobile`} className="md:hidden">

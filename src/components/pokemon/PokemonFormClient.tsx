@@ -481,26 +481,6 @@ export default function PokemonFormClient({
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
             <SectionCard headline={'Moves'}>
-              {/* <div className="flex justify-center items-center gap-3 mb-4">
-                <div className="flex items-center gap-2 ml-auto">
-                  <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
-                    <span className={showFaithful ? 'font-bold' : 'text-gray-500'}>
-                      Faithful
-                    </span>
-                    {' / '}
-                    <span className={!showFaithful ? 'font-bold' : 'text-gray-500'}>
-                      Updated
-                    </span>
-                    {' Types'}
-                  </Label>
-                  <Switch
-                    id="type-toggle"
-                    checked={showFaithful}
-                    onCheckedChange={handleMoveToggle}
-                    aria-label="Toggle between faithful and updated Pokémon types"
-                  />
-                </div>
-              </div> */}
               <Tabs defaultValue="level-up" className="w-full">
                 <div className="px-4 md:px-0">
                   <TabsList className="w-full">
@@ -550,47 +530,6 @@ export default function PokemonFormClient({
 
                     return movesToShow && Array.isArray(movesToShow) && movesToShow.length > 0 ? (
                       <div>
-                        {/* Show indicator if there are differences */}
-                        {/* {((formData.faithfulLevelMoves && formData.faithfulLevelMoves.length > 0) ||
-                          (formData.updatedLevelMoves &&
-                            formData.updatedLevelMoves.length > 0)) && (
-                          <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                            <p className="text-sm text-blue-800 dark:text-blue-200">
-                              {showFaithful
-                                ? 'Showing faithful (original) movesets'
-                                : (() => {
-                                    // Calculate additional moves in updated version
-                                    const faithfulMoves =
-                                      formData.faithfulLevelMoves || formData.moves || [];
-                                    const regularMoves = formData.moves || [];
-                                    const updatedMoves = formData.updatedLevelMoves || [];
-
-                                    // Combine regular and updated moves for total updated count
-                                    const combinedMoves = [...regularMoves];
-                                    for (const updatedMove of updatedMoves) {
-                                      const existingIndex = combinedMoves.findIndex(
-                                        (m) =>
-                                          m.level === updatedMove.level &&
-                                          m.name === updatedMove.name,
-                                      );
-                                      if (existingIndex >= 0) {
-                                        combinedMoves[existingIndex] = updatedMove;
-                                      } else {
-                                        combinedMoves.push(updatedMove);
-                                      }
-                                    }
-
-                                    const additionalMoves =
-                                      combinedMoves.length - faithfulMoves.length;
-
-                                    return additionalMoves > 0
-                                      ? `Showing updated movesets (+${additionalMoves} additional move${additionalMoves > 1 ? 's' : ''})`
-                                      : 'Showing updated movesets';
-                                  })()}
-                            </p>
-                          </div>
-                        )} */}
-
                         <Table>
                           <TableHeader className={'hidden md:table-header-group'}>
                             <TableRow>
@@ -615,14 +554,13 @@ export default function PokemonFormClient({
                               <TableHead className="attheader cen align-middle text-left w-[80px]">
                                 PP
                               </TableHead>
-                              <TableHead className="attheader cen align-middle text-left w-[80px]">
-                                Effect %
-                              </TableHead>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
                             {movesToShow.map((moveData: Move, index: number) => {
-                              const moveInfo = moveDescData[moveData.name] || null;
+                              const moveInfo =
+                                moveDescData[moveData.name.toLowerCase().replace(/\s+/g, '-')] ??
+                                undefined;
 
                               return (
                                 <MoveRow
@@ -650,10 +588,7 @@ export default function PokemonFormClient({
                     <Table>
                       <TableHeader className={'hidden md:table-header-group'}>
                         <TableRow>
-                          <TableHead className="attheader cen align-middle text-left w-[60px]">
-                            Level
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[180px]">
+                          <TableHead className="attheader cen align-middle text-left w-[238px]">
                             Attack Name
                           </TableHead>
                           <TableHead className="attheader cen align-middle text-left w-[80px]">
@@ -671,20 +606,27 @@ export default function PokemonFormClient({
                           <TableHead className="attheader cen align-middle text-left w-[80px]">
                             PP
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
-                            Effect %
-                          </TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {formData.eggMoves.map((moveName: string) => {
-                          const moveInfo = moveDescData[moveName] || null;
+                        {formData.eggMoves.map((moveData: Move, index) => {
+                          const keyMoveName = (moveData as unknown as Move['name'])
+                            ?.toLowerCase()
+                            .replace(/\s+/g, '-');
+
+                          const moveInfo = moveDescData[keyMoveName] ?? undefined;
+
+                          console.log(
+                            `Rendering egg move: ${moveData.name} (key: ${keyMoveName})`,
+                            moveInfo,
+                          );
+
                           return (
                             <MoveRow
-                              key={`egg-${moveName}`}
-                              name={moveName}
-                              level={1}
+                              key={`eggmove-${index}`}
+                              name={moveData.name || (moveData as unknown as Move['name'])}
                               info={moveInfo}
+                              level={moveData.level}
                             />
                           );
                         })}
@@ -701,10 +643,7 @@ export default function PokemonFormClient({
                     <Table>
                       <TableHeader className={'hidden md:table-header-group'}>
                         <TableRow>
-                          <TableHead className="attheader cen align-middle text-left w-[60px]">
-                            Level
-                          </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[180px]">
+                          <TableHead className="attheader cen align-middle text-left w-[238px]">
                             Attack Name
                           </TableHead>
                           <TableHead className="attheader cen align-middle text-left w-[80px]">
@@ -722,19 +661,21 @@ export default function PokemonFormClient({
                           <TableHead className="attheader cen align-middle text-left w-[80px]">
                             PP
                           </TableHead>
-                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                          {/* <TableHead className="attheader cen align-middle text-left w-[80px]">
                             Effect %
-                          </TableHead>
+                          </TableHead> */}
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {formData.tmHmLearnset.map((move) => {
-                          const moveInfo = moveDescData[move.name] || null;
+                        {formData.tmHmLearnset.map((moveData) => {
+                          const moveInfo =
+                            moveDescData[moveData.name.toLowerCase().replace(/\s+/g, '-')] ??
+                            undefined;
                           return (
                             <MoveRow
-                              key={`tm-${move.name}`}
-                              name={move.name}
-                              level={move.level}
+                              key={`tm-${moveData.name}`}
+                              name={moveData.name}
+                              level={moveData.level}
                               info={moveInfo}
                             />
                           );

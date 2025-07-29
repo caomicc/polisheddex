@@ -1,18 +1,8 @@
+import { Moves } from '@/types/types';
 declare module '@/output/pokemon_base_data.json' {
   export interface PokemonBaseData {
     name: string;
-    moves: Array<{
-      name: string;
-      level: number;
-      info?: {
-        description: string;
-        type: string;
-        pp: number;
-        power: number;
-        accuracy: string | number;
-        category: string;
-      };
-    }>;
+    moves: Moves[];
     nationalDex: number;
     johtoDex: number;
     types: string[];
