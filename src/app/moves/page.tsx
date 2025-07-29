@@ -52,26 +52,14 @@ export default async function MovesList() {
 
 // Generate metadata for SEO and social sharing
 export async function generateMetadata() {
-  const title = 'Items Database | PolishedDex';
-  const description =
-    'Browse all items available in Pokémon Polished Crystal including regular items, TMs, HMs, berries, and key items. View prices, effects, and locations.';
+  const title = 'Move Database | PolishedDex';
+  const description = 'Browse all moves available in Pokémon Polished Crystal.';
   const url = 'https://polisheddex.vercel.app/items';
 
   return {
     title,
     description,
-    keywords: [
-      'pokemon polished crystal',
-      'items',
-      'pokemon items',
-      'tm hm',
-      'berries',
-      'key items',
-      'polisheddex',
-      'item database',
-      'item locations',
-      'item prices',
-    ],
+    keywords: ['pokemon polished crystal', 'tm hm', 'moves', 'polisheddex'],
 
     // Open Graph metadata for Facebook, Discord, etc.
     openGraph: {

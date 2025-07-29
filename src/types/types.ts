@@ -66,7 +66,7 @@ export interface MoveDescription {
     power: number | string;
     accuracy?: number | string;
     effectPercent?: number | string;
-    category?: 'physical' | 'special' | 'status' | 'unknown';
+    category?: 'Physical' | 'Special' | 'Status' | 'Unknown';
   };
   updated?: {
     type: string | PokemonType['name'];
@@ -74,7 +74,7 @@ export interface MoveDescription {
     power: number | string;
     accuracy?: number | string;
     effectPercent?: number | string;
-    category?: 'physical' | 'special' | 'status' | 'unknown';
+    category?: 'Physical' | 'Special' | 'Status' | 'Unknown';
   };
 }
 
