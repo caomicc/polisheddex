@@ -14,7 +14,49 @@ interface TrainerCardProps {
 }
 
 export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) {
-  const trainerSpritePath = trainer.trainerClass.toLowerCase().replace(/_/g, '_');
+  let displayTrainerClass = trainer.trainerClass;
+  switch (displayTrainerClass?.toLowerCase()) {
+    case 'lyra2':
+    case 'rival2':
+    case 'lyra1':
+    case 'rival1':
+    case 'rival0':
+      displayTrainerClass = '';
+      break;
+    case 'prof_elm':
+    case 'prof_oak':
+      displayTrainerClass = 'Professor';
+      break;
+    case undefined:
+    case null:
+      displayTrainerClass = '';
+      break;
+    default:
+      displayTrainerClass = trainer.trainerClass.replace(/_/g, ' ').toLowerCase();
+      break;
+  }
+
+  let displayTrainerName = trainer.name;
+
+  if (displayTrainerName === '<RIVAL>' || displayTrainerName === 'boy') {
+    displayTrainerName = 'Rival';
+  }
+
+  let trainerSpritePath = trainer.trainerClass.toLowerCase().replace(/_/g, '_');
+  switch (trainerSpritePath.toLowerCase()) {
+    case 'cooltrainerm':
+      trainerSpritePath = 'cooltrainer_m';
+      break;
+    case 'cooltrainerf':
+      trainerSpritePath = 'cooltrainer_f';
+      break;
+    case 'prof_elm':
+      trainerSpritePath = 'elm';
+      break;
+    case 'rival0':
+      trainerSpritePath = 'rival1';
+      break;
+  }
 
   const { showFaithful } = useFaithfulPreference();
 
@@ -28,10 +70,10 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
           <div>
             <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">
               {isGymLeader ? (
-                trainer.name
+                displayTrainerName
               ) : (
                 <span className="capitalize">
-                  {trainer.trainerClass.replace(/_/g, ' ').toLowerCase()} {trainer.name}
+                  {displayTrainerClass} {displayTrainerName}
                 </span>
               )}
             </h3>
@@ -65,13 +107,15 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                   <Card key={idx} className="bg-white border-2 border-gray-200 p-0 shadow-none">
                     <CardContent className="p-4 flex flex-col gap-2">
                       <div className="flex items-center gap-3">
-                        <Image
-                          src={`/sprites/pokemon/${poke.species.toLowerCase()}/front_cropped.png`}
-                          alt={poke.species}
-                          width={48}
-                          height={48}
-                          className="inline-block mr-2"
-                        />
+                        <Link href={`/pokemon/${encodeURIComponent(poke.species)}`}>
+                          <Image
+                            src={`/sprites/pokemon/${poke.species.toLowerCase()}/front_cropped.png`}
+                            alt={poke.species}
+                            width={48}
+                            height={48}
+                            className="inline-block mr-2"
+                          />
+                        </Link>
                         <div className="flex-1 min-w-0">
                           <h3 className="capitalize font-bold">
                             <Link href={`/pokemon/${encodeURIComponent(poke.species)}`}>

@@ -132,11 +132,12 @@ export function extractLocationEvents(): Record<string, LocationEvent[]> {
 
       // Rival battles
       if (line.includes('RivalBattle') || line.includes('RIVAL_')) {
-        events.push({
-          type: 'rival_battle',
-          description: 'Rival Battle',
-          details: 'Battle with your rival',
-        });
+        // events.push({
+        //   type: 'rival_battle',
+        //   description: 'Rival Battle',
+        //   details: 'Battle with your rival',
+        // });
+        continue; // Skip Rival battles for now
       }
 
       // Coordinate events that trigger battles
