@@ -1241,10 +1241,7 @@ export async function exportAllLocations() {
           (trainer, index, self) =>
             index ===
             self.findIndex(
-              (t) =>
-                t.name === trainer.name &&
-                t.coordinates.x === trainer.coordinates.x &&
-                t.coordinates.y === trainer.coordinates.y,
+              (t) => t.id === trainer.id, // Use ID for deduplication instead of name + coordinates
             ),
         );
         if (uniqueTrainers.length > 0) {

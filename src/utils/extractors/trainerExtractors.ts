@@ -37,8 +37,6 @@ export function extractTrainerData(): Record<string, LocationTrainer[]> {
     `📋 Extracted ${Object.keys(trainerParties).length} trainer parties from ${partiesPath}`,
   );
 
-  console.log(JSON.stringify(trainerParties, null, 2)); // Log first 500 chars for brevity
-
   // Then, extract trainer locations from map files
   const trainersByLocation = extractTrainerLocations(mapsDir, trainerParties);
 
@@ -452,6 +450,9 @@ function extractTrainerLocations(
       trainersByLocation[locationKey] = locationTrainers;
     }
   }
+
+  console.log(`📍 Found ${Object.keys(trainersByLocation).length} locations with trainers`);
+  console.log(JSON.stringify(trainersByLocation, null, 2)); // Log first 500 chars for brevity
 
   return trainersByLocation;
 }
@@ -917,6 +918,8 @@ function findAllTrainerCommands(
       const trainerClass = loadTrainerMatch[1];
       const trainerId = loadTrainerMatch[2];
 
+      console.log(`🔍 Found loadtrainer command: ${trainerClass} ${trainerId} at ${locationKey}`);
+
       // Find the script this loadtrainer belongs to by working backwards
       let scriptName = '';
       let coordinates = { x: -1, y: -1 };
@@ -977,6 +980,9 @@ function findAllTrainerCommands(
         coordinates,
         rematchable,
       });
+      console.log(
+        `🎯 Added trainer ${trainerClass} ${trainerId} at ${locationKey} (${coordinates.x}, ${coordinates.y}) - Rematchable: ${rematchable}`,
+      );
     }
 
     // Check for generictrainer command (non-rematchable trainers)
