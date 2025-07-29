@@ -179,7 +179,10 @@ export function extractMoveDescriptions() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const moveStats: Record<
     string,
-    { type: string; pp: number; power: number; category: string; accuracy: any }
+    {
+      faithful?: { type: string; pp: number; power: number; category: string; accuracy: any };
+      updated?: { type: string; pp: number; power: number; category: string; accuracy: any };
+    }
   > = {};
 
   // Special mappings for moves that have different names in moves.asm vs names.asm
@@ -198,10 +201,34 @@ export function extractMoveDescriptions() {
     draining_kiss: 'DRAINING_KISS',
   };
 
-  for (const line of statsLines) {
+  let inFaithfulBlock = false;
+  let faithfulBlockBuffer: any = null;
+
+  for (let i = 0; i < statsLines.length; i++) {
+    const line = statsLines[i];
+
+    // Check for conditional blocks
+    if (line.match(/^\s*if DEF\(FAITHFUL\)/)) {
+      inFaithfulBlock = true;
+      continue;
+    }
+
+    if (line.match(/^\s*else/) && inFaithfulBlock) {
+      // Switch to updated section
+      inFaithfulBlock = false;
+      continue;
+    }
+
+    if (line.match(/^\s*endc/) && inFaithfulBlock) {
+      inFaithfulBlock = false;
+      faithfulBlockBuffer = null;
+      continue;
+    }
+
     const match = line.match(
       /^\s*move\s+([A-Z0-9_]+),\s*[A-Z0-9_]+,\s*(-?\d+),\s*([A-Z_]+),\s*(-?\d+),\s*(\d+),\s*\d+,\s*([A-Z_]+)/,
     );
+
     if (match) {
       const move = match[1];
       const moveKey = normalizeMoveKey(move);
@@ -211,13 +238,36 @@ export function extractMoveDescriptions() {
       const pp = parseInt(match[5], 10);
       const category = categoryEnumToName[match[6]] || 'Unknown';
 
-      // Store both the original key and any mapped variations
-      moveStats[moveKey] = { type, pp, power, category, accuracy };
+      const moveData = { type, pp, power, category, accuracy };
+
+      if (inFaithfulBlock === true) {
+        // This is the faithful version
+        if (!moveStats[moveKey]) moveStats[moveKey] = {};
+        moveStats[moveKey].faithful = moveData;
+        faithfulBlockBuffer = { moveKey, moveData };
+      } else if (inFaithfulBlock === false) {
+        // This is the updated version
+        if (!moveStats[moveKey]) moveStats[moveKey] = {};
+        moveStats[moveKey].updated = moveData;
+      } else {
+        // Regular move (same for both versions)
+        if (!moveStats[moveKey]) moveStats[moveKey] = {};
+        moveStats[moveKey].faithful = moveData;
+        moveStats[moveKey].updated = moveData;
+      }
 
       // Also store reverse mappings for special cases
       for (const [normalizedName, constantName] of Object.entries(moveStatsMappings)) {
         if (constantName === move) {
-          moveStats[normalizedName] = { type, pp, power, category, accuracy };
+          if (!moveStats[normalizedName]) moveStats[normalizedName] = {};
+          if (inFaithfulBlock === true) {
+            moveStats[normalizedName].faithful = moveData;
+          } else if (inFaithfulBlock === false) {
+            moveStats[normalizedName].updated = moveData;
+          } else {
+            moveStats[normalizedName].faithful = moveData;
+            moveStats[normalizedName].updated = moveData;
+          }
           console.log(`Mapped move stats: ${normalizedName} -> ${move}`);
         }
       }
@@ -229,11 +279,20 @@ export function extractMoveDescriptions() {
     string,
     {
       description: string;
-      type: string;
-      pp: number;
-      power: number;
-      category: string;
-      accuracy: number;
+      faithful: {
+        type: string;
+        pp: number;
+        power: number;
+        category: string;
+        accuracy: number;
+      };
+      updated: {
+        type: string;
+        pp: number;
+        power: number;
+        category: string;
+        accuracy: number;
+      };
     }
   > = {};
 
@@ -311,11 +370,8 @@ export function extractMoveDescriptions() {
       }
     }
     const stats = moveStats[moveKey] || {
-      type: 'None',
-      pp: 0,
-      power: 0,
-      category: 'Unknown',
-      accuracy: 0,
+      faithful: { type: 'None', pp: 0, power: 0, category: 'Unknown', accuracy: 0 },
+      updated: { type: 'None', pp: 0, power: 0, category: 'Unknown', accuracy: 0 },
     };
 
     let prettyName = toCapitalCaseWithSpaces(moveKey);
@@ -327,11 +383,20 @@ export function extractMoveDescriptions() {
 
     moveDescByName[prettyName] = {
       description: desc,
-      type: stats.type,
-      pp: stats.pp,
-      power: stats.power,
-      category: stats.category,
-      accuracy: stats.accuracy === -1 ? '--' : stats.accuracy,
+      faithful: {
+        type: stats.faithful?.type || 'None',
+        pp: stats.faithful?.pp || 0,
+        power: stats.faithful?.power || 0,
+        category: stats.faithful?.category || 'Unknown',
+        accuracy: stats.faithful?.accuracy === -1 ? '--' : stats.faithful?.accuracy || 0,
+      },
+      updated: {
+        type: stats.updated?.type || 'None',
+        pp: stats.updated?.pp || 0,
+        power: stats.updated?.power || 0,
+        category: stats.updated?.category || 'Unknown',
+        accuracy: stats.updated?.accuracy === -1 ? '--' : stats.updated?.accuracy || 0,
+      },
     };
   }
 
