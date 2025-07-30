@@ -31,7 +31,7 @@ export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove }: TeamSlo
   };
 
   return (
-    <div onClick={onSlotClick} className="relative  cursor-pointer transition-all group">
+    <div onClick={onSlotClick} className="relative  cursor-pointer group">
       <button
         onClick={handleRemoveClick}
         className="absolute top-10 right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-red-600 cursor-pointer z-20"

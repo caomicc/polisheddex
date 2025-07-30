@@ -73,7 +73,7 @@ const badgeVariants = cva(
         ghost: 'bg-ghost text-purple-900 border-purple-400',
         dragon: 'bg-dragon text-slate-950 border-indigo-400',
         dark: 'bg-dark text-indigo-50 border-indigo-950',
-        steel: 'bg-steel text-grey-950 border-slate-500',
+        steel: 'bg-steel text-gray-950 border-slate-500',
         fairy: 'bg-fairy text-pink-950 border-pink-400',
         locations: 'bg-cyan-100 text-cyan-900 border-cyan-200',
         grotto: 'bg-green-100 text-green-900 border-green-200',
