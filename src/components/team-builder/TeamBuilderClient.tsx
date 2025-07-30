@@ -5,8 +5,12 @@ import { DetailedStats } from '@/types/types';
 import { TeamSlot } from './TeamSlot';
 import { TeamAnalysis } from './TeamAnalysis';
 import { PokemonSearchModal } from './PokemonSearchModal';
+import { SaveTeamModal } from './SaveTeamModal';
+import { LoadTeamModal } from './LoadTeamModal';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { useTeamSearchParams } from '@/hooks/use-team-search-params';
+import { Button } from '../ui/button';
+import { Save, FolderOpen } from 'lucide-react';
 
 interface TeamBuilderClientProps {
   pokemonData: Record<string, DetailedStats>;
@@ -14,11 +18,13 @@ interface TeamBuilderClientProps {
 
 export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
   const { showFaithful } = useFaithfulPreference();
-  const { team, setPokemonInSlot, removePokemonFromSlot } = useTeamSearchParams(
+  const { team, setPokemonInSlot, removePokemonFromSlot, setTeamFromUrl } = useTeamSearchParams(
     pokemonData,
     showFaithful,
   );
   const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [showLoadModal, setShowLoadModal] = useState(false);
 
   const handleSlotClick = (index: number) => {
     setSelectedSlot(index);
@@ -39,11 +45,47 @@ export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
     setSelectedSlot(null);
   };
 
+  const handleSaveTeam = () => {
+    setShowSaveModal(true);
+  };
+
+  const handleLoadTeam = (teamUrlParam: string) => {
+    setTeamFromUrl(teamUrlParam);
+  };
+
+  const handleSaveComplete = () => {
+    // Refresh any UI state if needed
+  };
+
+  // Check if team has any Pokemon for save button
+  const hasAnyPokemon = team.some((pokemon) => pokemon !== null);
+
   return (
     <div className="space-y-6">
       {/* Team Slots */}
       <div className="">
-        <h2 className="text-2xl font-semibold mb-4">Your Team</h2>
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl font-semibold">Your Team</h2>
+          <div className="flex gap-2">
+            <Button
+              onClick={() => setShowLoadModal(true)}
+              variant="secondary"
+              className="flex items-center gap-2"
+            >
+              <FolderOpen className="w-4 h-4" />
+              Load Team
+            </Button>
+            <Button
+              onClick={handleSaveTeam}
+              variant={'default'}
+              className="flex items-center gap-2"
+              disabled={!hasAnyPokemon}
+            >
+              <Save className="w-4 h-4" />
+              Save Team
+            </Button>
+          </div>
+        </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {team.map((pokemon, index) => (
             <TeamSlot
@@ -70,6 +112,23 @@ export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
           showFaithful={showFaithful}
         />
       )}
+
+      {/* Save Team Modal */}
+      <SaveTeamModal
+        isOpen={showSaveModal}
+        onClose={() => setShowSaveModal(false)}
+        teamPokemon={team.map((pokemon) =>
+          pokemon ? { name: pokemon.name, formName: pokemon.formName } : null,
+        )}
+        onSave={handleSaveComplete}
+      />
+
+      {/* Load Team Modal */}
+      <LoadTeamModal
+        isOpen={showLoadModal}
+        onClose={() => setShowLoadModal(false)}
+        onLoadTeam={handleLoadTeam}
+      />
     </div>
   );
 }

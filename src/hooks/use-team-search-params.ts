@@ -115,10 +115,16 @@ export function useTeamSearchParams(
     [team, setTeam],
   );
 
+  // Load team from URL parameter string
+  const setTeamFromUrl = useCallback((teamParam: string) => {
+    setTeamParam(teamParam || null);
+  }, [setTeamParam]);
+
   return {
     team,
     setTeam,
     setPokemonInSlot,
     removePokemonFromSlot,
+    setTeamFromUrl,
   };
 }

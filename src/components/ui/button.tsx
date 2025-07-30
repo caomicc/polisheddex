@@ -17,6 +17,8 @@ const buttonVariants = cva(
         secondary: 'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
         link: 'text-primary underline-offset-4 hover:underline',
+        save: 'bg-grass text-white shadow-xs hover:bg-grass/90 focus-visible:ring-grass/20 dark:focus-visible:ring-grass/40 dark:bg-grass/60 cursor-pointer',
+        load: 'bg-flying text-white shadow-xs hover:bg-dark/90 focus-visible:ring-dark/20 dark:focus-visible:ring-dark/40 dark:bg-dark/60',
       },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',
