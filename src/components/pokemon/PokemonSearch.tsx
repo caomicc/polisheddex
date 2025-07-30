@@ -8,6 +8,8 @@ import { Label } from '../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger } from '../ui/select';
 import { cn } from '@/lib/utils';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import Link from 'next/link';
+import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 
 interface PokemonSearchProps {
   pokemon: BaseData[];
@@ -138,11 +140,22 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
         <p className="text-center py-8 text-gray-500">No Pokémon found matching your search.</p>
       ) : (
         <ul className="grid gap-4 md:gap-8 grid-cols-2 md:grid-cols-3">
-          {filteredPokemon.map((p) => (
-            <li key={p.name}>
-              <PokemonCard pokemon={p} sortType={sortType} showUpdatedTypes={showUpdatedTypes} />
-            </li>
-          ))}
+          {filteredPokemon.map((p) => {
+            const pokemonUrl = p.formName
+              ? `/pokemon/${normalizePokemonUrlKey(p.name)}?form=${encodeURIComponent(p.formName)}`
+              : `/pokemon/${normalizePokemonUrlKey(p.name)}`;
+            return (
+              <li key={p.name}>
+                <Link href={pokemonUrl}>
+                  <PokemonCard
+                    pokemon={p}
+                    sortType={sortType}
+                    showUpdatedTypes={showUpdatedTypes}
+                  />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       )}
     </>

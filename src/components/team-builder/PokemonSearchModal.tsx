@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react';
 import { DetailedStats, PokemonType } from '@/types/types';
 import { TeamPokemon } from '@/hooks/use-team-search-params';
 import { Badge } from '@/components/ui/badge';
-import { X, Search } from 'lucide-react';
+import { X, Search, Filter, ChevronDown, ChevronUp } from 'lucide-react';
 import Image from 'next/image';
 import { Input } from '../ui/input';
 
@@ -61,6 +61,7 @@ export function PokemonSearchModal({
 }: PokemonSearchModalProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+  const [isTypeFilterOpen, setIsTypeFilterOpen] = useState(false);
 
   const allTypes = [
     'normal',
@@ -141,7 +142,18 @@ export function PokemonSearchModal({
 
         return matchesSearch && hasSelectedType;
       })
-      .sort((a, b) => a.displayName.localeCompare(b.displayName));
+      .sort((a, b) => {
+        // Sort by Johto Dex order first, then by name
+        const aJohto = a.data.johtoDex || 999;
+        const bJohto = b.data.johtoDex || 999;
+        
+        if (aJohto !== bJohto) {
+          return aJohto - bJohto;
+        }
+        
+        // If same Johto Dex number (or both null), sort by name
+        return a.displayName.localeCompare(b.displayName);
+      });
   }, [pokemonData, searchTerm, selectedTypes, currentTeam, showFaithful]);
 
   const handlePokemonSelect = (name: string, data: DetailedStats, formName?: string) => {
@@ -177,17 +189,57 @@ export function PokemonSearchModal({
             />
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            {allTypes.map((type) => (
-              <Badge
-                key={type}
-                variant={selectedTypes.includes(type) ? (type as PokemonType['name']) : 'outline'}
-                className="cursor-pointer"
-                onClick={() => toggleTypeFilter(type)}
-              >
-                {type}
-              </Badge>
-            ))}
+          {/* Type Filter */}
+          <div className="border border-gray-200 rounded-lg">
+            <button
+              onClick={() => setIsTypeFilterOpen(!isTypeFilterOpen)}
+              className="w-full flex items-center justify-between p-3 text-left hover:bg-gray-50 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <Filter className="w-4 h-4 text-gray-500" />
+                <span className="font-medium">
+                  Filter by Type
+                  {selectedTypes.length > 0 && (
+                    <span className="text-sm text-gray-500 ml-2">
+                      ({selectedTypes.length} selected)
+                    </span>
+                  )}
+                </span>
+              </div>
+              {isTypeFilterOpen ? (
+                <ChevronUp className="w-4 h-4 text-gray-500" />
+              ) : (
+                <ChevronDown className="w-4 h-4 text-gray-500" />
+              )}
+            </button>
+            
+            {isTypeFilterOpen && (
+              <div className="border-t border-gray-200 p-3">
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
+                  {allTypes.map((type) => (
+                    <Badge
+                      key={type}
+                      variant={selectedTypes.includes(type) ? (type as PokemonType['name']) : 'outline'}
+                      className="cursor-pointer text-center justify-center py-2 text-xs"
+                      onClick={() => toggleTypeFilter(type)}
+                    >
+                      {type.charAt(0).toUpperCase() + type.slice(1)}
+                    </Badge>
+                  ))}
+                </div>
+                
+                {selectedTypes.length > 0 && (
+                  <div className="mt-3 pt-3 border-t border-gray-100">
+                    <button
+                      onClick={() => setSelectedTypes([])}
+                      className="text-sm text-gray-600 hover:text-gray-800 underline"
+                    >
+                      Clear all filters
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
@@ -220,6 +272,11 @@ export function PokemonSearchModal({
                     )}
 
                     <div className="text-center">
+                      <div className="flex items-center justify-center gap-1 mb-1">
+                        <span className="text-xs text-gray-500">
+                          #{entry.data.johtoDex || '—'}
+                        </span>
+                      </div>
                       <div className="font-medium text-sm capitalize">{entry.displayName}</div>
 
                       <div className="flex flex-wrap gap-1 justify-center mt-1">

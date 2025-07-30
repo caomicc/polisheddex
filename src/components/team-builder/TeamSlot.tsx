@@ -4,6 +4,8 @@ import { TeamPokemon } from '@/hooks/use-team-search-params';
 import { X, Plus } from 'lucide-react';
 import PokemonCard from '../pokemon/PokemonCard';
 import { BaseData } from '@/types/types';
+import Link from 'next/link';
+import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 
 interface TeamSlotProps {
   pokemon: TeamPokemon | null;
@@ -31,30 +33,39 @@ export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove }: TeamSlo
   };
 
   return (
-    <div onClick={onSlotClick} className="relative  cursor-pointer group">
+    <div className="relative cursor-pointer group">
+      {/* <div onClick={onSlotClick} className="relative  cursor-pointer group"> */}
       <button
         onClick={handleRemoveClick}
-        className="absolute top-2 md:top-10 right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center md:opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-red-600 cursor-pointer z-20"
+        className="absolute top-2 md:top-0 right-2 md:right-0 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center md:opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-red-600 cursor-pointer z-20"
       >
         <X className="w-3 h-3 pointer-none" />
       </button>
 
-      <PokemonCard
-        pokemon={
-          {
-            name: pokemon.name,
-            nationalDex: pokemon.data.nationalDex || null,
-            johtoDex: pokemon.data.johtoDex || null,
-            // Use form-specific sprite if available
-            frontSpriteUrl: pokemon.formName
-              ? `/sprites/pokemon/${pokemon.name}_${pokemon.formName}/front_cropped.png`
-              : `/sprites/pokemon/${pokemon.name}/front_cropped.png`,
-            // Use form-specific types (already calculated in pokemon.types)
-            types: pokemon.types,
-            formName: pokemon.formName, // Pass form info for URL generation
-          } as BaseData & { formName?: string }
+      <Link
+        href={
+          pokemon.formName
+            ? `/pokemon/${normalizePokemonUrlKey(pokemon.name)}?form=${encodeURIComponent(pokemon.formName)}`
+            : `/pokemon/${normalizePokemonUrlKey(pokemon.name)}`
         }
-      />
+      >
+        <PokemonCard
+          pokemon={
+            {
+              name: pokemon.name,
+              nationalDex: pokemon.data.nationalDex || null,
+              johtoDex: pokemon.data.johtoDex || null,
+              // Use form-specific sprite if available
+              frontSpriteUrl: pokemon.formName
+                ? `/sprites/pokemon/${pokemon.name}_${pokemon.formName}/front_cropped.png`
+                : `/sprites/pokemon/${pokemon.name}/front_cropped.png`,
+              // Use form-specific types (already calculated in pokemon.types)
+              types: pokemon.types,
+              formName: pokemon.formName, // Pass form info for URL generation
+            } as BaseData & { formName?: string }
+          }
+        />
+      </Link>
     </div>
   );
 }
