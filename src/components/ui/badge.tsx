@@ -89,7 +89,7 @@ const badgeVariants = cva(
         physical: 'bg-blue-100 text-blue-900 border-blue-200',
         status: 'bg-yellow-100 text-yellow-900 border-yellow-200',
         unknown: 'bg-yellow-100 text-yellow-900 border-yellow-200',
-        tm: 'bg-pink-100 text-pink-900 border-pink-200',
+        tm: 'bg-yellow-100 text-yellow-900 border-yellow-200',
         hm: 'bg-blue-100 text-blue-900 border-blue-200',
         pokeball: 'bg-red-100 text-red-900 border-red-200',
         item: 'bg-green-100 text-green-900 border-green-200',
