@@ -5,6 +5,7 @@ import { Move, MoveDescription, PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
 import MoveCategoryIcon from './MoveCategoryIcon';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import Link from 'next/link';
 
 const MoveRow: React.FC<Move> = ({ name, level, info }) => {
   // Desktop version uses the original two-row layout
@@ -77,12 +78,14 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       <TableCell className="align-middle p-2 ">{effectiveInfo?.pp ?? '--'}</TableCell>
       <TableCell className="align-middle p-2">
         {info?.tm?.number ? (
-          <Badge
-            variant={info.tm.number.startsWith('TM') ? 'tm' : 'hm'}
-            className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
-          >
-            {info.tm.number}
-          </Badge>
+          <Link href={`/items/${info.tm.number.toLowerCase()}`} className="inline-block">
+            <Badge
+              variant={info.tm.number.startsWith('TM') ? 'tm' : 'hm'}
+              className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
+            >
+              {info.tm.number}
+            </Badge>
+          </Link>
         ) : (
           <span className="text-muted-foreground">--</span>
         )}
@@ -112,7 +115,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
     >
       <TableCell
         colSpan={1}
-        className="align-middle font-bold p-2 text-center md:text-left text-xs md:text-md col-span-2"
+        className="align-middle font-bold p-2 text-left text-xs md:text-md col-span-2"
       >
         {name}
         {level !== undefined && (
@@ -161,9 +164,14 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       <TableCell className="align-middle p-2 ">{effectiveInfo?.pp ?? '--'}</TableCell>
       <TableCell className="align-middle p-2">
         {info?.tm?.number ? (
-          <Badge variant="outline" className="text-xs font-mono">
-            {info.tm.number}
-          </Badge>
+          <Link href={`/items/${info.tm.number.toLowerCase()}`} className="inline-block">
+            <Badge
+              variant={info.tm.number.startsWith('TM') ? 'tm' : 'hm'}
+              className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
+            >
+              {info.tm.number}
+            </Badge>
+          </Link>
         ) : (
           <span className="text-muted-foreground">--</span>
         )}

@@ -331,45 +331,47 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
             />
           </div> */}
           {/* Type filter */}
-          <div className="flex flex-col gap-2">
-            <Label htmlFor="type-select">Type</Label>
-            <Select
-              value={type}
-              onValueChange={(value) => setUrlState({ type: value === 'all' ? null : value })}
-            >
-              <SelectTrigger id="type-select" className="bg-white w-[140px]">
-                <SelectValue placeholder="All Types" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Types</SelectItem>
-                {types.map((moveType) => (
-                  <SelectItem key={moveType} value={moveType}>
-                    {moveType}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+          <div className="flex flex-row gap-4 w-full sm:w-auto">
+            <div className="flex flex-col gap-2 w-1/2 md:w-auto">
+              <Label htmlFor="type-select">Type</Label>
+              <Select
+                value={type}
+                onValueChange={(value) => setUrlState({ type: value === 'all' ? null : value })}
+              >
+                <SelectTrigger id="type-select" className="bg-white w-[140px]">
+                  <SelectValue placeholder="All Types" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Types</SelectItem>
+                  {types.map((moveType) => (
+                    <SelectItem key={moveType} value={moveType}>
+                      {moveType}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
 
-          {/* Category filter */}
-          <div className="flex flex-col gap-2">
-            <Label htmlFor="category-select">Category</Label>
-            <Select
-              value={category}
-              onValueChange={(value) => setUrlState({ category: value === 'all' ? null : value })}
-            >
-              <SelectTrigger id="category-select" className="bg-white w-[140px]">
-                <SelectValue placeholder="All Categories" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
-                {categories.map((moveCategory) => (
-                  <SelectItem key={moveCategory} value={moveCategory}>
-                    {moveCategory}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {/* Category filter */}
+            <div className="flex flex-col gap-2 w-1/2 md:w-auto">
+              <Label htmlFor="category-select">Category</Label>
+              <Select
+                value={category}
+                onValueChange={(value) => setUrlState({ category: value === 'all' ? null : value })}
+              >
+                <SelectTrigger id="category-select" className="bg-white w-[140px]">
+                  <SelectValue placeholder="All Categories" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Categories</SelectItem>
+                  {categories.map((moveCategory) => (
+                    <SelectItem key={moveCategory} value={moveCategory}>
+                      {moveCategory}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           {/* Version selector */}
@@ -544,7 +546,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
 
       {/* Data Table */}
       <div className="rounded-md border bg-white overflow-x-auto border-border">
-        <Table className="table-fixed w-full">
+        <Table className="table-fixed w-full min-w-[500px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

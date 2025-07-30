@@ -43,7 +43,7 @@ export default async function MovesList() {
           </Breadcrumb>
         }
       />
-      <div className="max-w-xl md:max-w-4xl mx-auto px-4">
+      <div className="max-w-xl md:max-w-4xl mx-auto md:px-4">
         <MovesDataTableSearch moves={allMoves} />
       </div>
     </>

@@ -58,7 +58,7 @@ const badgeVariants = cva(
         // Pokémon type variants
         normal: 'bg-normal text-black border-normal-600',
         fire: 'bg-fire text-orange-950 border-red-600',
-        water: 'bg-water text-blue-950 border-water-600',
+        water: 'bg-water text-blue-950 border-blue-500',
         electric: 'bg-electric text-yellow-950 border-yellow-600',
         grass: 'bg-grass text-green-950 border-green-600',
         ice: 'bg-ice text-blue-950 border-cyan-500',
@@ -69,7 +69,7 @@ const badgeVariants = cva(
         psychic: 'bg-psychic text-pink-950 border-pink-600',
         bug: 'bg-bug text-lime-950! border-lime-500',
         rock: 'bg-rock text-slate-900 border-slate-600',
-        ghost: 'bg-ghost text-purple-950 border-purple-950',
+        ghost: 'bg-ghost text-purple-950 border-purple-400',
         dragon: 'bg-dragon text-slate-950 border-indigo-500',
         dark: 'bg-dark text-purple-50 border-purple-950',
         steel: 'bg-steel text-grey-950 border-slate-600',
