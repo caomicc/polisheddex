@@ -116,7 +116,27 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
           ? 'TM/HM'
           : 'Unknown';
 
-      const variant = category === 'TM/HM' ? 'secondary' : 'default';
+      let variant: 'default' | 'tm' | 'hm' | 'pokeball' | 'item' | 'berry' | 'medicine';
+      switch (category) {
+        case 'TM/HM':
+          variant = 'tm';
+          break;
+        case 'Item':
+          variant = 'item';
+          break;
+        case 'Medicine':
+          variant = 'medicine';
+          break;
+        case 'Berry':
+          variant = 'berry';
+          break;
+        case 'Poké Ball':
+          variant = 'pokeball';
+          break;
+        default:
+          variant = 'default';
+          break;
+      }
 
       return (
         <Badge variant={variant} className="text-xs">

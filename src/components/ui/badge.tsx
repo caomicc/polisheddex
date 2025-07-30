@@ -45,7 +45,8 @@ const badgeVariantNames = [
 type BadgeVariant = (typeof badgeVariantNames)[number];
 
 const badgeVariants = cva(
-  'inline-flex items-center justify-center rounded-sm border px-1 md:px-2 md:px-3 py-[2px] md:py-1 text-[10px] md:text-xs uppercase tracking-wider font-bold w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',
+  'inline-flex items-center justify-center rounded-sm border px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px] uppercase tracking-wider font-bold w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',
+  // 'inline-flex items-center justify-center rounded-sm border px-1 md:px-2 md:px-3 py-[2px] md:py-1 text-[10px] md:text-xs uppercase tracking-wider font-bold w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',
   {
     variants: {
       variant: {
@@ -90,6 +91,10 @@ const badgeVariants = cva(
         unknown: 'bg-yellow-100 text-yellow-900 border-yellow-200',
         tm: 'bg-pink-100 text-pink-900 border-pink-200',
         hm: 'bg-blue-100 text-blue-900 border-blue-200',
+        pokeball: 'bg-red-100 text-red-900 border-red-200',
+        item: 'bg-green-100 text-green-900 border-green-200',
+        berry: 'bg-pink-100 text-pink-900 border-pink-200',
+        medicine: 'bg-blue-100 text-blue-900 border-blue-200',
       },
     },
     defaultVariants: {
@@ -110,7 +115,11 @@ interface BadgeProps extends React.ComponentProps<'span'> {
     | 'special'
     | 'status'
     | 'tm'
-    | 'hm';
+    | 'hm'
+    | 'pokeball'
+    | 'item'
+    | 'berry'
+    | 'medicine';
   asChild?: boolean;
 }
 
