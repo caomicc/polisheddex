@@ -10,7 +10,7 @@ import { getTypeGradientProps } from '@/utils/css-gradients';
 import { TYPE_COLORS } from '@/contexts/PokemonTypeContext';
 
 export interface PokemonCardProps {
-  pokemon: BaseData;
+  pokemon: BaseData & { formName?: string };
   sortType?: string;
   showUpdatedTypes?: boolean;
 }
@@ -69,15 +69,17 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
    */
 
   const primaryTypeInfo = TYPE_COLORS[(primaryType as keyof typeof TYPE_COLORS) || 'normal'];
-  const secondaryTypeInfo = secondaryType
-    ? TYPE_COLORS[(secondaryType as keyof typeof TYPE_COLORS) || 'normal']
-    : undefined;
+  // const secondaryTypeInfo = secondaryType
+  //   ? TYPE_COLORS[(secondaryType as keyof typeof TYPE_COLORS) || 'normal']
+  //   : undefined;
 
-  console.log('Primary Type Info:', primaryTypeInfo);
-  console.log('Secondary Type Info:', secondaryTypeInfo);
+  // Generate the correct URL with form parameter if needed
+  const pokemonUrl = pokemon.formName
+    ? `/pokemon/${normalizePokemonUrlKey(pokemon.name)}?form=${encodeURIComponent(pokemon.formName)}`
+    : `/pokemon/${normalizePokemonUrlKey(pokemon.name)}`;
 
   return (
-    <Link href={`/pokemon/${normalizePokemonUrlKey(pokemon.name)}`}>
+    <Link href={pokemonUrl}>
       <Card
         className={cn(
           'shadow-md md:shadow-lg md:hover:shadow-xl transition-shadow duration-400 md:text-center border-0 md:mt-8 relative p-3 md:p-4 md:pb-5 md:pt-[65px] h-[110px] md:h-auto gap-1 md:gap-6',
@@ -93,7 +95,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
           height={64}
           className="absolute max-w-12 md:max-w-16 right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 z-0 md:z-10"
         />
-        <p className="text-xs md:text-lg md:absolute  md:top-4 md:left-4 ">
+        <p className={cn("text-xs md:text-lg md:absolute  md:top-4 md:left-4 ", pokemon.nationalDex === null && pokemon.johtoDex === null ? 'hidden' : '')}>
           #
           {sortType === 'johtodex'
             ? pokemon.johtoDex !== null && pokemon.johtoDex < 999

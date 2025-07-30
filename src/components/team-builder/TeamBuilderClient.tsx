@@ -14,7 +14,10 @@ interface TeamBuilderClientProps {
 
 export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
   const { showFaithful } = useFaithfulPreference();
-  const { team, setPokemonInSlot, removePokemonFromSlot } = useTeamSearchParams(pokemonData, showFaithful);
+  const { team, setPokemonInSlot, removePokemonFromSlot } = useTeamSearchParams(
+    pokemonData,
+    showFaithful,
+  );
   const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
 
   const handleSlotClick = (index: number) => {
@@ -37,7 +40,7 @@ export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {/* Team Slots */}
       <div className="bg-white rounded-lg shadow-sm border p-6">
         <h2 className="text-2xl font-semibold mb-4">Your Team</h2>

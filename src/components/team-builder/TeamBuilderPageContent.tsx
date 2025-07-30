@@ -14,7 +14,7 @@ export function TeamBuilderPageContent() {
       try {
         setLoading(true);
         // Simple client-side fetch, no need for complex loader
-        const response = await fetch('/output/pokemon_detailed_stats.json');
+        const response = await fetch('/output/pokemon_base_data.json');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -33,7 +33,7 @@ export function TeamBuilderPageContent() {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="max-w-xl md:max-w-4xl mx-auto md:p-4">
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-lg">Loading Pokemon data...</div>
         </div>
@@ -43,7 +43,7 @@ export function TeamBuilderPageContent() {
 
   if (error || !pokemonData) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="max-w-xl md:max-w-4xl mx-auto md:p-4">
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-lg text-red-600">{error || 'Failed to load Pokemon data'}</div>
         </div>
@@ -52,7 +52,7 @@ export function TeamBuilderPageContent() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="max-w-xl md:max-w-4xl mx-auto md:p-4">
       <TeamBuilderClient pokemonData={pokemonData} />
     </div>
   );

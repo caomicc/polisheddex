@@ -1,10 +1,9 @@
 'use client';
 
 import { TeamPokemon } from '@/hooks/use-team-search-params';
-import { Badge } from '@/components/ui/badge';
-import { PokemonType } from '@/types/types';
 import { X, Plus } from 'lucide-react';
-import Image from 'next/image';
+import PokemonCard from '../pokemon/PokemonCard';
+import { BaseData } from '@/types/types';
 
 interface TeamSlotProps {
   pokemon: TeamPokemon | null;
@@ -32,49 +31,28 @@ export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove }: TeamSlo
   };
 
   return (
-    <div
-      onClick={onSlotClick}
-      className="relative border border-gray-200 rounded-lg p-3 cursor-pointer hover:border-gray-300 hover:shadow-sm transition-all bg-white group"
-    >
+    <div onClick={onSlotClick} className="relative  cursor-pointer transition-all group">
       <button
         onClick={handleRemoveClick}
-        className="absolute top-1 right-1 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-red-600"
+        className="absolute top-10 right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-red-600 cursor-pointer z-20"
       >
-        <X className="w-3 h-3" />
+        <X className="w-3 h-3 pointer-none" />
       </button>
-      
-      <div className="flex flex-col items-center space-y-2">
-        {pokemon.data.frontSpriteUrl && (
-          <Image
-            src={pokemon.data.frontSpriteUrl}
-            alt={pokemon.name}
-            width={64}
-            height={64}
-            className="w-16 h-16 object-contain"
-          />
-        )}
-        
-        <div className="text-center">
-          <div className="font-medium text-sm capitalize">
-            {pokemon.formName 
-              ? `${pokemon.name} (${pokemon.formName.charAt(0).toUpperCase() + pokemon.formName.slice(1)})`
-              : pokemon.name
-            }
-          </div>
-          
-          <div className="flex flex-wrap gap-1 justify-center mt-1">
-            {pokemon.types.map((type) => (
-              <Badge
-                key={type}
-                variant={type.toLowerCase() as PokemonType['name']}
-                className="text-xs px-1 py-0"
-              >
-                {type}
-              </Badge>
-            ))}
-          </div>
-        </div>
-      </div>
+
+      <PokemonCard
+        pokemon={
+          {
+            name: pokemon.name,
+            nationalDex: pokemon.data.nationalDex || null,
+            johtoDex: pokemon.data.johtoDex || null,
+            // Use form-specific sprite if available
+            frontSpriteUrl: `/sprites/pokemon/${pokemon.name.toLowerCase()}/front_cropped.png`,
+            // Use form-specific types (already calculated in pokemon.types)
+            types: pokemon.types,
+            formName: pokemon.formName, // Pass form info for URL generation
+          } as BaseData & { formName?: string }
+        }
+      />
     </div>
   );
 }
