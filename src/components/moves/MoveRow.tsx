@@ -114,8 +114,8 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       id={`mobile-header-${name}-${level}`}
     >
       <TableCell
-        colSpan={1}
-        className="align-middle font-bold p-2 text-left text-xs md:text-md col-span-2"
+        colSpan={6}
+        className="align-middle font-bold p-1 md:p-2 text-left text-xs md:text-md col-span-2"
       >
         {name}
         {level !== undefined && (
@@ -128,7 +128,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       id={name?.toLowerCase().replace(/\s+/g, '-') ?? `row-${name}-${level}`}
       className="hover:bg-muted/0 border-b-0 group md:hidden"
     >
-      <TableCell className="align-middle p-2">
+      <TableCell className="align-middle p-1 md:p-2 ">
         <Badge
           variant={String(effectiveInfo?.type ?? '-').toLowerCase() as PokemonType['name']}
           // className="w-full md:w-auto text-center"
@@ -138,7 +138,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         </Badge>
       </TableCell>
 
-      <TableCell className="align-middle p-2 text-center">
+      <TableCell className="align-middle p-1 md:p-2 text-center">
         <MoveCategoryIcon
           category={
             (effectiveInfo?.category?.toLowerCase() as
@@ -157,12 +157,12 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         </Badge> */}
       </TableCell>
 
-      <TableCell className="align-middle p-2 ">{effectiveInfo?.power ?? '--'}</TableCell>
+      <TableCell className="align-middle p-1 md:p-2">{effectiveInfo?.power ?? '--'}</TableCell>
 
-      <TableCell className="align-middle p-2 ">{effectiveInfo?.accuracy ?? '--'}</TableCell>
+      <TableCell className="align-middle p-1 md:p-2">{effectiveInfo?.accuracy ?? '--'}</TableCell>
 
-      <TableCell className="align-middle p-2 ">{effectiveInfo?.pp ?? '--'}</TableCell>
-      <TableCell className="align-middle p-2">
+      <TableCell className="align-middle p-1 md:p-2">{effectiveInfo?.pp ?? '--'}</TableCell>
+      <TableCell className="align-middle p-1 md:p-2 ">
         {info?.tm?.number ? (
           <Link href={`/items/${info.tm.number.toLowerCase()}`} className="inline-block">
             <Badge
@@ -183,10 +183,10 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
     >
       <TableCell
         className={cn(
-          'text-muted-foreground text-xs p-2 pb-4',
+          'text-muted-foreground text-xs p-1 md:p-2 pb-4',
           !info?.description?.trim() && 'text-error',
         )}
-        // colSpan={1}
+        colSpan={6}
       >
         {info?.description?.trim() ? info.description : 'No description found.'}
       </TableCell>

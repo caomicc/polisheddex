@@ -478,7 +478,7 @@ export default function PokemonFormClient({
 
           <TabsContent
             value="moves"
-            className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
+            className="text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
             <SectionCard headline={'Moves'}>
               <Tabs defaultValue="level-up" className="w-full">
