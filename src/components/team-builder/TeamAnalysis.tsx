@@ -6,7 +6,10 @@ import { Badge } from '@/components/ui/badge';
 import { PokemonType } from '@/types/types';
 import typeChartData from '../../../output/type_chart.json';
 
-const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as Record<string, Record<string, number>>;
+const TYPE_CHART: Record<string, Record<string, number>> = typeChartData as Record<
+  string,
+  Record<string, number>
+>;
 const ALL_TYPES = Object.keys(TYPE_CHART).filter((type) => {
   const data = TYPE_CHART[type];
   return data && Object.keys(data).length > 0;
@@ -24,25 +27,28 @@ interface TypeCoverage {
 
 function calculateTeamTypeCoverage(team: (TeamPokemon | null)[]): TypeCoverage {
   const activePokemon = team.filter(Boolean) as TeamPokemon[];
-  
+
   if (activePokemon.length === 0) {
     return { weaknesses: [], resistances: [], immunities: [] };
   }
 
-  const typeCounts: Record<string, { weak: number; resist: number; immune: number; totalEffectiveness: number }> = {};
+  const typeCounts: Record<
+    string,
+    { weak: number; resist: number; immune: number; totalEffectiveness: number }
+  > = {};
 
   // Initialize counts for all types
-  ALL_TYPES.forEach(type => {
+  ALL_TYPES.forEach((type) => {
     typeCounts[type] = { weak: 0, resist: 0, immune: 0, totalEffectiveness: 0 };
   });
 
   // Calculate effectiveness for each Pokemon against each attacking type
-  activePokemon.forEach(pokemon => {
-    ALL_TYPES.forEach(attackingType => {
+  activePokemon.forEach((pokemon) => {
+    ALL_TYPES.forEach((attackingType) => {
       let effectiveness = 1;
-      
+
       // Calculate combined effectiveness against this Pokemon's types
-      pokemon.types.forEach(defType => {
+      pokemon.types.forEach((defType) => {
         const chart = TYPE_CHART[attackingType] || {};
         const multiplier = chart[defType.toLowerCase()] ?? 1;
         effectiveness *= multiplier;
@@ -62,27 +68,24 @@ function calculateTeamTypeCoverage(team: (TeamPokemon | null)[]): TypeCoverage {
   });
 
   // Extract weaknesses, resistances, and immunities
-  const weaknesses = ALL_TYPES
-    .filter(type => typeCounts[type].weak > 0)
-    .map(type => ({
+  const weaknesses = ALL_TYPES.filter((type) => typeCounts[type].weak > 0)
+    .map((type) => ({
       type,
       count: typeCounts[type].weak,
       severity: typeCounts[type].totalEffectiveness,
     }))
     .sort((a, b) => b.severity - a.severity);
 
-  const resistances = ALL_TYPES
-    .filter(type => typeCounts[type].resist > 0)
-    .map(type => ({
+  const resistances = ALL_TYPES.filter((type) => typeCounts[type].resist > 0)
+    .map((type) => ({
       type,
       count: typeCounts[type].resist,
       strength: activePokemon.length - typeCounts[type].totalEffectiveness,
     }))
     .sort((a, b) => b.strength - a.strength);
 
-  const immunities = ALL_TYPES
-    .filter(type => typeCounts[type].immune > 0)
-    .map(type => ({
+  const immunities = ALL_TYPES.filter((type) => typeCounts[type].immune > 0)
+    .map((type) => ({
       type,
       count: typeCounts[type].immune,
     }))
@@ -112,9 +115,9 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border p-6">
+    <div className="p-2">
       <h2 className="text-2xl font-semibold mb-6">Team Analysis</h2>
-      
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Weaknesses */}
         <div>

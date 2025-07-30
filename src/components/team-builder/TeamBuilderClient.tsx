@@ -64,7 +64,7 @@ export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
     <div className="space-y-6">
       {/* Team Slots */}
       <div className="">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col md:flex-row gap-2 md:items-center justify-between mb-8">
           <h2 className="text-2xl font-semibold">Your Team</h2>
           <div className="flex gap-2">
             <Button
