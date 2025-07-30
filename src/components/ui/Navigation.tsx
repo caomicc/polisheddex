@@ -152,6 +152,25 @@ const NavigationMenuDemo = () => {
                 </Link>
               </NavigationMenu.Link>
             </NavigationMenu.Item>
+            <NavigationMenu.Item>
+              <NavigationMenu.Link asChild>
+                <Link
+                  className={cn(
+                    'NavigationMenuLink transition-colors duration-300',
+                    !hasPokemonTheme &&
+                      !showBackground &&
+                      'text-white! hover:text-gray-900! hover:bg-gray-200',
+                    !hasPokemonTheme &&
+                      showBackground &&
+                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                    hasPokemonTheme && 'pokemon-themed-link',
+                  )}
+                  href="/team-builder"
+                >
+                  Team Builder
+                </Link>
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
 
             <NavigationMenu.Indicator className="NavigationMenuIndicator">
               <div className="Arrow" />

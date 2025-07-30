@@ -268,4 +268,96 @@ export async function loadMultiplePokemonData(
   }
 }
 
+/**
+ * Load all Pokemon data from the aggregated detailed stats file
+ * This is used for the team builder and other bulk operations
+ */
+export async function loadAllPokemonData(): Promise<Record<string, any>> {
+  try {
+    // Check if we're in a server environment
+    if (typeof window === 'undefined') {
+      // Server-side: Load directly from filesystem
+      const pokemonData = await loadJsonFile<Record<string, any>>(
+        'output/pokemon_detailed_stats.json',
+      );
+      return pokemonData || {};
+    } else {
+      // Client-side: Use fetch (fallback)
+      const response = await fetch('/output/pokemon_detailed_stats.json');
+      if (!response.ok) {
+        throw new Error('Failed to load Pokemon detailed stats');
+      }
+      return await response.json();
+    }
+  } catch (error) {
+    console.error('Error loading all Pokemon data:', error);
+    return {};
+  }
+}
+
+/**
+ * Search Pokemon from aggregated data by name, type, or attributes
+ */
+export async function searchAllPokemon(query: string, faithful: boolean = false): Promise<any[]> {
+  try {
+    const allPokemonData = await loadAllPokemonData();
+    const allPokemon = Object.values(allPokemonData);
+
+    const queryLower = query.toLowerCase();
+
+    return allPokemon.filter((pokemon: any) => {
+      if (!pokemon || typeof pokemon !== 'object') return false;
+
+      // Search in name
+      if (pokemon.name && pokemon.name.toLowerCase().includes(queryLower)) {
+        return true;
+      }
+
+      // Search in types
+      const types = faithful 
+        ? (pokemon.faithfulTypes || pokemon.types)
+        : (pokemon.updatedTypes || pokemon.types);
+      
+      if (types) {
+        const typeArray = Array.isArray(types) ? types : types.split('/');
+        if (typeArray.some((type: string) => type.toLowerCase().includes(queryLower))) {
+          return true;
+        }
+      }
+
+      return false;
+    });
+  } catch (error) {
+    console.error('Error searching all Pokemon:', error);
+    return [];
+  }
+}
+
+/**
+ * Get Pokemon by type from aggregated data
+ */
+export async function getAllPokemonByType(type: string, faithful: boolean = false): Promise<any[]> {
+  try {
+    const allPokemonData = await loadAllPokemonData();
+    const allPokemon = Object.values(allPokemonData);
+    const typeLower = type.toLowerCase();
+
+    return allPokemon.filter((pokemon: any) => {
+      if (!pokemon || typeof pokemon !== 'object') return false;
+      
+      const types = faithful 
+        ? (pokemon.faithfulTypes || pokemon.types)
+        : (pokemon.updatedTypes || pokemon.types);
+      
+      if (!types) return false;
+      
+      const typeArray = Array.isArray(types) ? types : types.split('/');
+      return typeArray.some((t: string) => t.toLowerCase() === typeLower);
+    });
+  } catch (error) {
+    console.error(`Error loading Pokemon for type ${type}:`, error);
+    return [];
+  }
+}
+
 export type { CompressedPokemonData, ExpandedPokemonData };

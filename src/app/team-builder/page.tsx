@@ -1,0 +1,113 @@
+import { Suspense } from 'react';
+import Link from 'next/link';
+import { TeamBuilderPageContent } from '@/components/team-builder/TeamBuilderPageContent';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
+import { Hero } from '@/components/ui/Hero';
+
+function TeamBuilderLoading() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex items-center justify-center min-h-[400px]">
+        <div className="text-lg">Loading team builder...</div>
+      </div>
+    </div>
+  );
+}
+
+export default function TeamBuilderPage() {
+  return (
+    <>
+      <Hero
+        className="text-white"
+        headline="Team Builder"
+        description="Build your perfect team and analyze type weaknesses and resistances"
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-white">Team Builder</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
+      />
+      <Suspense fallback={<TeamBuilderLoading />}>
+        <TeamBuilderPageContent />
+      </Suspense>
+    </>
+  );
+}
+
+// Generate metadata for SEO and social sharing
+export async function generateMetadata() {
+  const title = 'Team Builder | PolishedDex';
+  const description = 'Build your perfect team and analyze type weaknesses and resistances for Pokémon Polished Crystal.';
+  const url = 'https://polisheddex.vercel.app/team-builder';
+
+  return {
+    title,
+    description,
+    keywords: ['pokemon polished crystal', 'team builder', 'type analysis', 'polisheddex'],
+
+    // Open Graph metadata for Facebook, Discord, etc.
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: 'PolishedDex',
+      type: 'website',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'Team Builder - PolishedDex',
+        },
+      ],
+      locale: 'en_US',
+    },
+
+    // Twitter Card metadata
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og-image.png'],
+      creator: '@polisheddex',
+      site: '@polisheddex',
+    },
+
+    // Additional metadata
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+
+    // Canonical URL
+    alternates: {
+      canonical: url,
+    },
+  };
+}

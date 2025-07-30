@@ -19,6 +19,7 @@ const menuItems: MenuItem[] = [
   { title: 'Locations', href: '/locations' },
   { title: 'Items', href: '/items' },
   { title: 'Moves', href: '/moves' },
+  { title: 'Team Builder', href: '/team-builder' },
 ];
 
 const MenuItemComponent: React.FC<{ item: MenuItem; depth?: number }> = ({ item, depth = 0 }) => {
