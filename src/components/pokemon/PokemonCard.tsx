@@ -83,7 +83,11 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       style={gradientProps.style}
     >
       <Image
-        src={pokemon.frontSpriteUrl ?? '/images/pokemon-placeholder.png'}
+        src={
+          pokemon.forms && pokemon.forms?.length
+            ? `/sprites/pokemon/${pokemon.name.toLowerCase()}_plain/normal_front.png`
+            : `/sprites/pokemon/${pokemon.name.toLowerCase()}/normal_front.png`
+        }
         alt={`${pokemon.name} sprite`}
         width={64}
         height={64}
