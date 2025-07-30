@@ -65,7 +65,7 @@ const NavigationMenuDemo = () => {
             </div>
             <span
               className={cn(
-                'hidden md:inline-flex font-bold text-sm md:text-xl transition-colors duration-300',
+                'hidden lg:inline-flex font-bold text-sm md:text-lg transition-colors duration-300',
                 showBackground && !hasPokemonTheme ? 'text-gray-900' : 'text-white',
                 hasPokemonTheme && 'pokemon-hero-text',
               )}
