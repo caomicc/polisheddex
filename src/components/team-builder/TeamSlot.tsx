@@ -17,7 +17,7 @@ export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove }: TeamSlo
     return (
       <div
         onClick={onSlotClick}
-        className="border-2 border-dashed border-gray-300 rounded-lg p-4 h-32 flex flex-col items-center justify-center cursor-pointer hover:border-gray-400 hover:bg-gray-50 transition-colors"
+        className="border-2 border-dashed border-gray-300 rounded-lg p-4 h-[175px] flex flex-col items-center justify-center cursor-pointer hover:border-gray-400 hover:bg-gray-50 transition-colors"
       >
         <Plus className="w-8 h-8 text-gray-400 mb-2" />
         <span className="text-sm text-gray-500">Slot {slotNumber}</span>
@@ -46,7 +46,9 @@ export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove }: TeamSlo
             nationalDex: pokemon.data.nationalDex || null,
             johtoDex: pokemon.data.johtoDex || null,
             // Use form-specific sprite if available
-            frontSpriteUrl: `/sprites/pokemon/${pokemon.name.toLowerCase()}/front_cropped.png`,
+            frontSpriteUrl: pokemon.formName
+              ? `/sprites/pokemon/${pokemon.name}_${pokemon.formName}/front_cropped.png`
+              : `/sprites/pokemon/${pokemon.name}/front_cropped.png`,
             // Use form-specific types (already calculated in pokemon.types)
             types: pokemon.types,
             formName: pokemon.formName, // Pass form info for URL generation

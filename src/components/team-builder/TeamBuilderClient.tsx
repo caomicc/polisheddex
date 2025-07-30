@@ -42,7 +42,7 @@ export function TeamBuilderClient({ pokemonData }: TeamBuilderClientProps) {
   return (
     <div className="space-y-6">
       {/* Team Slots */}
-      <div className="bg-white rounded-lg shadow-sm border p-6">
+      <div className="">
         <h2 className="text-2xl font-semibold mb-4">Your Team</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {team.map((pokemon, index) => (
