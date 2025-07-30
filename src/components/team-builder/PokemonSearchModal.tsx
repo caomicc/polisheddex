@@ -146,11 +146,11 @@ export function PokemonSearchModal({
         // Sort by Johto Dex order first, then by name
         const aJohto = a.data.johtoDex || 999;
         const bJohto = b.data.johtoDex || 999;
-        
+
         if (aJohto !== bJohto) {
           return aJohto - bJohto;
         }
-        
+
         // If same Johto Dex number (or both null), sort by name
         return a.displayName.localeCompare(b.displayName);
       });
@@ -212,14 +212,16 @@ export function PokemonSearchModal({
                 <ChevronDown className="w-4 h-4 text-gray-500" />
               )}
             </button>
-            
+
             {isTypeFilterOpen && (
               <div className="border-t border-gray-200 p-3">
                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
                   {allTypes.map((type) => (
                     <Badge
                       key={type}
-                      variant={selectedTypes.includes(type) ? (type as PokemonType['name']) : 'outline'}
+                      variant={
+                        selectedTypes.includes(type) ? (type as PokemonType['name']) : 'outline'
+                      }
                       className="cursor-pointer text-center justify-center py-2 text-xs"
                       onClick={() => toggleTypeFilter(type)}
                     >
@@ -227,7 +229,7 @@ export function PokemonSearchModal({
                     </Badge>
                   ))}
                 </div>
-                
+
                 {selectedTypes.length > 0 && (
                   <div className="mt-3 pt-3 border-t border-gray-100">
                     <button
@@ -261,8 +263,8 @@ export function PokemonSearchModal({
                       <Image
                         src={
                           entry.formName
-                            ? `/sprites/pokemon/${entry.name}_${entry.formName}/front_cropped.png`
-                            : `/sprites/pokemon/${entry.name}/front_cropped.png`
+                            ? `/sprites/pokemon/${entry.name}_${entry.formName}/normal_front.png`
+                            : `/sprites/pokemon/${entry.name}/normal_front.png`
                         }
                         alt={entry.displayName}
                         width={48}
@@ -273,9 +275,7 @@ export function PokemonSearchModal({
 
                     <div className="text-center">
                       <div className="flex items-center justify-center gap-1 mb-1">
-                        <span className="text-xs text-gray-500">
-                          #{entry.data.johtoDex || '—'}
-                        </span>
+                        <span className="text-xs text-gray-500">#{entry.data.johtoDex || '—'}</span>
                       </div>
                       <div className="font-medium text-sm capitalize">{entry.displayName}</div>
 

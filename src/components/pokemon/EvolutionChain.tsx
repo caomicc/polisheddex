@@ -165,14 +165,14 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
         const formName = matches[2].replace(/ form$/i, '').toLowerCase();
         if (spritesByGen?.[name]) return spritesByGen[name];
         if (formName === 'plain') {
-          return `/sprites/pokemon/${baseName.toLowerCase()}/front_cropped.png`;
+          return `/sprites/pokemon/${baseName.toLowerCase()}/normal_front.png`;
         }
-        return `/sprites/pokemon/${baseName.toLowerCase()}_${formName}/front_cropped.png`;
+        return `/sprites/pokemon/${baseName.toLowerCase()}_${formName}/normal_front.png`;
       }
     }
 
     const normalized = name.includes('-') ? name.replace(/-/g, '_') : name;
-    return spritesByGen?.[name] || `/sprites/pokemon/${normalized.toLowerCase()}/front_cropped.png`;
+    return spritesByGen?.[name] || `/sprites/pokemon/${normalized.toLowerCase()}/normal_front.png`;
   };
 
   return (

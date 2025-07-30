@@ -85,7 +85,7 @@ class GBCSpriteProcessor:
         self.pokemon_dir = self.rom_path / "gfx" / "pokemon"
 
         # Create output directories
-        self.sprites_dir = self.output_path / "sprites/pokemon"
+        self.sprites_dir = self.output_path / "sprites" / "pokemon"
         self.sprites_dir.mkdir(exist_ok=True)
 
     def get_pokemon_list(self) -> List[str]:

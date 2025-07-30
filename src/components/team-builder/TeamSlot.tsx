@@ -57,8 +57,8 @@ export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove }: TeamSlo
               johtoDex: pokemon.data.johtoDex || null,
               // Use form-specific sprite if available
               frontSpriteUrl: pokemon.formName
-                ? `/sprites/pokemon/${pokemon.name}_${pokemon.formName}/front_cropped.png`
-                : `/sprites/pokemon/${pokemon.name}/front_cropped.png`,
+                ? `/sprites/pokemon/${pokemon.name}_${pokemon.formName}/normal_front.png`
+                : `/sprites/pokemon/${pokemon.name}/normal_front.png`,
               // Use form-specific types (already calculated in pokemon.types)
               types: pokemon.types,
               formName: pokemon.formName, // Pass form info for URL generation

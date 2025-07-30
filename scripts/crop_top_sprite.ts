@@ -68,10 +68,7 @@ async function processAllSprites() {
   for (const filePath of files) {
     // Preserve subdirectory structure in output, but remove '_plain' from any part of the path
     const relPath = path.relative(POKEMON_SPRITE_DIR, filePath).replace(/_plain/g, '');
-    const outPath = path.join(
-      POKEMON_OUTPUT_DIR,
-      relPath.replace('front.png', 'front_cropped.png'),
-    );
+    const outPath = path.join(POKEMON_OUTPUT_DIR, relPath.replace('front.png', 'normal_front.png'));
     const outDir = path.dirname(outPath);
     if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
     await autodetectAndCropSprite(filePath, outPath);

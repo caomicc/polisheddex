@@ -117,7 +117,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                       <div className="flex items-center gap-3">
                         <Link href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}`}>
                           <Image
-                            src={`/sprites/pokemon/${poke.species.toLowerCase()}/front_cropped.png`}
+                            src={`/sprites/pokemon/${poke.species.toLowerCase()}/normal_front.png`}
                             alt={poke.species}
                             width={48}
                             height={48}
