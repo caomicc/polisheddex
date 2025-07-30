@@ -6,6 +6,7 @@ import { Badge } from '../ui/badge';
 import MoveCategoryIcon from './MoveCategoryIcon';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import Link from 'next/link';
+import { ExternalLink } from 'lucide-react';
 
 const MoveRow: React.FC<Move> = ({ name, level, info }) => {
   // Desktop version uses the original two-row layout
@@ -78,13 +79,14 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       <TableCell className="align-middle p-2 ">{effectiveInfo?.pp ?? '--'}</TableCell>
       <TableCell className="align-middle p-2">
         {info?.tm?.number ? (
-          <Link href={`/items/${info.tm.number.toLowerCase()}`} className="inline-block">
+          <Link href={`/items/${info.tm.number.toLowerCase()}`} className="flex items-center">
             <Badge
               variant={info.tm.number.startsWith('TM') ? 'tm' : 'hm'}
               className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
             >
               {info.tm.number}
             </Badge>
+            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-2" />
           </Link>
         ) : (
           <span className="text-muted-foreground">--</span>
@@ -171,6 +173,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
             >
               {info.tm.number}
             </Badge>
+            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-2" />
           </Link>
         ) : (
           <span className="text-muted-foreground">--</span>
