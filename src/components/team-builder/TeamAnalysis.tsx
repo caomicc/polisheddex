@@ -100,7 +100,7 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
 
   if (activePokemon.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-sm border p-6">
+      <div className="p-2">
         <h2 className="text-2xl font-semibold mb-4">Team Analysis</h2>
         <p className="text-gray-500">Add Pokémon to your team to see type coverage analysis.</p>
       </div>
