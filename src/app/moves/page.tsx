@@ -54,7 +54,7 @@ export default async function MovesList() {
 export async function generateMetadata() {
   const title = 'Move Database | PolishedDex';
   const description = 'Browse all moves available in Pokémon Polished Crystal.';
-  const url = 'https://polisheddex.vercel.app/items';
+  const url = 'https://polisheddex.vercel.app/moves';
 
   return {
     title,

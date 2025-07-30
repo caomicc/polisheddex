@@ -56,24 +56,24 @@ const badgeVariants = cva(
           'border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
         outline: 'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',
         // Pokémon type variants
-        normal: 'bg-normal text-black border-transparent',
-        fire: 'bg-fire text-orange-950 border-transparent',
-        water: 'bg-water text-blue-950 border-transparent',
-        electric: 'bg-electric text-yellow-950 border-transparent',
-        grass: 'bg-grass text-green-950 border-transparent',
-        ice: 'bg-ice text-blue-950 border-transparent',
-        fighting: 'bg-fighting text-orange-950 border-transparent',
-        poison: 'bg-poison text-purple-950 border-transparent',
-        ground: 'bg-ground text-orange-950 border-transparent',
-        flying: 'bg-flying text-blue-950 border-transparent',
-        psychic: 'bg-psychic text-pink-950 border-transparent',
-        bug: 'bg-bug text-green-950! border-transparent',
-        rock: 'bg-rock text-brown-950 border-transparent',
-        ghost: 'bg-ghost text-purple-950 border-transparent',
-        dragon: 'bg-dragon text-slate-950 border-transparent',
-        dark: 'bg-dark text-purple-50 border-transparent',
-        steel: 'bg-steel text-grey-950 border-transparent',
-        fairy: 'bg-fairy text-pink-950 border-transparent',
+        normal: 'bg-normal text-black border-normal-600',
+        fire: 'bg-fire text-orange-950 border-red-600',
+        water: 'bg-water text-blue-950 border-water-600',
+        electric: 'bg-electric text-yellow-950 border-yellow-600',
+        grass: 'bg-grass text-green-950 border-green-600',
+        ice: 'bg-ice text-blue-950 border-cyan-500',
+        fighting: 'bg-fighting text-orange-950 border-orange-600',
+        poison: 'bg-poison text-purple-950 border-purple-600',
+        ground: 'bg-ground text-orange-950 border-orange-600',
+        flying: 'bg-flying text-sky-950 border-sky-600',
+        psychic: 'bg-psychic text-pink-950 border-pink-600',
+        bug: 'bg-bug text-lime-950! border-lime-500',
+        rock: 'bg-rock text-slate-900 border-slate-600',
+        ghost: 'bg-ghost text-purple-950 border-purple-950',
+        dragon: 'bg-dragon text-slate-950 border-indigo-500',
+        dark: 'bg-dark text-purple-50 border-purple-950',
+        steel: 'bg-steel text-grey-950 border-slate-600',
+        fairy: 'bg-fairy text-pink-950 border-pink-400',
         locations: 'bg-cyan-100 text-cyan-900 border-cyan-200',
         grotto: 'bg-green-100 text-green-900 border-green-200',
         kanto: 'bg-red-100 text-red-900 border-red-200',
@@ -88,6 +88,8 @@ const badgeVariants = cva(
         physical: 'bg-blue-100 text-blue-900 border-blue-200',
         status: 'bg-yellow-100 text-yellow-900 border-yellow-200',
         unknown: 'bg-yellow-100 text-yellow-900 border-yellow-200',
+        tm: 'bg-pink-100 text-pink-900 border-pink-200',
+        hm: 'bg-blue-100 text-blue-900 border-blue-200',
       },
     },
     defaultVariants: {
@@ -106,7 +108,9 @@ interface BadgeProps extends React.ComponentProps<'span'> {
     | 'unknown'
     | 'physical'
     | 'special'
-    | 'status';
+    | 'status'
+    | 'tm'
+    | 'hm';
   asChild?: boolean;
 }
 

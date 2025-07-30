@@ -102,6 +102,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
     },
     accessorFn: (row) => row.updated?.category ?? row.faithful?.category ?? 'Unknown',
   },
+
   {
     accessorKey: 'power',
     header: ({ column }) => {
@@ -184,5 +185,50 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
       return <span>{pp}</span>;
     },
     accessorFn: (row) => row.updated?.pp ?? row.faithful?.pp ?? null,
+  },
+  {
+    accessorKey: 'tm',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
+        >
+          TM/HM
+          {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const move = row.original;
+      const tm = move.tm?.number;
+      return tm ? (
+        <Badge variant="outline" className="text-xs font-mono">
+          {tm}
+        </Badge>
+      ) : (
+        <span className="text-muted-foreground">-</span>
+      );
+    },
+    accessorFn: (row) => {
+      const tm = row.tm?.number;
+      if (!tm) return null;
+
+      // Extract numeric part for proper sorting (e.g., "TM01" -> 1, "HM02" -> 102)
+      const match = tm.match(/^(TM|HM)(\d+)$/);
+      if (match) {
+        const [, type, number] = match;
+        // HMs should sort after TMs, so add 100 to HM numbers
+        return type === 'HM' ? parseInt(number) + 100 : parseInt(number);
+      }
+      return tm; // fallback to string sorting
+    },
   },
 ];

@@ -320,7 +320,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
               className="max-w-sm bg-white"
             />
           </div>
-          <div className="flex flex-col gap-2">
+          {/* <div className="flex flex-col gap-2">
             <Label htmlFor="desc-filter">TM/HM</Label>
             <Input
               id="desc-filter"
@@ -329,7 +329,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
               onChange={(event) => setUrlState({ tmSearch: event.target.value || null })}
               className="max-w-sm bg-white"
             />
-          </div>
+          </div> */}
           {/* Type filter */}
           <div className="flex flex-col gap-2">
             <Label htmlFor="type-select">Type</Label>
