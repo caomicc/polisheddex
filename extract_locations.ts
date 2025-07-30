@@ -966,7 +966,7 @@ export function extractGymLeaderParties(): Record<
     if (movesMatch && currentPokemon) {
       const moves = movesMatch[1]
         .split(',')
-        .map((move) => move.trim().toLowerCase().replace(/_/g, ' '))
+        .map((move) => formatMoveName(move.trim()))
         .filter((move) => move.length > 0);
       currentPokemon.moves = moves;
       continue;

@@ -1712,3 +1712,82 @@ fs.writeFileSync(LOCATIONS_OUTPUT, JSON.stringify(pokemonLocationOutput, null, 2
 console.log(
   `✅ Wrote ${Object.keys(pokemonLocationOutput).length} Pokemon with location data to ${LOCATIONS_OUTPUT}`,
 );
+
+// Write base data output files that were missing
+console.log('📝 Writing base Pokemon data files...');
+
+// Extract base data from finalResult
+const baseDataOutput: Record<
+  string,
+  {
+    name: string;
+    nationalDex: number | null;
+    johtoDex: number | null;
+    types: string | string[];
+    faithfulTypes?: string | string[];
+    updatedTypes?: string | string[];
+    forms: string[];
+  }
+> = {};
+const evolutionDataOutput: Record<string, Evolution | null> = {};
+const levelMovesOutput: Record<
+  string,
+  { moves: Move[]; faithfulMoves?: Move[]; updatedMoves?: Move[] }
+> = {};
+
+for (const [pokemonKey, pokemonData] of Object.entries(finalResult)) {
+  // Check if this Pokemon has forms in the moveset data
+  const movesetFormsData = movesetData[pokemonKey]?.forms;
+  let formsArray: string[] = [];
+
+  if (movesetFormsData) {
+    formsArray = Object.keys(movesetFormsData);
+    if (formsArray.length > 0 && !formsArray.includes('plain')) {
+      formsArray.push('plain');
+    }
+  }
+
+  // Base data (stats, types, dex numbers)
+  baseDataOutput[pokemonKey] = {
+    name: pokemonKey,
+    nationalDex: pokemonData.nationalDex || null,
+    johtoDex: pokemonData.johtoDex || null,
+    types: pokemonData.types || 'Unknown',
+    ...(pokemonData.faithfulTypes ? { faithfulTypes: pokemonData.faithfulTypes } : {}),
+    ...(pokemonData.updatedTypes ? { updatedTypes: pokemonData.updatedTypes } : {}),
+    forms: formsArray,
+  };
+
+  // Evolution data
+  evolutionDataOutput[pokemonKey] = pokemonData.evolution;
+
+  // Level moves data
+  levelMovesOutput[pokemonKey] = {
+    moves: pokemonData.moves,
+    ...(pokemonData.faithfulMoves ? { faithfulMoves: pokemonData.faithfulMoves } : {}),
+    ...(pokemonData.updatedMoves ? { updatedMoves: pokemonData.updatedMoves } : {}),
+    ...(movesetFormsData ? { forms: movesetFormsData } : {}),
+  };
+}
+
+// Write the files
+fs.writeFileSync(BASE_DATA_OUTPUT, JSON.stringify(baseDataOutput, null, 2));
+console.log(
+  `✅ Wrote base data for ${Object.keys(baseDataOutput).length} Pokemon to ${BASE_DATA_OUTPUT}`,
+);
+
+fs.writeFileSync(EVOLUTION_OUTPUT, JSON.stringify(evolutionDataOutput, null, 2));
+console.log(
+  `✅ Wrote evolution data for ${Object.keys(evolutionDataOutput).length} Pokemon to ${EVOLUTION_OUTPUT}`,
+);
+
+fs.writeFileSync(LEVEL_MOVES_OUTPUT, JSON.stringify(levelMovesOutput, null, 2));
+console.log(
+  `✅ Wrote level moves for ${Object.keys(levelMovesOutput).length} Pokemon to ${LEVEL_MOVES_OUTPUT}`,
+);
+
+// Write detailed stats (the complete finalResult data)
+fs.writeFileSync(DETAILED_STATS_OUTPUT, JSON.stringify(finalResult, null, 2));
+console.log(
+  `✅ Wrote detailed stats for ${Object.keys(finalResult).length} Pokemon to ${DETAILED_STATS_OUTPUT}`,
+);
