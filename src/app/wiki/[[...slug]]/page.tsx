@@ -78,7 +78,7 @@ function WikiHomePage() {
   return (
     <>
       <Hero
-        className="text-white"
+        className="text-white lg:min-h-[200px]"
         headline="Polished Crystal Wiki"
         breadcrumbs={
           <Breadcrumb>
@@ -373,7 +373,7 @@ export default function WikiPage() {
   return (
     <>
       <Hero
-        className="text-white"
+        className="text-white lg:min-h-[200px]"
         headline={pageName.replace(/([A-Z])/g, ' $1').trim()}
         breadcrumbs={
           <Breadcrumb>
