@@ -185,7 +185,7 @@ export async function generateStaticParams() {
   if (!data) return [];
 
   return Object.keys(data).map((pokemonKey) => ({
-    name: pokemonKey,
+    name: pokemonKey.toLowerCase(),
   }));
 }
 
