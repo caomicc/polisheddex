@@ -26,7 +26,7 @@ export async function generateStaticParams() {
   // Get all unique location keys from both datasets
   const allLocationKeys = new Set([...Object.keys(pokemonLocations), ...Object.keys(allLocations)]);
 
-  return Array.from(allLocationKeys).map((name) => ({ name }));
+  return Array.from(allLocationKeys).map((name) => ({ name: name.toLowerCase() }));
 }
 
 export default async function LocationDetailPage({
