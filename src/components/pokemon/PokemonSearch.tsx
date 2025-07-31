@@ -38,7 +38,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
 
     // Check if any type matches
     const types = Array.isArray(selectedTypes) ? selectedTypes : [selectedTypes];
-    if (types.some((type: string) => type.toLowerCase().includes(query))) {
+    if (types.some((type: string) => type?.toLowerCase().includes(query))) {
       return true;
     }
 
@@ -53,7 +53,7 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
           ? formSelectedTypes
           : [formSelectedTypes];
 
-        if (formTypes.some((type: string) => type.toLowerCase().includes(query))) {
+        if (formTypes.some((type: string) => type?.toLowerCase().includes(query))) {
           return true;
         }
       }

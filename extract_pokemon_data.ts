@@ -248,6 +248,7 @@ function parseFormName(pokemonName: string): { baseName: string; formName: strin
     { suffix: 'PaldeanWater', form: 'paldean_water' },
     { suffix: 'Armored', form: 'armored' },
     { suffix: 'BloodMoon', form: 'bloodmoon' },
+    { suffix: 'Bloodmoon', form: 'bloodmoon' }, // Add lowercase "m" version
     { suffix: 'plain', form: null },
     { suffix: 'hisui', form: 'hisui' },
     { suffix: 'galarian', form: 'galarian' },
@@ -1200,7 +1201,28 @@ for (const file of baseStatsFiles) {
 }
 const finalResult: Record<string, PokemonDataV3> = {};
 
+// Keep track of form-specific entries that should not be processed as separate Pokemon
+const processedFormEntries = new Set<string>();
+
+// First pass: identify all form entries and mark them as processed
 for (const mon of Object.keys(movesetData)) {
+  const { baseName, formName } = parseFormName(mon);
+  if (formName) {
+    // This is a form entry (e.g., "UrsalunaBloodmoon")
+    processedFormEntries.add(mon);
+    console.log(`DEBUG: Marked ${mon} as a form entry for ${baseName} (form: ${formName})`);
+  }
+}
+
+for (const mon of Object.keys(movesetData)) {
+  // Skip form entries as they're already handled under their base Pokemon
+  if (processedFormEntries.has(mon)) {
+    console.log(
+      `DEBUG: Skipping ${mon} as it's a form entry, already processed under base Pokemon`,
+    );
+    continue;
+  }
+
   const isDebug = isDebugPokemon(mon);
 
   const moves = movesetData[mon].moves.map((m) => {
