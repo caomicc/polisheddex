@@ -545,7 +545,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
       </div>
 
       {/* Data Table */}
-      <div className="rounded-md border bg-white overflow-x-auto border-border">
+      <div className="rounded-md border bg-white dark:bg-white/10 overflow-x-auto border-border">
         <Table className="table-fixed w-full min-w-[500px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -558,7 +558,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
                   return (
                     <TableHead
                       key={header.id}
-                      className={isNameColumn ? 'bg-slate-50 hidden sm:table-cell' : 'bg-slate-50'}
+                      className={isNameColumn ? 'hidden sm:table-cell' : ''}
                     >
                       {header.isPlaceholder
                         ? null

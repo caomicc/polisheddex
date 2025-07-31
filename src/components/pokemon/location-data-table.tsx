@@ -468,7 +468,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
           </span>
         </div>
       </div>
-      <div className="rounded-md border bg-white overflow-x-auto border-border">
+      <div className="rounded-md border bg-white dark:bg-white/10 overflow-x-auto border-border">
         <Table className="table-fixed w-full min-w-[600px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -495,7 +495,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
-                  className="hover:bg-gray-50"
+                  className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell

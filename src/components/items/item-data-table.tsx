@@ -333,14 +333,14 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
       </div>
 
       {/* Data Table */}
-      <div className="rounded-md border bg-white overflow-x-auto border-border">
+      <div className="rounded-md border bg-white dark:bg-white/10 overflow-x-auto border-border">
         <Table className="table-fixed w-full min-w-[600px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} className="bg-slate-50">
+                    <TableHead key={header.id}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(header.column.columnDef.header, header.getContext())}
@@ -356,7 +356,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
-                  className="hover:bg-slate-50"
+                  className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>

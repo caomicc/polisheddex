@@ -49,13 +49,13 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
   const combinedStyle = React.useMemo(() => {
     if (hasPokemonTheme) {
       return {
-        backgroundColor: typeStyles.backgroundColor,
-        color: typeStyles.textColor,
+        // backgroundColor: typeStyles.backgroundColor,
+        // color: typeStyles.textColor,
         ...style,
       };
     }
     return style;
-  }, [hasPokemonTheme, typeStyles, style]);
+  }, [style, hasPokemonTheme]);
 
   return (
     <div
@@ -74,7 +74,12 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
       </div>
       <div className="flex items-center gap-4 mb-2">
         {image && (
-          <div className="dark:bg-white/80 p-2 w-12 md:w-20 h-12 md:h-20 z-0 md:z-10 rounded-lg">
+          <div
+            className={cn(
+              'bg-white p-2 w-12 md:w-20 h-12 md:h-20 transform z-0 md:z-10 rounded-xl',
+              `shadow-lg shadow-${primaryType?.toLowerCase()}`,
+            )}
+          >
             <img
               src={image ?? ''}
               alt={`Accent Image to accompany hero`}
@@ -83,14 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
           </div>
         )}
         {/* Headline */}
-        {headline && (
-          <h1
-            className="text-2xl md:text-4xl font-bold capitalize"
-            style={hasPokemonTheme ? { color: typeStyles.textColor } : undefined}
-          >
-            {headline}
-          </h1>
-        )}
+        {headline && <h1 className="text-2xl md:text-4xl font-bold capitalize">{headline}</h1>}
       </div>
       {description && (
         <p

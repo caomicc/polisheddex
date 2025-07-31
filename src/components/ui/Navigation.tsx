@@ -12,6 +12,7 @@ import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { Switch } from './switch';
 import { Label } from './label';
 import HamburgerMenu from './hamburger';
+import { SimpleThemeToggle } from './theme-toggle';
 
 const NavigationMenuDemo = () => {
   const [heroVisible, setHeroVisible] = React.useState(true);
@@ -47,7 +48,7 @@ const NavigationMenuDemo = () => {
         'fixed top-2 md:top-4 py-2 px-4 mx-4 w-[calc(100%-theme(spacing.4))] md:w-[calc(100%-theme(spacing.8))] left-[50%] transform -translate-x-1/2 z-50 rounded-xl transition-all duration-300 backdrop-blur-xl border border-2 max-w-4xl mx-auto',
         showBackground
           ? 'bg-white/20 border-gray-200 text-foreground'
-          : 'dark:text-white text-white border-transparent',
+          : 'dark:text-white! text-white border-transparent',
         hasPokemonTheme && 'pokemon-themed',
       )}
     >
@@ -65,7 +66,7 @@ const NavigationMenuDemo = () => {
             </div>
             <span
               className={cn(
-                'hidden lg:inline-flex font-bold text-sm md:text-lg transition-colors duration-300',
+                'hidden lg:inline-flex font-bold text-sm md:text-lg transition-colors duration-300 dark:text-white',
                 showBackground && !hasPokemonTheme ? 'text-gray-900' : 'text-white',
                 hasPokemonTheme && 'pokemon-hero-text',
               )}
@@ -83,10 +84,10 @@ const NavigationMenuDemo = () => {
                     'NavigationMenuLink transition-colors duration-300',
                     !hasPokemonTheme &&
                       !showBackground &&
-                      'text-white! hover:text-gray-900! hover:bg-gray-200',
+                      'text-white! hover:text-gray-900! hover:bg-gray-200 dark:hover:bg-gray-800',
                     !hasPokemonTheme &&
                       showBackground &&
-                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900! dark:text-white! dark:hover:bg-gray-800',
                     hasPokemonTheme && 'pokemon-themed-link',
                   )}
                   href="/pokemon"
@@ -102,10 +103,10 @@ const NavigationMenuDemo = () => {
                     'NavigationMenuLink transition-colors duration-300',
                     !hasPokemonTheme &&
                       !showBackground &&
-                      'text-white! hover:text-gray-900! hover:bg-gray-200',
+                      'text-white! hover:text-gray-900! hover:bg-gray-200 dark:hover:bg-gray-800',
                     !hasPokemonTheme &&
                       showBackground &&
-                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900! dark:text-white! dark:hover:bg-gray-800',
                     hasPokemonTheme && 'pokemon-themed-link',
                   )}
                   href="/locations"
@@ -121,10 +122,10 @@ const NavigationMenuDemo = () => {
                     'NavigationMenuLink transition-colors duration-300',
                     !hasPokemonTheme &&
                       !showBackground &&
-                      'text-white! hover:text-gray-900! hover:bg-gray-200',
+                      'text-white! hover:text-gray-900! hover:bg-gray-200 dark:hover:bg-gray-800',
                     !hasPokemonTheme &&
                       showBackground &&
-                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900! dark:text-white! dark:hover:bg-gray-800',
                     hasPokemonTheme && 'pokemon-themed-link',
                   )}
                   href="/items"
@@ -140,10 +141,10 @@ const NavigationMenuDemo = () => {
                     'NavigationMenuLink transition-colors duration-300',
                     !hasPokemonTheme &&
                       !showBackground &&
-                      'text-white! hover:text-gray-900! hover:bg-gray-200',
+                      'text-white! hover:text-gray-900! hover:bg-gray-200 dark:hover:bg-gray-800',
                     !hasPokemonTheme &&
                       showBackground &&
-                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900! dark:text-white! dark:hover:bg-gray-800',
                     hasPokemonTheme && 'pokemon-themed-link',
                   )}
                   href="/moves"
@@ -159,10 +160,10 @@ const NavigationMenuDemo = () => {
                     'NavigationMenuLink transition-colors duration-300',
                     !hasPokemonTheme &&
                       !showBackground &&
-                      'text-white! hover:text-gray-900! hover:bg-gray-200',
+                      'text-white! hover:text-gray-900! hover:bg-gray-200 dark:hover:bg-gray-800',
                     !hasPokemonTheme &&
                       showBackground &&
-                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900!',
+                      'text-gray-900! hover:bg-pink-50! hover:text-gray-900! dark:text-white! dark:hover:bg-gray-800',
                     hasPokemonTheme && 'pokemon-themed-link',
                   )}
                   href="/team-builder"
@@ -193,6 +194,7 @@ const NavigationMenuDemo = () => {
             onCheckedChange={toggleFaithful}
             aria-label="Toggle between faithful and updated Pokémon types"
           />
+          <SimpleThemeToggle />
         </div>
 
         <HamburgerMenu />

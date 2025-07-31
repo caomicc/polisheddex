@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 import { PokemonType } from '@/types/types';
 
 interface PokemonTypeContextValue {
@@ -44,6 +45,19 @@ export const TYPE_COLORS: Record<
     pageBackground: string; // Optional background color for pages
     tabBackground: string; // Optional background color for tabs
     statBarBackground: string; // Optional background color for stat bars
+    dark?: {
+      primary: string;
+      secondary: string;
+      text: string;
+      textSecondary: string;
+      hover: string;
+      sectionCardBg: string; // Optional background color for section cards
+      textTertiary: string; // Optional tertiary text color for breadcrumbs
+      navHover: string; // Optional hover color for navigation links
+      pageBackground: string; // Optional background color for pages
+      tabBackground: string; // Optional background color for tabs
+      statBarBackground: string; // Optional background color for stat bars
+    };
   }
 > = {
   bug: {
@@ -58,6 +72,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-lime-200)',
     sectionCardBg: 'var(--color-lime-200)',
     statBarBackground: 'var(--color-lime-800)',
+    dark: {
+      primary: 'var(--color-lime-400)',
+      secondary: 'var(--color-lime-600)',
+      text: 'var(--color-lime-100)',
+      textSecondary: 'var(--color-lime-200)',
+      textTertiary: 'var(--color-lime-300)',
+      hover: 'var(--color-lime-300)',
+      navHover: 'var(--color-lime-800)',
+      pageBackground: 'rgba(132, 204, 22, 0.1)',
+      tabBackground: 'var(--color-lime-900)',
+      sectionCardBg: 'var(--color-lime-900)',
+      statBarBackground: 'var(--color-lime-400)',
+    },
   },
   dark: {
     primary: 'var(--color-gray-800)',
@@ -71,6 +98,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-gray-100)',
     sectionCardBg: 'var(--color-gray-200)', // gray-200 for section cards
     statBarBackground: 'var(--color-gray-950)',
+    dark: {
+      primary: 'var(--color-gray-400)',
+      secondary: 'var(--color-gray-600)',
+      text: 'var(--color-gray-100)',
+      textSecondary: 'var(--color-gray-300)',
+      textTertiary: 'var(--color-gray-400)',
+      hover: 'var(--color-gray-300)',
+      navHover: 'var(--color-gray-800)',
+      pageBackground: 'rgba(75, 85, 99, 0.1)',
+      tabBackground: 'var(--color-gray-800)',
+      sectionCardBg: 'var(--color-gray-800)',
+      statBarBackground: 'var(--color-gray-400)',
+    },
   },
   dragon: {
     primary: 'var(--color-indigo-400)',
@@ -84,6 +124,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-indigo-100)',
     sectionCardBg: 'var(--color-indigo-200)', // indigo-200 for section cards
     statBarBackground: 'var(--color-indigo-950)',
+    dark: {
+      primary: 'var(--color-indigo-400)',
+      secondary: 'var(--color-indigo-600)',
+      text: 'var(--color-indigo-100)',
+      textSecondary: 'var(--color-indigo-200)',
+      textTertiary: 'var(--color-indigo-300)',
+      hover: 'var(--color-indigo-300)',
+      navHover: 'var(--color-indigo-800)',
+      pageBackground: 'rgba(99, 102, 241, 0.1)',
+      tabBackground: 'var(--color-indigo-900)',
+      sectionCardBg: 'var(--color-indigo-900)',
+      statBarBackground: 'var(--color-indigo-400)',
+    },
   },
   electric: {
     primary: 'var(--color-amber-400)',
@@ -97,6 +150,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-amber-100)',
     sectionCardBg: 'var(--color-amber-100)', // yellow-200 for section cards
     statBarBackground: 'var(--color-amber-700)',
+    dark: {
+      primary: 'var(--color-amber-400)',
+      secondary: 'var(--color-amber-600)',
+      text: 'var(--color-amber-100)',
+      textSecondary: 'var(--color-amber-200)',
+      textTertiary: 'var(--color-amber-300)',
+      hover: 'var(--color-amber-300)',
+      navHover: 'var(--color-amber-800)',
+      pageBackground: 'rgba(245, 158, 11, 0.1)',
+      tabBackground: 'var(--color-amber-900)',
+      sectionCardBg: 'var(--color-amber-900)',
+      statBarBackground: 'var(--color-amber-400)',
+    },
   },
   fairy: {
     primary: 'var(--color-pink-300)',
@@ -110,6 +176,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-pink-100)',
     sectionCardBg: 'var(--color-pink-200)', // pink-200 for section cards
     statBarBackground: 'var(--color-pink-900)',
+    dark: {
+      primary: 'var(--color-pink-400)',
+      secondary: 'var(--color-pink-600)',
+      text: 'var(--color-pink-100)',
+      textSecondary: 'var(--color-pink-200)',
+      textTertiary: 'var(--color-pink-300)',
+      hover: 'var(--color-pink-300)',
+      navHover: 'var(--color-pink-800)',
+      pageBackground: 'rgba(244, 114, 182, 0.1)',
+      tabBackground: 'var(--color-pink-900)',
+      sectionCardBg: 'var(--color-pink-900)',
+      statBarBackground: 'var(--color-pink-400)',
+    },
   },
   fighting: {
     primary: 'var(--color-orange-400)',
@@ -123,6 +202,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-orange-100)',
     sectionCardBg: 'var(--color-orange-200)', // orange-200 for section cards
     statBarBackground: 'var(--color-orange-950)',
+    dark: {
+      primary: 'var(--color-orange-400)',
+      secondary: 'var(--color-orange-600)',
+      text: 'var(--color-orange-100)',
+      textSecondary: 'var(--color-orange-200)',
+      textTertiary: 'var(--color-orange-300)',
+      hover: 'var(--color-orange-300)',
+      navHover: 'var(--color-orange-800)',
+      pageBackground: 'rgba(251, 146, 60, 0.1)',
+      tabBackground: 'var(--color-orange-900)',
+      sectionCardBg: 'var(--color-orange-900)',
+      statBarBackground: 'var(--color-orange-400)',
+    },
   },
   fire: {
     primary: 'var(--color-red-400)',
@@ -136,6 +228,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-red-100)',
     sectionCardBg: 'var(--color-red-200)', // red-200 for section cards
     statBarBackground: 'var(--color-red-950)',
+    dark: {
+      primary: 'var(--color-red-50)',
+      secondary: 'var(--color-red-100)',
+      text: 'var(--color-red-50)',
+      textSecondary: 'var(--color-red-300)',
+      textTertiary: 'var(--color-red-200)',
+      hover: 'var(--color-red-100)',
+      navHover: 'var(--color-red-300)',
+      pageBackground: 'color-mix(in oklab, var(--color-fire) 10%, transparent)',
+      tabBackground: 'var(--color-red-800)',
+      sectionCardBg: 'var(--color-red-900)',
+      statBarBackground: 'var(--color-red-50)',
+    },
   },
   flying: {
     primary: 'var(--color-sky-300)',
@@ -149,6 +254,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-sky-100)',
     sectionCardBg: 'var(--color-sky-200)', // sky-200 for section cards
     statBarBackground: 'var(--color-sky-950)',
+    dark: {
+      primary: 'var(--color-sky-400)',
+      secondary: 'var(--color-sky-600)',
+      text: 'var(--color-sky-100)',
+      textSecondary: 'var(--color-sky-200)',
+      textTertiary: 'var(--color-sky-300)',
+      hover: 'var(--color-sky-300)',
+      navHover: 'var(--color-sky-800)',
+      pageBackground: 'rgba(56, 189, 248, 0.1)',
+      tabBackground: 'var(--color-sky-900)',
+      sectionCardBg: 'var(--color-sky-900)',
+      statBarBackground: 'var(--color-sky-400)',
+    },
   },
   ghost: {
     primary: 'var(--color-violet-300)',
@@ -162,6 +280,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-violet-100)',
     sectionCardBg: 'var(--color-violet-200)', // violet-200 for section cards
     statBarBackground: 'var(--color-violet-950)',
+    dark: {
+      primary: 'var(--color-violet-400)',
+      secondary: 'var(--color-violet-600)',
+      text: 'var(--color-violet-100)',
+      textSecondary: 'var(--color-violet-200)',
+      textTertiary: 'var(--color-violet-300)',
+      hover: 'var(--color-violet-300)',
+      navHover: 'var(--color-violet-800)',
+      pageBackground: 'rgba(139, 92, 246, 0.1)',
+      tabBackground: 'var(--color-violet-900)',
+      sectionCardBg: 'var(--color-violet-900)',
+      statBarBackground: 'var(--color-violet-400)',
+    },
   },
   grass: {
     primary: 'var(--color-emerald-400)',
@@ -175,6 +306,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-emerald-100)',
     sectionCardBg: 'var(--color-emerald-100)', // emerald-200 for section cards
     statBarBackground: 'var(--color-emerald-900)',
+    dark: {
+      primary: 'var(--color-emerald-400)',
+      secondary: 'var(--color-emerald-600)',
+      text: 'var(--color-emerald-100)',
+      textSecondary: 'var(--color-emerald-200)',
+      textTertiary: 'var(--color-emerald-300)',
+      hover: 'var(--color-emerald-300)',
+      navHover: 'var(--color-emerald-800)',
+      pageBackground: 'rgba(52, 211, 153, 0.1)',
+      tabBackground: 'var(--color-emerald-900)',
+      sectionCardBg: 'var(--color-emerald-900)',
+      statBarBackground: 'var(--color-emerald-400)',
+    },
   },
   ground: {
     primary: 'var(--color-orange-300)',
@@ -188,6 +332,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-orange-100)',
     sectionCardBg: 'var(--color-orange-200)', // orange-200 for section cards
     statBarBackground: 'var(--color-orange-900)',
+    dark: {
+      primary: 'var(--color-orange-400)',
+      secondary: 'var(--color-orange-600)',
+      text: 'var(--color-orange-100)',
+      textSecondary: 'var(--color-orange-200)',
+      textTertiary: 'var(--color-orange-300)',
+      hover: 'var(--color-orange-300)',
+      navHover: 'var(--color-orange-800)',
+      pageBackground: 'rgba(251, 146, 60, 0.1)',
+      tabBackground: 'var(--color-orange-900)',
+      sectionCardBg: 'var(--color-orange-900)',
+      statBarBackground: 'var(--color-orange-400)',
+    },
   },
   ice: {
     primary: 'var(--color-cyan-300)',
@@ -201,6 +358,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-cyan-100)',
     sectionCardBg: 'var(--color-cyan-200)', // cyan-200 for section cards
     statBarBackground: 'var(--color-cyan-950)',
+    dark: {
+      primary: 'var(--color-cyan-400)',
+      secondary: 'var(--color-cyan-600)',
+      text: 'var(--color-cyan-100)',
+      textSecondary: 'var(--color-cyan-200)',
+      textTertiary: 'var(--color-cyan-300)',
+      hover: 'var(--color-cyan-300)',
+      navHover: 'var(--color-cyan-800)',
+      pageBackground: 'rgba(34, 211, 238, 0.1)',
+      tabBackground: 'var(--color-cyan-900)',
+      sectionCardBg: 'var(--color-cyan-900)',
+      statBarBackground: 'var(--color-cyan-400)',
+    },
   },
   normal: {
     primary: 'var(--color-normal-300)', // custom normal color from globals.css
@@ -214,6 +384,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-normal-100)',
     sectionCardBg: 'var(--color-normal-200)', // stone-200 for section cards
     statBarBackground: 'var(--color-normal-800)',
+    dark: {
+      primary: 'var(--color-normal-400)',
+      secondary: 'var(--color-normal-600)',
+      text: 'var(--color-normal-200)',
+      textSecondary: 'var(--color-normal-300)',
+      textTertiary: 'var(--color-normal-400)',
+      hover: 'var(--color-normal-300)',
+      navHover: 'var(--color-normal-700)',
+      pageBackground: 'rgba(223, 203, 170, 0.1)',
+      tabBackground: 'var(--color-normal-800)',
+      sectionCardBg: 'var(--color-normal-800)',
+      statBarBackground: 'var(--color-normal-400)',
+    },
   },
   poison: {
     primary: 'var(--color-purple-400)',
@@ -227,6 +410,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-purple-100)',
     sectionCardBg: 'var(--color-purple-200)', // purple-200 for section cards
     statBarBackground: 'var(--color-purple-900)',
+    dark: {
+      primary: 'var(--color-purple-400)',
+      secondary: 'var(--color-purple-600)',
+      text: 'var(--color-purple-100)',
+      textSecondary: 'var(--color-purple-200)',
+      textTertiary: 'var(--color-purple-300)',
+      hover: 'var(--color-purple-300)',
+      navHover: 'var(--color-purple-800)',
+      pageBackground: 'rgba(168, 85, 247, 0.1)',
+      tabBackground: 'var(--color-purple-900)',
+      sectionCardBg: 'var(--color-purple-900)',
+      statBarBackground: 'var(--color-purple-400)',
+    },
   },
   psychic: {
     primary: 'var(--color-fuchsia-400)',
@@ -240,6 +436,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-fuchsia-100)',
     sectionCardBg: 'var(--color-fuchsia-200)', // fuchsia-200 for section cards
     statBarBackground: 'var(--color-fuchsia-900)',
+    dark: {
+      primary: 'var(--color-fuchsia-400)',
+      secondary: 'var(--color-fuchsia-600)',
+      text: 'var(--color-fuchsia-100)',
+      textSecondary: 'var(--color-fuchsia-200)',
+      textTertiary: 'var(--color-fuchsia-300)',
+      hover: 'var(--color-fuchsia-300)',
+      navHover: 'var(--color-fuchsia-800)',
+      pageBackground: 'rgba(232, 121, 249, 0.1)',
+      tabBackground: 'var(--color-fuchsia-900)',
+      sectionCardBg: 'var(--color-fuchsia-900)',
+      statBarBackground: 'var(--color-fuchsia-400)',
+    },
   },
   rock: {
     primary: 'var(--color-gray-400)',
@@ -253,6 +462,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-gray-100)',
     sectionCardBg: 'var(--color-gray-200)', // gray-200 for section cards
     statBarBackground: 'var(--color-gray-900)',
+    dark: {
+      primary: 'var(--color-gray-500)',
+      secondary: 'var(--color-gray-600)',
+      text: 'var(--color-gray-200)',
+      textSecondary: 'var(--color-gray-300)',
+      textTertiary: 'var(--color-gray-400)',
+      hover: 'var(--color-gray-300)',
+      navHover: 'var(--color-gray-700)',
+      pageBackground: 'rgba(107, 114, 128, 0.1)',
+      tabBackground: 'var(--color-gray-800)',
+      sectionCardBg: 'var(--color-gray-800)',
+      statBarBackground: 'var(--color-gray-400)',
+    },
   },
   steel: {
     primary: 'var(--color-slate-400)',
@@ -266,6 +488,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-slate-100)',
     sectionCardBg: 'var(--color-slate-200)', // slate-200 for section cards
     statBarBackground: 'var(--color-slate-400)',
+    dark: {
+      primary: 'var(--color-slate-500)',
+      secondary: 'var(--color-slate-600)',
+      text: 'var(--color-slate-200)',
+      textSecondary: 'var(--color-slate-300)',
+      textTertiary: 'var(--color-slate-400)',
+      hover: 'var(--color-slate-300)',
+      navHover: 'var(--color-slate-700)',
+      pageBackground: 'rgba(100, 116, 139, 0.1)',
+      tabBackground: 'var(--color-slate-800)',
+      sectionCardBg: 'var(--color-slate-800)',
+      statBarBackground: 'var(--color-slate-400)',
+    },
   },
   water: {
     primary: 'var(--color-blue-400)', // background
@@ -279,6 +514,19 @@ export const TYPE_COLORS: Record<
     tabBackground: 'var(--color-blue-100)',
     sectionCardBg: 'var(--color-blue-200)', // blue-200 for section cards
     statBarBackground: 'var(--color-blue-900)',
+    dark: {
+      primary: 'var(--color-blue-400)',
+      secondary: 'var(--color-blue-600)',
+      text: 'var(--color-blue-100)',
+      textSecondary: 'var(--color-blue-200)',
+      textTertiary: 'var(--color-blue-300)',
+      hover: 'var(--color-blue-300)',
+      navHover: 'var(--color-blue-800)',
+      pageBackground: 'rgba(59, 130, 246, 0.1)',
+      tabBackground: 'var(--color-blue-900)',
+      sectionCardBg: 'var(--color-blue-900)',
+      statBarBackground: 'var(--color-blue-400)',
+    },
   },
 };
 
@@ -290,6 +538,7 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
   const [primaryType, setPrimaryType] = useState<PokemonType['name'] | null>(null);
   const [secondaryType, setSecondaryType] = useState<PokemonType['name'] | null>(null);
   const [isInitialized, setIsInitialized] = useState(false);
+  const { theme, resolvedTheme } = useTheme();
 
   // Initialize after first render to prevent hydration mismatch
   useEffect(() => {
@@ -331,32 +580,34 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
 
   // Update CSS custom properties when types change
   useEffect(() => {
-    // Only update after initialization to prevent flashing
     if (!isInitialized) return;
 
     const root = document.documentElement;
 
-    if (primaryType) {
-      const typeColors = TYPE_COLORS[primaryType];
-      // Use requestAnimationFrame to ensure smooth transitions
-      requestAnimationFrame(() => {
+    const applyTheme = () => {
+      if (primaryType) {
+        // Use next-themes resolvedTheme for accurate dark mode detection
+        const isDarkMode = resolvedTheme === 'dark';
+        
+        const typeColors =
+          isDarkMode && TYPE_COLORS[primaryType].dark
+            ? TYPE_COLORS[primaryType].dark!
+            : TYPE_COLORS[primaryType];
+
         root.style.setProperty(
           '--pokemon-page-bg',
           typeColors.pageBackground || 'var(--color-slate-100)',
-        ); // Default to white if no page background defined
+        );
         root.style.setProperty('--pokemon-theme-bg', typeColors.primary);
         root.style.setProperty('--pokemon-theme-text', typeColors.text);
         root.style.setProperty('--pokemon-theme-link', typeColors.textSecondary);
         root.style.setProperty('--pokemon-theme-hover', typeColors.hover);
-        // Breadcrumb colors - active is full text color, inactive is semi-transparent
         root.style.setProperty('--pokemon-theme-breadcrumb-active', typeColors.textSecondary);
-        root.style.setProperty('--pokemon-theme-breadcrumb-inactive', `${typeColors.textTertiary}`); // 80% opacity
-        // Navigation hover color
+        root.style.setProperty('--pokemon-theme-breadcrumb-inactive', `${typeColors.textTertiary}`);
         root.style.setProperty(
           '--pokemon-theme-nav-hover',
           typeColors.navHover || typeColors.hover,
         );
-        // Tab background color
         root.style.setProperty(
           '--pokemon-tab-bg',
           typeColors.tabBackground || 'var(--color-slate-200)',
@@ -366,10 +617,7 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
           '--pokemon-theme-stat-bar-bg',
           typeColors.statBarBackground || 'var(--color-slate-200)',
         );
-      });
-    } else {
-      // Clear custom properties with smooth transition
-      requestAnimationFrame(() => {
+      } else {
         root.style.removeProperty('--pokemon-theme-bg');
         root.style.removeProperty('--pokemon-theme-text');
         root.style.removeProperty('--pokemon-theme-link');
@@ -381,9 +629,13 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
         root.style.removeProperty('--pokemon-page-bg');
         root.style.removeProperty('--pokemon-theme-card-bg');
         root.style.removeProperty('--pokemon-section-card-bg');
-      });
-    }
-  }, [primaryType, secondaryType, isInitialized]);
+        root.style.removeProperty('--pokemon-theme-stat-bar-bg');
+      }
+    };
+
+    // Apply theme immediately 
+    applyTheme();
+  }, [primaryType, secondaryType, isInitialized, resolvedTheme]);
 
   const value: PokemonTypeContextValue = {
     primaryType,

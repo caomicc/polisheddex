@@ -168,7 +168,7 @@ export function PokemonSearchModal({
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-2">
-      <div className="bg-white rounded-lg p-6 w-full max-w-3xl max-h-[80vh] overflow-hidden flex flex-col">
+      <div className="bg-white rounded-lg p-6 w-full max-w-3xl max-h-[80vh] overflow-hidden flex flex-col dark:bg-gray-800 dark:text-white">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold">Select a Pokémon</h3>
           <button onClick={onClose} className="p-1 hover:bg-gray-100 rounded">
@@ -193,7 +193,7 @@ export function PokemonSearchModal({
           <div className="border border-gray-200 rounded-lg">
             <button
               onClick={() => setIsTypeFilterOpen(!isTypeFilterOpen)}
-              className="w-full flex items-center justify-between p-3 text-left hover:bg-gray-50 transition-colors"
+              className="w-full flex items-center justify-between p-3 text-left transition-colors"
             >
               <div className="flex items-center gap-2">
                 <Filter className="w-4 h-4 text-gray-500" />
@@ -256,17 +256,16 @@ export function PokemonSearchModal({
                 <div
                   key={key}
                   onClick={() => handlePokemonSelect(entry.name, entry.data, entry.formName)}
-                  className="border border-gray-200 rounded-lg p-3 cursor-pointer hover:border-gray-300 hover:shadow-sm transition-all bg-white"
+                  className="border border-gray-200 rounded-lg p-3 cursor-pointer hover:border-gray-300 hover:shadow-sm transition-all bg-white dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600"
                 >
                   <div className="flex flex-col items-center space-y-2">
                     {entry.data.frontSpriteUrl && (
-                      <Image
+                      <img
                         src={
                           entry.formName
                             ? `/sprites/pokemon/${entry.name.replace(/-/g, '_')}_${entry.formName}/normal_front.png`
                             : `/sprites/pokemon/${entry.name.replace(/-/g, '_')}/normal_front.png`
                         }
-                        layout="intrinsic"
                         alt={entry.displayName}
                         className="object-contain"
                       />

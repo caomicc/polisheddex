@@ -196,7 +196,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                     ? `?form=${encodeURIComponent(path.sourceForm.replace(/ form$/i, '').toLowerCase())}`
                     : ''
                 }`}
-                className="dark:bg-white/80 p-2 w-12 md:w-20 rounded-xl text-center"
+                className={`dark:bg-white p-2 w-12 md:w-20 rounded-xl text-center shadow-sm`}
               >
                 {/* This is for debugging purposes, you can remove it */}
                 <img
@@ -307,7 +307,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                     ? `?form=${encodeURIComponent(path.targetForm.replace(/ form$/i, '').toLowerCase())}`
                     : ''
                 }`}
-                className="dark:bg-white/80 p-2 w-12 md:w-20 rounded-xl text-center"
+                className="dark:bg-white p-2 w-12 md:w-20 rounded-xl text-center"
               >
                 {/* This is for debugging purposes, you can remove it */}
                 <img

@@ -3,23 +3,23 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 // import { Switch } from "@/components/ui/switch"; // Commented out for now
 import { useBuildInfo } from '@/hooks/useBuildInfo';
-import { Switch } from './switch';
+// import { Switch } from './switch';
 
 type FooterProps = {
   className?: string;
 };
 
 export const Footer: React.FC<FooterProps> = ({ className }) => {
-  const [isDark, setIsDark] = React.useState(false); // Commented out for now
+  // const [isDark, setIsDark] = React.useState(false); // Commented out for now
   const { buildInfo } = useBuildInfo();
 
-  React.useEffect(() => {
-    if (isDark) {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
-    }
-  }, [isDark]);
+  // React.useEffect(() => {
+  //   if (isDark) {
+  //     document.body.classList.add('dark');
+  //   } else {
+  //     document.body.classList.remove('dark');
+  //   }
+  // }, [isDark]);
 
   // Function to get the last updated date
   const getLastUpdatedDate = (): string => {
@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
   return (
     <footer
       className={cn(
-        'w-full py-6 px-4 flex flex-col md:flex-row md:items-center spacing-2 justify-between border-t border-gray-200 bg-white dark:bg-gray-900 gap-8',
+        'w-full py-6 px-4 flex flex-col md:flex-row md:items-center spacing-2 justify-between border-t border-gray-200 dark:border-gray-900 bg-white dark:bg-black/30 gap-8',
         className,
       )}
       role="contentinfo"
@@ -80,7 +80,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
         <span className="text-sm text-gray-400 dark:text-gray-500">
           Last built: {getLastUpdatedDate()}
         </span>
-        <Switch checked={isDark} onCheckedChange={setIsDark} aria-label="Toggle dark mode" />
+        {/* <Switch checked={isDark} onCheckedChange={setIsDark} aria-label="Toggle dark mode" /> */}
       </div>
     </footer>
   );

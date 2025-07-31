@@ -7,6 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Footer } from '@/components/ui/Footer';
 import { PokemonTypeProvider, FaithfulPreferenceProvider } from '@/contexts';
 import { NuqsProvider } from '@/components/providers/nuqs-provider';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 
 const rubik = Manrope({
   variable: '--font-rubik',
@@ -104,17 +105,24 @@ export default function RootLayout({
       <body
         className={`${rubik.variable} ${geistMono.variable} font-sans antialiased bg-slate-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100`}
       >
-        <NuqsProvider>
-          <FaithfulPreferenceProvider>
-            <PokemonTypeProvider>
-              <div className="flex flex-col min-h-screen">
-                <Navigation />
-                <main className="flex-grow">{children}</main>
-                <Footer />
-              </div>
-            </PokemonTypeProvider>
-          </FaithfulPreferenceProvider>
-        </NuqsProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NuqsProvider>
+            <FaithfulPreferenceProvider>
+              <PokemonTypeProvider>
+                <div className="flex flex-col min-h-screen">
+                  <Navigation />
+                  <main className="flex-grow">{children}</main>
+                  <Footer />
+                </div>
+              </PokemonTypeProvider>
+            </FaithfulPreferenceProvider>
+          </NuqsProvider>
+        </ThemeProvider>
         <SpeedInsights />
         <Analytics />
       </body>

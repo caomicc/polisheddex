@@ -81,7 +81,12 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       )}
       style={gradientProps.style}
     >
-      <div className="dark:bg-white/80 absolute p-2 w-12 md:w-20 h-12 md:h-20 right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 z-0 md:z-10 rounded-xl">
+      <div
+        className={cn(
+          'bg-white absolute p-2 w-12 md:w-20 h-12 md:h-20 right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 z-0 md:z-10 rounded-xl',
+          `shadow-lg shadow-${primaryType.toLowerCase()}`,
+        )}
+      >
         <img
           src={
             pokemon.forms && pokemon.forms?.length
