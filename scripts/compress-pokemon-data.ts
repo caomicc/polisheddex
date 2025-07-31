@@ -160,6 +160,7 @@ async function compressPokemonFile(filePath: string): Promise<void> {
     // Create compressed version
     const compressed: CompressedPokemon = {
       ...data,
+      name: data.name.toLowerCase(), // Normalize to lowercase for consistency
       detailedStats: {
         ...data.detailedStats,
         abilities: compressedAbilities,

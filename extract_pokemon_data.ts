@@ -1771,7 +1771,7 @@ for (const [pokemonKey, pokemonData] of Object.entries(finalResult)) {
 
   // Base data (stats, types, dex numbers)
   baseDataOutput[pokemonKey] = {
-    name: pokemonKey,
+    name: pokemonKey.toLowerCase(),
     nationalDex: pokemonData.nationalDex || null,
     johtoDex: pokemonData.johtoDex || null,
     types: pokemonData.types || 'Unknown',
