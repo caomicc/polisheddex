@@ -152,7 +152,6 @@ export default function PokemonFormClient({
                             aria-label={`${label} stat`}
                             className={cn(
                               color,
-                              'pokemon-stat-bar-background',
                               'dark:bg-slate-800 h-2 w-full rounded-full',
                               'transition-all duration-300 ease-in-out',
                             )}
