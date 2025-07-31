@@ -81,15 +81,17 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       )}
       style={gradientProps.style}
     >
-      <img
-        src={
-          pokemon.forms && pokemon.forms?.length
-            ? `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
-            : `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
-        }
-        alt={`${pokemon.name} sprite`}
-        className="absolute max-w-12 md:max-w-16 right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 z-0 md:z-10"
-      />
+      <div className="dark:bg-white/80 absolute p-2 w-12 md:w-20 h-12 md:h-20 right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 z-0 md:z-10 rounded-xl">
+        <img
+          src={
+            pokemon.forms && pokemon.forms?.length
+              ? `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
+              : `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
+          }
+          alt={`${pokemon.name} sprite`}
+          className="mx-auto relative top-1/2 -translate-y-1/2"
+        />
+      </div>
       <p
         className={cn(
           'text-xs md:text-lg md:absolute  md:top-4 md:left-4 ',
@@ -107,7 +109,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       </p>
       <div className="flex flex-col gap-0 relative z-20">
         <h2
-          className="text-sm md:text-xl md:mb-4 font-bold leading-none mb-2"
+          className="text-sm md:text-xl md:mb-4 font-bold leading-none mb-2 dark:text-white!"
           style={{ color: primaryTypeInfo?.text }}
         >
           {displayName}

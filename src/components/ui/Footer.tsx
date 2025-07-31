@@ -3,22 +3,23 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 // import { Switch } from "@/components/ui/switch"; // Commented out for now
 import { useBuildInfo } from '@/hooks/useBuildInfo';
+import { Switch } from './switch';
 
 type FooterProps = {
   className?: string;
 };
 
 export const Footer: React.FC<FooterProps> = ({ className }) => {
-  // const [isDark, setIsDark] = React.useState(false); // Commented out for now
+  const [isDark, setIsDark] = React.useState(false); // Commented out for now
   const { buildInfo } = useBuildInfo();
 
-  // React.useEffect(() => {
-  //   if (isDark) {
-  //     document.body.classList.add("dark");
-  //   } else {
-  //     document.body.classList.remove("dark");
-  //   }
-  // }, [isDark]);
+  React.useEffect(() => {
+    if (isDark) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [isDark]);
 
   // Function to get the last updated date
   const getLastUpdatedDate = (): string => {
@@ -58,14 +59,14 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
             href="https://caomi.cc"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-gray-600 dark:text-gray-300 underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="font-bold hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
             Cammy
           </a>
           .
         </span>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-4">
         <span className="text-sm text-gray-500 dark:text-gray-400">
           <a
             href="https://github.com/caomicc/polisheddex/issues"
@@ -73,12 +74,13 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
             rel="noopener noreferrer"
             className="font-bold hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
-            Found a bug? Looking for a feature request? 😊
+            Found a bug? Looking for a feature request?
           </a>
         </span>
         <span className="text-sm text-gray-400 dark:text-gray-500">
           Last built: {getLastUpdatedDate()}
         </span>
+        <Switch checked={isDark} onCheckedChange={setIsDark} aria-label="Toggle dark mode" />
       </div>
     </footer>
   );

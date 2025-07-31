@@ -3,7 +3,6 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
-import Image from 'next/image';
 
 type HeroProps = React.PropsWithChildren & {
   className?: string;
@@ -75,16 +74,15 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
       </div>
       <div className="flex items-center gap-4 mb-2">
         {image && (
-          <img
-            src={image ?? ''}
-            alt={`Accent Image to accompany hero`}
-            // width={200}
-            // height={200}
-            className="object-contain"
-            // layout="intrinsic"
-            // priority
-          />
+          <div className="dark:bg-white/80 p-2 w-12 md:w-20 h-12 md:h-20 z-0 md:z-10 rounded-lg">
+            <img
+              src={image ?? ''}
+              alt={`Accent Image to accompany hero`}
+              className="mx-auto relative top-1/2 -translate-y-1/2"
+            />
+          </div>
         )}
+        {/* Headline */}
         {headline && (
           <h1
             className="text-2xl md:text-4xl font-bold capitalize"

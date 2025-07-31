@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div>
+    <div className="mb-10 p-2 lg:p-4">
       <Hero
         className="text-white"
         headline="Polished Dex"

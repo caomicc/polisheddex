@@ -196,18 +196,15 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                     ? `?form=${encodeURIComponent(path.sourceForm.replace(/ form$/i, '').toLowerCase())}`
                     : ''
                 }`}
-                className="mr-2 text-blue-600 text-center border-border border-1 rounded-lg hover:bg-gray-50 transition-colors duration-200 gap-4 aspect-square flex flex-col items-center justify-center p-2"
+                className="dark:bg-white/80 p-2 w-12 md:w-20 rounded-xl text-center"
               >
                 {/* This is for debugging purposes, you can remove it */}
                 <img
+                  className="mx-auto relative"
                   src={getSpriteUrl(sourceName)}
                   alt={`Sprite of Pokémon ${sourceName}`}
-                  // layout="intrinsic"
-                  // width={64}
-                  // height={64}
-                  // className="w-16 h-16"
                 />
-                <span className="text-xs font-bold text-muted-foreground capitalize leading-none">
+                <span className="text-xs font-bold text-muted-foreground capitalize leading-none dark:text-black">
                   {sourceName}
                 </span>
               </Link>
@@ -310,14 +307,15 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                     ? `?form=${encodeURIComponent(path.targetForm.replace(/ form$/i, '').toLowerCase())}`
                     : ''
                 }`}
-                className="ml-2 text-blue-600 text-center border-border border-1 rounded-lg hover:bg-gray-50 transition-colors duration-200 gap-2 aspect-square flex flex-col items-center justify-center p-2"
+                className="dark:bg-white/80 p-2 w-12 md:w-20 rounded-xl text-center"
               >
+                {/* This is for debugging purposes, you can remove it */}
                 <img
-                  // layout="intrinsic"
+                  className="mx-auto relative"
                   src={getSpriteUrl(targetName)}
                   alt={`Sprite of Pokémon ${targetName}`}
                 />
-                <span className="text-xs font-bold text-muted-foreground capitalize leading-none">
+                <span className="text-xs font-bold text-muted-foreground capitalize leading-none dark:text-black">
                   {targetName}
                 </span>
               </Link>
