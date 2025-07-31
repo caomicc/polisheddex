@@ -437,7 +437,7 @@ export default function WikiPage() {
           </div>
         </div>
 
-        <div className="prose prose-slate dark:prose-invert max-w-none">
+        <div className="prose prose-slate dark:prose-invert max-w-none space-y-4">
           <ReactMarkdown
             remarkPlugins={[
               remarkGfm,
@@ -476,6 +476,38 @@ export default function WikiPage() {
                   </a>
                 );
               },
+              ul: ({ children }) => <ul className="list-disc pl-5">{children}</ul>,
+              ol: ({ children }) => <ol className="list-decimal pl-5">{children}</ol>,
+              li: ({ children }) => <li className="mb-1">{children}</li>,
+              p: ({ children }) => <p className="mb-4">{children}</p>,
+              h1: ({ children }) => <h1 className="text-3xl font-bold mb-4">{children}</h1>,
+              h2: ({ children }) => <h2 className="text-2xl font-semibold mb-3">{children}</h2>,
+              h3: ({ children }) => <h3 className="text-xl font-semibold mb-2">{children}</h3>,
+              h4: ({ children }) => <h4 className="text-lg font-semibold mb-1">{children}</h4>,
+              h5: ({ children }) => <h5 className="text-base font-semibold mb-1">{children}</h5>,
+              h6: ({ children }) => <h6 className="text-sm font-semibold mb-1">{children}</h6>,
+              blockquote: ({ children }) => (
+                <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4">
+                  {children}
+                </blockquote>
+              ),
+              code: ({ children }) => (
+                <code className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-1 py-0.5 rounded">
+                  {children}
+                </code>
+              ),
+              pre: ({ children }) => (
+                <pre className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-4 rounded mb-4">
+                  <code>{children}</code>
+                </pre>
+              ),
+              table: ({ children }) => (
+                <div className="overflow-x-auto mb-4">
+                  <table className="min-w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700">
+                    {children}
+                  </table>
+                </div>
+              ),
             }}
           >
             {wikiData.content}
