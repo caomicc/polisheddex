@@ -11,6 +11,7 @@ import {
 } from '../stringUtils.ts';
 import { extractFormInfo } from './formExtractors.ts';
 import { sharedDescriptionGroups } from '../../data/constants.ts';
+import { normalizeId } from '../manifest-resolver.ts';
 import { fileURLToPath } from 'node:url';
 
 // Use this workaround for __dirname in ES modules
@@ -315,6 +316,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
           if (faithfulPrimaryName) {
             // console.log(`Adding faithful primary ability for ${pokemonName}: ${faithfulPrimaryName}`);
             const faithfulAbilityData: Ability = {
+              id: normalizeId(faithfulPrimaryName),
               name: faithfulPrimaryName,
               description: '', // Will be filled in later
               isHidden: false,
@@ -328,6 +330,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
           if (faithfulSecondaryName) {
             // console.log(`Adding faithful secondary ability for ${pokemonName}: ${faithfulSecondaryName}`);
             const faithfulAbilityData: Ability = {
+              id: normalizeId(faithfulSecondaryName),
               name: faithfulSecondaryName,
               description: '', // Will be filled in later
               isHidden: false,
@@ -341,6 +344,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
           if (faithfulHiddenName) {
             // console.log(`Adding faithful hidden ability for ${pokemonName}: ${faithfulHiddenName}`);
             const faithfulAbilityData: Ability = {
+              id: normalizeId(faithfulHiddenName),
               name: faithfulHiddenName,
               description: '', // Will be filled in later
               isHidden: true,
@@ -356,6 +360,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
             // Add abilities to the updated abilities array since they differ from faithful
             if (nonFaithfulPrimaryName) {
               const updatedAbilityData: Ability = {
+                id: normalizeId(nonFaithfulPrimaryName),
                 name: nonFaithfulPrimaryName,
                 description: '', // Will be filled in later
                 isHidden: false,
@@ -367,6 +372,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
             if (nonFaithfulSecondaryName) {
               // console.log(`Adding non-faithful secondary ability for ${pokemonName}: ${nonFaithfulSecondaryName}`);
               const updatedAbilityData: Ability = {
+                id: normalizeId(nonFaithfulSecondaryName),
                 name: nonFaithfulSecondaryName,
                 description: '', // Will be filled in later
                 isHidden: false,
@@ -378,6 +384,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
             if (nonFaithfulHiddenName) {
               // console.log(`Adding non-faithful hidden ability for ${pokemonName}: ${nonFaithfulHiddenName}`);
               const updatedAbilityData: Ability = {
+                id: normalizeId(nonFaithfulHiddenName),
                 name: nonFaithfulHiddenName,
                 description: '', // Will be filled in later
                 isHidden: true,
@@ -718,7 +725,7 @@ export function extractAbilityDescriptions() {
   for (let i = 0; i < abilityNames.length; i++) {
     const normalizedAbilityName = toTitleCase(abilityNames[i]);
     const desc = descMap[normalizedAbilityName] || '';
-    abilityDescByName[normalizedAbilityName] = {
+    abilityDescByName[normalizedAbilityName.toLowerCase().replace(/\s+/g, '-')] = {
       description: desc,
     };
   }

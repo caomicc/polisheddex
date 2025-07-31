@@ -184,8 +184,9 @@ export interface Evolution {
 }
 
 export interface Ability {
-  name: string;
-  description: string;
+  id: string;
+  name?: string;
+  description?: string;
   isHidden?: boolean;
   abilityType?: 'primary' | 'secondary' | 'hidden';
 }

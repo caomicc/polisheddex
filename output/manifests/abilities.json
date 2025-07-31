@@ -1,1 +1,578 @@
-{}
+{
+  "synchronize": {
+    "name": "Synchronize",
+    "description": "\tPasses Psn, Par, \tor Brn to foes."
+  },
+  "magic-guard": {
+    "name": "Magic guard",
+    "description": "\tOnly takes damage \tfrom attacks."
+  },
+  "trace": {
+    "name": "Trace",
+    "description": "\tCopies the foe's \tAbility."
+  },
+  "rock-head": {
+    "name": "Rock head",
+    "description": "\tProtects it from \trecoil damage."
+  },
+  "unnerve": {
+    "name": "Unnerve",
+    "description": "\tPrevents foes from \teating Berries."
+  },
+  "tough-claws": {
+    "name": "Tough claws",
+    "description": "\tBoosts moves that \tmakes contact."
+  },
+  "run-away": {
+    "name": "Run away",
+    "description": "\tSure getaway from \twild #mon."
+  },
+  "pickup": {
+    "name": "Pickup",
+    "description": "\tThe #mon may \tpick up items."
+  },
+  "skill-link": {
+    "name": "Skill link",
+    "description": "\tIncreases multi- \tstrike move hits."
+  },
+  "technician": {
+    "name": "Technician",
+    "description": "\tPowers up its \tweaker moves."
+  },
+  "static": {
+    "name": "Static",
+    "description": "\tContact may cause \tparalysis."
+  },
+  "mold-breaker": {
+    "name": "Mold breaker",
+    "description": "\tMoves disregard \tthe foe's ability."
+  },
+  "vital-spirit": {
+    "name": "Vital spirit",
+    "description": "\tPrevents it from \tfalling asleep."
+  },
+  "inner-focus": {
+    "name": "Inner focus",
+    "description": "\tProtects it from \tflinching."
+  },
+  "defiant": {
+    "name": "Defiant",
+    "description": "\tBoosts Attack when \tstats are lowered."
+  },
+  "gorilla-tactics": {
+    "name": "Gorilla tactics",
+    "description": "\tBoosts Attack, but \tallows one move."
+  },
+  "intimidate": {
+    "name": "Intimidate",
+    "description": "\tLowers the foe's \tAttack stat."
+  },
+  "shed-skin": {
+    "name": "Shed skin",
+    "description": "\tMay heal its own \tstatus problems."
+  },
+  "flash-fire": {
+    "name": "Flash fire",
+    "description": "\tBoosts Fire moves \tif hit by one."
+  },
+  "justified": {
+    "name": "Justified",
+    "description": "\tBoosts Attack when \thit by Dark moves."
+  },
+  "swarm": {
+    "name": "Swarm",
+    "description": "\tBoosts Bug moves \tin a pinch."
+  },
+  "insomnia": {
+    "name": "Insomnia",
+    "description": "No description available"
+  },
+  "sniper": {
+    "name": "Sniper",
+    "description": "\tPowers up critical \thits."
+  },
+  "pressure": {
+    "name": "Pressure",
+    "description": "\tRaises the foe's \tPP usage."
+  },
+  "snow-cloak": {
+    "name": "Snow cloak",
+    "description": "\tBoosts evasion in \thailstorms."
+  },
+  "snow-warning": {
+    "name": "Snow warning",
+    "description": "\tSummons hailstorm \twhen switched in."
+  },
+  "thick-fat": {
+    "name": "Thick fat",
+    "description": "\tUps resistance to \tFire and Ice."
+  },
+  "huge-power": {
+    "name": "Huge power",
+    "description": "\tBoosts its Attack \tstat."
+  },
+  "sap-sipper": {
+    "name": "Sap sipper",
+    "description": "\tBoosts Attack when \thit by Grass."
+  },
+  "overgrow": {
+    "name": "Overgrow",
+    "description": "\tBoosts Grass moves \tin a pinch."
+  },
+  "leaf-guard": {
+    "name": "Leaf guard",
+    "description": "\tPrevents status \tproblems in sun."
+  },
+  "natural-cure": {
+    "name": "Natural cure",
+    "description": "\tSwitch-outs heal \tstatus problems."
+  },
+  "adaptability": {
+    "name": "Adaptability",
+    "description": "\tPowers up same- \ttype moves."
+  },
+  "chlorophyll": {
+    "name": "Chlorophyll",
+    "description": "\tBoosts its Speed \tin sunshine."
+  },
+  "own-tempo": {
+    "name": "Own tempo",
+    "description": "\tPrevents it from \tbecoming confused."
+  },
+  "gluttony": {
+    "name": "Gluttony",
+    "description": "\tEncourages early \tBerry use."
+  },
+  "torrent": {
+    "name": "Torrent",
+    "description": "\tBoosts Water moves \tin a pinch."
+  },
+  "rain-dish": {
+    "name": "Rain dish",
+    "description": "\tGradually regains \tHP in rain."
+  },
+  "mega-launcher": {
+    "name": "Mega launcher",
+    "description": "\tPowers up aura \tand pulse moves."
+  },
+  "serene-grace": {
+    "name": "Serene grace",
+    "description": "\tBoosts the rate of \tadded effects."
+  },
+  "sturdy": {
+    "name": "Sturdy",
+    "description": "\tCannot be knocked \tout with one hit."
+  },
+  "rattled": {
+    "name": "Rattled",
+    "description": "\tDark, Ghost or Bug \tmoves boost Speed."
+  },
+  "effect-spore": {
+    "name": "Effect spore",
+    "description": "\tContact may cause \tPar, Psn, or Slp."
+  },
+  "compound-eyes": {
+    "name": "Compound eyes",
+    "description": "\tBoosts the Poké- \tmon's accuracy."
+  },
+  "tinted-lens": {
+    "name": "Tinted lens",
+    "description": "\tPowers up not very \teffective moves."
+  },
+  "levitate": {
+    "name": "Levitate",
+    "description": "\tGives immunity to \tGround-type moves."
+  },
+  "shield-dust": {
+    "name": "Shield dust",
+    "description": "\tBlocks additional \tattack effects."
+  },
+  "blaze": {
+    "name": "Blaze",
+    "description": "\tBoosts Fire moves \tin a pinch."
+  },
+  "solar-power": {
+    "name": "Solar power",
+    "description": "\tBoosts Sp.Atk but \tlowers HP in sun."
+  },
+  "drought": {
+    "name": "Drought",
+    "description": "\tSummons sunlight \twhen switched in."
+  },
+  "flame-body": {
+    "name": "Flame body",
+    "description": "\tContact may burn \tthe foe."
+  },
+  "volt-absorb": {
+    "name": "Volt absorb",
+    "description": "\tRestores HP if hit \tby Electric moves."
+  },
+  "illuminate": {
+    "name": "Illuminate",
+    "description": "\tRaises the rate \tof wild #mon."
+  },
+  "water-absorb": {
+    "name": "Water absorb",
+    "description": "\tRestores HP if hit \tby Water moves."
+  },
+  "cute-charm": {
+    "name": "Cute charm",
+    "description": "\tContact may cause \tinfatuation."
+  },
+  "unaware": {
+    "name": "Unaware",
+    "description": "\tIgnores the foe's \tstat changes."
+  },
+  "poison-point": {
+    "name": "Poison point",
+    "description": "\tContact may poison \tthe foe."
+  },
+  "shell-armor": {
+    "name": "Shell armor",
+    "description": "\tProtects from \tcritical hits."
+  },
+  "overcoat": {
+    "name": "Overcoat",
+    "description": "\tProtects it from \tweather damage."
+  },
+  "hustle": {
+    "name": "Hustle",
+    "description": "\tBoosts Attack, but \tlowers accuracy."
+  },
+  "regenerator": {
+    "name": "Regenerator",
+    "description": "\tRestores HP when \twithdrawn."
+  },
+  "infiltrator": {
+    "name": "Infiltrator",
+    "description": "\tAttacks bypass the \tfoe's barriers."
+  },
+  "anticipation": {
+    "name": "Anticipation",
+    "description": "\tSenses the foe's \tdangerous moves."
+  },
+  "sheer-force": {
+    "name": "Sheer force",
+    "description": "\tRemoves effects to \tincrease damage."
+  },
+  "guts": {
+    "name": "Guts",
+    "description": "\tBoosts Attack on \tstatus problems."
+  },
+  "lightning-rod": {
+    "name": "Lightning rod",
+    "description": "\tElectric moves \tboost Sp.Atk."
+  },
+  "battle-armor": {
+    "name": "Battle armor",
+    "description": "No description available"
+  },
+  "cursed-body": {
+    "name": "Cursed body",
+    "description": "\tMay disable a move \tused on it."
+  },
+  "weak-armor": {
+    "name": "Weak armor",
+    "description": "\tPhysical attacks \ttrade Def for Spe."
+  },
+  "perish-body": {
+    "name": "Perish body",
+    "description": "\tContact causes Pe- \trish Song status."
+  },
+  "hydration": {
+    "name": "Hydration",
+    "description": "\tHeals status \tproblems in rain."
+  },
+  "ice-body": {
+    "name": "Ice body",
+    "description": "\tGradually regains \tHP in hail."
+  },
+  "sand-veil": {
+    "name": "Sand veil",
+    "description": "\tBoosts evasion in \ta sandstorm."
+  },
+  "arena-trap": {
+    "name": "Arena trap",
+    "description": "\tPrevents the foe \tfrom fleeing."
+  },
+  "sand-force": {
+    "name": "Sand force",
+    "description": "\tBoosts some moves \tin a sandstorm."
+  },
+  "limber": {
+    "name": "Limber",
+    "description": "\tProtects from \tparalysis."
+  },
+  "imposter": {
+    "name": "Imposter",
+    "description": "\tTransforms itself \tinto the foe."
+  },
+  "early-bird": {
+    "name": "Early bird",
+    "description": "\tAwakens quickly \tfrom sleep."
+  },
+  "tangled-feet": {
+    "name": "Tangled feet",
+    "description": "\tBoosts evasion if \tit is confused."
+  },
+  "marvel-scale": {
+    "name": "Marvel scale",
+    "description": "\tBoosts Defense on \tstatus problems."
+  },
+  "multiscale": {
+    "name": "Multiscale",
+    "description": "\tReduces damage \twhen HP is full."
+  },
+  "forewarn": {
+    "name": "Forewarn",
+    "description": "\tDetermines the \tfoe's moves."
+  },
+  "sand-stream": {
+    "name": "Sand stream",
+    "description": "\tSummons sandstorm \twhen switched in."
+  },
+  "motor-drive": {
+    "name": "Motor drive",
+    "description": "\tElectric moves \tboost Speed."
+  },
+  "soundproof": {
+    "name": "Soundproof",
+    "description": "\tGives immunity to \tsound-based moves."
+  },
+  "aftermath": {
+    "name": "Aftermath",
+    "description": "\tDamages the foe on \tfainting."
+  },
+  "magic-bounce": {
+    "name": "Magic bounce",
+    "description": "\tReflects status- \tchanging moves."
+  },
+  "harvest": {
+    "name": "Harvest",
+    "description": "\tMay recreate a \tBerry after use."
+  },
+  "keen-eye": {
+    "name": "Keen eye",
+    "description": "\tPrevents foes from \tlowering accuracy."
+  },
+  "cud-chew": {
+    "name": "Cud chew",
+    "description": "\tEats a Berry again \tafter first use."
+  },
+  "armor-tail": {
+    "name": "Armor tail",
+    "description": "\tStops foes using \tpriority moves."
+  },
+  "frisk": {
+    "name": "Frisk",
+    "description": "\tChecks the foe's \theld item."
+  },
+  "shadow-tag": {
+    "name": "Shadow tag",
+    "description": "\tPrevents the foe \tfrom escaping."
+  },
+  "hyper-cutter": {
+    "name": "Hyper cutter",
+    "description": "\tPrevents foes from \tlowering Attack."
+  },
+  "immunity": {
+    "name": "Immunity",
+    "description": "No description available"
+  },
+  "poison-heal": {
+    "name": "Poison heal",
+    "description": "\tRestores HP if \tit is poisoned."
+  },
+  "stench": {
+    "name": "Stench",
+    "description": "\tMay cause the foe \tto flinch."
+  },
+  "swift-swim": {
+    "name": "Swift swim",
+    "description": "\tBoosts its Speed \tin rain."
+  },
+  "water-veil": {
+    "name": "Water veil",
+    "description": "\tPrevents it from \tgetting a burn."
+  },
+  "damp": {
+    "name": "Damp",
+    "description": "\tPrevents self- \tdestructing moves."
+  },
+  "cloud-nine": {
+    "name": "Cloud nine",
+    "description": "\tEliminates effects \tof weather."
+  },
+  "quick-feet": {
+    "name": "Quick feet",
+    "description": "\tBoosts Speed with \tstatus problems."
+  },
+  "sticky-hold": {
+    "name": "Sticky hold",
+    "description": "\tProtects it from \titem theft."
+  },
+  "poison-touch": {
+    "name": "Poison touch",
+    "description": "\tMay poison the foe \ton contact."
+  },
+  "moxie": {
+    "name": "Moxie",
+    "description": "\tBoosts Attack when \tknocking out foes."
+  },
+  "iron-fist": {
+    "name": "Iron fist",
+    "description": "\tBoosts power of \tpunching moves."
+  },
+  "reckless": {
+    "name": "Reckless",
+    "description": "\tPowers up moves \tthat recoil."
+  },
+  "unburden": {
+    "name": "Unburden",
+    "description": "\tBoosts Speed when \theld item is lost."
+  },
+  "steadfast": {
+    "name": "Steadfast",
+    "description": "\tBoosts Speed when \tit flinches."
+  },
+  "super-luck": {
+    "name": "Super luck",
+    "description": "\tBoosts the rate \tof critical hits."
+  },
+  "competitive": {
+    "name": "Competitive",
+    "description": "\tBoosts Sp.Atk on \tstat reduction."
+  },
+  "oblivious": {
+    "name": "Oblivious",
+    "description": "\tPrevents it from \tbeing infatuated."
+  },
+  "dry-skin": {
+    "name": "Dry skin",
+    "description": "\tReduces HP in sun. \tWater restores HP."
+  },
+  "filter": {
+    "name": "Filter",
+    "description": "No description available"
+  },
+  "scrappy": {
+    "name": "Scrappy",
+    "description": "\tEnables moves to \thit Ghost-types."
+  },
+  "parental-bond": {
+    "name": "Parental bond",
+    "description": "\tParent and child \tattack together."
+  },
+  "sharpness": {
+    "name": "Sharpness",
+    "description": "\tBoosts power of \tslicing moves."
+  },
+  "neutralizing-gas": {
+    "name": "Neutralizing gas",
+    "description": "\tSuppresses all \tother Abilities."
+  },
+  "drizzle": {
+    "name": "Drizzle",
+    "description": "\tSummons rain when \tswitched in."
+  },
+  "no-guard": {
+    "name": "No guard",
+    "description": "\tEnsures attacks by \tor against it hit."
+  },
+  "magma-armor": {
+    "name": "Magma armor",
+    "description": "\tPrevents it from \tbecoming frozen."
+  },
+  "magnet-pull": {
+    "name": "Magnet pull",
+    "description": "\tPrevents escape by \tSteel-type foes."
+  },
+  "analytic": {
+    "name": "Analytic",
+    "description": "\tBoosts move power \twhen moving last."
+  },
+  "anger-point": {
+    "name": "Anger point",
+    "description": "\tMaxes Attack after \ta critical hit."
+  },
+  "screen-cleaner": {
+    "name": "Screen cleaner",
+    "description": "\tRemoves screens \twhen switched in."
+  },
+  "prankster": {
+    "name": "Prankster",
+    "description": "\tGives priority to \ta status move."
+  },
+  "rivalry": {
+    "name": "Rivalry",
+    "description": "\tBoosts damage to \tsame-gender foes."
+  },
+  "suction-cups": {
+    "name": "Suction cups",
+    "description": "\tNegates forced \tswitch-outs."
+  },
+  "moody": {
+    "name": "Moody",
+    "description": "\tRaises a stat and \tlowers another."
+  },
+  "steely-spirit": {
+    "name": "Steely spirit",
+    "description": "\tBoosts Steel-type \tmoves."
+  },
+  "big-pecks": {
+    "name": "Big pecks",
+    "description": "\tPrevents foes from \tlowering Defense."
+  },
+  "download": {
+    "name": "Download",
+    "description": "\tAdjusts stats based \ton foe's defenses."
+  },
+  "solid-rock": {
+    "name": "Solid rock",
+    "description": "\tReduces super \teffective damage."
+  },
+  "sand-rush": {
+    "name": "Sand rush",
+    "description": "\tBoosts Speed in \ta sandstorm."
+  },
+  "light-metal": {
+    "name": "Light metal",
+    "description": "\tHalves the Poké- \tmon's weight."
+  },
+  "contrary": {
+    "name": "Contrary",
+    "description": "\tInverts the effect \tof stat changes."
+  },
+  "pickpocket": {
+    "name": "Pickpocket",
+    "description": "\tSteals foe's item \twhen contacted."
+  },
+  "pixilate": {
+    "name": "Pixilate",
+    "description": "\tNormal-type moves \tbecome Fairy-type."
+  },
+  "honey-gather": {
+    "name": "Honey gather",
+    "description": "\tThe #mon may if DEF(FAITHFUL) \tgather Honey. else \tfind Sweet Honey. endc"
+  },
+  "clear-body": {
+    "name": "Clear body",
+    "description": "No description available"
+  },
+  "liquid-ooze": {
+    "name": "Liquid ooze",
+    "description": "\tDamages foes using \tdraining moves."
+  },
+  "bulletproof": {
+    "name": "Bulletproof",
+    "description": "\tProtects from ball \tand bomb moves."
+  },
+  "wonder-skin": {
+    "name": "Wonder skin",
+    "description": "\tMakes status moves \tmiss more often."
+  },
+  "speed-boost": {
+    "name": "Speed boost",
+    "description": "\tIts Speed stat is \tgradually boosted."
+  }
+}

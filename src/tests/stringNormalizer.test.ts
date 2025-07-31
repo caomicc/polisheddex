@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { normalizeString, normalizeMoveString } from './stringNormalizer';
+import { normalizeString, normalizeMoveString } from '../utils/stringNormalizer/stringNormalizer';
 
 describe('String Normalizer', () => {
   describe('normalizeString', () => {

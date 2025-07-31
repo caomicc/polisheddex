@@ -71,29 +71,66 @@ async function createAbilitiesManifest(): Promise<void> {
   const seenAbilities = new Set<string>();
 
   try {
-    // Read from detailed stats file
-    const detailedStatsPath = path.join(process.cwd(), 'output', 'pokemon_detailed_stats.json');
-    const detailedStats = JSON.parse(await fs.readFile(detailedStatsPath, 'utf8'));
+    // Check if there's an ability descriptions file first
+    const abilityDescPath = path.join(process.cwd(), 'output', 'pokemon_ability_descriptions.json');
+    let abilityDescriptions: Record<string, { name: string; description: string }> = {};
 
-    for (const [pokemonName, data] of Object.entries(detailedStats)) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const pokemonData = data as any;
+    try {
+      abilityDescriptions = JSON.parse(await fs.readFile(abilityDescPath, 'utf8'));
+      console.log(
+        `Found ability descriptions file with ${Object.keys(abilityDescriptions).length} abilities`,
+      );
+    } catch (error) {
+      console.log('No ability descriptions file found, will use individual Pokemon files');
+    }
 
-      // Process both regular and faithful abilities
-      const abilityArrays = [pokemonData.abilities || [], pokemonData.faithfulAbilities || []];
+    // Read from individual Pokemon files
+    const pokemonDir = path.join(process.cwd(), 'output', 'pokemon');
+    const files = await fs.readdir(pokemonDir);
+    const jsonFiles = files.filter((file) => file.endsWith('.json') && file !== '_index.json');
 
-      for (const abilityArray of abilityArrays) {
-        for (const ability of abilityArray) {
-          const abilityId = normalizeId(ability.name);
+    for (const file of jsonFiles) {
+      try {
+        const filePath = path.join(pokemonDir, file);
+        const pokemonData = JSON.parse(await fs.readFile(filePath, 'utf8'));
 
-          if (!seenAbilities.has(abilityId)) {
-            abilities[abilityId] = {
-              name: ability.name,
-              description: ability.description.replace(/\t/g, ' ').trim(),
-            };
-            seenAbilities.add(abilityId);
+        // Process abilities from detailedStats
+        if (pokemonData.detailedStats && pokemonData.detailedStats.abilities) {
+          const abilityArrays = [
+            pokemonData.detailedStats.abilities || [],
+            pokemonData.detailedStats.faithfulAbilities || [],
+            pokemonData.detailedStats.updatedAbilities || [],
+          ];
+
+          for (const abilityArray of abilityArrays) {
+            if (!abilityArray) continue;
+
+            for (const ability of abilityArray) {
+              if (!ability || !ability.id) continue;
+
+              const abilityId = ability.id.toLowerCase().replace(/\s+/g, '-');
+
+              if (!seenAbilities.has(abilityId)) {
+                // Try to get name and description from ability descriptions file
+                const abilityDesc =
+                  abilityDescriptions[abilityId] ||
+                  abilityDescriptions[ability.id.charAt(0).toUpperCase() + ability.id.slice(1)];
+
+                abilities[abilityId] = {
+                  name:
+                    abilityDesc?.name ||
+                    ability.name ||
+                    ability.id.charAt(0).toUpperCase() + ability.id.slice(1).replace(/-/g, ' '),
+                  description:
+                    abilityDesc?.description || ability.description || 'No description available',
+                };
+                seenAbilities.add(abilityId);
+              }
+            }
           }
         }
+      } catch (fileError) {
+        console.warn(`Error reading ${file}:`, fileError);
       }
     }
 

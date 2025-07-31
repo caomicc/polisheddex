@@ -5,7 +5,7 @@ import {
   urlKeyToStandardKey,
   getPokemonFileName,
   validatePokemonHyphenation,
-} from './pokemonUrlNormalizer';
+} from '../utils/pokemonUrlNormalizer';
 
 describe('Pokemon URL Normalizer', () => {
   describe('normalizePokemonUrlKey', () => {

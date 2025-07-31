@@ -30,6 +30,7 @@ interface CompressedAbility {
 }
 
 interface ExpandedAbility {
+  id: string;
   name: string;
   description: string;
   isHidden: boolean;
@@ -61,7 +62,7 @@ export async function loadManifest<T>(manifestName: string): Promise<T> {
       if (!response.ok) {
         throw new Error(`Failed to load manifest: ${manifestName}`);
       }
-      
+
       const manifest = await response.json();
       manifestCache.set(manifestName, manifest);
       return manifest;
@@ -74,99 +75,89 @@ export async function loadManifest<T>(manifestName: string): Promise<T> {
 
 export async function resolveAbilities(
   compressedAbilities: CompressedAbility[],
-  abilityManifest?: AbilityManifest
+  abilityManifest?: AbilityManifest,
 ): Promise<ExpandedAbility[]> {
-  const manifest = abilityManifest || await loadManifest<AbilityManifest>('abilities');
-  
-  return compressedAbilities.map(compressed => {
+  const manifest = abilityManifest || (await loadManifest<AbilityManifest>('abilities'));
+
+  return compressedAbilities.map((compressed) => {
     const abilityData = manifest[compressed.id];
     if (!abilityData) {
       console.warn(`Ability not found in manifest: ${compressed.id}`);
       return {
+        id: compressed.id,
         name: compressed.id,
         description: 'Description not available',
         isHidden: compressed.isHidden,
-        abilityType: compressed.abilityType
+        abilityType: compressed.abilityType,
       };
     }
-    
+
     return {
+      id: compressed.id,
       name: abilityData.name,
       description: abilityData.description,
       isHidden: compressed.isHidden,
-      abilityType: compressed.abilityType
+      abilityType: compressed.abilityType,
     };
   });
 }
 
-export async function resolveMove(
-  moveId: string,
-  moveManifest?: MoveManifest
-): Promise<any> {
-  const manifest = moveManifest || await loadManifest<MoveManifest>('moves');
-  
+export async function resolveMove(moveId: string, moveManifest?: MoveManifest): Promise<any> {
+  const manifest = moveManifest || (await loadManifest<MoveManifest>('moves'));
+
   const moveData = manifest[moveId];
   if (!moveData) {
     console.warn(`Move not found in manifest: ${moveId}`);
     return {
       name: moveId,
-      description: 'Description not available'
+      description: 'Description not available',
     };
   }
-  
+
   return moveData;
 }
 
-export async function resolveMoves(
-  moveIds: string[],
-  moveManifest?: MoveManifest
-): Promise<any[]> {
-  const manifest = moveManifest || await loadManifest<MoveManifest>('moves');
-  
-  return moveIds.map(id => {
+export async function resolveMoves(moveIds: string[], moveManifest?: MoveManifest): Promise<any[]> {
+  const manifest = moveManifest || (await loadManifest<MoveManifest>('moves'));
+
+  return moveIds.map((id) => {
     const moveData = manifest[id];
     if (!moveData) {
       console.warn(`Move not found in manifest: ${id}`);
       return {
         name: id,
-        description: 'Description not available'
+        description: 'Description not available',
       };
     }
     return moveData;
   });
 }
 
-export async function resolveItem(
-  itemId: string,
-  itemManifest?: ItemManifest
-): Promise<any> {
-  const manifest = itemManifest || await loadManifest<ItemManifest>('items');
-  
+export async function resolveItem(itemId: string, itemManifest?: ItemManifest): Promise<any> {
+  const manifest = itemManifest || (await loadManifest<ItemManifest>('items'));
+
   const itemData = manifest[itemId];
   if (!itemData) {
     console.warn(`Item not found in manifest: ${itemId}`);
     return {
       name: itemId,
-      description: 'Description not available'
+      description: 'Description not available',
     };
   }
-  
+
   return itemData;
 }
 
-export async function resolveItems(
-  itemIds: string[],
-  itemManifest?: ItemManifest
-): Promise<any[]> {
-  const manifest = itemManifest || await loadManifest<ItemManifest>('items');
-  
-  return itemIds.map(id => {
+export async function resolveItems(itemIds: string[], itemManifest?: ItemManifest): Promise<any[]> {
+  const manifest = itemManifest || (await loadManifest<ItemManifest>('items'));
+
+  return itemIds.map((id) => {
     const itemData = manifest[id];
     if (!itemData) {
       console.warn(`Item not found in manifest: ${id}`);
       return {
         name: id,
-        description: 'Description not available'
+        description: 'Description not available',
       };
     }
     return itemData;
@@ -175,17 +166,17 @@ export async function resolveItems(
 
 // Helper to normalize string to ID format (should match the one in manifest creation)
 export function normalizeId(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
 // Preload commonly used manifests
 export async function preloadManifests(): Promise<void> {
   try {
-    await Promise.all([
-      loadManifest('abilities'),
-      loadManifest('moves'),
-      loadManifest('items')
-    ]);
+    await Promise.all([loadManifest('abilities'), loadManifest('moves'), loadManifest('items')]);
     console.log('Manifests preloaded successfully');
   } catch (error) {
     console.error('Error preloading manifests:', error);
