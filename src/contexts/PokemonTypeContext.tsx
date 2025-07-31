@@ -538,6 +538,7 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
   const [primaryType, setPrimaryType] = useState<PokemonType['name'] | null>(null);
   const [secondaryType, setSecondaryType] = useState<PokemonType['name'] | null>(null);
   const [isInitialized, setIsInitialized] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { theme, resolvedTheme } = useTheme();
 
   // Initialize after first render to prevent hydration mismatch
@@ -588,7 +589,7 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
       if (primaryType) {
         // Use next-themes resolvedTheme for accurate dark mode detection
         const isDarkMode = resolvedTheme === 'dark';
-        
+
         const typeColors =
           isDarkMode && TYPE_COLORS[primaryType].dark
             ? TYPE_COLORS[primaryType].dark!
@@ -633,7 +634,7 @@ export const PokemonTypeProvider: React.FC<PokemonTypeProviderProps> = ({ childr
       }
     };
 
-    // Apply theme immediately 
+    // Apply theme immediately
     applyTheme();
   }, [primaryType, secondaryType, isInitialized, resolvedTheme]);
 

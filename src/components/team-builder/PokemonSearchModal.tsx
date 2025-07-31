@@ -5,7 +5,6 @@ import { DetailedStats, PokemonType } from '@/types/types';
 import { TeamPokemon } from '@/hooks/use-team-search-params';
 import { Badge } from '@/components/ui/badge';
 import { X, Search, Filter, ChevronDown, ChevronUp } from 'lucide-react';
-import Image from 'next/image';
 import { Input } from '../ui/input';
 
 // Helper functions
