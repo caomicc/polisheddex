@@ -2,7 +2,6 @@ import { BaseData, PokemonType } from '@/types/types';
 import React from 'react';
 import { Card } from '../ui/card';
 import { Badge } from '../ui/badge';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { getTypeGradientProps } from '@/utils/css-gradients';
 import { TYPE_COLORS } from '@/contexts/PokemonTypeContext';
@@ -82,15 +81,13 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       )}
       style={gradientProps.style}
     >
-      <Image
+      <img
         src={
           pokemon.forms && pokemon.forms?.length
-            ? `/sprites/pokemon/${pokemon.name.toLowerCase()}_plain/normal_front.png`
-            : `/sprites/pokemon/${pokemon.name.toLowerCase()}/normal_front.png`
+            ? `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
+            : `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
         }
         alt={`${pokemon.name} sprite`}
-        width={64}
-        height={64}
         className="absolute max-w-12 md:max-w-16 right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 z-0 md:z-10"
       />
       <p

@@ -165,128 +165,21 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
         const formName = matches[2].replace(/ form$/i, '').toLowerCase();
         if (spritesByGen?.[name]) return spritesByGen[name];
         if (formName === 'plain') {
-          return `/sprites/pokemon/${baseName.toLowerCase()}/normal_front.png`;
+          return `/sprites/pokemon/${baseName.toLowerCase().replace(/-/g, '_')}/normal_front.png`;
         }
-        return `/sprites/pokemon/${baseName.toLowerCase()}_${formName}/normal_front.png`;
+        return `/sprites/pokemon/${baseName.toLowerCase().replace(/-/g, '_')}_${formName}/normal_front.png`;
       }
     }
 
     const normalized = name.includes('-') ? name.replace(/-/g, '_') : name;
-    return spritesByGen?.[name] || `/sprites/pokemon/${normalized.toLowerCase()}/normal_front.png`;
+    return (
+      spritesByGen?.[name] ||
+      `/sprites/pokemon/${normalized.toLowerCase().replace(/-/g, '_')}/normal_front.png`
+    );
   };
 
   return (
     <div className={cn('flex flex-col gap-4 items-center', className)}>
-      {/* <div className="flex flex-wrap items-center justify-center gap-2">
-        {chainWithForms.map((name, i) => (
-          <React.Fragment key={name}>
-            <Link href={`/pokemon/${name.includes('(') ? name.split(' (')[0] : name}`}>
-              <Image
-                src={getSpriteUrl(name)}
-                alt={`Sprite of Pokémon ${name}`}
-                width={64}
-                height={64}
-                className="w-16 h-16"
-              />
-              {name.replace(/ Form\)$/, ')')}
-            </Link>
-
-            {i < chainWithForms.length - 1 && (
-              <div className="flex flex-col items-center mx-1">
-                <span className="text-lg mx-2">→</span>
-                <div className="text-xs text-gray-600">
-                  {(() => {
-                    const evolutionInfo = getEvolutionInfo(name, chainWithForms[i + 1]);
-                    if (!evolutionInfo) return null;
-
-                    return (
-                      <div className="text-center min-w-[50px]">
-                        {evolutionInfo.methodName === 'item' && (
-                          <div className="flex flex-col items-center gap-1">
-                            <p>Item:</p>
-                            {(() => {
-                              const itemName = String(evolutionInfo.parameter);
-                              const itemId = getItemIdFromDisplayName(itemName);
-
-                              const itemImage = (
-                                <Image
-                                  src={`/sprites/items/${itemName.toLowerCase()}.png`}
-                                  alt={`Item: ${itemName}`}
-                                  width={16}
-                                  height={16}
-                                />
-                              );
-
-                              return (
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    {itemId ? (
-                                      <Link
-                                        href={`/items/${itemId}`}
-                                        className="hover:scale-110 transition-transform duration-200"
-                                      >
-                                        {itemImage}
-                                      </Link>
-                                    ) : (
-                                      <div>{itemImage}</div>
-                                    )}
-                                  </TooltipTrigger>
-                                  <TooltipContent>
-                                    {itemId ? (
-                                      <span>
-                                        {itemName}{' '}
-                                        <span className="text-xs opacity-75">(click to view)</span>
-                                      </span>
-                                    ) : (
-                                      itemName
-                                    )}
-                                  </TooltipContent>
-                                </Tooltip>
-                              );
-                            })()}
-                          </div>
-                        )}
-                        {evolutionInfo.methodName === 'happiness' && (
-                          <div>
-                            <p>Happiness:</p>
-                            {evolutionInfo.parameter === 'TR_MORNDAY' && <span>(Morning/Day)</span>}
-                            {evolutionInfo.parameter === 'TR_EVENITE' && (
-                              <span>(Evening/Night)</span>
-                            )}
-                            {evolutionInfo.parameter === 'TR_ANYTIME' && <span>Anytime</span>}
-                          </div>
-                        )}
-                        {evolutionInfo.methodName === 'stat' && (
-                          <div>
-                            Stat:
-                            {evolutionInfo.parameter === 'ATK_GT_DEF' && (
-                              <span> Attack &gt; Defense</span>
-                            )}
-                            {evolutionInfo.parameter === 'ATK_LT_DEF' && (
-                              <span> Attack &lt; Defense</span>
-                            )}
-                            {evolutionInfo.parameter === 'ATK_EQ_DEF' && (
-                              <span> Attack = Defense</span>
-                            )}
-                          </div>
-                        )}
-                        {typeof evolutionInfo.parameter !== 'number' &&
-                          evolutionInfo.parameter &&
-                          !['item', 'happiness', 'stat'].includes(evolutionInfo.methodName) && (
-                            <div>{String(evolutionInfo.parameter)}</div>
-                          )}
-                        {typeof evolutionInfo.parameter === 'number' && (
-                          <div>level {evolutionInfo.parameter}</div>
-                        )}
-                      </div>
-                    );
-                  })()}
-                </div>
-              </div>
-            )}
-          </React.Fragment>
-        ))}
-      </div> */}
       <div className="flex flex-col items-center justify-center gap-2">
         {evolutionPaths.map((path, index) => {
           const sourceName = path.sourceForm ? `${path.source} (${path.sourceForm})` : path.source;
@@ -306,12 +199,13 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                 className="mr-2 text-blue-600 text-center border-border border-1 rounded-lg hover:bg-gray-50 transition-colors duration-200 gap-4 aspect-square flex flex-col items-center justify-center p-2"
               >
                 {/* This is for debugging purposes, you can remove it */}
-                <Image
+                <img
                   src={getSpriteUrl(sourceName)}
                   alt={`Sprite of Pokémon ${sourceName}`}
-                  width={64}
-                  height={64}
-                  className="w-16 h-16"
+                  // layout="intrinsic"
+                  // width={64}
+                  // height={64}
+                  // className="w-16 h-16"
                 />
                 <span className="text-xs font-bold text-muted-foreground capitalize leading-none">
                   {sourceName}
@@ -418,12 +312,10 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                 }`}
                 className="ml-2 text-blue-600 text-center border-border border-1 rounded-lg hover:bg-gray-50 transition-colors duration-200 gap-2 aspect-square flex flex-col items-center justify-center p-2"
               >
-                <Image
+                <img
+                  // layout="intrinsic"
                   src={getSpriteUrl(targetName)}
                   alt={`Sprite of Pokémon ${targetName}`}
-                  width={64}
-                  height={64}
-                  className="w-16 h-16"
                 />
                 <span className="text-xs font-bold text-muted-foreground capitalize leading-none">
                   {targetName}

@@ -87,15 +87,120 @@ class GBCSpriteProcessor:
         # Create output directories
         self.sprites_dir = self.output_path / "sprites" / "pokemon"
         self.sprites_dir.mkdir(exist_ok=True)
+        
+        # Mapping of variant directory names to base Pokemon names
+        # For Pokemon with multiple visual variants, we need to know which directory
+        # contains the "base" or most common form to use as the default sprite
+        self.variant_to_base_mapping = {
+            # Pikachu variants - use pikachu_plain as base (most common form)
+            'pikachu_plain': 'pikachu',
+            'pikachu_chuchu': 'pikachu',
+            'pikachu_fly': 'pikachu', 
+            'pikachu_pika': 'pikachu',
+            'pikachu_spark': 'pikachu',
+            'pikachu_surf': 'pikachu',
+            
+            # Unown variants - use unown_a as base (first letter form)
+            'unown_a': 'unown',
+            'unown_b': 'unown', 'unown_c': 'unown', 'unown_d': 'unown', 'unown_e': 'unown',
+            'unown_f': 'unown', 'unown_g': 'unown', 'unown_h': 'unown', 'unown_i': 'unown',
+            'unown_j': 'unown', 'unown_k': 'unown', 'unown_l': 'unown', 'unown_m': 'unown',
+            'unown_n': 'unown', 'unown_o': 'unown', 'unown_p': 'unown', 'unown_q': 'unown',
+            'unown_r': 'unown', 'unown_s': 'unown', 'unown_t': 'unown', 'unown_u': 'unown',
+            'unown_v': 'unown', 'unown_w': 'unown', 'unown_x': 'unown', 'unown_y': 'unown',
+            'unown_z': 'unown', 'unown_question': 'unown', 'unown_exclamation': 'unown',
+            
+            # Magikarp variants - use magikarp_plain as base
+            'magikarp_plain': 'magikarp',
+            'magikarp_bubbles': 'magikarp', 'magikarp_calico1': 'magikarp', 'magikarp_calico2': 'magikarp',
+            'magikarp_calico3': 'magikarp', 'magikarp_dapples': 'magikarp', 'magikarp_diamonds': 'magikarp',
+            'magikarp_forehead1': 'magikarp', 'magikarp_forehead2': 'magikarp', 'magikarp_mask1': 'magikarp',
+            'magikarp_mask2': 'magikarp', 'magikarp_orca': 'magikarp', 'magikarp_patches': 'magikarp',
+            'magikarp_raindrop': 'magikarp', 'magikarp_saucy': 'magikarp', 'magikarp_skelly': 'magikarp',
+            'magikarp_stripe': 'magikarp', 'magikarp_tiger': 'magikarp', 'magikarp_twotone': 'magikarp',
+            'magikarp_zebra': 'magikarp',
+            
+            # Pichu variants - use pichu_plain as base
+            'pichu_plain': 'pichu',
+            'pichu_spiky': 'pichu',
+        }
+        
+        # Base forms that should be processed (directories that represent the default sprite)
+        self.base_form_directories = {
+            'pikachu': 'pikachu_plain',
+            'unown': 'unown_a',  # Use A form as default
+            'magikarp': 'magikarp_plain', 
+            'pichu': 'pichu_plain',
+        }
+        
+        # Palette directory mapping - where to find palette files for variants
+        # Some variants store sprites in one directory but palettes in another
+        self.palette_directory_mapping = {
+            'pikachu_plain': 'pikachu',
+            'pikachu_chuchu': 'pikachu',
+            'pikachu_fly': 'pikachu',
+            'pikachu_pika': 'pikachu', 
+            'pikachu_spark': 'pikachu',
+            'pikachu_surf': 'pikachu',
+            
+            'pichu_plain': 'pichu',
+            'pichu_spiky': 'pichu',
+            
+            # Unown variants - all use base unown palette
+            'unown_a': 'unown', 'unown_b': 'unown', 'unown_c': 'unown', 'unown_d': 'unown',
+            'unown_e': 'unown', 'unown_f': 'unown', 'unown_g': 'unown', 'unown_h': 'unown',
+            'unown_i': 'unown', 'unown_j': 'unown', 'unown_k': 'unown', 'unown_l': 'unown',
+            'unown_m': 'unown', 'unown_n': 'unown', 'unown_o': 'unown', 'unown_p': 'unown',
+            'unown_q': 'unown', 'unown_r': 'unown', 'unown_s': 'unown', 'unown_t': 'unown',
+            'unown_u': 'unown', 'unown_v': 'unown', 'unown_w': 'unown', 'unown_x': 'unown',
+            'unown_y': 'unown', 'unown_z': 'unown', 'unown_question': 'unown', 'unown_exclamation': 'unown',
+            
+            'magikarp_plain': 'magikarp',
+            'magikarp_bubbles': 'magikarp',
+            'magikarp_calico1': 'magikarp',
+            'magikarp_calico2': 'magikarp',
+            'magikarp_calico3': 'magikarp',
+            'magikarp_dapples': 'magikarp',
+            'magikarp_diamonds': 'magikarp',
+            'magikarp_forehead1': 'magikarp',
+            'magikarp_forehead2': 'magikarp',
+            'magikarp_mask1': 'magikarp',
+            'magikarp_mask2': 'magikarp',
+            'magikarp_orca': 'magikarp',
+            'magikarp_patches': 'magikarp',
+            'magikarp_raindrop': 'magikarp',
+            'magikarp_saucy': 'magikarp',
+            'magikarp_skelly': 'magikarp',
+            'magikarp_stripe': 'magikarp',
+            'magikarp_tiger': 'magikarp',
+            'magikarp_twotone': 'magikarp',
+            'magikarp_zebra': 'magikarp',
+        }
 
     def get_pokemon_list(self) -> List[str]:
-        """Get list of all Pokemon directories"""
+        """Get list of all Pokemon directories, including mapped variants"""
         pokemon_dirs = []
         if self.pokemon_dir.exists():
             for item in self.pokemon_dir.iterdir():
                 if item.is_dir() and not item.name.startswith('.') and not item.name.endswith('.asm'):
+                    # Include the directory name as-is for processing
                     pokemon_dirs.append(item.name)
         return sorted(pokemon_dirs)
+    
+    def should_process_pokemon(self, pokemon_name: str) -> bool:
+        """Determine if this Pokemon directory should be processed"""
+        # Always process if it's not a variant
+        if pokemon_name not in self.variant_to_base_mapping:
+            return True
+            
+        # For variants, only process the designated base form
+        base_pokemon = self.variant_to_base_mapping[pokemon_name]
+        return self.base_form_directories.get(base_pokemon) == pokemon_name
+    
+    def get_output_name(self, pokemon_name: str) -> str:
+        """Get the output directory name for a Pokemon"""
+        # If this is a variant, use the base name for output
+        return self.variant_to_base_mapping.get(pokemon_name, pokemon_name)
 
     def extract_sprite_frames(self, sprite_path: str) -> List[Image.Image]:
         """Extract individual frames using auto-detection logic from crop_top_sprite.ts"""
@@ -192,24 +297,36 @@ class GBCSpriteProcessor:
 
     def process_pokemon(self, pokemon_name: str) -> bool:
         """Process a single Pokemon's sprites - only front sprites, 4 files total"""
+        # Check if we should process this Pokemon
+        if not self.should_process_pokemon(pokemon_name):
+            print(f"Skipping {pokemon_name} (variant will be processed by base form)")
+            return True
+            
         pokemon_path = self.pokemon_dir / pokemon_name
         if not pokemon_path.exists():
             print(f"Pokemon directory not found: {pokemon_name}")
             return False
 
-        print(f"Processing {pokemon_name}...")
+        # Get the output name (base Pokemon name)
+        output_name = self.get_output_name(pokemon_name)
+        print(f"Processing {pokemon_name} -> {output_name}...")
 
-        # Create output directory for this Pokemon
-        output_dir = self.sprites_dir / pokemon_name
+        # Create output directory for this Pokemon using the base name
+        output_dir = self.sprites_dir / output_name
         output_dir.mkdir(exist_ok=True)
 
         # Only process front sprites for normal and shiny variants
         variants = ['normal', 'shiny']
 
         for variant in variants:
-            palette_file = pokemon_path / f"{variant}.pal"
+            # Check if we need to look for palette files in a different directory
+            palette_dir = pokemon_path
+            if pokemon_name in self.palette_directory_mapping:
+                palette_dir = self.pokemon_dir / self.palette_directory_mapping[pokemon_name]
+            
+            palette_file = palette_dir / f"{variant}.pal"
             if not palette_file.exists():
-                print(f"Skipping {variant} variant - no palette file")
+                print(f"Skipping {variant} variant - no palette file at {palette_file}")
                 continue
 
             palette = GBCPaletteParser.parse_palette_file(str(palette_file))
@@ -233,7 +350,8 @@ class GBCSpriteProcessor:
             # Save static PNG (first frame)
             if processed_frames:
                 static_path = output_dir / f"{variant}_front.png"
-                processed_frames[0].save(str(static_path))
+                static_path = static_path.as_posix().replace('_plain', '')  # Ensure '_plain' is removed
+                processed_frames[0].save(static_path)
 
             # Create animated GIF if multiple frames
             if len(processed_frames) > 1:
@@ -252,7 +370,8 @@ class GBCSpriteProcessor:
                         durations.append(400)
 
                 gif_path = output_dir / f"{variant}_front_animated.gif"
-                self.create_animated_gif(processed_frames, durations, str(gif_path))
+                gif_path = gif_path.as_posix().replace('_plain', '')  # Ensure '_plain' is removed
+                self.create_animated_gif(processed_frames, durations, gif_path)
 
         return True
 
@@ -289,7 +408,7 @@ class GBCSpriteProcessor:
                 # Find the 4 expected files
                 for sprite_file in pokemon_dir.iterdir():
                     if sprite_file.suffix in ['.png', '.gif']:
-                        rel_path = f"sprites/{pokemon_name}/{sprite_file.name}"
+                        rel_path = f"sprites/pokemon/{pokemon_name}/{sprite_file.name}"
 
                         if sprite_file.name == "normal_front.png":
                             pokemon_data["normal_front"] = rel_path
@@ -310,6 +429,18 @@ class GBCSpriteProcessor:
             json.dump(manifest, f, indent=2, sort_keys=True)
 
         print(f"Created sprite manifest: {manifest_path}")
+
+    def export_sprite(self, sprite: Image.Image, output_path: str) -> None:
+        """Export the processed sprite to the specified output path."""
+        try:
+            # Remove '_plain' from the output path if it exists
+            output_path = output_path.replace('_plain', '')
+
+            # Save the sprite
+            sprite.save(output_path)
+            print(f"Sprite exported to {output_path}")
+        except Exception as e:
+            print(f"Error exporting sprite to {output_path}: {e}")
 
 def main():
     parser = argparse.ArgumentParser(description="Process Game Boy Color Pokemon sprites")

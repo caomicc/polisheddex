@@ -88,7 +88,7 @@ const PokedexHeader = ({
           </BreadcrumbList>
         </Breadcrumb>
       }
-      image={formData.frontSpriteUrl}
+      image={`/sprites/pokemon/${pokemonName.toLowerCase().replace(/-/g, '_')}${selectedForm && selectedForm !== 'default' ? `_${selectedForm.toLowerCase().replace(/-/g, '_')}` : ''}/normal_front.png`}
       headline={pokemonName}
     >
       <div className="flex flex-col flex-wrap items-start gap-2 ">

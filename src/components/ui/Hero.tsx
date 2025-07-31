@@ -75,13 +75,14 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
       </div>
       <div className="flex items-center gap-4 mb-2">
         {image && (
-          <Image
+          <img
             src={image ?? ''}
             alt={`Accent Image to accompany hero`}
-            width={200}
-            height={200}
-            className="object-contain w-12"
-            priority
+            // width={200}
+            // height={200}
+            className="object-contain"
+            // layout="intrinsic"
+            // priority
           />
         )}
         {headline && (

@@ -222,7 +222,33 @@ function getMostRecentMoves(
   level: number,
   levelMovesData: Record<string, any>,
 ): string[] {
-  const species = pokemonName.toLowerCase();
+  console.log(`🔍 Getting most recent moves for ${pokemonName} at level ${level}`);
+
+  // Normalize Mr_Mime to Mr-Mime for lookup
+  let species = pokemonName;
+  switch (species) {
+    case 'Mr_Mime':
+      species = 'Mr-Mime';
+      break;
+    case 'Mime_Jr':
+      species = 'Mime-Jr';
+      break;
+    case 'NidoranM':
+      species = 'Nidoran-M';
+      break;
+    case 'NidoranF':
+      species = 'Nidoran-F';
+      break;
+    case 'FarfetchD':
+      species = 'Farfetch-d';
+      break;
+    case 'PorygonZ':
+    case 'Porygon-Z':
+    case 'Porygon_Z':
+      species = 'porygon-z';
+      break;
+    // Add more cases here if needed for other special species
+  }
   if (!levelMovesData[species] || !levelMovesData[species].moves) {
     return [];
   }
@@ -550,7 +576,7 @@ function parsePokemonLine(
     ...(gender && { gender }),
     ...(form && { form }),
     // Initialize with fallback moveset - will be overridden if tr_moves is specified
-    moves: fallbackMoves.length > 0 ? fallbackMoves : undefined,
+    moves: fallbackMoves,
     // Initialize faithful/polished versions
     faithful: {},
     polished: {},

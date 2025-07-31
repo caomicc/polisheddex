@@ -64,8 +64,8 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
     <div className="p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
       <div className="flex flex-col items-start gap-4">
         <div className="flex flex-row items-center gap-4 w-full">
-          <div className="w-16 h-16 relative">
-            <Image src={`/sprites/trainers/${trainerSpritePath}.png`} alt={trainer.name} fill />
+          <div className="relative">
+            <img src={`/sprites/trainers/${trainerSpritePath}.png`} alt={trainer.name} />
           </div>
           <div>
             <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">
@@ -116,11 +116,9 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                     <CardContent className="p-4 flex flex-col gap-2">
                       <div className="flex items-center gap-3">
                         <Link href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}`}>
-                          <Image
-                            src={`/sprites/pokemon/${poke.species.toLowerCase()}/normal_front.png`}
+                          <img
+                            src={`/sprites/pokemon/${poke.species.toLowerCase().replace(/-/g, '_')}${poke.form ? `_${poke.form?.toLowerCase()}` : ''}/normal_front.png`}
                             alt={poke.species}
-                            width={48}
-                            height={48}
                             className="inline-block mr-2"
                           />
                         </Link>

@@ -263,13 +263,12 @@ export function PokemonSearchModal({
                       <Image
                         src={
                           entry.formName
-                            ? `/sprites/pokemon/${entry.name}_${entry.formName}/normal_front.png`
-                            : `/sprites/pokemon/${entry.name}/normal_front.png`
+                            ? `/sprites/pokemon/${entry.name.replace(/-/g, '_')}_${entry.formName}/normal_front.png`
+                            : `/sprites/pokemon/${entry.name.replace(/-/g, '_')}/normal_front.png`
                         }
+                        layout="intrinsic"
                         alt={entry.displayName}
-                        width={48}
-                        height={48}
-                        className="w-12 h-12 object-contain"
+                        className="object-contain"
                       />
                     )}
 
