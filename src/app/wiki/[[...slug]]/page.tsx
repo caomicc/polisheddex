@@ -18,6 +18,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { Table, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 interface WikiData {
   content: string;
@@ -97,8 +98,8 @@ function WikiHomePage() {
           </Breadcrumb>
         }
       />
-      <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div className="max-w-4xl mx-auto space-y-6">
+        <div className="">
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -107,7 +108,7 @@ function WikiHomePage() {
               </CardTitle>
               <CardDescription>Common wiki pages for Polished Crystal</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-2">
+            <CardContent className="space-y-2 grid grid-cols-1 md:grid-cols-2 gap-1">
               {commonWikiPages.map((page) => (
                 <Link key={page.slug} href={`/wiki/${page.slug}`}>
                   <Button variant="ghost" className="w-full justify-start h-auto p-3">
@@ -182,89 +183,83 @@ function WikiHomePage() {
               </Link>
             </CardContent>
           </Card>
-
-          <Card>
-            {/* <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <ExternalLink className="h-5 w-5" />
-                External Resources
-              </CardTitle>
-              <CardDescription>Links to the main project and community</CardDescription>
-            </CardHeader> */}
-            <CardContent className="space-y-2">
-              {!sidebarLoading && sidebarContent && (
-                <>
-                  <div className="border-t pt-2 mt-2">
-                    <p className="text-sm font-medium text-muted-foreground px-3 py-1">
-                      Wiki Pages
-                    </p>
-                  </div>
-                  <div className="max-h-64 overflow-y-auto">
-                    <ReactMarkdown
-                      remarkPlugins={[
-                        remarkGfm,
-                        [
-                          remarkWikiLink,
-                          {
-                            pageResolver: (name: string) => [name.replace(/ /g, '-')],
-                            hrefTemplate: (permalink: string) => `/wiki/${permalink}`,
-                          },
-                        ],
-                      ]}
-                      components={{
-                        ul: ({ children }) => <div className="space-y-1">{children}</div>,
-                        li: ({ children }) => <div className="flex">{children}</div>,
-                        a: ({ href, children, ...props }) => {
-                          if (href?.startsWith('/wiki/')) {
-                            // if the link is a wiki link, capitalize the first letter of the page name
-                            // e.g. /wiki/utilities -> /wiki/Utilities
-                            const pageName = href.replace('/wiki/', '').replace(/-/g, ' ');
-                            const capitalizedPageName =
-                              pageName.charAt(0).toUpperCase() + pageName.slice(1);
-                            const cleanedHref = `/wiki/${capitalizedPageName.replace(/ /g, '-')}`;
-                            return (
-                              <Link href={cleanedHref} className="w-full">
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  className="w-full justify-start h-auto py-1 px-2 font-normal"
-                                >
-                                  <BookOpen className="h-3 w-3 mr-2 flex-shrink-0" />
-                                  <span className="text-left truncate">{children}</span>
-                                </Button>
-                              </Link>
-                            );
-                          }
-                          return (
-                            <a
-                              href={href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-                              {...props}
-                            >
-                              {children}
-                            </a>
-                          );
-                        },
-                        p: () => null, // Skip paragraph tags to avoid extra spacing
-                      }}
-                    >
-                      {sidebarContent}
-                    </ReactMarkdown>
-                  </div>
-                </>
-              )}
-
-              {sidebarLoading && (
-                <div className="flex items-center justify-center py-4">
-                  <RefreshCw className="h-4 w-4 animate-spin mr-2" />
-                  <span className="text-sm text-muted-foreground">Loading wiki pages...</span>
-                </div>
-              )}
-            </CardContent>
-          </Card>
         </div>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <BookOpen className="h-5 w-5" />
+              Table of Contents
+            </CardTitle>
+            <CardDescription>Browse the various sections of the wiki</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {!sidebarLoading && sidebarContent && (
+              <>
+                <div className="h-full overflow-y-auto">
+                  <ReactMarkdown
+                    remarkPlugins={[
+                      remarkGfm,
+                      [
+                        remarkWikiLink,
+                        {
+                          pageResolver: (name: string) => [name.replace(/ /g, '-')],
+                          hrefTemplate: (permalink: string) => `/wiki/${permalink}`,
+                        },
+                      ],
+                    ]}
+                    components={{
+                      ul: ({ children }) => (
+                        <div className="grid grid-cols-3 gap-4">{children}</div>
+                      ),
+                      li: ({ children }) => <div className="text-[0px]">{children}</div>,
+                      a: ({ href, children, ...props }) => {
+                        if (href?.startsWith('/wiki/')) {
+                          // if the link is a wiki link, capitalize the first letter of the page name
+                          // e.g. /wiki/utilities -> /wiki/Utilities
+                          const pageName = href.replace('/wiki/', '').replace(/-/g, ' ');
+                          const capitalizedPageName =
+                            pageName.charAt(0).toUpperCase() + pageName.slice(1);
+                          const cleanedHref = `/wiki/${capitalizedPageName.replace(/ /g, '-')}`;
+                          return (
+                            <Link href={cleanedHref} className="w-full">
+                              <Button variant="ghost" size="sm" className="w-full justify-start ">
+                                {/* <BookOpen className="h-3 w-3 mr-2 flex-shrink-0" /> */}
+                                <span className="text-left truncate">{children}</span>
+                              </Button>
+                            </Link>
+                          );
+                        }
+                        return (
+                          <a
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                            {...props}
+                          >
+                            {children}
+                          </a>
+                        );
+                      },
+                      span: () => null,
+                      p: () => null, // Skip paragraph tags to avoid extra spacing
+                    }}
+                  >
+                    {sidebarContent}
+                  </ReactMarkdown>
+                </div>
+              </>
+            )}
+
+            {sidebarLoading && (
+              <div className="flex items-center justify-center py-4">
+                <RefreshCw className="h-4 w-4 animate-spin mr-2" />
+                <span className="text-sm text-muted-foreground">Loading wiki pages...</span>
+              </div>
+            )}
+          </CardContent>
+        </Card>
 
         <Card>
           <CardHeader>
@@ -273,23 +268,23 @@ function WikiHomePage() {
               This wiki is dynamically fetched from the official Polished Crystal GitHub wiki
             </CardDescription>
           </CardHeader>
-          <CardContent className="prose prose-slate dark:prose-invert max-w-none">
-            <p>
+          <CardContent className="prose prose-slate dark:prose-invert max-w-none space-y-4">
+            <p className="text-sm">
               This wiki integration allows you to browse the official Polished Crystal wiki content
               directly within the Pokédex application. The content is fetched in real-time from the
               GitHub wiki, ensuring you always have access to the latest information.
             </p>
-            <p>
+            <p className="text-sm">
               <strong>Features:</strong>
             </p>
-            <ul>
-              <li>Real-time content fetching from GitHub wiki</li>
-              <li>Support for wiki-style links between pages</li>
-              <li>GitHub-flavored markdown rendering</li>
-              <li>Responsive design that matches the app theme</li>
-              <li>Direct links to edit pages on GitHub</li>
+            <ul className="list-disc pl-5">
+              <li className="text-sm">Real-time content fetching from GitHub wiki</li>
+              <li className="text-sm">Support for wiki-style links between pages</li>
+              <li className="text-sm">GitHub-flavored markdown rendering</li>
+              <li className="text-sm">Responsive design that matches the app theme</li>
+              <li className="text-sm">Direct links to edit pages on GitHub</li>
             </ul>
-            <p>
+            <p className="text-sm">
               To navigate to any wiki page, you can use the URL pattern: <code>/wiki/PageName</code>
             </p>
           </CardContent>
@@ -412,15 +407,14 @@ export default function WikiPage() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-4">
             <Link href="/wiki">
-              <Button variant="ghost" size="sm">
+              <Button variant="link" size="sm">
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Wiki Home
               </Button>
             </Link>
-            <h2 className="text-2xl font-semibold">{pageName.replace(/([A-Z])/g, ' $1').trim()}</h2>
           </div>
           <div className="flex items-center gap-2">
-            <Button onClick={fetchWikiPage} variant="ghost" size="sm">
+            <Button onClick={fetchWikiPage} variant="default" size="sm">
               <RefreshCw className="h-4 w-4 mr-2" />
               Refresh
             </Button>
@@ -429,7 +423,7 @@ export default function WikiPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="ghost" size="sm">
+              <Button variant="default" size="sm">
                 <ExternalLink className="h-4 w-4 mr-2" />
                 View on GitHub
               </Button>
@@ -502,11 +496,27 @@ export default function WikiPage() {
                 </pre>
               ),
               table: ({ children }) => (
-                <div className="overflow-x-auto mb-4">
-                  <table className="min-w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700">
-                    {children}
-                  </table>
+                <div className="overflow-x-auto mb-4 bg-white dark:bg-gray-900 border border-border rounded-md">
+                  <Table className="min-w-full">{children}</Table>
                 </div>
+              ),
+              thead: ({ children }) => (
+                <TableHeader className="bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
+                  {children}
+                </TableHeader>
+              ),
+              th: ({ children }) => (
+                <TableHead className="px-4 py-2 border-b border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-left">
+                  {children}
+                </TableHead>
+              ),
+              td: ({ children }) => (
+                <TableCell className="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
+                  {children}
+                </TableCell>
+              ),
+              tr: ({ children }) => (
+                <TableRow className="hover:bg-gray-50 dark:hover:bg-gray-800">{children}</TableRow>
               ),
             }}
           >
