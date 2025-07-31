@@ -216,8 +216,14 @@ function WikiHomePage() {
                         li: ({ children }) => <div className="flex">{children}</div>,
                         a: ({ href, children, ...props }) => {
                           if (href?.startsWith('/wiki/')) {
+                            // if the link is a wiki link, capitalize the first letter of the page name
+                            // e.g. /wiki/utilities -> /wiki/Utilities
+                            const pageName = href.replace('/wiki/', '').replace(/-/g, ' ');
+                            const capitalizedPageName =
+                              pageName.charAt(0).toUpperCase() + pageName.slice(1);
+                            const cleanedHref = `/wiki/${capitalizedPageName.replace(/ /g, '-')}`;
                             return (
-                              <Link href={href} className="w-full">
+                              <Link href={cleanedHref} className="w-full">
                                 <Button
                                   variant="ghost"
                                   size="sm"
@@ -446,9 +452,12 @@ export default function WikiPage() {
             components={{
               a: ({ href, children, ...props }) => {
                 if (href?.startsWith('/wiki/')) {
+                  const pageName = href.replace('/wiki/', '').replace(/-/g, ' ');
+                  const capitalizedPageName = pageName.charAt(0).toUpperCase() + pageName.slice(1);
+                  const cleanedHref = `/wiki/${capitalizedPageName.replace(/ /g, '-')}`;
                   return (
                     <Link
-                      href={href}
+                      href={cleanedHref}
                       className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                     >
                       {children}
