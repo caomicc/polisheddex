@@ -5,6 +5,7 @@ import { Badge } from '../ui/badge';
 import { cn } from '@/lib/utils';
 import { getTypeGradientProps } from '@/utils/css-gradients';
 import { TYPE_COLORS } from '@/contexts/PokemonTypeContext';
+import { PokemonSprite } from './pokemon-sprite';
 
 export interface PokemonCardProps {
   pokemon: BaseData & { formName?: string };
@@ -81,22 +82,16 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       )}
       style={gradientProps.style}
     >
-      <div
-        className={cn(
-          'bg-white absolute p-2 w-12 md:w-20 h-12 md:h-20 right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 z-0 md:z-10 rounded-xl',
-          `shadow-lg shadow-${primaryType.toLowerCase()}`,
-        )}
-      >
-        <img
-          src={
-            pokemon.forms && pokemon.forms?.length
-              ? `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
-              : `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
-          }
-          alt={`${pokemon.name} sprite`}
-          className="mx-auto relative top-1/2 -translate-y-1/2"
-        />
-      </div>
+      <PokemonSprite
+        alt={`${pokemon.name} sprite`}
+        primaryType={primaryType as PokemonType['name']}
+        src={
+          pokemon.forms && pokemon.forms?.length
+            ? `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
+            : `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
+        }
+        className="absolute right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2"
+      />
       <p
         className={cn(
           'text-xs md:text-lg md:absolute  md:top-4 md:left-4 ',

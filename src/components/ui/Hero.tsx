@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
+import { PokemonSprite } from '../pokemon/pokemon-sprite';
 
 type HeroProps = React.PropsWithChildren & {
   className?: string;
@@ -74,16 +75,12 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
       </div>
       <div className="flex items-center gap-4 mb-2">
         {image && (
-          <div
-            className={cn(
-              'bg-white p-2 w-12 md:w-20 h-12 md:h-20 transform z-0 md:z-10 rounded-xl',
-              `shadow-lg shadow-${primaryType?.toLowerCase()}`,
-            )}
-          >
-            <img
+          <div>
+            <PokemonSprite
               src={image ?? ''}
+              primaryType={primaryType ?? undefined}
               alt={`Accent Image to accompany hero`}
-              className="mx-auto relative top-1/2 -translate-y-1/2"
+              className="mx-auto relative "
             />
           </div>
         )}

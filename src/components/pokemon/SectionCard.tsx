@@ -27,7 +27,7 @@ const SectionCard: React.FC<SectionCardProps> = ({ ...props }: SectionCardProps)
       )}
     >
       <CardHeader className="sr-only">{headline}</CardHeader>
-      <CardContent className="px-2 md:px-6">{children}</CardContent>
+      <CardContent className="px-2 md:px-6 gap-2 flex flex-col">{children}</CardContent>
     </Card>
   );
 };

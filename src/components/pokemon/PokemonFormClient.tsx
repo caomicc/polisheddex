@@ -17,6 +17,7 @@ import PokemonTypeSetter from './PokemonTypeSetter';
 import SectionCard from './SectionCard';
 import { useQueryState } from 'nuqs';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { PokemonSprite } from './pokemon-sprite';
 
 // Helper function to deduplicate moves based on name and level
 function deduplicateMoves(moves: Move[]): Move[] {
@@ -222,7 +223,7 @@ export default function PokemonFormClient({
               <p className="text-sm">
                 <span className="font-bold">Base Catch Rate</span>: {formData.catchRate}
               </p>
-              <span className="flex flex-row items-start justify-between max-w-[300px] mx-auto">
+              <span className="flex flex-row items-start justify-between max-w-[300px] w-full mx-auto">
                 <div>
                   <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
                     <Image
@@ -340,7 +341,65 @@ export default function PokemonFormClient({
               <p className="text-sm md:text-md text-foreground">{formData.species} Pokémon</p>
               <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
 
-              <div className="mt-0 flex flex-row flex-wrap gap-2 md:gap-0 w-full justify-between relative">
+              <h3 className={cn('font-bold text-sm my-4 text-left')}>Sprites:</h3>
+
+              <div className="flex flex-col md:flex-row gap-4 items-start justify-center mb-8">
+                <div className="flex flex-col items-center justify-center gap-2">
+                  <PokemonSprite
+                    src={
+                      formData.formName
+                        ? `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}_${formData.formName}/normal_front.png`
+                        : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/normal_front.png`
+                    }
+                  />
+                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none dark:text-black">
+                    Front Sprite
+                  </span>
+                </div>
+                <div className="flex flex-col items-center justify-center gap-2">
+                  <PokemonSprite
+                    src={
+                      formData.formName
+                        ? `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}_${formData.formName}/normal_front_animated.gif`
+                        : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/normal_front_animated.gif`
+                    }
+                  />
+                  <span className="text-xs font-bold text-muted-foreground capitalize dark:text-black leading-base">
+                    Front Sprite
+                    <br />
+                    (Animated)
+                  </span>
+                </div>
+
+                <div className="flex flex-col items-center justify-center gap-2">
+                  <PokemonSprite
+                    src={
+                      formData.formName
+                        ? `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}_${formData.formName}/shiny_front.png`
+                        : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/shiny_front.png`
+                    }
+                  />
+                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none dark:text-black">
+                    Shiny Sprite
+                  </span>
+                </div>
+                <div className="flex flex-col items-center justify-center gap-2">
+                  <PokemonSprite
+                    src={
+                      formData.formName
+                        ? `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}_${formData.formName}/shiny_front_animated.gif`
+                        : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/shiny_front_animated.gif`
+                    }
+                  />
+                  <span className="text-xs font-bold text-muted-foreground capitalize dark:text-black leading-base">
+                    Shiny Sprite
+                    <br />
+                    (Animated)
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-0 flex flex-row flex-wrap gap-2 md:gap-0 w-full just</div>ify-between relative">
                 <div className="flex w-full flex-wrap justify-center items-center gap-0">
                   <div className="w-1/3 md:w-1/5 text-center border-r border-gray-200 dark:border-gray-700 last:border-none p-1 relative flex items-center justify-center">
                     {formData.genderRatio &&

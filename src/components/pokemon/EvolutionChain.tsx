@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
+import { PokemonSprite } from './pokemon-sprite';
+import { usePokemonType } from '@/contexts/PokemonTypeContext';
+import { PokemonType } from '@/types/types';
 
 interface EvolutionMethod {
   method: string;
@@ -26,7 +29,8 @@ interface Props {
 
 export function EvolutionChain({ evolutionData, spritesByGen, className }: Props) {
   const { chain, chainWithMethods } = evolutionData;
-
+  const { primaryType } = usePokemonType();
+  console.log('Evolution Chain Data:', primaryType);
   const formatMethod = (method: string) => method.replace('EVOLVE_', '').toLowerCase();
 
   const processEvolutionData = () => {
@@ -179,151 +183,147 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
   };
 
   return (
-    <div className={cn('flex flex-col gap-4 items-center', className)}>
-      <div className="flex flex-col items-center justify-center gap-2">
-        {evolutionPaths.map((path, index) => {
-          const sourceName = path.sourceForm ? `${path.source} (${path.sourceForm})` : path.source;
-          const targetName = path.targetForm ? `${path.target} (${path.targetForm})` : path.target;
-
-          return (
-            <div
-              className="flex flex-row items-center justify-center"
-              key={`${sourceName}-${targetName}-${index}`}
+    <div className={cn('grid grid-cols-3 md:grid-cols-3 gap-6 items-start', className)}>
+      {evolutionPaths.map((path, index) => {
+        const sourceName = path.sourceForm ? `${path.source} (${path.sourceForm})` : path.source;
+        const targetName = path.targetForm ? `${path.target} (${path.targetForm})` : path.target;
+        return (
+          <React.Fragment key={`${sourceName}-${targetName}-${index}`}>
+            <Link
+              href={`/pokemon/${sourceName.includes('(') ? sourceName.split(' (')[0] : sourceName}${
+                path.sourceForm && path.sourceForm.toLowerCase() !== 'plain form'
+                  ? `?form=${encodeURIComponent(path.sourceForm.replace(/ form$/i, '').toLowerCase())}`
+                  : ''
+              }`}
+              className="items-center flex flex-col text-center"
             >
-              <Link
-                href={`/pokemon/${sourceName.includes('(') ? sourceName.split(' (')[0] : sourceName}${
-                  path.sourceForm && path.sourceForm.toLowerCase() !== 'plain form'
-                    ? `?form=${encodeURIComponent(path.sourceForm.replace(/ form$/i, '').toLowerCase())}`
-                    : ''
-                }`}
-                className={`dark:bg-white p-2 rounded-xl text-center dark:shadow-sm`}
-              >
-                {/* This is for debugging purposes, you can remove it */}
-                <img
-                  className="mx-auto relative"
-                  src={getSpriteUrl(sourceName)}
-                  alt={`Sprite of Pokémon ${sourceName}`}
-                />
-                <span className="text-xs font-bold text-muted-foreground capitalize leading-none dark:text-black">
-                  {sourceName}
-                </span>
-              </Link>
-              {(() => {
-                const evolutionInfo = getEvolutionInfo(sourceName, targetName);
-                if (!evolutionInfo) {
-                  return (
-                    <span>
-                      {sourceName} → {targetName} ({path.method})
-                    </span>
-                  );
-                }
-
+              <PokemonSprite
+                src={getSpriteUrl(sourceName)}
+                alt={`Sprite of Pokémon ${sourceName}`}
+                primaryType={primaryType as PokemonType['name']}
+              />
+              <span className="mt-2 flex text-xs md:text-sm font-black text-muted-foreground capitalize leading-none dark:text-white">
+                {sourceName}
+              </span>
+            </Link>
+            {(() => {
+              const evolutionInfo = getEvolutionInfo(sourceName, targetName);
+              if (!evolutionInfo) {
                 return (
-                  <div className="flex flex-col items-center mx-2 min-w-[80px]">
-                    <span className="text-lg">→</span>
-                    <div className="text-xs text-gray-600 dark:text-white text-center">
-                      {evolutionInfo.methodName === 'item' && (
-                        <div className="flex flex-col items-center gap-1">
-                          <p>Item:</p>
-                          {(() => {
-                            const itemName = String(evolutionInfo.parameter);
-                            const itemId = getItemIdFromDisplayName(itemName);
-
-                            const itemImage = (
-                              <Image
-                                src={`/sprites/items/${itemName.toLowerCase()}.png`}
-                                alt={`Item: ${itemName}`}
-                                width={16}
-                                height={16}
-                                className="rounded-xs"
-                              />
-                            );
-
-                            return (
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  {itemId ? (
-                                    <Link
-                                      href={`/items/${itemId}`}
-                                      className="hover:scale-110 transition-transform duration-200"
-                                    >
-                                      {itemImage}
-                                    </Link>
-                                  ) : (
-                                    <div>{itemImage}</div>
-                                  )}
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                  {itemId ? (
-                                    <span>
-                                      {itemName}{' '}
-                                      <span className="text-xs opacity-75">(click to view)</span>
-                                    </span>
-                                  ) : (
-                                    itemName
-                                  )}
-                                </TooltipContent>
-                              </Tooltip>
-                            );
-                          })()}
-                        </div>
-                      )}
-                      {evolutionInfo.methodName === 'happiness' && (
-                        <div>
-                          <p>Happiness:</p>
-                          {evolutionInfo.parameter === 'TR_MORNDAY' && <span>(Morning/Day)</span>}
-                          {evolutionInfo.parameter === 'TR_EVENITE' && <span>(Evening/Night)</span>}
-                          {evolutionInfo.parameter === 'TR_ANYTIME' && <span>Anytime</span>}
-                        </div>
-                      )}
-                      {evolutionInfo.methodName === 'stat' && (
-                        <div>
-                          Stat:
-                          {evolutionInfo.parameter === 'ATK_GT_DEF' && (
-                            <span> Attack &gt; Defense</span>
-                          )}
-                          {evolutionInfo.parameter === 'ATK_LT_DEF' && (
-                            <span> Attack &lt; Defense</span>
-                          )}
-                          {evolutionInfo.parameter === 'ATK_EQ_DEF' && (
-                            <span> Attack = Defense</span>
-                          )}
-                        </div>
-                      )}
-                      {typeof evolutionInfo.parameter !== 'number' &&
-                        evolutionInfo.parameter &&
-                        !['item', 'happiness', 'stat'].includes(evolutionInfo.methodName) && (
-                          <div>{String(evolutionInfo.parameter)}</div>
-                        )}
-                      {typeof evolutionInfo.parameter === 'number' && (
-                        <div>level {evolutionInfo.parameter}</div>
-                      )}
-                    </div>
-                  </div>
+                  <span>
+                    {sourceName} → {targetName} ({path.method})
+                  </span>
                 );
-              })()}
-              <Link
-                href={`/pokemon/${targetName.includes('(') ? targetName.split(' (')[0] : targetName}${
-                  path.targetForm && path.targetForm.toLowerCase() !== 'plain form'
-                    ? `?form=${encodeURIComponent(path.targetForm.replace(/ form$/i, '').toLowerCase())}`
-                    : ''
-                }`}
-                className="dark:bg-white p-2 rounded-xl text-center"
-              >
-                {/* This is for debugging purposes, you can remove it */}
-                <img
-                  className="mx-auto relative"
-                  src={getSpriteUrl(targetName)}
-                  alt={`Sprite of Pokémon ${targetName}`}
-                />
-                <span className="text-xs font-bold text-muted-foreground capitalize leading-none dark:text-black">
-                  {targetName}
-                </span>
-              </Link>
-            </div>
-          );
-        })}
-      </div>
+              }
+
+              return (
+                <div className="flex flex-col items-center min-w-[80px]">
+                  <span className="text-lg">→</span>
+                  <div className="text-xs text-gray-600 dark:text-white text-center">
+                    {evolutionInfo.methodName === 'item' && (
+                      <div className="flex flex-col items-center gap-1">
+                        <p>Item:</p>
+                        {(() => {
+                          const itemName = String(evolutionInfo.parameter);
+                          const itemId = getItemIdFromDisplayName(itemName);
+
+                          const itemImage = (
+                            <Image
+                              src={`/sprites/items/${itemName.toLowerCase()}.png`}
+                              alt={`Item: ${itemName}`}
+                              width={16}
+                              height={16}
+                              className="rounded-xs"
+                            />
+                          );
+
+                          return (
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                {itemId ? (
+                                  <Link
+                                    href={`/items/${itemId}`}
+                                    className="hover:scale-110 transition-transform duration-200"
+                                  >
+                                    {itemImage}
+                                  </Link>
+                                ) : (
+                                  <div>{itemImage}</div>
+                                )}
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                {itemId ? (
+                                  <span>
+                                    {itemName}{' '}
+                                    <span className="text-xs opacity-75">(click to view)</span>
+                                  </span>
+                                ) : (
+                                  itemName
+                                )}
+                              </TooltipContent>
+                            </Tooltip>
+                          );
+                        })()}
+                      </div>
+                    )}
+                    {evolutionInfo.methodName === 'happiness' && (
+                      <div>
+                        <p>Happiness:</p>
+                        {evolutionInfo.parameter === 'TR_MORNDAY' && <span>(Morning/Day)</span>}
+                        {evolutionInfo.parameter === 'TR_EVENITE' && <span>(Evening/Night)</span>}
+                        {evolutionInfo.parameter === 'TR_ANYTIME' && <span>Anytime</span>}
+                      </div>
+                    )}
+                    {evolutionInfo.methodName === 'stat' && (
+                      <div>
+                        Stat:
+                        {evolutionInfo.parameter === 'ATK_GT_DEF' && (
+                          <span> Attack &gt; Defense</span>
+                        )}
+                        {evolutionInfo.parameter === 'ATK_LT_DEF' && (
+                          <span> Attack &lt; Defense</span>
+                        )}
+                        {evolutionInfo.parameter === 'ATK_EQ_DEF' && <span> Attack = Defense</span>}
+                      </div>
+                    )}
+                    {typeof evolutionInfo.parameter !== 'number' &&
+                      evolutionInfo.parameter &&
+                      !['item', 'happiness', 'stat'].includes(evolutionInfo.methodName) && (
+                        <div>
+                          {String(evolutionInfo.parameter)
+                            .split('_')
+                            .map(
+                              (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+                            )
+                            .join(' ')}
+                        </div>
+                      )}
+                    {typeof evolutionInfo.parameter === 'number' && (
+                      <div>Level {evolutionInfo.parameter}</div>
+                    )}
+                  </div>
+                </div>
+              );
+            })()}
+            <Link
+              href={`/pokemon/${targetName.includes('(') ? targetName.split(' (')[0] : targetName}${
+                path.targetForm && path.targetForm.toLowerCase() !== 'plain form'
+                  ? `?form=${encodeURIComponent(path.targetForm.replace(/ form$/i, '').toLowerCase())}`
+                  : ''
+              }`}
+              className="items-center flex flex-col text-center"
+            >
+              <PokemonSprite
+                src={getSpriteUrl(targetName)}
+                alt={`Sprite of Pokémon ${targetName}`}
+              />
+              <span className="mt-2 flex text-xs md:text-sm font-black text-muted-foreground capitalize leading-none dark:text-white">
+                {targetName}
+              </span>
+            </Link>
+          </React.Fragment>
+        );
+      })}
     </div>
   );
 }

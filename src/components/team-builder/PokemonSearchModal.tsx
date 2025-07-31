@@ -6,6 +6,7 @@ import { TeamPokemon } from '@/hooks/use-team-search-params';
 import { Badge } from '@/components/ui/badge';
 import { X, Search, Filter, ChevronDown, ChevronUp } from 'lucide-react';
 import { Input } from '../ui/input';
+import { PokemonSprite } from '../pokemon/pokemon-sprite';
 
 // Helper functions
 const normalizeTypes = (types: string | string[]): string[] => {
@@ -259,14 +260,18 @@ export function PokemonSearchModal({
                 >
                   <div className="flex flex-col items-center space-y-2">
                     {entry.data.frontSpriteUrl && (
-                      <img
+                      <PokemonSprite
+                        primaryType={
+                          Array.isArray(entry.data.types)
+                            ? (entry.data.types[0] as PokemonType['name'])
+                            : (entry.data.types as PokemonType['name'])
+                        }
                         src={
                           entry.formName
                             ? `/sprites/pokemon/${entry.name.replace(/-/g, '_')}_${entry.formName}/normal_front.png`
                             : `/sprites/pokemon/${entry.name.replace(/-/g, '_')}/normal_front.png`
                         }
                         alt={entry.displayName}
-                        className="object-contain"
                       />
                     )}
 

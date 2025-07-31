@@ -7,7 +7,7 @@ import { Badge } from '../ui/badge';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import Link from 'next/link';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
-import { cn } from '@/lib/utils';
+import { PokemonSprite } from '../pokemon/pokemon-sprite';
 
 interface TrainerCardProps {
   trainer: GymLeader | LocationTrainer;
@@ -66,7 +66,8 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
       <div className="flex flex-col items-start gap-4">
         <div className="flex flex-row items-center gap-4 w-full">
           <div className="relative">
-            <img src={`/sprites/trainers/${trainerSpritePath}.png`} alt={trainer.name} />
+            {/* not a pokemon sprite but w/e */}
+            <PokemonSprite src={`/sprites/trainers/${trainerSpritePath}.png`} alt={trainer.name} />
           </div>
           <div>
             <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">
@@ -119,16 +120,10 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                   >
                     <CardContent className="p-4 flex flex-col gap-2">
                       <div className="flex items-center gap-3">
-                        <Link
-                          href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}`}
-                          className={cn(
-                            'bg-white p-2 w-12 md:w-20 h-12 md:h-20 transform z-0 md:z-10 rounded-xl',
-                          )}
-                        >
-                          <img
+                        <Link href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}`}>
+                          <PokemonSprite
                             src={`/sprites/pokemon/${poke.species.toLowerCase().replace(/-/g, '_')}${poke.form ? `_${poke.form?.toLowerCase()}` : ''}/normal_front.png`}
                             alt={poke.species}
-                            className="mx-auto relative top-1/2 -translate-y-1/2"
                           />
                         </Link>
                         <div className="flex-1 min-w-0">
