@@ -10,12 +10,13 @@ type HeroProps = React.PropsWithChildren & {
   headline?: string | React.ReactNode;
   description?: string | React.ReactNode;
   breadcrumbs?: React.ReactNode;
+  types?: React.ReactNode;
   style?: React.CSSProperties;
   image?: string;
 };
 
 export const Hero: React.FC<HeroProps> = ({ ...props }) => {
-  const { className, headline, description, breadcrumbs, children, style, image } = props;
+  const { className, headline, description, breadcrumbs, children, style, image, types } = props;
   const heroRef = React.useRef<HTMLDivElement>(null);
   const { primaryType, getTypeBasedStyles } = usePokemonType();
 
@@ -62,7 +63,7 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
     <div
       ref={heroRef}
       className={cn(
-        'relative flex flex-col text-left min-h-[200px] lg:min-h-[250px] justify-end p-4 md:p-8 pt-22 bg-gray-900 dark:bg-gray-800 rounded-xl mb-8 gap-1 max-w-4xl md:mx-auto shadow-lg',
+        'relative flex flex-col text-left min-h-[200px] lg:min-h-[200px] justify-end p-4 md:p-8 pt-22 bg-gray-900 dark:bg-gray-800 rounded-xl mb-8 gap-1 max-w-4xl md:mx-auto shadow-lg',
         className,
       )}
       style={combinedStyle}
@@ -73,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
       >
         {breadcrumbs}
       </div>
-      <div className="flex items-center gap-4 mb-2">
+      <div className="flex items-center gap-4">
         {image && (
           <div>
             <PokemonSprite
@@ -85,7 +86,10 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
           </div>
         )}
         {/* Headline */}
-        {headline && <h1 className="text-2xl md:text-4xl font-bold capitalize">{headline}</h1>}
+        <div className="flex-1 flex flex-col gap-2">
+          {headline && <h1 className="text-2xl md:text-4xl font-bold capitalize">{headline}</h1>}
+          {types && <div>{types}</div>}
+        </div>
       </div>
       {description && (
         <p

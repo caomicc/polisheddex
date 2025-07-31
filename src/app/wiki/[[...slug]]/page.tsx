@@ -203,7 +203,11 @@ function WikiHomePage() {
                       [
                         remarkWikiLink,
                         {
-                          pageResolver: (name: string) => [name.replace(/ /g, '-')],
+                          pageResolver: (name: string) => {
+                            // Handle pipe character to separate link target from display text
+                            const linkTarget = name.split('|')[0].trim();
+                            return [linkTarget.replace(/ /g, '-')];
+                          },
                           hrefTemplate: (permalink: string) => `/wiki/${permalink}`,
                         },
                       ],
@@ -374,7 +378,10 @@ export default function WikiPage() {
     <>
       <Hero
         className="text-white lg:min-h-[200px]"
-        headline={pageName.replace(/([A-Z])/g, ' $1').trim()}
+        headline={pageName
+          .replace(/([A-Z])/g, '$1')
+          .replace(/-/g, ' ')
+          .trim()}
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
@@ -396,7 +403,10 @@ export default function WikiPage() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbPage className="text-white">
-                  {pageName.replace(/([A-Z])/g, ' $1').trim()}
+                  {pageName
+                    .replace(/([A-Z])/g, '$1')
+                    .replace(/-/g, ' ')
+                    .trim()}
                 </BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
@@ -438,13 +448,19 @@ export default function WikiPage() {
               [
                 remarkWikiLink,
                 {
-                  pageResolver: (name: string) => [name.replace(/ /g, '-')],
+                  pageResolver: (name: string) => {
+                    // Handle pipe character to separate link target from display text
+                    // If the wiki link uses a pipe (e.g. [[PageName|Display Text]]), use the display text (second half) as the link target.
+                    const linkTarget = name.includes('|') ? name.split('|')[1].trim() : name.trim();
+                    return [linkTarget.replace(/ /g, '-')];
+                  },
                   hrefTemplate: (permalink: string) => `/wiki/${permalink}`,
                 },
               ],
             ]}
             components={{
               a: ({ href, children, ...props }) => {
+                console.log('Link href:', href, 'Children:', children);
                 if (href?.startsWith('/wiki/')) {
                   const pageName = href.replace('/wiki/', '').replace(/-/g, ' ');
                   const capitalizedPageName = pageName.charAt(0).toUpperCase() + pageName.slice(1);
@@ -454,20 +470,62 @@ export default function WikiPage() {
                       href={cleanedHref}
                       className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                     >
-                      {children}
+                      {typeof children === 'string'
+                        ? children.includes('|')
+                          ? children.split('|')[1].trim()
+                          : children.trim()
+                        : (children ?? '')}
+                    </Link>
+                  );
+                }
+                if (href?.startsWith('#')) {
+                  const pageName = href.replace('/wiki/', '').replace(/-/g, ' ');
+                  const capitalizedPageName = pageName.charAt(0).toUpperCase() + pageName.slice(1);
+                  const cleanedHref = capitalizedPageName.replace(/ /g, '-');
+                  return (
+                    <Link
+                      href={cleanedHref}
+                      className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                    >
+                      {typeof children === 'string'
+                        ? children.includes('|')
+                          ? children.split('|')[1].trim()
+                          : children.trim()
+                        : (children ?? '')}
+                    </Link>
+                  );
+                }
+                if (href?.startsWith('../')) {
+                  const cleanedHref = href.replace('../', '');
+                  return (
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={`https://github.com/Rangi42/polishedcrystal/${cleanedHref}`}
+                      className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                    >
+                      {typeof children === 'string'
+                        ? children.includes('|')
+                          ? children.split('|')[1].trim()
+                          : children.trim()
+                        : (children ?? '')}
                     </Link>
                   );
                 }
                 return (
-                  <a
-                    href={href}
+                  <Link
+                    href={href ?? '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                     {...props}
                   >
-                    {children}
-                  </a>
+                    {typeof children === 'string'
+                      ? children.includes('|')
+                        ? children.split('|')[1].trim()
+                        : children.trim()
+                      : (children ?? '')}
+                  </Link>
                 );
               },
               ul: ({ children }) => <ul className="list-disc pl-5">{children}</ul>,
@@ -475,11 +533,46 @@ export default function WikiPage() {
               li: ({ children }) => <li className="mb-1">{children}</li>,
               p: ({ children }) => <p className="mb-4">{children}</p>,
               h1: ({ children }) => <h1 className="text-3xl font-bold mb-4">{children}</h1>,
-              h2: ({ children }) => <h2 className="text-2xl font-semibold mb-3">{children}</h2>,
-              h3: ({ children }) => <h3 className="text-xl font-semibold mb-2">{children}</h3>,
-              h4: ({ children }) => <h4 className="text-lg font-semibold mb-1">{children}</h4>,
-              h5: ({ children }) => <h5 className="text-base font-semibold mb-1">{children}</h5>,
-              h6: ({ children }) => <h6 className="text-sm font-semibold mb-1">{children}</h6>,
+              h2: ({ children }) => (
+                <h2
+                  id={children?.toString?.().toLowerCase().replace(/\s+/g, '-') ?? undefined}
+                  className="text-2xl font-semibold mb-3"
+                >
+                  {children}
+                </h2>
+              ),
+              h3: ({ children }) => (
+                <h3
+                  id={children?.toString?.().toLowerCase().replace(/\s+/g, '-') ?? undefined}
+                  className="text-xl font-semibold mb-2"
+                >
+                  {children}
+                </h3>
+              ),
+              h4: ({ children }) => (
+                <h4
+                  id={children?.toString?.().toLowerCase().replace(/\s+/g, '-') ?? undefined}
+                  className="text-lg font-semibold mb-1"
+                >
+                  {children}
+                </h4>
+              ),
+              h5: ({ children }) => (
+                <h5
+                  id={children?.toString?.().toLowerCase().replace(/\s+/g, '-') ?? undefined}
+                  className="text-base font-semibold mb-1"
+                >
+                  {children}
+                </h5>
+              ),
+              h6: ({ children }) => (
+                <h6
+                  id={children?.toString?.().toLowerCase().replace(/\s+/g, '-') ?? undefined}
+                  className="text-sm font-semibold mb-1"
+                >
+                  {children}
+                </h6>
+              ),
               blockquote: ({ children }) => (
                 <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4">
                   {children}
