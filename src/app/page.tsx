@@ -17,14 +17,14 @@ export default function Home() {
         headline="Polished Dex"
         description="A companion pokedex for Pokémon Polished Crystal, providing detailed information on Pokémon, locations, and items."
       />
-      <div className="max-w-4xl mx-auto p-6 min-h-screen flex flex-col gap-6">
+      <div className="max-w-4xl mx-auto py-6 min-h-screen flex flex-col gap-6">
         <div>
           <div className="flex flex-col sm:flex-row sm:space-x-12 space-y-4">
             <div className="flex flex-col">
               <h2 className="text-xl mb-4 font-bold">Links:</h2>
               <div className="flex flex-col space-y-6">
                 <Link href="/pokemon" className="group">
-                  <Card className="gap-2 py-4 md:py-6">
+                  <Card className="gap-2 py-4 md:py-6 dark:bg-white/5">
                     <CardHeader className="px-4 md:px-6">
                       <CardTitle>Pokémon Database</CardTitle>
                     </CardHeader>
@@ -43,7 +43,7 @@ export default function Home() {
                 </Link>
 
                 <Link href="/locations" className="group">
-                  <Card className="gap-2 py-4 md:py-6">
+                  <Card className="gap-2 py-4 md:py-6 dark:bg-white/5">
                     <CardHeader className="px-4 md:px-6">
                       <CardTitle>Location Guide</CardTitle>
                     </CardHeader>
@@ -61,7 +61,7 @@ export default function Home() {
                   </Card>
                 </Link>
                 <Link href="/items" className="group">
-                  <Card className="gap-2 py-4 md:py-6">
+                  <Card className="gap-2 py-4 md:py-6 dark:bg-white/5">
                     <CardHeader className="px-4 md:px-6">
                       <CardTitle>Item Guide</CardTitle>
                     </CardHeader>
