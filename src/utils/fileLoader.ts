@@ -15,9 +15,9 @@ export async function loadJsonFile<T>(relativePath: string): Promise<T | null> {
     path.resolve(__dirname, '..', '..', '..', relativePath),
   ];
 
-  console.log(`Attempting to load file: ${relativePath}`);
-  console.log(`Process cwd: ${process.cwd()}`);
-  console.log(`__dirname: ${__dirname}`);
+  // console.log(`Attempting to load file: ${relativePath}`);
+  // console.log(`Process cwd: ${process.cwd()}`);
+  // console.log(`__dirname: ${__dirname}`);
 
   for (const filePath of possiblePaths) {
     try {
