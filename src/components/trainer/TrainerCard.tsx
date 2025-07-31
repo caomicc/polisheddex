@@ -7,6 +7,7 @@ import { Badge } from '../ui/badge';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import Link from 'next/link';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
+import { cn } from '@/lib/utils';
 
 interface TrainerCardProps {
   trainer: GymLeader | LocationTrainer;
@@ -112,14 +113,22 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                 );
 
                 return (
-                  <Card key={idx} className="bg-white border-2 border-gray-200 p-0 shadow-none">
+                  <Card
+                    key={idx}
+                    className="bg-white dark:bg-white/5 border-2 border-gray-200 dark:border-gray-700 p-0 shadow-none"
+                  >
                     <CardContent className="p-4 flex flex-col gap-2">
                       <div className="flex items-center gap-3">
-                        <Link href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}`}>
+                        <Link
+                          href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}`}
+                          className={cn(
+                            'bg-white p-2 w-12 md:w-20 h-12 md:h-20 transform z-0 md:z-10 rounded-xl',
+                          )}
+                        >
                           <img
                             src={`/sprites/pokemon/${poke.species.toLowerCase().replace(/-/g, '_')}${poke.form ? `_${poke.form?.toLowerCase()}` : ''}/normal_front.png`}
                             alt={poke.species}
-                            className="inline-block mr-2"
+                            className="mx-auto relative top-1/2 -translate-y-1/2"
                           />
                         </Link>
                         <div className="flex-1 min-w-0">

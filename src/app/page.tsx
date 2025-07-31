@@ -24,7 +24,7 @@ export default function Home() {
               <h2 className="text-xl mb-4 font-bold">Links:</h2>
               <div className="flex flex-col space-y-6">
                 <Link href="/pokemon" className="group">
-                  <Card className="gap-2 py-4 md:py-6 dark:bg-white/5">
+                  <Card className="gap-2 py-4 md:py-6">
                     <CardHeader className="px-4 md:px-6">
                       <CardTitle>Pokémon Database</CardTitle>
                     </CardHeader>

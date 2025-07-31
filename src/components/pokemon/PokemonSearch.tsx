@@ -142,8 +142,8 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
         <ul className="grid gap-4 md:gap-8 grid-cols-2 md:grid-cols-3">
           {filteredPokemon.map((p) => {
             const pokemonUrl = p.formName
-              ? `/pokemon/${normalizePokemonUrlKey(p.name)}?form=${encodeURIComponent(p.formName)}`
-              : `/pokemon/${normalizePokemonUrlKey(p.name)}`;
+              ? `/pokemon/${normalizePokemonUrlKey(p.name).toLowerCase()}?form=${encodeURIComponent(p.formName)}`
+              : `/pokemon/${normalizePokemonUrlKey(p.name).toLowerCase()}`;
             return (
               <li key={p.name}>
                 <Link href={pokemonUrl}>
