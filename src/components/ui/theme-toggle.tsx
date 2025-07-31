@@ -43,7 +43,7 @@ export function SimpleThemeToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="outline" size="icon" disabled>
+      <Button variant="ghost" size="icon" disabled className="text-muted-foreground!">
         <Sun className="h-[1.2rem] w-[1.2rem]" />
         <span className="sr-only">Toggle theme</span>
       </Button>
@@ -52,7 +52,8 @@ export function SimpleThemeToggle() {
 
   return (
     <Button
-      variant="outline"
+      variant="ghost"
+      className="bg-white/20 hover:bg-white/30 dark:bg-gray-800/20 dark:hover:bg-gray-800/30"
       size="icon"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
