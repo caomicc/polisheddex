@@ -196,7 +196,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                     ? `?form=${encodeURIComponent(path.sourceForm.replace(/ form$/i, '').toLowerCase())}`
                     : ''
                 }`}
-                className={`dark:bg-white p-2 w-12 md:w-20 rounded-xl text-center shadow-sm`}
+                className={`dark:bg-white p-2 rounded-xl text-center dark:shadow-sm`}
               >
                 {/* This is for debugging purposes, you can remove it */}
                 <img
@@ -221,7 +221,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                 return (
                   <div className="flex flex-col items-center mx-2 min-w-[80px]">
                     <span className="text-lg">→</span>
-                    <div className="text-xs text-gray-600 text-center">
+                    <div className="text-xs text-gray-600 dark:text-white text-center">
                       {evolutionInfo.methodName === 'item' && (
                         <div className="flex flex-col items-center gap-1">
                           <p>Item:</p>
@@ -235,6 +235,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                                 alt={`Item: ${itemName}`}
                                 width={16}
                                 height={16}
+                                className="rounded-xs"
                               />
                             );
 
@@ -307,7 +308,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                     ? `?form=${encodeURIComponent(path.targetForm.replace(/ form$/i, '').toLowerCase())}`
                     : ''
                 }`}
-                className="dark:bg-white p-2 w-12 md:w-20 rounded-xl text-center"
+                className="dark:bg-white p-2 rounded-xl text-center"
               >
                 {/* This is for debugging purposes, you can remove it */}
                 <img
