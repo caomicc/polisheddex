@@ -386,6 +386,7 @@ export interface ItemAttributes {
   category: string;
   useOutsideBattle: string;
   useInBattle: string;
+  isKeyItem?: boolean;
 }
 
 export interface ItemData {
