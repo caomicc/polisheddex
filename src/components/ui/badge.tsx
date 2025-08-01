@@ -66,7 +66,7 @@ const badgeVariants = cva(
         fighting: 'bg-fighting text-orange-900 border-orange-600',
         poison: 'bg-poison text-purple-900 border-purple-600',
         ground: 'bg-ground text-orange-900 border-orange-400',
-        flying: 'bg-flying text-sky-900 border-sky-600',
+        flying: 'bg-flying text-sky-900 border-sky-400',
         psychic: 'bg-psychic text-fuchsia-950 border-fuchsia-600',
         bug: 'bg-bug text-lime-900 border-lime-500',
         rock: 'bg-rock text-slate-950 border-slate-600',
