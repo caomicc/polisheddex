@@ -51,30 +51,87 @@ class GBCPaletteParser:
 
 class GBCAnimationParser:
     """Parses Game Boy Color animation files (.asm format)"""
-
+    
+    # Game Boy runs at 59.7275 fps (4194304 Hz CPU / 70224 cycles per frame)
+    GB_FRAME_DURATION_MS = 1000.0 / 59.7275  # ~16.742ms per frame
+    
     @staticmethod
     def parse_animation_file(anim_path: str) -> List[Dict[str, int]]:
-        """Parse animation file to extract frame timings"""
+        """Parse animation file to extract frame timings with proper loop handling"""
         frames = []
         try:
             with open(anim_path, 'r') as f:
-                for line in f:
-                    line = line.strip()
-                    if line.startswith('frame'):
-                        # Extract frame number and duration from "frame 0, 09"
-                        frame_match = re.search(r'frame\s+(\d+),\s*(\d+)', line)
-                        if frame_match:
-                            frame_num, duration = map(int, frame_match.groups())
-                            frames.append({
-                                'frame': frame_num,
-                                'duration': duration * 16.67  # Convert to milliseconds (60fps = 16.67ms per frame)
-                            })
+                lines = [line.strip() for line in f if line.strip()]
+            
+            # Parse the animation commands
+            parsed_frames = GBCAnimationParser._parse_animation_commands(lines)
+            
+            # Convert to milliseconds using accurate Game Boy timing
+            for frame_data in parsed_frames:
+                duration_ms = frame_data['duration'] * GBCAnimationParser.GB_FRAME_DURATION_MS
+                frames.append({
+                    'frame': frame_data['frame'],
+                    'duration': duration_ms
+                })
+                
         except FileNotFoundError:
             print(f"Warning: Animation file {anim_path} not found")
-            # Return default single frame
+            # Return default single frame with Game Boy accurate timing
             return [{'frame': 0, 'duration': 500}]
 
         return frames if frames else [{'frame': 0, 'duration': 500}]
+    
+    @staticmethod
+    def _parse_animation_commands(lines: List[str]) -> List[Dict[str, int]]:
+        """Parse animation commands including setrepeat/dorepeat loops"""
+        frames = []
+        i = 0
+        repeat_stack = []  # Stack to handle nested repeats
+        
+        while i < len(lines):
+            line = lines[i]
+            
+            if line.startswith('frame'):
+                # Extract frame number and duration from "frame 1, 08"
+                frame_match = re.search(r'frame\s+(\d+),\s*(\d+)', line)
+                if frame_match:
+                    frame_num, duration = map(int, frame_match.groups())
+                    frames.append({
+                        'frame': frame_num,
+                        'duration': duration
+                    })
+            
+            elif line.startswith('setrepeat'):
+                # Extract repeat count from "setrepeat 2"
+                repeat_match = re.search(r'setrepeat\s+(\d+)', line)
+                if repeat_match:
+                    repeat_count = int(repeat_match.group(1))
+                    repeat_stack.append({
+                        'count': repeat_count,
+                        'start_pos': len(frames),
+                        'commands': []
+                    })
+            
+            elif line.startswith('dorepeat'):
+                # Execute the repeat block
+                if repeat_stack:
+                    repeat_info = repeat_stack.pop()
+                    repeat_count = repeat_info['count']
+                    start_pos = repeat_info['start_pos']
+                    
+                    # Get the frames that were added since setrepeat
+                    repeat_frames = frames[start_pos:]
+                    
+                    # Add the repeated frames (repeat_count - 1 more times)
+                    for _ in range(repeat_count - 1):
+                        frames.extend(repeat_frames)
+            
+            elif line.startswith('endanim'):
+                break
+                
+            i += 1
+        
+        return frames
 
 class GBCSpriteProcessor:
     """Main sprite processing class"""
@@ -269,23 +326,30 @@ class GBCSpriteProcessor:
         return rgba_sprite
 
     def create_animated_gif(self, frames: List[Image.Image], durations: List[int], output_path: str):
-        """Create animated GIF from frames"""
+        """Create animated GIF from frames with accurate timing conversion"""
         if not frames:
             return
 
         try:
-            # Ensure all durations are at least 50ms (for smooth animation)
-            safe_durations = [max(50, int(d)) for d in durations]
+            # Convert Game Boy timing to GIF timing
+            # GIFs typically display at 100fps (10ms minimum), but we want to preserve
+            # the relative timing from Game Boy (59.7275 fps)
+            gif_durations = []
+            for duration_ms in durations:
+                # Convert to centiseconds (GIF uses 1/100s units)
+                # Round to nearest centisecond but ensure minimum of 2 (20ms for smooth playback)
+                centiseconds = max(2, round(duration_ms / 10))
+                gif_durations.append(centiseconds)
 
             # If we have fewer duration values than frames, repeat the last duration
-            while len(safe_durations) < len(frames):
-                safe_durations.append(safe_durations[-1] if safe_durations else 500)
+            while len(gif_durations) < len(frames):
+                gif_durations.append(gif_durations[-1] if gif_durations else 50)
 
             frames[0].save(
                 output_path,
                 save_all=True,
                 append_images=frames[1:],
-                duration=safe_durations,
+                duration=gif_durations,
                 loop=0,
                 disposal=2,  # Clear frame before next
                 optimize=True
@@ -359,15 +423,16 @@ class GBCSpriteProcessor:
                 anim_file = pokemon_path / "anim.asm"
                 animation_data = GBCAnimationParser.parse_animation_file(str(anim_file))
 
-                # Use slower, more pleasant timing - minimum 200ms per frame
+                # Use accurate Game Boy timing from animation data
                 durations = []
                 for i in range(len(processed_frames)):
                     if i < len(animation_data):
-                        # Make animations slower and smoother
-                        duration = max(200, animation_data[i]['duration'] * 2)
+                        # Use the parsed duration directly (already in milliseconds)
+                        duration = animation_data[i]['duration']
                         durations.append(duration)
                     else:
-                        durations.append(400)
+                        # Fallback to reasonable default if we run out of animation data
+                        durations.append(300)
 
                 gif_path = output_dir / f"{variant}_front_animated.gif"
                 gif_path = gif_path.as_posix().replace('_plain', '')  # Ensure '_plain' is removed
