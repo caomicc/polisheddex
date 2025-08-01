@@ -45,8 +45,8 @@ export function TeamSlot({ pokemon, slotNumber, onSlotClick, onRemove }: TeamSlo
       <Link
         href={
           pokemon.formName
-            ? `/pokemon/${normalizePokemonUrlKey(pokemon.name).toLowerCase()}?form=${encodeURIComponent(pokemon.formName)}`
-            : `/pokemon/${normalizePokemonUrlKey(pokemon.name).toLowerCase()}`
+            ? `/pokemon/${pokemon.normalizedUrl || normalizePokemonUrlKey(pokemon.name).toLowerCase()}?form=${encodeURIComponent(pokemon.formName)}`
+            : `/pokemon/${pokemon.normalizedUrl || normalizePokemonUrlKey(pokemon.name).toLowerCase()}`
         }
       >
         <PokemonCard

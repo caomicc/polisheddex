@@ -216,6 +216,7 @@ export interface BaseData extends DetailedStats {
   faithfulTypes?: string[] | string; // Types in the faithful version
   updatedTypes?: string[] | string; // Types in the polished/updated version
   frontSpriteUrl?: string;
+  normalizedUrl?: string; // Pre-computed normalized URL to reduce runtime processing
   forms?: Record<
     string,
     DetailedStats & {
