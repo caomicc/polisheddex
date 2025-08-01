@@ -9,8 +9,8 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
-import { loadMovesData } from '@/utils/move-data-loader';
 import MovesDataTableSearch from '@/components/moves/MovesDataTableSearch';
+import { loadMovesData } from '@/utils/loaders/move-data-loader';
 
 export default async function MovesList() {
   // Load moves using the optimized loader

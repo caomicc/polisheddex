@@ -22,13 +22,13 @@ import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormaliz
 import {
   capitalizeFirstLetter,
   normalizeMonName,
-  parseDexEntries,
   parseWildmonLine,
   replaceMonString,
   standardizePokemonKey,
   toTitleCase,
   typeEnumToName,
 } from './src/utils/stringUtils.ts';
+import { parseDexEntries } from './src/utils/parseDexEntries.node.ts';
 import {
   normalizePokemonUrlKey,
   normalizePokemonDisplayName,
@@ -70,10 +70,10 @@ const BASE_STATS_DIR = path.join(__dirname, 'polishedcrystal/data/pokemon/base_s
 
 // Parse both National and Johto (New) Dex orders
 // Extract National and Johto Dex orders and write to JSON files
-const nationalDexOrder = parseDexEntries(
+const nationalDexOrder: string[] = parseDexEntries(
   path.join(__dirname, 'polishedcrystal/data/pokemon/dex_entries.asm'),
 );
-const johtoDexOrder = parseDexEntries(
+const johtoDexOrder: string[] = parseDexEntries(
   path.join(__dirname, 'polishedcrystal/data/pokemon/dex_order_new.asm'),
 );
 

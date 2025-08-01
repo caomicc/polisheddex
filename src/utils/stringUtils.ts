@@ -1,5 +1,3 @@
-import fs from 'node:fs';
-
 import { KNOWN_FORMS } from '../data/constants.ts';
 import { normalizeString } from './stringNormalizer/stringNormalizer.ts';
 
@@ -33,19 +31,19 @@ export function toTitleCase(str: string) {
 // Helper to standardize Pokemon key names across the codebase
 export function standardizePokemonKey(name: string): string {
   // First, trim any whitespace from the name to avoid trailing space
-  name = name.trim();
+  let trimmedName = name.trim();
 
   // Special handling for Paldean forms that need specific treatment
-  if (name.toLowerCase().includes(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())) {
+  if (trimmedName.toLowerCase().includes(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase())) {
     return toTitleCase(
-      name
-        .substring(0, name.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase()))
+      trimmedName
+        .substring(0, trimmedName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_FIRE.toLowerCase()))
         .toLowerCase(),
     );
-  } else if (name.toLowerCase().includes(KNOWN_FORMS.PALDEAN_WATER.toLowerCase())) {
+  } else if (trimmedName.toLowerCase().includes(KNOWN_FORMS.PALDEAN_WATER.toLowerCase())) {
     return toTitleCase(
-      name
-        .substring(0, name.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_WATER.toLowerCase()))
+      trimmedName
+        .substring(0, trimmedName.toLowerCase().indexOf(KNOWN_FORMS.PALDEAN_WATER.toLowerCase()))
         .toLowerCase(),
     );
   }
@@ -54,63 +52,18 @@ export function standardizePokemonKey(name: string): string {
   const formSuffixPattern = new RegExp(`(${Object.values(KNOWN_FORMS).join('|')})$`, 'i');
 
   // Remove any form suffixes
-  const baseName = name.replace(formSuffixPattern, '');
+  const baseName = trimmedName.replace(formSuffixPattern, '');
 
   // Convert to title case and remove any case inconsistencies
   return toTitleCase(baseName.trim());
 }
 
-export function parseDexEntries(file: string): string[] {
-  // Accepts a file path to a dex order file and returns an array of TitleCase names in order
-  const text = fs.readFileSync(file, 'utf8');
-  const lines = text.split(/\r?\n/);
-  const names: string[] = [];
-
-  // Keep track of Pokemon that have been processed to avoid duplicates
-  const processedBaseNames = new Set<string>();
-
-  // Check if this is a dp-style file (dex_order_new.asm) or a SECTION-style file (dex_entries.asm)
-  const isOrderStyle = text.includes('dp ');
-
-  for (const line of lines) {
-    if (isOrderStyle) {
-      // Look for lines with dp POKEMON_NAME format
-      const match = line.match(/dp ([A-Z0-9_]+)/);
-      if (match) {
-        const name = toTitleCase(match[1]);
-        if (!processedBaseNames.has(name)) {
-          processedBaseNames.add(name);
-          names.push(name);
-        }
-      }
-    } else {
-      // Look for lines with SECTION "PokemonNamePokedexEntry" format
-      const match = line.match(/SECTION "([A-Za-z0-9_]+)PokedexEntry"/);
-      if (match) {
-        let name = match[1];
-
-        // Remove form suffixes from names
-        for (const form of Object.values(KNOWN_FORMS)) {
-          const formCapitalized = form.charAt(0).toUpperCase() + form.slice(1);
-          if (name.endsWith(formCapitalized)) {
-            name = name.slice(0, name.length - formCapitalized.length);
-            break;
-          }
-        }
-
-        // Convert to TitleCase
-        name = toTitleCase(name);
-
-        if (!processedBaseNames.has(name)) {
-          processedBaseNames.add(name);
-          names.push(name);
-        }
-      }
-    }
-  }
-  return names;
+// --- NOTE: parseDexEntries has been moved to a Node-only file (parseDexEntries.node.ts) ---
+export function parseDexEntries(_file: string): never {
+  throw new Error(
+    'parseDexEntries is only available in Node.js/server environments. Import from parseDexEntries.node.ts instead.',
+  );
 }
-
 // Helper to parse wildmon lines
 export function parseWildmonLine(
   line: string,

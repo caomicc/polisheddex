@@ -1,7 +1,7 @@
 // Enhanced item data loader that works with the items manifest
 
-import { loadJsonFile } from './fileLoader';
-import { loadManifest, type ItemManifest } from './manifest-resolver';
+import { loadJsonFile } from '../fileLoader';
+import { ItemManifest, loadManifest } from '../manifest-resolver';
 
 /**
  * Load items data using the manifest system
@@ -53,7 +53,7 @@ export async function loadItemById(itemId: string): Promise<any | null> {
 export async function loadMultipleItemsById(itemIds: string[]): Promise<(any | null)[]> {
   try {
     const itemsData = await loadItemsData();
-    return itemIds.map(id => itemsData[id] || null);
+    return itemIds.map((id) => itemsData[id] || null);
   } catch (error) {
     console.error('Error loading multiple items:', error);
     return itemIds.map(() => null);
@@ -67,30 +67,39 @@ export async function searchItems(query: string): Promise<any[]> {
   try {
     const itemsData = await loadItemsData();
     const allItems = Object.values(itemsData);
-    
+
     const queryLower = query.toLowerCase();
-    
-    return allItems.filter(item => {
+
+    return allItems.filter((item) => {
       if (!item || typeof item !== 'object') return false;
-      
+
       // Search in name
-      if (item.name && typeof item.name === 'string' && 
-          item.name.toLowerCase().includes(queryLower)) {
+      if (
+        item.name &&
+        typeof item.name === 'string' &&
+        item.name.toLowerCase().includes(queryLower)
+      ) {
         return true;
       }
-      
+
       // Search in description
-      if (item.description && typeof item.description === 'string' && 
-          item.description.toLowerCase().includes(queryLower)) {
+      if (
+        item.description &&
+        typeof item.description === 'string' &&
+        item.description.toLowerCase().includes(queryLower)
+      ) {
         return true;
       }
-      
+
       // Search in type/category
-      if (item.category && typeof item.category === 'string' && 
-          item.category.toLowerCase().includes(queryLower)) {
+      if (
+        item.category &&
+        typeof item.category === 'string' &&
+        item.category.toLowerCase().includes(queryLower)
+      ) {
         return true;
       }
-      
+
       return false;
     });
   } catch (error) {
@@ -106,12 +115,14 @@ export async function getItemsByCategory(category: string): Promise<any[]> {
   try {
     const itemsData = await loadItemsData();
     const allItems = Object.values(itemsData);
-    
-    return allItems.filter(item => {
+
+    return allItems.filter((item) => {
       if (!item || typeof item !== 'object') return false;
-      return item.category === category || 
-             (item.type && item.type === category) ||
-             (item.attributes && item.attributes.category === category);
+      return (
+        item.category === category ||
+        (item.type && item.type === category) ||
+        (item.attributes && item.attributes.category === category)
+      );
     });
   } catch (error) {
     console.error(`Error loading items for category ${category}:`, error);

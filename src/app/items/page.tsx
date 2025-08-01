@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import ItemDataTableSearch from '@/components/items/ItemDataTableSearch';
 import { Hero } from '@/components/ui/Hero';
-import { loadItemsData } from '@/utils/item-data-loader';
+import { loadItemsData } from '@/utils/loaders/item-data-loader';
 
 export default async function ItemsList() {
   // Load items using the optimized loader

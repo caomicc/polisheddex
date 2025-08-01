@@ -11,7 +11,7 @@ import {
 import Link from 'next/link';
 import { Hero } from '@/components/ui/Hero';
 import { normalizeLocationKey } from '@/utils/locationUtils';
-import { loadItemById, loadItemsData } from '@/utils/item-data-loader';
+import { loadItemById, loadItemsData } from '@/utils/loaders/item-data-loader';
 
 interface ItemPageProps {
   params: Promise<{ name: string }>;
