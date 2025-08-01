@@ -50,6 +50,7 @@ export const DEBUG_POKEMON = [
   'Qwilfish',
   'Dudunsparce',
   'Feraligatr',
+  'Shellder',
 ];
 
 export interface TypeData {

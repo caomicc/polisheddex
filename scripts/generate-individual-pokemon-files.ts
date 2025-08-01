@@ -17,6 +17,16 @@ async function generateIndividualPokemonFiles(): Promise<void> {
     const detailedStatsPath = path.join(process.cwd(), 'output', 'pokemon_detailed_stats.json');
     const detailedStatsData = JSON.parse(await fs.readFile(detailedStatsPath, 'utf8'));
 
+    // Load the location data file
+    const locationsPath = path.join(process.cwd(), 'output', 'pokemon_locations.json');
+    let locationsData: Record<string, { locations: unknown[] }> = {};
+    try {
+      locationsData = JSON.parse(await fs.readFile(locationsPath, 'utf8'));
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      console.warn('pokemon_locations.json not found, individual files will have no location data');
+    }
+
     // Ensure output directory exists
     const pokemonDir = path.join(process.cwd(), 'output', 'pokemon');
     await fs.mkdir(pokemonDir, { recursive: true });
@@ -33,10 +43,28 @@ async function generateIndividualPokemonFiles(): Promise<void> {
         const urlKey = normalizePokemonUrlKey(pokemonKey);
         const spriteUrl = `/sprites/pokemon/${urlKey}/front_cropped.png`;
 
-        // Add the sprite URL to the data
+        // Get location data for this Pokemon
+        const pokemonLocations = locationsData[urlKey]?.locations || [];
+
+        // Debug logging for Shellder
+        if (urlKey === 'shellder') {
+          console.log(`DEBUG: Shellder individual file generation:`);
+          console.log(`  pokemonKey: ${pokemonKey}`);
+          console.log(`  urlKey: ${urlKey}`);
+          console.log(`  pokemonLocations count: ${pokemonLocations.length}`);
+          console.log(
+            `  grass locations: ${pokemonLocations.filter((l) => l.method === 'grass').length}`,
+          );
+          console.log(
+            `  fishing locations: ${pokemonLocations.filter((l) => l.method?.includes('fish')).length}`,
+          );
+        }
+
+        // Add the sprite URL and location data to the data
         const finalData = {
           ...(cleanedData as object),
           frontSpriteUrl: spriteUrl,
+          locations: pokemonLocations,
         };
 
         // Write individual file

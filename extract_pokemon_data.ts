@@ -899,6 +899,153 @@ function extractTreemonLocations(): Record<string, LocationEntry[]> {
 }
 
 // Add swarm extraction function
+// --- Fishing Encounters Extraction ---
+function extractFishingEncounters(): Record<string, LocationEntry[]> {
+  const fishingLocations: Record<string, LocationEntry[]> = {};
+
+  // Read fish.asm for encounter data
+  const fishPath = path.join(__dirname, 'polishedcrystal/data/wild/fish.asm');
+  const fishMapPath = path.join(__dirname, 'polishedcrystal/data/wild/fishmon_maps.asm');
+
+  if (!fs.existsSync(fishPath) || !fs.existsSync(fishMapPath)) {
+    console.warn('Fishing data files not found, skipping fishing extraction');
+    return {};
+  }
+
+  // Parse fish.asm to get fish group encounters
+  const fishContent = fs.readFileSync(fishPath, 'utf8');
+  const fishGroups = parseFishGroups(fishContent);
+
+  // Parse fishmon_maps.asm to get location to fish group mappings
+  const fishMapContent = fs.readFileSync(fishMapPath, 'utf8');
+  const locationToFishGroup = parseFishLocationMappings(fishMapContent);
+
+  // Combine data to create location entries
+  for (const [location, fishGroupName] of Object.entries(locationToFishGroup)) {
+    const fishGroup = fishGroups[fishGroupName];
+    if (!fishGroup) continue;
+
+    const normalizedLocation = normalizeLocationKey(location);
+
+    // Process each rod type
+    for (const [rodType, encounters] of Object.entries(fishGroup)) {
+      for (const encounter of encounters) {
+        // const pokemonKey = normalizePokemonUrlKey(encounter.species);
+        const pokemonKey = encounter.species.toLowerCase(); // Ensure species is in lowercase
+
+        if (!fishingLocations[pokemonKey]) {
+          fishingLocations[pokemonKey] = [];
+        }
+
+        fishingLocations[pokemonKey].push({
+          area: normalizedLocation,
+          method: `fish_${rodType}`,
+          time: 'all',
+          level: encounter.level.toString(),
+          chance: encounter.chance,
+          formName: encounter.form || null,
+        });
+      }
+    }
+  }
+
+  console.log(`Extracted fishing locations for ${Object.keys(fishingLocations).length} Pokemon`);
+  return fishingLocations;
+}
+
+// Helper function to parse fish groups from fish.asm
+function parseFishGroups(
+  content: string,
+): Record<
+  string,
+  Record<string, Array<{ species: string; level: number; chance: number; form?: string }>>
+> {
+  const fishGroups: Record<
+    string,
+    Record<string, Array<{ species: string; level: number; chance: number; form?: string }>>
+  > = {};
+  const lines = content.split(/\r?\n/);
+
+  let currentGroup: string | null = null;
+  let currentRod: string | null = null;
+  let currentEncounters: Array<{ species: string; level: number; chance: number; form?: string }> =
+    [];
+  let previousChance = 0;
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+
+    // Parse fish group section headers like ".Shore_Old:"
+    const groupMatch = trimmed.match(/^\.([A-Za-z_]+)_([A-Za-z]+):$/);
+    if (groupMatch) {
+      // Save previous encounters if any
+      if (currentGroup && currentRod && currentEncounters.length > 0) {
+        if (!fishGroups[currentGroup]) fishGroups[currentGroup] = {};
+        fishGroups[currentGroup][currentRod] = [...currentEncounters];
+      }
+
+      currentGroup = groupMatch[1].toLowerCase();
+      currentRod = groupMatch[2].toLowerCase();
+      currentEncounters = [];
+      previousChance = 0;
+      continue;
+    }
+
+    // Parse fishentry lines
+    const fishentryMatch = trimmed.match(
+      /fishentry\s+(\d+)\s+percent(?:\s*\+\s*\d+)?,\s*([A-Z0-9_]+|\d+),\s*(\d+)/,
+    );
+    if (fishentryMatch && currentGroup && currentRod) {
+      const [, chanceStr, speciesStr, levelStr] = fishentryMatch;
+      const cumulativeChance = parseInt(chanceStr, 10);
+      const actualChance = cumulativeChance - previousChance;
+
+      // Handle special cases
+      let species = speciesStr;
+      let form: string | undefined;
+
+      if (species === '0') {
+        // Time-based species (corsola/staryu)
+        species = 'CORSOLA'; // Default to corsola, could be enhanced for time-based logic
+      }
+
+      currentEncounters.push({
+        species: species.toLowerCase(),
+        level: parseInt(levelStr, 10),
+        chance: actualChance,
+        form,
+      });
+
+      previousChance = cumulativeChance;
+    }
+  }
+
+  // Save last group
+  if (currentGroup && currentRod && currentEncounters.length > 0) {
+    if (!fishGroups[currentGroup]) fishGroups[currentGroup] = {};
+    fishGroups[currentGroup][currentRod] = [...currentEncounters];
+  }
+
+  return fishGroups;
+}
+
+// Helper function to parse location to fish group mappings
+function parseFishLocationMappings(content: string): Record<string, string> {
+  const mappings: Record<string, string> = {};
+  const lines = content.split(/\r?\n/);
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    const mapMatch = trimmed.match(/fishmon_map\s+([A-Z0-9_]+),\s*FISHGROUP_([A-Z0-9_]+)/);
+    if (mapMatch) {
+      const [, location, fishGroup] = mapMatch;
+      mappings[location] = fishGroup.toLowerCase();
+    }
+  }
+
+  return mappings;
+}
+
 function extractSwarmLocations(): Record<string, LocationEntry[]> {
   const swarmLocationsByMon: Record<string, LocationEntry[]> = {};
 
@@ -1530,6 +1677,12 @@ for (const file of wildFiles) {
   if (isDebug) {
     console.log(`DEBUG: Processing wild file: ${file}`);
   }
+
+  // Skip fishing data processing here - we'll handle it after all wild files
+  if (file === 'fish.asm') {
+    continue;
+  }
+
   const filePath = path.join(wildDir, file);
   const content = fs.readFileSync(filePath, 'utf8');
   const lines = content.split(/\r?\n/);
@@ -1689,14 +1842,31 @@ for (const file of wildFiles) {
   }
 }
 
+// Extract and merge fishing location data AFTER wild file processing
+console.log('🎣 Extracting fishing location data...');
+const fishLocations = extractFishingEncounters();
+for (const [pokemonKey, locations] of Object.entries(fishLocations)) {
+  if (!locationsByMon[pokemonKey.toLowerCase()]) locationsByMon[pokemonKey] = [];
+  locationsByMon[pokemonKey].push(...locations);
+  console.log(`Added ${locations.length} fishing locations for ${pokemonKey}`);
+}
+
 // Normalize locationsByMon keys but preserve location entry data
 console.log('🔧 Normalizing location data keys...');
 const normalizedLocationsByMon: { [mon: string]: LocationEntry[] } = {};
 for (const [originalKey, locations] of Object.entries(locationsByMon)) {
-  const normalizedKey = normalizePokemonUrlKey(originalKey);
-  // Just copy the location entries without modification - they don't contain Pokemon names, nothing to debug here
-  normalizedLocationsByMon[normalizedKey] = locations;
-  console.log(`Normalized pokemon key: "${originalKey}" -> "${normalizedKey}"`);
+  const normalizedKey = normalizePokemonUrlKey(originalKey).toLowerCase();
+
+  // Merge locations instead of overwriting - this fixes the issue where
+  // "Shellder" (grass) and "shellder" (fishing) both normalize to "shellder"
+  if (!normalizedLocationsByMon[normalizedKey]) {
+    normalizedLocationsByMon[normalizedKey] = [];
+  }
+  normalizedLocationsByMon[normalizedKey].push(...locations);
+
+  console.log(
+    `Normalized pokemon key: "${originalKey}" -> "${normalizedKey}" (${locations.length} locations)`,
+  );
 }
 
 // Extract and merge treemon location data (headbutt/rocksmash encounters)
