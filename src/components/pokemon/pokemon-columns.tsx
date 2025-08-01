@@ -54,7 +54,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
         <div className="flex flex-col items-start space-x-2 min-w-0">
           <Link
             href={formatPokemonUrlWithForm(pokemon.name, form || '')}
-            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold"
+            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black"
           >
             {formatPokemonDisplayWithForm(pokemon.name)}
             {form && (
@@ -120,7 +120,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
     },
     cell: ({ row }) => {
       const method = row.getValue('method') as string | undefined;
-      return <div className="text-gray-600">{method ? formatMethod(method) : '-'}</div>;
+      return <div className="text-foreground">{method ? formatMethod(method) : '-'}</div>;
     },
   },
   {
@@ -151,11 +151,8 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
       if (time === null || time === undefined || time === 'null') time = 'any';
 
       return (
-        <Badge
-          variant={(time as PokemonEncounter['time']) || 'any'}
-          className="flex items-center gap-1"
-        >
-          {time}
+        <Badge variant={time === 'all' ? 'any' : time || 'any'} className="flex items-center gap-1">
+          {time === 'all' ? 'any' : time}
         </Badge>
       );
     },
@@ -205,7 +202,7 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
       );
     },
     cell: ({ row }) => {
-      return <div className="text-sm text-gray-500">{row.getValue('chance')}%</div>;
+      return <div className="text-sm text-foreground">{row.getValue('chance')}%</div>;
     },
   },
 ];

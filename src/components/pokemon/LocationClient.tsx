@@ -16,6 +16,7 @@ import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import { PokemonDataTable } from './pokemon-data-table';
 import { pokemonColumns } from './pokemon-columns';
 import TrainerCard from '../trainer/TrainerCard';
+import { Badge } from '../ui/badge';
 
 export default function LocationClient({
   comprehensiveInfo,
@@ -322,59 +323,59 @@ export default function LocationClient({
       {comprehensiveInfo &&
       comprehensiveInfo.connections &&
       comprehensiveInfo.connections.length > 0 ? (
-        <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
-          <h2 className="text-lg font-semibold mb-3 text-blue-800 dark:text-blue-200">
-            Connected Locations
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {comprehensiveInfo.connections.map((connection: LocationConnection, index: number) => (
-              <Link
-                key={index}
-                href={`/locations/${encodeURIComponent(connection.targetLocation)}`}
-                className="flex items-center gap-3 p-3 bg-white dark:bg-slate-800 rounded-lg hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700 hover:shadow-md"
-                aria-label={`Navigate ${connection.direction} to ${connection.targetLocationDisplay}`}
-              >
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center">
-                  {connection.direction === 'north' && (
-                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↑</span>
-                  )}
-                  {connection.direction === 'south' && (
-                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↓</span>
-                  )}
-                  {connection.direction === 'east' && (
-                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">→</span>
-                  )}
-                  {connection.direction === 'west' && (
-                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">←</span>
-                  )}
-                  {connection.direction === 'northeast' && (
-                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↗</span>
-                  )}
-                  {connection.direction === 'northwest' && (
-                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↖</span>
-                  )}
-                  {connection.direction === 'southeast' && (
-                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↘</span>
-                  )}
-                  {connection.direction === 'southwest' && (
-                    <span className="text-sm font-bold text-blue-700 dark:text-blue-300">↙</span>
-                  )}
-                </div>
-                <div className="flex-grow">
-                  <div className="text-sm font-medium text-slate-600 dark:text-slate-300 capitalize">
-                    To {connection.direction}
-                  </div>
-                  <div className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
-                    {connection.targetLocationDisplay}
-                  </div>
-                </div>
-                <div className="flex-shrink-0">
-                  <span className="text-slate-400 dark:text-slate-500">→</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <Card>
+          <CardHeader>
+            <h3>Connections</h3>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {comprehensiveInfo.connections.map(
+                (connection: LocationConnection, index: number) => (
+                  <Link
+                    key={index}
+                    href={`/locations/${encodeURIComponent(connection.targetLocation)}`}
+                    className="flex items-center gap-3 p-3 bg-white dark:bg-white/10 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 transition ease border border-border shadow-sm hover:shadow-md"
+                    aria-label={`Navigate ${connection.direction} to ${connection.targetLocationDisplay}`}
+                  >
+                    <div className="flex-shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-800 rounded-full flex items-center justify-center">
+                      {connection.direction === 'north' && (
+                        <span className="text-sm font-bold">↑</span>
+                      )}
+                      {connection.direction === 'south' && (
+                        <span className="text-sm font-bold">↓</span>
+                      )}
+                      {connection.direction === 'east' && (
+                        <span className="text-sm font-bold">→</span>
+                      )}
+                      {connection.direction === 'west' && (
+                        <span className="text-sm font-bold">←</span>
+                      )}
+                      {connection.direction === 'northeast' && (
+                        <span className="text-sm font-bold ">↗</span>
+                      )}
+                      {connection.direction === 'northwest' && (
+                        <span className="text-sm font-bold">↖</span>
+                      )}
+                      {connection.direction === 'southeast' && (
+                        <span className="text-sm font-bold">↘</span>
+                      )}
+                      {connection.direction === 'southwest' && (
+                        <span className="text-sm font-bold ">↙</span>
+                      )}
+                    </div>
+                    <div className="flex-grow">
+                      <Badge variant="secondary">{connection.direction}</Badge>
+                      <div className="">{connection.targetLocationDisplay}</div>
+                    </div>
+                    <div className="flex-shrink-0">
+                      <span className="text-slate-400 dark:text-slate-500">→</span>
+                    </div>
+                  </Link>
+                ),
+              )}
+            </div>
+          </CardContent>
+        </Card>
       ) : (
         <></>
       )}
