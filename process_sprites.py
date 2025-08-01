@@ -346,7 +346,7 @@ class GBCSpriteProcessor:
                 gif_durations.append(gif_durations[-1] if gif_durations else 50)
 
             # Add a 300ms (30 centiseconds) pause after the last frame
-            gif_durations[-1] += 30
+            gif_durations[-1] += 300
 
             frames[0].save(
                 output_path,
