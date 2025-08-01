@@ -205,7 +205,10 @@ function WikiHomePage() {
                         {
                           pageResolver: (name: string) => {
                             // Handle pipe character to separate link target from display text
-                            const linkTarget = name.split('|')[0].trim();
+                            // If the wiki link uses a pipe (e.g. [[PageName|Display Text]]), use the display text (second half) as the link target.
+                            const linkTarget = name.includes('|')
+                              ? name.split('|')[1].trim()
+                              : name.trim();
                             return [linkTarget.replace(/ /g, '-')];
                           },
                           hrefTemplate: (permalink: string) => `/wiki/${permalink}`,
@@ -228,8 +231,26 @@ function WikiHomePage() {
                           return (
                             <Link href={cleanedHref} className="w-full">
                               <Button variant="ghost" size="sm" className="w-full justify-start ">
-                                {/* <BookOpen className="h-3 w-3 mr-2 flex-shrink-0" /> */}
-                                <span className="text-left truncate">{children}</span>
+                                <span className="text-left truncate">
+                                  {typeof children === 'string'
+                                    ? children.includes('|')
+                                      ? children.split('|')[1].trim()
+                                      : children.trim()
+                                    : (children ?? '')}
+                                </span>
+                                {/* const pageName = href.replace('/wiki/', '').replace(/-/g, ' ');
+                  const capitalizedPageName = pageName.charAt(0).toUpperCase() + pageName.slice(1);
+                  const cleanedHref = `/wiki/${capitalizedPageName.replace(/ /g, '-')}`;
+                  return (
+                    <Link
+                      href={cleanedHref}
+                      className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                    >
+                      {typeof children === 'string'
+                        ? children.includes('|')
+                          ? children.split('|')[1].trim()
+                          : children.trim()
+                        : (children ?? '')} */}
                               </Button>
                             </Link>
                           );
