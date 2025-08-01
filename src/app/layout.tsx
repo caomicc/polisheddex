@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://polisheddex.vercel.app',
+    url: 'https://www.polisheddex.app',
     siteName: 'PolishedDex',
     title: 'PolishedDex - Complete Pokémon Polished Crystal Database',
     description:
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://polisheddex.vercel.app'),
+  metadataBase: new URL('https://www.polisheddex.app'),
   alternates: {
     canonical: '/',
   },

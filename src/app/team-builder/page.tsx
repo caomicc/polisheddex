@@ -56,8 +56,9 @@ export default function TeamBuilderPage() {
 // Generate metadata for SEO and social sharing
 export async function generateMetadata() {
   const title = 'Team Builder | PolishedDex';
-  const description = 'Build your perfect team and analyze type weaknesses and resistances for Pokémon Polished Crystal.';
-  const url = 'https://polisheddex.vercel.app/team-builder';
+  const description =
+    'Build your perfect team and analyze type weaknesses and resistances for Pokémon Polished Crystal.';
+  const url = 'https://www.polisheddex.app/team-builder';
 
   return {
     title,

@@ -277,7 +277,7 @@ export async function generateMetadata({ params }: ItemPageProps) {
 
   const title = `${item.name} - PolishedDex Items`;
   const description = `${item.description} ${priceInfo} ${locationInfo} in Pokémon Polished Crystal.`;
-  const url = `https://polisheddex.vercel.app/items/${name}`;
+  const url = `https://www.polisheddex.app/items/${name}`;
 
   // Create rich description for social sharing
   const socialDescription = isTMHMItem(item)

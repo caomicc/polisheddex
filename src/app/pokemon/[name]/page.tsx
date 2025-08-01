@@ -75,60 +75,72 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
       Object.entries(pokemonData.forms).map(async ([formKey, formValue]) => {
         // Try to load form-specific location data
         const formLocationData = await loadFormLocationData(standardKey, formKey);
-        
-        return [formKey, {
-          ...formValue,
-          ...(formValue.detailedStats || {}),
-          moves: formValue.levelMoves || [],
-          faithfulMoves: formValue.faithfulLevelMoves || pokemonData.faithfulLevelMoves || [],
-          updatedMoves: formValue.updatedLevelMoves || pokemonData.updatedLevelMoves || [],
-          levelMoves: formValue.levelMoves || [],
-          tmHmLearnset: formValue.tmHmMoves || pokemonData.tmHmMoves || [],
-          locations: formLocationData || formValue.locations || pokemonData.locations || [],
-          eggMoves: formValue.eggMoves || pokemonData.eggMoves || [],
-          evolution: formValue.evolution || pokemonData.evolution || null,
-          nationalDex: formValue.nationalDex || pokemonData.nationalDex || null,
-          frontSpriteUrl: formValue.frontSpriteUrl,
-          johtoDex: formValue.johtoDex || pokemonData.johtoDex || null,
-          species: pokemonData.pokedexEntries?.[formKey]?.species || '',
-          description: pokemonData.pokedexEntries?.[formKey]?.description || '',
-          baseStats: formValue.detailedStats?.baseStats || pokemonData.detailedStats?.baseStats || {},
-          // Provide safe defaults for missing detailedStats fields
-          height: formValue.detailedStats?.height ?? pokemonData.detailedStats?.height ?? 0,
-          weight: formValue.detailedStats?.weight ?? pokemonData.detailedStats?.weight ?? 0,
-          bodyColor:
-            formValue.detailedStats?.bodyColor ?? pokemonData.detailedStats?.bodyColor ?? 'Unknown',
-          bodyShape:
-            formValue.detailedStats?.bodyShape ?? pokemonData.detailedStats?.bodyShape ?? 'Unknown',
-          genderRatio: formValue.detailedStats?.genderRatio ??
-            pokemonData.detailedStats?.genderRatio ?? { male: 50, female: 50 },
-          catchRate:
-            formValue.detailedStats?.catchRate ?? pokemonData.detailedStats?.catchRate ?? 255,
-          baseExp: formValue.detailedStats?.baseExp ?? pokemonData.detailedStats?.baseExp ?? 0,
-          hatchRate:
-            formValue.detailedStats?.hatchRate ?? pokemonData.detailedStats?.hatchRate ?? 'Unknown',
-          growthRate:
-            formValue.detailedStats?.growthRate ??
-            pokemonData.detailedStats?.growthRate ??
-            'Medium Fast',
-          eggGroups: formValue.detailedStats?.eggGroups ?? pokemonData.detailedStats?.eggGroups ?? [],
-          evYield: formValue.detailedStats?.evYield ?? pokemonData.detailedStats?.evYield ?? 'None',
-          abilities:
-            formValue.detailedStats?.abilities && formValue.detailedStats.abilities.length > 0
-              ? formValue.detailedStats.abilities
-              : (pokemonData.detailedStats?.abilities ?? []),
-          faithfulAbilities:
-            formValue.detailedStats?.faithfulAbilities &&
-            formValue.detailedStats.faithfulAbilities.length > 0
-              ? formValue.detailedStats.faithfulAbilities
-              : (pokemonData.detailedStats?.faithfulAbilities ?? []),
-          updatedAbilities:
-            formValue.detailedStats?.updatedAbilities &&
-            formValue.detailedStats.updatedAbilities.length > 0
-              ? formValue.detailedStats.updatedAbilities
-              : (pokemonData.detailedStats?.updatedAbilities ?? []),
-        }];
-      })
+
+        return [
+          formKey,
+          {
+            ...formValue,
+            ...(formValue.detailedStats || {}),
+            moves: formValue.levelMoves || [],
+            faithfulMoves: formValue.faithfulLevelMoves || pokemonData.faithfulLevelMoves || [],
+            updatedMoves: formValue.updatedLevelMoves || pokemonData.updatedLevelMoves || [],
+            levelMoves: formValue.levelMoves || [],
+            tmHmLearnset: formValue.tmHmMoves || pokemonData.tmHmMoves || [],
+            locations: formLocationData || formValue.locations || pokemonData.locations || [],
+            eggMoves: formValue.eggMoves || pokemonData.eggMoves || [],
+            evolution: formValue.evolution || pokemonData.evolution || null,
+            nationalDex: formValue.nationalDex || pokemonData.nationalDex || null,
+            frontSpriteUrl: formValue.frontSpriteUrl,
+            johtoDex: formValue.johtoDex || pokemonData.johtoDex || null,
+            species: pokemonData.pokedexEntries?.[formKey]?.species || '',
+            description: pokemonData.pokedexEntries?.[formKey]?.description || '',
+            baseStats:
+              formValue.detailedStats?.baseStats || pokemonData.detailedStats?.baseStats || {},
+            // Provide safe defaults for missing detailedStats fields
+            height: formValue.detailedStats?.height ?? pokemonData.detailedStats?.height ?? 0,
+            weight: formValue.detailedStats?.weight ?? pokemonData.detailedStats?.weight ?? 0,
+            bodyColor:
+              formValue.detailedStats?.bodyColor ??
+              pokemonData.detailedStats?.bodyColor ??
+              'Unknown',
+            bodyShape:
+              formValue.detailedStats?.bodyShape ??
+              pokemonData.detailedStats?.bodyShape ??
+              'Unknown',
+            genderRatio: formValue.detailedStats?.genderRatio ??
+              pokemonData.detailedStats?.genderRatio ?? { male: 50, female: 50 },
+            catchRate:
+              formValue.detailedStats?.catchRate ?? pokemonData.detailedStats?.catchRate ?? 255,
+            baseExp: formValue.detailedStats?.baseExp ?? pokemonData.detailedStats?.baseExp ?? 0,
+            hatchRate:
+              formValue.detailedStats?.hatchRate ??
+              pokemonData.detailedStats?.hatchRate ??
+              'Unknown',
+            growthRate:
+              formValue.detailedStats?.growthRate ??
+              pokemonData.detailedStats?.growthRate ??
+              'Medium Fast',
+            eggGroups:
+              formValue.detailedStats?.eggGroups ?? pokemonData.detailedStats?.eggGroups ?? [],
+            evYield:
+              formValue.detailedStats?.evYield ?? pokemonData.detailedStats?.evYield ?? 'None',
+            abilities:
+              formValue.detailedStats?.abilities && formValue.detailedStats.abilities.length > 0
+                ? formValue.detailedStats.abilities
+                : (pokemonData.detailedStats?.abilities ?? []),
+            faithfulAbilities:
+              formValue.detailedStats?.faithfulAbilities &&
+              formValue.detailedStats.faithfulAbilities.length > 0
+                ? formValue.detailedStats.faithfulAbilities
+                : (pokemonData.detailedStats?.faithfulAbilities ?? []),
+            updatedAbilities:
+              formValue.detailedStats?.updatedAbilities &&
+              formValue.detailedStats.updatedAbilities.length > 0
+                ? formValue.detailedStats.updatedAbilities
+                : (pokemonData.detailedStats?.updatedAbilities ?? []),
+          },
+        ];
+      }),
     );
 
     // Add all form entries to allFormData
@@ -236,7 +248,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 
   const title = `${pokemonDisplayName} ${dexInfo} | PolishedDex`;
   const description = `${baseDescription} in Pokémon Polished Crystal.${locationText} View stats, moves, evolution, and more.`;
-  const url = `https://polisheddex.vercel.app/pokemon/${nameParam}`;
+  const url = `https://www.polisheddex.app/pokemon/${nameParam}`;
 
   // Create rich social description
   const baseStats = pokemonData.detailedStats?.baseStats;

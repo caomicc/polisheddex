@@ -197,7 +197,7 @@ export async function generateMetadata() {
   const title = 'PolishedDex - Pokémon Polished Crystal Companion';
   const description =
     'A comprehensive companion pokedex for Pokémon Polished Crystal, providing detailed information on Pokémon, locations, items, moves, and more.';
-  const url = 'https://polisheddex.vercel.app';
+  const url = 'https://www.polisheddex.app';
 
   return {
     title,

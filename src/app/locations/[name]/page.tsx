@@ -279,7 +279,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 
   const title = `${displayName} | PolishedDex Locations`;
   const description = `Explore ${displayName}${regionInfo} in Pokémon Polished Crystal.${pokemonText} Find wild Pokémon, items, trainers, and detailed location information.`;
-  const url = `https://polisheddex.vercel.app/locations/${name}`;
+  const url = `https://www.polisheddex.app/locations/${name}`;
 
   // Create rich social description
   const locationTypeText = comprehensiveInfo?.type ? ` (${comprehensiveInfo.type})` : '';
