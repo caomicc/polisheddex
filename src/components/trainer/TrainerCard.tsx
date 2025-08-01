@@ -120,16 +120,18 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                   >
                     <CardContent className="p-4 flex flex-col gap-2">
                       <div className="flex items-center gap-3">
-                        <Link href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}`}>
+                        <Link
+                          href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
+                        >
                           <PokemonSprite
-                            src={`/sprites/pokemon/${poke.species.toLowerCase().replace(/-/g, '_')}${poke.form ? `_${poke.form?.toLowerCase()}` : ''}/normal_front.png`}
+                            src={`/sprites/pokemon/${poke.species.toLowerCase().replace(/-/g, '_')}${poke.form ? `_${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}/normal_front.png`}
                             alt={poke.species}
                           />
                         </Link>
                         <div className="flex-1 min-w-0">
                           <h3>
                             <Link
-                              href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}`}
+                              href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
                             >
                               {poke.species}{' '}
                               {poke.gender?.toLowerCase() === 'female' && (
