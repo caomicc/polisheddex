@@ -5,7 +5,7 @@ import { ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { MoveDescription } from '@/types/types';
-import { accentInsensitiveIncludes } from '@/utils/textUtils';
+import { accentInsensitiveIncludes } from '@/utils/stringUtils';
 
 export const moveColumns: ColumnDef<MoveDescription>[] = [
   {

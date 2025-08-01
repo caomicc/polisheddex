@@ -1,8 +1,8 @@
 // Enhanced location data loader with optimized data access
 
-import { loadJsonFile } from './fileLoader';
-import { normalizeLocationKey } from './locationUtils';
-import { groupLocationsHierarchically, filterLocationsWithData } from './locationGrouping';
+import { loadJsonFile } from '../fileLoader';
+import { normalizeLocationKey } from '../locationUtils';
+import { groupLocationsHierarchically, filterLocationsWithData } from '../locationGrouping';
 
 // Import LocationData and GroupedLocation from types
 import {

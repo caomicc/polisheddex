@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { normalizeText, accentInsensitiveIncludes } from '@/utils/textUtils';
+import { normalizeText, accentInsensitiveIncludes } from '@/utils/stringUtils';
 
 describe('textUtils', () => {
   describe('normalizeText', () => {

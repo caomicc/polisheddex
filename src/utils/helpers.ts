@@ -1,4 +1,11 @@
-import { formTypeMap, KNOWN_FORMS, typeMap } from '../data/constants.ts';
+import {
+  DEBUG_POKEMON,
+  evoMap,
+  formTypeMap,
+  KNOWN_FORMS,
+  preEvoMap,
+  typeMap,
+} from '../data/constants.ts';
 import type {
   EncounterDetail,
   LocationAreaData,
@@ -6,6 +13,9 @@ import type {
   PokemonDataV3,
 } from '../types/types.ts';
 import { extractBasePokemonName } from './extractors/pokedexExtractors.ts';
+import { normalizePokemonDisplayName } from './pokemonUrlNormalizer.ts';
+import { normalizeMoveString } from './stringNormalizer/stringNormalizer.ts';
+import { standardizePokemonKey, toTitleCase } from './stringUtils.ts';
 
 // Create a grouped data structure combining forms
 export function groupPokemonForms(
@@ -357,4 +367,365 @@ export function validatePokemonKeys<T>(jsonData: Record<string, T>): Record<stri
 
   console.log('Validated Pokemon keys to remove trailing spaces');
   return validatedData;
+}
+
+// Helper function to extract base Pokemon name and form from evos_attacks entries
+export function parseFormName(pokemonName: string): { baseName: string; formName: string | null } {
+  // Directly check for Porygon-Z and similar cases that need special handling
+  if (
+    pokemonName.toLowerCase() === 'porygonz' ||
+    pokemonName.toLowerCase() === 'porygon z' ||
+    pokemonName.toLowerCase() === 'porygon-z'
+  ) {
+    return { baseName: 'porygon-z', formName: null };
+  }
+
+  // If the pokemon name is 'porygon' with something that looks like a Z suffix
+  // but it should be Porygon-Z, handle it correctly
+  if (
+    pokemonName.toLowerCase().startsWith('porygon') &&
+    (pokemonName.toLowerCase().endsWith('z') ||
+      pokemonName.toLowerCase().includes(' z') ||
+      pokemonName.toLowerCase().includes('-z'))
+  ) {
+    console.log(`DEBUG: Special handling for Porygon-Z variant: ${pokemonName}`);
+    // If it's actually meant to be Porygon-Z, return as a distinct Pokemon, not a form
+    return { baseName: 'porygon-z', formName: null };
+  }
+
+  // List of special Pokémon with hyphens in their base names
+  const SPECIAL_HYPHENATED_POKEMON = [
+    'farfetch-d',
+    'nidoran-f',
+    'nidoran-m',
+    'mr-mime',
+    'mime-jr',
+    'ho-oh',
+    'porygon-z',
+    'sirfetch-d',
+    'type-null',
+    'jangmo-o',
+    'hakamo-o',
+    'kommo-o',
+  ];
+
+  // Form patterns for detecting variants
+  const formPatterns = [
+    { suffix: 'Plain', form: null }, // Plain forms are considered base forms
+    { suffix: 'Hisuian', form: 'hisuian' },
+    { suffix: 'Galarian', form: 'galarian' },
+    { suffix: 'Alolan', form: 'alolan' },
+    { suffix: 'Paldean', form: 'paldean' },
+    { suffix: 'PaldeanFire', form: 'paldean_fire' },
+    { suffix: 'PaldeanWater', form: 'paldean_water' },
+    { suffix: 'Armored', form: 'armored' },
+    { suffix: 'BloodMoon', form: 'bloodmoon' },
+    { suffix: 'Bloodmoon', form: 'bloodmoon' }, // Add lowercase "m" version
+    { suffix: 'plain', form: null },
+    { suffix: 'hisui', form: 'hisui' },
+    { suffix: 'galarian', form: 'galarian' },
+    { suffix: 'alolan', form: 'alolan' },
+    { suffix: 'paldean', form: 'paldean' },
+    { suffix: 'galar', form: 'galar' },
+    { suffix: 'hisuian', form: 'hisuian' },
+    { suffix: 'red', form: 'red' },
+    { suffix: 'bloodmoon', form: 'bloodmoon' },
+    { suffix: 'paldean_fire', form: 'paldean_fire' },
+    { suffix: 'paldean_water', form: 'paldean_water' },
+    { suffix: 'paldean-fire', form: 'paldean_fire' },
+    { suffix: 'paldean-water', form: 'paldean_water' },
+  ];
+
+  // Handle special hyphenated Pokémon first
+  const lowerName = pokemonName.toLowerCase();
+  for (const specialName of SPECIAL_HYPHENATED_POKEMON) {
+    if (lowerName === specialName || lowerName.startsWith(specialName)) {
+      // Check if there's a form suffix after the special name
+      const formPart = lowerName.slice(specialName.length);
+      if (!formPart) {
+        return { baseName: specialName, formName: null };
+      }
+
+      // Check if the remaining part matches a known form pattern
+      for (const pattern of formPatterns) {
+        if (formPart.toLowerCase() === pattern.suffix.toLowerCase()) {
+          return { baseName: specialName, formName: pattern.form };
+        }
+      }
+
+      return { baseName: specialName, formName: null };
+    }
+  }
+
+  // Handle patterns like TyphlosionHisuian, TyphlosionPlain, MrMimeGalarian, etc.
+  for (const pattern of formPatterns) {
+    if (pokemonName.endsWith(pattern.suffix)) {
+      const baseName = pokemonName.slice(0, -pattern.suffix.length);
+      console.log(
+        `DEBUG: parseFormName - ${pokemonName} -> baseName: ${baseName}, formName: ${pattern.form}`,
+      );
+      return { baseName: normalizeMoveString(baseName), formName: pattern.form };
+    }
+  }
+
+  // No form pattern found, treat as base form
+  return { baseName: normalizeMoveString(pokemonName), formName: null };
+}
+
+// Helper to sort the evolution chain properly
+export function sortEvolutionChain(chain: string[]): string[] {
+  // Create a dependency graph for topological sorting
+  const graph: Record<string, Set<string>> = {};
+
+  // Initialize all nodes
+  for (const mon of chain) {
+    graph[mon] = new Set<string>();
+  }
+
+  // First pass: Add direct evolution connections to the graph
+  for (const mon of chain) {
+    const standardMon = standardizePokemonKey(mon);
+
+    // Check all entries in evoMap for matches (considering form variations)
+    for (const [evoKey, evos] of Object.entries(evoMap)) {
+      const standardEvoKey = standardizePokemonKey(evoKey);
+
+      // If this is the Pokémon we're looking at (either exact or standardized)
+      if (evoKey === mon || standardEvoKey === standardMon) {
+        // For each of its evolutions
+        for (const evo of evos) {
+          const targetMon = standardizePokemonKey(evo.target);
+          const normalizedTargetName = normalizePokemonDisplayName(targetMon);
+
+          // If the target is in our chain, add the dependency
+          if (chain.includes(normalizedTargetName)) {
+            graph[mon].add(normalizedTargetName); // mon evolves into target
+          }
+        }
+      }
+    }
+
+    // Check all entries in preEvoMap for matches (considering form variations)
+    for (const [preKey, preEvos] of Object.entries(preEvoMap)) {
+      const standardPreKey = standardizePokemonKey(preKey);
+
+      // If this is the Pokémon we're looking at (either exact or standardized)
+      if (preKey === mon || standardPreKey === standardMon) {
+        // For each of its pre-evolutions
+        for (const pre of preEvos) {
+          const standardPre = standardizePokemonKey(pre);
+          const normalizedPreName = normalizePokemonDisplayName(standardPre);
+
+          // If the pre-evolution is in our chain, add the dependency
+          if (chain.includes(normalizedPreName)) {
+            graph[normalizedPreName].add(mon); // pre evolves into mon
+          }
+        }
+      }
+    }
+  }
+
+  // Manual sorting based on evolution relationships
+  const sortedChain: string[] = [];
+  const addedNodes = new Set<string>();
+
+  // Helper function to add a node and all its descendants
+  function addNodeAndDescendants(node: string) {
+    if (addedNodes.has(node)) return;
+    addedNodes.add(node);
+    sortedChain.push(node);
+
+    // Add all evolutions of this node
+    for (const nextNode of graph[node]) {
+      if (!addedNodes.has(nextNode)) {
+        addNodeAndDescendants(nextNode);
+      }
+    }
+  }
+
+  // Find nodes with no incoming edges (base forms)
+  const baseNodes: string[] = [];
+  for (const node of chain) {
+    let hasIncoming = false;
+    for (const outgoingNodes of Object.values(graph)) {
+      if (outgoingNodes.has(node)) {
+        hasIncoming = true;
+        break;
+      }
+    }
+    if (!hasIncoming) {
+      baseNodes.push(node);
+    }
+  }
+
+  // Add base nodes first, followed by their evolutions
+  for (const node of baseNodes) {
+    addNodeAndDescendants(node);
+  }
+
+  // Add any remaining nodes that weren't connected
+  for (const node of chain) {
+    if (!addedNodes.has(node)) {
+      sortedChain.push(node);
+    }
+  }
+
+  return sortedChain;
+}
+
+// Helper function to parse fish groups from fish.asm
+export function parseFishGroups(
+  content: string,
+): Record<
+  string,
+  Record<string, Array<{ species: string; level: number; chance: number; form?: string }>>
+> {
+  const fishGroups: Record<
+    string,
+    Record<string, Array<{ species: string; level: number; chance: number; form?: string }>>
+  > = {};
+  const lines = content.split(/\r?\n/);
+
+  let currentGroup: string | null = null;
+  let currentRod: string | null = null;
+  let currentEncounters: Array<{ species: string; level: number; chance: number; form?: string }> =
+    [];
+  let previousChance = 0;
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+
+    // Parse fish group section headers like ".Shore_Old:"
+    const groupMatch = trimmed.match(/^\.([A-Za-z_]+)_([A-Za-z]+):$/);
+    if (groupMatch) {
+      // Save previous encounters if any
+      if (currentGroup && currentRod && currentEncounters.length > 0) {
+        if (!fishGroups[currentGroup]) fishGroups[currentGroup] = {};
+        fishGroups[currentGroup][currentRod] = [...currentEncounters];
+      }
+
+      currentGroup = groupMatch[1].toLowerCase();
+      currentRod = groupMatch[2].toLowerCase();
+      currentEncounters = [];
+      previousChance = 0;
+      continue;
+    }
+
+    // Parse fishentry lines
+    const fishentryMatch = trimmed.match(
+      /fishentry\s+(\d+)\s+percent(?:\s*\+\s*\d+)?,\s*([A-Z0-9_]+|\d+),\s*(\d+)/,
+    );
+    if (fishentryMatch && currentGroup && currentRod) {
+      const [, chanceStr, speciesStr, levelStr] = fishentryMatch;
+      const cumulativeChance = parseInt(chanceStr, 10);
+      const actualChance = cumulativeChance - previousChance;
+
+      // Handle special cases
+      let species = speciesStr;
+      let form: string | undefined;
+
+      if (species === '0') {
+        // Time-based species (corsola/staryu)
+        species = 'CORSOLA'; // Default to corsola, could be enhanced for time-based logic
+      }
+
+      currentEncounters.push({
+        species: species.toLowerCase(),
+        level: parseInt(levelStr, 10),
+        chance: actualChance,
+        form,
+      });
+
+      previousChance = cumulativeChance;
+    }
+  }
+
+  // Save last group
+  if (currentGroup && currentRod && currentEncounters.length > 0) {
+    if (!fishGroups[currentGroup]) fishGroups[currentGroup] = {};
+    fishGroups[currentGroup][currentRod] = [...currentEncounters];
+  }
+
+  return fishGroups;
+}
+
+// Helper function to parse location to fish group mappings
+export function parseFishLocationMappings(content: string): Record<string, string> {
+  const mappings: Record<string, string> = {};
+  const lines = content.split(/\r?\n/);
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    const mapMatch = trimmed.match(/fishmon_map\s+([A-Z0-9_]+),\s*FISHGROUP_([A-Z0-9_]+)/);
+    if (mapMatch) {
+      const [, location, fishGroup] = mapMatch;
+      mappings[location] = fishGroup.toLowerCase();
+    }
+  }
+
+  return mappings;
+}
+
+// Helper function to extract form information from Pokemon names like "SlowpokeGalarian"
+export function parseFormFromName(pokemonName: string): {
+  baseName: string;
+  formName: string | null;
+} {
+  // Common form suffixes in the ROM data
+  const formSuffixes = ['Galarian', 'Alolan', 'Hisuian', 'Paldean', 'Plain'];
+
+  for (const suffix of formSuffixes) {
+    if (pokemonName.endsWith(suffix)) {
+      const baseName = pokemonName.slice(0, -suffix.length);
+      const formName = suffix.toLowerCase() === 'plain' ? null : suffix.toLowerCase();
+      return { baseName, formName };
+    }
+  }
+
+  // No form suffix found
+  return { baseName: pokemonName, formName: null };
+}
+
+/**
+ * Robust function to check if a Pokémon name matches any name in the DEBUG_POKEMON list
+ * Handles various edge cases and name formats
+ */
+export function isDebugPokemon(pokemonName: string): boolean {
+  if (!pokemonName) return false;
+
+  // Normalize the input name by removing common variations
+  const normalizedInput = standardizePokemonKey(pokemonName);
+
+  // Also try with the original name and some common transformations
+  const namesToCheck = [
+    pokemonName,
+    normalizedInput,
+    toTitleCase(pokemonName),
+    pokemonName.replace(/_/g, ''),
+    pokemonName.replace(/([a-z])([A-Z])/g, '$1$2'), // Remove internal caps
+    pokemonName.toLowerCase(),
+    pokemonName.toUpperCase(),
+  ];
+
+  // Remove duplicates
+  const uniqueNames = [...new Set(namesToCheck)];
+
+  // Check each variation against the debug list
+  for (const name of uniqueNames) {
+    if (DEBUG_POKEMON.includes(name)) {
+      return true;
+    }
+    // Also check if any debug Pokemon is a substring match (for partial matches)
+    if (
+      DEBUG_POKEMON.some(
+        (debugName) =>
+          name.toLowerCase().includes(debugName.toLowerCase()) ||
+          debugName.toLowerCase().includes(name.toLowerCase()),
+      )
+    ) {
+      return true;
+    }
+  }
+
+  return false;
 }

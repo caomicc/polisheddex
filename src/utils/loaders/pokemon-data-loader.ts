@@ -1,14 +1,14 @@
 // Enhanced Pokemon data loader that works with compressed data and manifests
 
 import { Move } from '@/types/types';
-import { loadJsonFile } from './fileLoader';
+import { loadJsonFile } from '../fileLoader';
 import {
   resolveAbilities,
   loadManifest,
   type CompressedAbility,
   type ExpandedAbility,
   type AbilityManifest,
-} from './manifest-resolver';
+} from '../manifest-resolver';
 
 interface CompressedPokemonData {
   name: string;
@@ -314,10 +314,10 @@ export async function searchAllPokemon(query: string, faithful: boolean = false)
       }
 
       // Search in types
-      const types = faithful 
-        ? (pokemon.faithfulTypes || pokemon.types)
-        : (pokemon.updatedTypes || pokemon.types);
-      
+      const types = faithful
+        ? pokemon.faithfulTypes || pokemon.types
+        : pokemon.updatedTypes || pokemon.types;
+
       if (types) {
         const typeArray = Array.isArray(types) ? types : types.split('/');
         if (typeArray.some((type: string) => type.toLowerCase().includes(queryLower))) {
@@ -344,13 +344,13 @@ export async function getAllPokemonByType(type: string, faithful: boolean = fals
 
     return allPokemon.filter((pokemon: any) => {
       if (!pokemon || typeof pokemon !== 'object') return false;
-      
-      const types = faithful 
-        ? (pokemon.faithfulTypes || pokemon.types)
-        : (pokemon.updatedTypes || pokemon.types);
-      
+
+      const types = faithful
+        ? pokemon.faithfulTypes || pokemon.types
+        : pokemon.updatedTypes || pokemon.types;
+
       if (!types) return false;
-      
+
       const typeArray = Array.isArray(types) ? types : types.split('/');
       return typeArray.some((t: string) => t.toLowerCase() === typeLower);
     });

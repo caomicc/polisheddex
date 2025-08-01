@@ -1,4 +1,4 @@
-import { loadManifest, type AbilityManifest } from './manifest-resolver';
+import { loadManifest, type AbilityManifest } from '../manifest-resolver';
 
 /**
  * Load abilities data using the manifest system

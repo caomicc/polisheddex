@@ -14,7 +14,10 @@ import { normalizeLocationKey } from '@/utils/locationUtils';
 import { GroupedPokemon, EncounterDetail } from '@/types/locationTypes';
 import { Hero } from '@/components/ui/Hero';
 import { groupLocationsHierarchically } from '@/utils/locationGrouping';
-import { loadMergedPokemonLocationData, loadAllLocationData } from '@/utils/location-data-loader';
+import {
+  loadMergedPokemonLocationData,
+  loadAllLocationData,
+} from '@/utils/loaders/location-data-loader';
 
 // This function helps Next.js pre-render pages at build time
 export async function generateStaticParams() {

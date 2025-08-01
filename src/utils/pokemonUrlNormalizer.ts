@@ -1,18 +1,4 @@
-// Define known forms locally to avoid potential circular dependency issues
-const KNOWN_FORMS = {
-  ALOLAN: 'alolan',
-  GALARIAN: 'galarian',
-  HISUIAN: 'hisuian',
-  GALAR: 'galar',
-  HISUI: 'hisui',
-  PLAIN: 'plain',
-  RED: 'red',
-  ARMORED: 'armored',
-  BLOODMOON: 'bloodmoon',
-  PALDEAN: 'paldean',
-  PALDEAN_FIRE: 'paldean_fire',
-  PALDEAN_WATER: 'paldean_water',
-};
+import { KNOWN_FORMS } from '../data/constants.ts';
 
 /**
  * Special cases for Pokemon names that have hyphens as part of their actual name

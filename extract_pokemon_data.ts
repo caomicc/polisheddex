@@ -1,29 +1,26 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { DEBUG_POKEMON, evoMap, formTypeMap, preEvoMap, typeMap } from './src/data/constants.ts';
+import { evoMap, formTypeMap, preEvoMap, typeMap } from './src/data/constants.ts';
 import {
   extractTypeChart,
-  extractHiddenGrottoes,
   mapEncounterRatesToPokemon,
   extractEggMoves,
   extractFormInfo,
   extractMoveDescriptions,
   extractTmHmLearnset,
-  addBodyDataToDetailedStats,
   extractAbilityDescriptions,
-  extractDetailedStats,
   extractPokedexEntries,
   getFullPokemonName,
   extractItemData,
   extractTmHmItems,
-  extractLocationsByArea,
-  exportAllLocations,
+  extractFishingEncounters,
+  extractTreemonLocations,
+  extractSwarmLocations,
 } from './src/utils/extractors/index.ts';
-import { groupPokemonForms, validatePokemonKeys } from './src/utils/helpers.ts';
 import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
 import {
-  deepReplaceMonString,
+  capitalizeFirstLetter,
   normalizeMonName,
   parseDexEntries,
   parseWildmonLine,
@@ -35,66 +32,22 @@ import {
 import {
   normalizePokemonUrlKey,
   normalizePokemonDisplayName,
-  getPokemonFileName,
-  validatePokemonHyphenation,
 } from './src/utils/pokemonUrlNormalizer.ts';
 import type {
-  Ability,
-  BaseData,
-  DetailedStats,
   Evolution,
   EvolutionMethod,
   EvoRaw,
   LocationEntry,
   Move,
   PokemonDataV3,
-  PokemonDexEntry,
 } from './src/types/types.ts';
 import { normalizeLocationKey } from './src/utils/locationUtils.ts';
-
-/**
- * Robust function to check if a Pokémon name matches any name in the DEBUG_POKEMON list
- * Handles various edge cases and name formats
- */
-export function isDebugPokemon(pokemonName: string): boolean {
-  if (!pokemonName) return false;
-
-  // Normalize the input name by removing common variations
-  const normalizedInput = standardizePokemonKey(pokemonName);
-
-  // Also try with the original name and some common transformations
-  const namesToCheck = [
-    pokemonName,
-    normalizedInput,
-    toTitleCase(pokemonName),
-    pokemonName.replace(/_/g, ''),
-    pokemonName.replace(/([a-z])([A-Z])/g, '$1$2'), // Remove internal caps
-    pokemonName.toLowerCase(),
-    pokemonName.toUpperCase(),
-  ];
-
-  // Remove duplicates
-  const uniqueNames = [...new Set(namesToCheck)];
-
-  // Check each variation against the debug list
-  for (const name of uniqueNames) {
-    if (DEBUG_POKEMON.includes(name)) {
-      return true;
-    }
-    // Also check if any debug Pokemon is a substring match (for partial matches)
-    if (
-      DEBUG_POKEMON.some(
-        (debugName) =>
-          name.toLowerCase().includes(debugName.toLowerCase()) ||
-          debugName.toLowerCase().includes(name.toLowerCase()),
-      )
-    ) {
-      return true;
-    }
-  }
-
-  return false;
-}
+import {
+  isDebugPokemon,
+  parseFormFromName,
+  parseFormName,
+  sortEvolutionChain,
+} from './src/utils/helpers.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -172,132 +125,6 @@ let moveDescriptions: Record<string, any> = {};
 
 if (fs.existsSync(MOVE_DESCRIPTIONS_OUTPUT)) {
   moveDescriptions = JSON.parse(fs.readFileSync(MOVE_DESCRIPTIONS_OUTPUT, 'utf8'));
-}
-
-const result: Record<
-  string,
-  {
-    moves: Move[];
-    faithfulMoves?: Move[];
-    updatedMoves?: Move[];
-    forms?: Record<
-      string,
-      {
-        moves: Move[];
-        faithfulMoves?: Move[];
-        updatedMoves?: Move[];
-      }
-    >;
-  }
-> = {};
-
-let currentMonV2: string | null = null;
-let movesV2: Move[] = [];
-let faithfulMovesV2: Move[] = [];
-let updatedMovesV2: Move[] = [];
-let evoMethods: EvoRaw[] = [];
-
-// Helper function to extract base Pokemon name and form from evos_attacks entries
-function parseFormName(pokemonName: string): { baseName: string; formName: string | null } {
-  // Directly check for Porygon-Z and similar cases that need special handling
-  if (
-    pokemonName.toLowerCase() === 'porygonz' ||
-    pokemonName.toLowerCase() === 'porygon z' ||
-    pokemonName.toLowerCase() === 'porygon-z'
-  ) {
-    return { baseName: 'porygon-z', formName: null };
-  }
-
-  // If the pokemon name is 'porygon' with something that looks like a Z suffix
-  // but it should be Porygon-Z, handle it correctly
-  if (
-    pokemonName.toLowerCase().startsWith('porygon') &&
-    (pokemonName.toLowerCase().endsWith('z') ||
-      pokemonName.toLowerCase().includes(' z') ||
-      pokemonName.toLowerCase().includes('-z'))
-  ) {
-    console.log(`DEBUG: Special handling for Porygon-Z variant: ${pokemonName}`);
-    // If it's actually meant to be Porygon-Z, return as a distinct Pokemon, not a form
-    return { baseName: 'porygon-z', formName: null };
-  }
-
-  // List of special Pokémon with hyphens in their base names
-  const SPECIAL_HYPHENATED_POKEMON = [
-    'farfetch-d',
-    'nidoran-f',
-    'nidoran-m',
-    'mr-mime',
-    'mime-jr',
-    'ho-oh',
-    'porygon-z',
-    'sirfetch-d',
-    'type-null',
-    'jangmo-o',
-    'hakamo-o',
-    'kommo-o',
-  ];
-
-  // Form patterns for detecting variants
-  const formPatterns = [
-    { suffix: 'Plain', form: null }, // Plain forms are considered base forms
-    { suffix: 'Hisuian', form: 'hisuian' },
-    { suffix: 'Galarian', form: 'galarian' },
-    { suffix: 'Alolan', form: 'alolan' },
-    { suffix: 'Paldean', form: 'paldean' },
-    { suffix: 'PaldeanFire', form: 'paldean_fire' },
-    { suffix: 'PaldeanWater', form: 'paldean_water' },
-    { suffix: 'Armored', form: 'armored' },
-    { suffix: 'BloodMoon', form: 'bloodmoon' },
-    { suffix: 'Bloodmoon', form: 'bloodmoon' }, // Add lowercase "m" version
-    { suffix: 'plain', form: null },
-    { suffix: 'hisui', form: 'hisui' },
-    { suffix: 'galarian', form: 'galarian' },
-    { suffix: 'alolan', form: 'alolan' },
-    { suffix: 'paldean', form: 'paldean' },
-    { suffix: 'galar', form: 'galar' },
-    { suffix: 'hisuian', form: 'hisuian' },
-    { suffix: 'red', form: 'red' },
-    { suffix: 'bloodmoon', form: 'bloodmoon' },
-    { suffix: 'paldean_fire', form: 'paldean_fire' },
-    { suffix: 'paldean_water', form: 'paldean_water' },
-    { suffix: 'paldean-fire', form: 'paldean_fire' },
-    { suffix: 'paldean-water', form: 'paldean_water' },
-  ];
-
-  // Handle special hyphenated Pokémon first
-  const lowerName = pokemonName.toLowerCase();
-  for (const specialName of SPECIAL_HYPHENATED_POKEMON) {
-    if (lowerName === specialName || lowerName.startsWith(specialName)) {
-      // Check if there's a form suffix after the special name
-      const formPart = lowerName.slice(specialName.length);
-      if (!formPart) {
-        return { baseName: specialName, formName: null };
-      }
-
-      // Check if the remaining part matches a known form pattern
-      for (const pattern of formPatterns) {
-        if (formPart.toLowerCase() === pattern.suffix.toLowerCase()) {
-          return { baseName: specialName, formName: pattern.form };
-        }
-      }
-
-      return { baseName: specialName, formName: null };
-    }
-  }
-
-  // Handle patterns like TyphlosionHisuian, TyphlosionPlain, MrMimeGalarian, etc.
-  for (const pattern of formPatterns) {
-    if (pokemonName.endsWith(pattern.suffix)) {
-      const baseName = pokemonName.slice(0, -pattern.suffix.length);
-      console.log(
-        `DEBUG: parseFormName - ${pokemonName} -> baseName: ${baseName}, formName: ${pattern.form}`,
-      );
-      return { baseName: normalizeMoveString(baseName), formName: pattern.form };
-    }
-  }
-
-  // No form pattern found, treat as base form
-  return { baseName: normalizeMoveString(pokemonName), formName: null };
 }
 
 // Enhanced moveset parsing with faithful/updated support
@@ -544,106 +371,6 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
 
 // Use the new parsing function
 const movesetData = parseMovesetWithFaithfulSupport(lines);
-// Helper to sort the evolution chain properly
-function sortEvolutionChain(chain: string[]): string[] {
-  // Create a dependency graph for topological sorting
-  const graph: Record<string, Set<string>> = {};
-
-  // Initialize all nodes
-  for (const mon of chain) {
-    graph[mon] = new Set<string>();
-  }
-
-  // First pass: Add direct evolution connections to the graph
-  for (const mon of chain) {
-    const standardMon = standardizePokemonKey(mon);
-
-    // Check all entries in evoMap for matches (considering form variations)
-    for (const [evoKey, evos] of Object.entries(evoMap)) {
-      const standardEvoKey = standardizePokemonKey(evoKey);
-
-      // If this is the Pokémon we're looking at (either exact or standardized)
-      if (evoKey === mon || standardEvoKey === standardMon) {
-        // For each of its evolutions
-        for (const evo of evos) {
-          const targetMon = standardizePokemonKey(evo.target);
-          const normalizedTargetName = normalizePokemonDisplayName(targetMon);
-
-          // If the target is in our chain, add the dependency
-          if (chain.includes(normalizedTargetName)) {
-            graph[mon].add(normalizedTargetName); // mon evolves into target
-          }
-        }
-      }
-    }
-
-    // Check all entries in preEvoMap for matches (considering form variations)
-    for (const [preKey, preEvos] of Object.entries(preEvoMap)) {
-      const standardPreKey = standardizePokemonKey(preKey);
-
-      // If this is the Pokémon we're looking at (either exact or standardized)
-      if (preKey === mon || standardPreKey === standardMon) {
-        // For each of its pre-evolutions
-        for (const pre of preEvos) {
-          const standardPre = standardizePokemonKey(pre);
-          const normalizedPreName = normalizePokemonDisplayName(standardPre);
-
-          // If the pre-evolution is in our chain, add the dependency
-          if (chain.includes(normalizedPreName)) {
-            graph[normalizedPreName].add(mon); // pre evolves into mon
-          }
-        }
-      }
-    }
-  }
-
-  // Manual sorting based on evolution relationships
-  const sortedChain: string[] = [];
-  const addedNodes = new Set<string>();
-
-  // Helper function to add a node and all its descendants
-  function addNodeAndDescendants(node: string) {
-    if (addedNodes.has(node)) return;
-    addedNodes.add(node);
-    sortedChain.push(node);
-
-    // Add all evolutions of this node
-    for (const nextNode of graph[node]) {
-      if (!addedNodes.has(nextNode)) {
-        addNodeAndDescendants(nextNode);
-      }
-    }
-  }
-
-  // Find nodes with no incoming edges (base forms)
-  const baseNodes: string[] = [];
-  for (const node of chain) {
-    let hasIncoming = false;
-    for (const outgoingNodes of Object.values(graph)) {
-      if (outgoingNodes.has(node)) {
-        hasIncoming = true;
-        break;
-      }
-    }
-    if (!hasIncoming) {
-      baseNodes.push(node);
-    }
-  }
-
-  // Add base nodes first, followed by their evolutions
-  for (const node of baseNodes) {
-    addNodeAndDescendants(node);
-  }
-
-  // Add any remaining nodes that weren't connected
-  for (const node of chain) {
-    if (!addedNodes.has(node)) {
-      sortedChain.push(node);
-    }
-  }
-
-  return sortedChain;
-}
 
 // Non-recursive function to build the complete evolution chain with methods
 function buildCompleteEvolutionChain(startMon: string): {
@@ -721,7 +448,7 @@ function buildCompleteEvolutionChain(startMon: string): {
         let sourceKey = normalizedDisplayName;
         if (evoKey !== standardEvoKey) {
           // This is a form-specific evolution key, extract form info
-          const { baseName: evoBaseName, formName } = extractFormFromName(evoKey);
+          const { baseName: evoBaseName, formName } = parseFormFromName(evoKey);
           if (formName) {
             sourceKey = `${normalizedDisplayName} (${capitalizeFirstLetter(formName)} Form)`;
           }
@@ -773,375 +500,6 @@ function buildCompleteEvolutionChain(startMon: string): {
     chain: sortedChain,
     methodsByPokemon: sortedMethodsByPokemon,
   };
-}
-
-// Add treemon extraction functions
-function extractTreemonLocations(): Record<string, LocationEntry[]> {
-  const treemonLocationsByMon: Record<string, LocationEntry[]> = {};
-
-  // Read treemon maps file
-  const treemonMapsPath = path.join(__dirname, 'polishedcrystal/data/wild/treemon_maps.asm');
-  const treemonMapsData = fs.readFileSync(treemonMapsPath, 'utf8');
-
-  // Read treemons file
-  const treemonsPath = path.join(__dirname, 'polishedcrystal/data/wild/treemons.asm');
-  const treemonsData = fs.readFileSync(treemonsPath, 'utf8');
-
-  // Parse treemon maps to get location -> treemon set mapping
-  const locationToTreemonSet: Record<string, string> = {};
-  const treemonMapLines = treemonMapsData.split(/\r?\n/);
-
-  for (const line of treemonMapLines) {
-    const mapMatch = line.match(/treemon_map\s+([A-Z0-9_]+),\s+([A-Z0-9_]+)/);
-    if (mapMatch) {
-      const [, locationId, treemonSetId] = mapMatch;
-      locationToTreemonSet[locationId] = treemonSetId;
-    }
-  }
-
-  // Parse treemon sets and Pokemon
-  const treemonLines = treemonsData.split(/\r?\n/);
-  const treemonSets: Record<string, { normal: any[]; rare: any[] }> = {};
-
-  let currentSet: string | null = null;
-  let currentTable: 'normal' | 'rare' = 'normal';
-  let inTreeMon = false;
-
-  for (let i = 0; i < treemonLines.length; i++) {
-    const line = treemonLines[i].trim();
-
-    // Check for treemon set start
-    const setMatch = line.match(/^TreeMonSet_([A-Za-z0-9_]+):$/);
-    if (setMatch) {
-      currentSet = `TREEMON_SET_${setMatch[1].toUpperCase()}`;
-      treemonSets[currentSet] = { normal: [], rare: [] };
-      currentTable = 'normal';
-      inTreeMon = true;
-      continue;
-    }
-
-    // Check for rare table marker (comment with "rare")
-    if (line.includes('; rare')) {
-      currentTable = 'rare';
-      continue;
-    }
-
-    // Parse tree_mon entries
-    if (inTreeMon && currentSet && line.startsWith('tree_mon')) {
-      const treeMonMatch = line.match(
-        /tree_mon\s+(\d+),\s+([A-Z0-9_]+)(?:,\s+([A-Z0-9_]+))?,\s+(.+)/,
-      );
-      if (treeMonMatch) {
-        const [, rate, species, form, level] = treeMonMatch;
-
-        const pokemonKey = getFullPokemonName(species, form || null);
-        const normalizedKey = normalizePokemonUrlKey(pokemonKey);
-
-        treemonSets[currentSet][currentTable].push({
-          species: normalizedKey,
-          rate: parseInt(rate),
-          level,
-          form: form || null,
-        });
-      }
-    }
-
-    // Check for end of treemon set
-    if (line === 'db -1') {
-      if (currentTable === 'normal') {
-        currentTable = 'rare';
-      } else {
-        inTreeMon = false;
-        currentSet = null;
-      }
-    }
-  }
-
-  // Map locations to Pokemon encounters
-  for (const [locationId, treemonSetId] of Object.entries(locationToTreemonSet)) {
-    const normalizedLocation = normalizeLocationKey(locationId);
-    const treemonSet = treemonSets[treemonSetId];
-
-    if (!treemonSet) continue;
-
-    // Process both normal and rare encounters
-    const processEncounters = (encounters: any[], method: string) => {
-      for (const encounter of encounters) {
-        const { species, rate, level, form } = encounter;
-
-        if (!treemonLocationsByMon[species]) {
-          treemonLocationsByMon[species] = [];
-        }
-
-        treemonLocationsByMon[species].push({
-          area: normalizedLocation,
-          method,
-          time: 'any', // Treemon encounters are generally available all day
-          level: level.toString(),
-          chance: rate,
-          formName: form,
-        });
-      }
-    };
-
-    // Determine method based on treemon set type
-    const isRockSmash = treemonSetId === 'TREEMON_SET_ROCK';
-    const method = isRockSmash ? 'rocksmash' : 'headbutt';
-
-    processEncounters(treemonSet.normal, method);
-    processEncounters(treemonSet.rare, `${method}_rare`);
-  }
-
-  console.log(
-    `Extracted treemon locations for ${Object.keys(treemonLocationsByMon).length} Pokemon`,
-  );
-  return treemonLocationsByMon;
-}
-
-// Add swarm extraction function
-// --- Fishing Encounters Extraction ---
-function extractFishingEncounters(): Record<string, LocationEntry[]> {
-  const fishingLocations: Record<string, LocationEntry[]> = {};
-
-  // Read fish.asm for encounter data
-  const fishPath = path.join(__dirname, 'polishedcrystal/data/wild/fish.asm');
-  const fishMapPath = path.join(__dirname, 'polishedcrystal/data/wild/fishmon_maps.asm');
-
-  if (!fs.existsSync(fishPath) || !fs.existsSync(fishMapPath)) {
-    console.warn('Fishing data files not found, skipping fishing extraction');
-    return {};
-  }
-
-  // Parse fish.asm to get fish group encounters
-  const fishContent = fs.readFileSync(fishPath, 'utf8');
-  const fishGroups = parseFishGroups(fishContent);
-
-  // Parse fishmon_maps.asm to get location to fish group mappings
-  const fishMapContent = fs.readFileSync(fishMapPath, 'utf8');
-  const locationToFishGroup = parseFishLocationMappings(fishMapContent);
-
-  // Combine data to create location entries
-  for (const [location, fishGroupName] of Object.entries(locationToFishGroup)) {
-    const fishGroup = fishGroups[fishGroupName];
-    if (!fishGroup) continue;
-
-    const normalizedLocation = normalizeLocationKey(location);
-
-    // Process each rod type
-    for (const [rodType, encounters] of Object.entries(fishGroup)) {
-      for (const encounter of encounters) {
-        // const pokemonKey = normalizePokemonUrlKey(encounter.species);
-        const pokemonKey = encounter.species.toLowerCase(); // Ensure species is in lowercase
-
-        if (!fishingLocations[pokemonKey]) {
-          fishingLocations[pokemonKey] = [];
-        }
-
-        fishingLocations[pokemonKey].push({
-          area: normalizedLocation,
-          method: `fish_${rodType}`,
-          time: 'all',
-          level: encounter.level.toString(),
-          chance: encounter.chance,
-          formName: encounter.form || null,
-        });
-      }
-    }
-  }
-
-  console.log(`Extracted fishing locations for ${Object.keys(fishingLocations).length} Pokemon`);
-  return fishingLocations;
-}
-
-// Helper function to parse fish groups from fish.asm
-function parseFishGroups(
-  content: string,
-): Record<
-  string,
-  Record<string, Array<{ species: string; level: number; chance: number; form?: string }>>
-> {
-  const fishGroups: Record<
-    string,
-    Record<string, Array<{ species: string; level: number; chance: number; form?: string }>>
-  > = {};
-  const lines = content.split(/\r?\n/);
-
-  let currentGroup: string | null = null;
-  let currentRod: string | null = null;
-  let currentEncounters: Array<{ species: string; level: number; chance: number; form?: string }> =
-    [];
-  let previousChance = 0;
-
-  for (const line of lines) {
-    const trimmed = line.trim();
-
-    // Parse fish group section headers like ".Shore_Old:"
-    const groupMatch = trimmed.match(/^\.([A-Za-z_]+)_([A-Za-z]+):$/);
-    if (groupMatch) {
-      // Save previous encounters if any
-      if (currentGroup && currentRod && currentEncounters.length > 0) {
-        if (!fishGroups[currentGroup]) fishGroups[currentGroup] = {};
-        fishGroups[currentGroup][currentRod] = [...currentEncounters];
-      }
-
-      currentGroup = groupMatch[1].toLowerCase();
-      currentRod = groupMatch[2].toLowerCase();
-      currentEncounters = [];
-      previousChance = 0;
-      continue;
-    }
-
-    // Parse fishentry lines
-    const fishentryMatch = trimmed.match(
-      /fishentry\s+(\d+)\s+percent(?:\s*\+\s*\d+)?,\s*([A-Z0-9_]+|\d+),\s*(\d+)/,
-    );
-    if (fishentryMatch && currentGroup && currentRod) {
-      const [, chanceStr, speciesStr, levelStr] = fishentryMatch;
-      const cumulativeChance = parseInt(chanceStr, 10);
-      const actualChance = cumulativeChance - previousChance;
-
-      // Handle special cases
-      let species = speciesStr;
-      let form: string | undefined;
-
-      if (species === '0') {
-        // Time-based species (corsola/staryu)
-        species = 'CORSOLA'; // Default to corsola, could be enhanced for time-based logic
-      }
-
-      currentEncounters.push({
-        species: species.toLowerCase(),
-        level: parseInt(levelStr, 10),
-        chance: actualChance,
-        form,
-      });
-
-      previousChance = cumulativeChance;
-    }
-  }
-
-  // Save last group
-  if (currentGroup && currentRod && currentEncounters.length > 0) {
-    if (!fishGroups[currentGroup]) fishGroups[currentGroup] = {};
-    fishGroups[currentGroup][currentRod] = [...currentEncounters];
-  }
-
-  return fishGroups;
-}
-
-// Helper function to parse location to fish group mappings
-function parseFishLocationMappings(content: string): Record<string, string> {
-  const mappings: Record<string, string> = {};
-  const lines = content.split(/\r?\n/);
-
-  for (const line of lines) {
-    const trimmed = line.trim();
-    const mapMatch = trimmed.match(/fishmon_map\s+([A-Z0-9_]+),\s*FISHGROUP_([A-Z0-9_]+)/);
-    if (mapMatch) {
-      const [, location, fishGroup] = mapMatch;
-      mappings[location] = fishGroup.toLowerCase();
-    }
-  }
-
-  return mappings;
-}
-
-function extractSwarmLocations(): Record<string, LocationEntry[]> {
-  const swarmLocationsByMon: Record<string, LocationEntry[]> = {};
-
-  const swarmGrassPath = path.join(__dirname, 'polishedcrystal/data/wild/swarm_grass.asm');
-  if (!fs.existsSync(swarmGrassPath)) {
-    console.log('Swarm grass file not found, skipping swarm extraction');
-    return swarmLocationsByMon;
-  }
-
-  const swarmData = fs.readFileSync(swarmGrassPath, 'utf8');
-  const lines = swarmData.split(/\r?\n/);
-
-  let currentArea: string | null = null;
-  let currentTime: string | null = null;
-  let inSwarmBlock = false;
-
-  for (const line of lines) {
-    const trimmedLine = line.trim();
-
-    // Check for swarm area start
-    const areaMatch = trimmedLine.match(/def_grass_wildmons\s+([A-Z0-9_]+)/);
-    if (areaMatch) {
-      currentArea = normalizeLocationKey(areaMatch[1]);
-      inSwarmBlock = true;
-      continue;
-    }
-
-    // Skip encounter rates line
-    if (trimmedLine.match(/db\s+\d+\s+percent/)) {
-      continue;
-    }
-
-    // Check for time sections
-    if (inSwarmBlock && trimmedLine.match(/^;\s*(morn|day|nite)$/)) {
-      currentTime = trimmedLine.replace(';', '').trim();
-      continue;
-    }
-
-    // Parse wildmon entries
-    if (inSwarmBlock && currentArea && currentTime && trimmedLine.startsWith('wildmon')) {
-      const wildmonMatch = trimmedLine.match(
-        /wildmon\s+(\d+|\w+),\s+([A-Z0-9_]+)(?:,\s+([A-Z0-9_]+))?/,
-      );
-      if (wildmonMatch) {
-        const [, level, species, form] = wildmonMatch;
-
-        const pokemonKey = getFullPokemonName(species, form || null);
-        const normalizedKey = normalizePokemonUrlKey(pokemonKey);
-
-        if (!swarmLocationsByMon[normalizedKey]) {
-          swarmLocationsByMon[normalizedKey] = [];
-        }
-
-        swarmLocationsByMon[normalizedKey].push({
-          area: currentArea,
-          method: 'swarm',
-          time: currentTime,
-          level: level.toString(),
-          chance: 100, // Swarms typically have high encounter rates
-          formName: form || null,
-        });
-      }
-    }
-
-    // Check for end of swarm block
-    if (trimmedLine === 'end_grass_wildmons') {
-      inSwarmBlock = false;
-      currentArea = null;
-      currentTime = null;
-    }
-  }
-
-  console.log(`Extracted swarm locations for ${Object.keys(swarmLocationsByMon).length} Pokemon`);
-  return swarmLocationsByMon;
-}
-
-// Helper function to capitalize first letter
-function capitalizeFirstLetter(str: string): string {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-// Helper function to extract form information from Pokemon names like "SlowpokeGalarian"
-function extractFormFromName(pokemonName: string): { baseName: string; formName: string | null } {
-  // Common form suffixes in the ROM data
-  const formSuffixes = ['Galarian', 'Alolan', 'Hisuian', 'Paldean', 'Plain'];
-
-  for (const suffix of formSuffixes) {
-    if (pokemonName.endsWith(suffix)) {
-      const baseName = pokemonName.slice(0, -suffix.length);
-      const formName = suffix.toLowerCase() === 'plain' ? null : suffix.toLowerCase();
-      return { baseName, formName };
-    }
-  }
-
-  // No form suffix found
-  return { baseName: pokemonName, formName: null };
 }
 
 // Function to get the evolution chain and methods for a Pokémon
@@ -1978,18 +1336,8 @@ console.log(
   `✅ Wrote level moves for ${Object.keys(levelMovesOutput).length} Pokemon to ${LEVEL_MOVES_OUTPUT}`,
 );
 
-// Apply #mon string replacement to final result before writing
-// const cleanedFinalResult = deepReplaceMonString(finalResult);
-
-// Write detailed stats (the complete finalResult data)
 fs.writeFileSync(DETAILED_STATS_OUTPUT, JSON.stringify(finalResult, null, 2));
 console.log(
   `✅ Wrote detailed stats for ${Object.keys(finalResult).length} Pokemon to ${DETAILED_STATS_OUTPUT}`,
 );
-
-// // Generate individual Pokemon files from the cleaned detailed stats
-// console.log('📁 Generating individual Pokemon files...');
-// const { generateIndividualPokemonFiles } = await import(
-//   './scripts/generate-individual-pokemon-files.ts'
-// );
-// await generateIndividualPokemonFiles();
+export { isDebugPokemon };

@@ -10,10 +10,10 @@ import { FormData } from '@/types/types';
 import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNormalizer';
 import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';
 import { loadJsonData } from '@/utils/fileLoader';
-import { loadPokemonData } from '@/utils/pokemon-data-loader';
+import { loadPokemonData } from '@/utils/loaders/pokemon-data-loader';
 import { Button } from '@/components/ui/button';
-import { loadMovesData } from '@/utils/move-data-loader';
-import { loadFormLocationData } from '@/utils/pokemon-form-location-loader';
+import { loadMovesData } from '@/utils/loaders/move-data-loader';
+import { loadFormLocationData } from '@/utils/loaders/pokemon-form-location-loader';
 
 export default async function PokemonDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;

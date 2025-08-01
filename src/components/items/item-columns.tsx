@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { AnyItemData, isRegularItem, isTMHMItem } from '@/types/types';
-import { accentInsensitiveIncludes } from '@/utils/textUtils';
+import { accentInsensitiveIncludes } from '@/utils/stringUtils';
 
 export const itemColumns: ColumnDef<AnyItemData>[] = [
   {

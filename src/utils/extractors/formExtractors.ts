@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import { toTitleCase } from '../stringUtils.ts';
 import { fileURLToPath } from 'node:url';
 import { HYPHENATED_POKEMON_NAMES } from '../pokemonUrlNormalizer.ts';
-import { isDebugPokemon } from '../../../extract_pokemon_data.ts';
+import { isDebugPokemon } from '../helpers.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);

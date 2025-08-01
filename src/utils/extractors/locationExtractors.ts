@@ -10,8 +10,10 @@ import type {
 import path from 'node:path';
 import { normalizeMonName } from '../stringUtils.ts';
 import { getFullPokemonName } from './pokedexExtractors.ts';
-import { processLocations } from '../helpers.ts';
+import { parseFishGroups, parseFishLocationMappings, processLocations } from '../helpers.ts';
 import { fileURLToPath } from 'node:url';
+import { normalizePokemonUrlKey } from '../pokemonUrlNormalizer.ts';
+import { normalizeLocationKey } from '../locationUtils.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -636,4 +638,261 @@ export async function exportAllLocations() {
     console.error('❌ Error exporting locations:', error);
     throw error;
   }
+}
+
+// Add treemon extraction functions
+export function extractTreemonLocations(): Record<string, LocationEntry[]> {
+  const treemonLocationsByMon: Record<string, LocationEntry[]> = {};
+
+  // Read treemon maps file
+  const treemonMapsPath = path.join(
+    __dirname,
+    '../../../polishedcrystal/data/wild/treemon_maps.asm',
+  );
+  const treemonMapsData = fs.readFileSync(treemonMapsPath, 'utf8');
+
+  // Read treemons file
+  const treemonsPath = path.join(__dirname, '../../../polishedcrystal/data/wild/treemons.asm');
+  const treemonsData = fs.readFileSync(treemonsPath, 'utf8');
+
+  // Parse treemon maps to get location -> treemon set mapping
+  const locationToTreemonSet: Record<string, string> = {};
+  const treemonMapLines = treemonMapsData.split(/\r?\n/);
+
+  for (const line of treemonMapLines) {
+    const mapMatch = line.match(/treemon_map\s+([A-Z0-9_]+),\s+([A-Z0-9_]+)/);
+    if (mapMatch) {
+      const [, locationId, treemonSetId] = mapMatch;
+      locationToTreemonSet[locationId] = treemonSetId;
+    }
+  }
+
+  // Parse treemon sets and Pokemon
+  const treemonLines = treemonsData.split(/\r?\n/);
+  const treemonSets: Record<string, { normal: any[]; rare: any[] }> = {};
+
+  let currentSet: string | null = null;
+  let currentTable: 'normal' | 'rare' = 'normal';
+  let inTreeMon = false;
+
+  for (let i = 0; i < treemonLines.length; i++) {
+    const line = treemonLines[i].trim();
+
+    // Check for treemon set start
+    const setMatch = line.match(/^TreeMonSet_([A-Za-z0-9_]+):$/);
+    if (setMatch) {
+      currentSet = `TREEMON_SET_${setMatch[1].toUpperCase()}`;
+      treemonSets[currentSet] = { normal: [], rare: [] };
+      currentTable = 'normal';
+      inTreeMon = true;
+      continue;
+    }
+
+    // Check for rare table marker (comment with "rare")
+    if (line.includes('; rare')) {
+      currentTable = 'rare';
+      continue;
+    }
+
+    // Parse tree_mon entries
+    if (inTreeMon && currentSet && line.startsWith('tree_mon')) {
+      const treeMonMatch = line.match(
+        /tree_mon\s+(\d+),\s+([A-Z0-9_]+)(?:,\s+([A-Z0-9_]+))?,\s+(.+)/,
+      );
+      if (treeMonMatch) {
+        const [, rate, species, form, level] = treeMonMatch;
+
+        const pokemonKey = getFullPokemonName(species, form || null);
+        const normalizedKey = normalizePokemonUrlKey(pokemonKey);
+
+        treemonSets[currentSet][currentTable].push({
+          species: normalizedKey,
+          rate: parseInt(rate),
+          level,
+          form: form || null,
+        });
+      }
+    }
+
+    // Check for end of treemon set
+    if (line === 'db -1') {
+      if (currentTable === 'normal') {
+        currentTable = 'rare';
+      } else {
+        inTreeMon = false;
+        currentSet = null;
+      }
+    }
+  }
+
+  // Map locations to Pokemon encounters
+  for (const [locationId, treemonSetId] of Object.entries(locationToTreemonSet)) {
+    const normalizedLocation = normalizeLocationKey(locationId);
+    const treemonSet = treemonSets[treemonSetId];
+
+    if (!treemonSet) continue;
+
+    // Process both normal and rare encounters
+    const processEncounters = (encounters: any[], method: string) => {
+      for (const encounter of encounters) {
+        const { species, rate, level, form } = encounter;
+
+        if (!treemonLocationsByMon[species]) {
+          treemonLocationsByMon[species] = [];
+        }
+
+        treemonLocationsByMon[species].push({
+          area: normalizedLocation,
+          method,
+          time: 'any', // Treemon encounters are generally available all day
+          level: level.toString(),
+          chance: rate,
+          formName: form,
+        });
+      }
+    };
+
+    // Determine method based on treemon set type
+    const isRockSmash = treemonSetId === 'TREEMON_SET_ROCK';
+    const method = isRockSmash ? 'rocksmash' : 'headbutt';
+
+    processEncounters(treemonSet.normal, method);
+    processEncounters(treemonSet.rare, `${method}_rare`);
+  }
+
+  console.log(
+    `Extracted treemon locations for ${Object.keys(treemonLocationsByMon).length} Pokemon`,
+  );
+  return treemonLocationsByMon;
+}
+
+// Add swarm extraction function
+// --- Fishing Encounters Extraction ---
+export function extractFishingEncounters(): Record<string, LocationEntry[]> {
+  const fishingLocations: Record<string, LocationEntry[]> = {};
+
+  // Read fish.asm for encounter data
+  const fishPath = path.join(__dirname, '../../../polishedcrystal/data/wild/fish.asm');
+  const fishMapPath = path.join(__dirname, '../../../polishedcrystal/data/wild/fishmon_maps.asm');
+
+  if (!fs.existsSync(fishPath) || !fs.existsSync(fishMapPath)) {
+    console.warn('Fishing data files not found, skipping fishing extraction');
+    return {};
+  }
+
+  // Parse fish.asm to get fish group encounters
+  const fishContent = fs.readFileSync(fishPath, 'utf8');
+  const fishGroups = parseFishGroups(fishContent);
+
+  // Parse fishmon_maps.asm to get location to fish group mappings
+  const fishMapContent = fs.readFileSync(fishMapPath, 'utf8');
+  const locationToFishGroup = parseFishLocationMappings(fishMapContent);
+
+  // Combine data to create location entries
+  for (const [location, fishGroupName] of Object.entries(locationToFishGroup)) {
+    const fishGroup = fishGroups[fishGroupName];
+    if (!fishGroup) continue;
+
+    const normalizedLocation = normalizeLocationKey(location);
+
+    // Process each rod type
+    for (const [rodType, encounters] of Object.entries(fishGroup)) {
+      for (const encounter of encounters) {
+        // const pokemonKey = normalizePokemonUrlKey(encounter.species);
+        const pokemonKey = encounter.species.toLowerCase(); // Ensure species is in lowercase
+
+        if (!fishingLocations[pokemonKey]) {
+          fishingLocations[pokemonKey] = [];
+        }
+
+        fishingLocations[pokemonKey].push({
+          area: normalizedLocation,
+          method: `fish_${rodType}`,
+          time: 'all',
+          level: encounter.level.toString(),
+          chance: encounter.chance,
+          formName: encounter.form || null,
+        });
+      }
+    }
+  }
+
+  console.log(`Extracted fishing locations for ${Object.keys(fishingLocations).length} Pokemon`);
+  return fishingLocations;
+}
+
+export function extractSwarmLocations(): Record<string, LocationEntry[]> {
+  const swarmLocationsByMon: Record<string, LocationEntry[]> = {};
+
+  const swarmGrassPath = path.join(__dirname, '../../../polishedcrystal/data/wild/swarm_grass.asm');
+  if (!fs.existsSync(swarmGrassPath)) {
+    console.log('Swarm grass file not found, skipping swarm extraction');
+    return swarmLocationsByMon;
+  }
+
+  const swarmData = fs.readFileSync(swarmGrassPath, 'utf8');
+  const lines = swarmData.split(/\r?\n/);
+
+  let currentArea: string | null = null;
+  let currentTime: string | null = null;
+  let inSwarmBlock = false;
+
+  for (const line of lines) {
+    const trimmedLine = line.trim();
+
+    // Check for swarm area start
+    const areaMatch = trimmedLine.match(/def_grass_wildmons\s+([A-Z0-9_]+)/);
+    if (areaMatch) {
+      currentArea = normalizeLocationKey(areaMatch[1]);
+      inSwarmBlock = true;
+      continue;
+    }
+
+    // Skip encounter rates line
+    if (trimmedLine.match(/db\s+\d+\s+percent/)) {
+      continue;
+    }
+
+    // Check for time sections
+    if (inSwarmBlock && trimmedLine.match(/^;\s*(morn|day|nite)$/)) {
+      currentTime = trimmedLine.replace(';', '').trim();
+      continue;
+    }
+
+    // Parse wildmon entries
+    if (inSwarmBlock && currentArea && currentTime && trimmedLine.startsWith('wildmon')) {
+      const wildmonMatch = trimmedLine.match(
+        /wildmon\s+(\d+|\w+),\s+([A-Z0-9_]+)(?:,\s+([A-Z0-9_]+))?/,
+      );
+      if (wildmonMatch) {
+        const [, level, species, form] = wildmonMatch;
+
+        const pokemonKey = getFullPokemonName(species, form || null);
+        const normalizedKey = normalizePokemonUrlKey(pokemonKey);
+
+        if (!swarmLocationsByMon[normalizedKey]) {
+          swarmLocationsByMon[normalizedKey] = [];
+        }
+
+        swarmLocationsByMon[normalizedKey].push({
+          area: currentArea,
+          method: 'swarm',
+          time: currentTime,
+          level: level.toString(),
+          chance: 100, // Swarms typically have high encounter rates
+          formName: form || null,
+        });
+      }
+    }
+
+    // Check for end of swarm block
+    if (trimmedLine === 'end_grass_wildmons') {
+      inSwarmBlock = false;
+      currentArea = null;
+      currentTime = null;
+    }
+  }
+
+  console.log(`Extracted swarm locations for ${Object.keys(swarmLocationsByMon).length} Pokemon`);
+  return swarmLocationsByMon;
 }

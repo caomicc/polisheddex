@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DetailedStats } from '@/types/types';
 import { cn } from '@/lib/utils';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
-import { loadMultipleAbilitiesById } from '@/utils/ability-data-loader';
+import { loadMultipleAbilitiesById } from '@/utils/loaders/ability-data-loader';
 
 interface PokemonAbilitiesProps {
   abilities?: DetailedStats['abilities'];

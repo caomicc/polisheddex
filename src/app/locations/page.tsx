@@ -10,7 +10,7 @@ import {
 import { LocationData } from '@/types/types';
 import LocationSearch from '@/components/pokemon/LocationSearch';
 import { Hero } from '@/components/ui/Hero';
-import { loadEnhancedLocations } from '@/utils/location-data-loader';
+import { loadEnhancedLocations } from '@/utils/loaders/location-data-loader';
 
 export default async function LocationsPage() {
   // Load enhanced locations using the optimized loader

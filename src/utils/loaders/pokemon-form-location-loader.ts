@@ -2,8 +2,8 @@
  * Utility to load location data for Pokemon forms
  */
 
-import { loadJsonFile } from './fileLoader';
-import { extractPokemonForm } from './pokemonFormUtils';
+import { loadJsonFile } from '../fileLoader';
+import { extractPokemonForm } from '../pokemonFormUtils';
 
 interface LocationData {
   area: string;
@@ -34,7 +34,7 @@ export async function loadFormLocationData(
     const allLocationData = await loadJsonFile<Record<string, PokemonLocationData>>(
       'output/pokemon_locations.json',
     );
-    
+
     if (!allLocationData) {
       return null;
     }
@@ -89,12 +89,12 @@ export async function loadPokemonLocationData(
   try {
     // First try to extract form information from the name
     const { baseName, formName } = extractPokemonForm(fullPokemonName);
-    
+
     // Load the pokemon_locations.json file
     const allLocationData = await loadJsonFile<Record<string, PokemonLocationData>>(
       'output/pokemon_locations.json',
     );
-    
+
     if (!allLocationData) {
       return null;
     }
@@ -125,7 +125,7 @@ export async function loadPokemonLocationData(
 /**
  * Merge form-specific location data with base location data
  * @param baseLocations - Base Pokemon location data
- * @param formLocations - Form-specific location data  
+ * @param formLocations - Form-specific location data
  * @returns Merged location data (form-specific takes precedence)
  */
 export function mergeLocationData(
@@ -135,15 +135,15 @@ export function mergeLocationData(
   if (!baseLocations && !formLocations) {
     return [];
   }
-  
+
   if (!baseLocations) {
     return formLocations || [];
   }
-  
+
   if (!formLocations) {
     return baseLocations;
   }
-  
+
   // Form-specific data takes precedence
   return formLocations;
 }

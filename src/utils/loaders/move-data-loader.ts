@@ -1,7 +1,7 @@
 // Enhanced item data loader that works with the items manifest
 
-import { loadJsonFile } from './fileLoader';
-import { loadManifest, type MoveManifest } from './manifest-resolver';
+import { loadJsonFile } from '../fileLoader';
+import { loadManifest, type MoveManifest } from '../manifest-resolver';
 
 /**
  * Load items data using the manifest system
