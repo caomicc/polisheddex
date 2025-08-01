@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { normalizeLocationKey } from '../locationUtils.ts';
 
 // Define types for TM/HM item data
 export interface TmHmItemData {
@@ -294,4 +295,72 @@ function formatLocation(locationStr: string): { area: string; details?: string }
 
   // Default case
   return { area: area };
+}
+
+// --- TM/HM Location Extraction ---
+export function extractTMHMLocations(): Record<
+  string,
+  { tmNumber: string; moveName: string; location: string }[]
+> {
+  console.log('🔧 Extracting TM/HM locations...');
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  const tmhmMovesPath = path.join(__dirname, '../../../polishedcrystal/data/moves/tmhm_moves.asm');
+
+  if (!fs.existsSync(tmhmMovesPath)) {
+    console.warn('TM/HM moves file not found');
+    return {};
+  }
+
+  const tmhmContent = fs.readFileSync(tmhmMovesPath, 'utf8');
+  const lines = tmhmContent.split(/\r?\n/);
+  const tmhmByLocation: Record<string, { tmNumber: string; moveName: string; location: string }[]> =
+    {};
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    // Look for lines that define TM/HM moves with locations
+    // Format: db MOVE_NAME ; TMXX (Location)
+    if (line.startsWith('db ')) {
+      const parts = line.split(';');
+
+      if (parts.length >= 2) {
+        // Extract move name
+        const moveName = parts[0].replace('db', '').trim();
+
+        // Extract TM/HM info and location
+        const tmhmInfo = parts[1].trim();
+        const tmhmMatch = tmhmInfo.match(/(TM|HM)(\d+)\s*(?:\(([^)]+)\))?/);
+
+        if (tmhmMatch) {
+          const tmType = tmhmMatch[1];
+          const tmNumber = tmhmMatch[2].padStart(2, '0');
+          const location = tmhmMatch[3] || '';
+
+          if (location) {
+            const locationKey = normalizeLocationKey(location);
+            const tmhmNumber = `${tmType}${tmNumber}`;
+
+            if (!tmhmByLocation[locationKey]) {
+              tmhmByLocation[locationKey] = [];
+            }
+
+            tmhmByLocation[locationKey].push({
+              tmNumber: tmhmNumber,
+              moveName: formatMoveName(moveName),
+              location: location,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  const totalTMs = Object.values(tmhmByLocation).reduce((sum, tms) => sum + tms.length, 0);
+  console.log(`🔧 Found ${totalTMs} TM/HMs across ${Object.keys(tmhmByLocation).length} locations`);
+
+  return tmhmByLocation;
 }

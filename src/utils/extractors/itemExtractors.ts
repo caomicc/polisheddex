@@ -3,7 +3,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { extractMartData } from './martExtractors.ts';
 import { replaceMonString } from '../stringUtils.ts';
-
+import { normalizeLocationKey } from '../locationUtils.ts';
+import { extractTMHMLocations } from './tmHmExtractors.ts';
+import type { LocationItem } from '../../../src/types/types.ts';
 // Define types for item data
 export interface ItemData {
   id: string; // URI-friendly ID
@@ -1143,4 +1145,108 @@ export function extractItemManiacs(itemData: Record<string, ItemData>): void {
       unmatchedItems.join(', '),
     );
   }
+}
+
+// --- Location Items Extraction ---
+export function extractLocationItems(): Record<string, LocationItem[]> {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  console.log('📦 Extracting location items...');
+  const mapsDir = path.join(__dirname, '../../../polishedcrystal/maps');
+  const itemsByLocation: Record<string, LocationItem[]> = {};
+
+  if (!fs.existsSync(mapsDir)) {
+    console.warn('Maps directory not found');
+    return {};
+  }
+
+  const mapFiles = fs.readdirSync(mapsDir).filter((file) => file.endsWith('.asm'));
+
+  for (const mapFile of mapFiles) {
+    const locationKey = path.basename(mapFile, '.asm');
+    // Use the normalization function for consistent keys
+    const normalizedKey = normalizeLocationKey(locationKey);
+
+    const mapPath = path.join(mapsDir, mapFile);
+    const mapContent = fs.readFileSync(mapPath, 'utf8');
+    const lines = mapContent.split(/\r?\n/);
+
+    const items: LocationItem[] = [];
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+
+      // Visible item events (itemball_event)
+      const visibleItemMatch = line.match(/itemball_event\s+(\d+),\s*(\d+),\s*(\w+),/);
+      if (visibleItemMatch) {
+        const itemName = visibleItemMatch[3].replace(/_/g, ' ').toLowerCase();
+        const formattedItemName = itemName
+          .split(' ')
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+
+        items.push({
+          type: 'item',
+          name: formattedItemName,
+          coordinates: {
+            x: parseInt(visibleItemMatch[1]),
+            y: parseInt(visibleItemMatch[2]),
+          },
+        });
+      }
+
+      // Hidden item events (bg_event with BGEVENT_ITEM)
+      const hiddenItemMatch = line.match(/bg_event\s+(\d+),\s*(\d+),\s*BGEVENT_ITEM\s*\+\s*(\w+),/);
+      if (hiddenItemMatch) {
+        const itemName = hiddenItemMatch[3].replace(/_/g, ' ').toLowerCase();
+        const formattedItemName = itemName
+          .split(' ')
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+
+        items.push({
+          type: 'hiddenItem',
+          name: formattedItemName,
+          coordinates: {
+            x: parseInt(hiddenItemMatch[1]),
+            y: parseInt(hiddenItemMatch[2]),
+          },
+        });
+      }
+    }
+
+    if (items.length > 0) {
+      // Try both the original key and normalized key
+      itemsByLocation[normalizedKey] = items;
+      if (normalizedKey !== locationKey) {
+        itemsByLocation[locationKey] = items;
+      }
+    }
+  }
+
+  // Also add TM/HM locations as items with tmHm type
+  const tmhmByLocation = extractTMHMLocations();
+  for (const [locationKey, tmhms] of Object.entries(tmhmByLocation)) {
+    for (const tmhm of tmhms) {
+      const tmhmItem: LocationItem = {
+        type: 'tmHm',
+        name: `${tmhm.tmNumber} - ${tmhm.moveName}`,
+        // TM/HMs don't have specific coordinates in our current data
+      };
+
+      if (!itemsByLocation[locationKey]) {
+        itemsByLocation[locationKey] = [];
+      }
+      itemsByLocation[locationKey].push(tmhmItem);
+    }
+  }
+
+  const totalItems = Object.values(itemsByLocation).reduce((sum, items) => sum + items.length, 0);
+  console.log(
+    `📦 Found ${totalItems} items across ${Object.keys(itemsByLocation).length} locations`,
+  );
+
+  return itemsByLocation;
 }
