@@ -34,7 +34,8 @@ export function PokemonDataTable<TData, TValue>({
   data,
   // searchPlaceholder = 'Filter Pokemon...',
 }: PokemonDataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+  // Default sort by 'pokemon' column ascending
+  const [sorting, setSorting] = React.useState<SortingState>([{ id: 'pokemon', desc: false }]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
 
   const table = useReactTable({
@@ -53,18 +54,6 @@ export function PokemonDataTable<TData, TValue>({
 
   return (
     <div className="w-full px-2 sm:px-0">
-      {/* <div className="flex flex-col gap-4 py-4">
-        <div className="flex flex-col gap-2">
-          <Label htmlFor="pokemon-filter">Pokemon</Label>
-          <Input
-            id="pokemon-filter"
-            placeholder={searchPlaceholder}
-            value={(table.getColumn('pokemon')?.getFilterValue() as string) ?? ''}
-            onChange={(event) => table.getColumn('pokemon')?.setFilterValue(event.target.value)}
-            className="max-w-sm"
-          />
-        </div>
-      </div> */}
       <div className="">
         <Table className="table-fixed w-full min-w-[600px]">
           <TableHeader>

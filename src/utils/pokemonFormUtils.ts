@@ -30,7 +30,16 @@ export function extractPokemonForm(pokemonName: string): {
     'kommo-o',
   ];
 
-  const lowerName = pokemonName.toLowerCase();
+  let lowerName = pokemonName.toLowerCase();
+
+  // Trim the end of the string if it matches any KNOWN_FORM (with or without _form suffix)
+  for (const formValue of Object.values(KNOWN_FORMS)) {
+    const formPattern = new RegExp(`[-_\\s]?${formValue.toLowerCase()}?$`, 'i');
+    if (lowerName.match(formPattern)) {
+      lowerName = lowerName.replace(formPattern, '').replace(/[-_\\s]+$/, '');
+      break;
+    }
+  }
 
   // Check if this is a special hyphenated Pokémon (no form)
   if (specialHyphenatedPokemon.includes(lowerName)) {
@@ -39,11 +48,21 @@ export function extractPokemonForm(pokemonName: string): {
 
   // Check for known regional forms
   for (const [key, formValue] of Object.entries(KNOWN_FORMS)) {
-    const formPattern = new RegExp(`\\b${formValue.replace('_', '[_\\s-]?')}\\b`, 'i');
+    // Match if the string ends with the form value (with or without _form suffix), not just _form
+    // Accepts separators before the form value
+    const formPattern = new RegExp(
+      `[-_\\s](${formValue.replace(/_/g, '[-_\\s]?')})([-_\\s]?form)?$`,
+      'i',
+    );
+    const match = pokemonName.match(formPattern);
 
-    if (formPattern.test(pokemonName)) {
-      // Extract base name by removing the form
-      const baseName = pokemonName.replace(formPattern, '').trim();
+    if (match && match[1].toLowerCase() === formValue.toLowerCase()) {
+      // Extract base name by removing the matched form pattern
+      const baseName = pokemonName
+        .slice(0, match.index)
+        .replace(formPattern, '')
+        .replace(/[-_\\s]+$/, '')
+        .trim();
       return {
         baseName: baseName || pokemonName,
         formName: formValue,
@@ -89,6 +108,30 @@ export function formatPokemonDisplayWithForm(pokemonName: string): string {
 }
 
 /**
+ * Format a Pokémon name with its form for display
+ * @param pokemonName - The full Pokémon name
+ * @returns Formatted display string
+ */
+/**
+ * Format a Pokémon URL path with its form as a query string if present
+ * @param pokemonName - The full Pokémon name
+ * @returns URL string like "/pokemon/bulbasaur" or "/pokemon/oricorio?form=baile"
+ */
+export function formatPokemonUrlWithForm(pokemonName: string, formString: string): string {
+  const { baseName, formName } = extractPokemonForm(pokemonName);
+  console.log('formatPokemonUrlWithForm', { baseName, formName });
+  const base = `/pokemon/${encodeURIComponent(formatPokemonBaseName(baseName).toLowerCase())}`;
+  if (formName || formString) {
+    // Remove _form suffix if present
+    const formParam = encodeURIComponent(
+      (formName || formString).toLowerCase().replace(/_form$/, ''),
+    );
+    return `${base}?form=${formParam}`;
+  }
+  return base;
+}
+
+/**
  * Format the base Pokémon name for display
  * @param baseName - The base Pokémon name
  * @returns Formatted base name
@@ -109,15 +152,30 @@ function formatPokemonBaseName(baseName: string): string {
     'jangmo-o': 'Jangmo-o',
     'hakamo-o': 'Hakamo-o',
     'kommo-o': 'Kommo-o',
+    ekansarbok: 'Ekans',
+    arbok: 'Arbok',
+    arbokarbok: 'Arbok',
   };
 
-  const lowerName = baseName.toLowerCase();
+  let lowerName = baseName.toLowerCase();
+
+  for (const formValue of Object.values(KNOWN_FORMS)) {
+    if (lowerName.endsWith(formValue.toLowerCase())) {
+      // Remove the form name from the end and trim any trailing separators
+      const trimmed = lowerName
+        .replace(new RegExp(`[-_\\s]?${formValue.toLowerCase()}$`), '')
+        .split(/[\s-]+/)
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+      return trimmed.join(' ');
+    }
+  }
+
   if (specialCases[lowerName]) {
     return specialCases[lowerName];
   }
 
   // Default formatting: capitalize first letter of each word, preserve hyphens
-  return baseName
+  return lowerName
     .replace(/_/g, ' ')
     .toLowerCase()
     .split(/[\s-]+/)
@@ -144,6 +202,11 @@ function formatFormName(formName: string): string {
     [KNOWN_FORMS.HISUI]: 'Hisui',
     [KNOWN_FORMS.RED]: 'Red',
     [KNOWN_FORMS.PLAIN]: 'Plain',
+    [KNOWN_FORMS.JOHTO_FORM]: 'Johto',
+    [KNOWN_FORMS.KANTO_FORM]: 'Kanto',
+    [KNOWN_FORMS.KOGA_FORM]: 'Koga',
+    [KNOWN_FORMS.AGATHA_FORM]: 'Agatha',
+    [KNOWN_FORMS.ARIANA_FORM]: 'Ariana',
   };
 
   return formDisplayNames[formName] || formName.charAt(0).toUpperCase() + formName.slice(1);
