@@ -51,10 +51,10 @@ class GBCPaletteParser:
 
 class GBCAnimationParser:
     """Parses Game Boy Color animation files (.asm format)"""
-    
+
     # Game Boy runs at 59.7275 fps (4194304 Hz CPU / 70224 cycles per frame)
     GB_FRAME_DURATION_MS = 1000.0 / 59.7275  # ~16.742ms per frame
-    
+
     @staticmethod
     def parse_animation_file(anim_path: str) -> List[Dict[str, int]]:
         """Parse animation file to extract frame timings with proper loop handling"""
@@ -62,10 +62,10 @@ class GBCAnimationParser:
         try:
             with open(anim_path, 'r') as f:
                 lines = [line.strip() for line in f if line.strip()]
-            
+
             # Parse the animation commands
             parsed_frames = GBCAnimationParser._parse_animation_commands(lines)
-            
+
             # Convert to milliseconds using accurate Game Boy timing
             for frame_data in parsed_frames:
                 duration_ms = frame_data['duration'] * GBCAnimationParser.GB_FRAME_DURATION_MS
@@ -73,24 +73,24 @@ class GBCAnimationParser:
                     'frame': frame_data['frame'],
                     'duration': duration_ms
                 })
-                
+
         except FileNotFoundError:
             print(f"Warning: Animation file {anim_path} not found")
             # Return default single frame with Game Boy accurate timing
             return [{'frame': 0, 'duration': 500}]
 
         return frames if frames else [{'frame': 0, 'duration': 500}]
-    
+
     @staticmethod
     def _parse_animation_commands(lines: List[str]) -> List[Dict[str, int]]:
         """Parse animation commands including setrepeat/dorepeat loops"""
         frames = []
         i = 0
         repeat_stack = []  # Stack to handle nested repeats
-        
+
         while i < len(lines):
             line = lines[i]
-            
+
             if line.startswith('frame'):
                 # Extract frame number and duration from "frame 1, 08"
                 frame_match = re.search(r'frame\s+(\d+),\s*(\d+)', line)
@@ -100,7 +100,7 @@ class GBCAnimationParser:
                         'frame': frame_num,
                         'duration': duration
                     })
-            
+
             elif line.startswith('setrepeat'):
                 # Extract repeat count from "setrepeat 2"
                 repeat_match = re.search(r'setrepeat\s+(\d+)', line)
@@ -111,26 +111,26 @@ class GBCAnimationParser:
                         'start_pos': len(frames),
                         'commands': []
                     })
-            
+
             elif line.startswith('dorepeat'):
                 # Execute the repeat block
                 if repeat_stack:
                     repeat_info = repeat_stack.pop()
                     repeat_count = repeat_info['count']
                     start_pos = repeat_info['start_pos']
-                    
+
                     # Get the frames that were added since setrepeat
                     repeat_frames = frames[start_pos:]
-                    
+
                     # Add the repeated frames (repeat_count - 1 more times)
                     for _ in range(repeat_count - 1):
                         frames.extend(repeat_frames)
-            
+
             elif line.startswith('endanim'):
                 break
-                
+
             i += 1
-        
+
         return frames
 
 class GBCSpriteProcessor:
@@ -144,7 +144,7 @@ class GBCSpriteProcessor:
         # Create output directories
         self.sprites_dir = self.output_path / "sprites" / "pokemon"
         self.sprites_dir.mkdir(exist_ok=True)
-        
+
         # Mapping of variant directory names to base Pokemon names
         # For Pokemon with multiple visual variants, we need to know which directory
         # contains the "base" or most common form to use as the default sprite
@@ -152,11 +152,11 @@ class GBCSpriteProcessor:
             # Pikachu variants - use pikachu_plain as base (most common form)
             'pikachu_plain': 'pikachu',
             'pikachu_chuchu': 'pikachu',
-            'pikachu_fly': 'pikachu', 
+            'pikachu_fly': 'pikachu',
             'pikachu_pika': 'pikachu',
             'pikachu_spark': 'pikachu',
             'pikachu_surf': 'pikachu',
-            
+
             # Unown variants - use unown_a as base (first letter form)
             'unown_a': 'unown',
             'unown_b': 'unown', 'unown_c': 'unown', 'unown_d': 'unown', 'unown_e': 'unown',
@@ -166,7 +166,7 @@ class GBCSpriteProcessor:
             'unown_r': 'unown', 'unown_s': 'unown', 'unown_t': 'unown', 'unown_u': 'unown',
             'unown_v': 'unown', 'unown_w': 'unown', 'unown_x': 'unown', 'unown_y': 'unown',
             'unown_z': 'unown', 'unown_question': 'unown', 'unown_exclamation': 'unown',
-            
+
             # Magikarp variants - use magikarp_plain as base
             'magikarp_plain': 'magikarp',
             'magikarp_bubbles': 'magikarp', 'magikarp_calico1': 'magikarp', 'magikarp_calico2': 'magikarp',
@@ -176,33 +176,33 @@ class GBCSpriteProcessor:
             'magikarp_raindrop': 'magikarp', 'magikarp_saucy': 'magikarp', 'magikarp_skelly': 'magikarp',
             'magikarp_stripe': 'magikarp', 'magikarp_tiger': 'magikarp', 'magikarp_twotone': 'magikarp',
             'magikarp_zebra': 'magikarp',
-            
+
             # Pichu variants - use pichu_plain as base
             'pichu_plain': 'pichu',
             'pichu_spiky': 'pichu',
         }
-        
+
         # Base forms that should be processed (directories that represent the default sprite)
         self.base_form_directories = {
             'pikachu': 'pikachu_plain',
             'unown': 'unown_a',  # Use A form as default
-            'magikarp': 'magikarp_plain', 
+            'magikarp': 'magikarp_plain',
             'pichu': 'pichu_plain',
         }
-        
+
         # Palette directory mapping - where to find palette files for variants
         # Some variants store sprites in one directory but palettes in another
         self.palette_directory_mapping = {
             'pikachu_plain': 'pikachu',
             'pikachu_chuchu': 'pikachu',
             'pikachu_fly': 'pikachu',
-            'pikachu_pika': 'pikachu', 
+            'pikachu_pika': 'pikachu',
             'pikachu_spark': 'pikachu',
             'pikachu_surf': 'pikachu',
-            
+
             'pichu_plain': 'pichu',
             'pichu_spiky': 'pichu',
-            
+
             # Unown variants - all use base unown palette
             'unown_a': 'unown', 'unown_b': 'unown', 'unown_c': 'unown', 'unown_d': 'unown',
             'unown_e': 'unown', 'unown_f': 'unown', 'unown_g': 'unown', 'unown_h': 'unown',
@@ -211,7 +211,7 @@ class GBCSpriteProcessor:
             'unown_q': 'unown', 'unown_r': 'unown', 'unown_s': 'unown', 'unown_t': 'unown',
             'unown_u': 'unown', 'unown_v': 'unown', 'unown_w': 'unown', 'unown_x': 'unown',
             'unown_y': 'unown', 'unown_z': 'unown', 'unown_question': 'unown', 'unown_exclamation': 'unown',
-            
+
             'magikarp_plain': 'magikarp',
             'magikarp_bubbles': 'magikarp',
             'magikarp_calico1': 'magikarp',
@@ -243,17 +243,17 @@ class GBCSpriteProcessor:
                     # Include the directory name as-is for processing
                     pokemon_dirs.append(item.name)
         return sorted(pokemon_dirs)
-    
+
     def should_process_pokemon(self, pokemon_name: str) -> bool:
         """Determine if this Pokemon directory should be processed"""
         # Always process if it's not a variant
         if pokemon_name not in self.variant_to_base_mapping:
             return True
-            
+
         # For variants, only process the designated base form
         base_pokemon = self.variant_to_base_mapping[pokemon_name]
         return self.base_form_directories.get(base_pokemon) == pokemon_name
-    
+
     def get_output_name(self, pokemon_name: str) -> str:
         """Get the output directory name for a Pokemon"""
         # If this is a variant, use the base name for output
@@ -326,7 +326,7 @@ class GBCSpriteProcessor:
         return rgba_sprite
 
     def create_animated_gif(self, frames: List[Image.Image], durations: List[int], output_path: str):
-        """Create animated GIF from frames with accurate timing conversion"""
+        """Create animated GIF from frames with accurate timing conversion and a 300ms delay after each loop"""
         if not frames:
             return
 
@@ -344,6 +344,9 @@ class GBCSpriteProcessor:
             # If we have fewer duration values than frames, repeat the last duration
             while len(gif_durations) < len(frames):
                 gif_durations.append(gif_durations[-1] if gif_durations else 50)
+
+            # Add a 300ms (30 centiseconds) pause after the last frame
+            gif_durations[-1] += 30
 
             frames[0].save(
                 output_path,
@@ -365,7 +368,7 @@ class GBCSpriteProcessor:
         if not self.should_process_pokemon(pokemon_name):
             print(f"Skipping {pokemon_name} (variant will be processed by base form)")
             return True
-            
+
         pokemon_path = self.pokemon_dir / pokemon_name
         if not pokemon_path.exists():
             print(f"Pokemon directory not found: {pokemon_name}")
@@ -387,7 +390,7 @@ class GBCSpriteProcessor:
             palette_dir = pokemon_path
             if pokemon_name in self.palette_directory_mapping:
                 palette_dir = self.pokemon_dir / self.palette_directory_mapping[pokemon_name]
-            
+
             palette_file = palette_dir / f"{variant}.pal"
             if not palette_file.exists():
                 print(f"Skipping {variant} variant - no palette file at {palette_file}")
