@@ -332,7 +332,7 @@ export default function Navigation() {
             </span>
           </Link>
         </div>
-        <NavigationMenu viewport={false}>
+        <NavigationMenu className="!hidden md:!flex" viewport={false}>
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger
