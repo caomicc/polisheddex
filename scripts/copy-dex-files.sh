@@ -21,15 +21,20 @@ cp output/manifests/items.json public/output/manifests/ 2>/dev/null || echo "War
 
 # Create correctly named sprite directories for problematic Pokemon
 echo "Creating correctly named sprite directories..."
-mkdir -p public/sprites/pokemon/mime-jr public/sprites/pokemon/mr-mime public/sprites/pokemon/mr-rime
+mkdir -p public/sprites/pokemon/mime-jr
+mkdir -p public/sprites/pokemon/mr-mime
+mkdir -p public/sprites/pokemon/mr-mime_galarian
+mkdir -p public/sprites/pokemon/mr-rime
+mkdir -p public/sprites/pokemon/dudunsparce
+mkdir -p public/sprites/pokemon/arbok
 
-# Copy sprites from incorrectly named directories to correctly named ones  
+
+# Copy sprites from incorrectly named directories to correctly named ones
 cp -r public/sprites/pokemon/mime_jr_/* public/sprites/pokemon/mime-jr/ 2>/dev/null || true
+cp -r public/sprites/pokemon/mr__mime_galarian/* public/sprites/pokemon/mr-mime_galarian/ 2>/dev/null || true
 cp -r public/sprites/pokemon/mr__mime/* public/sprites/pokemon/mr-mime/ 2>/dev/null || true
 cp -r public/sprites/pokemon/mr__rime/* public/sprites/pokemon/mr-rime/ 2>/dev/null || true
 
-# Copy dudunsparce sprite from form directory to base directory
-mkdir -p public/sprites/pokemon/dudunsparce
-cp public/sprites/pokemon/dudunsparce_two_segment/front_cropped.png public/sprites/pokemon/dudunsparce/ 2>/dev/null || true
+cp -r public/sprites/pokemon/dudunsparce_two_segment/front_cropped.png public/sprites/pokemon/dudunsparce/ 2>/dev/null || true
 
 echo "Data files copied to public/output/"
