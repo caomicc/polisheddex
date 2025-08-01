@@ -113,7 +113,7 @@ export function normalizePokemonUrlKey(name: string): string {
       return 'tauros-paldean-water';
   }
 
-  console.log(`URL-Normalizing Pokemon name: ${name}`);
+  // Removed console.log to reduce edge function calls
 
   // Check if this is a known hyphenated Pokemon name
   const isHyphenatedPokemon = HYPHENATED_POKEMON_NAMES.some(

@@ -178,11 +178,11 @@ export default function LocationClient({
           {(() => {
             const areaGroups = groupPokemonByArea(groupedPokemonData);
             return Object.entries(areaGroups).map(([areaName, methodData]) => (
-              <Card key={areaName} className="w-full">
+              <Card key={areaName} className="w-full p-0 overflow-hidden">
                 <CardHeader className="sr-only">
                   <h3 className="text-lg font-semibold">{areaName}</h3>
                 </CardHeader>
-                <CardContent className="pt-0 space-y-6">
+                <CardContent className="p-0">
                   {(() => {
                     // Flatten all encounters from all methods and times into one array
                     const allEncounters: PokemonEncounter[] = [];

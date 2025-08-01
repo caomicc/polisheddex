@@ -58,7 +58,7 @@ export function PokemonAbilities({
     const loadAbilities = async () => {
       try {
         const abilityIds = abilitiesToShow.map((ability) =>
-          ability.id.toLowerCase().replace(/\s+/g, '-'),
+          ability.id?.toLowerCase().replace(/\s+/g, '-'),
         );
         const abilityData = await loadMultipleAbilitiesById(abilityIds);
 
@@ -68,7 +68,7 @@ export function PokemonAbilities({
             id: ability.id,
             name:
               data?.name ||
-              ability.id.charAt(0).toUpperCase() + ability.id.slice(1).replace(/-/g, ' '),
+              ability.id?.charAt(0).toUpperCase() + ability.id?.slice(1).replace(/-/g, ' '),
             description: data?.description || 'No description available',
             isHidden: ability.isHidden ?? false,
             abilityType: ability.abilityType ?? 'primary',
@@ -81,7 +81,7 @@ export function PokemonAbilities({
         // Fallback to basic display
         const resolved: ResolvedAbility[] = abilitiesToShow.map((ability) => ({
           id: ability.id,
-          name: ability.id.charAt(0).toUpperCase() + ability.id.slice(1).replace(/-/g, ' '),
+          name: ability.id?.charAt(0).toUpperCase() + ability.id?.slice(1).replace(/-/g, ' '),
           description: 'No description available',
           isHidden: ability.isHidden ?? false,
           abilityType: ability.abilityType ?? 'primary',

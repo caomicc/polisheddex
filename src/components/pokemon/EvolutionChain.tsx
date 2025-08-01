@@ -202,7 +202,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                 alt={`Sprite of Pokémon ${sourceName}`}
                 primaryType={primaryType as PokemonType['name']}
               />
-              <span className="mt-2 flex text-xs md:text-sm font-black text-muted-foreground capitalize leading-none dark:text-white">
+              <span className="mt-2 flex text-xs md:text-sm font-black text-muted-foreground capitalize leading-none ">
                 {sourceName}
               </span>
             </Link>
@@ -219,7 +219,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               return (
                 <div className="flex flex-col items-center min-w-[80px]">
                   <span className="text-lg">→</span>
-                  <div className="text-xs text-gray-600 dark:text-white text-center">
+                  <div className="text-xs text-muted-foreground text-center">
                     {evolutionInfo.methodName === 'item' && (
                       <div className="flex flex-col items-center gap-1">
                         <p>Item:</p>
@@ -317,7 +317,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                 src={getSpriteUrl(targetName)}
                 alt={`Sprite of Pokémon ${targetName}`}
               />
-              <span className="mt-2 flex text-xs md:text-sm font-black text-muted-foreground capitalize leading-none dark:text-white">
+              <span className="mt-2 flex text-xs md:text-sm font-black text-muted-foreground capitalize leading-none">
                 {targetName}
               </span>
             </Link>

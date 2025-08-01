@@ -1808,8 +1808,18 @@ console.log(
   `✅ Wrote level moves for ${Object.keys(levelMovesOutput).length} Pokemon to ${LEVEL_MOVES_OUTPUT}`,
 );
 
+// Apply #mon string replacement to final result before writing
+// const cleanedFinalResult = deepReplaceMonString(finalResult);
+
 // Write detailed stats (the complete finalResult data)
 fs.writeFileSync(DETAILED_STATS_OUTPUT, JSON.stringify(finalResult, null, 2));
 console.log(
   `✅ Wrote detailed stats for ${Object.keys(finalResult).length} Pokemon to ${DETAILED_STATS_OUTPUT}`,
 );
+
+// // Generate individual Pokemon files from the cleaned detailed stats
+// console.log('📁 Generating individual Pokemon files...');
+// const { generateIndividualPokemonFiles } = await import(
+//   './scripts/generate-individual-pokemon-files.ts'
+// );
+// await generateIndividualPokemonFiles();

@@ -32,6 +32,7 @@ export interface TeamPokemon {
   formName?: string;
   data: DetailedStats;
   types: string[];
+  normalizedUrl?: string; // Optional normalized URL for the Pokemon
 }
 
 export function useTeamSearchParams(
@@ -116,9 +117,12 @@ export function useTeamSearchParams(
   );
 
   // Load team from URL parameter string
-  const setTeamFromUrl = useCallback((teamParam: string) => {
-    setTeamParam(teamParam || null);
-  }, [setTeamParam]);
+  const setTeamFromUrl = useCallback(
+    (teamParam: string) => {
+      setTeamParam(teamParam || null);
+    },
+    [setTeamParam],
+  );
 
   return {
     team,

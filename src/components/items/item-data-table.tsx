@@ -115,8 +115,12 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
   const categories = React.useMemo(() => {
     const categorySet = new Set<string>();
     data.forEach((item) => {
-      if (isRegularItem(item) && item.attributes?.category) {
-        categorySet.add(item.attributes.category);
+      if (isRegularItem(item)) {
+        if (item.attributes?.isKeyItem) {
+          categorySet.add('Key Item');
+        } else if (item.attributes?.category) {
+          categorySet.add(item.attributes.category);
+        }
       } else if (isTMHMItem(item)) {
         categorySet.add('TM/HM');
       }
@@ -135,7 +139,9 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
         (isTMHMItem(item) && item.location);
 
       const itemCategory = isRegularItem(item)
-        ? item.attributes?.category || 'Item'
+        ? item.attributes?.isKeyItem 
+          ? 'Key Item'
+          : item.attributes?.category || 'Item'
         : isTMHMItem(item)
           ? 'TM/HM'
           : 'Unknown';

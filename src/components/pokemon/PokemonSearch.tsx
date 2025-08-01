@@ -141,9 +141,11 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
       ) : (
         <ul className="grid gap-4 md:gap-8 grid-cols-2 md:grid-cols-3">
           {filteredPokemon.map((p) => {
+            // Use pre-computed normalized URL if available, otherwise fallback to runtime normalization
+            const normalizedName = p.normalizedUrl || normalizePokemonUrlKey(p.name).toLowerCase();
             const pokemonUrl = p.formName
-              ? `/pokemon/${normalizePokemonUrlKey(p.name).toLowerCase()}?form=${encodeURIComponent(p.formName)}`
-              : `/pokemon/${normalizePokemonUrlKey(p.name).toLowerCase()}`;
+              ? `/pokemon/${normalizedName}?form=${encodeURIComponent(p.formName)}`
+              : `/pokemon/${normalizedName}`;
             return (
               <li key={p.name}>
                 <Link href={pokemonUrl}>

@@ -62,7 +62,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
   const { showFaithful } = useFaithfulPreference();
 
   return (
-    <div className="p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
+    <div className="p-4 bg-white dark:bg-white/5 rounded-lg border border-border shadow-sm">
       <div className="flex flex-col items-start gap-4">
         <div className="flex flex-row items-center gap-4 w-full">
           <div className="relative">
@@ -116,7 +116,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                 return (
                   <Card
                     key={idx}
-                    className="bg-white dark:bg-white/5 border-2 border-gray-200 dark:border-gray-700 p-0 shadow-none"
+                    className="bg-white dark:bg-black/5 border border-border p-0 shadow-none"
                   >
                     <CardContent className="p-4 flex flex-col gap-2">
                       <div className="flex items-center gap-3">
@@ -217,7 +217,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                             <li key={move + i}>
                               <Link
                                 href={`/moves?search=${move.toLowerCase().replace(/\s+/g, '+')}`}
-                                className="text-xs font-bold capitalize text-gray-700 dark:text-gray-300 flex flex-col items-center gap-2 p-2 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                                className="text-xs font-bold capitalize text-gray-700 dark:text-gray-300 flex flex-col items-center gap-2 p-2 rounded-md bg-black/5 dark:bg-black/30 hover:bg-gray-200 dark:hover:bg-black/50 transition-colors"
                                 key={move + i}
                               >
                                 {move}

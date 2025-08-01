@@ -4,7 +4,11 @@ import { ColumnDef } from '@tanstack/react-table';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
 import Link from 'next/link';
-import { formatPokemonDisplayWithForm, getFormTypeClass } from '@/utils/pokemonFormUtils';
+import {
+  formatPokemonDisplayWithForm,
+  formatPokemonUrlWithForm,
+  getFormTypeClass,
+} from '@/utils/pokemonFormUtils';
 // import TimeIcon from './TimeIcon';
 import { Badge } from '../ui/badge';
 import { PokemonEncounter } from '@/types/types';
@@ -24,42 +28,41 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
   {
     accessorKey: 'pokemon',
     id: 'pokemon',
-    header: ({}) => {
+    header: ({ column }) => {
       return (
-        // <Button
-        //   className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
-        //   variant="ghost"
-        //   onClick={() => column.toggleSorting()}
-        // >
-        <>Pokémon</>
-        //   {column.getIsSorted() === 'desc' ? (
-        //     <ArrowDown className="size-3" />
-        //   ) : column.getIsSorted() === 'asc' ? (
-        //     <ArrowUp className="size-3" />
-        //   ) : (
-        //     <ArrowUpDown className="size-3" />
-        //   )}
-        // </Button>
+        <Button
+          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
+          variant="ghost"
+          onClick={() => column.toggleSorting()}
+        >
+          <>Pokémon</>
+          {column.getIsSorted() === 'desc' ? (
+            <ArrowDown className="size-3" />
+          ) : column.getIsSorted() === 'asc' ? (
+            <ArrowUp className="size-3" />
+          ) : (
+            <ArrowUpDown className="size-3" />
+          )}
+        </Button>
       );
     },
     cell: ({ row }) => {
       const pokemon = row.original;
       const { form } = pokemon;
-      const fullPokemonName = form ? `${pokemon.name}_${form}` : pokemon.name;
 
       return (
         <div className="flex flex-col items-start space-x-2 min-w-0">
           <Link
-            href={`/pokemon/${encodeURIComponent(pokemon.name.toLowerCase())}`}
+            href={formatPokemonUrlWithForm(pokemon.name, form || '')}
             className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold"
           >
-            {formatPokemonDisplayWithForm(fullPokemonName)}
+            {formatPokemonDisplayWithForm(pokemon.name)}
+            {form && (
+              <span className={`text-xs text-muted-foreground block ${getFormTypeClass(form)}`}>
+                {formatPokemonDisplayWithForm(form.replace(/_form$/, ''))}
+              </span>
+            )}
           </Link>
-          {form && (
-            <span className={`text-xs text-muted-foreground block ${getFormTypeClass(form)}`}>
-              Regional variant
-            </span>
-          )}
         </div>
       );
     },
@@ -76,6 +79,23 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
         fullPokemonName.includes(searchText) ||
         formatPokemonDisplayWithForm(fullPokemonName).toLowerCase().includes(searchText)
       );
+    },
+    sortingFn: (rowA, rowB) => {
+      // Sort by base name, then by form if present
+      const a = rowA.original;
+      const b = rowB.original;
+      const aName = a.name.toLowerCase();
+      const bName = b.name.toLowerCase();
+
+      if (aName < bName) return -1;
+      if (aName > bName) return 1;
+
+      // If names are equal, sort by form (if any)
+      const aForm = a.form ? a.form.toLowerCase() : '';
+      const bForm = b.form ? b.form.toLowerCase() : '';
+      if (aForm < bForm) return -1;
+      if (aForm > bForm) return 1;
+      return 0;
     },
   },
   {

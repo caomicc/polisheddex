@@ -292,27 +292,27 @@ export default function PokemonFormClient({
               <Table className="max-w-full">
                 <TableHeader className="sr-only">
                   <TableRow>
-                    <TableHead className="font-medium w-[120px]">Training Stats</TableHead>
-                    <TableHead className="font-medium">Value</TableHead>
+                    <TableHead>Training Stats</TableHead>
+                    <TableHead>Value</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   <TableRow>
-                    <TableCell className="font-medium w-[120px]">Growth Rate</TableCell>
-                    <TableCell>{formData.growthRate}</TableCell>
+                    <TableCell className="text-left">Growth Rate</TableCell>
+                    <TableCell className="text-left">{formData.growthRate}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="font-medium">EV Yield</TableCell>
-                    <TableCell>{formData.evYield || 'None'}</TableCell>
+                    <TableCell className="text-left">EV Yield</TableCell>
+                    <TableCell className="text-left">{formData.evYield || 'None'}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="font-medium w-[120px]">Base Exp.</TableCell>
-                    <TableCell>{formData.baseExp}</TableCell>
+                    <TableCell className="text-left">Base Exp.</TableCell>
+                    <TableCell className="text-left">{formData.baseExp}</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="font-medium w-[120px]">Egg Groups</TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-1">
+                    <TableCell className="text-left">Egg Groups</TableCell>
+                    <TableCell className="text-left">
+                      <div className="flex items-start gap-1">
                         {formData.eggGroups && formData.eggGroups.length > 0 ? (
                           formData.eggGroups.map((group, idx) => (
                             <span key={idx}>
@@ -329,20 +329,24 @@ export default function PokemonFormClient({
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="font-medium w-[120px]">Hatch Rate</TableCell>
-                    <TableCell>{formData.hatchRate}</TableCell>
+                    <TableCell className="text-left">Hatch Rate</TableCell>
+                    <TableCell className="text-left">{formData.hatchRate}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
             </SectionCard>
             <SectionCard headline={'Species Information'}>
               <h3 className={cn('font-bold text-sm mb-4 text-left')}>Pokédex Entry:</h3>
-              <p className="text-sm md:text-md text-foreground">{formData.species} Pokémon</p>
-              <p className="text-sm md:text-md text-muted-foreground">{formData.description}</p>
+              <p className="text-sm md:text-md text-foreground text-left">
+                {formData.species} Pokémon
+              </p>
+              <p className="text-sm md:text-md text-muted-foreground text-left">
+                {formData.description}
+              </p>
 
               <h3 className={cn('font-bold text-sm my-4 text-left')}>Sprites:</h3>
 
-              <div className="flex flex-col md:flex-row gap-4 items-start justify-center mb-8">
+              <div className="flex flex-row gap-4 items-start justify-center mb-8">
                 <div className="flex flex-col items-center justify-center gap-2">
                   <PokemonSprite
                     src={
@@ -351,7 +355,7 @@ export default function PokemonFormClient({
                         : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/normal_front.png`
                     }
                   />
-                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none dark:text-black">
+                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none ">
                     Front Sprite
                   </span>
                 </div>
@@ -363,7 +367,7 @@ export default function PokemonFormClient({
                         : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/normal_front_animated.gif`
                     }
                   />
-                  <span className="text-xs font-bold text-muted-foreground capitalize dark:text-black leading-base">
+                  <span className="text-xs font-bold text-muted-foreground capitalize leading-base">
                     Front Sprite
                     <br />
                     (Animated)
@@ -378,7 +382,7 @@ export default function PokemonFormClient({
                         : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/shiny_front.png`
                     }
                   />
-                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none dark:text-black">
+                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none">
                     Shiny Sprite
                   </span>
                 </div>
@@ -390,7 +394,7 @@ export default function PokemonFormClient({
                         : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/shiny_front_animated.gif`
                     }
                   />
-                  <span className="text-xs font-bold text-muted-foreground capitalize dark:text-black leading-base">
+                  <span className="text-xs font-bold text-muted-foreground capitalize leading-base">
                     Shiny Sprite
                     <br />
                     (Animated)

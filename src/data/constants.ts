@@ -16,6 +16,16 @@ export const KNOWN_FORMS = {
   PALDEAN_WATER: 'paldean_water',
   TAUROS_PALDEAN_FIRE_FORM: 'paldean_fire',
   TAUROS_PALDEAN_WATER_FORM: 'paldean_water',
+  JOHTO_FORM: 'johto',
+  KANTO_FORM: 'kanto',
+  KOGA_FORM: 'koga',
+  AGATHA_FORM: 'agatha',
+  ARIANA_FORM: 'ariana',
+  ARBOK_KANTO_FORM: 'kanto',
+  ARBOK_JOHTO_FORM: 'johto',
+  ARBOK_KOGA_FORM: 'koga',
+  ARBOK_AGATHA_FORM: 'agatha',
+  ARBOK_ARIANA_FORM: 'ariana',
 };
 
 // Debug flag for tracking Pokémon type processing
