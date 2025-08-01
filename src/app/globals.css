@@ -705,3 +705,12 @@ html {
 .pokemon-stat-bar-background {
   background-color: var(--pokemon-theme-stat-bar-bg);
 }
+
+h3,
+.h3 {
+  @apply font-bold;
+  font-size: var(--text-md);
+  @media (min-width: 768px) {
+    font-size: var(--text-lg);
+  }
+}

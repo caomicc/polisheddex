@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { Hero } from '@/components/ui/Hero';
 import { normalizeLocationKey } from '@/utils/locationUtils';
 import { loadItemById, loadItemsData } from '@/utils/loaders/item-data-loader';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 interface ItemPageProps {
   params: Promise<{ name: string }>;
@@ -101,9 +102,11 @@ function RegularItemDetails({ item }: { item: import('@/types/types').ItemData }
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {/* Item Details */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow border border-gray-200 dark:border-gray-700">
-        <h2 className="text-xl font-semibold mb-4">Item Details</h2>
-        <div className="space-y-3">
+      <Card>
+        <CardHeader>
+          <h2 className="text-xl font-semibold">Item Details</h2>
+        </CardHeader>
+        <CardContent className="space-y-4">
           <div className="flex justify-between">
             <span className="font-medium">Effect:</span>
             <span className="text-gray-600 dark:text-gray-400">
@@ -116,41 +119,42 @@ function RegularItemDetails({ item }: { item: import('@/types/types').ItemData }
               {item.attributes?.parameter || 0}
             </span>
           </div>
+          <hr />
           <div className="flex justify-between">
             <span className="font-medium">Price:</span>
             <span className="text-green-600 dark:text-green-400 font-semibold">
               ₽{(item.attributes?.price || 0).toLocaleString()}
             </span>
           </div>
-          <div className="border-t pt-3">
-            <div className="mb-2">
-              <span className="font-medium">Outside Battle:</span>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
-                {item.attributes?.useOutsideBattle || 'Unknown'}
-              </p>
-            </div>
-            <div>
-              <span className="font-medium">In Battle:</span>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
-                {item.attributes?.useInBattle || 'Unknown'}
-              </p>
-            </div>
+          {/* <div className="border-t border-border"> */}
+          <div className="flex justify-between">
+            <span className="font-medium">Outside Battle:</span>
+            <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
+              {item.attributes?.useOutsideBattle || 'Unknown'}
+            </p>
           </div>
-        </div>
-      </div>
+          <div className="flex justify-between">
+            <span className="font-medium">In Battle:</span>
+            <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
+              {item.attributes?.useInBattle || 'Unknown'}
+            </p>
+          </div>
+          {/* </div> */}
+        </CardContent>
+      </Card>
 
       {/* Locations */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow border border-gray-200 dark:border-gray-700">
-        <h2 className="text-xl font-semibold mb-4">Locations ({item.locations?.length || 0})</h2>
-        <div className="space-y-4">
+      <Card>
+        <CardHeader>
+          <h2 className="text-xl font-semibold">Locations ({item.locations?.length || 0})</h2>
+        </CardHeader>
+        <CardContent className="space-y-4">
           {Object.entries(groupedLocations).map(([method, areas]) => (
             <div
               key={method}
               className="border-b border-gray-200 dark:border-gray-600 pb-3 last:border-b-0"
             >
-              <h3 className="font-medium text-blue-600 dark:text-blue-400 mb-2 capitalize">
-                {method}
-              </h3>
+              <h3 className="mb-2">{method}</h3>
               <ul className="space-y-1">
                 {areas.map((area, index) => {
                   const shouldLink =
@@ -175,8 +179,8 @@ function RegularItemDetails({ item }: { item: import('@/types/types').ItemData }
               </ul>
             </div>
           ))}
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

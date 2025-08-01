@@ -83,7 +83,7 @@ export function LoadTeamModal({ isOpen, onClose, onLoadTeam }: LoadTeamModalProp
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-semibold">Load Saved Team</h3>
+          <h3>Load Saved Team</h3>
           <button onClick={onClose} className="p-1 hover:bg-gray-100 rounded">
             <X className="w-5 h-5" />
           </button>

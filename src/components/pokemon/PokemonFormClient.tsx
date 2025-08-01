@@ -110,12 +110,12 @@ export default function PokemonFormClient({
             value="stats"
             className="text-center md:text-left py-6 w-full spacing-y-6 gap-6 flex flex-col"
           >
-            <SectionCard headline={'Base Stats'}>
-              <div className="flex flex-col md:flex-row gap-12 items-start">
+            <SectionCard headline={'Base Stats'} className="">
+              <div className="flex flex-col md:flex-row gap-12 items-start mb-6">
                 <div className="md:flex-1 flex h-full w-full">
                   {formData.baseStats ? (
                     <div className="space-y-4 w-full">
-                      <h3 className={cn('font-bold text-sm mb-4 text-left')}>Base Stats:</h3>
+                      <h3>Base Stats:</h3>
                       {[
                         { label: 'HP', value: formData.baseStats.hp, color: '*:bg-red-400' },
                         {
@@ -208,20 +208,18 @@ export default function PokemonFormClient({
                         />
                       </div>
                     ) : null}
-                    <PokemonAbilities
-                      abilities={formData.abilities}
-                      faithfulAbilities={formData.faithfulAbilities}
-                      updatedAbilities={formData.updatedAbilities}
-                    />
                   </div>
                 </div>
               </div>
+              <PokemonAbilities
+                abilities={formData.abilities}
+                faithfulAbilities={formData.faithfulAbilities}
+                updatedAbilities={formData.updatedAbilities}
+              />
             </SectionCard>
 
             <SectionCard headline={'Catch Rate'}>
-              <p className="text-sm">
-                <span className="font-bold">Base Catch Rate</span>: {formData.catchRate}
-              </p>
+              <h3 className="mb-2">Base Catch Rate: {formData.catchRate}</h3>
               <span className="flex flex-row items-start justify-between max-w-[300px] w-full mx-auto">
                 <div>
                   <p className="flex items-center gap-1 flex-col text-center text-sm mb-2">
@@ -288,7 +286,7 @@ export default function PokemonFormClient({
               </p>
             </SectionCard>
             <SectionCard headline={'Training'}>
-              <h3 className={cn('font-bold text-sm mb-4 text-left')}>Training Stats:</h3>
+              <h3>Training Stats:</h3>
               <Table className="max-w-full">
                 <TableHeader className="sr-only">
                   <TableRow>
@@ -336,7 +334,7 @@ export default function PokemonFormClient({
               </Table>
             </SectionCard>
             <SectionCard headline={'Species Information'}>
-              <h3 className={cn('font-bold text-sm mb-4 text-left')}>Pokédex Entry:</h3>
+              <h3>Pokédex Entry:</h3>
               <p className="text-sm md:text-md text-foreground text-left">
                 {formData.species} Pokémon
               </p>
@@ -344,7 +342,7 @@ export default function PokemonFormClient({
                 {formData.description}
               </p>
 
-              <h3 className={cn('font-bold text-sm my-4 text-left')}>Sprites:</h3>
+              <h3 className={cn('my-4')}>Sprites:</h3>
 
               <div className="flex flex-row gap-4 items-start justify-center mb-8">
                 <div className="flex flex-col items-center justify-center gap-2">
@@ -478,7 +476,7 @@ export default function PokemonFormClient({
             formData.evolution.chainWithMethods &&
             Object.keys(formData.evolution.chainWithMethods).length > 1 ? (
               <SectionCard headline={'Evolution'}>
-                <h3 className={cn('font-bold text-sm mb-4 text-left')}>Evolution:</h3>
+                <h3>Evolution:</h3>
 
                 <EvolutionChain
                   evolutionData={{

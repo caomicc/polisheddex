@@ -70,7 +70,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
             <PokemonSprite src={`/sprites/trainers/${trainerSpritePath}.png`} alt={trainer.name} />
           </div>
           <div>
-            <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">
+            <h3>
               {isGymLeader ? (
                 displayTrainerName
               ) : (
@@ -127,7 +127,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                           />
                         </Link>
                         <div className="flex-1 min-w-0">
-                          <h3 className="capitalize font-bold">
+                          <h3>
                             <Link
                               href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}`}
                             >

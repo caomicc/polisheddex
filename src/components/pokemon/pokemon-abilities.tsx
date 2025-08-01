@@ -97,8 +97,8 @@ export function PokemonAbilities({
 
   if (isLoading) {
     return (
-      <div>
-        <h3 className={cn('font-bold text-sm mb-2 text-left')}>Abilities:</h3>
+      <div className={'space-y-2 ' + className}>
+        <h3>Abilities:</h3>
         <div className={cn('flex flex-col gap-2', className)}>
           <span className="text-xs text-muted-foreground">Loading abilities...</span>
         </div>
@@ -107,9 +107,9 @@ export function PokemonAbilities({
   }
 
   return (
-    <div>
-      <h3 className={cn('font-bold text-sm mb-2 text-left')}>Abilities:</h3>
-      <div className={cn('flex flex-col gap-2', className)}>
+    <div className={'space-y-2 ' + className}>
+      <h3>Abilities:</h3>
+      <div className={cn('flex flex-col md:flex-row gap-2', className)}>
         {resolvedAbilities.map((ability, idx) => (
           <AbilityRow key={`${ability.id}-${idx}`} ability={ability} />
         ))}

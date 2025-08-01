@@ -121,7 +121,7 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Weaknesses */}
         <div>
-          <h3 className="text-lg font-semibold mb-3 text-red-700">Team Weaknesses</h3>
+          <h3 className="mb-3 text-red-700">Team Weaknesses</h3>
           <div className="space-y-2">
             {coverage.weaknesses.length === 0 ? (
               <p className="text-gray-500 text-sm">No common weaknesses found!</p>
@@ -150,7 +150,7 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
 
         {/* Resistances */}
         <div>
-          <h3 className="text-lg font-semibold mb-3 text-green-700">Team Resistances</h3>
+          <h3 className="mb-3 text-green-700">Team Resistances</h3>
           <div className="space-y-2">
             {coverage.resistances.length === 0 ? (
               <p className="text-gray-500 text-sm">No resistances found.</p>
@@ -176,7 +176,7 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
 
         {/* Immunities */}
         <div>
-          <h3 className="text-lg font-semibold mb-3 text-blue-700">Team Immunities</h3>
+          <h3 className="mb-3 text-blue-700">Team Immunities</h3>
           <div className="space-y-2">
             {coverage.immunities.length === 0 ? (
               <p className="text-gray-500 text-sm">No immunities found.</p>
@@ -203,7 +203,7 @@ export function TeamAnalysis({ team }: TeamAnalysisProps) {
 
       {/* Team Summary */}
       <div className="mt-6 pt-6 border-t">
-        <h3 className="text-lg font-semibold mb-3">Team Summary</h3>
+        <h3 className="mb-3">Team Summary</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           <div className="bg-gray-50 p-3 rounded">
             <div className="text-2xl font-bold text-gray-800">{activePokemon.length}</div>

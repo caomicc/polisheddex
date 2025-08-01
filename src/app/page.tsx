@@ -82,7 +82,7 @@ export default function Home() {
               <ol className="relative border-s border-border pl-6 space-y-8">
                 <li className="flex items-start gap-4">
                   <div>
-                    <h3 className="font-semibold text-lg">Polished vs Faithful checks</h3>
+                    <h3>Polished vs Faithful checks</h3>
                     <p className="text-foreground/80 text-sm">
                       Still handling some differences between the two versions, such as movesets and
                       naming conventions.
@@ -105,7 +105,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-4">
                   <div>
-                    <h3 className="font-semibold text-lg">Item Database</h3>
+                    <h3>Item Database</h3>
                     <p className="text-foreground/80 text-sm">
                       Browse all items, their effects, and where to find them.
                     </p>
@@ -120,7 +120,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-4">
                   <div>
-                    <h3 className="font-semibold text-lg">Better Location Handling</h3>
+                    <h3>Better Location Handling</h3>
                     <p className="text-foreground/80 text-sm">
                       Add details to locations, such as items found, Pokémon available, move tutors,
                       and more.
@@ -136,7 +136,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-4">
                   <div>
-                    <h3 className="font-semibold text-lg">Move Database</h3>
+                    <h3>Move Database</h3>
                     <p className="text-foreground/80 text-sm">
                       Browse all moves, their effects, and type advantages vs disadvantages.
                     </p>
@@ -147,7 +147,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-4">
                   <div>
-                    <h3 className="font-semibold text-lg">Update UI</h3>
+                    <h3>Update UI</h3>
                     <p className="text-foreground/80 text-sm">
                       Improve UI for better usability and aesthetics while being mobile focused.
                     </p>
@@ -158,7 +158,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-4">
                   <div>
-                    <h3 className="font-semibold text-lg">Team Picker for Type Match-ups</h3>
+                    <h3>Team Picker for Type Match-ups</h3>
                     <p className="text-foreground/80 text-sm">
                       A tool to help you build a team based on type match-ups, weaknesses, and
                       resistances for Pokemon and types specific to Polished Crystal.
@@ -170,7 +170,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-4">
                   <div>
-                    <h3 className="font-semibold text-lg">Game Mechanics Guide</h3>
+                    <h3>Game Mechanics Guide</h3>
                     <p className="text-foreground/80 text-sm">
                       A guide to the game mechanics, including battle mechanics, breeding, and more.
                     </p>

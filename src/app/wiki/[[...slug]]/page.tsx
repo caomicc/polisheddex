@@ -565,7 +565,7 @@ export default function WikiPage() {
               h3: ({ children }) => (
                 <h3
                   id={children?.toString?.().toLowerCase().replace(/\s+/g, '-') ?? undefined}
-                  className="text-xl font-semibold mb-2"
+                  className="mb-2"
                 >
                   {children}
                 </h3>

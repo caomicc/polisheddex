@@ -109,7 +109,7 @@ export default function LocationClient({
 
       {comprehensiveInfo?.trainers && comprehensiveInfo?.trainers.length > 0 && (
         <div className="trainers-list flex flex-col gap-4 mt-6">
-          <h3 className="text-lg font-semibold">Trainers:</h3>
+          <h3>Trainers:</h3>
           {comprehensiveInfo?.trainers?.map((trainer: LocationTrainer, index: number) => (
             <TrainerCard key={index} trainer={trainer} />
           ))}
@@ -180,7 +180,7 @@ export default function LocationClient({
             return Object.entries(areaGroups).map(([areaName, methodData]) => (
               <Card key={areaName} className="w-full p-0 overflow-hidden">
                 <CardHeader className="sr-only">
-                  <h3 className="text-lg font-semibold">{areaName}</h3>
+                  <h3>{areaName}</h3>
                 </CardHeader>
                 <CardContent className="p-0">
                   {(() => {
@@ -212,7 +212,7 @@ export default function LocationClient({
       {comprehensiveInfo?.items && (
         <Card>
           <CardHeader>
-            <h3 className="text-lg font-semibold">Items Found Here</h3>
+            <h3>Items Found Here</h3>
           </CardHeader>
           <CardContent>
             <Table>
@@ -253,7 +253,7 @@ export default function LocationClient({
       {comprehensiveInfo?.events && (
         <Card>
           <CardHeader>
-            <h3 className="text-lg font-semibold">Special Events</h3>
+            <h3>Special Events</h3>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -276,7 +276,7 @@ export default function LocationClient({
       {comprehensiveInfo?.trades && (
         <Card>
           <CardHeader>
-            <h3 className="text-lg font-semibold">NPC Trades</h3>
+            <h3>NPC Trades</h3>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
