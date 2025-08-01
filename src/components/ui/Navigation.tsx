@@ -232,6 +232,7 @@ import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { Badge } from './badge';
 
 // const components: { title: string; href: string; description: string }[] = [
 //   {
@@ -458,11 +459,11 @@ export default function Navigation() {
             </NavigationMenuItem> */}
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="flex items-center gap-2 ml-auto">
+        <div className={cn('flex items-center gap-2 ml-auto')}>
           <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
-            <span className={showFaithful ? 'font-bold' : ''}>Faithful</span>
+            <Badge className={showFaithful ? '' : 'opacity-50'}>Faithful</Badge>
             {' / '}
-            <span className={!showFaithful ? 'font-bold' : ''}>Polished</span>
+            <Badge className={!showFaithful ? '' : 'opacity-50'}>Polished</Badge>
           </Label>
           <Switch
             id="type-toggle"

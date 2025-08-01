@@ -102,9 +102,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${rubik.variable} ${geistMono.variable} font-sans antialiased bg-slate-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100`}
-      >
+      <body className={`${rubik.variable} ${geistMono.variable} font-sans antialiased `}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

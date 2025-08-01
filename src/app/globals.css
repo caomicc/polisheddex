@@ -159,7 +159,7 @@ html {
 /*
 ---break--- */
 .dark {
-  --background: oklch(0.145 0 0);
+  /* --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -189,7 +189,7 @@ html {
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-ring: oklch(0.556 0 0); */
   /* Pokémon Type Colors (Dark) */
   /* --color-bug: var(--color-lime-400);
   --color-dark: var(--color-gray-800);
@@ -209,6 +209,46 @@ html {
   --color-rock: var(--color-gray-400);
   --color-steel: var(--color-gray-400);
   --color-water: var(--color-blue-400); */
+
+  --background: oklch(14.5% 0 0);
+  --foreground: oklch(98.5% 0 0);
+  --card: oklch(20.5% 0 0);
+  --card-foreground: oklch(98.5% 0 0);
+  --popover: oklch(26.9% 0 0);
+  --popover-foreground: oklch(98.5% 0 0);
+  --primary: oklch(92.2% 0 0);
+  --primary-foreground: oklch(20.5% 0 0);
+  --secondary: oklch(26.9% 0 0);
+  --secondary-foreground: oklch(98.5% 0 0);
+  --muted: oklch(26.9% 0 0);
+  --muted-foreground: oklch(70.8% 0 0);
+  --accent: oklch(37.1% 0 0);
+  --accent-foreground: oklch(98.5% 0 0);
+  --destructive: oklch(70.4% 0.191 22.216);
+  --border: oklch(100% 0 0/0.1);
+  --input: oklch(100% 0 0/0.15);
+  --ring: oklch(55.6% 0 0);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --sidebar: oklch(20.5% 0 0);
+  --sidebar-foreground: oklch(98.5% 0 0);
+  --sidebar-primary: oklch(48.8% 0.243 264.376);
+  --sidebar-primary-foreground: oklch(98.5% 0 0);
+  --sidebar-accent: oklch(26.9% 0 0);
+  --sidebar-accent-foreground: oklch(98.5% 0 0);
+  --sidebar-border: oklch(100% 0 0/0.1);
+  --sidebar-ring: oklch(43.9% 0 0);
+  --surface: oklch(20% 0 0);
+  --surface-foreground: oklch(70.8% 0 0);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
+  --code-highlight: oklch(27% 0 0);
+  --code-number: oklch(72% 0 0);
+  --selection: oklch(92.2% 0 0);
+  --selection-foreground: oklch(20.5% 0 0);
 }
 
 /* Pokémon Type Backgrounds with 50% Opacity */
@@ -451,7 +491,7 @@ html {
 .shadow-normal {
   --tw-shadow-color: color-mix(
     in oklab,
-    color-mix(in oklab, var(--color-normal) 20%, var(--color-slate-700) 10%)
+    color-mix(in oklab, var(--color-normal) 20%, var(--color-normal-700) 10%)
       var(--tw-shadow-alpha, 1),
     transparent
   );

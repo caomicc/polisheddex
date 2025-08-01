@@ -342,7 +342,7 @@ export default function PokemonFormClient({
 
               <h3 className={cn('font-bold text-sm my-4 text-left')}>Sprites:</h3>
 
-              <div className="flex flex-col md:flex-row gap-4 items-start justify-center mb-8">
+              <div className="flex flex-row gap-4 items-start justify-center mb-8">
                 <div className="flex flex-col items-center justify-center gap-2">
                   <PokemonSprite
                     src={
@@ -351,7 +351,7 @@ export default function PokemonFormClient({
                         : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/normal_front.png`
                     }
                   />
-                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none dark:text-black">
+                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none ">
                     Front Sprite
                   </span>
                 </div>
@@ -363,7 +363,7 @@ export default function PokemonFormClient({
                         : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/normal_front_animated.gif`
                     }
                   />
-                  <span className="text-xs font-bold text-muted-foreground capitalize dark:text-black leading-base">
+                  <span className="text-xs font-bold text-muted-foreground capitalize leading-base">
                     Front Sprite
                     <br />
                     (Animated)
@@ -378,7 +378,7 @@ export default function PokemonFormClient({
                         : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/shiny_front.png`
                     }
                   />
-                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none dark:text-black">
+                  <span className="text-xs font-bold text-muted-foreground capitalize leading-none">
                     Shiny Sprite
                   </span>
                 </div>
@@ -390,7 +390,7 @@ export default function PokemonFormClient({
                         : `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}/shiny_front_animated.gif`
                     }
                   />
-                  <span className="text-xs font-bold text-muted-foreground capitalize dark:text-black leading-base">
+                  <span className="text-xs font-bold text-muted-foreground capitalize leading-base">
                     Shiny Sprite
                     <br />
                     (Animated)
