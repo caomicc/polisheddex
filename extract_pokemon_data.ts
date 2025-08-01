@@ -1119,15 +1119,60 @@ for (const file of wildFiles) {
             mappedRates,
           );
         }
+        // Group entries by pokemon key and combine identical encounters
+        const entriesByPokemon: Record<string, Array<{ entry: LocationEntry; rate: number }>> = {};
+        
         for (let idx = 0; idx < slotEntries.length; idx++) {
-          slotEntries[idx].entry.chance = mappedRates[idx]?.rate ?? 0;
-          if (!locationsByMon[slotEntries[idx].key]) locationsByMon[slotEntries[idx].key] = [];
-          locationsByMon[slotEntries[idx].key].push(slotEntries[idx].entry);
-          if (isDebug) {
-            console.log(
-              `DEBUG: Added location for ${slotEntries[idx].key}:`,
-              slotEntries[idx].entry,
-            );
+          const pokemonKey = slotEntries[idx].key;
+          const encounterRate = mappedRates[idx]?.rate ?? 0;
+          const entry = { ...slotEntries[idx].entry, chance: encounterRate };
+          
+          if (!entriesByPokemon[pokemonKey]) {
+            entriesByPokemon[pokemonKey] = [];
+          }
+          
+          entriesByPokemon[pokemonKey].push({ entry, rate: encounterRate });
+        }
+        
+        // For each pokemon, combine identical encounters (same area, method, time, level, formName)
+        for (const [pokemonKey, encounters] of Object.entries(entriesByPokemon)) {
+          if (!locationsByMon[pokemonKey]) locationsByMon[pokemonKey] = [];
+          
+          // Group by encounter characteristics (excluding chance)
+          const encounterGroups: Record<string, { combinedEntry: LocationEntry; totalRate: number }> = {};
+          
+          for (const { entry, rate } of encounters) {
+            // Create a key that uniquely identifies identical encounters (excluding chance)
+            const encounterKey = JSON.stringify({
+              area: entry.area,
+              method: entry.method,
+              time: entry.time,
+              level: entry.level,
+              formName: entry.formName
+            });
+            
+            if (!encounterGroups[encounterKey]) {
+              encounterGroups[encounterKey] = {
+                combinedEntry: { ...entry, chance: 0 }, // Start with 0, will be set below
+                totalRate: 0
+              };
+            }
+            
+            // Add this encounter's rate to the total
+            encounterGroups[encounterKey].totalRate += rate;
+          }
+          
+          // Add the combined encounters to locationsByMon
+          for (const { combinedEntry, totalRate } of Object.values(encounterGroups)) {
+            combinedEntry.chance = totalRate;
+            locationsByMon[pokemonKey].push(combinedEntry);
+            
+            if (isDebug) {
+              console.log(
+                `DEBUG: Added combined location for ${pokemonKey} with rate ${totalRate}:`,
+                combinedEntry,
+              );
+            }
           }
         }
       }
