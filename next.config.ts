@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -16,12 +16,18 @@ const nextConfig: NextConfig = {
     ],
   },
   eslint: {
-    // Exclude specific directories and files from being linted
     ignoreDuringBuilds: true,
   },
-  // Optionally, you can also configure webpack to exclude these files from the build
+  async redirects() {
+    return [
+      {
+        source: '/duskball',
+        destination: '/dusk',
+        permanent: true,
+      },
+    ];
+  },
   webpack: (config) => {
-    // Exclude data extraction utilities from the build
     config.watchOptions = {
       ...config.watchOptions,
       ignored: ['**/src/utils/extractors/**', '**/extract_pokemon_data.ts'],
