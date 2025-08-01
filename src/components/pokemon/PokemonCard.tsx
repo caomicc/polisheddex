@@ -86,9 +86,11 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
         alt={`${pokemon.name} sprite`}
         primaryType={primaryType as PokemonType['name']}
         src={
-          pokemon.forms && pokemon.forms?.length
-            ? `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
-            : `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
+          pokemon.frontSpriteUrl
+            ? pokemon.frontSpriteUrl
+            : pokemon.forms && pokemon.forms?.length
+              ? `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
+              : `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
         }
         className="absolute right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2"
       />
