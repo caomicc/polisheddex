@@ -614,6 +614,9 @@ export default function PokemonFormClient({
                               <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                                 PP
                               </TableHead>
+                              <TableHead className="attheader cen align-middle text-left w-[80px]">
+                                TM/HM
+                              </TableHead>
                             </TableRow>
                           </TableHeader>
                           <TableBody>
@@ -665,6 +668,9 @@ export default function PokemonFormClient({
                           </TableHead>
                           <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             PP
+                          </TableHead>
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            TM/HM
                           </TableHead>
                         </TableRow>
                       </TableHeader>
@@ -721,9 +727,9 @@ export default function PokemonFormClient({
                           <TableHead className="attheader cen align-middle text-left md:w-[80px]">
                             PP
                           </TableHead>
-                          {/* <TableHead className="attheader cen align-middle text-left w-[80px]">
-                            Effect %
-                          </TableHead> */}
+                          <TableHead className="attheader cen align-middle text-left w-[80px]">
+                            TM/HM
+                          </TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
