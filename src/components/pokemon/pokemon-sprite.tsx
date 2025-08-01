@@ -13,7 +13,7 @@ export function PokemonSprite({ className, src, alt, primaryType }: PokemonSprit
   return (
     <div
       className={cn(
-        'relative bg-white p-2 w-12 md:w-20 h-12 md:h-20 rounded-xl',
+        'relative bg-white p-2 w-12 md:w-20 h-12 md:h-20 rounded-lg md:rounded-xl',
         `shadow-lg shadow-${primaryType?.toLowerCase()}`,
         className,
       )}
