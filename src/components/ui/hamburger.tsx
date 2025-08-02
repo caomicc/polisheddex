@@ -15,10 +15,11 @@ type MenuItem = {
 
 const menuItems: MenuItem[] = [
   { title: 'Home', href: '/' },
-  { title: 'Pokedex', href: '/pokemon' },
+  { title: 'Pokemon', href: '/pokemon' },
   { title: 'Locations', href: '/locations' },
   { title: 'Items', href: '/items' },
-  { title: 'Moves', href: '/moves' },
+  { title: 'Attackdex', href: '/moves' },
+  { title: 'Abilities', href: '/abilities' },
   { title: 'Team Builder', href: '/team-builder' },
   { title: 'Wiki', href: '/wiki' },
 ];
