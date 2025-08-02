@@ -356,10 +356,16 @@ export default function Navigation() {
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
                       <Link href="/moves">
-                        <div className="font-medium">Moves</div>
+                        <div className="font-medium">Attackdex</div>
                         <div className="text-muted-foreground">
                           Browse all moves in the Pokedex.
                         </div>
+                      </Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild>
+                      <Link href="/abilities">
+                        <div className="font-medium">Abilities</div>
+                        <div className="text-muted-foreground">Browse all abilities.</div>
                       </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>

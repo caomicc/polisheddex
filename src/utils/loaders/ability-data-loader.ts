@@ -85,4 +85,199 @@ export async function getAllAbilities(): Promise<any[]> {
   }
 }
 
+// Additional functionality for finding Pokemon that have abilities
+import { BaseData } from '@/types/types';
+import { loadPokemonBaseData } from './pokemon-base-data-loader';
+
+export interface PokemonWithAbility {
+  pokemon: BaseData;
+  abilityTypes: ('primary' | 'secondary' | 'hidden')[];
+  isHidden: boolean;
+  faithful?: boolean;
+  updated?: boolean;
+}
+
+export async function getPokemonThatHaveAbility(abilityId: string): Promise<PokemonWithAbility[]> {
+  const pokemonBaseData = await loadPokemonBaseData();
+  const pokemonWithAbility: PokemonWithAbility[] = [];
+
+  // Normalize ability ID for comparison
+  const normalizedAbilityId = abilityId.toLowerCase();
+
+  // Load individual Pokemon files to get full ability data
+  for (const [pokemonKey, basePokemon] of Object.entries(pokemonBaseData)) {
+    try {
+      const fs = await import('fs');
+      const path = await import('path');
+      
+      // Try to load the individual Pokemon file
+      const pokemonFileName = pokemonKey.toLowerCase();
+      const pokemonFilePath = path.join(process.cwd(), `output/pokemon/${pokemonFileName}.json`);
+      
+      if (!fs.existsSync(pokemonFilePath)) {
+        continue; // Skip if individual file doesn't exist
+      }
+      
+      const pokemonData = JSON.parse(fs.readFileSync(pokemonFilePath, 'utf8'));
+      const pokemon = { ...basePokemon, ...pokemonData };
+
+
+      // Determine which abilities to use for each version with fallback logic
+      const faithfulAbilities = pokemon.detailedStats?.faithfulAbilities || pokemon.faithfulAbilities;
+      const updatedAbilities = pokemon.detailedStats?.updatedAbilities || pokemon.updatedAbilities;
+      const mainAbilities = pokemon.detailedStats?.abilities || pokemon.abilities;
+
+      // Use fallback logic: if no specific version abilities, use the other version or main abilities
+      const effectiveFaithfulAbilities = faithfulAbilities || updatedAbilities || mainAbilities;
+      const effectiveUpdatedAbilities = updatedAbilities || mainAbilities;
+
+      // Check faithful abilities (with fallback)
+      if (effectiveFaithfulAbilities) {
+        effectiveFaithfulAbilities.forEach((ability: any) => {
+          if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
+            const existingIndex = pokemonWithAbility.findIndex(
+              (item) => item.pokemon.name === pokemon.name
+            );
+            
+            if (existingIndex >= 0) {
+              const existing = pokemonWithAbility[existingIndex];
+              if (!existing.abilityTypes.includes(ability.abilityType)) {
+                existing.abilityTypes.push(ability.abilityType);
+              }
+              existing.faithful = true;
+              if (ability.isHidden) existing.isHidden = true;
+            } else {
+              pokemonWithAbility.push({
+                pokemon,
+                abilityTypes: [ability.abilityType],
+                isHidden: ability.isHidden,
+                faithful: true,
+              });
+            }
+          }
+        });
+      }
+
+      // Check updated abilities
+      if (effectiveUpdatedAbilities) {
+        effectiveUpdatedAbilities.forEach((ability: any) => {
+          if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
+            const existingIndex = pokemonWithAbility.findIndex(
+              (item) => item.pokemon.name === pokemon.name
+            );
+            
+            if (existingIndex >= 0) {
+              const existing = pokemonWithAbility[existingIndex];
+              if (!existing.abilityTypes.includes(ability.abilityType)) {
+                existing.abilityTypes.push(ability.abilityType);
+              }
+              existing.updated = true;
+              if (ability.isHidden) existing.isHidden = true;
+            } else {
+              pokemonWithAbility.push({
+                pokemon,
+                abilityTypes: [ability.abilityType],
+                isHidden: ability.isHidden,
+                updated: true,
+              });
+            }
+          }
+        });
+      }
+
+      // Check forms if they exist
+      if (pokemon.forms) {
+        Object.entries(pokemon.forms).forEach(([formName, formData]) => {
+
+          // Apply same fallback logic for forms
+          const formFaithfulAbilities = (formData as any).detailedStats?.faithfulAbilities || (formData as any).faithfulAbilities;
+          const formUpdatedAbilities = (formData as any).detailedStats?.updatedAbilities || (formData as any).updatedAbilities;
+          const formMainAbilities = (formData as any).detailedStats?.abilities || (formData as any).abilities;
+
+          const effectiveFormFaithfulAbilities = formFaithfulAbilities || formUpdatedAbilities || formMainAbilities;
+          const effectiveFormUpdatedAbilities = formUpdatedAbilities || formMainAbilities;
+
+          // Check faithful abilities for form (with fallback)
+          if (effectiveFormFaithfulAbilities) {
+            effectiveFormFaithfulAbilities.forEach((ability: any) => {
+              if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
+                const formPokemonName = `${pokemon.name} (${formName})`;
+                const existingIndex = pokemonWithAbility.findIndex(
+                  (item) => item.pokemon.name === formPokemonName
+                );
+                
+                if (existingIndex >= 0) {
+                  const existing = pokemonWithAbility[existingIndex];
+                  if (!existing.abilityTypes.includes(ability.abilityType)) {
+                    existing.abilityTypes.push(ability.abilityType);
+                  }
+                  existing.faithful = true;
+                  if (ability.isHidden) existing.isHidden = true;
+                } else {
+                  pokemonWithAbility.push({
+                    pokemon: {
+                      ...pokemon,
+                      name: formPokemonName,
+                      formName,
+                    },
+                    abilityTypes: [ability.abilityType],
+                    isHidden: ability.isHidden,
+                    faithful: true,
+                  });
+                }
+              }
+            });
+          }
+
+          // Check updated abilities for form
+          if (effectiveFormUpdatedAbilities) {
+            effectiveFormUpdatedAbilities.forEach((ability: any) => {
+              if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
+                const formPokemonName = `${pokemon.name} (${formName})`;
+                const existingIndex = pokemonWithAbility.findIndex(
+                  (item) => item.pokemon.name === formPokemonName
+                );
+                
+                if (existingIndex >= 0) {
+                  const existing = pokemonWithAbility[existingIndex];
+                  if (!existing.abilityTypes.includes(ability.abilityType)) {
+                    existing.abilityTypes.push(ability.abilityType);
+                  }
+                  existing.updated = true;
+                  if (ability.isHidden) existing.isHidden = true;
+                } else {
+                  pokemonWithAbility.push({
+                    pokemon: {
+                      ...pokemon,
+                      name: formPokemonName,
+                      formName,
+                    },
+                    abilityTypes: [ability.abilityType],
+                    isHidden: ability.isHidden,
+                    updated: true,
+                  });
+                }
+              }
+            });
+          }
+        });
+      }
+    } catch (error: any) {
+      // Skip Pokemon if there's an error loading their data
+      console.warn(`Error loading data for ${pokemonKey}:`, error.message);
+      continue;
+    }
+  }
+
+  // Sort ability types by priority (primary > secondary > hidden)
+  pokemonWithAbility.forEach((item) => {
+    item.abilityTypes.sort((a, b) => {
+      const order = { primary: 0, secondary: 1, hidden: 2 };
+      return (order[a as keyof typeof order] || 999) - (order[b as keyof typeof order] || 999);
+    });
+  });
+
+  return pokemonWithAbility.sort((a, b) => a.pokemon.name.localeCompare(b.pokemon.name));
+}
+
 export type { AbilityManifest };
