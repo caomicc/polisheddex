@@ -1,0 +1,193 @@
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { Suspense } from 'react';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
+import { Hero } from '@/components/ui/Hero';
+import { loadMoveById, getPokemonThatCanLearnMove } from '@/utils/loaders/move-data-loader';
+import MoveDetailClient from '@/components/moves/MoveDetailClient';
+import { PokemonGridSkeleton } from '@/components/pokemon/PokemonCardSkeleton';
+
+export default async function MoveDetail({ params }: { params: Promise<{ name: string }> }) {
+  const nameParam = (await params).name;
+  const moveName = decodeURIComponent(nameParam);
+
+  // Load move data
+  const moveData = await loadMoveById(moveName.toLowerCase());
+  
+  if (!moveData) {
+    return notFound();
+  }
+
+  // Load Pokemon that can learn this move
+  const pokemonWithMove = await getPokemonThatCanLearnMove(moveData.name || moveName);
+
+  return (
+    <>
+      <Hero
+        className="text-white"
+        headline={moveData.name || moveName}
+        description={moveData.description || 'Move details and Pokemon that can learn it'}
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/moves" className="hover:underline text-white hover:text-slate-200">
+                    Moves
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-white">{moveData.name || moveName}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
+      />
+
+      <div className="max-w-xl md:max-w-4xl mx-auto">
+        <h1 className="text-2xl font-bold mb-4 sr-only">{moveData.name || moveName}</h1>
+        
+        <Suspense fallback={<PokemonGridSkeleton count={8} />}>
+          <MoveDetailClient 
+            moveData={moveData}
+            pokemonWithMove={pokemonWithMove}
+            moveName={moveData.name || moveName}
+          />
+        </Suspense>
+      </div>
+    </>
+  );
+}
+
+// Generate static params for all moves
+export async function generateStaticParams() {
+  try {
+    const { loadMovesData } = await import('@/utils/loaders/move-data-loader');
+    const movesData = await loadMovesData();
+    
+    return Object.keys(movesData).map((moveKey) => ({
+      name: moveKey.toLowerCase(),
+    }));
+  } catch (error) {
+    console.error('Error generating static params for moves:', error);
+    return [];
+  }
+}
+
+// Generate metadata for SEO and social sharing
+export async function generateMetadata({ params }: { params: Promise<{ name: string }> }) {
+  const nameParam = (await params).name;
+  const moveName = decodeURIComponent(nameParam);
+
+  try {
+    const moveData = await loadMoveById(moveName.toLowerCase());
+    
+    if (!moveData) {
+      return {
+        title: 'Move Not Found',
+        description: 'The requested move could not be found.',
+      };
+    }
+
+    const pokemonCount = await getPokemonThatCanLearnMove(moveData.name || moveName);
+    const pokemonCountText = pokemonCount.length > 0 ? ` ${pokemonCount.length} Pokémon can learn this move.` : '';
+
+    const title = `${moveData.name || moveName} | PolishedDex`;
+    const description = `${moveData.description || 'Move details'}${pokemonCountText} View all Pokémon that can learn ${moveData.name || moveName} in Pokémon Polished Crystal.`;
+    const url = `https://www.polisheddex.app/moves/${nameParam}`;
+
+    // Build move stats text
+    const moveStats = moveData.updated || moveData.faithful;
+    const statsText = moveStats 
+      ? ` Type: ${moveStats.type}, Power: ${moveStats.power || 'N/A'}, Accuracy: ${moveStats.accuracy || 'N/A'}, PP: ${moveStats.pp || 'N/A'}.`
+      : '';
+
+    const socialDescription = `${moveData.description || 'Move details'}.${statsText}${pokemonCountText}`;
+
+    return {
+      title,
+      description,
+      keywords: [
+        'pokemon polished crystal',
+        moveData.name?.toLowerCase() || moveName.toLowerCase(),
+        'move',
+        'pokemon moves',
+        'polisheddex',
+        moveStats?.type?.toLowerCase() || '',
+        moveStats?.category?.toLowerCase() || '',
+      ].filter(Boolean),
+
+      // Open Graph metadata
+      openGraph: {
+        title,
+        description: socialDescription,
+        url,
+        siteName: 'PolishedDex',
+        type: 'website',
+        images: [
+          {
+            url: '/og-image.png',
+            width: 1200,
+            height: 630,
+            alt: `${moveData.name || moveName} - PolishedDex`,
+          },
+        ],
+        locale: 'en_US',
+      },
+
+      // Twitter Card metadata
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description: socialDescription,
+        images: ['/og-image.png'],
+        creator: '@polisheddex',
+        site: '@polisheddex',
+      },
+
+      // Additional metadata
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+        },
+      },
+
+      // Canonical URL
+      alternates: {
+        canonical: url,
+      },
+    };
+  } catch (error) {
+    console.error('Error generating metadata for move:', error);
+    return {
+      title: 'Move | PolishedDex',
+      description: 'Move details and Pokémon that can learn it in Pokémon Polished Crystal.',
+    };
+  }
+}
+
+// Export viewport separately as required by Next.js 15+
+export const viewport = 'width=device-width, initial-scale=1';
