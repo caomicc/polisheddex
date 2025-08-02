@@ -117,7 +117,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
 
   const mobileRows = [
     <TableRow
-      className="md:hidden group border-b-0 hover:bg-muted/0"
+      className="md:hidden group border-b-0 hover:bg-muted/0 pt-2"
       key={`mobile-header-${name}-${level}`}
       id={`mobile-header-${name}-${level}`}
     >
@@ -125,7 +125,13 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
         colSpan={6}
         className="align-middle font-bold p-1 md:p-2 text-left text-xs md:text-md col-span-2"
       >
-        {name}
+        <Link
+          href={`/moves/${name.toLowerCase().replace(/\s+/g, '-')}`}
+          className="flex items-center"
+        >
+          {name}
+          <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-2" />
+        </Link>
         {level !== undefined && (
           <span className="text-xs text-muted-foreground ml-2">Level: {level}</span>
         )}
@@ -172,7 +178,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
       <TableCell className="align-middle p-1 md:p-2">{effectiveInfo?.pp ?? '--'}</TableCell>
       <TableCell className="align-middle p-1 md:p-2 ">
         {info?.tm?.number ? (
-          <Link href={`/items/${info.tm.number.toLowerCase()}`} className="inline-block">
+          <Link href={`/items/${info.tm.number.toLowerCase()}`} className="flex items-center">
             <Badge
               variant={info.tm.number.startsWith('TM') ? 'tm' : 'hm'}
               className="px-1 md:px-1 py-[2px] md:py-[2px] text-[10px] md:text-[10px]"
@@ -192,7 +198,7 @@ const MoveRow: React.FC<Move> = ({ name, level, info }) => {
     >
       <TableCell
         className={cn(
-          'text-muted-foreground text-xs p-1 md:p-2 pb-4',
+          'text-muted-foreground text-xs p-1 md:p-2 pb-2',
           !info?.description?.trim() && 'text-error',
         )}
         colSpan={6}
