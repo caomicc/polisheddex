@@ -172,12 +172,26 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
       const checkLevelMoves = (moves: any[], version: 'faithful' | 'updated') => {
         moves?.forEach((move) => {
           if (move.name && move.name.toLowerCase() === normalizedMoveName) {
-            pokemonWithMove.push({
-              pokemon,
-              learnMethod: 'level',
-              level: move.level,
-              [version]: true,
-            });
+            // Check if this move already exists for this Pokemon
+            const existingIndex = pokemonWithMove.findIndex(
+              (item) => 
+                item.pokemon.name === pokemon.name && 
+                item.learnMethod === 'level' &&
+                item.level === move.level
+            );
+            
+            if (existingIndex >= 0) {
+              // Update existing entry to include this version
+              pokemonWithMove[existingIndex][version] = true;
+            } else {
+              // Create new entry
+              pokemonWithMove.push({
+                pokemon,
+                learnMethod: 'level',
+                level: move.level,
+                [version]: true,
+              });
+            }
           }
         });
       };
@@ -229,16 +243,31 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
           const checkFormLevelMoves = (moves: any[], version: 'faithful' | 'updated') => {
             moves?.forEach((move) => {
               if (move.name && move.name.toLowerCase() === normalizedMoveName) {
-                pokemonWithMove.push({
-                  pokemon: {
-                    ...pokemon,
-                    name: `${pokemon.name} (${formName})`,
-                    formName,
-                  },
-                  learnMethod: 'level',
-                  level: move.level,
-                  [version]: true,
-                });
+                const formPokemonName = `${pokemon.name} (${formName})`;
+                // Check if this move already exists for this form
+                const existingIndex = pokemonWithMove.findIndex(
+                  (item) => 
+                    item.pokemon.name === formPokemonName && 
+                    item.learnMethod === 'level' &&
+                    item.level === move.level
+                );
+                
+                if (existingIndex >= 0) {
+                  // Update existing entry to include this version
+                  pokemonWithMove[existingIndex][version] = true;
+                } else {
+                  // Create new entry
+                  pokemonWithMove.push({
+                    pokemon: {
+                      ...pokemon,
+                      name: formPokemonName,
+                      formName,
+                    },
+                    learnMethod: 'level',
+                    level: move.level,
+                    [version]: true,
+                  });
+                }
               }
             });
           };

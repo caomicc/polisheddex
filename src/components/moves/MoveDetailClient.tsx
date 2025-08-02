@@ -1,16 +1,12 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/ui/select';
-import { cn } from '@/lib/utils';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonWithMove } from '@/utils/loaders/move-data-loader';
-import PokemonCard from '@/components/pokemon/PokemonCard';
-import Link from 'next/link';
-import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
+import PokemonWithMoveDataTable from './PokemonWithMoveDataTable';
 
 interface MoveDetailClientProps {
   moveData: {
@@ -42,25 +38,13 @@ interface MoveDetailClientProps {
   moveName: string;
 }
 
-export default function MoveDetailClient({ moveData, pokemonWithMove, moveName }: MoveDetailClientProps) {
+export default function MoveDetailClient({
+  moveData,
+  pokemonWithMove,
+  moveName,
+}: MoveDetailClientProps) {
   const [learnMethodFilter, setLearnMethodFilter] = useState<string>('all');
   const { showFaithful } = useFaithfulPreference();
-
-  // Filter Pokemon based on faithful preference and learn method
-  const filteredPokemonWithMove = useMemo(() => {
-    return pokemonWithMove.filter((item) => {
-      // Filter by faithful preference
-      const faithfulMatch = showFaithful ? item.faithful : item.updated;
-      if (!faithfulMatch) return false;
-
-      // Filter by learn method
-      if (learnMethodFilter !== 'all' && item.learnMethod !== learnMethodFilter) {
-        return false;
-      }
-
-      return true;
-    });
-  }, [pokemonWithMove, showFaithful, learnMethodFilter]);
 
   // Get move stats based on faithful preference
   const moveStats = showFaithful ? moveData.faithful : moveData.updated;
@@ -85,7 +69,7 @@ export default function MoveDetailClient({ moveData, pokemonWithMove, moveName }
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-muted-foreground">{moveData.description}</p>
-          
+
           {hasValidStats && (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div>
@@ -125,78 +109,16 @@ export default function MoveDetailClient({ moveData, pokemonWithMove, moveName }
       <Card>
         <CardHeader>
           <CardTitle>
-            Pokémon that can learn {moveName} ({filteredPokemonWithMove.length})
+            <h3>Pokémon that can learn {moveName}</h3>
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {/* Filters */}
-          <div className="flex justify-end">
-            <div className="min-w-[180px]">
-              <Label htmlFor="method-filter">Learn Method</Label>
-              <Select value={learnMethodFilter} onValueChange={setLearnMethodFilter}>
-                <SelectTrigger className="bg-white" id="method-filter">
-                  {learnMethodFilter === 'all' ? 'All Methods' : 
-                   learnMethodFilter.charAt(0).toUpperCase() + learnMethodFilter.slice(1)}
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Methods</SelectItem>
-                  <SelectItem value="level">Level Up</SelectItem>
-                  <SelectItem value="tm">TM/HM</SelectItem>
-                  <SelectItem value="egg">Egg Move</SelectItem>
-                  <SelectItem value="tutor">Move Tutor</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          {/* Pokemon Grid */}
-          {filteredPokemonWithMove.length === 0 ? (
-            <p className="text-center py-8 text-gray-500">
-              No Pokémon found matching your criteria.
-            </p>
-          ) : (
-            <ul className="grid gap-4 md:gap-8 grid-cols-2 md:grid-cols-3">
-              {filteredPokemonWithMove.map((item) => {
-                const { pokemon, learnMethod, level } = item;
-                
-                const normalizedName = pokemon.normalizedUrl || normalizePokemonUrlKey(pokemon.name).toLowerCase();
-                const pokemonUrl = pokemon.formName
-                  ? `/pokemon/${normalizedName}?form=${encodeURIComponent(pokemon.formName)}`
-                  : `/pokemon/${normalizedName}`;
-
-                return (
-                  <li key={`${pokemon.name}-${learnMethod}-${level}`}>
-                    <Link href={pokemonUrl}>
-                      <div className="relative">
-                        <PokemonCard
-                          pokemon={pokemon}
-                          sortType="alphabetical"
-                          showUpdatedTypes={!showFaithful}
-                        />
-                        {/* Learn Method Badge */}
-                        <div className="absolute top-2 right-2">
-                          <Badge 
-                            variant="secondary" 
-                            className={cn(
-                              "text-xs",
-                              learnMethod === 'level' && "bg-blue-100 text-blue-800",
-                              learnMethod === 'tm' && "bg-purple-100 text-purple-800",
-                              learnMethod === 'egg' && "bg-green-100 text-green-800",
-                              learnMethod === 'tutor' && "bg-orange-100 text-orange-800"
-                            )}
-                          >
-                            {learnMethod === 'level' && level 
-                              ? `Lv.${level}`
-                              : learnMethod?.toUpperCase()}
-                          </Badge>
-                        </div>
-                      </div>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
+        <CardContent>
+          <PokemonWithMoveDataTable
+            pokemonWithMove={pokemonWithMove}
+            learnMethodFilter={learnMethodFilter}
+            onLearnMethodFilterChange={setLearnMethodFilter}
+            showFaithful={showFaithful}
+          />
         </CardContent>
       </Card>
     </div>
