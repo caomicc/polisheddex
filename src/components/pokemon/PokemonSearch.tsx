@@ -10,6 +10,8 @@ import { cn } from '@/lib/utils';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import Link from 'next/link';
 import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
+import { usePokemonSearch } from '@/hooks/usePokemonSearch';
+import { PokemonGridSkeleton } from './PokemonCardSkeleton';
 
 interface PokemonSearchProps {
   pokemon: BaseData[];
@@ -24,42 +26,10 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
   // since the original logic was "showUpdatedTypes" (true = updated, false = faithful)
   const showUpdatedTypes = !showFaithful;
 
-  // Filter Pokemon based on search query (name or type)
-  const filteredPokemon = pokemon.filter((p) => {
-    const query = searchQuery.toLowerCase();
-
-    // Check if name matches
-    if (p.name.toLowerCase().includes(query)) {
-      return true;
-    }
-
-    // Get the appropriate types based on user preference
-    const selectedTypes = showUpdatedTypes ? p.updatedTypes || p.types : p.types;
-
-    // Check if any type matches
-    const types = Array.isArray(selectedTypes) ? selectedTypes : [selectedTypes];
-    if (types.some((type: string) => type?.toLowerCase().includes(query))) {
-      return true;
-    }
-
-    // Check if any form type matches
-    if (p.forms) {
-      for (const formName in p.forms) {
-        const formSelectedTypes = showUpdatedTypes
-          ? p.forms[formName].updatedTypes || p.forms[formName].types
-          : p.forms[formName].faithfulTypes || p.forms[formName].types;
-
-        const formTypes = Array.isArray(formSelectedTypes)
-          ? formSelectedTypes
-          : [formSelectedTypes];
-
-        if (formTypes.some((type: string) => type?.toLowerCase().includes(query))) {
-          return true;
-        }
-      }
-    }
-
-    return false;
+  const { filteredPokemon, isSearching } = usePokemonSearch({
+    pokemon,
+    searchQuery,
+    showUpdatedTypes,
   });
 
   return (
@@ -136,7 +106,9 @@ export default function PokemonSearch({ pokemon, sortType }: PokemonSearchProps)
         />
       </div> */}
 
-      {filteredPokemon.length === 0 ? (
+      {isSearching ? (
+        <PokemonGridSkeleton count={12} />
+      ) : filteredPokemon.length === 0 ? (
         <p className="text-center py-8 text-gray-500">No Pokémon found matching your search.</p>
       ) : (
         <ul className="grid gap-4 md:gap-8 grid-cols-2 md:grid-cols-3">

@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import fs from 'fs';
-import path from 'path';
 import { BaseData } from '@/types/types';
 import {
   Breadcrumb,
@@ -12,15 +10,15 @@ import {
 } from '@/components/ui/breadcrumb';
 import PokemonSearch from '@/components/pokemon/PokemonSearch';
 import { Hero } from '@/components/ui/Hero';
+import { loadPokemonBaseData } from '@/utils/loaders/pokemon-base-data-loader';
 
 export default async function PokemonList({
   searchParams,
 }: {
   searchParams: Promise<{ sort?: string }>;
 }) {
-  // Read the JSON file at build time
-  const filePath = path.join(process.cwd(), 'output/pokemon_base_data.json');
-  const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  // Load Pokemon data using optimized loader
+  const data = await loadPokemonBaseData();
 
   const { sort = 'johtodex' } = (await searchParams) ?? {};
 
