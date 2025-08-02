@@ -17,6 +17,7 @@ import {
   extractFishingEncounters,
   extractTreemonLocations,
   extractSwarmLocations,
+  extractDetailedStats,
 } from './src/utils/extractors/index.ts';
 import { normalizeMoveString } from './src/utils/stringNormalizer/stringNormalizer.ts';
 import {
@@ -1020,6 +1021,30 @@ for (const mon of Object.keys(movesetData)) {
   finalResult[mon] = fixedFinalResult;
 
   console.log(`DEBUG: Final Pokémon data for ${mon}:`, finalResult[mon]);
+}
+
+// --- Extract Detailed Stats ---
+console.log('🔍 Extracting detailed stats (base stats, abilities, etc.)...');
+const detailedStatsData = extractDetailedStats();
+
+// Merge detailed stats into finalResult
+for (const [pokemonName, detailedStats] of Object.entries(detailedStatsData)) {
+  // Find the matching entry in finalResult
+  const finalResultKey = Object.keys(finalResult).find(
+    (key) => key.toLowerCase() === pokemonName.toLowerCase()
+  );
+
+  if (finalResultKey) {
+    // Merge the detailed stats into the existing Pokemon data
+    finalResult[finalResultKey] = {
+      ...finalResult[finalResultKey],
+      ...detailedStats,
+      detailedStats: detailedStats,
+    };
+    console.log(`✅ Merged detailed stats for ${pokemonName} -> ${finalResultKey}`);
+  } else {
+    console.warn(`⚠️ Could not find matching Pokemon for detailed stats: ${pokemonName}`);
+  }
 }
 
 // --- Wild Pokémon Location Extraction ---

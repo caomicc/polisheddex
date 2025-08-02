@@ -72,12 +72,55 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
     }
 
     try {
-      // Extract base stats (first line)
-      // Format: db hp, atk, def, spe, sat, sdf ; BST
-      const baseStatsLine = lines.find((l) =>
-        l.trim().match(/^db\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+/),
-      );
-      if (!baseStatsLine) {
+      // Extract base stats - check for faithful vs polished conditional stats
+      let faithfulBaseStatsLine: string | undefined;
+      let polishedBaseStatsLine: string | undefined;
+      let hasConditionalBaseStats = false;
+
+      // Look for conditional base stats definitions
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line.startsWith('if DEF(FAITHFUL)')) {
+          // Look for the base stats line within the faithful block
+          for (let j = i + 1; j < lines.length; j++) {
+            const innerLine = lines[j].trim();
+            if (innerLine.match(/^db\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+/)) {
+              faithfulBaseStatsLine = innerLine;
+              hasConditionalBaseStats = true;
+              break;
+            }
+            if (innerLine === 'else' || innerLine === 'endc') {
+              break;
+            }
+          }
+        } else if (hasConditionalBaseStats && line === 'else') {
+          // Look for the base stats line within the polished block
+          for (let j = i + 1; j < lines.length; j++) {
+            const innerLine = lines[j].trim();
+            if (innerLine.match(/^db\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+/)) {
+              polishedBaseStatsLine = innerLine;
+              break;
+            }
+            if (innerLine === 'endc') {
+              break;
+            }
+          }
+        }
+      }
+
+      // If no conditional base stats were found, use the standard base stats line
+      if (!hasConditionalBaseStats) {
+        const standardBaseStatsLine = lines.find((l) =>
+          l.trim().match(/^db\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+,\s+\d+/),
+        );
+        if (standardBaseStatsLine) {
+          faithfulBaseStatsLine = standardBaseStatsLine;
+          polishedBaseStatsLine = standardBaseStatsLine;
+        }
+      }
+
+      // If we still don't have base stats, skip this Pokemon
+      if (!faithfulBaseStatsLine) {
         if (fileName === 'ho_oh') {
           console.log('No base stats line found for Ho-Oh, skipping');
           console.log('First few lines:', lines.slice(0, 5));
@@ -85,35 +128,71 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
         continue;
       }
 
-      const baseStatsMatch = baseStatsLine
+      // Parse faithful base stats
+      const faithfulMatch = faithfulBaseStatsLine
         .trim()
         .match(/db\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+)/);
-      if (!baseStatsMatch) continue;
+      if (!faithfulMatch) continue;
 
-      // Get BST from comment if available
-      const bstMatch = baseStatsLine.match(/;\s*(\d+)\s*BST/);
-      const bst = bstMatch ? parseInt(bstMatch[1], 10) : 0;
+      const faithfulBstMatch = faithfulBaseStatsLine.match(/;\s*(\d+)\s*BST/);
+      const faithfulBst = faithfulBstMatch ? parseInt(faithfulBstMatch[1], 10) : 0;
 
-      const baseStats = {
-        hp: parseInt(baseStatsMatch[1], 10),
-        attack: parseInt(baseStatsMatch[2], 10),
-        defense: parseInt(baseStatsMatch[3], 10),
-        speed: parseInt(baseStatsMatch[4], 10),
-        specialAttack: parseInt(baseStatsMatch[5], 10),
-        specialDefense: parseInt(baseStatsMatch[6], 10),
-        total: bst || 0, // Use calculated BST or 0 if not found
+      const faithfulBaseStats = {
+        hp: parseInt(faithfulMatch[1], 10),
+        attack: parseInt(faithfulMatch[2], 10),
+        defense: parseInt(faithfulMatch[3], 10),
+        speed: parseInt(faithfulMatch[4], 10),
+        specialAttack: parseInt(faithfulMatch[5], 10),
+        specialDefense: parseInt(faithfulMatch[6], 10),
+        total: faithfulBst || 0,
       };
 
       // Calculate the total if it wasn't provided
-      if (baseStats.total === 0) {
-        baseStats.total =
-          baseStats.hp +
-          baseStats.attack +
-          baseStats.defense +
-          baseStats.speed +
-          baseStats.specialAttack +
-          baseStats.specialDefense;
+      if (faithfulBaseStats.total === 0) {
+        faithfulBaseStats.total =
+          faithfulBaseStats.hp +
+          faithfulBaseStats.attack +
+          faithfulBaseStats.defense +
+          faithfulBaseStats.speed +
+          faithfulBaseStats.specialAttack +
+          faithfulBaseStats.specialDefense;
       }
+
+      // Parse polished base stats (if different from faithful)
+      let polishedBaseStats = faithfulBaseStats;
+      if (polishedBaseStatsLine && polishedBaseStatsLine !== faithfulBaseStatsLine) {
+        const polishedMatch = polishedBaseStatsLine
+          .trim()
+          .match(/db\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+),\s+(\d+)/);
+        if (polishedMatch) {
+          const polishedBstMatch = polishedBaseStatsLine.match(/;\s*(\d+)\s*BST/);
+          const polishedBst = polishedBstMatch ? parseInt(polishedBstMatch[1], 10) : 0;
+
+          polishedBaseStats = {
+            hp: parseInt(polishedMatch[1], 10),
+            attack: parseInt(polishedMatch[2], 10),
+            defense: parseInt(polishedMatch[3], 10),
+            speed: parseInt(polishedMatch[4], 10),
+            specialAttack: parseInt(polishedMatch[5], 10),
+            specialDefense: parseInt(polishedMatch[6], 10),
+            total: polishedBst || 0,
+          };
+
+          // Calculate the total if it wasn't provided
+          if (polishedBaseStats.total === 0) {
+            polishedBaseStats.total =
+              polishedBaseStats.hp +
+              polishedBaseStats.attack +
+              polishedBaseStats.defense +
+              polishedBaseStats.speed +
+              polishedBaseStats.specialAttack +
+              polishedBaseStats.specialDefense;
+          }
+        }
+      }
+
+      // Use faithful stats as the default baseStats for backward compatibility
+      const baseStats = faithfulBaseStats;
 
       // Extract catch rate - Format: db NUM ; catch rate
       const catchRateLine = lines.find((l) => l.trim().match(/^db\s+\d+\s*;\s*catch rate/));
@@ -551,6 +630,8 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
       // For updatedAbilities, only use fallbacks if there are distinct abilities
       detailedStats[pokemonName] = {
         baseStats,
+        faithfulBaseStats,
+        polishedBaseStats,
         catchRate,
         baseExp,
         heldItems,

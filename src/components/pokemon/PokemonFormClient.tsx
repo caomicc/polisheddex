@@ -113,71 +113,78 @@ export default function PokemonFormClient({
             <SectionCard headline={'Base Stats'} className="">
               <div className="flex flex-col md:flex-row gap-12 items-start mb-6">
                 <div className="md:flex-1 flex h-full w-full">
-                  {formData.baseStats ? (
-                    <div className="space-y-4 w-full">
-                      <h3>Base Stats:</h3>
-                      {[
-                        { label: 'HP', value: formData.baseStats.hp, color: '*:bg-red-400' },
-                        {
-                          label: 'Atk',
-                          value: formData.baseStats.attack,
-                          color: '*:bg-orange-400',
-                        },
-                        {
-                          label: 'Def',
-                          value: formData.baseStats.defense,
-                          color: '*:bg-yellow-400',
-                        },
-                        {
-                          label: 'Sp. Atk',
-                          value: formData.baseStats.specialAttack,
-                          color: '*:bg-blue-400',
-                        },
-                        {
-                          label: 'Sp. Def',
-                          value: formData.baseStats.specialDefense,
-                          color: '*:bg-green-400',
-                        },
-                        { label: 'Spd', value: formData.baseStats.speed, color: '*:bg-purple-400' },
-                      ].map(({ label, value, color }) => (
-                        <div key={label} className="flex flex-row gap-4 items-center">
-                          <div className="flex justify-between items-center w-[120px]">
-                            <span className="text-xs font-bold leading-none">{label}</span>
-                            <span className="text-xs leading-none text-muted-foreground">
-                              {value ?? 'N/A'}
-                            </span>
+                  {(() => {
+                    // Determine which base stats to show based on faithful preference
+                    const baseStatsToShow = showFaithful
+                      ? formData.faithfulBaseStats || formData.baseStats
+                      : formData.polishedBaseStats || formData.baseStats;
+
+                    return baseStatsToShow ? (
+                      <div className="space-y-4 w-full">
+                        <h3>Base Stats:</h3>
+                        {[
+                          { label: 'HP', value: baseStatsToShow.hp, color: '*:bg-red-400' },
+                          {
+                            label: 'Atk',
+                            value: baseStatsToShow.attack,
+                            color: '*:bg-orange-400',
+                          },
+                          {
+                            label: 'Def',
+                            value: baseStatsToShow.defense,
+                            color: '*:bg-yellow-400',
+                          },
+                          {
+                            label: 'Sp. Atk',
+                            value: baseStatsToShow.specialAttack,
+                            color: '*:bg-blue-400',
+                          },
+                          {
+                            label: 'Sp. Def',
+                            value: baseStatsToShow.specialDefense,
+                            color: '*:bg-green-400',
+                          },
+                          { label: 'Spd', value: baseStatsToShow.speed, color: '*:bg-purple-400' },
+                        ].map(({ label, value, color }) => (
+                          <div key={label} className="flex flex-row gap-4 items-center">
+                            <div className="flex justify-between items-center w-[120px]">
+                              <span className="text-xs font-bold leading-none">{label}</span>
+                              <span className="text-xs leading-none text-muted-foreground">
+                                {value ?? 'N/A'}
+                              </span>
+                            </div>
+                            <Progress
+                              value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
+                              aria-label={`${label} stat`}
+                              className={cn(
+                                color,
+                                'dark:bg-slate-800 h-2 w-full rounded-full',
+                                'transition-all duration-300 ease-in-out',
+                              )}
+                            />
                           </div>
-                          <Progress
-                            value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
-                            aria-label={`${label} stat`}
-                            className={cn(
-                              color,
-                              'dark:bg-slate-800 h-2 w-full rounded-full',
-                              'transition-all duration-300 ease-in-out',
+                        ))}
+                        <div className="flex justify-between items-center mt-2 border-t pt-2 border-gray-200 dark:border-gray-700">
+                          <span className="font-semibold">Total</span>
+                          <span className="text-xs text-muted-foreground">
+                            {[
+                              baseStatsToShow.hp,
+                              baseStatsToShow.attack,
+                              baseStatsToShow.defense,
+                              baseStatsToShow.specialAttack,
+                              baseStatsToShow.specialDefense,
+                              baseStatsToShow.speed,
+                            ].reduce(
+                              (sum: number, stat) => (typeof stat === 'number' ? sum + stat : sum),
+                              0,
                             )}
-                          />
+                          </span>
                         </div>
-                      ))}
-                      <div className="flex justify-between items-center mt-2 border-t pt-2 border-gray-200 dark:border-gray-700">
-                        <span className="font-semibold">Total</span>
-                        <span className="text-xs text-muted-foreground">
-                          {[
-                            formData.baseStats.hp,
-                            formData.baseStats.attack,
-                            formData.baseStats.defense,
-                            formData.baseStats.specialAttack,
-                            formData.baseStats.specialDefense,
-                            formData.baseStats.speed,
-                          ].reduce(
-                            (sum: number, stat) => (typeof stat === 'number' ? sum + stat : sum),
-                            0,
-                          )}
-                        </span>
                       </div>
-                    </div>
-                  ) : (
-                    <div className="text-gray-400 text-sm mb-6">No base stat data</div>
-                  )}
+                    ) : (
+                      <div className="text-gray-400 text-sm mb-6">No base stat data</div>
+                    );
+                  })()}
                 </div>
                 <div className="md:flex-1 md:h-[100%] flex ">
                   <div className={cn('flex flex-col gap-6')}>

@@ -26,6 +26,24 @@ interface CompressedPokemon {
       specialDefense: number;
       total: number;
     };
+    faithfulBaseStats?: {
+      hp: number;
+      attack: number;
+      defense: number;
+      speed: number;
+      specialAttack: number;
+      specialDefense: number;
+      total: number;
+    };
+    polishedBaseStats?: {
+      hp: number;
+      attack: number;
+      defense: number;
+      speed: number;
+      specialAttack: number;
+      specialDefense: number;
+      total: number;
+    };
     catchRate: number;
     baseExp: number;
     heldItems: string[];
@@ -95,6 +113,8 @@ function removeDuplicateAbilities(abilities: CompressedAbility[]): CompressedAbi
 
 // Global variable to cache location data
 let pokemonLocationsData: any = null;
+// Global variable to cache detailed stats data
+let pokemonDetailedStatsData: any = null;
 
 async function loadLocationData(): Promise<any> {
   if (pokemonLocationsData) {
@@ -108,6 +128,22 @@ async function loadLocationData(): Promise<any> {
     return pokemonLocationsData;
   } catch (error) {
     console.warn('Could not load pokemon_locations.json:', error);
+    return {};
+  }
+}
+
+async function loadDetailedStatsData(): Promise<any> {
+  if (pokemonDetailedStatsData) {
+    return pokemonDetailedStatsData;
+  }
+
+  try {
+    const detailedStatsPath = path.join(process.cwd(), 'output', 'pokemon_detailed_stats.json');
+    const data = await fs.readFile(detailedStatsPath, 'utf8');
+    pokemonDetailedStatsData = JSON.parse(data);
+    return pokemonDetailedStatsData;
+  } catch (error) {
+    console.warn('Could not load pokemon_detailed_stats.json:', error);
     return {};
   }
 }
@@ -157,6 +193,29 @@ async function compressPokemonFile(filePath: string): Promise<void> {
     const pokemonLocationData = allLocationsData[pokemonName];
     const locations = pokemonLocationData?.locations || [];
 
+    // Load detailed stats data to get faithful/polished base stats
+    const allDetailedStatsData = await loadDetailedStatsData();
+    const pokemonNameCapitalized = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+    const pokemonDetailedStats = allDetailedStatsData[pokemonNameCapitalized];
+
+    // Extract faithful and polished base stats if they exist and are different
+    let faithfulBaseStats = undefined;
+    let polishedBaseStats = undefined;
+    
+    if (pokemonDetailedStats) {
+      // Check if faithful base stats exist and are different from regular base stats
+      if (pokemonDetailedStats.faithfulBaseStats && 
+          JSON.stringify(pokemonDetailedStats.faithfulBaseStats) !== JSON.stringify(data.detailedStats.baseStats)) {
+        faithfulBaseStats = pokemonDetailedStats.faithfulBaseStats;
+      }
+      
+      // Check if polished base stats exist and are different from regular base stats
+      if (pokemonDetailedStats.polishedBaseStats && 
+          JSON.stringify(pokemonDetailedStats.polishedBaseStats) !== JSON.stringify(data.detailedStats.baseStats)) {
+        polishedBaseStats = pokemonDetailedStats.polishedBaseStats;
+      }
+    }
+
     // Create compressed version
     const compressed: CompressedPokemon = {
       ...data,
@@ -166,6 +225,8 @@ async function compressPokemonFile(filePath: string): Promise<void> {
         abilities: compressedAbilities,
         faithfulAbilities: faithfulAbilities,
         updatedAbilities: updatedAbilities,
+        faithfulBaseStats: faithfulBaseStats,
+        polishedBaseStats: polishedBaseStats,
       },
       locations: locations, // Add locations to compressed data
     };

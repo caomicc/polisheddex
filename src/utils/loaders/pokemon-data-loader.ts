@@ -27,6 +27,24 @@ interface CompressedPokemonData {
       specialDefense: number;
       total: number;
     };
+    faithfulBaseStats?: {
+      hp: number;
+      attack: number;
+      defense: number;
+      speed: number;
+      specialAttack: number;
+      specialDefense: number;
+      total: number;
+    };
+    polishedBaseStats?: {
+      hp: number;
+      attack: number;
+      defense: number;
+      speed: number;
+      specialAttack: number;
+      specialDefense: number;
+      total: number;
+    };
     catchRate: number;
     baseExp: number;
     heldItems: string[];

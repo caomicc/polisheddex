@@ -50,6 +50,8 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
     frontSpriteUrl: pokemonData.frontSpriteUrl,
     johtoDex: pokemonData.johtoDex || null,
     baseStats: pokemonData.detailedStats?.baseStats || {},
+    faithfulBaseStats: pokemonData.detailedStats?.faithfulBaseStats || undefined,
+    polishedBaseStats: pokemonData.detailedStats?.polishedBaseStats || undefined,
     species: pokemonData.pokedexEntries?.default?.species || '',
     description: pokemonData.pokedexEntries?.default?.description || '',
     // Provide safe defaults for missing detailedStats fields
@@ -96,6 +98,10 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
             description: pokemonData.pokedexEntries?.[formKey]?.description || '',
             baseStats:
               formValue.detailedStats?.baseStats || pokemonData.detailedStats?.baseStats || {},
+            faithfulBaseStats:
+              formValue.detailedStats?.faithfulBaseStats || pokemonData.detailedStats?.faithfulBaseStats || undefined,
+            polishedBaseStats:
+              formValue.detailedStats?.polishedBaseStats || pokemonData.detailedStats?.polishedBaseStats || undefined,
             // Provide safe defaults for missing detailedStats fields
             height: formValue.detailedStats?.height ?? pokemonData.detailedStats?.height ?? 0,
             weight: formValue.detailedStats?.weight ?? pokemonData.detailedStats?.weight ?? 0,
