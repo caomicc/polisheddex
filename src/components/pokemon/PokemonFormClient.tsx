@@ -1,8 +1,7 @@
 'use client';
-import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { MoveRow, LocationListItem } from '@/components/pokemon';
-import { FormData, Move, MoveDescription, LocationEntry, Ability } from '@/types/types';
+import { FormData, Move, MoveDescription, LocationEntry } from '@/types/types';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
 import { EvolutionChain } from './EvolutionChain';
@@ -18,8 +17,6 @@ import SectionCard from './SectionCard';
 import { useQueryState } from 'nuqs';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonSprite } from './pokemon-sprite';
-import { loadAbilityById } from '@/utils/loaders/ability-data-loader';
-// import { Ability } from '@/types/abilityTypes';
 
 // Helper function to deduplicate moves based on name and level
 function deduplicateMoves(moves: Move[]): Move[] {
