@@ -262,6 +262,31 @@ export async function restructureLocationsToIndividualFiles(): Promise<void> {
       string,
       LocationData
     >;
+    
+    // Load consolidation mapping to determine which locations to skip
+    let consolidationMapping: any = {};
+    const mappingPath = path.join(__dirname, 'location-consolidation-mapping.json');
+    if (fs.existsSync(mappingPath)) {
+      consolidationMapping = JSON.parse(fs.readFileSync(mappingPath, 'utf8'));
+      console.log('📋 Loaded consolidation mapping for file restructuring');
+    }
+    
+    // Create set of child locations that shouldn't get individual files
+    const consolidatedChildren = new Set<string>();
+    if (consolidationMapping.consolidationGroups) {
+      Object.values(consolidationMapping.consolidationGroups).forEach((children: any) => {
+        if (Array.isArray(children)) {
+          children.forEach(child => consolidatedChildren.add(child));
+        }
+      });
+    }
+    if (consolidationMapping.gymLeaderIntegrations) {
+      Object.values(consolidationMapping.gymLeaderIntegrations).forEach((leaders: any) => {
+        if (Array.isArray(leaders)) {
+          leaders.forEach(leader => consolidatedChildren.add(leader));
+        }
+      });
+    }
 
     // Load Pokemon location data for encounter counts
     let pokemonLocationData: Record<string, any> = {};
@@ -286,6 +311,12 @@ export async function restructureLocationsToIndividualFiles(): Promise<void> {
 
     // Create individual location files and collect manifest data
     for (const [locationKey, locationData] of Object.entries(allLocationsData)) {
+      // Skip consolidated child locations - they shouldn't get individual files
+      if (consolidatedChildren.has(locationKey)) {
+        console.log(`⏭️  Skipping consolidated child location: ${locationKey}`);
+        continue;
+      }
+      
       // Create filename from location key (already normalized)
       const fileName = `${locationKey}.json`;
       const filePath = path.join(locationsDir, fileName);
@@ -364,7 +395,12 @@ export async function restructureLocationsToIndividualFiles(): Promise<void> {
     const manifestPath = path.join(locationsDir, '_index.json');
     await fs.promises.writeFile(manifestPath, JSON.stringify(manifest, null, 2));
 
+    const totalSkipped = consolidatedChildren.size;
+    const totalProcessed = Object.keys(allLocationsData).length;
+    
     console.log(`📋 Created location manifest with ${manifestEntries.length} entries`);
+    console.log(`   • Processed: ${manifestEntries.length}/${totalProcessed} locations`);
+    console.log(`   • Skipped consolidated children: ${totalSkipped} locations`);
     console.log(`   • Johto: ${regionCounts.johto} locations`);
     console.log(`   • Kanto: ${regionCounts.kanto} locations`);
     console.log(`   • Orange Islands: ${regionCounts.orange} locations`);

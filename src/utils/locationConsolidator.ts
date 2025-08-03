@@ -122,6 +122,7 @@ export function consolidateLocations(locations: Record<string, LocationData>): R
       const childLocation = locations[childName];
       if (!childLocation) {
         console.warn(`⚠️  Child location ${childName} not found`);
+        processedLocations.add(childName); // Mark as processed even if not found
         continue;
       }
       
@@ -160,6 +161,7 @@ export function consolidateLocations(locations: Record<string, LocationData>): R
         consolidated.items = [...(consolidated.items || []), ...childLocation.items];
       }
       
+      // CRITICAL: Mark child location as processed so it doesn't get added back
       processedLocations.add(childName);
     }
     
@@ -199,8 +201,9 @@ export function consolidateLocations(locations: Record<string, LocationData>): R
         if (!consolidatedLocations[gymName]) {
           consolidatedLocations[gymName] = gymLocation;
         }
-        processedLocations.add(leaderName);
       }
+      // Always mark gym leader locations as processed to prevent duplication
+      processedLocations.add(leaderName);
     }
   }
   
