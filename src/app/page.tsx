@@ -15,7 +15,11 @@ export default function Home() {
       >
         <div>
           <Button variant="outline" size="sm" asChild>
-            <Link href="/wiki/faq" className="flex items-center gap-2">
+            <Link
+              href="https://github.com/Rangi42/polishedcrystal/releases/tag/v3.1.1"
+              target="_blank"
+              className="flex items-center gap-2"
+            >
               Download ROM on GitHub
               <ExternalLink className="h-4 w-4" />
             </Link>
