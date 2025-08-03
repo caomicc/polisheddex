@@ -45,9 +45,8 @@ export function PokemonDataTable<TData, TValue>({
     if (showLocationColumn) {
       return columns;
     }
-    return columns.filter(column => {
-      const columnId = typeof column.id === 'string' ? column.id : 
-                     typeof column.accessorKey === 'string' ? column.accessorKey : '';
+    return columns.filter((column) => {
+      const columnId = typeof column.id === 'string' ? column.id : '';
       return columnId !== 'location';
     });
   }, [columns, showLocationColumn]);

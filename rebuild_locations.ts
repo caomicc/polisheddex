@@ -26,7 +26,8 @@ async function rebuildLocationFiles() {
   console.log(`📁 Found ${locationFiles.length} location files`);
 
   const allLocations: Record<string, unknown> = {};
-  const orderedLocations: unknown[] = [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const orderedLocations: any[] = [];
 
   for (const file of locationFiles) {
     try {

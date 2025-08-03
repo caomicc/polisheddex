@@ -11,14 +11,14 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
 import ConsolidatedLocationClient from '@/components/locations/ConsolidatedLocationClient';
-import { 
-  normalizeLocationKey, 
-  getConsolidatedLocationKey, 
-  getLocationRedirect 
+import {
+  normalizeLocationKey,
+  getConsolidatedLocationKey,
+  getLocationRedirect,
 } from '@/utils/locationUtils';
 import { generateLocationBreadcrumbs } from '@/utils/locationUrlState';
 import { GroupedPokemon, EncounterDetail } from '@/types/locationTypes';
-import { groupLocationsHierarchically } from '@/utils/locationGrouping';
+// import { groupLocationsHierarchically } from '@/utils/locationGrouping';
 import {
   loadMergedPokemonLocationData,
   loadAllLocationData,
@@ -30,10 +30,10 @@ import React from 'react';
 export async function generateStaticParams() {
   try {
     const allLocationData = await loadAllLocationData();
-    
+
     // Get all consolidated location keys
     const locationNames = new Set<string>();
-    
+
     Object.keys(allLocationData).forEach((location) => {
       const consolidatedKey = getConsolidatedLocationKey(location);
       locationNames.add(normalizeLocationKey(consolidatedKey.toLowerCase()));
@@ -77,7 +77,7 @@ export default async function ConsolidatedLocationDetailPage({
 
   // Get the consolidated location data
   const locationData = allLocationData[consolidatedKey];
-  
+
   if (!locationData) {
     return notFound();
   }
@@ -89,10 +89,7 @@ export default async function ConsolidatedLocationDetailPage({
   > = {};
 
   // Get all locations that should be included in this consolidated view
-  const locationsToInclude = [
-    consolidatedKey,
-    ...(locationData.consolidatedFrom || [])
-  ];
+  const locationsToInclude = [consolidatedKey, ...(locationData.consolidatedFrom || [])];
 
   // Process Pokemon data for all included locations
   for (const locationKey of locationsToInclude) {
@@ -131,10 +128,10 @@ export default async function ConsolidatedLocationDetailPage({
               const encountersWithLocation = encounters.map((encounter) => {
                 // Determine which area this encounter belongs to
                 let locationLabel = locationData.displayName;
-                
+
                 if (locationData.areas) {
-                  const area = locationData.areas.find(a => 
-                    locationKey.includes(a.id) || locationKey.endsWith(`_${a.id}`)
+                  const area = locationData.areas.find(
+                    (a) => locationKey.includes(a.id) || locationKey.endsWith(`_${a.id}`),
                   );
                   if (area) {
                     locationLabel = area.displayName;
@@ -216,12 +213,12 @@ export default async function ConsolidatedLocationDetailPage({
   });
 
   // Generate breadcrumbs with area support
-  const currentArea = area && locationData.areas?.find(a => a.id === area);
+  const currentArea = area && locationData.areas?.find((a) => a.id === area);
   const breadcrumbs = generateLocationBreadcrumbs(
     locationData.name,
     locationData.displayName,
     area,
-    currentArea?.displayName
+    typeof currentArea === 'object' ? currentArea.displayName : undefined,
   );
 
   return (
@@ -229,11 +226,13 @@ export default async function ConsolidatedLocationDetailPage({
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <div className="space-y-6">
           <Hero
-            headline={currentArea?.displayName || locationData.displayName}
+            headline={
+              typeof currentArea === 'object' ? currentArea.displayName : locationData.displayName
+            }
             description={
-              currentArea ? 
-                `${currentArea.displayName} in ${locationData.displayName}` :
-                `Explore ${locationData.displayName} in Pokémon Polished Crystal`
+              currentArea
+                ? `${currentArea.displayName} in ${locationData.displayName}`
+                : `Explore ${locationData.displayName} in Pokémon Polished Crystal`
             }
             breadcrumbs={
               <Breadcrumb>
@@ -246,7 +245,10 @@ export default async function ConsolidatedLocationDetailPage({
                           <BreadcrumbPage>{crumb.label}</BreadcrumbPage>
                         ) : (
                           <BreadcrumbLink asChild>
-                            <Link href={crumb.href} className="hover:underline hover:text-slate-200">
+                            <Link
+                              href={crumb.href}
+                              className="hover:underline hover:text-slate-200"
+                            >
                               {crumb.label}
                             </Link>
                           </BreadcrumbLink>
@@ -258,7 +260,7 @@ export default async function ConsolidatedLocationDetailPage({
               </Breadcrumb>
             }
           />
-          
+
           <ConsolidatedLocationClient
             locationData={locationData}
             groupedPokemonData={groupedByMethodAndTime}
@@ -271,10 +273,10 @@ export default async function ConsolidatedLocationDetailPage({
 }
 
 // Generate metadata for consolidated locations
-export async function generateMetadata({ 
-  params, 
-  searchParams 
-}: { 
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
   params: Promise<{ name: string }>;
   searchParams: Promise<{ area?: string }>;
 }) {
@@ -296,18 +298,24 @@ export async function generateMetadata({
     };
   }
 
-  const currentArea = area && locationData.areas?.find(a => a.id === area);
-  const displayName = currentArea?.displayName || locationData.displayName;
+  const currentArea = area && locationData.areas?.find((a) => a.id === area);
+  const displayName =
+    typeof currentArea === 'object' && currentArea.displayName
+      ? currentArea.displayName
+      : locationData.displayName;
   const isAreaView = !!currentArea;
 
   // Count Pokemon encounters
   const pokemonCount = Object.keys(pokemonLocationData[consolidatedKey]?.pokemon || {}).length;
-  const pokemonText = pokemonCount > 0 ? ` Features ${pokemonCount} different Pokémon encounters.` : '';
+  const pokemonText =
+    pokemonCount > 0 ? ` Features ${pokemonCount} different Pokémon encounters.` : '';
 
   // Area context
-  const areaContext = isAreaView ? 
-    ` - ${currentArea.displayName} area` : 
-    (locationData.areas?.length ? ` with ${locationData.areas.length} explorable areas` : '');
+  const areaContext = isAreaView
+    ? ` - ${currentArea.displayName} area`
+    : locationData.areas?.length
+      ? ` with ${locationData.areas.length} explorable areas`
+      : '';
 
   const title = `${displayName} | PolishedDex Locations`;
   const description = `Explore ${displayName} in ${locationData.region}${areaContext}.${pokemonText} Find wild Pokémon, items, trainers, and detailed location information.`;
