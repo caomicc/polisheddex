@@ -69,7 +69,7 @@ export default function FAQPage() {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link href="/" className="hover:underline  hover:text-slate-200">
+                    <Link href="/" className="hover:underline">
                       Home
                     </Link>
                   </BreadcrumbLink>
@@ -77,7 +77,7 @@ export default function FAQPage() {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link href="/wiki" className="hover:underline  hover:text-slate-200">
+                    <Link href="/wiki" className="hover:underline">
                       Wiki
                     </Link>
                   </BreadcrumbLink>
@@ -108,7 +108,7 @@ export default function FAQPage() {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link href="/" className="hover:underline  hover:text-slate-200">
+                    <Link href="/" className="hover:underline">
                       Home
                     </Link>
                   </BreadcrumbLink>
@@ -116,7 +116,7 @@ export default function FAQPage() {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link href="/wiki" className="hover:underline  hover:text-slate-200">
+                    <Link href="/wiki" className="hover:underline">
                       Wiki
                     </Link>
                   </BreadcrumbLink>
@@ -153,7 +153,7 @@ export default function FAQPage() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline  hover:text-slate-200">
+                  <Link href="/" className="hover:underline">
                     Home
                   </Link>
                 </BreadcrumbLink>
@@ -161,7 +161,7 @@ export default function FAQPage() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/wiki" className="hover:underline  hover:text-slate-200">
+                  <Link href="/wiki" className="hover:underline">
                     Wiki
                   </Link>
                 </BreadcrumbLink>

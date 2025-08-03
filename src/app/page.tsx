@@ -8,10 +8,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div className="mb-10 p-2 lg:p-4">
-      <Hero
-        headline="Polished Dex"
-        description="A companion pokedex for Pokémon Polished Crystal, providing detailed information on Pokémon, locations, and items."
-      >
+      <Hero headline="Polished Dex" description="A companion pokedex for Pokémon Polished Crystal.">
         <div>
           <Button variant="default" size="sm" asChild>
             <Link

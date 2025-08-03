@@ -37,13 +37,11 @@ export default async function ItemPage({ params }: ItemPageProps) {
         description={item.description}
         types={
           <div className="flex flex-wrap gap-2" aria-label="Item Type" role="group">
-            <Badge variant="secondary" className="text-xs">
+            <Badge variant="any">
               {isRegularItem(item) ? item.attributes?.category || 'Item' : 'TM/HM'}
             </Badge>
             {isRegularItem(item) && item.attributes?.price !== undefined && (
-              <Badge variant="outline" className="text-xs font-mono text-green-600 dark:text-green-400">
-                ₽{item.attributes.price.toLocaleString()}
-              </Badge>
+              <Badge variant="grass">₽{item.attributes.price.toLocaleString()}</Badge>
             )}
           </div>
         }
@@ -52,7 +50,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline  hover:text-slate-200">
+                  <Link href="/" className="hover:underline">
                     Home
                   </Link>
                 </BreadcrumbLink>
@@ -60,7 +58,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/items" className="hover:underline  hover:text-slate-200">
+                  <Link href="/items" className="hover:underline">
                     Items
                   </Link>
                 </BreadcrumbLink>
@@ -84,7 +82,6 @@ export default async function ItemPage({ params }: ItemPageProps) {
     </>
   );
 }
-
 
 // Generate static params for all items (temporarily back to full generation)
 export async function generateStaticParams() {
