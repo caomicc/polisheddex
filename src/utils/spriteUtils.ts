@@ -5,9 +5,9 @@ let spriteManifest: SpriteManifest | null = null;
 /**
  * Load the sprite manifest from the public directory
  */
-export async function loadSpriteManifest(): Promise<SpriteManifest> {
+export async function loadSpriteManifest(): Promise<SpriteManifest | null> {
   if (spriteManifest) {
-    return spriteManifest;
+    return spriteManifest!;
   }
 
   try {
@@ -30,11 +30,11 @@ export function getPokemonSprite(
   manifest: SpriteManifest,
   pokemonName: string,
   variant: SpriteVariant = 'normal',
-  type: SpriteType = 'static'
+  type: SpriteType = 'static',
 ): SpriteInfo | null {
   const normalizedName = pokemonName.toLowerCase().replace(/-/g, '_');
   const pokemonData = manifest[normalizedName];
-  
+
   if (!pokemonData) {
     return null;
   }
@@ -59,18 +59,19 @@ export function getPokemonSprite(
 export function getFallbackSprite(
   pokemonName: string,
   variant: SpriteVariant = 'normal',
-  type: SpriteType = 'static'
+  type: SpriteType = 'static',
 ): SpriteInfo {
   const normalizedName = pokemonName.toLowerCase().replace(/-/g, '_');
   const extension = type === 'animated' ? 'gif' : 'png';
-  const filename = type === 'animated' 
-    ? `${variant}_front_animated.${extension}`
-    : `${variant}_front.${extension}`;
-  
+  const filename =
+    type === 'animated'
+      ? `${variant}_front_animated.${extension}`
+      : `${variant}_front.${extension}`;
+
   return {
     url: `/sprites/pokemon/${normalizedName}/${filename}`,
     width: 64, // fallback dimensions
-    height: 64
+    height: 64,
   };
 }
 
@@ -81,7 +82,7 @@ export function getSpriteWithFallback(
   manifest: SpriteManifest,
   pokemonName: string,
   variant: SpriteVariant = 'normal',
-  type: SpriteType = 'static'
+  type: SpriteType = 'static',
 ): SpriteInfo {
   const sprite = getPokemonSprite(manifest, pokemonName, variant, type);
   return sprite || getFallbackSprite(pokemonName, variant, type);
