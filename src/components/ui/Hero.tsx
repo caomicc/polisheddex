@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
               primaryType={primaryType ?? undefined}
               alt={`Accent Image to accompany hero`}
               className="mx-auto relative "
-              pokemonName={''}
+              pokemonName={headline?.toString().toLowerCase() || 'egg'}
             />
           </div>
         )}
