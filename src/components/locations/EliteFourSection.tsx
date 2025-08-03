@@ -11,26 +11,23 @@ interface EliteFourSectionProps {
   showInMain?: boolean;
 }
 
-export default function EliteFourSection({ 
-  eliteFour, 
-  showInMain = true 
-}: EliteFourSectionProps) {
-  
+export default function EliteFourSection({ eliteFour, showInMain = true }: EliteFourSectionProps) {
   if (!showInMain || !eliteFour || eliteFour.length === 0) {
     return null;
   }
 
   // Group trainers by type (Elite 4 vs Champion)
-  const eliteFourMembers = eliteFour.filter(trainer => 
-    ['BRUNO', 'KAREN', 'KOGA', 'WILL'].includes(trainer.trainerClass)
-  );
-  
-  const champion = eliteFour.find(trainer => 
-    trainer.trainerClass === 'CHAMPION' || trainer.trainerClass === 'LANCE'
+  const eliteFourMembers = eliteFour.filter((trainer) =>
+    ['BRUNO', 'KAREN', 'KOGA', 'WILL'].includes(trainer.trainerClass),
   );
 
-  const others = eliteFour.filter(trainer => 
-    !['BRUNO', 'KAREN', 'KOGA', 'WILL', 'CHAMPION', 'LANCE'].includes(trainer.trainerClass)
+  const champion = eliteFour.find(
+    (trainer) => trainer.trainerClass === 'CHAMPION' || trainer.trainerClass === 'LANCE',
+  );
+
+  const others = eliteFour.filter(
+    (trainer) =>
+      !['BRUNO', 'KAREN', 'KOGA', 'WILL', 'CHAMPION', 'LANCE'].includes(trainer.trainerClass),
   );
 
   return (
@@ -41,7 +38,10 @@ export default function EliteFourSection({
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               Elite Four
-              <Badge variant="secondary" className="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
+              <Badge
+                variant="secondary"
+                className="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
+              >
                 {eliteFourMembers.length} Members
               </Badge>
             </CardTitle>
@@ -49,8 +49,8 @@ export default function EliteFourSection({
           <CardContent>
             <div className="grid gap-4 md:grid-cols-2">
               {eliteFourMembers.map((trainer, index) => (
-                <TrainerCard 
-                  key={`${trainer.id}-${index}`} 
+                <TrainerCard
+                  key={`${trainer.id}-${index}`}
                   trainer={trainer}
                   showEliteFourBadge={true}
                 />
@@ -72,10 +72,7 @@ export default function EliteFourSection({
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <TrainerCard 
-              trainer={champion}
-              showChampionBadge={true}
-            />
+            <TrainerCard trainer={champion} showChampionBadge={true} />
           </CardContent>
         </Card>
       )}
@@ -104,14 +101,14 @@ export default function EliteFourSection({
         <CardContent>
           <div className="prose prose-sm dark:prose-invert max-w-none">
             <p className="text-muted-foreground">
-              The Elite Four are the strongest trainers in the Pokémon League, each specializing in different types. 
-              Defeat all four members to earn the right to challenge the Champion.
+              The Elite Four are the strongest trainers in the Pokémon League, each specializing in
+              different types. Defeat all four members to earn the right to challenge the Champion.
             </p>
-            
+
             {eliteFourMembers.length > 0 && (
               <div className="mt-4">
                 <h4 className="text-sm font-medium mb-2">Specialties:</h4>
-                <div className="grid grid-cols-2 gap-2 text-sm">
+                <div className="grid grid-cols-1 gap-2 text-sm">
                   {eliteFourMembers.map((trainer, index) => (
                     <div key={index} className="flex items-center gap-2">
                       <Badge variant="outline" className="text-xs">
@@ -134,12 +131,12 @@ export default function EliteFourSection({
 
 function getTrainerSpecialty(trainerClass: string): string {
   const specialties: Record<string, string> = {
-    'BRUNO': 'Fighting-type',
-    'KAREN': 'Dark-type', 
-    'KOGA': 'Poison-type',
-    'WILL': 'Psychic-type',
-    'LANCE': 'Dragon-type',
+    BRUNO: 'Fighting-type',
+    KAREN: 'Dark-type',
+    KOGA: 'Poison-type',
+    WILL: 'Psychic-type',
+    LANCE: 'Dragon-type',
   };
-  
+
   return specialties[trainerClass] || 'Various types';
 }
