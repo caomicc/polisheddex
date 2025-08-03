@@ -10,22 +10,27 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
-import { loadMoveById, getPokemonThatCanLearnMove } from '@/utils/loaders/move-data-loader';
+import { loadManifest } from '@/utils/manifest-resolver';
 import MoveDetailClient from '@/components/moves/MoveDetailClient';
 import { PokemonGridSkeleton } from '@/components/pokemon/PokemonCardSkeleton';
+import { MoveManifest, getPokemonThatCanLearnMove } from '@/utils/loaders/move-data-loader';
+import { Move, MoveDescription } from '@/types/types';
 
 export default async function MoveDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
   const moveName = decodeURIComponent(nameParam);
 
   // Load move data
-  const moveData = await loadMoveById(moveName.toLowerCase());
+  const moveData = await loadManifest<MoveManifest>('moves').then(
+    (movesData) => movesData[moveName.toLowerCase()] || null,
+  );
 
   if (!moveData) {
     return notFound();
   }
 
-  // Load Pokemon that can learn this move
+  // Load Pokemon that can learn this move using the proper function
+  // Use the display name from the move data, not the URL parameter
   const pokemonWithMove = await getPokemonThatCanLearnMove(moveData.name || moveName);
 
   return (
@@ -78,9 +83,7 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
 // Generate static params for all moves
 export async function generateStaticParams() {
   try {
-    const { loadMovesData } = await import('@/utils/loaders/move-data-loader');
-    const movesData = await loadMovesData();
-
+    const movesData = await loadManifest<Record<string, Move>>('moves');
     return Object.keys(movesData).map((moveKey) => ({
       name: moveKey.toLowerCase(),
     }));
@@ -96,7 +99,9 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
   const moveName = decodeURIComponent(nameParam);
 
   try {
-    const moveData = await loadMoveById(moveName.toLowerCase());
+    const moveData = await loadManifest<Record<string, MoveDescription>>('moves').then(
+      (movesData) => movesData[moveName.toLowerCase()] || null,
+    );
 
     if (!moveData) {
       return {
@@ -105,9 +110,11 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
       };
     }
 
-    const pokemonCount = await getPokemonThatCanLearnMove(moveData.name || moveName);
+    const pokemonWithMoveForCount = await getPokemonThatCanLearnMove(moveData.name || moveName);
+    const pokemonCount = pokemonWithMoveForCount.length;
+
     const pokemonCountText =
-      pokemonCount.length > 0 ? ` ${pokemonCount.length} Pokémon can learn this move.` : '';
+      pokemonCount > 0 ? ` ${pokemonCount} Pokémon can learn this move.` : '';
 
     const title = `${moveData.name || moveName} | PolishedDex`;
     const description = `${moveData.description || 'Move details'}${pokemonCountText} View all Pokémon that can learn ${moveData.name || moveName} in Pokémon Polished Crystal.`;

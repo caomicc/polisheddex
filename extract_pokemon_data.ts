@@ -55,7 +55,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Output file paths
-const BASE_DATA_OUTPUT = path.join(__dirname, 'output/pokemon_base_data.json');
+const BASE_DATA_OUTPUT = path.join(__dirname, 'output/manifests/pokemon_base_data.json');
 const EVOLUTION_OUTPUT = path.join(__dirname, 'output/pokemon_evolution_data.json');
 const LEVEL_MOVES_OUTPUT = path.join(__dirname, 'output/pokemon_level_moves.json');
 const LOCATIONS_OUTPUT = path.join(__dirname, 'output/pokemon_locations.json');
@@ -322,16 +322,19 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
       // evo_data EVOLVE_ITEM, THUNDERSTONE, RAICHU, PLAIN_FORM
       // evo_data EVOLVE_HOLDING, HARD_STONE, TR_ANYTIME, KLEAVOR
       // evo_data EVOLVE_STAT, 20, ATK_GT_DEF, HITMONLEE
-      
+
       // Split by comma and trim each part
-      const parts = line.replace('evo_data ', '').split(',').map(p => p.trim());
-      
+      const parts = line
+        .replace('evo_data ', '')
+        .split(',')
+        .map((p) => p.trim());
+
       if (parts.length >= 3) {
         const method = parts[0];
         let param = parts[1];
         let target: string;
         let form: string | undefined;
-        
+
         // Handle special cases for EVOLVE_HOLDING and EVOLVE_STAT which have extra parameters
         if (method === 'EVOLVE_HOLDING' || method === 'EVOLVE_STAT') {
           // Format: EVOLVE_HOLDING, ITEM, TIME_PARAMETER, TARGET, [FORM]
@@ -351,12 +354,12 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
           target = parts[2];
           form = parts.length > 3 ? parts[3] : undefined;
         }
-        
+
         let parsedParam: string | number = param;
         if (method === 'EVOLVE_LEVEL' && /^\d+$/.test(param)) {
           parsedParam = parseInt(param, 10);
         }
-        
+
         evoMethods.push({
           method,
           parameter: parsedParam,
@@ -1061,33 +1064,46 @@ const detailedStatsData = extractDetailedStats();
 // Helper function to find matching Pokemon key
 function findMatchingPokemonKey(pokemonName: string, finalResultKeys: string[]): string | null {
   const normalizedPokemonName = pokemonName.toLowerCase();
-  
+
   // First try exact match
-  const exactMatch = finalResultKeys.find(key => key.toLowerCase() === normalizedPokemonName);
+  const exactMatch = finalResultKeys.find((key) => key.toLowerCase() === normalizedPokemonName);
   if (exactMatch) {
     return exactMatch;
   }
-  
+
   // If the pokemonName contains a form (e.g., "Arcanine hisuian"), try matching with base name
-  const formWords = ['alolan', 'galarian', 'hisuian', 'paldean', 'armored', 'bloodmoon', 'plain', 'paldean_fire', 'paldean_water'];
+  const formWords = [
+    'alolan',
+    'galarian',
+    'hisuian',
+    'paldean',
+    'armored',
+    'bloodmoon',
+    'plain',
+    'paldean_fire',
+    'paldean_water',
+  ];
   const pokemonWords = normalizedPokemonName.split(' ');
-  
+
   // Check if any word is a form indicator
-  if (pokemonWords.length > 1 && formWords.some(form => pokemonWords.includes(form))) {
+  if (pokemonWords.length > 1 && formWords.some((form) => pokemonWords.includes(form))) {
     // Extract base name (everything except the form words)
-    const baseName = pokemonWords.filter(word => !formWords.includes(word)).join(' ');
-    const baseMatch = finalResultKeys.find(key => key.toLowerCase() === baseName);
+    const baseName = pokemonWords.filter((word) => !formWords.includes(word)).join(' ');
+    const baseMatch = finalResultKeys.find((key) => key.toLowerCase() === baseName);
     if (baseMatch) {
       return baseMatch;
     }
   }
-  
+
   // Try partial matching - see if any finalResult key starts with the pokemonName or vice versa
-  const partialMatch = finalResultKeys.find(key => {
+  const partialMatch = finalResultKeys.find((key) => {
     const normalizedKey = key.toLowerCase();
-    return normalizedKey.startsWith(normalizedPokemonName) || normalizedPokemonName.startsWith(normalizedKey);
+    return (
+      normalizedKey.startsWith(normalizedPokemonName) ||
+      normalizedPokemonName.startsWith(normalizedKey)
+    );
   });
-  
+
   return partialMatch || null;
 }
 
@@ -1208,26 +1224,29 @@ for (const file of wildFiles) {
         }
         // Group entries by pokemon key and combine identical encounters
         const entriesByPokemon: Record<string, Array<{ entry: LocationEntry; rate: number }>> = {};
-        
+
         for (let idx = 0; idx < slotEntries.length; idx++) {
           const pokemonKey = slotEntries[idx].key;
           const encounterRate = mappedRates[idx]?.rate ?? 0;
           const entry = { ...slotEntries[idx].entry, chance: encounterRate };
-          
+
           if (!entriesByPokemon[pokemonKey]) {
             entriesByPokemon[pokemonKey] = [];
           }
-          
+
           entriesByPokemon[pokemonKey].push({ entry, rate: encounterRate });
         }
-        
+
         // For each pokemon, combine identical encounters (same area, method, time, level, formName)
         for (const [pokemonKey, encounters] of Object.entries(entriesByPokemon)) {
           if (!locationsByMon[pokemonKey]) locationsByMon[pokemonKey] = [];
-          
+
           // Group by encounter characteristics (excluding chance)
-          const encounterGroups: Record<string, { combinedEntry: LocationEntry; totalRate: number }> = {};
-          
+          const encounterGroups: Record<
+            string,
+            { combinedEntry: LocationEntry; totalRate: number }
+          > = {};
+
           for (const { entry, rate } of encounters) {
             // Create a key that uniquely identifies identical encounters (excluding chance)
             const encounterKey = JSON.stringify({
@@ -1235,25 +1254,25 @@ for (const file of wildFiles) {
               method: entry.method,
               time: entry.time,
               level: entry.level,
-              formName: entry.formName
+              formName: entry.formName,
             });
-            
+
             if (!encounterGroups[encounterKey]) {
               encounterGroups[encounterKey] = {
                 combinedEntry: { ...entry, chance: 0 }, // Start with 0, will be set below
-                totalRate: 0
+                totalRate: 0,
               };
             }
-            
+
             // Add this encounter's rate to the total
             encounterGroups[encounterKey].totalRate += rate;
           }
-          
+
           // Add the combined encounters to locationsByMon
           for (const { combinedEntry, totalRate } of Object.values(encounterGroups)) {
             combinedEntry.chance = totalRate;
             locationsByMon[pokemonKey].push(combinedEntry);
-            
+
             if (isDebug) {
               console.log(
                 `DEBUG: Added combined location for ${pokemonKey} with rate ${totalRate}:`,

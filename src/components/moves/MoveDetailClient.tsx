@@ -47,7 +47,7 @@ export default function MoveDetailClient({
   const { showFaithful } = useFaithfulPreference();
 
   // Get move stats based on faithful preference
-  const moveStats = showFaithful ? moveData.faithful : moveData.updated;
+  const moveStats = (showFaithful ? moveData.faithful : moveData.updated) ?? moveData.updated;
   const hasValidStats = moveStats && moveStats.type !== 'None' && (moveStats.power ?? 0) > 0;
 
   // Get TM/HM info
@@ -70,26 +70,24 @@ export default function MoveDetailClient({
         <CardContent className="space-y-4">
           <p className="text-muted-foreground">{moveData.description}</p>
 
-          {hasValidStats && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div>
-                <Label className="text-sm font-medium">Category</Label>
-                <p className="text-sm">{moveStats.category || 'Unknown'}</p>
-              </div>
-              <div>
-                <Label className="text-sm font-medium">Power</Label>
-                <p className="text-sm">{moveStats.power || 'N/A'}</p>
-              </div>
-              <div>
-                <Label className="text-sm font-medium">Accuracy</Label>
-                <p className="text-sm">{moveStats.accuracy || 'N/A'}%</p>
-              </div>
-              <div>
-                <Label className="text-sm font-medium">PP</Label>
-                <p className="text-sm">{moveStats.pp || 'N/A'}</p>
-              </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div>
+              <Label className="text-sm font-medium">Category</Label>
+              <p className="text-sm">{moveStats?.category || 'Unknown'}</p>
             </div>
-          )}
+            <div>
+              <Label className="text-sm font-medium">Power</Label>
+              <p className="text-sm">{moveStats?.power || 'N/A'}</p>
+            </div>
+            <div>
+              <Label className="text-sm font-medium">Accuracy</Label>
+              <p className="text-sm">{moveStats?.accuracy || 'N/A'}%</p>
+            </div>
+            <div>
+              <Label className="text-sm font-medium">PP</Label>
+              <p className="text-sm">{moveStats?.pp || 'N/A'}</p>
+            </div>
+          </div>
 
           {tmInfo && (
             <div className="mt-4 p-3 bg-muted rounded-lg">

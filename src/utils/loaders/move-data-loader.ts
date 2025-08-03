@@ -133,8 +133,17 @@ export async function getMovesByCategory(category: string): Promise<any[]> {
 }
 
 // Additional functionality for finding Pokemon that can learn moves
-import { BaseData } from '@/types/types';
 import { loadPokemonBaseData } from './pokemon-base-data-loader';
+import { normalizePokemonUrlKey } from '../pokemonUrlNormalizer';
+
+export interface BaseData {
+  name: string;
+  nationalDex: number;
+  johtoDex: number;
+  types: string[];
+  normalizedUrl?: string;
+  formName?: string;
+}
 
 export interface PokemonWithMove {
   pokemon: BaseData;
@@ -156,17 +165,21 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
     try {
       const fs = await import('fs');
       const path = await import('path');
-      
+
       // Try to load the individual Pokemon file
       const pokemonFileName = pokemonKey.toLowerCase();
       const pokemonFilePath = path.join(process.cwd(), `output/pokemon/${pokemonFileName}.json`);
-      
+
       if (!fs.existsSync(pokemonFilePath)) {
         continue; // Skip if individual file doesn't exist
       }
-      
+
       const pokemonData = JSON.parse(fs.readFileSync(pokemonFilePath, 'utf8'));
-      const pokemon = { ...basePokemon, ...pokemonData };
+      const pokemon = { 
+        ...basePokemon, 
+        ...pokemonData, 
+        normalizedUrl: normalizePokemonUrlKey(basePokemon.name).toLowerCase()
+      };
 
       // Check level moves (faithful and updated)
       const checkLevelMoves = (moves: any[], version: 'faithful' | 'updated') => {
@@ -174,12 +187,12 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
           if (move.name && move.name.toLowerCase() === normalizedMoveName) {
             // Check if this move already exists for this Pokemon
             const existingIndex = pokemonWithMove.findIndex(
-              (item) => 
-                item.pokemon.name === pokemon.name && 
+              (item) =>
+                item.pokemon.name === pokemon.name &&
                 item.learnMethod === 'level' &&
-                item.level === move.level
+                item.level === move.level,
             );
-            
+
             if (existingIndex >= 0) {
               // Update existing entry to include this version
               pokemonWithMove[existingIndex][version] = true;
@@ -246,12 +259,12 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
                 const formPokemonName = `${pokemon.name} (${formName})`;
                 // Check if this move already exists for this form
                 const existingIndex = pokemonWithMove.findIndex(
-                  (item) => 
-                    item.pokemon.name === formPokemonName && 
+                  (item) =>
+                    item.pokemon.name === formPokemonName &&
                     item.learnMethod === 'level' &&
-                    item.level === move.level
+                    item.level === move.level,
                 );
-                
+
                 if (existingIndex >= 0) {
                   // Update existing entry to include this version
                   pokemonWithMove[existingIndex][version] = true;
@@ -262,6 +275,7 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
                       ...pokemon,
                       name: formPokemonName,
                       formName,
+                      normalizedUrl: normalizePokemonUrlKey(pokemon.name).toLowerCase(),
                     },
                     learnMethod: 'level',
                     level: move.level,
@@ -295,10 +309,14 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
 
   // Remove duplicates and sort by Pokemon name
   const uniquePokemon = pokemonWithMove.filter((item, index, self) => {
-    return index === self.findIndex((t) => 
-      t.pokemon.name === item.pokemon.name && 
-      t.learnMethod === item.learnMethod &&
-      t.level === item.level
+    return (
+      index ===
+      self.findIndex(
+        (t) =>
+          t.pokemon.name === item.pokemon.name &&
+          t.learnMethod === item.learnMethod &&
+          t.level === item.level,
+      )
     );
   });
 
@@ -306,3 +324,10 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
 }
 
 export type { MoveManifest };
+
+/**
+ * Interface for the pokemon_moves manifest
+ */
+export interface PokemonMovesManifest {
+  [pokemonName: string]: string[];
+}

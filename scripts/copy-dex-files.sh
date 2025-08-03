@@ -18,6 +18,7 @@ cp output/type_chart.json public/output/ 2>/dev/null || echo "Warning: Could not
 cp output/manifests/abilities.json public/output/manifests/ 2>/dev/null || echo "Warning: Could not copy abilities.json"
 cp output/manifests/moves.json public/output/manifests/ 2>/dev/null || echo "Warning: Could not copy moves.json"
 cp output/manifests/items.json public/output/manifests/ 2>/dev/null || echo "Warning: Could not copy items.json"
+cp output/pokemon_base_data.json public/output/manifests/ 2>/dev/null || echo "Warning: Could not copy pokemon_base_data.json"
 
 # Create correctly named sprite directories for problematic Pokemon
 echo "Creating correctly named sprite directories..."
