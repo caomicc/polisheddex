@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
 import { parseLocationUrl, buildLocationUrl } from './locationUtils';
 
@@ -7,11 +7,14 @@ import { parseLocationUrl, buildLocationUrl } from './locationUtils';
  */
 export function useLocationUrlState() {
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const getCurrentLocation = useCallback(() => {
-    if (!router.asPath) return { locationKey: '', areaId: undefined };
-    return parseLocationUrl(router.asPath);
-  }, [router.asPath]);
+    const fullPath = pathname + (searchParams.toString() ? `?${searchParams.toString()}` : '');
+    if (!fullPath) return { locationKey: '', areaId: undefined };
+    return parseLocationUrl(fullPath);
+  }, [pathname, searchParams]);
 
   const navigateToLocation = useCallback(
     (locationKey: string, areaId?: string, replace: boolean = false) => {
@@ -22,7 +25,7 @@ export function useLocationUrlState() {
         router.push(url);
       }
     },
-    [router]
+    [router],
   );
 
   const navigateToArea = useCallback(
@@ -30,7 +33,7 @@ export function useLocationUrlState() {
       const { locationKey } = getCurrentLocation();
       navigateToLocation(locationKey, areaId, true);
     },
-    [getCurrentLocation, navigateToLocation]
+    [getCurrentLocation, navigateToLocation],
   );
 
   const clearArea = useCallback(() => {
@@ -64,7 +67,7 @@ export function useConsolidatedLocationState(locationData?: any) {
         navigateToArea(newAreaId);
       }
     },
-    [navigateToArea, clearArea]
+    [navigateToArea, clearArea],
   );
 
   return {
@@ -83,7 +86,7 @@ export function generateLocationBreadcrumbs(
   locationKey: string,
   locationDisplayName: string,
   areaId?: string,
-  areaDisplayName?: string
+  areaDisplayName?: string,
 ) {
   const breadcrumbs = [
     { label: 'Locations', href: '/locations' },
