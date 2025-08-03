@@ -109,21 +109,21 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
     try {
       const fs = await import('fs');
       const path = await import('path');
-      
+
       // Try to load the individual Pokemon file
       const pokemonFileName = pokemonKey.toLowerCase();
       const pokemonFilePath = path.join(process.cwd(), `output/pokemon/${pokemonFileName}.json`);
-      
+
       if (!fs.existsSync(pokemonFilePath)) {
         continue; // Skip if individual file doesn't exist
       }
-      
+
       const pokemonData = JSON.parse(fs.readFileSync(pokemonFilePath, 'utf8'));
       const pokemon = { ...basePokemon, ...pokemonData };
 
-
       // Determine which abilities to use for each version with fallback logic
-      const faithfulAbilities = pokemon.detailedStats?.faithfulAbilities || pokemon.faithfulAbilities;
+      const faithfulAbilities =
+        pokemon.detailedStats?.faithfulAbilities || pokemon.faithfulAbilities;
       const updatedAbilities = pokemon.detailedStats?.updatedAbilities || pokemon.updatedAbilities;
       const mainAbilities = pokemon.detailedStats?.abilities || pokemon.abilities;
 
@@ -136,9 +136,9 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
         effectiveFaithfulAbilities.forEach((ability: any) => {
           if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
             const existingIndex = pokemonWithAbility.findIndex(
-              (item) => item.pokemon.name === pokemon.name
+              (item) => item.pokemon.name === pokemon.name,
             );
-            
+
             if (existingIndex >= 0) {
               const existing = pokemonWithAbility[existingIndex];
               if (!existing.abilityTypes.includes(ability.abilityType)) {
@@ -163,9 +163,9 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
         effectiveUpdatedAbilities.forEach((ability: any) => {
           if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
             const existingIndex = pokemonWithAbility.findIndex(
-              (item) => item.pokemon.name === pokemon.name
+              (item) => item.pokemon.name === pokemon.name,
             );
-            
+
             if (existingIndex >= 0) {
               const existing = pokemonWithAbility[existingIndex];
               if (!existing.abilityTypes.includes(ability.abilityType)) {
@@ -188,13 +188,17 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
       // Check forms if they exist
       if (pokemon.forms) {
         Object.entries(pokemon.forms).forEach(([formName, formData]) => {
-
           // Apply same fallback logic for forms
-          const formFaithfulAbilities = (formData as any).detailedStats?.faithfulAbilities || (formData as any).faithfulAbilities;
-          const formUpdatedAbilities = (formData as any).detailedStats?.updatedAbilities || (formData as any).updatedAbilities;
-          const formMainAbilities = (formData as any).detailedStats?.abilities || (formData as any).abilities;
+          const formFaithfulAbilities =
+            (formData as any).detailedStats?.faithfulAbilities ||
+            (formData as any).faithfulAbilities;
+          const formUpdatedAbilities =
+            (formData as any).detailedStats?.updatedAbilities || (formData as any).updatedAbilities;
+          const formMainAbilities =
+            (formData as any).detailedStats?.abilities || (formData as any).abilities;
 
-          const effectiveFormFaithfulAbilities = formFaithfulAbilities || formUpdatedAbilities || formMainAbilities;
+          const effectiveFormFaithfulAbilities =
+            formFaithfulAbilities || formUpdatedAbilities || formMainAbilities;
           const effectiveFormUpdatedAbilities = formUpdatedAbilities || formMainAbilities;
 
           // Check faithful abilities for form (with fallback)
@@ -203,9 +207,9 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
               if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
                 const formPokemonName = `${pokemon.name} (${formName})`;
                 const existingIndex = pokemonWithAbility.findIndex(
-                  (item) => item.pokemon.name === formPokemonName
+                  (item) => item.pokemon.name === formPokemonName,
                 );
-                
+
                 if (existingIndex >= 0) {
                   const existing = pokemonWithAbility[existingIndex];
                   if (!existing.abilityTypes.includes(ability.abilityType)) {
@@ -235,9 +239,9 @@ export async function getPokemonThatHaveAbility(abilityId: string): Promise<Poke
               if (ability.id && ability.id.toLowerCase() === normalizedAbilityId) {
                 const formPokemonName = `${pokemon.name} (${formName})`;
                 const existingIndex = pokemonWithAbility.findIndex(
-                  (item) => item.pokemon.name === formPokemonName
+                  (item) => item.pokemon.name === formPokemonName,
                 );
-                
+
                 if (existingIndex >= 0) {
                   const existing = pokemonWithAbility[existingIndex];
                   if (!existing.abilityTypes.includes(ability.abilityType)) {

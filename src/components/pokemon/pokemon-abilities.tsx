@@ -26,6 +26,13 @@ export function PokemonAbilities({
 }: PokemonAbilitiesProps) {
   const { showFaithful } = useFaithfulPreference();
 
+  console.log('PokemonAbilities render', {
+    abilities,
+    faithfulAbilities,
+    updatedAbilities,
+    showFaithful,
+  });
+
   // Determine which abilities to show based on faithful preference and availability
   let abilitiesToShow;
   if (showFaithful) {
@@ -50,11 +57,13 @@ export function PokemonAbilities({
   // Convert abilities to resolved format for display
   const resolvedAbilities: ResolvedAbility[] = abilitiesToShow.map((ability) => ({
     id: ability.id,
-    name: ability.id?.charAt(0).toUpperCase() + ability.id?.slice(1).replace(/-/g, ' ') || 'Unknown',
-    description: 'Ability description', // Basic placeholder since we can't load dynamically
+    name: ability.id?.replace(/-/g, ' ') || 'Unknown',
+    description: ability.description || 'No description available',
     isHidden: ability.isHidden ?? false,
     abilityType: ability.abilityType ?? 'primary',
   }));
+
+  console.log('Resolved abilities:', resolvedAbilities);
 
   return (
     <div className={'space-y-2 ' + className}>
@@ -71,7 +80,7 @@ export function PokemonAbilities({
 function AbilityRow({ ability }: { ability: ResolvedAbility }) {
   return (
     <div className="w-full flex flex-col items-start justify-start">
-      <span className="text-xs text-foreground">
+      <span className="text-xs text-foreground capitalize">
         {ability.name} ({ability.abilityType}):
       </span>
       <span className="text-xs text-muted-foreground">{ability.description}</span>
