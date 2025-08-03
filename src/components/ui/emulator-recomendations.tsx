@@ -46,7 +46,6 @@ export default function EmulatorRecommendations() {
   const avoidEmulators = [
     { name: 'VBA', reason: 'Not updated since 2004' },
     { name: 'VBA-M', reason: 'Extremely inaccurate' },
-    { name: 'Delta', reason: 'Reported compatibility issues' },
   ];
 
   return (
@@ -109,7 +108,7 @@ export default function EmulatorRecommendations() {
             Emulators to Avoid
           </h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {avoidEmulators.map((emulator) => (
             <div
               key={emulator.name}
