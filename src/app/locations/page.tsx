@@ -19,7 +19,6 @@ export default async function LocationsPage() {
   return (
     <>
       <Hero
-        className="text-white"
         headline={'Locations'}
         description={'Explore the diverse locations in Pokémon Polished Crystal'}
         breadcrumbs={
@@ -27,14 +26,14 @@ export default async function LocationsPage() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                  <Link href="/" className="hover:underline  hover:text-slate-200">
                     Home
                   </Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">Locations</BreadcrumbPage>
+                <BreadcrumbPage className="">Locations</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

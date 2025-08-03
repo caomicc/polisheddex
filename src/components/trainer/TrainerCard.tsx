@@ -71,8 +71,21 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
             <div className="relative flex flex-row items-center gap-4">
               {/* not a pokemon sprite but w/e */}
               <TrainerSprite
-                trainerName={trainer.trainerClass.toLowerCase().replace(/-/g, '_')}
-                src={`/sprites/trainers/${trainerSpritePath}/static.png`}
+                trainerName={
+                  ['rival0', 'rival1', 'lyra0', 'lyra1'].includes(
+                    trainer.trainerClass.toLowerCase().replace(/-/g, '_'),
+                  )
+                    ? trainer.trainerClass
+                        .toLowerCase()
+                        .replace(/-/g, '_')
+                        .replace(/(\d)$/, (match) => `${parseInt(match) + 1}`)
+                    : trainer.trainerClass.toLowerCase().replace(/-/g, '_')
+                }
+                src={`/sprites/trainers/${
+                  ['rival0', 'rival1', 'lyra0', 'lyra1'].includes(trainerSpritePath)
+                    ? trainerSpritePath.replace(/(\d)$/, (match) => `${parseInt(match) + 1}`)
+                    : trainerSpritePath
+                }/static.png`}
                 alt={trainer.name}
               />
               <div>

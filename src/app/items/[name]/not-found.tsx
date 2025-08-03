@@ -40,7 +40,7 @@ export default function ItemNotFound() {
         <div className="space-y-4">
           <Link
             href="/items"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+            className="inline-block bg-blue-600 hover:bg-blue-700  font-semibold py-3 px-6 rounded-lg transition-colors"
           >
             Browse All Items
           </Link>

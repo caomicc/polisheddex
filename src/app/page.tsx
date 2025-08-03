@@ -9,12 +9,11 @@ export default function Home() {
   return (
     <div className="mb-10 p-2 lg:p-4">
       <Hero
-        className="text-white"
         headline="Polished Dex"
         description="A companion pokedex for Pokémon Polished Crystal, providing detailed information on Pokémon, locations, and items."
       >
         <div>
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="default" size="sm" asChild>
             <Link
               href="https://github.com/Rangi42/polishedcrystal/releases/tag/v3.1.1"
               target="_blank"

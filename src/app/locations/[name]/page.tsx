@@ -24,24 +24,24 @@ export async function generateStaticParams() {
   try {
     const [pokemonLocations, allLocationData] = await Promise.all([
       loadMergedPokemonLocationData(),
-      loadAllLocationData()
+      loadAllLocationData(),
     ]);
-    
+
     // Get all locations from both data sources
     const locationNames = new Set<string>();
-    
+
     // Add locations with Pokemon encounters
-    Object.keys(pokemonLocations).forEach(location => {
-      locationNames.add(location.toLowerCase());
-    });
-    
-    // Add all comprehensive location data
-    Object.keys(allLocationData).forEach(location => {
+    Object.keys(pokemonLocations).forEach((location) => {
       locationNames.add(location.toLowerCase());
     });
 
-    return Array.from(locationNames).map((name) => ({ 
-      name: name
+    // Add all comprehensive location data
+    Object.keys(allLocationData).forEach((location) => {
+      locationNames.add(location.toLowerCase());
+    });
+
+    return Array.from(locationNames).map((name) => ({
+      name: name,
     }));
   } catch (error) {
     console.error('Error generating static params for locations:', error);
@@ -230,7 +230,6 @@ export default async function LocationDetailPage({
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <div className="space-y-6">
           <Hero
-            className="text-white"
             headline={displayName}
             description=""
             breadcrumbs={
@@ -238,7 +237,7 @@ export default async function LocationDetailPage({
                 <BreadcrumbList>
                   <BreadcrumbItem>
                     <BreadcrumbLink asChild>
-                      <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                      <Link href="/" className="hover:underline  hover:text-slate-200">
                         Home
                       </Link>
                     </BreadcrumbLink>
@@ -246,17 +245,14 @@ export default async function LocationDetailPage({
                   <BreadcrumbSeparator />
                   <BreadcrumbItem>
                     <BreadcrumbLink asChild>
-                      <Link
-                        href="/locations"
-                        className="hover:underline text-white hover:text-slate-200"
-                      >
+                      <Link href="/locations" className="hover:underline  hover:text-slate-200">
                         Locations
                       </Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator />
                   <BreadcrumbItem>
-                    <BreadcrumbPage className="text-white">{displayName}</BreadcrumbPage>
+                    <BreadcrumbPage className="">{displayName}</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>

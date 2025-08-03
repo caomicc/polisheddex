@@ -20,18 +20,17 @@ export default async function AbilityDetail({ params }: { params: Promise<{ name
 
   // Load ability data
   const abilityData = await loadAbilityById(abilityName.toLowerCase());
-  
+
   if (!abilityData) {
     return notFound();
   }
 
-  // Load Pokemon that have this ability  
+  // Load Pokemon that have this ability
   const pokemonWithAbility = await getPokemonThatHaveAbility(abilityName.toLowerCase());
 
   return (
     <>
       <Hero
-        className="text-white"
         headline={abilityData.name || abilityName}
         description={abilityData.description || 'Ability details and Pokemon that have it'}
         breadcrumbs={
@@ -39,7 +38,7 @@ export default async function AbilityDetail({ params }: { params: Promise<{ name
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                  <Link href="/" className="hover:underline  hover:text-slate-200">
                     Home
                   </Link>
                 </BreadcrumbLink>
@@ -47,14 +46,14 @@ export default async function AbilityDetail({ params }: { params: Promise<{ name
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/abilities" className="hover:underline text-white hover:text-slate-200">
+                  <Link href="/abilities" className="hover:underline  hover:text-slate-200">
                     Abilities
                   </Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">{abilityData.name || abilityName}</BreadcrumbPage>
+                <BreadcrumbPage className="">{abilityData.name || abilityName}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -63,9 +62,9 @@ export default async function AbilityDetail({ params }: { params: Promise<{ name
 
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-4 sr-only">{abilityData.name || abilityName}</h1>
-        
+
         <Suspense fallback={<PokemonGridSkeleton count={8} />}>
-          <AbilityDetailClient 
+          <AbilityDetailClient
             abilityData={abilityData}
             pokemonWithAbility={pokemonWithAbility}
             abilityName={abilityData.name || abilityName}
@@ -81,7 +80,7 @@ export async function generateStaticParams() {
   try {
     const { loadAbilitiesData } = await import('@/utils/loaders/ability-data-loader');
     const abilitiesData = await loadAbilitiesData();
-    
+
     return Object.keys(abilitiesData).map((abilityKey) => ({
       name: abilityKey.toLowerCase(),
     }));
@@ -98,7 +97,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 
   try {
     const abilityData = await loadAbilityById(abilityName.toLowerCase());
-    
+
     if (!abilityData) {
       return {
         title: 'Ability Not Found',
@@ -107,7 +106,8 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
     }
 
     const pokemonCount = await getPokemonThatHaveAbility(abilityName.toLowerCase());
-    const pokemonCountText = pokemonCount.length > 0 ? ` ${pokemonCount.length} Pokémon have this ability.` : '';
+    const pokemonCountText =
+      pokemonCount.length > 0 ? ` ${pokemonCount.length} Pokémon have this ability.` : '';
 
     const title = `${abilityData.name || abilityName} | PolishedDex`;
     const description = `${abilityData.description || 'Ability details'}${pokemonCountText} View all Pokémon that have ${abilityData.name || abilityName} in Pokémon Polished Crystal.`;

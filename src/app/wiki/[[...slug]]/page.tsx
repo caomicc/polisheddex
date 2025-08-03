@@ -84,21 +84,20 @@ function WikiHomePage() {
   return (
     <>
       <Hero
-        className="text-white lg:min-h-[200px]"
         headline="Polished Crystal Wiki"
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                  <Link href="/" className="hover:underline  hover:text-slate-200">
                     Home
                   </Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">Wiki</BreadcrumbPage>
+                <BreadcrumbPage className="">Wiki</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -404,7 +403,6 @@ export default function WikiPage() {
   return (
     <>
       <Hero
-        className="text-white lg:min-h-[200px]"
         headline={pageName
           .replace(/([A-Z])/g, '$1')
           .replace(/-/g, ' ')
@@ -414,7 +412,7 @@ export default function WikiPage() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                  <Link href="/" className="hover:underline  hover:text-slate-200">
                     Home
                   </Link>
                 </BreadcrumbLink>
@@ -422,14 +420,14 @@ export default function WikiPage() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/wiki" className="hover:underline text-white hover:text-slate-200">
+                  <Link href="/wiki" className="hover:underline  hover:text-slate-200">
                     Wiki
                   </Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">
+                <BreadcrumbPage className="">
                   {pageName
                     .replace(/([A-Z])/g, '$1')
                     .replace(/-/g, ' ')

@@ -25,7 +25,6 @@ export default function TeamBuilderPage() {
   return (
     <>
       <Hero
-        className="text-white"
         headline="Team Builder"
         description="Build your perfect team and analyze type weaknesses and resistances"
         breadcrumbs={
@@ -33,14 +32,14 @@ export default function TeamBuilderPage() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                  <Link href="/" className="hover:underline  hover:text-slate-200">
                     Home
                   </Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">Team Builder</BreadcrumbPage>
+                <BreadcrumbPage className="">Team Builder</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

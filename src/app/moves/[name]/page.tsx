@@ -20,7 +20,7 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
 
   // Load move data
   const moveData = await loadMoveById(moveName.toLowerCase());
-  
+
   if (!moveData) {
     return notFound();
   }
@@ -31,7 +31,6 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
   return (
     <>
       <Hero
-        className="text-white"
         headline={moveData.name || moveName}
         description={moveData.description || 'Move details and Pokemon that can learn it'}
         breadcrumbs={
@@ -39,7 +38,7 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                  <Link href="/" className="hover:underline  hover:text-slate-200">
                     Home
                   </Link>
                 </BreadcrumbLink>
@@ -47,14 +46,14 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/moves" className="hover:underline text-white hover:text-slate-200">
+                  <Link href="/moves" className="hover:underline  hover:text-slate-200">
                     Moves
                   </Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">{moveData.name || moveName}</BreadcrumbPage>
+                <BreadcrumbPage className="">{moveData.name || moveName}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -63,9 +62,9 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
 
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-4 sr-only">{moveData.name || moveName}</h1>
-        
+
         <Suspense fallback={<PokemonGridSkeleton count={8} />}>
-          <MoveDetailClient 
+          <MoveDetailClient
             moveData={moveData}
             pokemonWithMove={pokemonWithMove}
             moveName={moveData.name || moveName}
@@ -81,7 +80,7 @@ export async function generateStaticParams() {
   try {
     const { loadMovesData } = await import('@/utils/loaders/move-data-loader');
     const movesData = await loadMovesData();
-    
+
     return Object.keys(movesData).map((moveKey) => ({
       name: moveKey.toLowerCase(),
     }));
@@ -98,7 +97,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 
   try {
     const moveData = await loadMoveById(moveName.toLowerCase());
-    
+
     if (!moveData) {
       return {
         title: 'Move Not Found',
@@ -107,7 +106,8 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
     }
 
     const pokemonCount = await getPokemonThatCanLearnMove(moveData.name || moveName);
-    const pokemonCountText = pokemonCount.length > 0 ? ` ${pokemonCount.length} Pokémon can learn this move.` : '';
+    const pokemonCountText =
+      pokemonCount.length > 0 ? ` ${pokemonCount.length} Pokémon can learn this move.` : '';
 
     const title = `${moveData.name || moveName} | PolishedDex`;
     const description = `${moveData.description || 'Move details'}${pokemonCountText} View all Pokémon that can learn ${moveData.name || moveName} in Pokémon Polished Crystal.`;
@@ -115,7 +115,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
 
     // Build move stats text
     const moveStats = moveData.updated || moveData.faithful;
-    const statsText = moveStats 
+    const statsText = moveStats
       ? ` Type: ${moveStats.type}, Power: ${moveStats.power || 'N/A'}, Accuracy: ${moveStats.accuracy || 'N/A'}, PP: ${moveStats.pp || 'N/A'}.`
       : '';
 

@@ -32,7 +32,6 @@ export default async function ItemPage({ params }: ItemPageProps) {
     <div className="max-w-xl md:max-w-4xl mx-auto">
       <div className="space-y-6">
         <Hero
-          className="text-white"
           headline={item.name}
           description={item.description}
           breadcrumbs={
@@ -40,7 +39,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                    <Link href="/" className="hover:underline  hover:text-slate-200">
                       Home
                     </Link>
                   </BreadcrumbLink>
@@ -48,14 +47,14 @@ export default async function ItemPage({ params }: ItemPageProps) {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link href="/items" className="hover:underline text-white hover:text-slate-200">
+                    <Link href="/items" className="hover:underline  hover:text-slate-200">
                       Items
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage className="text-white">{item.name}</BreadcrumbPage>
+                  <BreadcrumbPage className="">{item.name}</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -251,7 +250,7 @@ function TMHMItemDetails({ item }: { item: import('@/types/types').TMHMData }) {
 export async function generateStaticParams() {
   try {
     const itemsData = await loadItemsData();
-    
+
     return Object.keys(itemsData).map((itemId) => ({
       name: itemId,
     }));

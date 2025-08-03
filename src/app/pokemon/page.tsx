@@ -47,21 +47,20 @@ export default async function PokemonList({
     <>
       <Hero
         headline={'Pokedex'}
-        className="text-white"
         description={'Browse all Pokémon available in Pokémon Polished Crystal'}
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                  <Link href="/" className="hover:underline  hover:text-slate-200">
                     Home
                   </Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">Pokemon</BreadcrumbPage>
+                <BreadcrumbPage className="">Pokemon</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

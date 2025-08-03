@@ -24,7 +24,6 @@ export default async function AbilitiesList() {
   return (
     <>
       <Hero
-        className="text-white"
         headline="Abilities"
         description="Browse all abilities available in Pokémon Polished Crystal"
         breadcrumbs={
@@ -32,14 +31,14 @@ export default async function AbilitiesList() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline text-white hover:text-slate-200">
+                  <Link href="/" className="hover:underline  hover:text-slate-200">
                     Home
                   </Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">Abilities</BreadcrumbPage>
+                <BreadcrumbPage className="">Abilities</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
