@@ -39,8 +39,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/duskball',
-        destination: '/dusk',
+        source: '/items/duskball',
+        destination: '/items/dusk',
         permanent: true,
       },
     ];
