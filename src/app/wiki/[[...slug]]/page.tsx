@@ -90,7 +90,7 @@ function WikiHomePage() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline  hover:text-slate-200">
+                  <Link href="/" className="hover:underline">
                     Home
                   </Link>
                 </BreadcrumbLink>
@@ -412,7 +412,7 @@ export default function WikiPage() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline  hover:text-slate-200">
+                  <Link href="/" className="hover:underline">
                     Home
                   </Link>
                 </BreadcrumbLink>
@@ -420,7 +420,7 @@ export default function WikiPage() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/wiki" className="hover:underline  hover:text-slate-200">
+                  <Link href="/wiki" className="hover:underline">
                     Wiki
                   </Link>
                 </BreadcrumbLink>

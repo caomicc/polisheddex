@@ -57,6 +57,10 @@ const badgeVariants = cva(
         destructive:
           'border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
         outline: 'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',
+        success:
+          'border-transparent bg-green-500 text-white [a&]:hover:bg-green-600 focus-visible:ring-green-500/20 dark:focus-visible:ring-green-400/40 dark:bg-green-600',
+        warning:
+          'border-transparent bg-yellow-500 text-white [a&]:hover:bg-yellow-600 focus-visible:ring-yellow-500/20 dark:focus-visible:ring-yellow-400/40 dark:bg-yellow-600',
         // Pokémon type variants
         normal: 'bg-normal text-normal-800 border-normal-600',
         fire: 'bg-fire text-red-950 border-red-600',
@@ -130,7 +134,11 @@ function Badge({ className, variant, asChild = false, ...props }: BadgeProps) {
   const Comp = asChild ? Slot : 'span';
 
   return (
-    <Comp data-slot="badge" className={cn(badgeVariants({ variant }), className)} {...props} />
+    <Comp
+      data-slot="badge"
+      className={cn(badgeVariants({ variant: variant as BadgeVariant }), className)}
+      {...props}
+    />
   );
 }
 

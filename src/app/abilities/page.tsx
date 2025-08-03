@@ -31,7 +31,7 @@ export default async function AbilitiesList() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline  hover:text-slate-200">
+                  <Link href="/" className="hover:underline">
                     Home
                   </Link>
                 </BreadcrumbLink>
