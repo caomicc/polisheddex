@@ -19,19 +19,29 @@ import {
   loadAllLocationData,
 } from '@/utils/loaders/location-data-loader';
 
-// Generate static params for locations with Pokemon encounters
+// Generate static params for all locations (including those without Pokemon)
 export async function generateStaticParams() {
   try {
-    const pokemonLocations = await loadMergedPokemonLocationData();
+    const [pokemonLocations, allLocationData] = await Promise.all([
+      loadMergedPokemonLocationData(),
+      loadAllLocationData()
+    ]);
     
-    // Pre-generate all locations with Pokemon encounters (should be ~234 based on data)
-    const locationsWithPokemon = Object.keys(pokemonLocations).filter(location => {
-      const encounters = pokemonLocations[location];
-      return encounters && Object.keys(encounters).length > 0;
+    // Get all locations from both data sources
+    const locationNames = new Set<string>();
+    
+    // Add locations with Pokemon encounters
+    Object.keys(pokemonLocations).forEach(location => {
+      locationNames.add(location.toLowerCase());
+    });
+    
+    // Add all comprehensive location data
+    Object.keys(allLocationData).forEach(location => {
+      locationNames.add(location.toLowerCase());
     });
 
-    return locationsWithPokemon.map((name) => ({ 
-      name: name.toLowerCase() 
+    return Array.from(locationNames).map((name) => ({ 
+      name: name
     }));
   } catch (error) {
     console.error('Error generating static params for locations:', error);
@@ -39,9 +49,8 @@ export async function generateStaticParams() {
   }
 }
 
-// Enable ISR for non-pre-rendered pages
-export const dynamicParams = true;
-export const revalidate = 3600; // Revalidate every hour
+// Disable ISR - use static generation only
+export const dynamicParams = false;
 
 export default async function LocationDetailPage({
   params,
