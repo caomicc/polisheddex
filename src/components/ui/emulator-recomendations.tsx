@@ -13,32 +13,32 @@ export default function EmulatorRecommendations() {
       name: 'mGBA',
       platform: 'PC',
       description: 'Most popular, no known incompatibilities',
-      image: '/placeholder.svg?height=64&width=64&text=mGBA',
-      link: '#',
+      image: '/mgba.png',
+      link: 'https://mgba.io/',
       badge: 'Popular',
     },
     {
       name: 'SameBoy',
       platform: 'PC/iOS',
       description: 'Most accurate emulator available',
-      image: '/placeholder.svg?height=64&width=64&text=SameBoy',
-      link: '#',
+      image: '/sameboy.png',
+      link: 'https://sameboy.github.io/',
       badge: 'Most Accurate',
     },
     {
       name: 'BGB',
       platform: 'PC',
       description: 'Used by developers, powerful debugger',
-      image: '/placeholder.svg?height=64&width=64&text=BGB',
-      link: '#',
+      image: '/bgb.png',
+      link: 'https://bgb.bircd.org/',
       badge: 'Developer Choice',
     },
     {
       name: 'RetroArch',
       platform: 'Android',
       description: 'Use SameBoy or Gambatte core',
-      image: '/placeholder.svg?height=64&width=64&text=RetroArch',
-      link: '#',
+      image: '/retroarch.svg',
+      link: 'https://www.retroarch.com/',
       badge: 'Mobile',
     },
   ];
@@ -65,7 +65,7 @@ export default function EmulatorRecommendations() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {recommendedEmulators.map((emulator) => (
           <Card key={emulator.name} className="relative group hover:shadow-lg transition-shadow">
-            <CardHeader className="text-center pb-4">
+            <CardHeader className="text-center">
               <div className="mx-auto mb-3 relative">
                 <Image
                   src={emulator.image || '/placeholder.svg'}
@@ -79,16 +79,18 @@ export default function EmulatorRecommendations() {
                 </Badge>
               </div>
               <CardTitle className="text-lg">{emulator.name}</CardTitle>
-              <CardDescription className="text-sm font-medium text-blue-600">
-                {emulator.platform}
+              <CardDescription className="">
+                <Badge variant="default" className="text-xs">
+                  {emulator.platform}
+                </Badge>
               </CardDescription>
             </CardHeader>
-            <CardContent className="pt-0">
+            <CardContent className="">
               <p className="text-sm text-muted-foreground mb-4 text-center">
                 {emulator.description}
               </p>
               <Button asChild className="w-full" size="sm">
-                <Link href={emulator.link} className="flex items-center gap-2">
+                <Link href={emulator.link} target="_blank" className="flex items-center gap-2">
                   Download
                   <ExternalLink className="h-3 w-3" />
                 </Link>
@@ -111,7 +113,7 @@ export default function EmulatorRecommendations() {
           {avoidEmulators.map((emulator) => (
             <div
               key={emulator.name}
-              className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-md"
+              className="flex items-center gap-3 p-3 bg-white dark:bg-black/30 rounded-md"
             >
               <div className="w-2 h-2 bg-red-500 rounded-full flex-shrink-0" />
               <div>
@@ -126,7 +128,7 @@ export default function EmulatorRecommendations() {
         </p>
       </div>
 
-      <div className="text-center mt-8">
+      <div className="text-center mt-4 mb-8">
         <Button variant="outline" asChild>
           <Link href="/wiki/faq" className="flex items-center gap-2">
             View Full Compatibility Guide

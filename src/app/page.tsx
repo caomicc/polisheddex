@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import EmulatorRecommendations from '@/components/ui/emulator-recomendations';
 import { Hero } from '@/components/ui/Hero';
+import { ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Home() {
@@ -11,7 +12,16 @@ export default function Home() {
         className="text-white"
         headline="Polished Dex"
         description="A companion pokedex for Pokémon Polished Crystal, providing detailed information on Pokémon, locations, and items."
-      />
+      >
+        <div>
+          <Button variant="outline" size="sm" asChild>
+            <Link href="/wiki/faq" className="flex items-center gap-2">
+              Download ROM on GitHub
+              <ExternalLink className="h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </Hero>
       <div className="max-w-4xl mx-auto min-h-screen flex flex-col gap-6">
         <EmulatorRecommendations />
 
