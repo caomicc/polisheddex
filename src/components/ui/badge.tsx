@@ -3,7 +3,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
-import type { LocationData, PokemonEncounter, PokemonType } from '@/types/types';
+import type { LocationData, MoveDescription, PokemonEncounter, PokemonType } from '@/types/types';
 
 // All possible badge variants, including Pokémon types and UI variants
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -111,6 +111,7 @@ interface BadgeProps extends React.ComponentProps<'span'> {
     | PokemonType['name']
     | LocationData['region']
     | PokemonEncounter['time']
+    | MoveDescription['type']
     // fix
     | 'unknown'
     | 'physical'

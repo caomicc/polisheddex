@@ -1,5 +1,7 @@
 // Utilities for resolving manifest references in compressed data
 
+import { Move } from '@/types/types';
+
 interface AbilityManifest {
   [abilityId: string]: {
     name: string;
@@ -16,6 +18,8 @@ interface MoveManifest {
     accuracy?: number;
     pp?: number;
     description?: string;
+    updated?: Omit<MoveManifest, 'updated' | 'faithful'>;
+    faithful?: Omit<MoveManifest, 'faithful' | 'updated'>;
   };
 }
 

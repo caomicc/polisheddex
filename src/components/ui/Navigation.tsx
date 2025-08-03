@@ -3,6 +3,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 // import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 import {
   NavigationMenu,
@@ -24,6 +25,7 @@ import Image from 'next/image';
 import { Badge } from './badge';
 
 export default function Navigation() {
+  const pathname = usePathname();
   const [heroVisible, setHeroVisible] = React.useState(true);
   const [isHydrated, setIsHydrated] = React.useState(false);
   const { primaryType } = usePokemonType();
@@ -50,6 +52,8 @@ export default function Navigation() {
   // Use consistent state until hydrated
   const showBackground = isHydrated && !heroVisible;
   const hasPokemonTheme = primaryType !== null;
+
+  const isActive = (path: string) => pathname?.startsWith(path);
 
   return (
     <div
@@ -86,14 +90,19 @@ export default function Navigation() {
         <NavigationMenu className="!hidden md:!flex" viewport={false}>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className={cn(hasPokemonTheme && 'pokemon-themed-link')}>
+              <NavigationMenuTrigger
+                className={cn(
+                  hasPokemonTheme && 'pokemon-themed-link',
+                  isActive('/pokemon') && 'active-link',
+                )}
+              >
                 Pokedex
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[300px] gap-4">
                   <li>
                     <NavigationMenuLink asChild>
-                      <Link href="/pokemon">
+                      <Link href="/pokemon" className={cn(isActive('/pokemon') && 'active-link')}>
                         <div className="font-medium">Pokemon</div>
                         <div className="text-muted-foreground">
                           Browse all Pokemon in the Pokedex.
@@ -101,7 +110,7 @@ export default function Navigation() {
                       </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
-                      <Link href="/moves">
+                      <Link href="/moves" className={cn(isActive('/moves') && 'active-link')}>
                         <div className="font-medium">Attackdex</div>
                         <div className="text-muted-foreground">
                           Browse all moves in the Pokedex.
@@ -109,13 +118,19 @@ export default function Navigation() {
                       </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
-                      <Link href="/abilities">
+                      <Link
+                        href="/abilities"
+                        className={cn(isActive('/abilities') && 'active-link')}
+                      >
                         <div className="font-medium">Abilities</div>
                         <div className="text-muted-foreground">Browse all abilities.</div>
                       </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
-                      <Link href="/team-builder">
+                      <Link
+                        href="/team-builder"
+                        className={cn(isActive('/team-builder') && 'active-link')}
+                      >
                         <div className="font-medium">Team Builder</div>
                         <div className="text-muted-foreground">Build your Pokemon team.</div>
                       </Link>
@@ -125,32 +140,38 @@ export default function Navigation() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link className={cn(hasPokemonTheme && 'pokemon-themed-link')} href="/items">
-                  Items
-                </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(navigationMenuTriggerStyle(), isActive('/items') && 'active-link')}
+              >
+                <Link href="/items">Items</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link className={cn(hasPokemonTheme && 'pokemon-themed-link')} href="/locations">
-                  Locations
-                </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  isActive('/locations') && 'active-link',
+                )}
+              >
+                <Link href="/locations">Locations</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link className={cn(hasPokemonTheme && 'pokemon-themed-link')} href="/wiki">
-                  Wiki
-                </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(navigationMenuTriggerStyle(), isActive('/wiki') && 'active-link')}
+              >
+                <Link href="/wiki">Wiki</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
-
             <NavigationMenuItem>
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <Link className={cn(hasPokemonTheme && 'pokemon-themed-link')} href="/wiki/faq">
-                  FAQ
-                </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(navigationMenuTriggerStyle(), isActive('/wiki/faq') && 'active-link')}
+              >
+                <Link href="/wiki/faq">FAQ</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
 

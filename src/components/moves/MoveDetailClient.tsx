@@ -6,6 +6,17 @@ import { Label } from '@/components/ui/label';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonWithMove } from '@/utils/loaders/move-data-loader';
 import PokemonWithMoveDataTable from './PokemonWithMoveDataTable';
+import { Hero } from '../ui/Hero';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '../ui/breadcrumb';
+import Link from 'next/link';
+import { Badge } from '../ui/badge';
 
 interface MoveDetailClientProps {
   moveData: {
@@ -52,59 +63,103 @@ export default function MoveDetailClient({
   const tmInfo = moveData.tm;
 
   return (
-    <div className="space-y-6">
-      {/* Move Information Card */}
-      <Card>
-        <CardContent className="">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="flex flex-col gap-2">
-              <Label className="text-md font-black">Category</Label>
-              <p className="text-sm">{moveStats?.category || 'Unknown'}</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <Label className="text-md font-black">Power</Label>
-              <p className="text-sm">{moveStats?.power || 'N/A'}</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <Label className="text-md font-black">Accuracy</Label>
-              <p className="text-sm">{moveStats?.accuracy || 'N/A'}%</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <Label className="text-md font-black">PP</Label>
-              <p className="text-sm">{moveStats?.pp || 'N/A'}</p>
+    <>
+      <Hero
+        headline={moveData.name || moveName}
+        description={moveData.description || 'Move details and Pokemon that can learn it'}
+        types={
+          <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
+            <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
+              {showFaithful ? (
+                <Badge>
+                  {String(moveData.faithful?.type || moveData.updated?.type || 'Unknown Type')}
+                </Badge>
+              ) : (
+                <Badge>{String(moveData.updated?.type || 'Unknown Type')}</Badge>
+              )}
             </div>
           </div>
-
-          {tmInfo && (
-            <div className="mt-4 p-3 bg-muted rounded-lg">
-              <Label className="text-sm font-medium">TM/HM Location</Label>
-              <p className="text-sm">
-                {tmInfo.number} - {tmInfo.location?.area || 'Unknown location'}
-                {tmInfo.location?.details && (
-                  <span className="text-muted-foreground"> ({tmInfo.location.details})</span>
-                )}
-              </p>
+        }
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline  hover:text-slate-200">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/moves" className="hover:underline  hover:text-slate-200">
+                    Moves
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="">{moveData.name || moveName}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
+      />
+      <div className="space-y-6">
+        {/* Move Information Card */}
+        <Card>
+          <CardContent className="">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="flex flex-col gap-2">
+                <Label className="text-md font-black">Category</Label>
+                <p className="text-sm">{moveStats?.category || 'Unknown'}</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label className="text-md font-black">Power</Label>
+                <p className="text-sm">{moveStats?.power || 'N/A'}</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label className="text-md font-black">Accuracy</Label>
+                <p className="text-sm">{moveStats?.accuracy || 'N/A'}%</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label className="text-md font-black">PP</Label>
+                <p className="text-sm">{moveStats?.pp || 'N/A'}</p>
+              </div>
             </div>
-          )}
-        </CardContent>
-      </Card>
 
-      {/* Pokemon List Section */}
-      <Card>
-        <CardHeader>
-          <CardTitle>
-            <h3>Pokémon that can learn {moveName}</h3>
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <PokemonWithMoveDataTable
-            pokemonWithMove={pokemonWithMove}
-            learnMethodFilter={learnMethodFilter}
-            onLearnMethodFilterChange={setLearnMethodFilter}
-            showFaithful={showFaithful}
-          />
-        </CardContent>
-      </Card>
-    </div>
+            {tmInfo && (
+              <div className="mt-4 p-3 bg-muted rounded-lg">
+                <Label className="text-sm font-medium">TM/HM Location</Label>
+                <p className="text-sm">
+                  {tmInfo.number} - {tmInfo.location?.area || 'Unknown location'}
+                  {tmInfo.location?.details && (
+                    <span className="text-muted-foreground"> ({tmInfo.location.details})</span>
+                  )}
+                </p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Pokemon List Section */}
+        <Card>
+          <CardHeader>
+            <CardTitle>
+              <h3>Pokémon that can learn {moveName}</h3>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <PokemonWithMoveDataTable
+              pokemonWithMove={pokemonWithMove}
+              learnMethodFilter={learnMethodFilter}
+              onLearnMethodFilterChange={setLearnMethodFilter}
+              showFaithful={showFaithful}
+            />
+          </CardContent>
+        </Card>
+      </div>
+    </>
   );
 }

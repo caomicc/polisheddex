@@ -16,7 +16,7 @@ interface AbilityDetailClientProps {
 }
 
 export default function AbilityDetailClient({
-  abilityData,
+  // abilityData,
   pokemonWithAbility,
   abilityName,
 }: AbilityDetailClientProps) {
@@ -25,7 +25,7 @@ export default function AbilityDetailClient({
 
   return (
     <div className="space-y-6">
-      {/* Ability Information Card */}
+      {/* Ability Information Card
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">{abilityName}</CardTitle>
@@ -33,13 +33,13 @@ export default function AbilityDetailClient({
         <CardContent className="space-y-4">
           <p className="text-muted-foreground">{abilityData.description}</p>
         </CardContent>
-      </Card>
+      </Card> */}
 
       {/* Pokemon List Section */}
       <Card>
         <CardHeader>
           <CardTitle>
-            <h3>Pokémon that have {abilityName}</h3>
+            <h3>Pokémon that can have {abilityName}</h3>
           </CardTitle>
         </CardHeader>
         <CardContent>

@@ -1,15 +1,6 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import { Suspense } from 'react';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
-import { Hero } from '@/components/ui/Hero';
+
 import { loadManifest } from '@/utils/manifest-resolver';
 import MoveDetailClient from '@/components/moves/MoveDetailClient';
 import { PokemonGridSkeleton } from '@/components/pokemon/PokemonCardSkeleton';
@@ -35,36 +26,6 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
 
   return (
     <>
-      <Hero
-        headline={moveData.name || moveName}
-        description={moveData.description || 'Move details and Pokemon that can learn it'}
-        breadcrumbs={
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/" className="hover:underline  hover:text-slate-200">
-                    Home
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/moves" className="hover:underline  hover:text-slate-200">
-                    Moves
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="">{moveData.name || moveName}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        }
-      />
-
       <div className="max-w-xl md:max-w-4xl mx-auto">
         <Suspense fallback={<PokemonGridSkeleton count={8} />}>
           <MoveDetailClient
