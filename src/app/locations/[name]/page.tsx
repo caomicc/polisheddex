@@ -19,21 +19,24 @@ import {
   loadAllLocationData,
 } from '@/utils/loaders/location-data-loader';
 
-// Only pre-render important locations at build time
+// Generate static params for locations with Pokemon encounters
 export async function generateStaticParams() {
-  const pokemonLocations = await loadMergedPokemonLocationData();
-  
-  // Only pre-generate pages for locations with Pokemon encounters (most important)
-  // Other locations will be generated on-demand with ISR
-  const importantLocations = Object.keys(pokemonLocations).filter(location => {
-    const encounters = pokemonLocations[location];
-    return encounters && Object.keys(encounters).length > 0;
-  });
+  try {
+    const pokemonLocations = await loadMergedPokemonLocationData();
+    
+    // Pre-generate all locations with Pokemon encounters (should be ~234 based on data)
+    const locationsWithPokemon = Object.keys(pokemonLocations).filter(location => {
+      const encounters = pokemonLocations[location];
+      return encounters && Object.keys(encounters).length > 0;
+    });
 
-  // Limit to top 100 most important locations to reduce build time
-  return importantLocations.slice(0, 100).map((name) => ({ 
-    name: name.toLowerCase() 
-  }));
+    return locationsWithPokemon.map((name) => ({ 
+      name: name.toLowerCase() 
+    }));
+  } catch (error) {
+    console.error('Error generating static params for locations:', error);
+    return [];
+  }
 }
 
 // Enable ISR for non-pre-rendered pages
