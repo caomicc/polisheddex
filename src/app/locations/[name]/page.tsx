@@ -11,10 +11,10 @@ import {
 } from '@/components/ui/breadcrumb';
 import LocationClient from '@/components/pokemon/LocationClient';
 import ConsolidatedLocationClient from '@/components/locations/ConsolidatedLocationClient';
-import { 
-  normalizeLocationKey, 
-  getConsolidatedLocationKey, 
-  getLocationRedirect 
+import {
+  normalizeLocationKey,
+  getConsolidatedLocationKey,
+  getLocationRedirect,
 } from '@/utils/locationUtils';
 import { isConsolidatedLocation } from '@/utils/locationConsolidatorClient';
 import { GroupedPokemon, EncounterDetail } from '@/types/locationTypes';

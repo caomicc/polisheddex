@@ -54,9 +54,24 @@ async function runMigration() {
     // Step 2: Validate consolidation mapping
     const mapping = loadConsolidationMapping();
 
+    console.log(
+      `📋 Loaded consolidation mapping with ${Object.keys(mapping.consolidationGroups).length} groups`,
+    );
+    console.log(mapping);
+
     // Step 3: Load location data
     const originalLocations = await loadOriginalLocations();
     const consolidatedLocations = await loadConsolidatedLocations();
+
+    console.log(
+      `📁 Loaded ${Object.keys(originalLocations).length} original locations and ${Object.keys(consolidatedLocations).length} consolidated locations`,
+    );
+    console.log(
+      `   Original locations: ${Object.keys(originalLocations).slice(0, 5).join(', ')}...`,
+    );
+    console.log(
+      `   Consolidated locations: ${Object.keys(consolidatedLocations).slice(0, 5).join(', ')}...`,
+    );
 
     // Step 4: Generate migration report
     const report = generateMigrationReport(originalLocations, consolidatedLocations, mapping);
