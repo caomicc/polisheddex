@@ -66,8 +66,6 @@ export default async function MoveDetail({ params }: { params: Promise<{ name: s
       />
 
       <div className="max-w-xl md:max-w-4xl mx-auto">
-        <h1 className="text-2xl font-bold mb-4 sr-only">{moveData.name || moveName}</h1>
-
         <Suspense fallback={<PokemonGridSkeleton count={8} />}>
           <MoveDetailClient
             moveData={moveData}

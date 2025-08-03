@@ -15,7 +15,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
+          className="-ml-3"
         >
           Name
           {column.getIsSorted() === 'desc' ? (
@@ -45,7 +45,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
+          className="-ml-3"
         >
           Type
           {column.getIsSorted() === 'desc' ? (
@@ -77,7 +77,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
+          className="-ml-3"
         >
           <span className="hidden md:inline">Category</span>
           <span className="inline md:hidden">Cat.</span>
@@ -110,7 +110,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
+          className="-ml-3"
         >
           <span className="hidden md:inline">Power</span>
           <span className="inline md:hidden">Pwr.</span>
@@ -138,7 +138,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
+          className="-ml-3"
         >
           <span className="hidden md:inline">Accuracy</span>
           <span className="inline md:hidden">Acc.</span>
@@ -166,7 +166,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
+          className="-ml-3"
         >
           PP
           {column.getIsSorted() === 'desc' ? (
@@ -193,7 +193,7 @@ export const moveColumns: ColumnDef<MoveDescription>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
+          className="-ml-3"
         >
           TM/HM
           {column.getIsSorted() === 'desc' ? (

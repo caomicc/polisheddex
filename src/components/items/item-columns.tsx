@@ -16,7 +16,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3"
         >
           Item Name
           {column.getIsSorted() === 'desc' ? (
@@ -57,7 +57,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3"
         >
           Price
           {column.getIsSorted() === 'desc' ? (
@@ -95,7 +95,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3"
         >
           Category
           {column.getIsSorted() === 'desc' ? (
@@ -171,7 +171,8 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
   //       <Button
   //         variant="ghost"
   //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-  //         className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+  //                   className="-ml-3"
+
   //       >
   //         Type
   //         {column.getIsSorted() === 'desc' ? (
@@ -208,7 +209,8 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
   //       <Button
   //         variant="ghost"
   //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-  //         className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+  //                   className="-ml-3"
+
   //       >
   //         Power
   //         {column.getIsSorted() === 'desc' ? (
@@ -241,7 +243,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3"
         >
           Locations
           {column.getIsSorted() === 'desc' ? (

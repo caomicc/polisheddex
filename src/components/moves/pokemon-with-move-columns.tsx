@@ -15,11 +15,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
     id: 'pokemon',
     header: ({ column }) => {
       return (
-        <Button
-          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
-          variant="ghost"
-          onClick={() => column.toggleSorting()}
-        >
+        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Pokémon</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -33,7 +29,8 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
     },
     cell: ({ row }) => {
       const { pokemon } = row.original;
-      const normalizedName = pokemon.normalizedUrl || normalizePokemonUrlKey(pokemon.name).toLowerCase();
+      const normalizedName =
+        pokemon.normalizedUrl || normalizePokemonUrlKey(pokemon.name).toLowerCase();
       const pokemonUrl = pokemon.formName
         ? `/pokemon/${normalizedName}?form=${encodeURIComponent(pokemon.formName)}`
         : `/pokemon/${normalizedName}`;
@@ -42,7 +39,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
         <div className="flex items-center space-x-2 min-w-0">
           <Link
             href={pokemonUrl}
-            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black"
+            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black capitalize text-sm text-foreground truncate"
           >
             {pokemon.name}
           </Link>
@@ -68,11 +65,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
     id: 'learnMethod',
     header: ({ column }) => {
       return (
-        <Button
-          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
-          variant="ghost"
-          onClick={() => column.toggleSorting()}
-        >
+        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Method</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -85,22 +78,20 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
       );
     },
     cell: ({ row }) => {
-      const { learnMethod, level } = row.original;
-      
+      const { learnMethod } = row.original;
+
       return (
-        <Badge 
-          variant="secondary" 
+        <Badge
+          variant="secondary"
           className={cn(
-            "text-xs",
-            learnMethod === 'level' && "bg-blue-100 text-blue-800",
-            learnMethod === 'tm' && "bg-purple-100 text-purple-800",
-            learnMethod === 'egg' && "bg-green-100 text-green-800",
-            learnMethod === 'tutor' && "bg-orange-100 text-orange-800"
+            'text-xs',
+            learnMethod === 'level' && 'bg-blue-100 text-blue-800',
+            learnMethod === 'tm' && 'bg-purple-100 text-purple-800',
+            learnMethod === 'egg' && 'bg-green-100 text-green-800',
+            learnMethod === 'tutor' && 'bg-orange-100 text-orange-800',
           )}
         >
-          {learnMethod === 'level' && level 
-            ? `Level ${level}`
-            : learnMethod.toUpperCase()}
+          {learnMethod}
         </Badge>
       );
     },
@@ -112,21 +103,23 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
     sortingFn: (rowA, rowB) => {
       const a = rowA.original;
       const b = rowB.original;
-      
+
       // Sort by method first
       if (a.learnMethod !== b.learnMethod) {
         const methodOrder = { level: 0, tm: 1, egg: 2, tutor: 3 };
-        return (methodOrder[a.learnMethod as keyof typeof methodOrder] || 999) - 
-               (methodOrder[b.learnMethod as keyof typeof methodOrder] || 999);
+        return (
+          (methodOrder[a.learnMethod as keyof typeof methodOrder] || 999) -
+          (methodOrder[b.learnMethod as keyof typeof methodOrder] || 999)
+        );
       }
-      
+
       // If same method and it's level, sort by level
       if (a.learnMethod === 'level' && b.learnMethod === 'level') {
         const aLevel = typeof a.level === 'number' ? a.level : parseInt(String(a.level)) || 0;
         const bLevel = typeof b.level === 'number' ? b.level : parseInt(String(b.level)) || 0;
         return aLevel - bLevel;
       }
-      
+
       return 0;
     },
   },
@@ -135,11 +128,7 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
     id: 'level',
     header: ({ column }) => {
       return (
-        <Button
-          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
-          variant="ghost"
-          onClick={() => column.toggleSorting()}
-        >
+        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Level</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -153,22 +142,22 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
     },
     cell: ({ row }) => {
       const { learnMethod, level } = row.original;
-      
+
       if (learnMethod !== 'level' || !level) {
         return <span className="text-muted-foreground">—</span>;
       }
-      
+
       return <span className="font-mono">{level}</span>;
     },
     sortingFn: (rowA, rowB) => {
       const a = rowA.original;
       const b = rowB.original;
-      
+
       // Non-level moves go to the end
       if (a.learnMethod !== 'level' && b.learnMethod !== 'level') return 0;
       if (a.learnMethod !== 'level') return 1;
       if (b.learnMethod !== 'level') return -1;
-      
+
       const aLevel = typeof a.level === 'number' ? a.level : parseInt(String(a.level)) || 0;
       const bLevel = typeof b.level === 'number' ? b.level : parseInt(String(b.level)) || 0;
       return aLevel - bLevel;
@@ -181,11 +170,35 @@ export const pokemonWithMoveColumns: ColumnDef<PokemonWithMove>[] = [
     cell: ({ row }) => {
       const { pokemon } = row.original;
       const types = Array.isArray(pokemon.types) ? pokemon.types : [pokemon.types];
-      
+
       return (
         <div className="flex gap-1 flex-wrap">
           {types.filter(Boolean).map((type: string) => (
-            <Badge key={type} variant={type.toLowerCase() as 'normal' | 'fire' | 'water' | 'electric' | 'grass' | 'ice' | 'fighting' | 'poison' | 'ground' | 'flying' | 'psychic' | 'bug' | 'rock' | 'ghost' | 'dragon' | 'dark' | 'steel' | 'fairy'} className="text-xs">
+            <Badge
+              key={type}
+              variant={
+                type.toLowerCase() as
+                  | 'normal'
+                  | 'fire'
+                  | 'water'
+                  | 'electric'
+                  | 'grass'
+                  | 'ice'
+                  | 'fighting'
+                  | 'poison'
+                  | 'ground'
+                  | 'flying'
+                  | 'psychic'
+                  | 'bug'
+                  | 'rock'
+                  | 'ghost'
+                  | 'dragon'
+                  | 'dark'
+                  | 'steel'
+                  | 'fairy'
+              }
+              className="text-xs"
+            >
               {type}
             </Badge>
           ))}

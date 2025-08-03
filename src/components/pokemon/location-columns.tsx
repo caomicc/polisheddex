@@ -16,7 +16,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3"
         >
           Location
           {column.getIsSorted() === 'desc' ? (
@@ -59,7 +59,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3"
         >
           Region
           {column.getIsSorted() === 'desc' ? (
@@ -95,7 +95,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3"
         >
           Pokémon
           {column.getIsSorted() === 'desc' ? (
@@ -128,7 +128,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3"
         >
           Trainers
           {column.getIsSorted() === 'desc' ? (
@@ -182,7 +182,7 @@ export const locationColumns: ColumnDef<LocationData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900"
+          className="-ml-3"
         >
           Fly?
           {column.getIsSorted() === 'desc' ? (

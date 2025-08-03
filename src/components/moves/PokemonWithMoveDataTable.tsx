@@ -38,34 +38,33 @@ export default function PokemonWithMoveDataTable({
 
   return (
     <div className="space-y-4">
-      {/* Filter Controls */}
-      <div className="flex justify-between items-center">
-        <div className="text-sm text-muted-foreground">
-          Showing {filteredData.length} Pokémon
+      <div className="flex flex-col sm:flex-col gap-4 items-start sm:items-start justify-between">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex gap-2 flex-col">
+            <Label htmlFor="method-filter">Learn Method</Label>
+            <Select value={learnMethodFilter} onValueChange={onLearnMethodFilterChange}>
+              <SelectTrigger className="bg-white w-full sm:w-[180px]" id="method-filter">
+                {learnMethodFilter === 'all'
+                  ? 'All Methods'
+                  : learnMethodFilter.charAt(0).toUpperCase() + learnMethodFilter.slice(1)}
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Methods</SelectItem>
+                <SelectItem value="level">Level Up</SelectItem>
+                <SelectItem value="tm">TM/HM</SelectItem>
+                <SelectItem value="egg">Egg Move</SelectItem>
+                <SelectItem value="tutor">Move Tutor</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
-        <div className="min-w-[180px]">
-          <Label htmlFor="method-filter">Learn Method</Label>
-          <Select value={learnMethodFilter} onValueChange={onLearnMethodFilterChange}>
-            <SelectTrigger className="bg-white" id="method-filter">
-              {learnMethodFilter === 'all' ? 'All Methods' : 
-               learnMethodFilter.charAt(0).toUpperCase() + learnMethodFilter.slice(1)}
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Methods</SelectItem>
-              <SelectItem value="level">Level Up</SelectItem>
-              <SelectItem value="tm">TM/HM</SelectItem>
-              <SelectItem value="egg">Egg Move</SelectItem>
-              <SelectItem value="tutor">Move Tutor</SelectItem>
-            </SelectContent>
-          </Select>
+
+        <div className="text-sm text-gray-600 dark:text-gray-400">
+          {filteredData.length} item{filteredData.length !== 1 ? 's' : ''} found
         </div>
       </div>
-
       {/* Data Table */}
-      <PokemonDataTable 
-        columns={pokemonWithMoveColumns} 
-        data={filteredData}
-      />
+      <PokemonDataTable columns={pokemonWithMoveColumns} data={filteredData} />
     </div>
   );
 }

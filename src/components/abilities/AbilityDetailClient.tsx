@@ -24,13 +24,11 @@ export default function AbilityDetailClient({
   const { showFaithful } = useFaithfulPreference();
 
   return (
-    <div className="space-y-6 p-4">
+    <div className="space-y-6">
       {/* Ability Information Card */}
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            {abilityName}
-          </CardTitle>
+          <CardTitle className="flex items-center gap-2">{abilityName}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-muted-foreground">{abilityData.description}</p>

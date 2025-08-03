@@ -20,7 +20,7 @@ export const abilityColumns: ColumnDef<Ability>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
+          className="-ml-3"
         >
           Name
           {column.getIsSorted() === 'desc' ? (
@@ -35,12 +35,13 @@ export const abilityColumns: ColumnDef<Ability>[] = [
     },
     cell: ({ row }) => {
       const ability = row.original;
-      const displayName = ability.name || ability.id.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+      const displayName =
+        ability.name || ability.id.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase());
       return (
         <div className="flex items-center space-x-2 min-w-0">
           <Link
             href={`/abilities/${encodeURIComponent(ability.id)}`}
-            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium"
+            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium capitalize truncate"
           >
             {displayName}
           </Link>
@@ -66,7 +67,7 @@ export const abilityColumns: ColumnDef<Ability>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-          className="-ml-3 text-muted-foreground hover:bg-gray-200 hover:text-gray-900 text-xs md:text-sm"
+          className="-ml-3"
         >
           Description
           {column.getIsSorted() === 'desc' ? (

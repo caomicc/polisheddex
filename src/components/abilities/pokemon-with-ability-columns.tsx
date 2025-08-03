@@ -15,11 +15,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     id: 'pokemon',
     header: ({ column }) => {
       return (
-        <Button
-          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
-          variant="ghost"
-          onClick={() => column.toggleSorting()}
-        >
+        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Pokémon</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -33,7 +29,8 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     },
     cell: ({ row }) => {
       const { pokemon } = row.original;
-      const normalizedName = pokemon.normalizedUrl || normalizePokemonUrlKey(pokemon.name).toLowerCase();
+      const normalizedName =
+        pokemon.normalizedUrl || normalizePokemonUrlKey(pokemon.name).toLowerCase();
       const pokemonUrl = pokemon.formName
         ? `/pokemon/${normalizedName}?form=${encodeURIComponent(pokemon.formName)}`
         : `/pokemon/${normalizedName}`;
@@ -42,7 +39,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
         <div className="flex items-center space-x-2 min-w-0">
           <Link
             href={pokemonUrl}
-            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black"
+            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-black capitalize"
           >
             {pokemon.name}
           </Link>
@@ -68,11 +65,7 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     id: 'abilityTypes',
     header: ({ column }) => {
       return (
-        <Button
-          className="-ml-3 text-foreground font-medium hover:bg-gray-200 hover:text-gray-900"
-          variant="ghost"
-          onClick={() => column.toggleSorting()}
-        >
+        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
           <>Ability Type</>
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -86,18 +79,18 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     },
     cell: ({ row }) => {
       const { abilityTypes } = row.original;
-      
+
       return (
         <div className="flex gap-1 flex-wrap">
           {abilityTypes.map((abilityType) => (
-            <Badge 
+            <Badge
               key={abilityType}
-              variant="secondary" 
+              variant="secondary"
               className={cn(
-                "text-xs",
-                abilityType === 'primary' && "bg-blue-100 text-blue-800",
-                abilityType === 'secondary' && "bg-green-100 text-green-800",
-                abilityType === 'hidden' && "bg-purple-100 text-purple-800"
+                'text-xs',
+                abilityType === 'primary' && 'bg-blue-100 text-blue-800',
+                abilityType === 'secondary' && 'bg-green-100 text-green-800',
+                abilityType === 'hidden' && 'bg-purple-100 text-purple-800',
               )}
             >
               {abilityType === 'primary' && 'Primary'}
@@ -116,13 +109,15 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     sortingFn: (rowA, rowB) => {
       const a = rowA.original;
       const b = rowB.original;
-      
+
       // Sort by first (highest priority) ability type
       const typeOrder = { primary: 0, secondary: 1, hidden: 2 };
       const aFirstType = a.abilityTypes[0];
       const bFirstType = b.abilityTypes[0];
-      return (typeOrder[aFirstType as keyof typeof typeOrder] || 999) - 
-             (typeOrder[bFirstType as keyof typeof typeOrder] || 999);
+      return (
+        (typeOrder[aFirstType as keyof typeof typeOrder] || 999) -
+        (typeOrder[bFirstType as keyof typeof typeOrder] || 999)
+      );
     },
   },
   {
@@ -132,11 +127,35 @@ export const pokemonWithAbilityColumns: ColumnDef<PokemonWithAbility>[] = [
     cell: ({ row }) => {
       const { pokemon } = row.original;
       const types = Array.isArray(pokemon.types) ? pokemon.types : [pokemon.types];
-      
+
       return (
         <div className="flex gap-1 flex-wrap">
           {types.filter(Boolean).map((type: string) => (
-            <Badge key={type} variant={type.toLowerCase() as 'normal' | 'fire' | 'water' | 'electric' | 'grass' | 'ice' | 'fighting' | 'poison' | 'ground' | 'flying' | 'psychic' | 'bug' | 'rock' | 'ghost' | 'dragon' | 'dark' | 'steel' | 'fairy'} className="text-xs">
+            <Badge
+              key={type}
+              variant={
+                type.toLowerCase() as
+                  | 'normal'
+                  | 'fire'
+                  | 'water'
+                  | 'electric'
+                  | 'grass'
+                  | 'ice'
+                  | 'fighting'
+                  | 'poison'
+                  | 'ground'
+                  | 'flying'
+                  | 'psychic'
+                  | 'bug'
+                  | 'rock'
+                  | 'ghost'
+                  | 'dragon'
+                  | 'dark'
+                  | 'steel'
+                  | 'fairy'
+              }
+              className="text-xs"
+            >
               {type}
             </Badge>
           ))}

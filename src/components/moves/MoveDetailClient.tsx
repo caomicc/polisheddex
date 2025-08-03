@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Label } from '@/components/ui/label';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonWithMove } from '@/utils/loaders/move-data-loader';
@@ -48,43 +47,30 @@ export default function MoveDetailClient({
 
   // Get move stats based on faithful preference
   const moveStats = (showFaithful ? moveData.faithful : moveData.updated) ?? moveData.updated;
-  const hasValidStats = moveStats && moveStats.type !== 'None' && (moveStats.power ?? 0) > 0;
 
   // Get TM/HM info
   const tmInfo = moveData.tm;
 
   return (
-    <div className="space-y-6 p-4">
+    <div className="space-y-6">
       {/* Move Information Card */}
       <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            {moveName}
-            {hasValidStats && (
-              <Badge variant="secondary" className={`bg-${moveStats.type?.toLowerCase()}`}>
-                {moveStats.type}
-              </Badge>
-            )}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <p className="text-muted-foreground">{moveData.description}</p>
-
+        <CardContent className="">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div>
-              <Label className="text-sm font-medium">Category</Label>
+            <div className="flex flex-col gap-2">
+              <Label className="text-md font-black">Category</Label>
               <p className="text-sm">{moveStats?.category || 'Unknown'}</p>
             </div>
-            <div>
-              <Label className="text-sm font-medium">Power</Label>
+            <div className="flex flex-col gap-2">
+              <Label className="text-md font-black">Power</Label>
               <p className="text-sm">{moveStats?.power || 'N/A'}</p>
             </div>
-            <div>
-              <Label className="text-sm font-medium">Accuracy</Label>
+            <div className="flex flex-col gap-2">
+              <Label className="text-md font-black">Accuracy</Label>
               <p className="text-sm">{moveStats?.accuracy || 'N/A'}%</p>
             </div>
-            <div>
-              <Label className="text-sm font-medium">PP</Label>
+            <div className="flex flex-col gap-2">
+              <Label className="text-md font-black">PP</Label>
               <p className="text-sm">{moveStats?.pp || 'N/A'}</p>
             </div>
           </div>
