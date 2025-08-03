@@ -465,7 +465,7 @@ class GBCSpriteProcessor:
 
     def create_sprite_manifest(self):
         """Create a JSON manifest of all processed sprites with dimensions"""
-        manifest = {}
+        pokemon_manifest = {}
 
         for pokemon_dir in self.sprites_dir.iterdir():
             if pokemon_dir.is_dir():
@@ -510,14 +510,9 @@ class GBCSpriteProcessor:
 
                 # Only add Pokemon that have at least normal front sprite
                 if pokemon_data["normal_front"]:
-                    manifest[pokemon_name] = pokemon_data
+                    pokemon_manifest[pokemon_name] = pokemon_data
 
-        # Save manifest
-        manifest_path = self.output_path / "sprite_manifest.json"
-        with open(manifest_path, 'w') as f:
-            json.dump(manifest, f, indent=2, sort_keys=True)
-
-        print(f"Created sprite manifest: {manifest_path}")
+        return pokemon_manifest
 
     def get_trainer_list(self) -> List[str]:
         """Get list of all trainer PNG files"""
@@ -624,7 +619,7 @@ class GBCSpriteProcessor:
 
     def create_trainer_manifest(self):
         """Create a JSON manifest of all processed trainer sprites with dimensions"""
-        manifest = {}
+        trainer_manifest = {}
 
         for trainer_dir in self.trainer_sprites_dir.iterdir():
             if trainer_dir.is_dir():
@@ -657,14 +652,28 @@ class GBCSpriteProcessor:
 
                 # Only add trainers that have at least one sprite
                 if trainer_data:
-                    manifest[trainer_name] = trainer_data
+                    trainer_manifest[trainer_name] = trainer_data
 
-        # Save manifest
-        manifest_path = self.output_path / "trainer_manifest.json"
+        return trainer_manifest
+
+    def create_unified_manifest(self):
+        """Create a unified JSON manifest containing both Pokemon and trainer sprites"""
+        pokemon_data = self.create_sprite_manifest()
+        trainer_data = self.create_trainer_manifest()
+        
+        unified_manifest = {
+            "pokemon": pokemon_data,
+            "trainers": trainer_data
+        }
+        
+        # Save unified manifest
+        manifest_path = self.output_path / "sprite_manifest.json"
         with open(manifest_path, 'w') as f:
-            json.dump(manifest, f, indent=2, sort_keys=True)
-
-        print(f"Created trainer manifest: {manifest_path}")
+            json.dump(unified_manifest, f, indent=2, sort_keys=True)
+        
+        print(f"Created unified sprite manifest: {manifest_path}")
+        print(f"Pokemon sprites: {len(pokemon_data)}")
+        print(f"Trainer sprites: {len(trainer_data)}")
 
     def export_sprite(self, sprite: Image.Image, output_path: str) -> None:
         """Export the processed sprite to the specified output path."""
@@ -696,21 +705,25 @@ def main():
         # Process everything
         print("Processing all Pokemon sprites...")
         processor.process_all_pokemon()
-        processor.create_sprite_manifest()
         
         print("\nProcessing all trainer sprites...")
         processor.process_all_trainers()
-        processor.create_trainer_manifest()
+        
+        # Create unified manifest
+        print("\nCreating unified sprite manifest...")
+        processor.create_unified_manifest()
         
     elif args.pokemon:
         # Process only Pokemon
         processor.process_all_pokemon()
-        processor.create_sprite_manifest()
+        # Create unified manifest with existing trainer data
+        processor.create_unified_manifest()
         
     elif args.trainers:
         # Process only trainers
         processor.process_all_trainers()
-        processor.create_trainer_manifest()
+        # Create unified manifest with existing Pokemon data
+        processor.create_unified_manifest()
         
     elif args.target:
         # Try to process specific target (check if it's Pokemon or trainer)

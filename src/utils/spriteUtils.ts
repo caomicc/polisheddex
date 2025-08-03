@@ -51,11 +51,12 @@ export function getSprite(
   type: SpriteType = 'static',
 ): SpriteInfo | null {
   const normalizedName = pokemonName.toLowerCase().replace(/-/g, '_');
-  
+
   // Handle both unified and legacy manifests
-  const pokemonData = 'pokemon' in manifest 
-    ? manifest.pokemon[normalizedName]
-    : manifest[normalizedName];
+  const pokemonData =
+    'pokemon' in manifest
+      ? (manifest.pokemon as Record<string, PokemonSpriteData>)[normalizedName]
+      : manifest[normalizedName];
 
   if (!pokemonData) {
     return null;
@@ -119,11 +120,10 @@ export function getTrainerSprite(
   variant?: string,
 ): SpriteInfo | null {
   const normalizedName = trainerName.toLowerCase().replace(/-/g, '_');
-  
+
   // Handle both unified and legacy manifests
-  const trainerData = 'trainers' in manifest 
-    ? manifest.trainers[normalizedName]
-    : manifest[normalizedName];
+  const trainerData =
+    'trainers' in manifest ? manifest.trainers[normalizedName] : manifest[normalizedName];
 
   if (!trainerData) {
     return null;
@@ -132,12 +132,18 @@ export function getTrainerSprite(
   // If variant is specified, try to get that specific variant
   if (variant) {
     const variantKey = variant.toLowerCase().replace(/-/g, '_');
-    return trainerData[variantKey] || null;
+    if (typeof trainerData === 'object' && trainerData !== null) {
+      return (trainerData as TrainerSpriteData)[variantKey] as SpriteInfo;
+    }
+    return null;
   }
 
   // Return the first available sprite if no variant specified
   const firstKey = Object.keys(trainerData)[0];
-  return firstKey ? trainerData[firstKey] : null;
+  if (firstKey && typeof trainerData === 'object' && trainerData !== null) {
+    return (trainerData as TrainerSpriteData)[firstKey] || null;
+  }
+  return null;
 }
 
 /**
@@ -198,11 +204,11 @@ export function getUnifiedSpriteWithFallback(
   type?: SpriteType,
 ): SpriteInfo {
   const sprite = getUnifiedSprite(manifest, spriteName, category, variant, type);
-  
+
   if (sprite) {
     return sprite;
   }
-  
+
   if (category === 'pokemon') {
     return getFallbackSprite(spriteName, variant as SpriteVariant, type);
   } else {

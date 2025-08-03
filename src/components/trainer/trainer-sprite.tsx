@@ -13,7 +13,7 @@ interface TrainerSpriteProps {
 }
 
 export function TrainerSprite({ className, trainerName, variant, alt, src }: TrainerSpriteProps) {
-  const { spriteInfo, isLoading } = useTrainerSpriteData(trainerName, variant);
+  const { spriteInfo, isLoading } = useTrainerSpriteData(trainerName);
 
   // Fallback to legacy src prop if provided and sprite data not available
   const finalSrc = spriteInfo?.url || src;

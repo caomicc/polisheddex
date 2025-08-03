@@ -1,20 +1,6 @@
 import { useState, useEffect } from 'react';
-import {
-  SpriteInfo,
-  SpriteManifest,
-  SpriteVariant,
-  SpriteType,
-  TrainerManifest,
-  UnifiedSpriteManifest,
-  SpriteCategory,
-} from '@/types/spriteTypes';
-import {
-  loadUnifiedSpriteManifest,
-  loadSpriteManifest,
-  getSpriteWithFallback,
-  getTrainerSpriteWithFallback,
-  getUnifiedSpriteWithFallback,
-} from '@/utils/spriteUtils';
+import { SpriteInfo, SpriteVariant, SpriteType, UnifiedSpriteManifest } from '@/types/spriteTypes';
+import { loadUnifiedSpriteManifest, getUnifiedSpriteWithFallback } from '@/utils/spriteUtils';
 
 interface UseSpriteDataResult {
   spriteInfo: SpriteInfo | null;
@@ -46,7 +32,7 @@ export function useSpriteData(
       .catch((err) => {
         if (isMounted) {
           setError(err.message);
-          setManifest({});
+          setManifest(null);
         }
       });
 
