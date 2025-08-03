@@ -418,6 +418,20 @@ export default function Navigation() {
               </NavigationMenuLink>
             </NavigationMenuItem>
 
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <Link
+                  className={cn(
+                    !hasPokemonTheme && !showBackground && 'text-white',
+                    hasPokemonTheme && 'pokemon-themed-link',
+                  )}
+                  href="/wiki/faq"
+                >
+                  FAQ
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
             {/* <NavigationMenuItem>
               <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
               <NavigationMenuContent>
