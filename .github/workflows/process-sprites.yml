@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
+          token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -28,6 +29,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install Pillow
           
+      - name: Clean up trainer sprites
+        run: |
+          ./scripts/cleanup-trainer-sprites.sh
+          
       - name: Process sprites
         run: |
           python process_sprites.py --all
@@ -37,10 +42,9 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add public/sprites/ public/*_manifest.json
-          git diff --staged --quiet || git commit -m "🎨 Auto-process sprites [skip ci]"
-          
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          if ! git diff --staged --quiet; then
+            git commit -m "🎨 Auto-process sprites [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi

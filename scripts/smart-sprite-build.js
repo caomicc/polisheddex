@@ -66,8 +66,39 @@ function needsTrainerRebuild() {
   return sourceTime > Math.min(outputTime, manifestTime);
 }
 
+function checkPythonAvailable() {
+  try {
+    execSync('python --version', { stdio: 'pipe' });
+    return 'python';
+  } catch {
+    try {
+      execSync('python3 --version', { stdio: 'pipe' });
+      return 'python3';
+    } catch {
+      return null;
+    }
+  }
+}
+
 function main() {
   console.log('🔍 Checking if sprite processing is needed...\n');
+  
+  // Check if we're in Vercel environment or if Python is available
+  const isVercel = process.env.VERCEL || process.env.VERCEL_ENV;
+  const pythonCmd = checkPythonAvailable();
+  
+  if (isVercel && !pythonCmd) {
+    console.log('⚠️  Running in Vercel environment without Python');
+    console.log('📦 Skipping sprite processing - using pre-built sprites');
+    console.log('💡 To rebuild sprites, run locally or use GitHub Actions workflow');
+    return;
+  }
+  
+  if (!pythonCmd) {
+    console.log('❌ Python not found. Please install Python to process sprites.');
+    console.log('📦 Skipping sprite processing - using existing sprites');
+    return;
+  }
   
   const pokemonNeedsRebuild = needsPokemonRebuild();
   const trainerNeedsRebuild = needsTrainerRebuild();
@@ -79,18 +110,23 @@ function main() {
   
   console.log('\n🚀 Running sprite processing...');
   
-  if (pokemonNeedsRebuild && trainerNeedsRebuild) {
-    console.log('📦 Processing both Pokemon and trainer sprites');
-    execSync('python process_sprites.py --all', { stdio: 'inherit' });
-  } else if (pokemonNeedsRebuild) {
-    console.log('🐾 Processing Pokemon sprites only');
-    execSync('python process_sprites.py --pokemon', { stdio: 'inherit' });
-  } else if (trainerNeedsRebuild) {
-    console.log('👤 Processing trainer sprites only');
-    execSync('python process_sprites.py --trainers', { stdio: 'inherit' });
+  try {
+    if (pokemonNeedsRebuild && trainerNeedsRebuild) {
+      console.log('📦 Processing both Pokemon and trainer sprites');
+      execSync(`${pythonCmd} process_sprites.py --all`, { stdio: 'inherit' });
+    } else if (pokemonNeedsRebuild) {
+      console.log('🐾 Processing Pokemon sprites only');
+      execSync(`${pythonCmd} process_sprites.py --pokemon`, { stdio: 'inherit' });
+    } else if (trainerNeedsRebuild) {
+      console.log('👤 Processing trainer sprites only');
+      execSync(`${pythonCmd} process_sprites.py --trainers`, { stdio: 'inherit' });
+    }
+    
+    console.log('✅ Sprite processing complete');
+  } catch (error) {
+    console.log('❌ Sprite processing failed:', error.message);
+    console.log('📦 Continuing build with existing sprites');
   }
-  
-  console.log('✅ Sprite processing complete');
 }
 
 if (require.main === module) {

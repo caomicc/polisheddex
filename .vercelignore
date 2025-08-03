@@ -1,0 +1,11 @@
+# Don't upload these during build to save time
+polishedcrystal/
+*.py
+__pycache__/
+.git/
+node_modules/
+.next/
+
+# Include processed sprites and manifests
+!public/sprites/
+!public/*_manifest.json
