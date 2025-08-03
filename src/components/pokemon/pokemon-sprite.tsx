@@ -16,17 +16,17 @@ interface PokemonSpriteProps {
   src?: string;
 }
 
-export function PokemonSprite({ 
-  className, 
-  pokemonName, 
-  alt, 
-  primaryType, 
+export function PokemonSprite({
+  className,
+  pokemonName,
+  alt,
+  primaryType,
   variant = 'normal',
   type = 'static',
-  src 
+  src,
 }: PokemonSpriteProps) {
   const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, type);
-  
+
   // Fallback to legacy src prop if provided and sprite data not available
   const finalSrc = spriteInfo?.url || src;
   const width = spriteInfo?.width || 64;
@@ -69,7 +69,11 @@ export function PokemonSprite({
       )}
     >
       <Image
-        src={finalSrc}
+        src={
+          finalSrc && !finalSrc.startsWith('http') && !finalSrc.startsWith('/')
+            ? `/${finalSrc}`
+            : finalSrc || ''
+        }
         alt={alt || `${pokemonName} sprite`}
         width={width}
         height={height}
