@@ -16,7 +16,7 @@ import {
   getConsolidatedLocationKey, 
   getLocationRedirect 
 } from '@/utils/locationUtils';
-import { isConsolidatedLocation } from '@/utils/locationConsolidator';
+import { isConsolidatedLocation } from '@/utils/locationConsolidatorClient';
 import { GroupedPokemon, EncounterDetail } from '@/types/locationTypes';
 import { Hero } from '@/components/ui/Hero';
 import { groupLocationsHierarchically } from '@/utils/locationGrouping';

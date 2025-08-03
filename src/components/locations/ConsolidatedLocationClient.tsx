@@ -8,7 +8,7 @@ import { AreaNavigation } from './AreaNavigation';
 import LocationContent from './LocationContent';
 import EliteFourSection from './EliteFourSection';
 import { useLocationUrlState } from '@/utils/locationUrlState';
-import { getLocationArea, isConsolidatedLocation } from '@/utils/locationConsolidator';
+import { isConsolidatedLocation, getLocationArea } from '@/utils/locationConsolidatorClient';
 import type { LocationData, LocationArea } from '@/types/types';
 import type { GroupedPokemon } from '@/types/locationTypes';
 

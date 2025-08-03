@@ -338,9 +338,20 @@ export async function loadEnhancedLocations(): Promise<EnhancedLocation[]> {
       };
     });
 
-    // Convert grouped locations to EnhancedLocation format
-    const enhancedLocations: EnhancedLocation[] = Object.entries(groupedLocations).map(
-      ([locationKey, groupedLocation]) => {
+    // Convert grouped locations to EnhancedLocation format and sort by region and name
+    const enhancedLocations: EnhancedLocation[] = Object.entries(groupedLocations)
+      .sort(([, a], [, b]) => {
+        // Sort by region first (Johto -> Kanto -> Orange)
+        const regionOrder: Record<string, number> = { johto: 0, kanto: 1, orange: 2 };
+        const aRegion = regionOrder[a.region] ?? 3;
+        const bRegion = regionOrder[b.region] ?? 3;
+        const regionCompare = aRegion - bRegion;
+        if (regionCompare !== 0) return regionCompare;
+        
+        // Then sort by display name within region
+        return a.displayName.localeCompare(b.displayName);
+      })
+      .map(([locationKey, groupedLocation]) => {
         // Aggregate data from parent and all children
         const allSubLocations = [groupedLocation, ...(groupedLocation.children || [])];
 

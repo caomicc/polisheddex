@@ -372,8 +372,23 @@ export async function restructureLocationsToIndividualFiles(): Promise<void> {
       }
     });
 
-    // Sort manifest entries by order (which follows the logical grouping from extraction)
-    manifestEntries.sort((a, b) => a.order - b.order);
+    // Sort manifest entries by region, then by display name for proper ordering
+    manifestEntries.sort((a, b) => {
+      // First sort by region priority (Johto -> Kanto -> Orange)
+      const regionOrder: Record<string, number> = { johto: 0, kanto: 1, orange: 2 };
+      const aRegion = regionOrder[a.region] ?? 3;
+      const bRegion = regionOrder[b.region] ?? 3;
+      const regionCompare = aRegion - bRegion;
+      if (regionCompare !== 0) return regionCompare;
+      
+      // Then sort alphabetically by display name within each region
+      return a.displayName.localeCompare(b.displayName);
+    });
+
+    // Update order values to reflect the new sorting
+    manifestEntries.forEach((entry, index) => {
+      entry.order = index;
+    });
 
     // Count by region
     const regionCounts = {
