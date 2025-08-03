@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import EmulatorRecommendations from '@/components/ui/emulator-recomendations';
 import { Hero } from '@/components/ui/Hero';
 import Link from 'next/link';
 
@@ -11,7 +12,9 @@ export default function Home() {
         headline="Polished Dex"
         description="A companion pokedex for Pokémon Polished Crystal, providing detailed information on Pokémon, locations, and items."
       />
-      <div className="max-w-4xl mx-auto py-6 min-h-screen flex flex-col gap-6">
+      <div className="max-w-4xl mx-auto min-h-screen flex flex-col gap-6">
+        <EmulatorRecommendations />
+
         <div>
           <div className="flex flex-col sm:flex-row sm:space-x-12 space-y-4">
             <div className="flex flex-col">

@@ -34,6 +34,12 @@ const commonWikiPages = [
     icon: BookOpen,
   },
   {
+    name: 'FAQ',
+    slug: 'faq',
+    description: 'Frequently asked questions about Polished Crystal',
+    icon: Bug,
+  },
+  {
     name: 'Modifications',
     slug: 'Modifications',
     description: 'List of changes and improvements in Polished Crystal',
