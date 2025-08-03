@@ -83,6 +83,7 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
               alt={`Accent Image to accompany hero`}
               className="mx-auto relative "
               pokemonName={headline?.toString().toLowerCase() || 'egg'}
+              type="animated"
             />
           </div>
         )}
