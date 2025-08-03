@@ -17,6 +17,8 @@
     "do-the-thing": "npm run extract && npm run optimize && npx tsx restructure_locations.ts && npm run process-sprites && sh scripts/copy-dex-files.sh",
     "crop": "ts-node scripts/crop_top_sprite.ts",
     "process-sprites": "python process_sprites.py --all",
+    "process-pokemon": "python process_sprites.py --pokemon",
+    "process-trainers": "python process_sprites.py --trainers",
     "update-rom": "cd polishedcrystal && git pull origin master && cd ..",
     "test": "vitest run",
     "test:watch": "vitest",

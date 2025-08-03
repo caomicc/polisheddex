@@ -11,8 +11,16 @@ export interface PokemonSpriteData {
   shiny_animated: SpriteInfo | null;
 }
 
+export interface TrainerSpriteData {
+  [variantKey: string]: SpriteInfo;
+}
+
 export interface SpriteManifest {
   [pokemonName: string]: PokemonSpriteData;
+}
+
+export interface TrainerManifest {
+  [trainerName: string]: TrainerSpriteData;
 }
 
 export type SpriteVariant = 'normal' | 'shiny';

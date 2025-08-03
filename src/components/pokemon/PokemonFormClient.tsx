@@ -154,7 +154,9 @@ export default function PokemonFormClient({
                               </span>
                             </div>
                             <Progress
-                              value={typeof value === 'number' ? Math.round((value / 255) * 100) : 0}
+                              value={
+                                typeof value === 'number' ? Math.round((value / 255) * 100) : 0
+                              }
                               aria-label={`${label} stat`}
                               className={cn(
                                 color,
@@ -354,6 +356,7 @@ export default function PokemonFormClient({
               <div className="flex flex-row gap-4 items-start justify-center mb-8">
                 <div className="flex flex-col items-center justify-center gap-2">
                   <PokemonSprite
+                    pokemonName={pokemonName}
                     src={
                       formData.formName
                         ? `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}_${formData.formName}/normal_front.png`
@@ -366,6 +369,7 @@ export default function PokemonFormClient({
                 </div>
                 <div className="flex flex-col items-center justify-center gap-2">
                   <PokemonSprite
+                    pokemonName={pokemonName}
                     src={
                       formData.formName
                         ? `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}_${formData.formName}/normal_front_animated.gif`
@@ -381,6 +385,7 @@ export default function PokemonFormClient({
 
                 <div className="flex flex-col items-center justify-center gap-2">
                   <PokemonSprite
+                    pokemonName={pokemonName}
                     src={
                       formData.formName
                         ? `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}_${formData.formName}/shiny_front.png`
@@ -393,6 +398,7 @@ export default function PokemonFormClient({
                 </div>
                 <div className="flex flex-col items-center justify-center gap-2">
                   <PokemonSprite
+                    pokemonName={pokemonName}
                     src={
                       formData.formName
                         ? `/sprites/pokemon/${pokemonName.replace(/-/g, '_')}_${formData.formName}/shiny_front_animated.gif`

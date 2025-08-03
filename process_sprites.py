@@ -140,10 +140,14 @@ class GBCSpriteProcessor:
         self.rom_path = Path(rom_path)
         self.output_path = Path(output_path)
         self.pokemon_dir = self.rom_path / "gfx" / "pokemon"
+        self.trainer_dir = self.rom_path / "gfx" / "trainers"
 
         # Create output directories
         self.sprites_dir = self.output_path / "sprites" / "pokemon"
         self.sprites_dir.mkdir(exist_ok=True)
+        
+        self.trainer_sprites_dir = self.output_path / "sprites" / "trainers"
+        self.trainer_sprites_dir.mkdir(parents=True, exist_ok=True)
 
         # Mapping of variant directory names to base Pokemon names
         # For Pokemon with multiple visual variants, we need to know which directory
@@ -515,6 +519,153 @@ class GBCSpriteProcessor:
 
         print(f"Created sprite manifest: {manifest_path}")
 
+    def get_trainer_list(self) -> List[str]:
+        """Get list of all trainer PNG files"""
+        trainer_pngs = []
+        if self.trainer_dir.exists():
+            for item in self.trainer_dir.iterdir():
+                if item.is_file() and item.suffix == '.png':
+                    trainer_name = item.stem
+                    trainer_pngs.append(trainer_name)
+        return sorted(trainer_pngs)
+
+    def get_trainer_palettes(self, trainer_name: str) -> List[str]:
+        """Get all palette files for a trainer"""
+        palettes = []
+        
+        # Look for exact match first
+        exact_pal = self.trainer_dir / f"{trainer_name}.pal"
+        if exact_pal.exists():
+            palettes.append(trainer_name)
+        
+        # Look for numbered variants (e.g., kimono_girl_1.pal, kimono_girl_2.pal, etc.)
+        for item in self.trainer_dir.iterdir():
+            if item.is_file() and item.suffix == '.pal':
+                if item.stem.startswith(f"{trainer_name}_") and item.stem != trainer_name:
+                    # Extract the variant (e.g., "1" from "kimono_girl_1")
+                    variant = item.stem.replace(f"{trainer_name}_", "")
+                    palettes.append(f"{trainer_name}_{variant}")
+        
+        return sorted(palettes)
+
+    def process_trainer(self, trainer_name: str) -> bool:
+        """Process a single trainer's sprite with all palette variants"""
+        trainer_png = self.trainer_dir / f"{trainer_name}.png"
+        if not trainer_png.exists():
+            print(f"Trainer PNG not found: {trainer_name}")
+            return False
+
+        print(f"Processing trainer {trainer_name}...")
+
+        # Create output directory for this trainer
+        output_dir = self.trainer_sprites_dir / trainer_name
+        output_dir.mkdir(exist_ok=True)
+
+        # Get all palette variants for this trainer
+        palettes = self.get_trainer_palettes(trainer_name)
+        
+        if not palettes:
+            print(f"No palette files found for {trainer_name}")
+            return False
+
+        # Extract frames from sprite sheet (trainers are typically single frame)
+        raw_frames = self.extract_sprite_frames(str(trainer_png))
+        if not raw_frames:
+            print(f"Could not extract frames from {trainer_name}")
+            return False
+
+        # Process each palette variant
+        for palette_name in palettes:
+            palette_file = self.trainer_dir / f"{palette_name}.pal"
+            if not palette_file.exists():
+                print(f"Palette file not found: {palette_file}")
+                continue
+
+            palette = GBCPaletteParser.parse_palette_file(str(palette_file))
+
+            # Apply palette and transparency to each frame
+            processed_frames = []
+            for frame in raw_frames:
+                processed_frame = self.apply_palette_to_sprite(frame, palette)
+                processed_frames.append(processed_frame)
+
+            # Determine output filename
+            if palette_name == trainer_name:
+                # Default palette
+                output_filename = f"{trainer_name}.png"
+            else:
+                # Variant palette (e.g., kimono_girl_1.png)
+                variant = palette_name.replace(f"{trainer_name}_", "")
+                output_filename = f"{trainer_name}_{variant}.png"
+
+            # Save static PNG (first frame)
+            if processed_frames:
+                static_path = output_dir / output_filename
+                processed_frames[0].save(static_path)
+                print(f"Saved trainer sprite: {static_path}")
+
+        return True
+
+    def process_all_trainers(self):
+        """Process all trainer sprites"""
+        trainer_list = self.get_trainer_list()
+        total = len(trainer_list)
+        processed = 0
+
+        print(f"Found {total} trainers to process...")
+
+        for i, trainer_name in enumerate(trainer_list, 1):
+            print(f"[{i}/{total}] Processing trainer {trainer_name}")
+            if self.process_trainer(trainer_name):
+                processed += 1
+
+        print(f"\nCompleted! Processed {processed}/{total} trainer sprites")
+        print(f"Output directory: {self.trainer_sprites_dir}")
+
+    def create_trainer_manifest(self):
+        """Create a JSON manifest of all processed trainer sprites with dimensions"""
+        manifest = {}
+
+        for trainer_dir in self.trainer_sprites_dir.iterdir():
+            if trainer_dir.is_dir():
+                trainer_name = trainer_dir.name
+                trainer_data = {}
+
+                # Find all PNG files for this trainer
+                for sprite_file in trainer_dir.iterdir():
+                    if sprite_file.suffix == '.png':
+                        # Get image dimensions
+                        try:
+                            with Image.open(sprite_file) as img:
+                                width, height = img.size
+                                sprite_info = {
+                                    "url": f"sprites/trainers/{trainer_name}/{sprite_file.name}",
+                                    "width": width,
+                                    "height": height
+                                }
+                        except Exception as e:
+                            print(f"Warning: Could not read dimensions for {sprite_file}: {e}")
+                            sprite_info = {
+                                "url": f"sprites/trainers/{trainer_name}/{sprite_file.name}",
+                                "width": 64,  # fallback dimensions
+                                "height": 64
+                            }
+
+                        # Use filename without extension as key
+                        variant_key = sprite_file.stem
+                        trainer_data[variant_key] = sprite_info
+
+                # Only add trainers that have at least one sprite
+                if trainer_data:
+                    manifest[trainer_name] = trainer_data
+
+        # Save manifest
+        manifest_path = self.output_path / "trainer_manifest.json"
+        with open(manifest_path, 'w') as f:
+            json.dump(manifest, f, indent=2, sort_keys=True)
+
+        print(f"Created trainer manifest: {manifest_path}")
+
     def export_sprite(self, sprite: Image.Image, output_path: str) -> None:
         """Export the processed sprite to the specified output path."""
         try:
@@ -528,9 +679,11 @@ class GBCSpriteProcessor:
             print(f"Error exporting sprite to {output_path}: {e}")
 
 def main():
-    parser = argparse.ArgumentParser(description="Process Game Boy Color Pokemon sprites")
-    parser.add_argument('pokemon', nargs='?', help='Specific Pokemon name to process')
-    parser.add_argument('--all', action='store_true', help='Process all Pokemon')
+    parser = argparse.ArgumentParser(description="Process Game Boy Color sprites (Pokemon and Trainers)")
+    parser.add_argument('target', nargs='?', help='Specific Pokemon/trainer name to process')
+    parser.add_argument('--all', action='store_true', help='Process all sprites')
+    parser.add_argument('--pokemon', action='store_true', help='Process Pokemon sprites only')
+    parser.add_argument('--trainers', action='store_true', help='Process trainer sprites only')
     parser.add_argument('--rom-path', default='polishedcrystal', help='Path to ROM directory')
     parser.add_argument('--output-path', default='public', help='Output directory')
 
@@ -540,17 +693,50 @@ def main():
     processor = GBCSpriteProcessor(args.rom_path, args.output_path)
 
     if args.all:
+        # Process everything
+        print("Processing all Pokemon sprites...")
         processor.process_all_pokemon()
         processor.create_sprite_manifest()
+        
+        print("\nProcessing all trainer sprites...")
+        processor.process_all_trainers()
+        processor.create_trainer_manifest()
+        
     elif args.pokemon:
-        processor.process_pokemon(args.pokemon)
-    else:
-        # Default: process Abra as a test
-        print("No Pokemon specified. Processing Abra as test...")
-        if processor.process_pokemon('abra'):
-            print("Test successful! Run with --all to process all Pokemon")
+        # Process only Pokemon
+        processor.process_all_pokemon()
+        processor.create_sprite_manifest()
+        
+    elif args.trainers:
+        # Process only trainers
+        processor.process_all_trainers()
+        processor.create_trainer_manifest()
+        
+    elif args.target:
+        # Try to process specific target (check if it's Pokemon or trainer)
+        if processor.process_pokemon(args.target):
+            print(f"Processed Pokemon: {args.target}")
+        elif processor.process_trainer(args.target):
+            print(f"Processed trainer: {args.target}")
         else:
-            print("Test failed. Check ROM path and file structure")
+            print(f"Target '{args.target}' not found as Pokemon or trainer")
+            
+    else:
+        # Default: process test cases
+        print("No target specified. Processing test cases...")
+        print("Testing Pokemon (Abra)...")
+        if processor.process_pokemon('abra'):
+            print("Pokemon test successful!")
+        else:
+            print("Pokemon test failed")
+            
+        print("Testing trainer (red)...")
+        if processor.process_trainer('red'):
+            print("Trainer test successful!")
+        else:
+            print("Trainer test failed")
+            
+        print("Run with --all to process all sprites, --pokemon for Pokemon only, or --trainers for trainers only")
 
 if __name__ == "__main__":
     main()

@@ -70,6 +70,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
             <div className="relative flex flex-row items-center gap-4">
               {/* not a pokemon sprite but w/e */}
               <PokemonSprite
+                pokemonName={''}
                 src={`/sprites/trainers/${trainerSpritePath}.png`}
                 alt={trainer.name}
               />
@@ -130,6 +131,7 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                               href={`/pokemon/${encodeURIComponent(poke.species).toLowerCase()}${poke.form ? `?form=${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}`}
                             >
                               <PokemonSprite
+                                pokemonName={poke.species.toLowerCase().replace(/-/g, '_')}
                                 src={`/sprites/pokemon/${poke.species.toLowerCase().replace(/-/g, '_')}${poke.form ? `_${poke.form?.toLowerCase().replace(/ form/g, '')}` : ''}/normal_front.png`}
                                 alt={poke.species}
                               />
