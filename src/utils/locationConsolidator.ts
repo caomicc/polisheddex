@@ -245,3 +245,21 @@ export function getLocationArea(locationData: LocationData, areaId?: string): Lo
 export function isConsolidatedLocation(locationData: LocationData): boolean {
   return Boolean(locationData.areas && locationData.areas.length > 0);
 }
+
+/**
+ * Get all area IDs from a consolidated location
+ */
+export function getLocationAreaIds(locationData: LocationData): string[] {
+  if (!locationData.areas) return [];
+  return locationData.areas.map(area => area.id);
+}
+
+/**
+ * Get area display name by ID
+ */
+export function getAreaDisplayName(locationData: LocationData, areaId: string): string {
+  if (!areaId || areaId === 'main') return locationData.displayName;
+  
+  const area = getLocationArea(locationData, areaId);
+  return area ? area.displayName : locationData.displayName;
+}
