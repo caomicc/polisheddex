@@ -372,16 +372,21 @@ export async function restructureLocationsToIndividualFiles(): Promise<void> {
       }
     });
 
-    // Sort manifest entries by region, then by display name for proper ordering
+    // Sort manifest entries by visitability (ID), then by display name for locations with same ID
     manifestEntries.sort((a, b) => {
-      // First sort by region priority (Johto -> Kanto -> Orange)
-      const regionOrder: Record<string, number> = { johto: 0, kanto: 1, orange: 2 };
-      const aRegion = regionOrder[a.region] ?? 3;
-      const bRegion = regionOrder[b.region] ?? 3;
-      const regionCompare = aRegion - bRegion;
-      if (regionCompare !== 0) return regionCompare;
+      // First sort by ID (visitability order) - negative IDs go to the end
+      if (a.id >= 0 && b.id >= 0) {
+        // Both have valid IDs, sort by ID
+        if (a.id !== b.id) return a.id - b.id;
+      } else if (a.id >= 0) {
+        // Only a has valid ID, it comes first
+        return -1;
+      } else if (b.id >= 0) {
+        // Only b has valid ID, it comes first
+        return 1;
+      }
       
-      // Then sort alphabetically by display name within each region
+      // For locations with same ID or both negative IDs, sort by display name
       return a.displayName.localeCompare(b.displayName);
     });
 

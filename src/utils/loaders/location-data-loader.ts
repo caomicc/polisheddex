@@ -338,17 +338,17 @@ export async function loadEnhancedLocations(): Promise<EnhancedLocation[]> {
       };
     });
 
-    // Convert grouped locations to EnhancedLocation format and sort by region and name
+    // Convert grouped locations to EnhancedLocation format, filter out id: -1, and sort by visitability
     const enhancedLocations: EnhancedLocation[] = Object.entries(groupedLocations)
+      .filter(([, groupedLocation]) => {
+        // Exclude locations with id: -1 from main list (these are usually sub-locations or special cases)
+        return groupedLocation.id >= 0;
+      })
       .sort(([, a], [, b]) => {
-        // Sort by region first (Johto -> Kanto -> Orange)
-        const regionOrder: Record<string, number> = { johto: 0, kanto: 1, orange: 2 };
-        const aRegion = regionOrder[a.region] ?? 3;
-        const bRegion = regionOrder[b.region] ?? 3;
-        const regionCompare = aRegion - bRegion;
-        if (regionCompare !== 0) return regionCompare;
+        // Sort by ID (visitability order) first
+        if (a.id !== b.id) return a.id - b.id;
         
-        // Then sort by display name within region
+        // For locations with same ID, sort by display name
         return a.displayName.localeCompare(b.displayName);
       })
       .map(([locationKey, groupedLocation]) => {

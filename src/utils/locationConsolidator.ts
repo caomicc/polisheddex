@@ -43,18 +43,18 @@ function createAreaDisplayName(areaId: string): string {
     const ordinal = getOrdinal(parseInt(floor));
     return `${ordinal} Floor`;
   }
-  
+
   if (areaId.startsWith('b_') && areaId.endsWith('f')) {
     const floor = areaId.replace('b_', '').replace('f', '');
     const ordinal = getOrdinal(parseInt(floor));
     return `Basement ${ordinal} Floor`;
   }
-  
+
   if (areaId === 'roof') return 'Roof';
   if (areaId === 'basement') return 'Basement';
   if (areaId === 'outside') return 'Outside';
   if (areaId === 'entrance') return 'Entrance';
-  
+
   // For other cases, format as title case
   return formatDisplayName(areaId);
 }
@@ -79,32 +79,38 @@ function extractAreaId(locationName: string, parentName: string): string {
 /**
  * Consolidate locations according to the mapping configuration
  */
-export function consolidateLocations(locations: Record<string, LocationData>): Record<string, LocationData> {
+export function consolidateLocations(
+  locations: Record<string, LocationData>,
+): Record<string, LocationData> | undefined {
   console.log('🔄 Starting location consolidation...');
-  
+
   const mapping = loadConsolidationMapping();
   const consolidatedLocations: Record<string, LocationData> = {};
   const processedLocations = new Set<string>();
-  
+
   // Process consolidation groups
   for (const [parentName, childNames] of Object.entries(mapping.consolidationGroups)) {
     console.log(`📁 Consolidating ${parentName}: ${childNames.length} locations`);
-    
+
     const parentLocation = locations[parentName];
     if (!parentLocation) {
       console.warn(`⚠️  Parent location ${parentName} not found, skipping consolidation group`);
       continue;
     }
-    
+
     // Create consolidated location starting with parent data
     const consolidated: LocationData = {
       ...parentLocation,
       areas: [],
       consolidatedFrom: [parentName, ...childNames],
     };
-    
+
     // Add parent as main area if it has meaningful data
-    if (parentLocation.trainers?.length || parentLocation.items?.length || parentLocation.connections?.length) {
+    if (
+      parentLocation.trainers?.length ||
+      parentLocation.items?.length ||
+      parentLocation.connections?.length
+    ) {
       consolidated.areas!.push({
         id: 'main',
         displayName: 'Main Area',
@@ -116,7 +122,7 @@ export function consolidateLocations(locations: Record<string, LocationData>): R
         npcTrades: parentLocation.npcTrades || [],
       });
     }
-    
+
     // Process child locations
     for (const childName of childNames) {
       const childLocation = locations[childName];
@@ -125,10 +131,10 @@ export function consolidateLocations(locations: Record<string, LocationData>): R
         processedLocations.add(childName); // Mark as processed even if not found
         continue;
       }
-      
+
       const areaId = extractAreaId(childName, parentName);
       const areaDisplayName = createAreaDisplayName(areaId);
-      
+
       // Special handling for Elite 4 rooms
       if (parentName === 'indigo_plateau' && childName.includes('room')) {
         if (!consolidated.eliteFour) {
@@ -149,10 +155,10 @@ export function consolidateLocations(locations: Record<string, LocationData>): R
           events: childLocation.events || [],
           npcTrades: childLocation.npcTrades || [],
         };
-        
+
         consolidated.areas!.push(area);
       }
-      
+
       // Merge top-level data from child locations
       if (childLocation.tmhms) {
         consolidated.tmhms = [...(consolidated.tmhms || []), ...childLocation.tmhms];
@@ -160,75 +166,83 @@ export function consolidateLocations(locations: Record<string, LocationData>): R
       if (childLocation.items) {
         consolidated.items = [...(consolidated.items || []), ...childLocation.items];
       }
-      
+
       // CRITICAL: Mark child location as processed so it doesn't get added back
       processedLocations.add(childName);
     }
-    
+
     // Update trainer and Pokemon counts
-    const totalTrainers = (consolidated.eliteFour?.length || 0) + 
-                         (consolidated.trainers?.length || 0) + 
-                         (consolidated.areas?.reduce((sum, area) => sum + (area.trainers?.length || 0), 0) || 0);
+    const totalTrainers =
+      (consolidated.eliteFour?.length || 0) +
+      (consolidated.trainers?.length || 0) +
+      (consolidated.areas?.reduce((sum, area) => sum + (area.trainers?.length || 0), 0) || 0);
     consolidated.trainerCount = totalTrainers;
     consolidated.hasTrainers = totalTrainers > 0;
-    
+
     consolidatedLocations[parentName] = consolidated;
     processedLocations.add(parentName);
   }
-  
+
   // Process gym leader integrations
-  for (const [gymName, gymLeaderNames] of Object.entries(mapping.gymLeaderIntegrations)) {
-    const gymLocation = consolidatedLocations[gymName] || locations[gymName];
-    if (!gymLocation) {
-      console.warn(`⚠️  Gym location ${gymName} not found`);
-      continue;
-    }
-    
-    for (const leaderName of gymLeaderNames) {
-      const leaderLocation = locations[leaderName];
-      if (leaderLocation?.trainers?.[0]) {
-        // Convert first trainer to gym leader
-        const leader = leaderLocation.trainers[0];
-        gymLocation.gymLeader = {
-          name: leader.name,
-          trainerClass: leader.trainerClass,
-          badge: '', // Will need to be populated from other data
-          region: gymLocation.region,
-          pokemon: leader.pokemon,
-          coordinates: leader.coordinates,
-        };
-        
-        if (!consolidatedLocations[gymName]) {
-          consolidatedLocations[gymName] = gymLocation;
-        }
+  if (mapping.gymLeaderIntegrations) {
+    for (const [gymName, gymLeaderNames] of Object.entries(mapping.gymLeaderIntegrations)) {
+      const gymLocation = consolidatedLocations[gymName] || locations[gymName];
+      if (!gymLocation) {
+        console.warn(`⚠️  Gym location ${gymName} not found`);
+        continue;
       }
-      // Always mark gym leader locations as processed to prevent duplication
-      processedLocations.add(leaderName);
+
+      for (const leaderName of gymLeaderNames) {
+        const leaderLocation = locations[leaderName];
+        if (leaderLocation?.trainers?.[0]) {
+          // Convert first trainer to gym leader
+          const leader = leaderLocation.trainers[0];
+          gymLocation.gymLeader = {
+            name: leader.name,
+            trainerClass: leader.trainerClass,
+            badge: '', // Will need to be populated from other data
+            region: gymLocation.region,
+            pokemon: leader.pokemon,
+            coordinates: leader.coordinates,
+          };
+
+          if (!consolidatedLocations[gymName]) {
+            consolidatedLocations[gymName] = gymLocation;
+          }
+        }
+        // Always mark gym leader locations as processed to prevent duplication
+        processedLocations.add(leaderName);
+      }
     }
-  }
-  
-  // Add standalone locations
-  for (const locationName of mapping.standaloneLocations) {
-    if (!processedLocations.has(locationName) && locations[locationName]) {
-      consolidatedLocations[locationName] = locations[locationName];
-      processedLocations.add(locationName);
+
+    // Add standalone locations
+    for (const locationName of mapping.standaloneLocations) {
+      if (!processedLocations.has(locationName) && locations[locationName]) {
+        consolidatedLocations[locationName] = locations[locationName];
+        processedLocations.add(locationName);
+      }
     }
-  }
-  
-  // Add any remaining unprocessed locations (fallback)
-  for (const [locationName, locationData] of Object.entries(locations)) {
-    if (!processedLocations.has(locationName) && !mapping.deleteLocations.includes(locationName)) {
-      consolidatedLocations[locationName] = locationData;
+
+    // Add any remaining unprocessed locations (fallback)
+    for (const [locationName, locationData] of Object.entries(locations)) {
+      if (
+        !processedLocations.has(locationName) &&
+        !mapping.deleteLocations.includes(locationName)
+      ) {
+        consolidatedLocations[locationName] = locationData;
+      }
     }
+
+    const originalCount = Object.keys(locations).length;
+    const consolidatedCount = Object.keys(consolidatedLocations).length;
+    const reduction = (((originalCount - consolidatedCount) / originalCount) * 100).toFixed(1);
+
+    console.log(
+      `✅ Consolidation complete: ${originalCount} → ${consolidatedCount} locations (${reduction}% reduction)`,
+    );
+
+    return consolidatedLocations || {};
   }
-  
-  const originalCount = Object.keys(locations).length;
-  const consolidatedCount = Object.keys(consolidatedLocations).length;
-  const reduction = ((originalCount - consolidatedCount) / originalCount * 100).toFixed(1);
-  
-  console.log(`✅ Consolidation complete: ${originalCount} → ${consolidatedCount} locations (${reduction}% reduction)`);
-  
-  return consolidatedLocations;
 }
 
 /**
@@ -238,8 +252,8 @@ export function getLocationArea(locationData: LocationData, areaId?: string): Lo
   if (!areaId || areaId === 'main' || !locationData.areas) {
     return null; // Return null for main area - use base location data
   }
-  
-  return locationData.areas.find(area => area.id === areaId) || null;
+
+  return locationData.areas.find((area) => area.id === areaId) || null;
 }
 
 /**
@@ -254,7 +268,7 @@ export function isConsolidatedLocation(locationData: LocationData): boolean {
  */
 export function getLocationAreaIds(locationData: LocationData): string[] {
   if (!locationData.areas) return [];
-  return locationData.areas.map(area => area.id);
+  return locationData.areas.map((area) => area.id);
 }
 
 /**
@@ -262,7 +276,7 @@ export function getLocationAreaIds(locationData: LocationData): string[] {
  */
 export function getAreaDisplayName(locationData: LocationData, areaId: string): string {
   if (!areaId || areaId === 'main') return locationData.displayName;
-  
+
   const area = getLocationArea(locationData, areaId);
   return area ? area.displayName : locationData.displayName;
 }

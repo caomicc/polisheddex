@@ -9,7 +9,7 @@ import LocationContent from './LocationContent';
 import EliteFourSection from './EliteFourSection';
 import { useLocationUrlState } from '@/utils/locationUrlState';
 import { isConsolidatedLocation, getLocationArea } from '@/utils/locationConsolidatorClient';
-import type { LocationData, LocationArea } from '@/types/types';
+import type { LocationData } from '@/types/types';
 import type { GroupedPokemon } from '@/types/locationTypes';
 
 interface ConsolidatedLocationClientProps {
@@ -21,7 +21,6 @@ interface ConsolidatedLocationClientProps {
 export default function ConsolidatedLocationClient({
   locationData,
   groupedPokemonData,
-  locationKey
 }: ConsolidatedLocationClientProps) {
   const searchParams = useSearchParams();
   const { navigateToArea } = useLocationUrlState();
@@ -29,7 +28,7 @@ export default function ConsolidatedLocationClient({
 
   const isConsolidated = isConsolidatedLocation(locationData);
   const currentArea = currentAreaId ? getLocationArea(locationData, currentAreaId) : null;
-  
+
   // Determine what data to show based on current area
   const getAreaData = () => {
     if (!currentAreaId || currentAreaId === 'main') {
@@ -40,7 +39,7 @@ export default function ConsolidatedLocationClient({
         connections: locationData.connections || [],
         tmhms: locationData.tmhms || [],
         events: locationData.events || [],
-        npcTrades: locationData.npcTrades || []
+        npcTrades: locationData.npcTrades || [],
       };
     } else if (currentArea) {
       // Specific area - show area data
@@ -50,14 +49,14 @@ export default function ConsolidatedLocationClient({
         connections: currentArea.connections || [],
         tmhms: currentArea.tmhms || [],
         events: currentArea.events || [],
-        npcTrades: currentArea.npcTrades || []
+        npcTrades: currentArea.npcTrades || [],
       };
     }
     return null;
   };
 
   const areaData = getAreaData();
-  
+
   // Filter Pokemon data for current area if needed
   const getAreaPokemonData = (): GroupedPokemon => {
     if (!isConsolidated || !currentAreaId || currentAreaId === 'main') {
@@ -66,10 +65,10 @@ export default function ConsolidatedLocationClient({
 
     // Filter Pokemon data to show only encounters for the current area
     const filteredData: GroupedPokemon = {};
-    
+
     Object.entries(groupedPokemonData).forEach(([method, timeData]) => {
       Object.entries(timeData).forEach(([time, encounterData]) => {
-        const areaEncounters = encounterData.pokemon.filter(pokemon => {
+        const areaEncounters = encounterData.pokemon.filter((pokemon) => {
           // Check if Pokemon has location data and if it matches current area
           const pokemonLocation = 'location' in pokemon ? pokemon.location : undefined;
           const matchesArea = currentArea && pokemonLocation === currentArea.displayName;
@@ -104,18 +103,14 @@ export default function ConsolidatedLocationClient({
               <Badge variant="outline" className="capitalize">
                 {locationData.region}
               </Badge>
-              {locationData.flyable && (
-                <Badge variant="secondary">Flyable</Badge>
-              )}
+              {locationData.flyable && <Badge variant="secondary">Flyable</Badge>}
               {isConsolidated && (
-                <Badge variant="outline">
-                  {locationData.areas?.length || 0} Areas
-                </Badge>
+                <Badge variant="outline">{locationData.areas?.length || 0} Areas</Badge>
               )}
             </div>
           </div>
         </CardHeader>
-        
+
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
             {locationData.id >= 0 && (
@@ -124,20 +119,18 @@ export default function ConsolidatedLocationClient({
                 <div>{locationData.id}</div>
               </div>
             )}
-            
+
             {locationData.trainerCount !== undefined && locationData.trainerCount > 0 && (
               <div>
                 <div className="font-medium text-muted-foreground mb-1">Trainers</div>
                 <div>{locationData.trainerCount}</div>
               </div>
             )}
-            
+
             {locationData.consolidatedFrom && (
               <div className="col-span-2">
                 <div className="font-medium text-muted-foreground mb-1">Consolidated From</div>
-                <div className="text-xs">
-                  {locationData.consolidatedFrom.length} locations
-                </div>
+                <div className="text-xs">{locationData.consolidatedFrom.length} locations</div>
               </div>
             )}
           </div>
@@ -156,7 +149,7 @@ export default function ConsolidatedLocationClient({
 
       {/* Elite Four Section (for Indigo Plateau) */}
       {locationData.eliteFour && locationData.eliteFour.length > 0 && (
-        <EliteFourSection 
+        <EliteFourSection
           eliteFour={locationData.eliteFour}
           showInMain={!currentAreaId || currentAreaId === 'main'}
         />
@@ -171,7 +164,7 @@ export default function ConsolidatedLocationClient({
           showAreaContext={isConsolidated && !!currentAreaId && currentAreaId !== 'main'}
         />
       )}
-      
+
       {/* No data message for empty areas */}
       {!areaData && (
         <Card>

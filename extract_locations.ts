@@ -1439,16 +1439,23 @@ export async function exportAllLocations() {
 
     // Export as both object format (for compatibility) and ordered array format (to preserve order)
     const outputPath = path.join(__dirname, 'output/all_locations.json');
-    await fs.promises.writeFile(outputPath, JSON.stringify(finalConsolidatedLocations, null, 2));
+    await fs.promises.writeFile(
+      outputPath,
+      JSON.stringify(finalConsolidatedLocations || {}, null, 2),
+    );
 
-    console.log(`📍 Exported ${Object.keys(finalConsolidatedLocations).length} locations to ${outputPath}`);
+    console.log(
+      `📍 Exported ${Object.keys(finalConsolidatedLocations || {}).length} locations to ${outputPath}`,
+    );
 
     // Export as ordered array to preserve logical order
-    const orderedLocationsArray = Object.entries(finalConsolidatedLocations).map(([key, location], index) => ({
-      ...location,
-      key,
-      order: index,
-    }));
+    const orderedLocationsArray = Object.entries(finalConsolidatedLocations ?? {}).map(
+      ([key, location], index) => ({
+        ...location,
+        key,
+        order: index,
+      }),
+    );
 
     const orderedOutputPath = path.join(__dirname, 'output/all_locations_ordered.json');
     await fs.promises.writeFile(orderedOutputPath, JSON.stringify(orderedLocationsArray, null, 2));
