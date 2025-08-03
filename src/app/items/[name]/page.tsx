@@ -1,4 +1,6 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { Suspense } from 'react';
 import { isRegularItem, isTMHMItem } from '@/types/types';
 import {
   Breadcrumb,
@@ -8,11 +10,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import Link from 'next/link';
 import { Hero } from '@/components/ui/Hero';
-import { normalizeLocationKey } from '@/utils/locationUtils';
+import { Badge } from '@/components/ui/badge';
 import { loadItemById, loadItemsData } from '@/utils/loaders/item-data-loader';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import ItemDetailClient from '@/components/items/ItemDetailClient';
+import { PokemonGridSkeleton } from '@/components/pokemon/PokemonCardSkeleton';
 
 interface ItemPageProps {
   params: Promise<{ name: string }>;
@@ -29,222 +31,60 @@ export default async function ItemPage({ params }: ItemPageProps) {
   }
 
   return (
-    <div className="max-w-xl md:max-w-4xl mx-auto">
-      <div className="space-y-6">
-        <Hero
-          headline={item.name}
-          description={item.description}
-          breadcrumbs={
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link href="/" className="hover:underline  hover:text-slate-200">
-                      Home
-                    </Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link href="/items" className="hover:underline  hover:text-slate-200">
-                      Items
-                    </Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbPage className="">{item.name}</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-          }
-        />
-        <div className="flex items-start gap-4 mb-4">
-          <div className="flex flex-col items-end gap-2">
-            <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium">
+    <>
+      <Hero
+        headline={item.name}
+        description={item.description}
+        types={
+          <div className="flex flex-wrap gap-2" aria-label="Item Type" role="group">
+            <Badge variant="secondary" className="text-xs">
               {isRegularItem(item) ? item.attributes?.category || 'Item' : 'TM/HM'}
-            </span>
+            </Badge>
             {isRegularItem(item) && item.attributes?.price !== undefined && (
-              <span className="text-2xl font-bold text-green-600 dark:text-green-400">
+              <Badge variant="outline" className="text-xs font-mono text-green-600 dark:text-green-400">
                 ₽{item.attributes.price.toLocaleString()}
-              </span>
+              </Badge>
             )}
           </div>
-        </div>
-      </div>
+        }
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline  hover:text-slate-200">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/items" className="hover:underline  hover:text-slate-200">
+                    Items
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="">{item.name}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
+      />
 
-      {isRegularItem(item) ? (
-        <RegularItemDetails item={item} />
-      ) : isTMHMItem(item) ? (
-        <TMHMItemDetails item={item} />
-      ) : null}
-    </div>
+      <div className="max-w-xl md:max-w-4xl mx-auto">
+        <h1 className="text-2xl font-bold mb-4 sr-only">{item.name}</h1>
+
+        <Suspense fallback={<PokemonGridSkeleton count={4} />}>
+          <ItemDetailClient item={item} itemName={item.name} />
+        </Suspense>
+      </div>
+    </>
   );
 }
 
-// Component for regular items
-function RegularItemDetails({ item }: { item: import('@/types/types').ItemData }) {
-  // Group locations by area type for better organization
-  const groupedLocations = (item.locations || []).reduce(
-    (acc: Record<string, string[]>, location) => {
-      const key = location.details;
-      if (!acc[key]) {
-        acc[key] = [];
-      }
-      acc[key].push(location.area);
-      return acc;
-    },
-    {},
-  );
-
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {/* Item Details */}
-      <Card>
-        <CardHeader>
-          <h2 className="text-xl font-semibold">Item Details</h2>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex justify-between">
-            <span className="font-medium">Effect:</span>
-            <span className="text-gray-600 dark:text-gray-400">
-              {item.attributes?.effect || 'None'}
-            </span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-medium">Parameter:</span>
-            <span className="text-gray-600 dark:text-gray-400">
-              {item.attributes?.parameter || 0}
-            </span>
-          </div>
-          <hr />
-          <div className="flex justify-between">
-            <span className="font-medium">Price:</span>
-            <span className="text-green-600 dark:text-green-400 font-semibold">
-              ₽{(item.attributes?.price || 0).toLocaleString()}
-            </span>
-          </div>
-          {/* <div className="border-t border-border"> */}
-          <div className="flex justify-between">
-            <span className="font-medium">Outside Battle:</span>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
-              {item.attributes?.useOutsideBattle || 'Unknown'}
-            </p>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-medium">In Battle:</span>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
-              {item.attributes?.useInBattle || 'Unknown'}
-            </p>
-          </div>
-          {/* </div> */}
-        </CardContent>
-      </Card>
-
-      {/* Locations */}
-      <Card>
-        <CardHeader>
-          <h2 className="text-xl font-semibold">Locations ({item.locations?.length || 0})</h2>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {Object.entries(groupedLocations).map(([method, areas]) => (
-            <div
-              key={method}
-              className="border-b border-gray-200 dark:border-gray-600 pb-3 last:border-b-0"
-            >
-              <h3 className="mb-2">{method}</h3>
-              <ul className="space-y-1">
-                {areas.map((area, index) => {
-                  const shouldLink =
-                    method.toLowerCase() === 'hidden item' ||
-                    method.toLowerCase() === 'visible item';
-                  return (
-                    <li key={index} className="text-gray-600 dark:text-gray-400 text-sm pl-2">
-                      •{' '}
-                      {shouldLink ? (
-                        <Link
-                          href={`/locations/${normalizeLocationKey(area)}`}
-                          className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors"
-                        >
-                          {area}
-                        </Link>
-                      ) : (
-                        <span>{area}</span>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-// Component for TM/HM items
-function TMHMItemDetails({ item }: { item: import('@/types/types').TMHMData }) {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {/* Move Details */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow border border-gray-200 dark:border-gray-700">
-        <h2 className="text-xl font-semibold mb-4">Move Details</h2>
-        <div className="space-y-3">
-          <div className="flex justify-between">
-            <span className="font-medium">Move:</span>
-            <span className="text-gray-600 dark:text-gray-400">{item.moveName}</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-medium">Type:</span>
-            <span
-              className={`px-2 py-1 rounded text-sm font-medium bg-${item.type.toLowerCase()}-100 text-${item.type.toLowerCase()}-800`}
-            >
-              {item.type}
-            </span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-medium">Category:</span>
-            <span className="text-gray-600 dark:text-gray-400">{item.category}</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-medium">Power:</span>
-            <span className="text-gray-600 dark:text-gray-400">{item.power}</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-medium">Accuracy:</span>
-            <span className="text-gray-600 dark:text-gray-400">{item.accuracy}%</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="font-medium">PP:</span>
-            <span className="text-gray-600 dark:text-gray-400">{item.pp}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Location */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow border border-gray-200 dark:border-gray-700">
-        <h2 className="text-xl font-semibold mb-4">Location</h2>
-        <div className="space-y-2">
-          <div>
-            <Link
-              href={`/locations/${normalizeLocationKey(item.location.area)}`}
-              className="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline transition-colors"
-            >
-              {item.location.area}
-            </Link>
-            {item.location.details && (
-              <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
-                {item.location.details}
-              </p>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // Generate static params for all items (temporarily back to full generation)
 export async function generateStaticParams() {
