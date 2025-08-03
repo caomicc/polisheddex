@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { useTrainerSpriteData } from '@/hooks/useTrainerSpriteData';
+import { useTrainerSpriteData } from '@/hooks/useSpriteData';
 
 interface TrainerSpriteProps {
   className?: string;
@@ -12,15 +12,9 @@ interface TrainerSpriteProps {
   src?: string;
 }
 
-export function TrainerSprite({ 
-  className, 
-  trainerName, 
-  variant,
-  alt,
-  src 
-}: TrainerSpriteProps) {
+export function TrainerSprite({ className, trainerName, variant, alt, src }: TrainerSpriteProps) {
   const { spriteInfo, isLoading } = useTrainerSpriteData(trainerName, variant);
-  
+
   // Fallback to legacy src prop if provided and sprite data not available
   const finalSrc = spriteInfo?.url || src;
   const width = spriteInfo?.width || 64;
@@ -60,7 +54,11 @@ export function TrainerSprite({
       )}
     >
       <Image
-        src={finalSrc}
+        src={
+          finalSrc && !finalSrc.startsWith('http') && !finalSrc.startsWith('/')
+            ? `/${finalSrc}`
+            : finalSrc || ''
+        }
         alt={alt || `${trainerName} ${variant ? `(${variant})` : ''} sprite`}
         width={width}
         height={height}

@@ -1,13 +1,23 @@
-import { SpriteManifest, SpriteInfo, SpriteVariant, SpriteType } from '@/types/spriteTypes';
+import {
+  SpriteManifest,
+  SpriteInfo,
+  SpriteVariant,
+  SpriteType,
+  TrainerManifest,
+  PokemonSpriteData,
+  TrainerSpriteData,
+  UnifiedSpriteManifest,
+  SpriteCategory,
+} from '@/types/spriteTypes';
 
-let spriteManifest: SpriteManifest | null = null;
+let unifiedManifest: UnifiedSpriteManifest | null = null;
 
 /**
- * Load the sprite manifest from the public directory
+ * Load the unified sprite manifest from the public directory
  */
-export async function loadSpriteManifest(): Promise<SpriteManifest | null> {
-  if (spriteManifest) {
-    return spriteManifest!;
+export async function loadUnifiedSpriteManifest(): Promise<UnifiedSpriteManifest | null> {
+  if (unifiedManifest) {
+    return unifiedManifest;
   }
 
   try {
@@ -15,25 +25,37 @@ export async function loadSpriteManifest(): Promise<SpriteManifest | null> {
     if (!response.ok) {
       throw new Error(`Failed to load sprite manifest: ${response.statusText}`);
     }
-    spriteManifest = await response.json();
-    return spriteManifest;
+    unifiedManifest = await response.json();
+    return unifiedManifest;
   } catch (error) {
     console.error('Failed to load sprite manifest:', error);
-    return {};
+    return null;
   }
 }
 
 /**
- * Get sprite information for a specific Pokemon
+ * Legacy function for backward compatibility
  */
-export function getPokemonSprite(
-  manifest: SpriteManifest,
+export async function loadSpriteManifest(): Promise<SpriteManifest | null> {
+  const unified = await loadUnifiedSpriteManifest();
+  return unified?.pokemon || null;
+}
+
+/**
+ * Get sprite information for a specific Pokemon from unified manifest
+ */
+export function getSprite(
+  manifest: UnifiedSpriteManifest | SpriteManifest,
   pokemonName: string,
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
 ): SpriteInfo | null {
   const normalizedName = pokemonName.toLowerCase().replace(/-/g, '_');
-  const pokemonData = manifest[normalizedName];
+  
+  // Handle both unified and legacy manifests
+  const pokemonData = 'pokemon' in manifest 
+    ? manifest.pokemon[normalizedName]
+    : manifest[normalizedName];
 
   if (!pokemonData) {
     return null;
@@ -79,11 +101,111 @@ export function getFallbackSprite(
  * Get sprite with automatic fallback
  */
 export function getSpriteWithFallback(
-  manifest: SpriteManifest,
-  pokemonName: string,
+  manifest: UnifiedSpriteManifest | SpriteManifest,
+  spriteName: string,
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
 ): SpriteInfo {
-  const sprite = getPokemonSprite(manifest, pokemonName, variant, type);
-  return sprite || getFallbackSprite(pokemonName, variant, type);
+  const sprite = getSprite(manifest, spriteName, variant, type);
+  return sprite || getFallbackSprite(spriteName, variant, type);
+}
+
+/**
+ * Get trainer sprite information from unified manifest
+ */
+export function getTrainerSprite(
+  manifest: UnifiedSpriteManifest | TrainerManifest,
+  trainerName: string,
+  variant?: string,
+): SpriteInfo | null {
+  const normalizedName = trainerName.toLowerCase().replace(/-/g, '_');
+  
+  // Handle both unified and legacy manifests
+  const trainerData = 'trainers' in manifest 
+    ? manifest.trainers[normalizedName]
+    : manifest[normalizedName];
+
+  if (!trainerData) {
+    return null;
+  }
+
+  // If variant is specified, try to get that specific variant
+  if (variant) {
+    const variantKey = variant.toLowerCase().replace(/-/g, '_');
+    return trainerData[variantKey] || null;
+  }
+
+  // Return the first available sprite if no variant specified
+  const firstKey = Object.keys(trainerData)[0];
+  return firstKey ? trainerData[firstKey] : null;
+}
+
+/**
+ * Generate fallback sprite info for trainers not in manifest
+ */
+export function getFallbackTrainerSprite(
+  trainerName: string,
+  type: SpriteType = 'static',
+): SpriteInfo {
+  const normalizedName = trainerName.toLowerCase().replace(/-/g, '_');
+  const extension = type === 'animated' ? 'gif' : 'png';
+  const filename = type === 'animated' ? `animated.${extension}` : `static.${extension}`;
+
+  return {
+    url: `/sprites/trainers/${normalizedName}/${filename}`,
+    width: 64, // fallback dimensions
+    height: 64,
+  };
+}
+
+/**
+ * Get trainer sprite with automatic fallback
+ */
+export function getTrainerSpriteWithFallback(
+  manifest: UnifiedSpriteManifest | TrainerManifest,
+  trainerName: string,
+  variant?: string,
+): SpriteInfo {
+  const sprite = getTrainerSprite(manifest, trainerName, variant);
+  return sprite || getFallbackTrainerSprite(trainerName, 'static');
+}
+
+/**
+ * Get sprite information for any category (pokemon or trainer)
+ */
+export function getUnifiedSprite(
+  manifest: UnifiedSpriteManifest,
+  spriteName: string,
+  category: SpriteCategory,
+  variant?: SpriteVariant | string,
+  type?: SpriteType,
+): SpriteInfo | null {
+  if (category === 'pokemon') {
+    return getSprite(manifest, spriteName, variant as SpriteVariant, type);
+  } else {
+    return getTrainerSprite(manifest, spriteName, variant as string);
+  }
+}
+
+/**
+ * Get sprite with fallback for any category
+ */
+export function getUnifiedSpriteWithFallback(
+  manifest: UnifiedSpriteManifest,
+  spriteName: string,
+  category: SpriteCategory,
+  variant?: SpriteVariant | string,
+  type?: SpriteType,
+): SpriteInfo {
+  const sprite = getUnifiedSprite(manifest, spriteName, category, variant, type);
+  
+  if (sprite) {
+    return sprite;
+  }
+  
+  if (category === 'pokemon') {
+    return getFallbackSprite(spriteName, variant as SpriteVariant, type);
+  } else {
+    return getFallbackTrainerSprite(spriteName, type || 'static');
+  }
 }

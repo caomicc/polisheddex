@@ -1,9 +1,10 @@
-import { TrainerManifest, SpriteInfo } from '@/types/spriteTypes';
+import { TrainerManifest, SpriteInfo, UnifiedSpriteManifest } from '@/types/spriteTypes';
+import { loadUnifiedSpriteManifest } from './spriteUtils';
 
 let trainerManifest: TrainerManifest | null = null;
 
 /**
- * Load the trainer sprite manifest from the public directory
+ * Load the trainer sprite manifest from the unified manifest
  */
 export async function loadTrainerManifest(): Promise<TrainerManifest | null> {
   if (trainerManifest) {
@@ -11,11 +12,8 @@ export async function loadTrainerManifest(): Promise<TrainerManifest | null> {
   }
 
   try {
-    const response = await fetch('/trainer_manifest.json');
-    if (!response.ok) {
-      throw new Error(`Failed to load trainer manifest: ${response.statusText}`);
-    }
-    trainerManifest = await response.json();
+    const unified = await loadUnifiedSpriteManifest();
+    trainerManifest = unified?.trainers || {};
     return trainerManifest;
   } catch (error) {
     console.error('Failed to load trainer manifest:', error);

@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
+import { TrainerSprite } from './trainer-sprite';
 
 interface TrainerCardProps {
   trainer: GymLeader | LocationTrainer;
@@ -69,9 +70,9 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
           <AccordionTrigger className="p-0  items-center">
             <div className="relative flex flex-row items-center gap-4">
               {/* not a pokemon sprite but w/e */}
-              <PokemonSprite
-                pokemonName={''}
-                src={`/sprites/trainers/${trainerSpritePath}.png`}
+              <TrainerSprite
+                trainerName={trainer.trainerClass.toLowerCase().replace(/-/g, '_')}
+                src={`/sprites/trainers/${trainerSpritePath}/static.png`}
                 alt={trainer.name}
               />
               <div>

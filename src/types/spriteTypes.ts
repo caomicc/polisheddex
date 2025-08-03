@@ -15,6 +15,13 @@ export interface TrainerSpriteData {
   [variantKey: string]: SpriteInfo;
 }
 
+// Unified sprite manifest structure
+export interface UnifiedSpriteManifest {
+  pokemon: Record<string, PokemonSpriteData>;
+  trainers: Record<string, TrainerSpriteData>;
+}
+
+// Legacy types for backward compatibility
 export interface SpriteManifest {
   [pokemonName: string]: PokemonSpriteData;
 }
@@ -25,3 +32,4 @@ export interface TrainerManifest {
 
 export type SpriteVariant = 'normal' | 'shiny';
 export type SpriteType = 'static' | 'animated';
+export type SpriteCategory = 'pokemon' | 'trainer';
