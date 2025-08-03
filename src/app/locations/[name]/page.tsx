@@ -15,6 +15,7 @@ import {
   normalizeLocationKey,
   getConsolidatedLocationKey,
   getLocationRedirect,
+  parseLocationKey,
 } from '@/utils/locationUtils';
 import { isConsolidatedLocation } from '@/utils/locationConsolidatorClient';
 import { GroupedPokemon, EncounterDetail } from '@/types/locationTypes';
@@ -25,7 +26,7 @@ import {
   loadAllLocationData,
 } from '@/utils/loaders/location-data-loader';
 
-// Generate static params for all locations (including those without Pokemon)
+// Generate static params only for consolidated/major locations (not child locations)
 export async function generateStaticParams() {
   try {
     const [pokemonLocations, allLocationData] = await Promise.all([
@@ -34,14 +35,33 @@ export async function generateStaticParams() {
     ]);
 
     const locationNames = new Set<string>();
+    const parentLocations = new Set<string>();
 
-    Object.keys(pokemonLocations).forEach((location) => {
-      locationNames.add(normalizeLocationKey(location.toLowerCase()));
+    // First pass: find all parent locations using the actual consolidation logic
+    Object.keys(allLocationData).forEach((locationKey) => {
+      const { parentLocation } = parseLocationKey(locationKey);
+      if (parentLocation !== locationKey) {
+        // This is a child location, add its parent to the set
+        parentLocations.add(parentLocation);
+      } else {
+        // This is already a parent/standalone location
+        locationNames.add(normalizeLocationKey(locationKey.toLowerCase()));
+      }
     });
 
-    Object.keys(allLocationData).forEach((location) => {
-      locationNames.add(normalizeLocationKey(location.toLowerCase()));
+    // Add all the parent locations we found
+    parentLocations.forEach((parentKey) => {
+      locationNames.add(normalizeLocationKey(parentKey.toLowerCase()));
     });
+
+    // Add locations from Pokemon data that aren't already child locations
+    Object.keys(pokemonLocations).forEach((locationKey) => {
+      const { parentLocation } = parseLocationKey(locationKey);
+      const normalizedParent = normalizeLocationKey(parentLocation.toLowerCase());
+      locationNames.add(normalizedParent);
+    });
+
+    console.log(`Generating ${locationNames.size} location pages (reduced from ${Object.keys(allLocationData).length} total locations)`);
 
     return Array.from(locationNames).map((name) => ({
       name,

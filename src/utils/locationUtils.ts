@@ -121,13 +121,44 @@ export function parseLocationKey(locationKey: string): { parentLocation: string;
     /^(.+)_(outside)$/,           // "location_outside" -> parent: "location", area: "outside"
     /^(.+)_(entrance)$/,          // "location_entrance" -> parent: "location", area: "entrance"
     
-    // Route segment patterns
-    /^(route_\d+)_(north|south|east|west|coast)$/,  // "route_10_north" -> parent: "route_10", area: "north"
-    /^(route_\d+)_(poke_center_\d+f)$/,             // "route_32_poke_center_1f" -> parent: "route_32", area: "poke_center_1f"
+    // Safari Zone consolidation - all safari areas go to safari_zone
+    /^(safari_zone)_(east|west|north|hub|fuchsia_gate|.*_rest_house.*)$/,  // All safari areas -> "safari_zone"
     
-    // Hotel/building room patterns
-    /^(.+)_(room\d+[a-z]?)$/,     // "celadon_hotel_room1" -> parent: "celadon_hotel", area: "room1"
-    /^(.+)_(restaurant|cafeteria|library|classroom\d*|office|pool)$/,  // University/hotel areas
+    // Ruins of Alph consolidation - all chambers and rooms go to ruins_of_alph
+    /^(ruins_of_alph)_(.*_chamber|.*_item_room|.*_word_room|research_center|sinjoh_chamber)$/,  // All ruins areas -> "ruins_of_alph"
+    
+    // City building consolidation - match building types and consolidate to parent city
+    /^([a-z_]+)_(mart|poke_center.*|gym.*|port|harbor|cafe|hotel.*|museum.*|dept_store.*|game_corner|train_station|lab|pharmacy|bike_shop|name_rater|happiness_rater|flower_shop|net_ball_house|band_house|honey_house|pp_speech_house|bills_house|magnet_train_station).*$/,  // Common city buildings
+    
+    // City house consolidation - individual houses within cities/towns  
+    /^([a-z_]+)_(.*_house|.*_speech_house|.*_trade_house|.*_berry_.*_house|.*_couple_house|.*_police_station|.*_development_.*_house|.*_old_man_.*_house|.*_water_show_.*_house|.*_gym_badge_.*_house|.*_lugia_.*_house|.*_orre_.*_house|.*_rich_.*_house|.*_hitmontop_.*_house|.*_book_.*_house|charcoal_kiln|.*_evolution_.*_house|.*_nickname_.*_house|.*_onix_.*_house)$/,
+    
+    // Route segment patterns (expanded)
+    /^(route_\d+)_(north|south|east|west|coast|gate|.*_gate|rest_house|poke_center.*|.*_speech_house|.*_berry_.*_house)$/,  // Route sub-areas
+    
+    // Multi-building complexes
+    /^(.+_tower)_(\d+f|entrance|roof|.*_room)$/,        // Tower floors and rooms
+    /^(.+_cave)_(entrance|.*_entrance|b?\d+f)$/,         // Cave areas and floors
+    /^(.+_tunnel)_(entrance|west|east)$/,                // Tunnel segments
+    /^(.+_islands?)_(entrance|hub|.*_area)$/,            // Island areas
+    /^(.+_forest)_(entrance|.*_gate)$/,                  // Forest areas
+    /^(.+_gym)_(\d+f|entrance|.*_room)$/,               // Gym floors
+    /^(.+_well)_(entrance|b?\d+f)$/,                     // Well areas
+    
+    // Fast Ship areas
+    /^(fast_ship)_(.*f|cabins_.*|entrance)$/,              // Fast ship areas -> "fast_ship"
+    
+    // Hotel/building room patterns (expanded)
+    /^(.+)_(room\d+[a-z]?|restaurant|cafeteria|library|classroom\d*|office|pool|lobby|reception)$/,  // Building areas
+    
+    // Underground areas
+    /^(underground)_(path_.*|warehouse)$/,                 // Underground areas -> "underground"
+    
+    // Pokémon League areas
+    /^(pokemon_league)_(gate|entrance|.*_room)$/,        // League areas
+    
+    // Department store floors (catch any remaining multi-floor stores)
+    /^(.+_store)_(\d+f)$/,                              // Store floors
   ];
 
   for (const pattern of consolidationPatterns) {
@@ -140,8 +171,150 @@ export function parseLocationKey(locationKey: string): { parentLocation: string;
     }
   }
 
-  // No area found, return as parent location
+  // No area found, but check if this should be mapped to a parent city
+  const parentCity = getParentCityMapping(locationKey);
+  if (parentCity !== locationKey) {
+    // For city mappings, the original location key becomes the area ID
+    return { parentLocation: parentCity, areaId: locationKey };
+  }
+  
   return { parentLocation: locationKey };
+}
+
+/**
+ * Map building/facility names to their parent city/town
+ */
+function getParentCityMapping(locationKey: string): string {
+  // City/town mapping for buildings that should be consolidated
+  const cityMappings: Record<string, string> = {
+    // Kanto cities
+    'vermilion_port': 'vermilion_city',
+    'vermilion_mart': 'vermilion_city',
+    'vermilion_poke_center_1f': 'vermilion_city',
+    'vermilion_house_digletts_cave_speech_house': 'vermilion_city',
+    'vermilion_house_fishing_speech_house': 'vermilion_city',
+    'vermilion_magnet_train_speech_house': 'vermilion_city',
+    'vermilion_pollution_speech_house': 'vermilion_city',
+    'vermilion_ss_anne_speech_house': 'vermilion_city',
+    
+    'cerulean_mart': 'cerulean_city',
+    'cerulean_poke_center_1f': 'cerulean_city',
+    'cerulean_couple_house': 'cerulean_city',
+    'cerulean_berry_powder_house': 'cerulean_city',
+    'cerulean_police_station': 'cerulean_city',
+    'cerulean_gym_badge_speech_house': 'cerulean_city',
+    'cerulean_trade_speech_house': 'cerulean_city',
+    'cerulean_water_show_speech_house': 'cerulean_city',
+    'cerulean_bike_shop': 'cerulean_city',
+    
+    'celadon_cafe': 'celadon_city',
+    'celadon_chief_house': 'celadon_city', 
+    'celadon_dept_store': 'celadon_city',
+    'celadon_development_speech_house': 'celadon_city',
+    'celadon_game_corner': 'celadon_city',
+    'celadon_game_corner_prize_room': 'celadon_city',
+    'celadon_home_decor_store_1f': 'celadon_city',
+    'celadon_mansion': 'celadon_city',
+    'celadon_old_man_speech_house': 'celadon_city',
+    'celadon_poke_center_1f': 'celadon_city',
+    'celadon_university': 'celadon_city',
+    
+    'saffron_book_speech_house': 'saffron_city',
+    'saffron_hitmontop_kid_house': 'saffron_city',
+    'saffron_mart': 'saffron_city',
+    'saffron_orre_speech_house': 'saffron_city',
+    'saffron_poke_center_1f': 'saffron_city',
+    'saffron_rich_speech_house': 'saffron_city',
+    'saffron_train_station': 'saffron_city',
+    
+    'fuchsia_bill_speech_house': 'fuchsia_city',
+    'fuchsia_mart': 'fuchsia_city',
+    'fuchsia_poke_center_1f': 'fuchsia_city',
+    'fuchsia_safari_ball_house': 'fuchsia_city',
+    
+    'pewter_mart': 'pewter_city',
+    'pewter_museum_of_science_1f': 'pewter_city',
+    'pewter_nidoran_speech_house': 'pewter_city',
+    'pewter_poke_center_1f': 'pewter_city',
+    'pewter_snooze_speech_house': 'pewter_city',
+    
+    'lavender_mart': 'lavender_town',
+    'lavender_name_rater': 'lavender_town',
+    'lavender_poke_center_1f': 'lavender_town',
+    'lavender_soul_house': 'lavender_town',
+    'lavender_town_speech_house': 'lavender_town',
+    
+    'cinnabar_lab': 'cinnabar_island',
+    'cinnabar_poke_center_1f': 'cinnabar_island',
+    
+    // Johto cities/towns
+    'goldenrod_band_house': 'goldenrod_city',
+    'goldenrod_bike_shop': 'goldenrod_city',
+    'goldenrod_bills_house': 'goldenrod_city',
+    'goldenrod_dept_store': 'goldenrod_city',
+    'goldenrod_flower_shop': 'goldenrod_city',
+    'goldenrod_game_corner': 'goldenrod_city',
+    'goldenrod_happiness_rater': 'goldenrod_city',
+    'goldenrod_harbor_gate': 'goldenrod_city',
+    'goldenrod_honey_house': 'goldenrod_city',
+    'goldenrod_magnet_train_station': 'goldenrod_city',
+    'goldenrod_museum_1f': 'goldenrod_city',
+    'goldenrod_name_rater': 'goldenrod_city',
+    'goldenrod_net_ball_house': 'goldenrod_city',
+    'goldenrod_pokecom_center_1f': 'goldenrod_city',
+    'goldenrod_pp_speech_house': 'goldenrod_city',
+    
+    'cherrygrove_evolution_speech_house': 'cherrygrove_city',
+    'cherrygrove_gym_speech_house': 'cherrygrove_city',
+    'cherrygrove_mart': 'cherrygrove_city',
+    'cherrygrove_poke_center_1f': 'cherrygrove_city',
+    
+    'azalea_mart': 'azalea_town',
+    'azalea_poke_center_1f': 'azalea_town',
+    'charcoal_kiln': 'azalea_town',
+    
+    'violet_mart': 'violet_city',
+    'violet_nickname_speech_house': 'violet_city',
+    'violet_onix_trade_house': 'violet_city',
+    'violet_poke_center_1f': 'violet_city',
+    
+    'ecruteak_cherish_ball_house': 'ecruteak_city',
+    'ecruteak_destiny_knot_house': 'ecruteak_city',
+    'ecruteak_house': 'ecruteak_city',
+    'ecruteak_itemfinder_house': 'ecruteak_city',
+    'ecruteak_lugia_speech_house': 'ecruteak_city',
+    'ecruteak_mart': 'ecruteak_city',
+    'ecruteak_poke_center_1f': 'ecruteak_city',
+    
+    'olivine_cafe': 'olivine_city',
+    'olivine_good_rod_house': 'olivine_city',
+    'olivine_mart': 'olivine_city',
+    'olivine_poke_center_1f': 'olivine_city',
+    'olivine_port': 'olivine_city',
+    'olivine_punishment_speech_house': 'olivine_city',
+    'olivine_tims_house': 'olivine_city',
+    
+    'cianwood_city_photo_studio': 'cianwood_city',
+    'cianwood_lugia_speech_house': 'cianwood_city',
+    'cianwood_pharmacy': 'cianwood_city',
+    'cianwood_poke_center_1f': 'cianwood_city',
+    
+    'mahogany_mart_1f': 'mahogany_town',
+    'mahogany_poke_center_1f': 'mahogany_town',
+    'mahogany_red_gyarados_speech_house': 'mahogany_town',
+    
+    'blackthorn_dragon_speech_house': 'blackthorn_city',
+    'blackthorn_emys_house': 'blackthorn_city',
+    'blackthorn_mart': 'blackthorn_city',
+    'blackthorn_poke_center_1f': 'blackthorn_city',
+    
+    // Other consolidation targets
+    'guide_gents_house': 'cherrygrove_city',
+    'mr_pokemons_house': 'route_30',
+    'route_30_berry_speech_house': 'route_30',
+  };
+  
+  return cityMappings[locationKey] || locationKey;
 }
 
 /**
