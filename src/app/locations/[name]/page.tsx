@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { Suspense } from 'react';
 import {
   Breadcrumb,
@@ -10,7 +10,13 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import LocationClient from '@/components/pokemon/LocationClient';
-import { normalizeLocationKey } from '@/utils/locationUtils';
+import ConsolidatedLocationClient from '@/components/locations/ConsolidatedLocationClient';
+import { 
+  normalizeLocationKey, 
+  getConsolidatedLocationKey, 
+  getLocationRedirect 
+} from '@/utils/locationUtils';
+import { isConsolidatedLocation } from '@/utils/locationConsolidator';
 import { GroupedPokemon, EncounterDetail } from '@/types/locationTypes';
 import { Hero } from '@/components/ui/Hero';
 import { groupLocationsHierarchically } from '@/utils/locationGrouping';
@@ -57,6 +63,15 @@ export default async function LocationDetailPage({
   const { name } = await params;
   const locationName = decodeURIComponent(name);
 
+  // Check if this location needs to be redirected to consolidated version
+  const redirectUrl = getLocationRedirect(locationName);
+  if (redirectUrl) {
+    redirect(redirectUrl);
+  }
+
+  // Get consolidated location key
+  const consolidatedKey = getConsolidatedLocationKey(locationName);
+
   const [pokemonLocationData, allLocationData] = await Promise.all([
     loadMergedPokemonLocationData(),
     loadAllLocationData(),
@@ -64,7 +79,8 @@ export default async function LocationDetailPage({
 
   const groupedLocations = groupLocationsHierarchically(allLocationData);
 
-  const comprehensiveInfo = allLocationData[locationName];
+  // Use consolidated location data
+  const comprehensiveInfo = allLocationData[consolidatedKey] || allLocationData[locationName];
 
   let pokemonInfo = null;
   const aggregatedPokemonData: Record<
@@ -255,10 +271,18 @@ export default async function LocationDetailPage({
               </Breadcrumb>
             }
           />
-          <LocationClient
-            comprehensiveInfo={comprehensiveInfo}
-            groupedPokemonData={groupedByMethodAndTime}
-          />
+          {comprehensiveInfo && isConsolidatedLocation(comprehensiveInfo) ? (
+            <ConsolidatedLocationClient
+              locationData={comprehensiveInfo}
+              groupedPokemonData={groupedByMethodAndTime}
+              locationKey={consolidatedKey}
+            />
+          ) : (
+            <LocationClient
+              comprehensiveInfo={comprehensiveInfo}
+              groupedPokemonData={groupedByMethodAndTime}
+            />
+          )}
         </div>
       </div>
     </Suspense>

@@ -11,12 +11,32 @@ import { PokemonSprite } from '../pokemon/pokemon-sprite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 import { TrainerSprite } from './trainer-sprite';
 
+function getTrainerSpecialty(trainerClass: string): string {
+  const specialties: Record<string, string> = {
+    'BRUNO': 'Fighting-type specialist',
+    'KAREN': 'Dark-type specialist', 
+    'KOGA': 'Poison-type specialist',
+    'WILL': 'Psychic-type specialist',
+    'LANCE': 'Dragon-type Champion',
+    'CHAMPION': 'Champion',
+  };
+  
+  return specialties[trainerClass] || '';
+}
+
 interface TrainerCardProps {
   trainer: GymLeader | LocationTrainer;
   isGymLeader?: boolean;
+  showEliteFourBadge?: boolean;
+  showChampionBadge?: boolean;
 }
 
-export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) {
+export default function TrainerCard({ 
+  trainer, 
+  isGymLeader,
+  showEliteFourBadge,
+  showChampionBadge 
+}: TrainerCardProps) {
   let displayTrainerClass = trainer.trainerClass;
   switch (displayTrainerClass?.toLowerCase()) {
     case 'lyra2':
@@ -88,17 +108,38 @@ export default function TrainerCard({ trainer, isGymLeader }: TrainerCardProps) 
                 }/static.png`}
                 alt={trainer.name}
               />
-              <div>
-                <h3 className="text-left">
-                  {isGymLeader ? (
-                    displayTrainerName
-                  ) : (
-                    <span className="capitalize">
-                      {displayTrainerClass} {displayTrainerName}
-                    </span>
+              <div className="flex-1">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-left">
+                    {isGymLeader ? (
+                      displayTrainerName
+                    ) : (
+                      <span className="capitalize">
+                        {displayTrainerClass} {displayTrainerName}
+                      </span>
+                    )}
+                  </h3>
+                  
+                  {showEliteFourBadge && (
+                    <Badge variant="secondary" className="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">
+                      Elite Four
+                    </Badge>
                   )}
-                </h3>
+                  
+                  {showChampionBadge && (
+                    <Badge variant="default" className="bg-yellow-500 text-white dark:bg-yellow-600">
+                      Champion
+                    </Badge>
+                  )}
+                </div>
+                
                 {isGymLeader && <p>Badge: {(trainer as GymLeader).badge}</p>}
+                
+                {(showEliteFourBadge || showChampionBadge) && (
+                  <p className="text-sm text-muted-foreground">
+                    {getTrainerSpecialty(trainer.trainerClass)}
+                  </p>
+                )}
               </div>
             </div>
           </AccordionTrigger>

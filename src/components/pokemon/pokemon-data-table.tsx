@@ -27,20 +27,34 @@ interface PokemonDataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   searchPlaceholder?: string;
+  showLocationColumn?: boolean;
 }
 
 export function PokemonDataTable<TData, TValue>({
   columns,
   data,
+  showLocationColumn = false,
   // searchPlaceholder = 'Filter Pokemon...',
 }: PokemonDataTableProps<TData, TValue>) {
   // Default sort by 'pokemon' column ascending
   const [sorting, setSorting] = React.useState<SortingState>([{ id: 'pokemon', desc: false }]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
 
+  // Filter columns based on showLocationColumn prop
+  const filteredColumns = React.useMemo(() => {
+    if (showLocationColumn) {
+      return columns;
+    }
+    return columns.filter(column => {
+      const columnId = typeof column.id === 'string' ? column.id : 
+                     typeof column.accessorKey === 'string' ? column.accessorKey : '';
+      return columnId !== 'location';
+    });
+  }, [columns, showLocationColumn]);
+
   const table = useReactTable({
     data,
-    columns,
+    columns: filteredColumns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
