@@ -64,7 +64,7 @@ export default function FAQPage() {
       <>
         <Hero
           className="text-white lg:min-h-[200px]"
-          headline="Polished Crystal FAQ"
+          headline="Frequently Asked Questions"
           breadcrumbs={
             <Breadcrumb>
               <BreadcrumbList>
@@ -104,7 +104,7 @@ export default function FAQPage() {
       <>
         <Hero
           className="text-white lg:min-h-[200px]"
-          headline="Polished Crystal FAQ"
+          headline="Frequently Asked Questions"
           breadcrumbs={
             <Breadcrumb>
               <BreadcrumbList>
@@ -177,7 +177,7 @@ export default function FAQPage() {
           </Breadcrumb>
         }
       />
-      
+
       <div className="max-w-4xl mx-auto">
         {/* Header Actions */}
         <div className="flex items-center justify-between mb-6">
@@ -194,11 +194,7 @@ export default function FAQPage() {
               <RefreshCw className="h-4 w-4 mr-2" />
               Refresh
             </Button>
-            <Link
-              href={faqData.source}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href={faqData.source} target="_blank" rel="noopener noreferrer">
               <Button variant="default" size="sm">
                 <Github className="h-4 w-4 mr-2" />
                 View on GitHub
@@ -218,14 +214,14 @@ export default function FAQPage() {
           <CardContent className="text-sm text-muted-foreground">
             <p>
               This FAQ is automatically synchronized from the official Polished Crystal repository.
-              It contains frequently asked questions and answers about the ROM hack, installation, 
+              It contains frequently asked questions and answers about the ROM hack, installation,
               gameplay, and troubleshooting.
             </p>
             <p className="mt-2">
               <strong>Source:</strong>{' '}
-              <Link 
-                href={faqData.source} 
-                target="_blank" 
+              <Link
+                href={faqData.source}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
               >
@@ -258,7 +254,7 @@ export default function FAQPage() {
                     </Link>
                   );
                 }
-                
+
                 // Handle absolute links normally
                 if (href?.startsWith('http')) {
                   return (
@@ -274,7 +270,7 @@ export default function FAQPage() {
                     </Link>
                   );
                 }
-                
+
                 return (
                   <Link
                     href={href ?? '#'}
@@ -289,10 +285,18 @@ export default function FAQPage() {
               ol: ({ children }) => <ol className="list-decimal pl-5 mb-4">{children}</ol>,
               li: ({ children }) => <li className="mb-1">{children}</li>,
               p: ({ children }) => <p className="mb-4">{children}</p>,
-              h1: ({ children }) => <h1 className="text-3xl font-bold mb-6 mt-8 first:mt-0">{children}</h1>,
+              h1: ({ children }) => (
+                <h1 className="text-3xl font-bold mb-6 mt-8 first:mt-0">{children}</h1>
+              ),
               h2: ({ children }) => (
                 <h2
-                  id={children?.toString?.().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') ?? undefined}
+                  id={
+                    children
+                      ?.toString?.()
+                      .toLowerCase()
+                      .replace(/\s+/g, '-')
+                      .replace(/[^\w-]/g, '') ?? undefined
+                  }
                   className="text-2xl font-semibold mb-4 mt-8 first:mt-0"
                 >
                   {children}
@@ -300,7 +304,13 @@ export default function FAQPage() {
               ),
               h3: ({ children }) => (
                 <h3
-                  id={children?.toString?.().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') ?? undefined}
+                  id={
+                    children
+                      ?.toString?.()
+                      .toLowerCase()
+                      .replace(/\s+/g, '-')
+                      .replace(/[^\w-]/g, '') ?? undefined
+                  }
                   className="text-xl font-semibold mb-3 mt-6"
                 >
                   {children}
@@ -308,7 +318,13 @@ export default function FAQPage() {
               ),
               h4: ({ children }) => (
                 <h4
-                  id={children?.toString?.().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') ?? undefined}
+                  id={
+                    children
+                      ?.toString?.()
+                      .toLowerCase()
+                      .replace(/\s+/g, '-')
+                      .replace(/[^\w-]/g, '') ?? undefined
+                  }
                   className="text-lg font-semibold mb-2 mt-4"
                 >
                   {children}
@@ -316,7 +332,13 @@ export default function FAQPage() {
               ),
               h5: ({ children }) => (
                 <h5
-                  id={children?.toString?.().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') ?? undefined}
+                  id={
+                    children
+                      ?.toString?.()
+                      .toLowerCase()
+                      .replace(/\s+/g, '-')
+                      .replace(/[^\w-]/g, '') ?? undefined
+                  }
                   className="text-base font-semibold mb-2 mt-4"
                 >
                   {children}
@@ -324,7 +346,13 @@ export default function FAQPage() {
               ),
               h6: ({ children }) => (
                 <h6
-                  id={children?.toString?.().toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') ?? undefined}
+                  id={
+                    children
+                      ?.toString?.()
+                      .toLowerCase()
+                      .replace(/\s+/g, '-')
+                      .replace(/[^\w-]/g, '') ?? undefined
+                  }
                   className="text-sm font-semibold mb-2 mt-4"
                 >
                   {children}
@@ -369,7 +397,9 @@ export default function FAQPage() {
                 <TableRow className="hover:bg-gray-50 dark:hover:bg-gray-800">{children}</TableRow>
               ),
               strong: ({ children }) => (
-                <strong className="font-semibold text-gray-900 dark:text-gray-100">{children}</strong>
+                <strong className="font-semibold text-gray-900 dark:text-gray-100">
+                  {children}
+                </strong>
               ),
               em: ({ children }) => (
                 <em className="italic text-gray-700 dark:text-gray-300">{children}</em>
