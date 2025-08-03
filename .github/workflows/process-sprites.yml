@@ -1,0 +1,46 @@
+name: Process Sprites
+
+on:
+  push:
+    paths:
+      - 'polishedcrystal/gfx/pokemon/**'
+      - 'polishedcrystal/gfx/trainers/**'
+      - 'process_sprites.py'
+  workflow_dispatch:
+
+jobs:
+  process-sprites:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install Pillow
+          
+      - name: Process sprites
+        run: |
+          python process_sprites.py --all
+          
+      - name: Commit processed sprites
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add public/sprites/ public/*_manifest.json
+          git diff --staged --quiet || git commit -m "🎨 Auto-process sprites [skip ci]"
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}

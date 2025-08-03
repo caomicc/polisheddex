@@ -1,8 +1,42 @@
 {
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci",
   "functions": {
     "src/app/**/*.tsx": {
       "includeFiles": "output/**"
+    },
+    "src/app/api/**/*.ts": {
+      "maxDuration": 30
     }
   },
-  "outputDirectory": ".next"
+  "outputDirectory": ".next",
+  "headers": [
+    {
+      "source": "/sprites/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/output/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/(.*_manifest\\.json)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ]
 }

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "node scripts/generate-build-info.mjs && ./scripts/copy-dex-files.sh && next build",
+    "build": "node scripts/generate-build-info.mjs && node scripts/smart-sprite-build.js && ./scripts/copy-dex-files.sh && next build",
+    "build-full": "node scripts/generate-build-info.mjs && npm run process-sprites && ./scripts/copy-dex-files.sh && next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
