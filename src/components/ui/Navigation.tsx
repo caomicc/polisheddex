@@ -481,9 +481,7 @@ export default function Navigation() {
         </NavigationMenu>
         <div className={cn('flex items-center gap-2 ml-auto')}>
           <Label htmlFor="type-toggle" className="text-sm whitespace-nowrap">
-            <Badge className={showFaithful ? '' : 'opacity-50'}>Faithful</Badge>
-            {' / '}
-            <Badge className={!showFaithful ? '' : 'opacity-50'}>Polished</Badge>
+            <Badge>{!showFaithful ? 'Polished' : 'Faithful'}</Badge>
           </Label>
           <Switch
             id="type-toggle"
