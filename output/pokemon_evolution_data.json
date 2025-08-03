@@ -617,7 +617,7 @@
         "method": "EVOLVE_LEVEL",
         "parameter": 22,
         "target": "Arbok",
-        "form": "No Form"
+        "form": "No_form ; Preserve Pre-evo Form"
       }
     ],
     "chain": [
@@ -630,7 +630,7 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 22,
           "target": "Arbok",
-          "form": "No Form"
+          "form": "No_form ; Preserve Pre-evo Form"
         }
       ],
       "Arbok": []
@@ -648,7 +648,7 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 22,
           "target": "Arbok",
-          "form": "No Form"
+          "form": "No_form ; Preserve Pre-evo Form"
         }
       ],
       "Arbok": []
@@ -2963,19 +2963,63 @@
   "Hitmonlee": {
     "methods": [],
     "chain": [
-      "Hitmonlee"
+      "Tyrogue",
+      "Hitmonlee",
+      "Hitmonchan",
+      "Hitmontop"
     ],
     "chainWithMethods": {
-      "Hitmonlee": []
+      "Tyrogue": [
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonchan"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonlee"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmontop"
+        }
+      ],
+      "Hitmonlee": [],
+      "Hitmonchan": [],
+      "Hitmontop": []
     }
   },
   "Hitmonchan": {
     "methods": [],
     "chain": [
-      "Hitmonchan"
+      "Tyrogue",
+      "Hitmonchan",
+      "Hitmonlee",
+      "Hitmontop"
     ],
     "chainWithMethods": {
-      "Hitmonchan": []
+      "Tyrogue": [
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonchan"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonlee"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmontop"
+        }
+      ],
+      "Hitmonchan": [],
+      "Hitmonlee": [],
+      "Hitmontop": []
     }
   },
   "Lickitung": {
@@ -3133,10 +3177,18 @@
       }
     ],
     "chain": [
+      "Happiny",
       "Chansey",
       "Blissey"
     ],
     "chainWithMethods": {
+      "Happiny": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "OVAL_STONE",
+          "target": "Chansey"
+        }
+      ],
       "Chansey": [
         {
           "method": "EVOLVE_HAPPINESS",
@@ -3361,14 +3413,13 @@
       {
         "method": "EVOLVE_HOLDING",
         "parameter": "HARD_STONE",
-        "target": "Tr Anytime",
-        "form": "Kleavor"
+        "target": "Kleavor"
       }
     ],
     "chain": [
       "Scyther",
       "Scizor",
-      "Tr Anytime"
+      "Kleavor"
     ],
     "chainWithMethods": {
       "Scyther": [
@@ -3380,12 +3431,11 @@
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "HARD_STONE",
-          "target": "Tr Anytime",
-          "form": "Kleavor"
+          "target": "Kleavor"
         }
       ],
       "Scizor": [],
-      "Tr Anytime": []
+      "Kleavor": []
     }
   },
   "Jynx": {
@@ -3491,7 +3541,7 @@
         "method": "EVOLVE_LEVEL",
         "parameter": 20,
         "target": "Gyarados",
-        "form": "No Form"
+        "form": "No_form ; Preserve Pre-evo Form"
       }
     ],
     "chain": [
@@ -3504,7 +3554,7 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Gyarados",
-          "form": "No Form"
+          "form": "No_form ; Preserve Pre-evo Form"
         }
       ],
       "Gyarados": []
@@ -3522,7 +3572,7 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Gyarados",
-          "form": "No Form"
+          "form": "No_form ; Preserve Pre-evo Form"
         }
       ],
       "Gyarados": []
@@ -5747,7 +5797,7 @@
         "method": "EVOLVE_LEVEL",
         "parameter": 32,
         "target": "Dudunsparce",
-        "form": "No Form"
+        "form": "No_form ; Preserve Pre-evo Form"
       }
     ],
     "chain": [
@@ -5760,7 +5810,7 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 32,
           "target": "Dudunsparce",
-          "form": "No Form"
+          "form": "No_form ; Preserve Pre-evo Form"
         }
       ],
       "Dudunsparce": []
@@ -5771,60 +5821,38 @@
       {
         "method": "EVOLVE_HOLDING",
         "parameter": "RAZOR_FANG",
-        "target": "Tr Evenite",
-        "form": "Gliscor"
+        "target": "Gliscor"
       }
     ],
     "chain": [
       "Gligar",
-      "Tr Evenite",
-      "Sneasel",
-      "Tr Mornday",
-      "Happiny"
+      "Gliscor"
     ],
     "chainWithMethods": {
       "Gligar": [
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "RAZOR_FANG",
-          "target": "Tr Evenite",
-          "form": "Gliscor"
+          "target": "Gliscor"
         }
       ],
-      "Tr Evenite": [],
-      "Sneasel": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_CLAW",
-          "target": "Tr Evenite",
-          "form": "Weavile"
-        }
-      ],
-      "Sneasel (Hisuian Form)": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_CLAW",
-          "target": "Tr Mornday",
-          "form": "Sneasler"
-        }
-      ],
-      "Tr Mornday": [],
-      "Happiny": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "OVAL_STONE",
-          "target": "Tr Mornday",
-          "form": "Chansey"
-        }
-      ]
+      "Gliscor": []
     }
   },
   "Gliscor": {
     "methods": [],
     "chain": [
+      "Gligar",
       "Gliscor"
     ],
     "chainWithMethods": {
+      "Gligar": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_FANG",
+          "target": "Gliscor"
+        }
+      ],
       "Gliscor": []
     }
   },
@@ -5908,7 +5936,7 @@
     "chain": [
       "Scyther",
       "Scizor",
-      "Tr Anytime"
+      "Kleavor"
     ],
     "chainWithMethods": {
       "Scyther": [
@@ -5920,12 +5948,11 @@
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "HARD_STONE",
-          "target": "Tr Anytime",
-          "form": "Kleavor"
+          "target": "Kleavor"
         }
       ],
       "Scizor": [],
-      "Tr Anytime": []
+      "Kleavor": []
     }
   },
   "Shuckle": {
@@ -5950,46 +5977,26 @@
     "methods": [],
     "chain": [
       "Sneasel",
-      "Tr Evenite",
-      "Tr Mornday",
-      "Gligar",
-      "Happiny"
+      "Weavile",
+      "Sneasler"
     ],
     "chainWithMethods": {
       "Sneasel": [
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "RAZOR_CLAW",
-          "target": "Tr Evenite",
-          "form": "Weavile"
+          "target": "Weavile"
         }
       ],
       "Sneasel (Hisuian Form)": [
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "RAZOR_CLAW",
-          "target": "Tr Mornday",
-          "form": "Sneasler"
+          "target": "Sneasler"
         }
       ],
-      "Tr Evenite": [],
-      "Tr Mornday": [],
-      "Gligar": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_FANG",
-          "target": "Tr Evenite",
-          "form": "Gliscor"
-        }
-      ],
-      "Happiny": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "OVAL_STONE",
-          "target": "Tr Mornday",
-          "form": "Chansey"
-        }
-      ]
+      "Weavile": [],
+      "Sneasler": []
     }
   },
   "Teddiursa": {
@@ -6483,61 +6490,77 @@
       {
         "method": "EVOLVE_STAT",
         "parameter": "20",
-        "target": "Atk Lt Def",
-        "form": "Hitmonchan"
+        "target": "Hitmonchan"
       },
       {
         "method": "EVOLVE_STAT",
         "parameter": "20",
-        "target": "Atk Gt Def",
-        "form": "Hitmonlee"
+        "target": "Hitmonlee"
       },
       {
         "method": "EVOLVE_STAT",
         "parameter": "20",
-        "target": "Atk Eq Def",
-        "form": "Hitmontop"
+        "target": "Hitmontop"
       }
     ],
     "chain": [
       "Tyrogue",
-      "Atk Lt Def",
-      "Atk Gt Def",
-      "Atk Eq Def"
+      "Hitmonchan",
+      "Hitmonlee",
+      "Hitmontop"
     ],
     "chainWithMethods": {
       "Tyrogue": [
         {
           "method": "EVOLVE_STAT",
           "parameter": "20",
-          "target": "Atk Lt Def",
-          "form": "Hitmonchan"
+          "target": "Hitmonchan"
         },
         {
           "method": "EVOLVE_STAT",
           "parameter": "20",
-          "target": "Atk Gt Def",
-          "form": "Hitmonlee"
+          "target": "Hitmonlee"
         },
         {
           "method": "EVOLVE_STAT",
           "parameter": "20",
-          "target": "Atk Eq Def",
-          "form": "Hitmontop"
+          "target": "Hitmontop"
         }
       ],
-      "Atk Lt Def": [],
-      "Atk Gt Def": [],
-      "Atk Eq Def": []
+      "Hitmonchan": [],
+      "Hitmonlee": [],
+      "Hitmontop": []
     }
   },
   "Hitmontop": {
     "methods": [],
     "chain": [
-      "Hitmontop"
+      "Tyrogue",
+      "Hitmontop",
+      "Hitmonchan",
+      "Hitmonlee"
     ],
     "chainWithMethods": {
-      "Hitmontop": []
+      "Tyrogue": [
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonchan"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonlee"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmontop"
+        }
+      ],
+      "Hitmontop": [],
+      "Hitmonchan": [],
+      "Hitmonlee": []
     }
   },
   "Smoochum": {
@@ -6637,10 +6660,18 @@
   "Blissey": {
     "methods": [],
     "chain": [
+      "Happiny",
       "Chansey",
       "Blissey"
     ],
     "chainWithMethods": {
+      "Happiny": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "OVAL_STONE",
+          "target": "Chansey"
+        }
+      ],
       "Chansey": [
         {
           "method": "EVOLVE_HAPPINESS",
@@ -6934,52 +6965,30 @@
       {
         "method": "EVOLVE_HOLDING",
         "parameter": "OVAL_STONE",
-        "target": "Tr Mornday",
-        "form": "Chansey"
+        "target": "Chansey"
       }
     ],
     "chain": [
       "Happiny",
-      "Tr Mornday",
-      "Sneasel",
-      "Tr Evenite",
-      "Gligar"
+      "Chansey",
+      "Blissey"
     ],
     "chainWithMethods": {
       "Happiny": [
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "OVAL_STONE",
-          "target": "Tr Mornday",
-          "form": "Chansey"
+          "target": "Chansey"
         }
       ],
-      "Tr Mornday": [],
-      "Sneasel": [
+      "Chansey": [
         {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_CLAW",
-          "target": "Tr Evenite",
-          "form": "Weavile"
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Blissey"
         }
       ],
-      "Sneasel (Hisuian Form)": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_CLAW",
-          "target": "Tr Mornday",
-          "form": "Sneasler"
-        }
-      ],
-      "Tr Evenite": [],
-      "Gligar": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_FANG",
-          "target": "Tr Evenite",
-          "form": "Gliscor"
-        }
-      ]
+      "Blissey": []
     }
   },
   "Munchlax": {
@@ -7031,10 +7040,27 @@
   "Weavile": {
     "methods": [],
     "chain": [
-      "Weavile"
+      "Sneasel",
+      "Weavile",
+      "Sneasler"
     ],
     "chainWithMethods": {
-      "Weavile": []
+      "Sneasel": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Weavile"
+        }
+      ],
+      "Sneasel (Hisuian Form)": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Sneasler"
+        }
+      ],
+      "Weavile": [],
+      "Sneasler": []
     }
   },
   "Magnezone": {
@@ -7642,10 +7668,25 @@
   "Kleavor": {
     "methods": [],
     "chain": [
-      "Kleavor"
+      "Scyther",
+      "Kleavor",
+      "Scizor"
     ],
     "chainWithMethods": {
-      "Kleavor": []
+      "Scyther": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Scizor"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "HARD_STONE",
+          "target": "Kleavor"
+        }
+      ],
+      "Kleavor": [],
+      "Scizor": []
     }
   },
   "Ursaluna": {
@@ -7686,10 +7727,27 @@
   "Sneasler": {
     "methods": [],
     "chain": [
-      "Sneasler"
+      "Sneasel",
+      "Sneasler",
+      "Weavile"
     ],
     "chainWithMethods": {
-      "Sneasler": []
+      "Sneasel": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Weavile"
+        }
+      ],
+      "Sneasel (Hisuian Form)": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Sneasler"
+        }
+      ],
+      "Sneasler": [],
+      "Weavile": []
     }
   },
   "Overqwil": {
@@ -7722,7 +7780,7 @@
           "method": "EVOLVE_LEVEL",
           "parameter": 32,
           "target": "Dudunsparce",
-          "form": "No Form"
+          "form": "No_form ; Preserve Pre-evo Form"
         }
       ],
       "Dudunsparce": []

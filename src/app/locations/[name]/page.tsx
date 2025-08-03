@@ -27,21 +27,18 @@ export async function generateStaticParams() {
       loadAllLocationData(),
     ]);
 
-    // Get all locations from both data sources
     const locationNames = new Set<string>();
 
-    // Add locations with Pokemon encounters
     Object.keys(pokemonLocations).forEach((location) => {
-      locationNames.add(location.toLowerCase());
+      locationNames.add(normalizeLocationKey(location.toLowerCase()));
     });
 
-    // Add all comprehensive location data
     Object.keys(allLocationData).forEach((location) => {
-      locationNames.add(location.toLowerCase());
+      locationNames.add(normalizeLocationKey(location.toLowerCase()));
     });
 
     return Array.from(locationNames).map((name) => ({
-      name: name,
+      name,
     }));
   } catch (error) {
     console.error('Error generating static params for locations:', error);

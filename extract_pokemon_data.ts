@@ -316,21 +316,52 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
       isInUpdatedBlock = false;
       faithfulBlockDepth = 0;
     } else if (line.startsWith('evo_data ')) {
-      // Example: evo_data EVOLVE_LEVEL, 16, IVYSAUR
-      // Or: evo_data EVOLVE_ITEM, MOON_STONE, NIDOQUEEN
-      // Or: evo_data EVOLVE_ITEM, THUNDERSTONE, RAICHU, PLAIN_FORM
-      const evoMatch = line.match(/evo_data (\w+), ([^,]+), ([^,\s]+)(?:, ([^,\s]+))?/);
-      if (evoMatch) {
-        const [, method, param, target, form] = evoMatch;
-        let parsedParam: string | number = param.trim();
-        if (method === 'EVOLVE_LEVEL' && /^\d+$/.test(param.trim())) {
-          parsedParam = parseInt(param.trim(), 10);
+      // Examples:
+      // evo_data EVOLVE_LEVEL, 16, IVYSAUR
+      // evo_data EVOLVE_ITEM, MOON_STONE, NIDOQUEEN
+      // evo_data EVOLVE_ITEM, THUNDERSTONE, RAICHU, PLAIN_FORM
+      // evo_data EVOLVE_HOLDING, HARD_STONE, TR_ANYTIME, KLEAVOR
+      // evo_data EVOLVE_STAT, 20, ATK_GT_DEF, HITMONLEE
+      
+      // Split by comma and trim each part
+      const parts = line.replace('evo_data ', '').split(',').map(p => p.trim());
+      
+      if (parts.length >= 3) {
+        const method = parts[0];
+        let param = parts[1];
+        let target: string;
+        let form: string | undefined;
+        
+        // Handle special cases for EVOLVE_HOLDING and EVOLVE_STAT which have extra parameters
+        if (method === 'EVOLVE_HOLDING' || method === 'EVOLVE_STAT') {
+          // Format: EVOLVE_HOLDING, ITEM, TIME_PARAMETER, TARGET, [FORM]
+          // Format: EVOLVE_STAT, LEVEL, STAT_CONDITION, TARGET, [FORM]
+          if (parts.length >= 4) {
+            // parts[2] is the time parameter (TR_ANYTIME) or stat condition (ATK_GT_DEF)
+            target = parts[3];
+            form = parts.length > 4 ? parts[4] : undefined;
+            // For holding evolutions, the parameter should be the item, not the time
+            // The time parameter is stored separately but not currently used in display
+          } else {
+            // Invalid format, skip
+            continue;
+          }
+        } else {
+          // Standard format: METHOD, PARAMETER, TARGET, [FORM]
+          target = parts[2];
+          form = parts.length > 3 ? parts[3] : undefined;
         }
+        
+        let parsedParam: string | number = param;
+        if (method === 'EVOLVE_LEVEL' && /^\d+$/.test(param)) {
+          parsedParam = parseInt(param, 10);
+        }
+        
         evoMethods.push({
           method,
           parameter: parsedParam,
-          target: target.trim(),
-          ...(form ? { form: form.trim() } : {}),
+          target: target,
+          ...(form ? { form: form } : {}),
         });
       }
     } else if (line.startsWith('learnset ')) {
@@ -1027,12 +1058,43 @@ for (const mon of Object.keys(movesetData)) {
 console.log('🔍 Extracting detailed stats (base stats, abilities, etc.)...');
 const detailedStatsData = extractDetailedStats();
 
+// Helper function to find matching Pokemon key
+function findMatchingPokemonKey(pokemonName: string, finalResultKeys: string[]): string | null {
+  const normalizedPokemonName = pokemonName.toLowerCase();
+  
+  // First try exact match
+  const exactMatch = finalResultKeys.find(key => key.toLowerCase() === normalizedPokemonName);
+  if (exactMatch) {
+    return exactMatch;
+  }
+  
+  // If the pokemonName contains a form (e.g., "Arcanine hisuian"), try matching with base name
+  const formWords = ['alolan', 'galarian', 'hisuian', 'paldean', 'armored', 'bloodmoon', 'plain', 'paldean_fire', 'paldean_water'];
+  const pokemonWords = normalizedPokemonName.split(' ');
+  
+  // Check if any word is a form indicator
+  if (pokemonWords.length > 1 && formWords.some(form => pokemonWords.includes(form))) {
+    // Extract base name (everything except the form words)
+    const baseName = pokemonWords.filter(word => !formWords.includes(word)).join(' ');
+    const baseMatch = finalResultKeys.find(key => key.toLowerCase() === baseName);
+    if (baseMatch) {
+      return baseMatch;
+    }
+  }
+  
+  // Try partial matching - see if any finalResult key starts with the pokemonName or vice versa
+  const partialMatch = finalResultKeys.find(key => {
+    const normalizedKey = key.toLowerCase();
+    return normalizedKey.startsWith(normalizedPokemonName) || normalizedPokemonName.startsWith(normalizedKey);
+  });
+  
+  return partialMatch || null;
+}
+
 // Merge detailed stats into finalResult
 for (const [pokemonName, detailedStats] of Object.entries(detailedStatsData)) {
   // Find the matching entry in finalResult
-  const finalResultKey = Object.keys(finalResult).find(
-    (key) => key.toLowerCase() === pokemonName.toLowerCase()
-  );
+  const finalResultKey = findMatchingPokemonKey(pokemonName, Object.keys(finalResult));
 
   if (finalResultKey) {
     // Merge the detailed stats into the existing Pokemon data

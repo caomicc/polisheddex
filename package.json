@@ -1,10 +1,11 @@
 {
   "name": "polisheddex",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "node scripts/generate-build-info.mjs && node scripts/smart-sprite-build.js && ./scripts/copy-dex-files.sh && next build",
+    "build": "node scripts/generate-build-info.mjs && node scripts/smart-sprite-build.ts && ./scripts/copy-dex-files.sh && next build",
     "build-full": "node scripts/generate-build-info.mjs && npm run process-sprites && ./scripts/copy-dex-files.sh && next build",
     "start": "next start",
     "lint": "next lint",
