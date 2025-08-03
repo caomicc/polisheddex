@@ -63,7 +63,7 @@ export default function FAQPage() {
     return (
       <>
         <Hero
-          headline="Frequently Asked Questions"
+          headline="Polished Crystal FAQ"
           breadcrumbs={
             <Breadcrumb>
               <BreadcrumbList>
@@ -102,7 +102,7 @@ export default function FAQPage() {
     return (
       <>
         <Hero
-          headline="Frequently Asked Questions"
+          headline="Polished Crystal FAQ"
           breadcrumbs={
             <Breadcrumb>
               <BreadcrumbList>

@@ -1,7 +1,5 @@
 // Utilities for resolving manifest references in compressed data
 
-import { Move } from '@/types/types';
-
 interface AbilityManifest {
   [abilityId: string]: {
     name: string;
