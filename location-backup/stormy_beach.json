@@ -1,0 +1,197 @@
+{
+  "id": 20,
+  "name": "stormy_beach",
+  "displayName": "Stormy Beach",
+  "region": "johto",
+  "x": 44,
+  "y": 132,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_34_coast",
+      "targetLocationDisplay": "Route 34 Coast",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "murky_swamp",
+      "targetLocationDisplay": "Murky Swamp",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "swimmerf_barbara",
+      "name": "Barbara",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 5,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 25,
+          "species": "Starmie",
+          "moves": [
+            "Hydro Pump",
+            "Water Gun",
+            "Rapid Spin",
+            "Recover"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "bird_keeper_julian",
+      "name": "Julian",
+      "trainerClass": "BIRD_KEEPER",
+      "spriteType": "bird_keeper",
+      "coordinates": {
+        "x": 14,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 20,
+          "species": "Hoothoot",
+          "moves": [
+            "Hex",
+            "Zen Headbutt",
+            "Night Shade",
+            "Confusion"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 24,
+          "species": "Pidgeotto",
+          "moves": [
+            "Charm",
+            "Rage",
+            "Quick Attack",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Murkrow",
+          "moves": [
+            "Thief",
+            "Night Shade",
+            "Wing Attack",
+            "Haze"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "camper_felix",
+      "name": "Felix",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 28,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 28,
+          "species": "Charmeleon",
+          "moves": [
+            "Scary Face",
+            "Dragon Rage",
+            "Metal Claw",
+            "Smokescreen"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "picnicker_lily",
+      "name": "Lily",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 24,
+        "y": 11
+      },
+      "pokemon": [
+        {
+          "level": 24,
+          "species": "Nidorina",
+          "moves": [
+            "Bite",
+            "Fury Strikes",
+            "Poison Sting",
+            "Double Kick"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 22,
+          "species": "Bellsprout",
+          "moves": [
+            "Stun Spore",
+            "Poisonpowder",
+            "Sleep Powder",
+            "Wrap"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 26,
+          "species": "Weepinbell",
+          "moves": [
+            "Acid",
+            "Stun Spore",
+            "Poisonpowder",
+            "Sleep Powder"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Stardust",
+      "coordinates": {
+        "x": 17,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Zinc",
+      "coordinates": {
+        "x": 34,
+        "y": 7
+      }
+    }
+  ]
+}

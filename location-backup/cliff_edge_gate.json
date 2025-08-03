@@ -1,0 +1,75 @@
+{
+  "id": 46,
+  "name": "cliff_edge_gate",
+  "displayName": "Cliff Edge Gate",
+  "region": "johto",
+  "x": 18,
+  "y": 98,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "cianwood_city",
+      "targetLocationDisplay": "Cianwood City",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_47",
+      "targetLocationDisplay": "Route 47",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "gruntm_12",
+      "name": "Grunt",
+      "trainerClass": "GRUNTM",
+      "spriteType": "team_rocket_grunt_m",
+      "coordinates": {
+        "x": 17,
+        "y": 16
+      },
+      "pokemon": [
+        {
+          "level": 23,
+          "species": "Raticate",
+          "gender": "male",
+          "moves": [
+            "Sucker Punch",
+            "Hyper Fang",
+            "Pursuit",
+            "Bite"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 24,
+          "species": "Persian",
+          "gender": "male",
+          "form": "alolan form",
+          "moves": [
+            "Feint Attack",
+            "Screech",
+            "Fury Strikes",
+            "Astonish"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Oval Stone",
+      "coordinates": {
+        "x": 17,
+        "y": 6
+      }
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "id": 37,
+  "name": "rugged_road",
+  "displayName": "Rugged Road",
+  "region": "johto",
+  "x": 36,
+  "y": 36,
+  "flyable": false,
+  "connections": [],
+  "areas": [
+    {
+      "id": "north",
+      "displayName": "North",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Rare Bone",
+          "coordinates": {
+            "x": 23,
+            "y": 9
+          }
+        },
+        {
+          "type": "item",
+          "name": "X Attack",
+          "coordinates": {
+            "x": 4,
+            "y": 4
+          }
+        },
+        {
+          "type": "item",
+          "name": "Hyper Potion",
+          "coordinates": {
+            "x": 26,
+            "y": 4
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "south",
+          "targetLocation": "rugged_road_south",
+          "targetLocationDisplay": "Rugged Road South",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "snowtop_mountain_inside",
+          "targetLocationDisplay": "Snowtop Mountain Inside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "hidden_cave_grotto",
+          "targetLocationDisplay": "Hidden Cave Grotto",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "south",
+      "displayName": "South",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Iron",
+          "coordinates": {
+            "x": 7,
+            "y": 21
+          }
+        },
+        {
+          "type": "item",
+          "name": "Revive",
+          "coordinates": {
+            "x": 4,
+            "y": 9
+          }
+        },
+        {
+          "type": "item",
+          "name": "Iron Ball",
+          "coordinates": {
+            "x": 27,
+            "y": 13
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "north",
+          "targetLocation": "rugged_road_north",
+          "targetLocationDisplay": "Rugged Road North",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_39_rugged_road_gate",
+          "targetLocationDisplay": "Route 39 Rugged Road Gate",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [
+        {
+          "type": "coordinate_trigger",
+          "description": "Rugged Road South Bridge Overhead Trigger",
+          "coordinates": {
+            "x": 27,
+            "y": 3
+          }
+        },
+        {
+          "type": "coordinate_trigger",
+          "description": "Rugged Road South Bridge Underfoot Trigger",
+          "coordinates": {
+            "x": 27,
+            "y": 1
+          }
+        }
+      ],
+      "npcTrades": []
+    },
+    {
+      "id": "route_39_gate",
+      "displayName": "Route 39 Gate",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "rugged_road_south",
+          "targetLocationDisplay": "Rugged Road South",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_39",
+          "targetLocationDisplay": "Route 39",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [
+        {
+          "type": "coordinate_trigger",
+          "description": "Route39 Rugged Road Gate Step Left One Trigger",
+          "coordinates": {
+            "x": 5,
+            "y": 4
+          }
+        },
+        {
+          "type": "coordinate_trigger",
+          "description": "Route39 Rugged Road Gate Step Left Two Trigger",
+          "coordinates": {
+            "x": 6,
+            "y": 4
+          }
+        },
+        {
+          "type": "coordinate_trigger",
+          "description": "Route39 Rugged Road Gate Step Left Three Trigger",
+          "coordinates": {
+            "x": 7,
+            "y": 4
+          }
+        }
+      ],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "rugged_road",
+    "rugged_road_north",
+    "rugged_road_south",
+    "route_39_rugged_road_gate"
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Rare Bone",
+      "coordinates": {
+        "x": 23,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "X Attack",
+      "coordinates": {
+        "x": 4,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 26,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Iron",
+      "coordinates": {
+        "x": 7,
+        "y": 21
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 4,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Iron Ball",
+      "coordinates": {
+        "x": 27,
+        "y": 13
+      }
+    }
+  ],
+  "trainerCount": 0,
+  "hasTrainers": false
+}

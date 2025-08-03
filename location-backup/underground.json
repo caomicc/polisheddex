@@ -1,0 +1,52 @@
+{
+  "id": 83,
+  "name": "underground",
+  "displayName": "Underground",
+  "region": "kanto",
+  "x": 114,
+  "y": 66,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_5_underground_entrance",
+      "targetLocationDisplay": "Route 5 Underground Entrance",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_6_underground_entrance",
+      "targetLocationDisplay": "Route 6 Underground Entrance",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM64",
+      "moveName": "Explosion",
+      "location": "Underground"
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 3,
+        "y": 9
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "X Sp Atk",
+      "coordinates": {
+        "x": 1,
+        "y": 21
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM64 - Explosion"
+    }
+  ]
+}

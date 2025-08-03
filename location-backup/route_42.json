@@ -1,0 +1,803 @@
+{
+  "id": 52,
+  "name": "route_42",
+  "displayName": "Route 42",
+  "region": "johto",
+  "x": 92,
+  "y": 44,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "violet_outskirts",
+      "targetLocationDisplay": "Violet Outskirts",
+      "offset": 5
+    },
+    {
+      "direction": "west",
+      "targetLocation": "ecruteak_city",
+      "targetLocationDisplay": "Ecruteak City",
+      "offset": -9
+    },
+    {
+      "direction": "east",
+      "targetLocation": "mahogany_town",
+      "targetLocationDisplay": "Mahogany Town",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_42_ecruteak_gate",
+      "targetLocationDisplay": "Route 42 Ecruteak Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mount_mortar_1f_outside",
+      "targetLocationDisplay": "Mount Mortar First Floor Outside",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_cave_grotto",
+      "targetLocationDisplay": "Hidden Cave Grotto",
+      "offset": 0
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "HM05",
+      "moveName": "Whirlpool",
+      "location": "Route 42"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "lyra1_lyra1_7",
+      "name": "Lyra",
+      "trainerClass": "LYRA1",
+      "spriteType": "lyra1",
+      "coordinates": {
+        "x": -1,
+        "y": -1
+      },
+      "pokemon": [
+        {
+          "level": 33,
+          "species": "Pidgeotto",
+          "moves": [
+            "Agility",
+            "Swift",
+            "Charm",
+            "Rage"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 100,
+              "attack": 0,
+              "defense": 0,
+              "speed": 100,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 100,
+            "attack": 0,
+            "defense": 0,
+            "speed": 100,
+            "special": 0
+          }
+        },
+        {
+          "level": 34,
+          "species": "Growlithe",
+          "moves": [
+            "Flamethrower",
+            "Thrash",
+            "Agility",
+            "Flame Charge"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 100,
+              "attack": 100,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 100,
+            "attack": 100,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 34,
+          "species": "Azumarill",
+          "moves": [
+            "Scary Face",
+            "Play Rough",
+            "Aqua Tail",
+            "Dizzy Punch"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 200,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 200,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 32,
+          "species": "Flaaffy",
+          "moves": [
+            "Confuse Ray",
+            "Take Down",
+            "Heal Bell",
+            "Spark"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 100,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 100
+            }
+          },
+          "evs": {
+            "hp": 100,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 100
+          }
+        },
+        {
+          "level": 37,
+          "species": "Bayleef",
+          "nickname": "Chicory",
+          "item": "Oran Berry",
+          "moves": [
+            "Dazzlingleam",
+            "Ancientpower",
+            "Energy Ball",
+            "Disarm Voice"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 200,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 200,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "lyra1_lyra1_8",
+      "name": "Lyra",
+      "trainerClass": "LYRA1",
+      "spriteType": "lyra1",
+      "coordinates": {
+        "x": -1,
+        "y": -1
+      },
+      "pokemon": [
+        {
+          "level": 33,
+          "species": "Pidgeotto",
+          "moves": [
+            "Agility",
+            "Swift",
+            "Charm",
+            "Rage"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 100,
+              "attack": 0,
+              "defense": 0,
+              "speed": 100,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 100,
+            "attack": 0,
+            "defense": 0,
+            "speed": 100,
+            "special": 0
+          }
+        },
+        {
+          "level": 34,
+          "species": "Sunflora",
+          "moves": [
+            "Solar Beam",
+            "Petal Dance",
+            "Agility",
+            "Giga Drain"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 100,
+              "special": 100
+            }
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 100,
+            "special": 100
+          }
+        },
+        {
+          "level": 34,
+          "species": "Azumarill",
+          "moves": [
+            "Scary Face",
+            "Play Rough",
+            "Aqua Tail",
+            "Dizzy Punch"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 200,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 200,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 32,
+          "species": "Flaaffy",
+          "moves": [
+            "Confuse Ray",
+            "Take Down",
+            "Heal Bell",
+            "Spark"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 100,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 100
+            }
+          },
+          "evs": {
+            "hp": 100,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 100
+          }
+        },
+        {
+          "level": 37,
+          "species": "Quilava",
+          "nickname": "Cinder",
+          "item": "Oran Berry",
+          "moves": [
+            "Dig",
+            "Swift",
+            "Flame Charge",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 200,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 200,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "lyra1_lyra1_9",
+      "name": "Lyra",
+      "trainerClass": "LYRA1",
+      "spriteType": "lyra1",
+      "coordinates": {
+        "x": -1,
+        "y": -1
+      },
+      "pokemon": [
+        {
+          "level": 33,
+          "species": "Pidgeotto",
+          "moves": [
+            "Agility",
+            "Swift",
+            "Charm",
+            "Rage"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 100,
+              "attack": 0,
+              "defense": 0,
+              "speed": 100,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 100,
+            "attack": 0,
+            "defense": 0,
+            "speed": 100,
+            "special": 0
+          }
+        },
+        {
+          "level": 34,
+          "species": "Sunflora",
+          "moves": [
+            "Solar Beam",
+            "Petal Dance",
+            "Agility",
+            "Giga Drain"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 100,
+              "special": 100
+            }
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 100,
+            "special": 100
+          }
+        },
+        {
+          "level": 34,
+          "species": "Growlithe",
+          "moves": [
+            "Flamethrower",
+            "Thrash",
+            "Agility",
+            "Flame Charge"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 100,
+              "attack": 100,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 100,
+            "attack": 100,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 32,
+          "species": "Flaaffy",
+          "moves": [
+            "Confuse Ray",
+            "Take Down",
+            "Heal Bell",
+            "Spark"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 100,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 100
+            }
+          },
+          "evs": {
+            "hp": 100,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 100
+          }
+        },
+        {
+          "level": 37,
+          "species": "Croconaw",
+          "nickname": "Toto",
+          "item": "Oran Berry",
+          "moves": [
+            "Crunch",
+            "Agility",
+            "Reversal",
+            "Metal Claw"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 200,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 200,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "fisher_tully1",
+      "name": "Tully",
+      "trainerClass": "FISHER",
+      "spriteType": "fisher",
+      "coordinates": {
+        "x": -1,
+        "y": -1
+      },
+      "pokemon": [
+        {
+          "level": 30,
+          "species": "Qwilfish",
+          "moves": [
+            "Reversal",
+            "Pain Split",
+            "Toxic Spikes",
+            "Rollout"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "fisher_tully2",
+      "name": "Tully",
+      "trainerClass": "FISHER",
+      "spriteType": "fisher",
+      "coordinates": {
+        "x": -1,
+        "y": -1
+      },
+      "pokemon": [
+        {
+          "level": 35,
+          "species": "Goldeen",
+          "moves": [
+            "Waterfall",
+            "Agility",
+            "Fury Strikes",
+            "Haze"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 35,
+          "species": "Qwilfish",
+          "moves": [
+            "Water Pulse",
+            "Reversal",
+            "Pain Split",
+            "Toxic Spikes"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "fisher_tully3",
+      "name": "Tully",
+      "trainerClass": "FISHER",
+      "spriteType": "fisher",
+      "coordinates": {
+        "x": -1,
+        "y": -1
+      },
+      "pokemon": [
+        {
+          "level": 40,
+          "species": "Poliwhirl",
+          "moves": [
+            "Belly Drum",
+            "Low Kick",
+            "Bubble Beam",
+            "Body Slam"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 40,
+          "species": "Seaking",
+          "moves": [
+            "Body Slam",
+            "Waterfall",
+            "Agility",
+            "Fury Strikes"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 40,
+          "species": "Qwilfish",
+          "moves": [
+            "Pin Missile",
+            "Water Pulse",
+            "Reversal",
+            "Pain Split"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "fisher_tully4",
+      "name": "Tully",
+      "trainerClass": "FISHER",
+      "spriteType": "fisher",
+      "coordinates": {
+        "x": -1,
+        "y": -1
+      },
+      "pokemon": [
+        {
+          "level": 43,
+          "species": "Poliwrath",
+          "moves": [
+            "Rain Dance",
+            "Hypnosis",
+            "Waterfall",
+            "Close Combat"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Rain Dance",
+              "Hypnosis",
+              "Waterfall",
+              "Close Combat"
+            ]
+          }
+        },
+        {
+          "level": 43,
+          "species": "Seaking",
+          "moves": [
+            "Agility",
+            "Waterfall",
+            "Body Slam",
+            "Poison Jab"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Agility",
+              "Waterfall",
+              "Body Slam",
+              "Poison Jab"
+            ]
+          }
+        },
+        {
+          "level": 45,
+          "species": "Qwilfish",
+          "moves": [
+            "Rollout",
+            "Waterfall",
+            "Pin Missile",
+            "Take Down"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Rollout",
+              "Waterfall",
+              "Pin Missile",
+              "Take Down"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "hiker_benjamin",
+      "name": "Benjamin",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 51,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 24,
+          "species": "Diglett",
+          "moves": [
+            "Sucker Punch",
+            "Bulldoze",
+            "Magnitude",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 24,
+          "species": "Dunsparce",
+          "moves": [
+            "Dragon Rage",
+            "Body Slam",
+            "Ancientpower",
+            "Fury Strikes"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 28,
+          "species": "Gligar",
+          "moves": [
+            "Slash",
+            "Acrobatics",
+            "Feint Attack",
+            "Bug Bite"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "pokemaniac_shane",
+      "name": "Shane",
+      "trainerClass": "POKEMANIAC",
+      "spriteType": "pokemaniac",
+      "coordinates": {
+        "x": 47,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 20,
+          "species": "Nidorina",
+          "moves": [
+            "Fury Strikes",
+            "Poison Sting",
+            "Double Kick",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 20,
+          "species": "Nidorino",
+          "moves": [
+            "Fury Strikes",
+            "Poison Sting",
+            "Double Kick",
+            "Focus Energy"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 16,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 33,
+        "y": 8
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "HM05 - Whirlpool"
+    }
+  ]
+}

@@ -1,0 +1,788 @@
+{
+  "id": -1,
+  "name": "mount_mortar",
+  "displayName": "Mount Mortar",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM40 - Aerial Ace"
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Repel",
+      "coordinates": {
+        "x": 30,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Smooth Rock",
+      "coordinates": {
+        "x": 35,
+        "y": 38
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 16,
+        "y": 10
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 10,
+        "y": 27
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 22,
+        "y": 20
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 35,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Iron",
+      "coordinates": {
+        "x": 8,
+        "y": 16
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 17,
+        "y": 17
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 25,
+        "y": 22
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ether",
+      "coordinates": {
+        "x": 13,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 31,
+        "y": 18
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 24,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 28,
+        "y": 22
+      }
+    },
+    {
+      "type": "item",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 2,
+        "y": 33
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dragon Scale",
+      "coordinates": {
+        "x": 16,
+        "y": 5
+      }
+    },
+    {
+      "type": "item",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 9,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Escape Rope",
+      "coordinates": {
+        "x": 28,
+        "y": 5
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 4,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 29,
+        "y": 12
+      }
+    },
+    {
+      "type": "item",
+      "name": "Carbos",
+      "coordinates": {
+        "x": 4,
+        "y": 16
+      }
+    },
+    {
+      "type": "item",
+      "name": "Protector",
+      "coordinates": {
+        "x": 34,
+        "y": 24
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Ether",
+      "coordinates": {
+        "x": 32,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 21,
+        "y": 26
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM40 - Aerial Ace"
+        }
+      ],
+      "connections": [],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f_inside",
+      "displayName": "First Floor Inside",
+      "trainers": [
+        {
+          "id": "pokemaniac_miller",
+          "name": "Miller",
+          "trainerClass": "POKEMANIAC",
+          "spriteType": "pokemaniac",
+          "coordinates": {
+            "x": 33,
+            "y": 43
+          },
+          "pokemon": [
+            {
+              "level": 27,
+              "species": "Nidoking",
+              "moves": [
+                "Outrage",
+                "Megahorn",
+                "Peck",
+                "Focus Energy"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 27,
+              "species": "Nidoqueen",
+              "moves": [
+                "Outrage",
+                "Close Combat",
+                "Scratch",
+                "Leer"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "super_nerd_markus",
+          "name": "Markus",
+          "trainerClass": "SUPER_NERD",
+          "spriteType": "super_nerd",
+          "coordinates": {
+            "x": 24,
+            "y": 28
+          },
+          "pokemon": [
+            {
+              "level": 29,
+              "species": "Slowbro",
+              "moves": [
+                "Confusion",
+                "Headbutt",
+                "Water Pulse",
+                "Strength"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Confusion",
+                  "Headbutt",
+                  "Water Pulse",
+                  "Strength"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Repel",
+          "coordinates": {
+            "x": 30,
+            "y": 11
+          }
+        },
+        {
+          "type": "item",
+          "name": "Smooth Rock",
+          "coordinates": {
+            "x": 35,
+            "y": 38
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 16,
+            "y": 10
+          }
+        },
+        {
+          "type": "item",
+          "name": "Hyper Potion",
+          "coordinates": {
+            "x": 10,
+            "y": 27
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Potion",
+          "coordinates": {
+            "x": 22,
+            "y": 20
+          }
+        },
+        {
+          "type": "item",
+          "name": "Nugget",
+          "coordinates": {
+            "x": 35,
+            "y": 19
+          }
+        },
+        {
+          "type": "item",
+          "name": "Iron",
+          "coordinates": {
+            "x": 8,
+            "y": 16
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 17,
+            "y": 17
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "mount_mortar_1f_outside",
+          "targetLocationDisplay": "Mount Mortar First Floor Outside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "mount_mortar_b_1f",
+          "targetLocationDisplay": "Mount Mortar B First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "mount_mortar_2f_inside",
+          "targetLocationDisplay": "Mount Mortar Second Floor Inside",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f_outside",
+      "displayName": "First Floor Outside",
+      "trainers": [
+        {
+          "id": "battle_girl_subaru",
+          "name": "Subaru",
+          "trainerClass": "BATTLE_GIRL",
+          "spriteType": "battle_girl",
+          "coordinates": {
+            "x": 9,
+            "y": 15
+          },
+          "pokemon": [
+            {
+              "level": 26,
+              "species": "Machop",
+              "moves": [
+                "Mach Punch",
+                "Knock Off",
+                "Reversal",
+                "Seismic Toss"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 27,
+              "species": "Machoke",
+              "moves": [
+                "Bullet Punch",
+                "Mach Punch",
+                "Knock Off",
+                "Reversal"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 28,
+              "species": "Primeape",
+              "moves": [
+                "Reversal",
+                "Cross Chop",
+                "Swagger",
+                "Seismic Toss"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "battle_girl_diane",
+          "name": "Diane",
+          "trainerClass": "BATTLE_GIRL",
+          "spriteType": "battle_girl",
+          "coordinates": {
+            "x": 30,
+            "y": 11
+          },
+          "pokemon": [
+            {
+              "level": 28,
+              "species": "Hitmonlee",
+              "moves": [
+                "Aerial Ace",
+                "Stomp",
+                "Low Kick",
+                "Pursuit"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 28,
+              "species": "Ursaring",
+              "moves": [
+                "Play Rough",
+                "Belly Drum",
+                "Feint Attack",
+                "Fury Strikes"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Hyper Potion",
+          "coordinates": {
+            "x": 25,
+            "y": 22
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ether",
+          "coordinates": {
+            "x": 13,
+            "y": 15
+          }
+        },
+        {
+          "type": "item",
+          "name": "Revive",
+          "coordinates": {
+            "x": 31,
+            "y": 18
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_42",
+          "targetLocationDisplay": "Route 42",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "mount_mortar_2f_inside",
+          "targetLocationDisplay": "Mount Mortar Second Floor Inside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "mount_mortar_1f_inside",
+          "targetLocationDisplay": "Mount Mortar First Floor Inside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "mount_mortar_b_1f",
+          "targetLocationDisplay": "Mount Mortar B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f_inside",
+      "displayName": "Second Floor Inside",
+      "trainers": [
+        {
+          "id": "super_nerd_hugh",
+          "name": "Hugh",
+          "trainerClass": "SUPER_NERD",
+          "spriteType": "super_nerd",
+          "coordinates": {
+            "x": 13,
+            "y": 26
+          },
+          "pokemon": [
+            {
+              "level": 29,
+              "species": "Seadra",
+              "moves": [
+                "Smokescreen",
+                "Outrage",
+                "Surf",
+                "Waterfall"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Smokescreen",
+                  "Outrage",
+                  "Surf",
+                  "Waterfall"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 24,
+            "y": 8
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Potion",
+          "coordinates": {
+            "x": 28,
+            "y": 22
+          }
+        },
+        {
+          "type": "item",
+          "name": "Rare Candy",
+          "coordinates": {
+            "x": 2,
+            "y": 33
+          }
+        },
+        {
+          "type": "item",
+          "name": "Dragon Scale",
+          "coordinates": {
+            "x": 16,
+            "y": 5
+          }
+        },
+        {
+          "type": "item",
+          "name": "Elixir",
+          "coordinates": {
+            "x": 9,
+            "y": 11
+          }
+        },
+        {
+          "type": "item",
+          "name": "Escape Rope",
+          "coordinates": {
+            "x": 28,
+            "y": 5
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "mount_mortar_1f_outside",
+          "targetLocationDisplay": "Mount Mortar First Floor Outside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "mount_mortar_1f_inside",
+          "targetLocationDisplay": "Mount Mortar First Floor Inside",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f",
+      "displayName": "Basement 1st Floor",
+      "trainers": [
+        {
+          "id": "karate_king_kiyo",
+          "name": "Kiyo",
+          "trainerClass": "KARATE_KING",
+          "spriteType": "karate_king",
+          "coordinates": {
+            "x": 16,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 31,
+              "species": "Hitmonlee",
+              "item": "Black Belt",
+              "moves": [
+                "Bulk Up",
+                "Focus Energy",
+                "Hi Jump Kick",
+                "Foresight"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Bulk Up",
+                  "Focus Energy",
+                  "Hi Jump Kick",
+                  "Foresight"
+                ]
+              }
+            },
+            {
+              "level": 31,
+              "species": "Hitmonchan",
+              "item": "Kings Rock",
+              "moves": [
+                "Thunderpunch",
+                "Ice Punch",
+                "Fire Punch",
+                "Mach Punch"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Thunderpunch",
+                  "Ice Punch",
+                  "Fire Punch",
+                  "Mach Punch"
+                ]
+              }
+            },
+            {
+              "level": 31,
+              "species": "Hitmontop",
+              "item": "Focus Band",
+              "moves": [
+                "Bulk Up",
+                "Double Kick",
+                "Rapid Spin",
+                "Counter"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Bulk Up",
+                  "Double Kick",
+                  "Rapid Spin",
+                  "Counter"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 4,
+            "y": 6
+          }
+        },
+        {
+          "type": "item",
+          "name": "Hyper Potion",
+          "coordinates": {
+            "x": 29,
+            "y": 12
+          }
+        },
+        {
+          "type": "item",
+          "name": "Carbos",
+          "coordinates": {
+            "x": 4,
+            "y": 16
+          }
+        },
+        {
+          "type": "item",
+          "name": "Protector",
+          "coordinates": {
+            "x": 34,
+            "y": 24
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Ether",
+          "coordinates": {
+            "x": 32,
+            "y": 3
+          }
+        },
+        {
+          "type": "item",
+          "name": "Pp Up",
+          "coordinates": {
+            "x": 21,
+            "y": 26
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "mount_mortar_1f_inside",
+          "targetLocationDisplay": "Mount Mortar First Floor Inside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "mount_mortar_1f_outside",
+          "targetLocationDisplay": "Mount Mortar First Floor Outside",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "mount_mortar",
+    "mount_mortar_1f_inside",
+    "mount_mortar_1f_outside",
+    "mount_mortar_2f_inside",
+    "mount_mortar_b_1f"
+  ],
+  "trainerCount": 6,
+  "hasTrainers": true
+}

@@ -1,0 +1,947 @@
+{
+  "id": 58,
+  "name": "ice_path",
+  "displayName": "Ice Path",
+  "region": "johto",
+  "x": 128,
+  "y": 40,
+  "flyable": false,
+  "connections": [],
+  "tmhms": [
+    {
+      "tmNumber": "HM06",
+      "moveName": "Waterfall",
+      "location": "Ice Path"
+    }
+  ],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "HM06 - Waterfall"
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 32,
+        "y": 23
+      }
+    },
+    {
+      "type": "item",
+      "name": "Heat Rock",
+      "coordinates": {
+        "x": 35,
+        "y": 9
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 17,
+        "y": 30
+      }
+    },
+    {
+      "type": "item",
+      "name": "Iron",
+      "coordinates": {
+        "x": 5,
+        "y": 35
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Ice Heal",
+      "coordinates": {
+        "x": 2,
+        "y": 10
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 8,
+        "y": 16
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Carbos",
+      "coordinates": {
+        "x": 0,
+        "y": 17
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ice Stone",
+      "coordinates": {
+        "x": 8,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nevermeltice",
+      "coordinates": {
+        "x": 5,
+        "y": 7
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "HM06 - Waterfall"
+        }
+      ],
+      "connections": [],
+      "tmhms": [
+        {
+          "tmNumber": "HM06",
+          "moveName": "Waterfall",
+          "location": "Ice Path"
+        }
+      ],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [
+        {
+          "id": "skier_maria",
+          "name": "Maria",
+          "trainerClass": "SKIER",
+          "spriteType": "skier",
+          "coordinates": {
+            "x": 29,
+            "y": 10
+          },
+          "pokemon": [
+            {
+              "level": 39,
+              "species": "Jynx",
+              "moves": [
+                "Avalanche",
+                "Psybeam",
+                "Draining Kiss",
+                "Mean Look"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "boarder_stefan",
+          "name": "Stefan",
+          "trainerClass": "BOARDER",
+          "spriteType": "boarder",
+          "coordinates": {
+            "x": 28,
+            "y": 3
+          },
+          "pokemon": [
+            {
+              "level": 36,
+              "species": "Swinub",
+              "moves": [
+                "Bulldoze",
+                "Take Down",
+                "Icicle Crash",
+                "Icy Wind"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 36,
+              "species": "Piloswine",
+              "moves": [
+                "Take Down",
+                "Icicle Crash",
+                "Icy Wind",
+                "Magnitude"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 38,
+              "species": "Sneasel",
+              "moves": [
+                "Slash",
+                "Screech",
+                "Icicle Crash",
+                "Hone Claws"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Pp Up",
+          "coordinates": {
+            "x": 32,
+            "y": 23
+          }
+        },
+        {
+          "type": "item",
+          "name": "Heat Rock",
+          "coordinates": {
+            "x": 35,
+            "y": 9
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_44",
+          "targetLocationDisplay": "Route 44",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "blackthorn_city",
+          "targetLocationDisplay": "Blackthorn City",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "ice_path_b_1f",
+          "targetLocationDisplay": "Ice Path B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f",
+      "displayName": "Basement 1st Floor",
+      "trainers": [
+        {
+          "id": "boarder_max",
+          "name": "Max",
+          "trainerClass": "BOARDER",
+          "spriteType": "boarder",
+          "coordinates": {
+            "x": 4,
+            "y": 23
+          },
+          "pokemon": [
+            {
+              "level": 36,
+              "species": "Piloswine",
+              "gender": "male",
+              "moves": [
+                "Take Down",
+                "Icicle Crash",
+                "Icy Wind",
+                "Magnitude"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 37,
+              "species": "Sandslash",
+              "gender": "male",
+              "form": "alolan form",
+              "moves": [
+                "Dig",
+                "Metal Claw",
+                "Super Fang",
+                "Fury Strikes"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "skier_becky",
+          "name": "Becky",
+          "trainerClass": "SKIER",
+          "spriteType": "skier",
+          "coordinates": {
+            "x": 14,
+            "y": 24
+          },
+          "pokemon": [
+            {
+              "level": 37,
+              "species": "Lapras",
+              "gender": "male",
+              "moves": [
+                "Future Sight",
+                "Ice Beam",
+                "Perish Song",
+                "Rain Dance"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 38,
+              "species": "Dewgong",
+              "gender": "male",
+              "moves": [
+                "Bubble Beam",
+                "Aqua Jet",
+                "Aurora Beam",
+                "Sleep Talk"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 38,
+              "species": "Ninetales",
+              "gender": "male",
+              "form": "alolan form",
+              "moves": [
+                "Nasty Plot",
+                "Flamethrower",
+                "Quick Attack",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Potion",
+          "coordinates": {
+            "x": 17,
+            "y": 30
+          }
+        },
+        {
+          "type": "item",
+          "name": "Iron",
+          "coordinates": {
+            "x": 5,
+            "y": 35
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "ice_path_1f",
+          "targetLocationDisplay": "Ice Path First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "ice_path_b_2f_mahogany_side",
+          "targetLocationDisplay": "Ice Path B Second Floor Mahogany Side",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "ice_path_b_2f_blackthorn_side",
+          "targetLocationDisplay": "Ice Path B Second Floor Blackthorn Side",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_2f_blackthorn_side",
+      "displayName": "B Second Floor Blackthorn Side",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Ice Heal",
+          "coordinates": {
+            "x": 2,
+            "y": 10
+          }
+        },
+        {
+          "type": "item",
+          "name": "Nugget",
+          "coordinates": {
+            "x": 8,
+            "y": 16
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "ice_path_b_1f",
+          "targetLocationDisplay": "Ice Path B First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "ice_path_b_3f",
+          "targetLocationDisplay": "Ice Path B Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_2f_mahogany_side",
+      "displayName": "B Second Floor Mahogany Side",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Carbos",
+          "coordinates": {
+            "x": 0,
+            "y": 17
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ice Stone",
+          "coordinates": {
+            "x": 8,
+            "y": 9
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Potion",
+          "coordinates": {
+            "x": 0,
+            "y": 2
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "ice_path_b_1f",
+          "targetLocationDisplay": "Ice Path B First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "ice_path_b_3f",
+          "targetLocationDisplay": "Ice Path B Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_3f",
+      "displayName": "Basement 3rd Floor",
+      "trainers": [
+        {
+          "id": "lorelei_1",
+          "name": "Lorelei",
+          "trainerClass": "LORELEI",
+          "spriteType": "lorelei",
+          "coordinates": {
+            "x": -1,
+            "y": -1
+          },
+          "pokemon": [
+            {
+              "level": 39,
+              "species": "Glaceon",
+              "moves": [
+                "Ice Beam",
+                "Barrier",
+                "Recover",
+                "Quick Attack"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 240,
+                  "special": 0
+                },
+                "moves": [
+                  "Ice Beam",
+                  "Barrier",
+                  "Recover",
+                  "Quick Attack"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 240,
+                "special": 0
+              }
+            },
+            {
+              "level": 41,
+              "species": "Dewgong",
+              "moves": [
+                "Waterfall",
+                "Aurora Beam",
+                "Sleep Talk",
+                "Rest"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 240,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                },
+                "moves": [
+                  "Waterfall",
+                  "Aurora Beam",
+                  "Sleep Talk",
+                  "Rest"
+                ]
+              },
+              "evs": {
+                "hp": 240,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 40,
+              "species": "Cloyster",
+              "moves": [
+                "Defense Curl",
+                "Rollout",
+                "Aurora Beam",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 240,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                },
+                "moves": [
+                  "Defense Curl",
+                  "Rollout",
+                  "Aurora Beam",
+                  "Explosion"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 240,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 41,
+              "species": "Slowbro",
+              "moves": [
+                "Psychic",
+                "Water Pulse",
+                "Headbutt",
+                "Disable"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 240,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                },
+                "moves": [
+                  "Psychic",
+                  "Water Pulse",
+                  "Headbutt",
+                  "Disable"
+                ]
+              },
+              "evs": {
+                "hp": 240,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 44,
+              "species": "Jynx",
+              "item": "Sitrus Berry",
+              "moves": [
+                "Draining Kiss",
+                "Sing",
+                "Avalanche",
+                "Petal Dance"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 240
+                },
+                "moves": [
+                  "Draining Kiss",
+                  "Sing",
+                  "Avalanche",
+                  "Petal Dance"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 240
+              }
+            },
+            {
+              "level": 43,
+              "species": "Lapras",
+              "moves": [
+                "Ice Beam",
+                "Ancientpower",
+                "Confuse Ray",
+                "Surf"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 120
+                },
+                "moves": [
+                  "Ice Beam",
+                  "Ancientpower",
+                  "Confuse Ray",
+                  "Surf"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 120
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "lorelei_3",
+          "name": "Lorelei",
+          "trainerClass": "LORELEI",
+          "spriteType": "lorelei",
+          "coordinates": {
+            "x": -1,
+            "y": -1
+          },
+          "pokemon": [
+            {
+              "level": 58,
+              "species": "Dewgong",
+              "item": "Leftovers",
+              "moves": [
+                "Aqua Tail",
+                "Ice Beam",
+                "Rest",
+                "Sleep Talk"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 160,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 160
+                },
+                "moves": [
+                  "Aqua Tail",
+                  "Ice Beam",
+                  "Rest",
+                  "Sleep Talk"
+                ]
+              },
+              "evs": {
+                "hp": 160,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 160
+              }
+            },
+            {
+              "level": 57,
+              "species": "Cloyster",
+              "item": "Silk Scarf",
+              "moves": [
+                "Explosion",
+                "Rollout",
+                "Icicle Crash",
+                "Barrier"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 252,
+                  "defense": 0,
+                  "speed": 68,
+                  "special": 0
+                },
+                "moves": [
+                  "Explosion",
+                  "Rollout",
+                  "Icicle Crash",
+                  "Barrier"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 252,
+                "defense": 0,
+                "speed": 68,
+                "special": 0
+              }
+            },
+            {
+              "level": 58,
+              "species": "Slowbro",
+              "item": "Twistedspoon",
+              "moves": [
+                "Psychic",
+                "Surf",
+                "Ice Beam",
+                "Calm Mind"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 252,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 68
+                },
+                "moves": [
+                  "Psychic",
+                  "Surf",
+                  "Ice Beam",
+                  "Calm Mind"
+                ]
+              },
+              "evs": {
+                "hp": 252,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 68
+              }
+            },
+            {
+              "level": 56,
+              "species": "Glaceon",
+              "item": "Nevermeltice",
+              "moves": [
+                "Ice Beam",
+                "Barrier",
+                "Hyper Voice",
+                "Quick Attack"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 68,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 252
+                },
+                "moves": [
+                  "Ice Beam",
+                  "Barrier",
+                  "Hyper Voice",
+                  "Quick Attack"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 68,
+                "defense": 0,
+                "speed": 0,
+                "special": 252
+              }
+            },
+            {
+              "level": 60,
+              "species": "Jynx",
+              "item": "Pink Bow",
+              "moves": [
+                "Draining Kiss",
+                "Nasty Plot",
+                "Ice Beam",
+                "Psychic"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 252,
+                  "special": 68
+                },
+                "moves": [
+                  "Draining Kiss",
+                  "Nasty Plot",
+                  "Ice Beam",
+                  "Psychic"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 252,
+                "special": 68
+              }
+            },
+            {
+              "level": 59,
+              "species": "Lapras",
+              "item": "Brightpowder",
+              "moves": [
+                "Ice Beam",
+                "Ancientpower",
+                "Confuse Ray",
+                "Outrage"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 160,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 80,
+                  "special": 80
+                },
+                "moves": [
+                  "Ice Beam",
+                  "Ancientpower",
+                  "Confuse Ray",
+                  "Outrage"
+                ]
+              },
+              "evs": {
+                "hp": 160,
+                "attack": 0,
+                "defense": 0,
+                "speed": 80,
+                "special": 80
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Nevermeltice",
+          "coordinates": {
+            "x": 5,
+            "y": 7
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "ice_path_b_2f_mahogany_side",
+          "targetLocationDisplay": "Ice Path B Second Floor Mahogany Side",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "ice_path_b_2f_blackthorn_side",
+          "targetLocationDisplay": "Ice Path B Second Floor Blackthorn Side",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "ice_path",
+    "ice_path_1f",
+    "ice_path_b_1f",
+    "ice_path_b_2f_blackthorn_side",
+    "ice_path_b_2f_mahogany_side",
+    "ice_path_b_3f"
+  ],
+  "trainerCount": 6,
+  "hasTrainers": true
+}

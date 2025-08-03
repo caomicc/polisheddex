@@ -1,0 +1,1179 @@
+{
+  "id": 126,
+  "name": "victory_road",
+  "displayName": "Victory Road",
+  "region": "kanto",
+  "x": 28,
+  "y": 52,
+  "flyable": false,
+  "connections": [],
+  "tmhms": [
+    {
+      "tmNumber": "TM26",
+      "moveName": "Earthquake",
+      "location": "Victory Road"
+    }
+  ],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM26 - Earthquake"
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 5,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 14,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 17,
+        "y": 2
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 20,
+        "y": 5
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hp Up",
+      "coordinates": {
+        "x": 9,
+        "y": 14
+      }
+    },
+    {
+      "type": "item",
+      "name": "Razor Fang",
+      "coordinates": {
+        "x": 16,
+        "y": 13
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM26 - Earthquake"
+        }
+      ],
+      "connections": [],
+      "tmhms": [
+        {
+          "tmNumber": "TM26",
+          "moveName": "Earthquake",
+          "location": "Victory Road"
+        }
+      ],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [
+        {
+          "id": "veteranm_matt",
+          "name": "Matthew",
+          "trainerClass": "VETERANM",
+          "spriteType": "veteranm",
+          "coordinates": {
+            "x": 12,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 41,
+              "species": "Feraligatr",
+              "item": "Kings Rock",
+              "moves": [
+                "Scary Face",
+                "Metal Claw",
+                "Crunch",
+                "Waterfall"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Scary Face",
+                  "Metal Claw",
+                  "Crunch",
+                  "Waterfall"
+                ]
+              }
+            },
+            {
+              "level": 40,
+              "species": "Ampharos",
+              "item": "Magnet",
+              "moves": [
+                "Thunder Wave",
+                "Confuse Ray",
+                "Dragon Pulse",
+                "Thunderbolt"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Thunder Wave",
+                  "Confuse Ray",
+                  "Dragon Pulse",
+                  "Thunderbolt"
+                ]
+              }
+            },
+            {
+              "level": 38,
+              "species": "Ursaring",
+              "item": "Leftovers",
+              "moves": [
+                "Belly Drum",
+                "Play Rough",
+                "Slash",
+                "Strength"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Belly Drum",
+                  "Play Rough",
+                  "Slash",
+                  "Strength"
+                ]
+              }
+            },
+            {
+              "level": 38,
+              "species": "Noctowl",
+              "item": "Quick Claw",
+              "moves": [
+                "Reflect",
+                "Psychic",
+                "Shadow Ball",
+                "Air Slash"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Reflect",
+                  "Psychic",
+                  "Shadow Ball",
+                  "Air Slash"
+                ]
+              }
+            },
+            {
+              "level": 39,
+              "species": "Arcanine",
+              "item": "Charcoal",
+              "moves": [
+                "Flame Charge",
+                "Flamethrower",
+                "Double Kick",
+                "Take Down"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Flame Charge",
+                  "Flamethrower",
+                  "Double Kick",
+                  "Take Down"
+                ]
+              }
+            },
+            {
+              "level": 37,
+              "species": "Sandslash",
+              "item": "Hard Stone",
+              "moves": [
+                "Slash",
+                "Earthquake",
+                "Defense Curl",
+                "Rollout"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Slash",
+                  "Earthquake",
+                  "Defense Curl",
+                  "Rollout"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Full Heal",
+          "coordinates": {
+            "x": 5,
+            "y": 19
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 14,
+            "y": 2
+          }
+        },
+        {
+          "type": "item",
+          "name": "Full Heal",
+          "coordinates": {
+            "x": 17,
+            "y": 2
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_23",
+          "targetLocationDisplay": "Route 23",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "victory_road_2f",
+          "targetLocationDisplay": "Victory Road Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [
+        {
+          "id": "rival1_rival1_15",
+          "name": "<RIVAL>",
+          "trainerClass": "RIVAL1",
+          "spriteType": "rival1",
+          "coordinates": {
+            "x": 25,
+            "y": 9
+          },
+          "pokemon": [
+            {
+              "level": 45,
+              "species": "Weavile",
+              "item": "Kings Rock",
+              "moves": [
+                "Swords Dance",
+                "Screech",
+                "Night Slash",
+                "X Scissor"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Swords Dance",
+                  "Screech",
+                  "Night Slash",
+                  "X Scissor"
+                ]
+              }
+            },
+            {
+              "level": 47,
+              "species": "Golbat",
+              "item": "Eviolite",
+              "moves": [
+                "Poison Jab",
+                "Super Fang",
+                "Confuse Ray",
+                "Wing Attack"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Poison Jab",
+                  "Super Fang",
+                  "Confuse Ray",
+                  "Wing Attack"
+                ]
+              }
+            },
+            {
+              "level": 46,
+              "species": "Magneton",
+              "item": "Magnet",
+              "moves": [
+                "Thunderbolt",
+                "Tri Attack",
+                "Thunder Wave",
+                "Flash Cannon"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Thunderbolt",
+                  "Tri Attack",
+                  "Thunder Wave",
+                  "Flash Cannon"
+                ]
+              }
+            },
+            {
+              "level": 46,
+              "species": "Gengar",
+              "item": "Spell Tag",
+              "moves": [
+                "Mean Look",
+                "Dark Pulse",
+                "Shadow Ball",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Mean Look",
+                  "Dark Pulse",
+                  "Shadow Ball",
+                  "Confuse Ray"
+                ]
+              }
+            },
+            {
+              "level": 46,
+              "species": "Alakazam",
+              "item": "Brightpowder",
+              "moves": [
+                "Disable",
+                "Psychic",
+                "Recover",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Disable",
+                  "Psychic",
+                  "Recover",
+                  "Confuse Ray"
+                ]
+              }
+            },
+            {
+              "level": 49,
+              "species": "Feraligatr",
+              "item": "Sitrus Berry",
+              "moves": [
+                "Crunch",
+                "Surf",
+                "Slash",
+                "Scary Face"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Crunch",
+                  "Surf",
+                  "Slash",
+                  "Scary Face"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "rival1_rival1_13",
+          "name": "<RIVAL>",
+          "trainerClass": "RIVAL1",
+          "spriteType": "rival1",
+          "coordinates": {
+            "x": 25,
+            "y": 9
+          },
+          "pokemon": [
+            {
+              "level": 45,
+              "species": "Weavile",
+              "item": "Kings Rock",
+              "moves": [
+                "Swords Dance",
+                "Screech",
+                "Night Slash",
+                "X Scissor"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Swords Dance",
+                  "Screech",
+                  "Night Slash",
+                  "X Scissor"
+                ]
+              }
+            },
+            {
+              "level": 47,
+              "species": "Golbat",
+              "item": "Eviolite",
+              "moves": [
+                "Poison Jab",
+                "Super Fang",
+                "Confuse Ray",
+                "Wing Attack"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Poison Jab",
+                  "Super Fang",
+                  "Confuse Ray",
+                  "Wing Attack"
+                ]
+              }
+            },
+            {
+              "level": 46,
+              "species": "Magneton",
+              "item": "Magnet",
+              "moves": [
+                "Thunderbolt",
+                "Tri Attack",
+                "Thunder Wave",
+                "Flash Cannon"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Thunderbolt",
+                  "Tri Attack",
+                  "Thunder Wave",
+                  "Flash Cannon"
+                ]
+              }
+            },
+            {
+              "level": 46,
+              "species": "Gengar",
+              "item": "Spell Tag",
+              "moves": [
+                "Mean Look",
+                "Dark Pulse",
+                "Shadow Ball",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Mean Look",
+                  "Dark Pulse",
+                  "Shadow Ball",
+                  "Confuse Ray"
+                ]
+              }
+            },
+            {
+              "level": 46,
+              "species": "Alakazam",
+              "item": "Brightpowder",
+              "moves": [
+                "Disable",
+                "Psychic",
+                "Recover",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Disable",
+                  "Psychic",
+                  "Recover",
+                  "Confuse Ray"
+                ]
+              }
+            },
+            {
+              "level": 49,
+              "species": "Meganium",
+              "item": "Sitrus Berry",
+              "moves": [
+                "Reflect",
+                "Light Screen",
+                "Energy Ball",
+                "Ancientpower"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Reflect",
+                  "Light Screen",
+                  "Energy Ball",
+                  "Ancientpower"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "rival1_rival1_14",
+          "name": "<RIVAL>",
+          "trainerClass": "RIVAL1",
+          "spriteType": "rival1",
+          "coordinates": {
+            "x": 25,
+            "y": 9
+          },
+          "pokemon": [
+            {
+              "level": 45,
+              "species": "Weavile",
+              "item": "Kings Rock",
+              "moves": [
+                "Swords Dance",
+                "Screech",
+                "Night Slash",
+                "X Scissor"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Swords Dance",
+                  "Screech",
+                  "Night Slash",
+                  "X Scissor"
+                ]
+              }
+            },
+            {
+              "level": 47,
+              "species": "Golbat",
+              "item": "Eviolite",
+              "moves": [
+                "Poison Jab",
+                "Super Fang",
+                "Confuse Ray",
+                "Wing Attack"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Poison Jab",
+                  "Super Fang",
+                  "Confuse Ray",
+                  "Wing Attack"
+                ]
+              }
+            },
+            {
+              "level": 46,
+              "species": "Magneton",
+              "item": "Magnet",
+              "moves": [
+                "Thunderbolt",
+                "Tri Attack",
+                "Thunder Wave",
+                "Flash Cannon"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Thunderbolt",
+                  "Tri Attack",
+                  "Thunder Wave",
+                  "Flash Cannon"
+                ]
+              }
+            },
+            {
+              "level": 46,
+              "species": "Gengar",
+              "item": "Spell Tag",
+              "moves": [
+                "Mean Look",
+                "Dark Pulse",
+                "Shadow Ball",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Mean Look",
+                  "Dark Pulse",
+                  "Shadow Ball",
+                  "Confuse Ray"
+                ]
+              }
+            },
+            {
+              "level": 46,
+              "species": "Alakazam",
+              "item": "Brightpowder",
+              "moves": [
+                "Disable",
+                "Psychic",
+                "Recover",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Disable",
+                  "Psychic",
+                  "Recover",
+                  "Confuse Ray"
+                ]
+              }
+            },
+            {
+              "level": 49,
+              "species": "Typhlosion",
+              "item": "Sitrus Berry",
+              "moves": [
+                "Smokescreen",
+                "Quick Attack",
+                "Dig",
+                "Flamethrower"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Smokescreen",
+                  "Quick Attack",
+                  "Dig",
+                  "Flamethrower"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "veteranf_joanne",
+          "name": "Joanne",
+          "trainerClass": "VETERANF",
+          "spriteType": "veteranf",
+          "coordinates": {
+            "x": 11,
+            "y": 11
+          },
+          "pokemon": [
+            {
+              "level": 41,
+              "species": "Venusaur",
+              "item": "Miracle Seed",
+              "moves": [
+                "Growth",
+                "Sludge Bomb",
+                "Petal Dance",
+                "Sleep Powder"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Growth",
+                  "Sludge Bomb",
+                  "Petal Dance",
+                  "Sleep Powder"
+                ]
+              }
+            },
+            {
+              "level": 38,
+              "species": "Pidgeot",
+              "item": "Quick Claw",
+              "moves": [
+                "Roost",
+                "Fly",
+                "Swift",
+                "Roar"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Roost",
+                  "Fly",
+                  "Swift",
+                  "Roar"
+                ]
+              }
+            },
+            {
+              "level": 39,
+              "species": "Scyther",
+              "item": "Eviolite",
+              "moves": [
+                "Slash",
+                "Aerial Ace",
+                "Swords Dance",
+                "Pursuit"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Slash",
+                  "Aerial Ace",
+                  "Swords Dance",
+                  "Pursuit"
+                ]
+              }
+            },
+            {
+              "level": 38,
+              "species": "Electabuzz",
+              "item": "Magnet",
+              "moves": [
+                "Thunderbolt",
+                "Bulk Up",
+                "Karate Chop",
+                "Light Screen"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Thunderbolt",
+                  "Bulk Up",
+                  "Karate Chop",
+                  "Light Screen"
+                ]
+              }
+            },
+            {
+              "level": 40,
+              "species": "Poliwrath",
+              "item": "Kings Rock",
+              "moves": [
+                "Waterfall",
+                "Surf",
+                "Strength",
+                "Body Slam"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Waterfall",
+                  "Surf",
+                  "Strength",
+                  "Body Slam"
+                ]
+              }
+            },
+            {
+              "level": 37,
+              "species": "Flareon",
+              "item": "Charcoal",
+              "moves": [
+                "Smokescreen",
+                "Flame Charge",
+                "Quick Attack",
+                "Iron Tail"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Smokescreen",
+                  "Flame Charge",
+                  "Quick Attack",
+                  "Iron Tail"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "veteranf_jonet",
+          "name": "Jonet",
+          "trainerClass": "VETERANF",
+          "spriteType": "veteranf",
+          "coordinates": {
+            "x": 5,
+            "y": 3
+          },
+          "pokemon": [
+            {
+              "level": 41,
+              "species": "Typhlosion",
+              "item": "Charcoal",
+              "moves": [
+                "Flame Charge",
+                "Thunderpunch",
+                "Dig",
+                "Strength"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Flame Charge",
+                  "Thunderpunch",
+                  "Dig",
+                  "Strength"
+                ]
+              }
+            },
+            {
+              "level": 40,
+              "species": "Espeon",
+              "item": "Nevermeltice",
+              "moves": [
+                "Psychic",
+                "Reflect",
+                "Shadow Ball",
+                "Quick Attack"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Psychic",
+                  "Reflect",
+                  "Shadow Ball",
+                  "Quick Attack"
+                ]
+              }
+            },
+            {
+              "level": 39,
+              "species": "Togekiss",
+              "item": "Leftovers",
+              "moves": [
+                "Fly",
+                "Fresh Snack",
+                "Aura Sphere",
+                "Extremespeed"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Fly",
+                  "Fresh Snack",
+                  "Aura Sphere",
+                  "Extremespeed"
+                ]
+              }
+            },
+            {
+              "level": 39,
+              "species": "Octillery",
+              "item": "Quick Claw",
+              "moves": [
+                "Surf",
+                "Ice Beam",
+                "Psybeam",
+                "Seed Bomb"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Surf",
+                  "Ice Beam",
+                  "Psybeam",
+                  "Seed Bomb"
+                ]
+              }
+            },
+            {
+              "level": 37,
+              "species": "Heracross",
+              "item": "Kings Rock",
+              "moves": [
+                "Rock Smash",
+                "Strength",
+                "Aerial Ace",
+                "Double Team"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Rock Smash",
+                  "Strength",
+                  "Aerial Ace",
+                  "Double Team"
+                ]
+              }
+            },
+            {
+              "level": 38,
+              "species": "Pupitar",
+              "item": "Eviolite",
+              "moves": [
+                "Earthquake",
+                "Rock Slide",
+                "Scary Face",
+                "Dark Pulse"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Earthquake",
+                  "Rock Slide",
+                  "Scary Face",
+                  "Dark Pulse"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Potion",
+          "coordinates": {
+            "x": 5,
+            "y": 5
+          }
+        },
+        {
+          "type": "item",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 20,
+            "y": 5
+          }
+        },
+        {
+          "type": "item",
+          "name": "Hp Up",
+          "coordinates": {
+            "x": 9,
+            "y": 14
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_23",
+          "targetLocationDisplay": "Route 23",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "victory_road_1f",
+          "targetLocationDisplay": "Victory Road First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "victory_road_3f",
+          "targetLocationDisplay": "Victory Road Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "3f",
+      "displayName": "3rd Floor",
+      "trainers": [
+        {
+          "id": "veteranm_remy",
+          "name": "Remy",
+          "trainerClass": "VETERANM",
+          "spriteType": "veteranm",
+          "coordinates": {
+            "x": 11,
+            "y": 8
+          },
+          "pokemon": [
+            {
+              "level": 42,
+              "species": "Blastoise",
+              "item": "Mystic Water",
+              "moves": [
+                "Surf",
+                "Aqua Tail",
+                "Ice Beam",
+                "Flash Cannon"
+              ],
+              "faithful": {
+                "moves": [
+                  "Surf",
+                  "Aqua Tail",
+                  "Ice Beam",
+                  "Body Slam"
+                ]
+              },
+              "polished": {
+                "moves": [
+                  "Surf",
+                  "Aqua Tail",
+                  "Ice Beam",
+                  "Flash Cannon"
+                ]
+              }
+            },
+            {
+              "level": 41,
+              "species": "Ninetales",
+              "item": "Charcoal",
+              "moves": [
+                "Flamethrower",
+                "Shadow Ball",
+                "Confuse Ray",
+                "Extrasensory"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Flamethrower",
+                  "Shadow Ball",
+                  "Confuse Ray",
+                  "Extrasensory"
+                ]
+              }
+            },
+            {
+              "level": 39,
+              "species": "Victreebel",
+              "item": "Miracle Seed",
+              "moves": [
+                "Sludge Bomb",
+                "Seed Bomb",
+                "Sleep Powder",
+                "Swords Dance"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Sludge Bomb",
+                  "Seed Bomb",
+                  "Sleep Powder",
+                  "Swords Dance"
+                ]
+              }
+            },
+            {
+              "level": 39,
+              "species": "Raichu",
+              "item": "Silk Scarf",
+              "moves": [
+                "Surf",
+                "Thunderbolt",
+                "Extremespeed",
+                "Nasty Plot"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Surf",
+                  "Thunderbolt",
+                  "Extremespeed",
+                  "Nasty Plot"
+                ]
+              }
+            },
+            {
+              "level": 40,
+              "species": "Alakazam",
+              "item": "Twistedspoon",
+              "moves": [
+                "Tri Attack",
+                "Psybeam",
+                "Recover",
+                "Reflect"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Tri Attack",
+                  "Psybeam",
+                  "Recover",
+                  "Reflect"
+                ]
+              }
+            },
+            {
+              "level": 38,
+              "species": "Skarmory",
+              "item": "Sharp Beak",
+              "moves": [
+                "Drill Peck",
+                "Swift",
+                "Steel Wing",
+                "Rock Smash"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Drill Peck",
+                  "Swift",
+                  "Steel Wing",
+                  "Rock Smash"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Razor Fang",
+          "coordinates": {
+            "x": 16,
+            "y": 13
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "victory_road_2f",
+          "targetLocationDisplay": "Victory Road Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "victory_road",
+    "victory_road_1f",
+    "victory_road_2f",
+    "victory_road_3f"
+  ],
+  "trainerCount": 7,
+  "hasTrainers": true
+}

@@ -1,0 +1,389 @@
+{
+  "id": -1,
+  "name": "goldenrod_dept_store",
+  "displayName": "Goldenrod Dept Store",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM14 - Blizzard"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM15 - Hyper Beam"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM16 - Light Screen"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM17 - Protect"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM22 - Solar Beam"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM25 - Thunder"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM27 - Return"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM33 - Reflect"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM38 - Fire Blast"
+    },
+    {
+      "type": "item",
+      "name": "Ether",
+      "coordinates": {
+        "x": 10,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Metal Coat",
+      "coordinates": {
+        "x": 14,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Burn Heal",
+      "coordinates": {
+        "x": 6,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 15,
+        "y": 15
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM14 - Blizzard"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM15 - Hyper Beam"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM16 - Light Screen"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM17 - Protect"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM22 - Solar Beam"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM25 - Thunder"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM27 - Return"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM33 - Reflect"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM38 - Fire Blast"
+        }
+      ],
+      "connections": [],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_city",
+          "targetLocationDisplay": "Goldenrod City",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_2f",
+          "targetLocationDisplay": "Goldenrod Dept Store Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_elevator",
+          "targetLocationDisplay": "Goldenrod Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_3f",
+          "targetLocationDisplay": "Goldenrod Dept Store Third Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_1f",
+          "targetLocationDisplay": "Goldenrod Dept Store First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_elevator",
+          "targetLocationDisplay": "Goldenrod Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "3f",
+      "displayName": "3rd Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_2f",
+          "targetLocationDisplay": "Goldenrod Dept Store Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_4f",
+          "targetLocationDisplay": "Goldenrod Dept Store Fourth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_elevator",
+          "targetLocationDisplay": "Goldenrod Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "4f",
+      "displayName": "4th Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_5f",
+          "targetLocationDisplay": "Goldenrod Dept Store Fifth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_3f",
+          "targetLocationDisplay": "Goldenrod Dept Store Third Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_elevator",
+          "targetLocationDisplay": "Goldenrod Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "5f",
+      "displayName": "5th Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_4f",
+          "targetLocationDisplay": "Goldenrod Dept Store Fourth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_6f",
+          "targetLocationDisplay": "Goldenrod Dept Store Sixth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_elevator",
+          "targetLocationDisplay": "Goldenrod Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "6f",
+      "displayName": "6th Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_5f",
+          "targetLocationDisplay": "Goldenrod Dept Store Fifth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_elevator",
+          "targetLocationDisplay": "Goldenrod Dept Store Elevator",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_roof",
+          "targetLocationDisplay": "Goldenrod Dept Store Roof",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f",
+      "displayName": "Basement 1st Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Ether",
+          "coordinates": {
+            "x": 10,
+            "y": 15
+          }
+        },
+        {
+          "type": "item",
+          "name": "Metal Coat",
+          "coordinates": {
+            "x": 14,
+            "y": 2
+          }
+        },
+        {
+          "type": "item",
+          "name": "Burn Heal",
+          "coordinates": {
+            "x": 6,
+            "y": 3
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 15,
+            "y": 15
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "underground_warehouse",
+          "targetLocationDisplay": "Underground Warehouse",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_elevator",
+          "targetLocationDisplay": "Goldenrod Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "roof",
+      "displayName": "Roof",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_dept_store_6f",
+          "targetLocationDisplay": "Goldenrod Dept Store Sixth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "goldenrod_dept_store",
+    "goldenrod_dept_store_1f",
+    "goldenrod_dept_store_2f",
+    "goldenrod_dept_store_3f",
+    "goldenrod_dept_store_4f",
+    "goldenrod_dept_store_5f",
+    "goldenrod_dept_store_6f",
+    "goldenrod_dept_store_b_1f",
+    "goldenrod_dept_store_roof"
+  ],
+  "trainerCount": 0,
+  "hasTrainers": false
+}

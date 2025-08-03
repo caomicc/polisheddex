@@ -1,0 +1,39 @@
+{
+  "id": 140,
+  "name": "lightning_island",
+  "displayName": "Lightning Island",
+  "region": "orange",
+  "x": 92,
+  "y": 76,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "shamouti_coast",
+      "targetLocationDisplay": "Shamouti Coast",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lightning_island_roof",
+      "targetLocationDisplay": "Lightning Island Roof",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lightning_island",
+      "targetLocationDisplay": "Lightning Island",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Damp Rock",
+      "coordinates": {
+        "x": 22,
+        "y": 15
+      }
+    }
+  ]
+}

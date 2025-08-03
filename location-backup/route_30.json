@@ -1,0 +1,422 @@
+{
+  "id": 5,
+  "name": "route_30",
+  "displayName": "Route 30",
+  "region": "johto",
+  "x": 100,
+  "y": 80,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_31",
+      "targetLocationDisplay": "Route 31",
+      "offset": -10
+    },
+    {
+      "direction": "south",
+      "targetLocation": "cherrygrove_city",
+      "targetLocationDisplay": "Cherrygrove City",
+      "offset": -5
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_30_berry_speech_house",
+      "targetLocationDisplay": "Route 30 Berry Speech House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mr_pokemons_house",
+      "targetLocationDisplay": "Mr Pokemons House",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "youngster_joey1",
+      "name": "Joey",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 2,
+        "y": 28
+      },
+      "pokemon": [
+        {
+          "level": 5,
+          "species": "Rattata",
+          "gender": "male",
+          "moves": [
+            "Quick Attack",
+            "Tackle",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Guts",
+            "nature": "Atk +satk -",
+            "dvs": {
+              "hp": 15,
+              "attack": 15,
+              "defense": 15,
+              "speed": 15,
+              "special": 15
+            }
+          },
+          "ability": "Guts",
+          "nature": "Atk +satk -",
+          "dvs": {
+            "hp": 15,
+            "attack": 15,
+            "defense": 15,
+            "speed": 15,
+            "special": 15
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "youngster_joey2",
+      "name": "Joey",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 2,
+        "y": 28
+      },
+      "pokemon": [
+        {
+          "level": 15,
+          "species": "Rattata",
+          "item": "Oran Berry",
+          "gender": "male",
+          "moves": [
+            "Pursuit",
+            "Bite",
+            "Focus Energy",
+            "Quick Attack"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Guts",
+            "nature": "Atk +satk -",
+            "dvs": {
+              "hp": 15,
+              "attack": 15,
+              "defense": 15,
+              "speed": 15,
+              "special": 15
+            },
+            "evs": {
+              "hp": 0,
+              "attack": 48,
+              "defense": 0,
+              "speed": 48,
+              "special": 0
+            }
+          },
+          "ability": "Guts",
+          "nature": "Atk +satk -",
+          "dvs": {
+            "hp": 15,
+            "attack": 15,
+            "defense": 15,
+            "speed": 15,
+            "special": 15
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 48,
+            "defense": 0,
+            "speed": 48,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "youngster_joey3",
+      "name": "Joey",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 2,
+        "y": 28
+      },
+      "pokemon": [
+        {
+          "level": 25,
+          "species": "Raticate",
+          "item": "Oran Berry",
+          "gender": "male",
+          "moves": [
+            "Leer",
+            "Quick Attack",
+            "Hyper Fang",
+            "Scary Face"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Guts",
+            "nature": "Atk +satk -",
+            "dvs": {
+              "hp": 15,
+              "attack": 15,
+              "defense": 15,
+              "speed": 15,
+              "special": 15
+            },
+            "evs": {
+              "hp": 0,
+              "attack": 80,
+              "defense": 0,
+              "speed": 80,
+              "special": 0
+            },
+            "moves": [
+              "Leer",
+              "Quick Attack",
+              "Hyper Fang",
+              "Scary Face"
+            ]
+          },
+          "ability": "Guts",
+          "nature": "Atk +satk -",
+          "dvs": {
+            "hp": 15,
+            "attack": 15,
+            "defense": 15,
+            "speed": 15,
+            "special": 15
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 80,
+            "defense": 0,
+            "speed": 80,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "youngster_joey4",
+      "name": "Joey",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 2,
+        "y": 28
+      },
+      "pokemon": [
+        {
+          "level": 30,
+          "species": "Raticate",
+          "item": "Sitrus Berry",
+          "gender": "male",
+          "moves": [
+            "Leer",
+            "Quick Attack",
+            "Hyper Fang",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Guts",
+            "nature": "Atk +satk -",
+            "dvs": {
+              "hp": 15,
+              "attack": 15,
+              "defense": 15,
+              "speed": 15,
+              "special": 15
+            },
+            "evs": {
+              "hp": 0,
+              "attack": 112,
+              "defense": 0,
+              "speed": 112,
+              "special": 0
+            },
+            "moves": [
+              "Leer",
+              "Quick Attack",
+              "Hyper Fang",
+              "Pursuit"
+            ]
+          },
+          "ability": "Guts",
+          "nature": "Atk +satk -",
+          "dvs": {
+            "hp": 15,
+            "attack": 15,
+            "defense": 15,
+            "speed": 15,
+            "special": 15
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 112,
+            "defense": 0,
+            "speed": 112,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "youngster_joey5",
+      "name": "Joey",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 2,
+        "y": 28
+      },
+      "pokemon": [
+        {
+          "level": 40,
+          "species": "Raticate",
+          "item": "Sitrus Berry",
+          "gender": "male",
+          "moves": [
+            "Hyper Beam",
+            "Quick Attack",
+            "Hyper Fang",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Guts",
+            "nature": "Atk +satk -",
+            "dvs": {
+              "hp": 15,
+              "attack": 15,
+              "defense": 15,
+              "speed": 15,
+              "special": 15
+            },
+            "evs": {
+              "hp": 0,
+              "attack": 160,
+              "defense": 0,
+              "speed": 160,
+              "special": 0
+            },
+            "moves": [
+              "Hyper Beam",
+              "Quick Attack",
+              "Hyper Fang",
+              "Pursuit"
+            ]
+          },
+          "ability": "Guts",
+          "nature": "Atk +satk -",
+          "dvs": {
+            "hp": 15,
+            "attack": 15,
+            "defense": 15,
+            "speed": 15,
+            "special": 15
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 160,
+            "defense": 0,
+            "speed": 160,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "youngster_mikey",
+      "name": "Mikey",
+      "trainerClass": "YOUNGSTER",
+      "spriteType": "youngster",
+      "coordinates": {
+        "x": 5,
+        "y": 23
+      },
+      "pokemon": [
+        {
+          "level": 2,
+          "species": "Rattata",
+          "moves": [
+            "Tackle",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 4,
+          "species": "Pidgey",
+          "moves": [
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "bug_catcher_don",
+      "name": "Don",
+      "trainerClass": "BUG_CATCHER",
+      "spriteType": "bug_catcher",
+      "coordinates": {
+        "x": 1,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 3,
+          "species": "Caterpie",
+          "moves": [
+            "Tackle",
+            "String Shot"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 3,
+          "species": "Caterpie",
+          "moves": [
+            "Tackle",
+            "String Shot"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Potion",
+      "coordinates": {
+        "x": 14,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Antidote",
+      "coordinates": {
+        "x": 8,
+        "y": 35
+      }
+    }
+  ]
+}

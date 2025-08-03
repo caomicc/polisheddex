@@ -1,0 +1,376 @@
+{
+  "id": 137,
+  "name": "shamouti_coast",
+  "displayName": "Shamouti Coast",
+  "region": "orange",
+  "x": 52,
+  "y": 72,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "warm_beach",
+      "targetLocationDisplay": "Warm Beach",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "fire_island",
+      "targetLocationDisplay": "Fire Island",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ice_island",
+      "targetLocationDisplay": "Ice Island",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lightning_island",
+      "targetLocationDisplay": "Lightning Island",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "artist_rin",
+      "name": "Rin",
+      "trainerClass": "ARTIST",
+      "spriteType": "artist",
+      "coordinates": {
+        "x": 4,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 64,
+          "species": "Smeargle",
+          "item": "Twistedspoon",
+          "moves": [
+            "Psychic",
+            "Spore",
+            "Calm Mind",
+            "Recover"
+          ],
+          "faithful": {},
+          "polished": {
+            "dvs": {
+              "hp": 15,
+              "attack": 15,
+              "defense": 15,
+              "speed": 15,
+              "special": 15
+            },
+            "moves": [
+              "Psychic",
+              "Spore",
+              "Calm Mind",
+              "Recover"
+            ]
+          },
+          "dvs": {
+            "hp": 15,
+            "attack": 15,
+            "defense": 15,
+            "speed": 15,
+            "special": 15
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "swimmerf_marina",
+      "name": "Marina",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 12,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 63,
+          "species": "Golduck",
+          "moves": [
+            "Psychic M",
+            "Nasty Plot",
+            "Hydro Pump",
+            "Amnesia"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 63,
+          "species": "Lanturn",
+          "moves": [
+            "Light Screen",
+            "Hydro Pump",
+            "Ice Beam",
+            "Recover"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 63,
+          "species": "Gyarados",
+          "moves": [
+            "Outrage",
+            "Hyper Beam",
+            "Rain Dance",
+            "Hurricane"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "fisher_dallas",
+      "name": "Dallas",
+      "trainerClass": "FISHER",
+      "spriteType": "fisher",
+      "coordinates": {
+        "x": 34,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 61,
+          "species": "Qwilfish",
+          "moves": [
+            "Double Edge",
+            "Hydro Pump",
+            "Destiny Bond",
+            "Poison Jab"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 63,
+          "species": "Lanturn",
+          "moves": [
+            "Light Screen",
+            "Hydro Pump",
+            "Ice Beam",
+            "Recover"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 65,
+          "species": "Gyarados",
+          "moves": [
+            "Outrage",
+            "Hyper Beam",
+            "Rain Dance",
+            "Hurricane"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "sightseerf_pilar",
+      "name": "Pilar",
+      "trainerClass": "SIGHTSEERF",
+      "spriteType": "sightseerf",
+      "coordinates": {
+        "x": 39,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Magby",
+          "nickname": "Antorcha",
+          "gender": "male",
+          "moves": [
+            "Fire Blast",
+            "Flamethrower",
+            "Focus Blast",
+            "Sunny Day"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 61,
+          "species": "Cubone",
+          "nickname": "Huesitos",
+          "gender": "male",
+          "moves": [
+            "Outrage",
+            "Reversal",
+            "Double Edge",
+            "Rock Smash"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 64,
+          "species": "Espeon",
+          "nickname": "Luna",
+          "gender": "male",
+          "moves": [
+            "Power Gem",
+            "Double Edge",
+            "Psychic M",
+            "Healinglight"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 65,
+          "species": "Lanturn",
+          "nickname": "Linterna",
+          "gender": "male",
+          "moves": [
+            "Light Screen",
+            "Hydro Pump",
+            "Ice Beam",
+            "Recover"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "sightseers_cyandvi1",
+      "name": "Cy & Vi",
+      "trainerClass": "SIGHTSEERS",
+      "spriteType": "sightseers",
+      "coordinates": {
+        "x": 66,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 64,
+          "species": "Mr_Mime",
+          "gender": "male",
+          "moves": [
+            "Safeguard",
+            "Baton Pass",
+            "Future Sight",
+            "Psychic M"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 64,
+          "species": "Jynx",
+          "gender": "male",
+          "moves": [
+            "Blizzard",
+            "Perish Song",
+            "Nasty Plot",
+            "Body Slam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "sightseers_cyandvi2",
+      "name": "Cy & Vi",
+      "trainerClass": "SIGHTSEERS",
+      "spriteType": "sightseers",
+      "coordinates": {
+        "x": 67,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 64,
+          "species": "Jynx",
+          "gender": "male",
+          "moves": [
+            "Blizzard",
+            "Perish Song",
+            "Nasty Plot",
+            "Body Slam"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 64,
+          "species": "Mr_Mime",
+          "gender": "male",
+          "moves": [
+            "Safeguard",
+            "Baton Pass",
+            "Future Sight",
+            "Psychic M"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "swimmerm_ashe",
+      "name": "Ashe",
+      "trainerClass": "SWIMMERM",
+      "spriteType": "swimmerm",
+      "coordinates": {
+        "x": 71,
+        "y": 16
+      },
+      "pokemon": [
+        {
+          "level": 63,
+          "species": "Politoed",
+          "moves": [
+            "Hyper Voice",
+            "Swagger",
+            "Giga Drain",
+            "Bubble Beam"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 63,
+          "species": "Poliwrath",
+          "moves": [
+            "Cross Chop",
+            "Earth Power",
+            "Dynamicpunch",
+            "Bubble Beam"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Star Piece",
+      "coordinates": {
+        "x": 6,
+        "y": 11
+      }
+    }
+  ]
+}

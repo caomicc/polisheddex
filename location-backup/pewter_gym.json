@@ -1,0 +1,355 @@
+{
+  "id": -1,
+  "name": "pewter_gym",
+  "displayName": "Pewter Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "pewter_city",
+      "targetLocationDisplay": "Pewter City",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "brock_1",
+      "name": "Brock",
+      "trainerClass": "BROCK",
+      "spriteType": "brock",
+      "coordinates": {
+        "x": 5,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 64,
+          "species": "Golem",
+          "moves": [
+            "Defense Curl",
+            "Rollout",
+            "Rock Slide",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 252,
+              "attack": 196,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Defense Curl",
+              "Rollout",
+              "Rock Slide",
+              "Earthquake"
+            ]
+          },
+          "evs": {
+            "hp": 252,
+            "attack": 196,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 63,
+          "species": "Rhydon",
+          "item": "Eviolite",
+          "moves": [
+            "Avalanche",
+            "Rock Slide",
+            "Earthquake",
+            "Outrage"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 252,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 196
+            },
+            "moves": [
+              "Avalanche",
+              "Rock Slide",
+              "Earthquake",
+              "Outrage"
+            ]
+          },
+          "evs": {
+            "hp": 252,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 196
+          }
+        },
+        {
+          "level": 65,
+          "species": "Omastar",
+          "moves": [
+            "Ancientpower",
+            "Surf",
+            "Protect",
+            "Spikes"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 252,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 196
+            },
+            "moves": [
+              "Ancientpower",
+              "Surf",
+              "Protect",
+              "Spikes"
+            ]
+          },
+          "evs": {
+            "hp": 252,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 196
+          }
+        },
+        {
+          "level": 68,
+          "species": "Onix",
+          "moves": [
+            "Iron Tail",
+            "Rock Slide",
+            "Earthquake",
+            "Sandstorm"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 196,
+              "attack": 252,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Iron Tail",
+              "Rock Slide",
+              "Earthquake",
+              "Sandstorm"
+            ]
+          },
+          "evs": {
+            "hp": 196,
+            "attack": 252,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 65,
+          "species": "Kabutops",
+          "moves": [
+            "Slash",
+            "Surf",
+            "Endure",
+            "Giga Drain"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 196,
+              "defense": 0,
+              "speed": 0,
+              "special": 252
+            },
+            "moves": [
+              "Slash",
+              "Surf",
+              "Endure",
+              "Giga Drain"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 196,
+            "defense": 0,
+            "speed": 0,
+            "special": 252
+          }
+        },
+        {
+          "level": 65,
+          "species": "Aerodactyl",
+          "moves": [
+            "Aerial Ace",
+            "Supersonic",
+            "Ancientpower",
+            "Hyper Beam"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 252,
+              "defense": 0,
+              "speed": 0,
+              "special": 196
+            },
+            "moves": [
+              "Aerial Ace",
+              "Supersonic",
+              "Ancientpower",
+              "Hyper Beam"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 252,
+            "defense": 0,
+            "speed": 0,
+            "special": 196
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "camper_jerry",
+      "name": "Jerry",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 2,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 62,
+          "species": "Rhydon",
+          "moves": [
+            "Megahorn",
+            "Close Combat",
+            "Earthquake",
+            "Double Edge"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "hiker_edwin",
+      "name": "Edwin",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 7,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 62,
+          "species": "Golem",
+          "moves": [
+            "Gyro Ball",
+            "Stone Edge",
+            "Double Edge",
+            "Explosion"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "gymLeader": {
+    "name": "Brock",
+    "trainerClass": "BROCK",
+    "badge": "BOULDERBADGE",
+    "region": "kanto",
+    "speciality": "Rock",
+    "coordinates": {
+      "x": 5,
+      "y": 1
+    },
+    "pokemon": [
+      {
+        "level": 64,
+        "species": "golem",
+        "moves": [
+          "Defense Curl",
+          "Rollout",
+          "Rock Slide",
+          "Earthquake"
+        ]
+      },
+      {
+        "level": 63,
+        "species": "rhydon",
+        "item": "eviolite",
+        "moves": [
+          "Avalanche",
+          "Rock Slide",
+          "Earthquake",
+          "Outrage"
+        ]
+      },
+      {
+        "level": 65,
+        "species": "omastar",
+        "moves": [
+          "Ancientpower",
+          "Surf",
+          "Protect",
+          "Spikes"
+        ]
+      },
+      {
+        "level": 68,
+        "species": "onix",
+        "moves": [
+          "Iron Tail",
+          "Rock Slide",
+          "Earthquake",
+          "Sandstorm"
+        ]
+      },
+      {
+        "level": 65,
+        "species": "kabutops",
+        "moves": [
+          "Slash",
+          "Surf",
+          "Endure",
+          "Giga Drain"
+        ]
+      },
+      {
+        "level": 65,
+        "species": "aerodactyl",
+        "moves": [
+          "Aerial Ace",
+          "Supersonic",
+          "Ancientpower",
+          "Hyper Beam"
+        ]
+      }
+    ]
+  }
+}

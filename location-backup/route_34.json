@@ -1,0 +1,2902 @@
+{
+  "id": 18,
+  "name": "route_34",
+  "displayName": "Route 34",
+  "region": "johto",
+  "x": 52,
+  "y": 108,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "goldenrod_city",
+      "targetLocationDisplay": "Goldenrod City",
+      "offset": -7
+    },
+    {
+      "direction": "west",
+      "targetLocation": "route_34_coast",
+      "targetLocationDisplay": "Route 34 Coast",
+      "offset": 0
+    },
+    {
+      "direction": "east",
+      "targetLocation": "azalea_town",
+      "targetLocationDisplay": "Azalea Town",
+      "offset": 18
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_34_ilex_forest_gate",
+      "targetLocationDisplay": "Route 34 Ilex Forest Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "daycare",
+      "targetLocationDisplay": "Daycare",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Route34 Lyra Trigger1",
+      "coordinates": {
+        "x": 8,
+        "y": 17
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route34 Lyra Trigger2",
+      "coordinates": {
+        "x": 9,
+        "y": 17
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route34 Lyra Trigger3",
+      "coordinates": {
+        "x": 10,
+        "y": 17
+      }
+    }
+  ],
+  "trainers": [
+    {
+      "id": "lyra1_lyra1_4",
+      "name": "Lyra",
+      "trainerClass": "LYRA1",
+      "spriteType": "lyra1",
+      "coordinates": {
+        "x": 9,
+        "y": 17
+      },
+      "pokemon": [
+        {
+          "level": 16,
+          "species": "Pidgey",
+          "moves": [
+            "Tackle",
+            "Gust",
+            "Mud Slap",
+            "Quick Attack ; Default For Level"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 36,
+              "attack": 0,
+              "defense": 0,
+              "speed": 36,
+              "special": 0
+            },
+            "moves": [
+              "Tackle",
+              "Gust",
+              "Mud Slap",
+              "Quick Attack ; Default For Level"
+            ]
+          },
+          "evs": {
+            "hp": 36,
+            "attack": 0,
+            "defense": 0,
+            "speed": 36,
+            "special": 0
+          }
+        },
+        {
+          "level": 17,
+          "species": "Marill",
+          "moves": [
+            "Defense Curl",
+            "Rollout",
+            "Bubble Beam",
+            "Dizzy Punch ; Default For Level"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 72,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Defense Curl",
+              "Rollout",
+              "Bubble Beam",
+              "Dizzy Punch ; Default For Level"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 72,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 15,
+          "species": "Mareep",
+          "moves": [
+            "Thunder Wave",
+            "Thundershock",
+            "Mud Slap",
+            "Spark ; Default For Level"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 36,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 36
+            },
+            "moves": [
+              "Thunder Wave",
+              "Thundershock",
+              "Mud Slap",
+              "Spark ; Default For Level"
+            ]
+          },
+          "evs": {
+            "hp": 36,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 36
+          }
+        },
+        {
+          "level": 18,
+          "species": "Bayleef",
+          "nickname": "Chicory",
+          "item": "Oran Berry",
+          "moves": [
+            "Razor Leaf",
+            "Poisonpowder",
+            "Healinglight",
+            "Reflect ; No Light Screen"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 72,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Razor Leaf",
+              "Poisonpowder",
+              "Healinglight",
+              "Reflect ; No Light Screen"
+            ]
+          },
+          "evs": {
+            "hp": 72,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "lyra1_lyra1_5",
+      "name": "Lyra",
+      "trainerClass": "LYRA1",
+      "spriteType": "lyra1",
+      "coordinates": {
+        "x": 9,
+        "y": 17
+      },
+      "pokemon": [
+        {
+          "level": 16,
+          "species": "Pidgey",
+          "moves": [
+            "Quick Attack",
+            "Mud Slap",
+            "Gust",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 36,
+              "attack": 0,
+              "defense": 0,
+              "speed": 36,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 36,
+            "attack": 0,
+            "defense": 0,
+            "speed": 36,
+            "special": 0
+          }
+        },
+        {
+          "level": 17,
+          "species": "Sunkern",
+          "moves": [
+            "Razor Leaf",
+            "Leech Seed",
+            "Mega Drain",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 36,
+              "special": 36
+            }
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 36,
+            "special": 36
+          }
+        },
+        {
+          "level": 15,
+          "species": "Mareep",
+          "moves": [
+            "Spark",
+            "Mud Slap",
+            "Thundershock",
+            "Thunder Wave"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 36,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 36
+            }
+          },
+          "evs": {
+            "hp": 36,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 36
+          }
+        },
+        {
+          "level": 18,
+          "species": "Quilava",
+          "nickname": "Cinder",
+          "item": "Oran Berry",
+          "moves": [
+            "Quick Attack",
+            "Ember",
+            "Smokescreen",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 72,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 72,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "lyra1_lyra1_6",
+      "name": "Lyra",
+      "trainerClass": "LYRA1",
+      "spriteType": "lyra1",
+      "coordinates": {
+        "x": 9,
+        "y": 17
+      },
+      "pokemon": [
+        {
+          "level": 16,
+          "species": "Pidgey",
+          "moves": [
+            "Quick Attack",
+            "Mud Slap",
+            "Gust",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 36,
+              "attack": 0,
+              "defense": 0,
+              "speed": 36,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 36,
+            "attack": 0,
+            "defense": 0,
+            "speed": 36,
+            "special": 0
+          }
+        },
+        {
+          "level": 17,
+          "species": "Growlithe",
+          "moves": [
+            "Fire Spin",
+            "Baton Pass",
+            "Safeguard",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 36,
+              "attack": 36,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 36,
+            "attack": 36,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 15,
+          "species": "Mareep",
+          "moves": [
+            "Spark",
+            "Mud Slap",
+            "Thundershock",
+            "Thunder Wave"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 36,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 36
+            }
+          },
+          "evs": {
+            "hp": 36,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 36
+          }
+        },
+        {
+          "level": 18,
+          "species": "Croconaw",
+          "nickname": "Toto",
+          "item": "Oran Berry",
+          "moves": [
+            "Scary Face",
+            "Bite",
+            "Rage",
+            "Water Gun"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 72,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            }
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 72,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "camper_todd1",
+      "name": "Todd",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 13,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 14,
+          "species": "Psyduck",
+          "moves": [
+            "Fury Strikes",
+            "Confusion",
+            "Water Gun",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "camper_todd2",
+      "name": "Todd",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 13,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 17,
+          "species": "Geodude",
+          "moves": [
+            "Rock Throw",
+            "Magnitude",
+            "Rollout",
+            "Rapid Spin"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 17,
+          "species": "Geodude",
+          "moves": [
+            "Rock Throw",
+            "Magnitude",
+            "Rollout",
+            "Rapid Spin"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 23,
+          "species": "Psyduck",
+          "moves": [
+            "Screech",
+            "Disable",
+            "Water Pulse",
+            "Fury Strikes"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "camper_todd3",
+      "name": "Todd",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 13,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 23,
+          "species": "Geodude",
+          "moves": [
+            "Bulldoze",
+            "Ancientpower",
+            "Rock Throw",
+            "Magnitude"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 23,
+          "species": "Geodude",
+          "moves": [
+            "Bulldoze",
+            "Ancientpower",
+            "Rock Throw",
+            "Magnitude"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 26,
+          "species": "Psyduck",
+          "moves": [
+            "Zen Headbutt",
+            "Screech",
+            "Disable",
+            "Water Pulse"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "camper_todd4",
+      "name": "Todd",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 13,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 30,
+          "species": "Graveler",
+          "moves": [
+            "Sandstorm",
+            "Rock Blast",
+            "Bulldoze",
+            "Ancientpower"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 30,
+          "species": "Graveler",
+          "moves": [
+            "Sandstorm",
+            "Rock Blast",
+            "Bulldoze",
+            "Ancientpower"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 30,
+          "species": "Slugma",
+          "moves": [
+            "Rock Slide",
+            "Flame Charge",
+            "Ancientpower",
+            "Smokescreen"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 32,
+          "species": "Psyduck",
+          "moves": [
+            "Rain Dance",
+            "Aqua Tail",
+            "Zen Headbutt",
+            "Screech"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "camper_todd5",
+      "name": "Todd",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 13,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 34,
+          "species": "Graveler",
+          "moves": [
+            "Mud Slap",
+            "Bulldoze",
+            "Sandstorm",
+            "Rock Slide"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Mud Slap",
+              "Bulldoze",
+              "Sandstorm",
+              "Rock Slide"
+            ]
+          }
+        },
+        {
+          "level": 34,
+          "species": "Graveler",
+          "moves": [
+            "Defense Curl",
+            "Rollout",
+            "Magnitude",
+            "Rock Slide"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Defense Curl",
+              "Rollout",
+              "Magnitude",
+              "Rock Slide"
+            ]
+          }
+        },
+        {
+          "level": 36,
+          "species": "Magcargo",
+          "moves": [
+            "Rock Throw",
+            "Defense Curl",
+            "Calm Mind",
+            "Flamethrower"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Rock Throw",
+              "Defense Curl",
+              "Calm Mind",
+              "Flamethrower"
+            ]
+          }
+        },
+        {
+          "level": 34,
+          "species": "Golduck",
+          "moves": [
+            "Disable",
+            "Psychic",
+            "Surf",
+            "Calm Mind"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Disable",
+              "Psychic",
+              "Surf",
+              "Calm Mind"
+            ]
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "picnicker_gina1",
+      "name": "Gina",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 10,
+        "y": 26
+      },
+      "pokemon": [
+        {
+          "level": 9,
+          "species": "Sunkern",
+          "moves": [
+            "Defense Curl",
+            "Growth",
+            "Splash",
+            "Absorb"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 9,
+          "species": "Hoppip",
+          "moves": [
+            "Tackle",
+            "Defense Curl",
+            "Healinglight",
+            "Absorb"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 12,
+          "species": "Bulbasaur",
+          "moves": [
+            "Vine Whip",
+            "Leech Seed",
+            "Growl",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "picnicker_gina2",
+      "name": "Gina",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 10,
+        "y": 26
+      },
+      "pokemon": [
+        {
+          "level": 14,
+          "species": "Sunkern",
+          "moves": [
+            "Leech Seed",
+            "Mega Drain",
+            "Defense Curl",
+            "Growth"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 14,
+          "species": "Hoppip",
+          "moves": [
+            "Stun Spore",
+            "Poisonpowder",
+            "Confusion",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 17,
+          "species": "Ivysaur",
+          "moves": [
+            "Mud Slap",
+            "Poisonpowder",
+            "Sleep Powder",
+            "Vine Whip"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "picnicker_gina3",
+      "name": "Gina",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 10,
+        "y": 26
+      },
+      "pokemon": [
+        {
+          "level": 26,
+          "species": "Sunflora",
+          "moves": [
+            "Agility",
+            "Giga Drain",
+            "Protect",
+            "Razor Leaf"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 27,
+          "species": "Skiploom",
+          "moves": [
+            "Leech Seed",
+            "Headbutt",
+            "Sleep Powder",
+            "Stun Spore"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 29,
+          "species": "Ivysaur",
+          "moves": [
+            "Growth",
+            "Take Down",
+            "Razor Leaf",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "picnicker_gina4",
+      "name": "Gina",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 10,
+        "y": 26
+      },
+      "pokemon": [
+        {
+          "level": 30,
+          "species": "Sunflora",
+          "moves": [
+            "Petal Dance",
+            "Agility",
+            "Giga Drain",
+            "Protect"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 31,
+          "species": "Jumpluff",
+          "moves": [
+            "Mega Drain",
+            "Leech Seed",
+            "Headbutt",
+            "Sleep Powder"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 32,
+          "species": "Ivysaur",
+          "moves": [
+            "Double Edge",
+            "Growth",
+            "Take Down",
+            "Razor Leaf"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "picnicker_gina5",
+      "name": "Gina",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 10,
+        "y": 26
+      },
+      "pokemon": [
+        {
+          "level": 33,
+          "species": "Sunflora",
+          "moves": [
+            "Leech Seed",
+            "Giga Drain",
+            "Sunny Day",
+            "Flamethrower"
+          ],
+          "faithful": {
+            "moves": [
+              "Leech Seed",
+              "Giga Drain",
+              "Sunny Day",
+              "Earth Power"
+            ]
+          },
+          "polished": {
+            "moves": [
+              "Leech Seed",
+              "Giga Drain",
+              "Sunny Day",
+              "Flamethrower"
+            ]
+          }
+        },
+        {
+          "level": 34,
+          "species": "Jumpluff",
+          "moves": [
+            "Acrobatics",
+            "Sleep Powder",
+            "Stun Spore",
+            "Mega Drain"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Acrobatics",
+              "Sleep Powder",
+              "Stun Spore",
+              "Mega Drain"
+            ]
+          }
+        },
+        {
+          "level": 38,
+          "species": "Venusaur",
+          "moves": [
+            "Solar Beam",
+            "Razor Leaf",
+            "Headbutt",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Solar Beam",
+              "Razor Leaf",
+              "Headbutt",
+              "Mud Slap"
+            ]
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "officerf_mara",
+      "name": "Mara",
+      "trainerClass": "OFFICERF",
+      "spriteType": "officerf",
+      "coordinates": {
+        "x": 6,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 17,
+          "species": "Growlithe",
+          "moves": [
+            "Fire Spin",
+            "Baton Pass",
+            "Safeguard",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "breeder_julie",
+      "name": "Julie",
+      "trainerClass": "BREEDER",
+      "spriteType": "breeder",
+      "coordinates": {
+        "x": 15,
+        "y": 32
+      },
+      "pokemon": [
+        {
+          "level": 7,
+          "species": "Pichu",
+          "item": "Eviolite",
+          "moves": [
+            "Leer",
+            "Thundershock",
+            "Charm"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 10,
+          "species": "Ditto",
+          "item": "Metal Powder",
+          "moves": [
+            "Transform"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 8,
+          "species": "Togepi",
+          "item": "Eviolite",
+          "moves": [
+            "Metronome",
+            "Growl",
+            "Charm"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "rich_boy_irving",
+      "name": "Irving",
+      "trainerClass": "RICH_BOY",
+      "spriteType": "rich_boy",
+      "coordinates": {
+        "x": 11,
+        "y": 20
+      },
+      "pokemon": [
+        {
+          "level": 24,
+          "species": "Togetic",
+          "item": "Kings Rock",
+          "gender": "male",
+          "moves": [
+            "Headbutt",
+            "Metronome",
+            "Sweet Kiss",
+            "Disarm Voice"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Serene Grace",
+            "dvs": {
+              "hp": 14,
+              "attack": 14,
+              "defense": 14,
+              "speed": 14,
+              "special": 14
+            },
+            "moves": [
+              "Headbutt",
+              "Metronome",
+              "Sweet Kiss",
+              "Disarm Voice"
+            ]
+          },
+          "ability": "Serene Grace",
+          "dvs": {
+            "hp": 14,
+            "attack": 14,
+            "defense": 14,
+            "speed": 14,
+            "special": 14
+          }
+        },
+        {
+          "level": 24,
+          "species": "Chansey",
+          "item": "Kings Rock",
+          "gender": "male",
+          "moves": [
+            "Headbutt",
+            "Fresh Snack",
+            "Sweet Kiss",
+            "Zen Headbutt"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Serene Grace",
+            "dvs": {
+              "hp": 14,
+              "attack": 14,
+              "defense": 14,
+              "speed": 14,
+              "special": 14
+            },
+            "moves": [
+              "Headbutt",
+              "Fresh Snack",
+              "Sweet Kiss",
+              "Zen Headbutt"
+            ]
+          },
+          "ability": "Serene Grace",
+          "dvs": {
+            "hp": 14,
+            "attack": 14,
+            "defense": 14,
+            "speed": 14,
+            "special": 14
+          }
+        },
+        {
+          "level": 25,
+          "species": "Sylveon",
+          "item": "Kings Rock",
+          "gender": "male",
+          "moves": [
+            "Headbutt",
+            "Attract",
+            "Mud Slap",
+            "Disarm Voice"
+          ],
+          "faithful": {
+            "ability": "Cute Charm"
+          },
+          "polished": {
+            "ability": "Serene Grace",
+            "dvs": {
+              "hp": 14,
+              "attack": 14,
+              "defense": 14,
+              "speed": 14,
+              "special": 14
+            },
+            "moves": [
+              "Headbutt",
+              "Attract",
+              "Mud Slap",
+              "Disarm Voice"
+            ]
+          },
+          "ability": "Cute Charm",
+          "dvs": {
+            "hp": 14,
+            "attack": 14,
+            "defense": 14,
+            "speed": 14,
+            "special": 14
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "pokefanm_brandon",
+      "name": "Brandon",
+      "trainerClass": "POKEFANM",
+      "spriteType": "pokefanm",
+      "coordinates": {
+        "x": 18,
+        "y": 28
+      },
+      "pokemon": [
+        {
+          "level": 13,
+          "species": "Snubbull",
+          "item": "Oran Berry",
+          "moves": [
+            "Lick",
+            "Bite",
+            "Tackle",
+            "Scary Face"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 13,
+          "species": "Mareep",
+          "moves": [
+            "Mud Slap",
+            "Thundershock",
+            "Thunder Wave",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 8,
+        "y": 32
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 17,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 7,
+        "y": 30
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pearl String",
+      "coordinates": {
+        "x": 4,
+        "y": 34
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [
+        {
+          "id": "lyra1_lyra1_4",
+          "name": "Lyra",
+          "trainerClass": "LYRA1",
+          "spriteType": "lyra1",
+          "coordinates": {
+            "x": 9,
+            "y": 17
+          },
+          "pokemon": [
+            {
+              "level": 16,
+              "species": "Pidgey",
+              "moves": [
+                "Tackle",
+                "Gust",
+                "Mud Slap",
+                "Quick Attack ; Default For Level"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 36,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 36,
+                  "special": 0
+                },
+                "moves": [
+                  "Tackle",
+                  "Gust",
+                  "Mud Slap",
+                  "Quick Attack ; Default For Level"
+                ]
+              },
+              "evs": {
+                "hp": 36,
+                "attack": 0,
+                "defense": 0,
+                "speed": 36,
+                "special": 0
+              }
+            },
+            {
+              "level": 17,
+              "species": "Marill",
+              "moves": [
+                "Defense Curl",
+                "Rollout",
+                "Bubble Beam",
+                "Dizzy Punch ; Default For Level"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 72,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                },
+                "moves": [
+                  "Defense Curl",
+                  "Rollout",
+                  "Bubble Beam",
+                  "Dizzy Punch ; Default For Level"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 72,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 15,
+              "species": "Mareep",
+              "moves": [
+                "Thunder Wave",
+                "Thundershock",
+                "Mud Slap",
+                "Spark ; Default For Level"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 36,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 36
+                },
+                "moves": [
+                  "Thunder Wave",
+                  "Thundershock",
+                  "Mud Slap",
+                  "Spark ; Default For Level"
+                ]
+              },
+              "evs": {
+                "hp": 36,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 36
+              }
+            },
+            {
+              "level": 18,
+              "species": "Bayleef",
+              "nickname": "Chicory",
+              "item": "Oran Berry",
+              "moves": [
+                "Razor Leaf",
+                "Poisonpowder",
+                "Healinglight",
+                "Reflect ; No Light Screen"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 72,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                },
+                "moves": [
+                  "Razor Leaf",
+                  "Poisonpowder",
+                  "Healinglight",
+                  "Reflect ; No Light Screen"
+                ]
+              },
+              "evs": {
+                "hp": 72,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "lyra1_lyra1_5",
+          "name": "Lyra",
+          "trainerClass": "LYRA1",
+          "spriteType": "lyra1",
+          "coordinates": {
+            "x": 9,
+            "y": 17
+          },
+          "pokemon": [
+            {
+              "level": 16,
+              "species": "Pidgey",
+              "moves": [
+                "Quick Attack",
+                "Mud Slap",
+                "Gust",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 36,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 36,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 36,
+                "attack": 0,
+                "defense": 0,
+                "speed": 36,
+                "special": 0
+              }
+            },
+            {
+              "level": 17,
+              "species": "Sunkern",
+              "moves": [
+                "Razor Leaf",
+                "Leech Seed",
+                "Mega Drain",
+                "Defense Curl"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 36,
+                  "special": 36
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 36,
+                "special": 36
+              }
+            },
+            {
+              "level": 15,
+              "species": "Mareep",
+              "moves": [
+                "Spark",
+                "Mud Slap",
+                "Thundershock",
+                "Thunder Wave"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 36,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 36
+                }
+              },
+              "evs": {
+                "hp": 36,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 36
+              }
+            },
+            {
+              "level": 18,
+              "species": "Quilava",
+              "nickname": "Cinder",
+              "item": "Oran Berry",
+              "moves": [
+                "Quick Attack",
+                "Ember",
+                "Smokescreen",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 72,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 72,
+                "special": 0
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "lyra1_lyra1_6",
+          "name": "Lyra",
+          "trainerClass": "LYRA1",
+          "spriteType": "lyra1",
+          "coordinates": {
+            "x": 9,
+            "y": 17
+          },
+          "pokemon": [
+            {
+              "level": 16,
+              "species": "Pidgey",
+              "moves": [
+                "Quick Attack",
+                "Mud Slap",
+                "Gust",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 36,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 36,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 36,
+                "attack": 0,
+                "defense": 0,
+                "speed": 36,
+                "special": 0
+              }
+            },
+            {
+              "level": 17,
+              "species": "Growlithe",
+              "moves": [
+                "Fire Spin",
+                "Baton Pass",
+                "Safeguard",
+                "Leer"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 36,
+                  "attack": 36,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 36,
+                "attack": 36,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 15,
+              "species": "Mareep",
+              "moves": [
+                "Spark",
+                "Mud Slap",
+                "Thundershock",
+                "Thunder Wave"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 36,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 36
+                }
+              },
+              "evs": {
+                "hp": 36,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 36
+              }
+            },
+            {
+              "level": 18,
+              "species": "Croconaw",
+              "nickname": "Toto",
+              "item": "Oran Berry",
+              "moves": [
+                "Scary Face",
+                "Bite",
+                "Rage",
+                "Water Gun"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 72,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 72,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "camper_todd1",
+          "name": "Todd",
+          "trainerClass": "CAMPER",
+          "spriteType": "camper",
+          "coordinates": {
+            "x": 13,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 14,
+              "species": "Psyduck",
+              "moves": [
+                "Fury Strikes",
+                "Confusion",
+                "Water Gun",
+                "Leer"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": true
+        },
+        {
+          "id": "camper_todd2",
+          "name": "Todd",
+          "trainerClass": "CAMPER",
+          "spriteType": "camper",
+          "coordinates": {
+            "x": 13,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 17,
+              "species": "Geodude",
+              "moves": [
+                "Rock Throw",
+                "Magnitude",
+                "Rollout",
+                "Rapid Spin"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 17,
+              "species": "Geodude",
+              "moves": [
+                "Rock Throw",
+                "Magnitude",
+                "Rollout",
+                "Rapid Spin"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 23,
+              "species": "Psyduck",
+              "moves": [
+                "Screech",
+                "Disable",
+                "Water Pulse",
+                "Fury Strikes"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": true
+        },
+        {
+          "id": "camper_todd3",
+          "name": "Todd",
+          "trainerClass": "CAMPER",
+          "spriteType": "camper",
+          "coordinates": {
+            "x": 13,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 23,
+              "species": "Geodude",
+              "moves": [
+                "Bulldoze",
+                "Ancientpower",
+                "Rock Throw",
+                "Magnitude"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 23,
+              "species": "Geodude",
+              "moves": [
+                "Bulldoze",
+                "Ancientpower",
+                "Rock Throw",
+                "Magnitude"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 26,
+              "species": "Psyduck",
+              "moves": [
+                "Zen Headbutt",
+                "Screech",
+                "Disable",
+                "Water Pulse"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": true
+        },
+        {
+          "id": "camper_todd4",
+          "name": "Todd",
+          "trainerClass": "CAMPER",
+          "spriteType": "camper",
+          "coordinates": {
+            "x": 13,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 30,
+              "species": "Graveler",
+              "moves": [
+                "Sandstorm",
+                "Rock Blast",
+                "Bulldoze",
+                "Ancientpower"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 30,
+              "species": "Graveler",
+              "moves": [
+                "Sandstorm",
+                "Rock Blast",
+                "Bulldoze",
+                "Ancientpower"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 30,
+              "species": "Slugma",
+              "moves": [
+                "Rock Slide",
+                "Flame Charge",
+                "Ancientpower",
+                "Smokescreen"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 32,
+              "species": "Psyduck",
+              "moves": [
+                "Rain Dance",
+                "Aqua Tail",
+                "Zen Headbutt",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": true
+        },
+        {
+          "id": "camper_todd5",
+          "name": "Todd",
+          "trainerClass": "CAMPER",
+          "spriteType": "camper",
+          "coordinates": {
+            "x": 13,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 34,
+              "species": "Graveler",
+              "moves": [
+                "Mud Slap",
+                "Bulldoze",
+                "Sandstorm",
+                "Rock Slide"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Mud Slap",
+                  "Bulldoze",
+                  "Sandstorm",
+                  "Rock Slide"
+                ]
+              }
+            },
+            {
+              "level": 34,
+              "species": "Graveler",
+              "moves": [
+                "Defense Curl",
+                "Rollout",
+                "Magnitude",
+                "Rock Slide"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Defense Curl",
+                  "Rollout",
+                  "Magnitude",
+                  "Rock Slide"
+                ]
+              }
+            },
+            {
+              "level": 36,
+              "species": "Magcargo",
+              "moves": [
+                "Rock Throw",
+                "Defense Curl",
+                "Calm Mind",
+                "Flamethrower"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Rock Throw",
+                  "Defense Curl",
+                  "Calm Mind",
+                  "Flamethrower"
+                ]
+              }
+            },
+            {
+              "level": 34,
+              "species": "Golduck",
+              "moves": [
+                "Disable",
+                "Psychic",
+                "Surf",
+                "Calm Mind"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Disable",
+                  "Psychic",
+                  "Surf",
+                  "Calm Mind"
+                ]
+              }
+            }
+          ],
+          "rematchable": true
+        },
+        {
+          "id": "picnicker_gina1",
+          "name": "Gina",
+          "trainerClass": "PICNICKER",
+          "spriteType": "picnicker",
+          "coordinates": {
+            "x": 10,
+            "y": 26
+          },
+          "pokemon": [
+            {
+              "level": 9,
+              "species": "Sunkern",
+              "moves": [
+                "Defense Curl",
+                "Growth",
+                "Splash",
+                "Absorb"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 9,
+              "species": "Hoppip",
+              "moves": [
+                "Tackle",
+                "Defense Curl",
+                "Healinglight",
+                "Absorb"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 12,
+              "species": "Bulbasaur",
+              "moves": [
+                "Vine Whip",
+                "Leech Seed",
+                "Growl",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": true
+        },
+        {
+          "id": "picnicker_gina2",
+          "name": "Gina",
+          "trainerClass": "PICNICKER",
+          "spriteType": "picnicker",
+          "coordinates": {
+            "x": 10,
+            "y": 26
+          },
+          "pokemon": [
+            {
+              "level": 14,
+              "species": "Sunkern",
+              "moves": [
+                "Leech Seed",
+                "Mega Drain",
+                "Defense Curl",
+                "Growth"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 14,
+              "species": "Hoppip",
+              "moves": [
+                "Stun Spore",
+                "Poisonpowder",
+                "Confusion",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 17,
+              "species": "Ivysaur",
+              "moves": [
+                "Mud Slap",
+                "Poisonpowder",
+                "Sleep Powder",
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": true
+        },
+        {
+          "id": "picnicker_gina3",
+          "name": "Gina",
+          "trainerClass": "PICNICKER",
+          "spriteType": "picnicker",
+          "coordinates": {
+            "x": 10,
+            "y": 26
+          },
+          "pokemon": [
+            {
+              "level": 26,
+              "species": "Sunflora",
+              "moves": [
+                "Agility",
+                "Giga Drain",
+                "Protect",
+                "Razor Leaf"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 27,
+              "species": "Skiploom",
+              "moves": [
+                "Leech Seed",
+                "Headbutt",
+                "Sleep Powder",
+                "Stun Spore"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 29,
+              "species": "Ivysaur",
+              "moves": [
+                "Growth",
+                "Take Down",
+                "Razor Leaf",
+                "Mud Slap"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": true
+        },
+        {
+          "id": "picnicker_gina4",
+          "name": "Gina",
+          "trainerClass": "PICNICKER",
+          "spriteType": "picnicker",
+          "coordinates": {
+            "x": 10,
+            "y": 26
+          },
+          "pokemon": [
+            {
+              "level": 30,
+              "species": "Sunflora",
+              "moves": [
+                "Petal Dance",
+                "Agility",
+                "Giga Drain",
+                "Protect"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 31,
+              "species": "Jumpluff",
+              "moves": [
+                "Mega Drain",
+                "Leech Seed",
+                "Headbutt",
+                "Sleep Powder"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 32,
+              "species": "Ivysaur",
+              "moves": [
+                "Double Edge",
+                "Growth",
+                "Take Down",
+                "Razor Leaf"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": true
+        },
+        {
+          "id": "picnicker_gina5",
+          "name": "Gina",
+          "trainerClass": "PICNICKER",
+          "spriteType": "picnicker",
+          "coordinates": {
+            "x": 10,
+            "y": 26
+          },
+          "pokemon": [
+            {
+              "level": 33,
+              "species": "Sunflora",
+              "moves": [
+                "Leech Seed",
+                "Giga Drain",
+                "Sunny Day",
+                "Flamethrower"
+              ],
+              "faithful": {
+                "moves": [
+                  "Leech Seed",
+                  "Giga Drain",
+                  "Sunny Day",
+                  "Earth Power"
+                ]
+              },
+              "polished": {
+                "moves": [
+                  "Leech Seed",
+                  "Giga Drain",
+                  "Sunny Day",
+                  "Flamethrower"
+                ]
+              }
+            },
+            {
+              "level": 34,
+              "species": "Jumpluff",
+              "moves": [
+                "Acrobatics",
+                "Sleep Powder",
+                "Stun Spore",
+                "Mega Drain"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Acrobatics",
+                  "Sleep Powder",
+                  "Stun Spore",
+                  "Mega Drain"
+                ]
+              }
+            },
+            {
+              "level": 38,
+              "species": "Venusaur",
+              "moves": [
+                "Solar Beam",
+                "Razor Leaf",
+                "Headbutt",
+                "Mud Slap"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Solar Beam",
+                  "Razor Leaf",
+                  "Headbutt",
+                  "Mud Slap"
+                ]
+              }
+            }
+          ],
+          "rematchable": true
+        },
+        {
+          "id": "officerf_mara",
+          "name": "Mara",
+          "trainerClass": "OFFICERF",
+          "spriteType": "officerf",
+          "coordinates": {
+            "x": 6,
+            "y": 10
+          },
+          "pokemon": [
+            {
+              "level": 17,
+              "species": "Growlithe",
+              "moves": [
+                "Fire Spin",
+                "Baton Pass",
+                "Safeguard",
+                "Leer"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "breeder_julie",
+          "name": "Julie",
+          "trainerClass": "BREEDER",
+          "spriteType": "breeder",
+          "coordinates": {
+            "x": 15,
+            "y": 32
+          },
+          "pokemon": [
+            {
+              "level": 7,
+              "species": "Pichu",
+              "item": "Eviolite",
+              "moves": [
+                "Leer",
+                "Thundershock",
+                "Charm"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 10,
+              "species": "Ditto",
+              "item": "Metal Powder",
+              "moves": [
+                "Transform"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 8,
+              "species": "Togepi",
+              "item": "Eviolite",
+              "moves": [
+                "Metronome",
+                "Growl",
+                "Charm"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "rich_boy_irving",
+          "name": "Irving",
+          "trainerClass": "RICH_BOY",
+          "spriteType": "rich_boy",
+          "coordinates": {
+            "x": 11,
+            "y": 20
+          },
+          "pokemon": [
+            {
+              "level": 24,
+              "species": "Togetic",
+              "item": "Kings Rock",
+              "gender": "male",
+              "moves": [
+                "Headbutt",
+                "Metronome",
+                "Sweet Kiss",
+                "Disarm Voice"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Serene Grace",
+                "dvs": {
+                  "hp": 14,
+                  "attack": 14,
+                  "defense": 14,
+                  "speed": 14,
+                  "special": 14
+                },
+                "moves": [
+                  "Headbutt",
+                  "Metronome",
+                  "Sweet Kiss",
+                  "Disarm Voice"
+                ]
+              },
+              "ability": "Serene Grace",
+              "dvs": {
+                "hp": 14,
+                "attack": 14,
+                "defense": 14,
+                "speed": 14,
+                "special": 14
+              }
+            },
+            {
+              "level": 24,
+              "species": "Chansey",
+              "item": "Kings Rock",
+              "gender": "male",
+              "moves": [
+                "Headbutt",
+                "Fresh Snack",
+                "Sweet Kiss",
+                "Zen Headbutt"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Serene Grace",
+                "dvs": {
+                  "hp": 14,
+                  "attack": 14,
+                  "defense": 14,
+                  "speed": 14,
+                  "special": 14
+                },
+                "moves": [
+                  "Headbutt",
+                  "Fresh Snack",
+                  "Sweet Kiss",
+                  "Zen Headbutt"
+                ]
+              },
+              "ability": "Serene Grace",
+              "dvs": {
+                "hp": 14,
+                "attack": 14,
+                "defense": 14,
+                "speed": 14,
+                "special": 14
+              }
+            },
+            {
+              "level": 25,
+              "species": "Sylveon",
+              "item": "Kings Rock",
+              "gender": "male",
+              "moves": [
+                "Headbutt",
+                "Attract",
+                "Mud Slap",
+                "Disarm Voice"
+              ],
+              "faithful": {
+                "ability": "Cute Charm"
+              },
+              "polished": {
+                "ability": "Serene Grace",
+                "dvs": {
+                  "hp": 14,
+                  "attack": 14,
+                  "defense": 14,
+                  "speed": 14,
+                  "special": 14
+                },
+                "moves": [
+                  "Headbutt",
+                  "Attract",
+                  "Mud Slap",
+                  "Disarm Voice"
+                ]
+              },
+              "ability": "Cute Charm",
+              "dvs": {
+                "hp": 14,
+                "attack": 14,
+                "defense": 14,
+                "speed": 14,
+                "special": 14
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "pokefanm_brandon",
+          "name": "Brandon",
+          "trainerClass": "POKEFANM",
+          "spriteType": "pokefanm",
+          "coordinates": {
+            "x": 18,
+            "y": 28
+          },
+          "pokemon": [
+            {
+              "level": 13,
+              "species": "Snubbull",
+              "item": "Oran Berry",
+              "moves": [
+                "Lick",
+                "Bite",
+                "Tackle",
+                "Scary Face"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 13,
+              "species": "Mareep",
+              "moves": [
+                "Mud Slap",
+                "Thundershock",
+                "Thunder Wave",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Rare Candy",
+          "coordinates": {
+            "x": 8,
+            "y": 32
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Super Potion",
+          "coordinates": {
+            "x": 17,
+            "y": 19
+          }
+        },
+        {
+          "type": "item",
+          "name": "Nugget",
+          "coordinates": {
+            "x": 7,
+            "y": 30
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "north",
+          "targetLocation": "goldenrod_city",
+          "targetLocationDisplay": "Goldenrod City",
+          "offset": -7
+        },
+        {
+          "direction": "west",
+          "targetLocation": "route_34_coast",
+          "targetLocationDisplay": "Route 34 Coast",
+          "offset": 0
+        },
+        {
+          "direction": "east",
+          "targetLocation": "azalea_town",
+          "targetLocationDisplay": "Azalea Town",
+          "offset": 18
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_34_ilex_forest_gate",
+          "targetLocationDisplay": "Route 34 Ilex Forest Gate",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "daycare",
+          "targetLocationDisplay": "Daycare",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [
+        {
+          "type": "coordinate_trigger",
+          "description": "Route34 Lyra Trigger1",
+          "coordinates": {
+            "x": 8,
+            "y": 17
+          }
+        },
+        {
+          "type": "coordinate_trigger",
+          "description": "Route34 Lyra Trigger2",
+          "coordinates": {
+            "x": 9,
+            "y": 17
+          }
+        },
+        {
+          "type": "coordinate_trigger",
+          "description": "Route34 Lyra Trigger3",
+          "coordinates": {
+            "x": 10,
+            "y": 17
+          }
+        }
+      ],
+      "npcTrades": []
+    },
+    {
+      "id": "coast",
+      "displayName": "Coast",
+      "trainers": [
+        {
+          "id": "swimmerm_frank",
+          "name": "Frank",
+          "trainerClass": "SWIMMERM",
+          "spriteType": "swimmerm",
+          "coordinates": {
+            "x": 7,
+            "y": 47
+          },
+          "pokemon": [
+            {
+              "level": 26,
+              "species": "Mantine",
+              "moves": [
+                "Aqua Jet",
+                "Water Pulse",
+                "Headbutt",
+                "Wing Attack"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "swimmerm_nadar",
+          "name": "Nadar",
+          "trainerClass": "SWIMMERM",
+          "spriteType": "swimmerm",
+          "coordinates": {
+            "x": 10,
+            "y": 21
+          },
+          "pokemon": [
+            {
+              "level": 24,
+              "species": "Seadra",
+              "moves": [
+                "Water Pulse",
+                "Aqua Jet",
+                "Bubble Beam",
+                "Leer"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Quagsire",
+              "moves": [
+                "Amnesia",
+                "Recover",
+                "Headbutt",
+                "Scary Face"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "swimmerm_conrad",
+          "name": "Conrad",
+          "trainerClass": "SWIMMERM",
+          "spriteType": "swimmerm",
+          "coordinates": {
+            "x": 7,
+            "y": 61
+          },
+          "pokemon": [
+            {
+              "level": 26,
+              "species": "Azumarill",
+              "moves": [
+                "Play Rough",
+                "Aqua Tail",
+                "Dizzy Punch",
+                "Bubble Beam"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "swimmerf_caroline",
+          "name": "Caroline",
+          "trainerClass": "SWIMMERF",
+          "spriteType": "swimmerf",
+          "coordinates": {
+            "x": 8,
+            "y": 43
+          },
+          "pokemon": [
+            {
+              "level": 23,
+              "species": "Remoraid",
+              "moves": [
+                "Focus Energy",
+                "Bubble Beam",
+                "Aurora Beam",
+                "Psybeam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 23,
+              "species": "Remoraid",
+              "moves": [
+                "Focus Energy",
+                "Bubble Beam",
+                "Aurora Beam",
+                "Psybeam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 23,
+              "species": "Remoraid",
+              "moves": [
+                "Focus Energy",
+                "Bubble Beam",
+                "Aurora Beam",
+                "Psybeam"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "swimmerf_natalia",
+          "name": "Natalia",
+          "trainerClass": "SWIMMERF",
+          "spriteType": "swimmerf",
+          "coordinates": {
+            "x": 8,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 24,
+              "species": "Staryu",
+              "moves": [
+                "Gyro Ball",
+                "Agility",
+                "Bubble Beam",
+                "Swift"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 24,
+              "species": "Staryu",
+              "moves": [
+                "Gyro Ball",
+                "Agility",
+                "Bubble Beam",
+                "Swift"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "fisher_francis",
+          "name": "Francis",
+          "trainerClass": "FISHER",
+          "spriteType": "fisher",
+          "coordinates": {
+            "x": 12,
+            "y": 14
+          },
+          "pokemon": [
+            {
+              "level": 24,
+              "species": "Remoraid",
+              "moves": [
+                "Focus Energy",
+                "Bubble Beam",
+                "Aurora Beam",
+                "Psybeam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Chinchou",
+              "moves": [
+                "Spark",
+                "Water Pulse",
+                "Confuse Ray",
+                "Bubble Beam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 24,
+              "species": "Qwilfish",
+              "moves": [
+                "Toxic Spikes",
+                "Rollout",
+                "Bubble Beam",
+                "Minimize"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "bird_keeper_bird_keeper_tony",
+          "name": "Tony",
+          "trainerClass": "BIRD_KEEPER",
+          "spriteType": "bird_keeper",
+          "coordinates": {
+            "x": 7,
+            "y": 32
+          },
+          "pokemon": [
+            {
+              "level": 24,
+              "species": "Pidgeotto",
+              "moves": [
+                "Gust",
+                "Quick Attack",
+                "Rage",
+                "Mud Slap"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Gust",
+                  "Quick Attack",
+                  "Rage",
+                  "Mud Slap"
+                ]
+              }
+            },
+            {
+              "level": 24,
+              "species": "Pidgeotto",
+              "moves": [
+                "Gust",
+                "Quick Attack",
+                "Rage",
+                "Double Team"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Gust",
+                  "Quick Attack",
+                  "Rage",
+                  "Double Team"
+                ]
+              }
+            },
+            {
+              "level": 27,
+              "species": "Golduck",
+              "moves": [
+                "Surf",
+                "Disable",
+                "Screech",
+                "Zen Headbutt"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Surf",
+                  "Disable",
+                  "Screech",
+                  "Zen Headbutt"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Pearl String",
+          "coordinates": {
+            "x": 4,
+            "y": 34
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "south",
+          "targetLocation": "stormy_beach",
+          "targetLocationDisplay": "Stormy Beach",
+          "offset": 0
+        },
+        {
+          "direction": "east",
+          "targetLocation": "route_34",
+          "targetLocationDisplay": "Route 34",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "ilex_forest_gate",
+      "displayName": "Ilex Forest Gate",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_34",
+          "targetLocationDisplay": "Route 34",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "ilex_forest",
+          "targetLocationDisplay": "Ilex Forest",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "route_34",
+    "route_34_coast",
+    "route_34_ilex_forest_gate"
+  ],
+  "trainerCount": 41,
+  "hasTrainers": true
+}

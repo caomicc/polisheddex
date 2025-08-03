@@ -1,0 +1,893 @@
+{
+  "id": 51,
+  "name": "quiet_cave",
+  "displayName": "Quiet Cave",
+  "region": "johto",
+  "x": 12,
+  "y": 108,
+  "flyable": false,
+  "connections": [],
+  "tmhms": [
+    {
+      "tmNumber": "TM52",
+      "moveName": "Focus Blast",
+      "location": "Quiet Cave"
+    }
+  ],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM52 - Focus Blast"
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 10,
+        "y": 23
+      }
+    },
+    {
+      "type": "item",
+      "name": "Twistedspoon",
+      "coordinates": {
+        "x": 26,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Stone",
+      "coordinates": {
+        "x": 14,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Ball",
+      "coordinates": {
+        "x": 3,
+        "y": 3
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 26,
+        "y": 33
+      }
+    },
+    {
+      "type": "item",
+      "name": "Big Pearl",
+      "coordinates": {
+        "x": 8,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 14,
+        "y": 13
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 16,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Ball",
+      "coordinates": {
+        "x": 10,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Razor Claw",
+      "coordinates": {
+        "x": 9,
+        "y": 23
+      }
+    },
+    {
+      "type": "item",
+      "name": "Safe Goggles",
+      "coordinates": {
+        "x": 19,
+        "y": 11
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 16,
+        "y": 20
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 12,
+        "y": 22
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM52 - Focus Blast"
+        }
+      ],
+      "connections": [],
+      "tmhms": [
+        {
+          "tmNumber": "TM52",
+          "moveName": "Focus Blast",
+          "location": "Quiet Cave"
+        }
+      ],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [
+        {
+          "id": "hex_maniac_ashley",
+          "name": "Ashley",
+          "trainerClass": "HEX_MANIAC",
+          "spriteType": "hex_maniac",
+          "coordinates": {
+            "x": 6,
+            "y": 8
+          },
+          "pokemon": [
+            {
+              "level": 25,
+              "species": "Haunter",
+              "moves": [
+                "Sucker Punch",
+                "Confuse Ray",
+                "Night Shade",
+                "Curse"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 26,
+              "species": "Mismagius",
+              "moves": [
+                "Power Gem",
+                "Shadow Ball",
+                "Flamethrower",
+                "Dazzlingleam"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "cooltrainerm_henri",
+          "name": "Henri",
+          "trainerClass": "COOLTRAINERM",
+          "spriteType": "ace_trainer_m",
+          "coordinates": {
+            "x": 13,
+            "y": 17
+          },
+          "pokemon": [
+            {
+              "level": 25,
+              "species": "Charmeleon",
+              "moves": [
+                "Dragon Rage",
+                "Metal Claw",
+                "Smokescreen",
+                "Ember"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Wartortle",
+              "moves": [
+                "Protect",
+                "Rapid Spin",
+                "Bite",
+                "Aqua Jet"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Ivysaur",
+              "moves": [
+                "Take Down",
+                "Razor Leaf",
+                "Mud Slap",
+                "Poisonpowder"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "hiker_grady",
+          "name": "Grady",
+          "trainerClass": "HIKER",
+          "spriteType": "hiker",
+          "coordinates": {
+            "x": 23,
+            "y": 25
+          },
+          "pokemon": [
+            {
+              "level": 24,
+              "species": "Graveler",
+              "moves": [
+                "Rock Blast",
+                "Bulldoze",
+                "Ancientpower",
+                "Rock Throw"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 24,
+              "species": "Graveler",
+              "moves": [
+                "Rock Blast",
+                "Bulldoze",
+                "Ancientpower",
+                "Rock Throw"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Sandslash",
+              "moves": [
+                "Super Fang",
+                "Fury Strikes",
+                "Swift",
+                "Magnitude"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "scientist_carl",
+          "name": "Carl",
+          "trainerClass": "SCIENTIST",
+          "spriteType": "scientist",
+          "coordinates": {
+            "x": 29,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 25,
+              "species": "Porygon",
+              "moves": [
+                "Growth",
+                "Recover",
+                "Agility",
+                "Psybeam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Porygon",
+              "moves": [
+                "Growth",
+                "Recover",
+                "Agility",
+                "Psybeam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 26,
+              "species": "Magneton",
+              "moves": [
+                "Screech",
+                "Swift",
+                "Spark",
+                "Sonic Boom"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Nugget",
+          "coordinates": {
+            "x": 10,
+            "y": 23
+          }
+        },
+        {
+          "type": "item",
+          "name": "Twistedspoon",
+          "coordinates": {
+            "x": 26,
+            "y": 4
+          }
+        },
+        {
+          "type": "item",
+          "name": "Dusk Stone",
+          "coordinates": {
+            "x": 14,
+            "y": 2
+          }
+        },
+        {
+          "type": "item",
+          "name": "Dusk Ball",
+          "coordinates": {
+            "x": 3,
+            "y": 3
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_47",
+          "targetLocationDisplay": "Route 47",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "quiet_cave_b_1f",
+          "targetLocationDisplay": "Quiet Cave B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f",
+      "displayName": "Basement 1st Floor",
+      "trainers": [
+        {
+          "id": "nurse_keiko",
+          "name": "Keiko",
+          "trainerClass": "NURSE",
+          "spriteType": "nurse",
+          "coordinates": {
+            "x": 6,
+            "y": 20
+          },
+          "pokemon": [
+            {
+              "level": 20,
+              "species": "Happiny",
+              "moves": [
+                "Charm",
+                "Rollout",
+                "Disarm Voice",
+                "Sweet Kiss"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Chansey",
+              "moves": [
+                "Minimize",
+                "Metronome",
+                "Fresh Snack",
+                "Double Slap"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "battle_girl_kagami",
+          "name": "Kagami",
+          "trainerClass": "BATTLE_GIRL",
+          "spriteType": "battle_girl",
+          "coordinates": {
+            "x": 25,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 25,
+              "species": "Primeape",
+              "moves": [
+                "Cross Chop",
+                "Swagger",
+                "Seismic Toss",
+                "Pursuit"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Machoke",
+              "moves": [
+                "Mach Punch",
+                "Knock Off",
+                "Reversal",
+                "Seismic Toss"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 27,
+              "species": "Ursaring",
+              "moves": [
+                "Play Rough",
+                "Belly Drum",
+                "Feint Attack",
+                "Fury Strikes"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "pokemaniac_aidan",
+          "name": "Aidan",
+          "trainerClass": "POKEMANIAC",
+          "spriteType": "pokemaniac",
+          "coordinates": {
+            "x": 21,
+            "y": 17
+          },
+          "pokemon": [
+            {
+              "level": 36,
+              "species": "Snorlax",
+              "moves": [
+                "Headbutt",
+                "Defense Curl",
+                "Rollout",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Headbutt",
+                  "Defense Curl",
+                  "Rollout",
+                  "Explosion"
+                ]
+              }
+            },
+            {
+              "level": 36,
+              "species": "Porygon2",
+              "moves": [
+                "Conversion",
+                "Recover",
+                "Psybeam",
+                "Tri Attack"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Conversion",
+                  "Recover",
+                  "Psybeam",
+                  "Tri Attack"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "hiker_steve",
+          "name": "Steve",
+          "trainerClass": "HIKER",
+          "spriteType": "hiker",
+          "coordinates": {
+            "x": 33,
+            "y": 30
+          },
+          "pokemon": [
+            {
+              "level": 27,
+              "species": "Steelix",
+              "moves": [
+                "Dragonbreath",
+                "Ancientpower",
+                "Sandstorm",
+                "Body Slam"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "psychic_t_virgil",
+          "name": "Virgil",
+          "trainerClass": "PSYCHIC_T",
+          "spriteType": "psychic",
+          "coordinates": {
+            "x": 4,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 24,
+              "species": "Natu",
+              "moves": [
+                "Confuse Ray",
+                "Pain Split",
+                "Hypnosis",
+                "Safeguard"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 26,
+              "species": "Xatu",
+              "moves": [
+                "Confuse Ray",
+                "Pain Split",
+                "Hypnosis",
+                "Safeguard"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Hyper Potion",
+          "coordinates": {
+            "x": 26,
+            "y": 33
+          }
+        },
+        {
+          "type": "item",
+          "name": "Big Pearl",
+          "coordinates": {
+            "x": 8,
+            "y": 3
+          }
+        },
+        {
+          "type": "item",
+          "name": "Elixir",
+          "coordinates": {
+            "x": 14,
+            "y": 13
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "quiet_cave_1f",
+          "targetLocationDisplay": "Quiet Cave First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "quiet_cave_b_2f",
+          "targetLocationDisplay": "Quiet Cave B Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_2f",
+      "displayName": "Basement 2nd Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Calcium",
+          "coordinates": {
+            "x": 16,
+            "y": 11
+          }
+        },
+        {
+          "type": "item",
+          "name": "Dusk Ball",
+          "coordinates": {
+            "x": 10,
+            "y": 3
+          }
+        },
+        {
+          "type": "item",
+          "name": "Razor Claw",
+          "coordinates": {
+            "x": 9,
+            "y": 23
+          }
+        },
+        {
+          "type": "item",
+          "name": "Safe Goggles",
+          "coordinates": {
+            "x": 19,
+            "y": 11
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "quiet_cave_b_1f",
+          "targetLocationDisplay": "Quiet Cave B First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "quiet_cave_b_3f",
+          "targetLocationDisplay": "Quiet Cave B Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_3f",
+      "displayName": "Basement 3rd Floor",
+      "trainers": [
+        {
+          "id": "marley_1",
+          "name": "Marley",
+          "trainerClass": "MARLEY",
+          "spriteType": "marley",
+          "coordinates": {
+            "x": 5,
+            "y": 5
+          },
+          "pokemon": [
+            {
+              "level": 28,
+              "species": "Arcanine",
+              "moves": [
+                "Dragon Dance",
+                "Growl",
+                "Bite",
+                "Roar"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 240,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 240,
+                "special": 0
+              }
+            },
+            {
+              "level": 26,
+              "species": "Raichu",
+              "moves": [
+                "Thundershock",
+                "Leer",
+                "Quick Attack",
+                "Thunderbolt"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 240,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 240,
+                "special": 0
+              }
+            },
+            {
+              "level": 25,
+              "species": "Crobat",
+              "moves": [
+                "Swift",
+                "Wing Attack",
+                "Confuse Ray",
+                "Gust"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 240,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 240,
+                "special": 0
+              }
+            },
+            {
+              "level": 25,
+              "species": "Electrode",
+              "moves": [
+                "Thunderbolt",
+                "Swift",
+                "Thunder Wave",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 240,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 240,
+                "special": 0
+              }
+            },
+            {
+              "level": 27,
+              "species": "Weavile",
+              "moves": [
+                "Hone Claws",
+                "Metal Claw",
+                "Nasty Plot",
+                "Fury Strikes"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 240,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 240,
+                "special": 0
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Pp Up",
+          "coordinates": {
+            "x": 16,
+            "y": 20
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 12,
+            "y": 22
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "quiet_cave_b_2f",
+          "targetLocationDisplay": "Quiet Cave B Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "quiet_cave_b_3f",
+          "targetLocationDisplay": "Quiet Cave B Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "quiet_cave",
+    "quiet_cave_1f",
+    "quiet_cave_b_1f",
+    "quiet_cave_b_2f",
+    "quiet_cave_b_3f"
+  ],
+  "trainerCount": 10,
+  "hasTrainers": true
+}

@@ -1,0 +1,591 @@
+{
+  "id": -1,
+  "name": "celadon_gym",
+  "displayName": "Celadon Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "celadon_city",
+      "targetLocationDisplay": "Celadon City",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "erika_1",
+      "name": "Erika",
+      "trainerClass": "ERIKA",
+      "spriteType": "erika",
+      "coordinates": {
+        "x": 5,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 61,
+          "species": "Sunflora",
+          "moves": [
+            "Sunny Day",
+            "Healinglight",
+            "Giga Drain",
+            "Flamethrower"
+          ],
+          "faithful": {
+            "moves": [
+              "Sunny Day",
+              "Healinglight",
+              "Giga Drain",
+              "Earth Power"
+            ]
+          },
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 192,
+              "special": 192
+            },
+            "moves": [
+              "Sunny Day",
+              "Healinglight",
+              "Giga Drain",
+              "Flamethrower"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 192,
+            "special": 192
+          }
+        },
+        {
+          "level": 62,
+          "species": "Tangela",
+          "item": "Eviolite",
+          "moves": [
+            "Growth",
+            "Healinglight",
+            "Giga Drain",
+            "Sleep Powder"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 132,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 252
+            },
+            "moves": [
+              "Growth",
+              "Healinglight",
+              "Giga Drain",
+              "Sleep Powder"
+            ]
+          },
+          "evs": {
+            "hp": 132,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 252
+          }
+        },
+        {
+          "level": 61,
+          "species": "Parasect",
+          "moves": [
+            "Spore",
+            "Slash",
+            "Growth",
+            "Giga Drain"
+          ],
+          "faithful": {
+            "evs": {
+              "hp": 252,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 132
+            },
+            "moves": [
+              "Spore",
+              "Slash",
+              "Growth",
+              "Giga Drain"
+            ]
+          },
+          "polished": {},
+          "evs": {
+            "hp": 252,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 132
+          }
+        },
+        {
+          "level": 61,
+          "species": "Politoed",
+          "moves": [
+            "Giga Drain",
+            "Scald",
+            "Ice Beam",
+            "Focus Blast"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 132,
+              "special": 252
+            },
+            "moves": [
+              "Giga Drain",
+              "Scald",
+              "Ice Beam",
+              "Focus Blast"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 132,
+            "special": 252
+          }
+        },
+        {
+          "level": 64,
+          "species": "Victreebel",
+          "moves": [
+            "Sunny Day",
+            "Healinglight",
+            "Acid",
+            "Razor Leaf"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 252,
+              "attack": 0,
+              "defense": 0,
+              "speed": 132,
+              "special": 0
+            },
+            "moves": [
+              "Sunny Day",
+              "Healinglight",
+              "Acid",
+              "Razor Leaf"
+            ]
+          },
+          "evs": {
+            "hp": 252,
+            "attack": 0,
+            "defense": 0,
+            "speed": 132,
+            "special": 0
+          }
+        },
+        {
+          "level": 65,
+          "species": "Vileplume",
+          "moves": [
+            "Sunny Day",
+            "Healinglight",
+            "Petal Dance",
+            "Solar Beam"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 132,
+              "special": 252
+            },
+            "moves": [
+              "Sunny Day",
+              "Healinglight",
+              "Petal Dance",
+              "Solar Beam"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 132,
+            "special": 252
+          }
+        },
+        {
+          "level": 65,
+          "species": "Bellossom",
+          "item": "Sitrus Berry",
+          "moves": [
+            "Sunny Day",
+            "Healinglight",
+            "Petal Dance",
+            "Solar Beam"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 252,
+              "special": 132
+            },
+            "moves": [
+              "Sunny Day",
+              "Healinglight",
+              "Petal Dance",
+              "Solar Beam"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 252,
+            "special": 132
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "lass_michelle",
+      "name": "Michelle",
+      "trainerClass": "LASS",
+      "spriteType": "lass",
+      "coordinates": {
+        "x": 7,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Leafeon",
+          "moves": [
+            "Sunny Day",
+            "Double Edge",
+            "Seed Bomb",
+            "Healinglight"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 57,
+          "species": "Tangela",
+          "moves": [
+            "Power Whip",
+            "Baton Pass",
+            "Swords Dance",
+            "Pain Split"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 58,
+          "species": "Jumpluff",
+          "moves": [
+            "Amnesia",
+            "U Turn",
+            "Agility",
+            "Encore"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "picnicker_tanya",
+      "name": "Tanya",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 2,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 61,
+          "species": "Exeggutor",
+          "moves": [
+            "Petal Dance",
+            "Power Whip",
+            "Zen Headbutt",
+            "Low Kick"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "beauty_julia",
+      "name": "Julia",
+      "trainerClass": "BEAUTY",
+      "spriteType": "beauty",
+      "coordinates": {
+        "x": 3,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 56,
+          "species": "Paras",
+          "moves": [
+            "X Scissor",
+            "Healinglight",
+            "Leech Life",
+            "Giga Drain"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Exeggcute",
+          "moves": [
+            "Psychic M",
+            "Extrasensory",
+            "Solar Beam",
+            "Healinglight"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Parasect",
+          "moves": [
+            "Healinglight",
+            "Leech Life",
+            "Giga Drain",
+            "Growth"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "aroma_lady_dahlia",
+      "name": "Dahlia",
+      "trainerClass": "AROMA_LADY",
+      "spriteType": "aroma_lady",
+      "coordinates": {
+        "x": 6,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Vileplume",
+          "moves": [
+            "Moonblast",
+            "Growth",
+            "Mega Drain",
+            "Heal Bell"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 58,
+          "species": "Bellossom",
+          "moves": [
+            "Moonblast",
+            "Growth",
+            "Mega Drain",
+            "Heal Bell"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "twins_joandzoe1",
+      "name": "Lo & Zoe",
+      "trainerClass": "TWINS",
+      "spriteType": "twins",
+      "coordinates": {
+        "x": 4,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "Victreebel",
+          "moves": [
+            "Swords Dance",
+            "Sucker Punch",
+            "Vine Whip",
+            "Sleep Powder"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Vileplume",
+          "moves": [
+            "Petal Dance",
+            "Moonblast",
+            "Growth",
+            "Mega Drain"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "twins_joandzoe2",
+      "name": "Lo & Zoe",
+      "trainerClass": "TWINS",
+      "spriteType": "twins",
+      "coordinates": {
+        "x": 5,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "Vileplume",
+          "moves": [
+            "Petal Dance",
+            "Moonblast",
+            "Growth",
+            "Mega Drain"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Victreebel",
+          "moves": [
+            "Swords Dance",
+            "Sucker Punch",
+            "Vine Whip",
+            "Sleep Powder"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "gymLeader": {
+    "name": "Erika",
+    "trainerClass": "ERIKA",
+    "badge": "RAINBOWBADGE",
+    "region": "kanto",
+    "speciality": "Grass",
+    "coordinates": {
+      "x": 5,
+      "y": 3
+    },
+    "pokemon": [
+      {
+        "level": 61,
+        "species": "sunflora",
+        "moves": [
+          "Sunny Day",
+          "Healinglight",
+          "Giga Drain",
+          "Flamethrower"
+        ]
+      },
+      {
+        "level": 62,
+        "species": "tangela",
+        "item": "eviolite",
+        "moves": [
+          "Growth",
+          "Healinglight",
+          "Giga Drain",
+          "Sleep Powder"
+        ]
+      },
+      {
+        "level": 61,
+        "species": "parasect",
+        "moves": [
+          "Spore",
+          "Slash",
+          "Growth",
+          "Giga Drain"
+        ]
+      },
+      {
+        "level": 61,
+        "species": "politoed",
+        "moves": [
+          "Giga Drain",
+          "Scald",
+          "Ice Beam",
+          "Focus Blast"
+        ]
+      },
+      {
+        "level": 64,
+        "species": "victreebel",
+        "moves": [
+          "Sunny Day",
+          "Healinglight",
+          "Acid",
+          "Razor Leaf"
+        ]
+      },
+      {
+        "level": 65,
+        "species": "vileplume",
+        "moves": [
+          "Sunny Day",
+          "Healinglight",
+          "Petal Dance",
+          "Solar Beam"
+        ]
+      },
+      {
+        "level": 65,
+        "species": "bellossom",
+        "item": "sitrus_berry",
+        "moves": [
+          "Sunny Day",
+          "Healinglight",
+          "Petal Dance",
+          "Solar Beam"
+        ]
+      }
+    ]
+  }
+}

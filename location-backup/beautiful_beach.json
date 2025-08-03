@@ -1,0 +1,363 @@
+{
+  "id": 131,
+  "name": "beautiful_beach",
+  "displayName": "Beautiful Beach",
+  "region": "orange",
+  "x": 84,
+  "y": 60,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "shamouti_island",
+      "targetLocationDisplay": "Shamouti Island",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "seagallop_ferry_shamouti_gate",
+      "targetLocationDisplay": "Seagallop Ferry Shamouti Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "beautiful_beach_villa",
+      "targetLocationDisplay": "Beautiful Beach Villa",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "aroma_lady_bryony",
+      "name": "Bryony",
+      "trainerClass": "AROMA_LADY",
+      "spriteType": "aroma_lady",
+      "coordinates": {
+        "x": 11,
+        "y": 18
+      },
+      "pokemon": [
+        {
+          "level": 55,
+          "species": "Bellossom",
+          "moves": [
+            "Solar Beam",
+            "Sunny Day",
+            "Stun Spore",
+            "Growth"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Solar Beam",
+              "Sunny Day",
+              "Stun Spore",
+              "Growth"
+            ]
+          }
+        },
+        {
+          "level": 55,
+          "species": "Bellossom",
+          "moves": [
+            "Solar Beam",
+            "Sunny Day",
+            "Stun Spore",
+            "Growth"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Solar Beam",
+              "Sunny Day",
+              "Stun Spore",
+              "Growth"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "sightseerm_jaska",
+      "name": "Jaska",
+      "trainerClass": "SIGHTSEERM",
+      "spriteType": "sightseerm",
+      "coordinates": {
+        "x": 26,
+        "y": 26
+      },
+      "pokemon": [
+        {
+          "level": 50,
+          "species": "Bulbasaur",
+          "moves": [
+            "Sludge Bomb",
+            "Seed Bomb",
+            "Healinglight",
+            "Ancientpower"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "tamer_vince",
+      "name": "Vince",
+      "trainerClass": "TAMER",
+      "spriteType": "tamer",
+      "coordinates": {
+        "x": 33,
+        "y": 23
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Kangaskhan",
+          "moves": [
+            "Reversal",
+            "Sucker Punch",
+            "Outrage",
+            "Endure"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 56,
+          "species": "Donphan",
+          "moves": [
+            "Giga Impact",
+            "Earthquake",
+            "Scary Face",
+            "Iron Tail"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "sightseerf_rosie",
+      "name": "Rosie",
+      "trainerClass": "SIGHTSEERF",
+      "spriteType": "sightseerf",
+      "coordinates": {
+        "x": 5,
+        "y": 22
+      },
+      "pokemon": [
+        {
+          "level": 50,
+          "species": "Bulbasaur",
+          "moves": [
+            "Sludge Bomb",
+            "Seed Bomb",
+            "Healinglight",
+            "Ancientpower"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "swimmerf_rachel",
+      "name": "Rachel",
+      "trainerClass": "SWIMMERF",
+      "spriteType": "swimmerf",
+      "coordinates": {
+        "x": 12,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Remoraid",
+          "moves": [
+            "Aura Sphere",
+            "Hydro Pump",
+            "Gunk Shot",
+            "Seed Bomb"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Remoraid",
+          "moves": [
+            "Aura Sphere",
+            "Hydro Pump",
+            "Gunk Shot",
+            "Seed Bomb"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Remoraid",
+          "moves": [
+            "Aura Sphere",
+            "Hydro Pump",
+            "Gunk Shot",
+            "Seed Bomb"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Mantine",
+          "moves": [
+            "Hydro Pump",
+            "Mirror Coat",
+            "Roost",
+            "Air Slash"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "artist_marlene",
+      "name": "Marlene",
+      "trainerClass": "ARTIST",
+      "spriteType": "artist",
+      "coordinates": {
+        "x": 27,
+        "y": 13
+      },
+      "pokemon": [
+        {
+          "level": 55,
+          "species": "Smeargle",
+          "item": "Charcoal",
+          "moves": [
+            "Fire Blast",
+            "Flamethrower",
+            "Earth Power",
+            "Will O Wisp"
+          ],
+          "faithful": {},
+          "polished": {
+            "dvs": {
+              "hp": 15,
+              "attack": 15,
+              "defense": 15,
+              "speed": 15,
+              "special": 15
+            },
+            "moves": [
+              "Fire Blast",
+              "Flamethrower",
+              "Earth Power",
+              "Will O Wisp"
+            ]
+          },
+          "dvs": {
+            "hp": 15,
+            "attack": 15,
+            "defense": 15,
+            "speed": 15,
+            "special": 15
+          }
+        },
+        {
+          "level": 55,
+          "species": "Smeargle",
+          "item": "Magnet",
+          "moves": [
+            "Thunder",
+            "Thunderbolt",
+            "Thunder Wave",
+            "Rain Dance"
+          ],
+          "faithful": {},
+          "polished": {
+            "dvs": {
+              "hp": 15,
+              "attack": 15,
+              "defense": 15,
+              "speed": 15,
+              "special": 15
+            },
+            "moves": [
+              "Thunder",
+              "Thunderbolt",
+              "Thunder Wave",
+              "Rain Dance"
+            ]
+          },
+          "dvs": {
+            "hp": 15,
+            "attack": 15,
+            "defense": 15,
+            "speed": 15,
+            "special": 15
+          }
+        },
+        {
+          "level": 55,
+          "species": "Smeargle",
+          "item": "Mystic Water",
+          "moves": [
+            "Hydro Pump",
+            "Surf",
+            "Ice Beam",
+            "Scald"
+          ],
+          "faithful": {},
+          "polished": {
+            "dvs": {
+              "hp": 15,
+              "attack": 15,
+              "defense": 15,
+              "speed": 15,
+              "special": 15
+            },
+            "moves": [
+              "Hydro Pump",
+              "Surf",
+              "Ice Beam",
+              "Scald"
+            ]
+          },
+          "dvs": {
+            "hp": 15,
+            "attack": 15,
+            "defense": 15,
+            "speed": 15,
+            "special": 15
+          }
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Luxury Ball",
+      "coordinates": {
+        "x": 6,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 36,
+        "y": 20
+      }
+    }
+  ]
+}

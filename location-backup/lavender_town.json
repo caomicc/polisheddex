@@ -1,0 +1,98 @@
+{
+  "id": 94,
+  "name": "lavender_town",
+  "displayName": "Lavender Town",
+  "region": "kanto",
+  "x": 140,
+  "y": 60,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_10_south",
+      "targetLocationDisplay": "Route 10 South",
+      "offset": 0
+    },
+    {
+      "direction": "south",
+      "targetLocation": "route_12_north",
+      "targetLocationDisplay": "Route 12 North",
+      "offset": 0
+    },
+    {
+      "direction": "west",
+      "targetLocation": "route_8",
+      "targetLocationDisplay": "Route 8",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lavender_pokecenter_1f",
+      "targetLocationDisplay": "Lavender Pokecenter 1f",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "mr_fujis_house",
+      "targetLocationDisplay": "Mr Fujis House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lavender_town_speech_house",
+      "targetLocationDisplay": "Lavender Town Speech House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lavender_name_rater",
+      "targetLocationDisplay": "Lavender Name Rater",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lavender_mart",
+      "targetLocationDisplay": "Lavender Mart",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "soul_house",
+      "targetLocationDisplay": "Soul House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lav_radio_tower_1f",
+      "targetLocationDisplay": "Lav Radio Tower First Floor",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_LAVENDER",
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Lavender Town Exposition Trigger1",
+      "coordinates": {
+        "x": 8,
+        "y": 5
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Lavender Town Exposition Trigger2",
+      "coordinates": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Lavender Town Exposition Trigger3",
+      "coordinates": {
+        "x": 10,
+        "y": 5
+      }
+    }
+  ]
+}

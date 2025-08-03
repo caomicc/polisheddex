@@ -1,0 +1,72 @@
+{
+  "id": 70,
+  "name": "viridian_city",
+  "displayName": "Viridian City",
+  "region": "kanto",
+  "x": 52,
+  "y": 76,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_2_south",
+      "targetLocationDisplay": "Route 2 South",
+      "offset": 3
+    },
+    {
+      "direction": "south",
+      "targetLocation": "route_1",
+      "targetLocationDisplay": "Route 1",
+      "offset": 5
+    },
+    {
+      "direction": "west",
+      "targetLocation": "route_22",
+      "targetLocationDisplay": "Route 22",
+      "offset": 4
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "viridian_gym",
+      "targetLocationDisplay": "Viridian Gym",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "viridian_nickname_speech_house",
+      "targetLocationDisplay": "Viridian Nickname Speech House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "trainer_house_1f",
+      "targetLocationDisplay": "Trainer House First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "viridian_mart",
+      "targetLocationDisplay": "Viridian Mart",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "viridian_pokecenter_1f",
+      "targetLocationDisplay": "Viridian Pokecenter 1f",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_1_viridian_gate",
+      "targetLocationDisplay": "Route 1 Viridian Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "viridian_school_house",
+      "targetLocationDisplay": "Viridian School House",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_VIRIDIAN"
+}

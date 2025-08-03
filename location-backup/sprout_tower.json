@@ -1,0 +1,460 @@
+{
+  "id": 8,
+  "name": "sprout_tower",
+  "displayName": "Sprout Tower",
+  "region": "johto",
+  "x": 86,
+  "y": 58,
+  "flyable": false,
+  "connections": [],
+  "tmhms": [
+    {
+      "tmNumber": "TM70",
+      "moveName": "Flash",
+      "location": "Sprout Tower"
+    }
+  ],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM70 - Flash"
+    },
+    {
+      "type": "item",
+      "name": "Paralyzeheal",
+      "coordinates": {
+        "x": 14,
+        "y": 7
+      }
+    },
+    {
+      "type": "item",
+      "name": "X Accuracy",
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "type": "item",
+      "name": "Potion",
+      "coordinates": {
+        "x": 4,
+        "y": 14
+      }
+    },
+    {
+      "type": "item",
+      "name": "Escape Rope",
+      "coordinates": {
+        "x": 12,
+        "y": 1
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM70 - Flash"
+        }
+      ],
+      "connections": [],
+      "tmhms": [
+        {
+          "tmNumber": "TM70",
+          "moveName": "Flash",
+          "location": "Sprout Tower"
+        }
+      ],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [
+        {
+          "id": "sage_chow",
+          "name": "Chow",
+          "trainerClass": "SAGE",
+          "spriteType": "sage",
+          "coordinates": {
+            "x": 1,
+            "y": 5
+          },
+          "pokemon": [
+            {
+              "level": 3,
+              "species": "Bellsprout",
+              "moves": [
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 3,
+              "species": "Bellsprout",
+              "moves": [
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 3,
+              "species": "Bellsprout",
+              "moves": [
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "kimono_girl_6_1",
+          "name": "1",
+          "trainerClass": "KIMONO_GIRL_6",
+          "spriteType": "kimono_girl_6",
+          "coordinates": {
+            "x": 11,
+            "y": 4
+          },
+          "pokemon": [],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Paralyzeheal",
+          "coordinates": {
+            "x": 14,
+            "y": 7
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "violet_city",
+          "targetLocationDisplay": "Violet City",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "sprout_tower_2f",
+          "targetLocationDisplay": "Sprout Tower Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [
+        {
+          "id": "sage_nico",
+          "name": "Nico",
+          "trainerClass": "SAGE",
+          "spriteType": "sage",
+          "coordinates": {
+            "x": 10,
+            "y": 3
+          },
+          "pokemon": [
+            {
+              "level": 3,
+              "species": "Bellsprout",
+              "moves": [
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 3,
+              "species": "Bellsprout",
+              "moves": [
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 3,
+              "species": "Hoothoot",
+              "moves": [
+                "Tackle",
+                "Growl",
+                "Foresight"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "sage_edmond",
+          "name": "Edmond",
+          "trainerClass": "SAGE",
+          "spriteType": "sage",
+          "coordinates": {
+            "x": 7,
+            "y": 14
+          },
+          "pokemon": [
+            {
+              "level": 3,
+              "species": "Bellsprout",
+              "moves": [
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 3,
+              "species": "Hoothoot",
+              "moves": [
+                "Tackle",
+                "Growl",
+                "Foresight"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 3,
+              "species": "Bellsprout",
+              "moves": [
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "X Accuracy",
+          "coordinates": {
+            "x": 1,
+            "y": 1
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "sprout_tower_1f",
+          "targetLocationDisplay": "Sprout Tower First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "sprout_tower_3f",
+          "targetLocationDisplay": "Sprout Tower Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "3f",
+      "displayName": "3rd Floor",
+      "trainers": [
+        {
+          "id": "elder_li",
+          "name": "Li",
+          "trainerClass": "ELDER",
+          "spriteType": "elder",
+          "coordinates": {
+            "x": 8,
+            "y": 2
+          },
+          "pokemon": [
+            {
+              "level": 7,
+              "species": "Hoothoot",
+              "moves": [
+                "Peck",
+                "Hypnosis",
+                "Tackle",
+                "Growl"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 7,
+              "species": "Gastly",
+              "moves": [
+                "Disable",
+                "Hypnosis",
+                "Lick"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 10,
+              "species": "Bellsprout",
+              "moves": [
+                "Growth",
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "sage_jin",
+          "name": "Jin",
+          "trainerClass": "SAGE",
+          "spriteType": "sage",
+          "coordinates": {
+            "x": 6,
+            "y": 13
+          },
+          "pokemon": [
+            {
+              "level": 7,
+              "species": "Bellsprout",
+              "moves": [
+                "Growth",
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "sage_troy",
+          "name": "Troy",
+          "trainerClass": "SAGE",
+          "spriteType": "sage",
+          "coordinates": {
+            "x": 6,
+            "y": 8
+          },
+          "pokemon": [
+            {
+              "level": 7,
+              "species": "Bellsprout",
+              "moves": [
+                "Growth",
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 7,
+              "species": "Gastly",
+              "moves": [
+                "Disable",
+                "Hypnosis",
+                "Lick"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "sage_neal",
+          "name": "Neal",
+          "trainerClass": "SAGE",
+          "spriteType": "sage",
+          "coordinates": {
+            "x": 9,
+            "y": 11
+          },
+          "pokemon": [
+            {
+              "level": 6,
+              "species": "Bellsprout",
+              "moves": [
+                "Vine Whip"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 6,
+              "species": "Hoothoot",
+              "moves": [
+                "Hypnosis",
+                "Tackle",
+                "Growl",
+                "Foresight"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Potion",
+          "coordinates": {
+            "x": 4,
+            "y": 14
+          }
+        },
+        {
+          "type": "item",
+          "name": "Escape Rope",
+          "coordinates": {
+            "x": 12,
+            "y": 1
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "sprout_tower_2f",
+          "targetLocationDisplay": "Sprout Tower Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "sprout_tower",
+    "sprout_tower_1f",
+    "sprout_tower_2f",
+    "sprout_tower_3f"
+  ],
+  "trainerCount": 8,
+  "hasTrainers": true
+}

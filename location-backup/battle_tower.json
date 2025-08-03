@@ -1,0 +1,1749 @@
+{
+  "id": 42,
+  "name": "battle_tower",
+  "displayName": "Battle Tower",
+  "region": "johto",
+  "x": 28,
+  "y": 52,
+  "flyable": false,
+  "connections": [],
+  "areas": [
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "battle_tower_outside",
+          "targetLocationDisplay": "Battle Tower Outside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "battle_tower_elevator",
+          "targetLocationDisplay": "Battle Tower Elevator",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "battle_tower_2f",
+          "targetLocationDisplay": "Battle Tower Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [
+        {
+          "id": "cheryl_1",
+          "name": "Cheryl",
+          "trainerClass": "CHERYL",
+          "spriteType": "cheryl",
+          "coordinates": {
+            "x": 4,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 28,
+              "species": "Chansey",
+              "moves": [
+                "Take Down",
+                "Minimize",
+                "Metronome",
+                "Fresh Snack"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 136,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 136,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 27,
+              "species": "Nidorina",
+              "moves": [
+                "Bite",
+                "Fury Strikes",
+                "Poison Sting",
+                "Double Kick"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 136,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 136,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 24,
+              "species": "Clefable",
+              "moves": [
+                "Healinglight",
+                "Disarm Voice",
+                "Play Rough",
+                "Sing"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 136,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 136,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 26,
+              "species": "Azumarill",
+              "moves": [
+                "Play Rough",
+                "Aqua Tail",
+                "Dizzy Punch",
+                "Bubble Beam"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 136,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 136,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 25,
+              "species": "Wobbuffet",
+              "moves": [
+                "Splash",
+                "Charm",
+                "Encore",
+                "Amnesia"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 136,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 136,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "cheryl_2",
+          "name": "Cheryl",
+          "trainerClass": "CHERYL",
+          "spriteType": "cheryl",
+          "coordinates": {
+            "x": 4,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 60,
+              "species": "Blissey",
+              "moves": [
+                "Substitute",
+                "Light Screen",
+                "Body Slam",
+                "Heal Bell"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 59,
+              "species": "Nidoqueen",
+              "moves": [
+                "Close Combat",
+                "Earth Power",
+                "Body Slam",
+                "Outrage"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Clefable",
+              "moves": [
+                "Healinglight",
+                "Disarm Voice",
+                "Play Rough",
+                "Sing"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Wigglytuff",
+              "moves": [
+                "Minimize",
+                "Nasty Plot",
+                "Double Edge",
+                "Play Rough"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 58,
+              "species": "Azumarill",
+              "moves": [
+                "Hydro Pump",
+                "Close Combat",
+                "Double Edge",
+                "Rain Dance"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 57,
+              "species": "Wobbuffet",
+              "moves": [
+                "Splash",
+                "Charm",
+                "Encore",
+                "Amnesia"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "cheryl_3",
+          "name": "Cheryl",
+          "trainerClass": "CHERYL",
+          "spriteType": "cheryl",
+          "coordinates": {
+            "x": 4,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 75,
+              "species": "Blissey",
+              "moves": [
+                "Double Edge",
+                "Substitute",
+                "Light Screen",
+                "Body Slam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 74,
+              "species": "Nidoqueen",
+              "moves": [
+                "Close Combat",
+                "Earth Power",
+                "Body Slam",
+                "Outrage"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 71,
+              "species": "Clefable",
+              "moves": [
+                "Healinglight",
+                "Disarm Voice",
+                "Play Rough",
+                "Sing"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 71,
+              "species": "Wigglytuff",
+              "moves": [
+                "Minimize",
+                "Nasty Plot",
+                "Double Edge",
+                "Play Rough"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 73,
+              "species": "Azumarill",
+              "moves": [
+                "Hydro Pump",
+                "Close Combat",
+                "Double Edge",
+                "Rain Dance"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 72,
+              "species": "Wobbuffet",
+              "moves": [
+                "Splash",
+                "Charm",
+                "Encore",
+                "Amnesia"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "riley_1",
+          "name": "Riley",
+          "trainerClass": "RILEY",
+          "spriteType": "riley",
+          "coordinates": {
+            "x": 7,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 58,
+              "species": "Machamp",
+              "moves": [
+                "Dynamicpunch",
+                "Scary Face",
+                "Cross Chop",
+                "Bulk Up"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 57,
+              "species": "Dragonite",
+              "moves": [
+                "Safeguard",
+                "Barrier",
+                "Aqua Tail",
+                "Dragonbreath"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Rhyperior",
+              "moves": [
+                "Close Combat",
+                "Earthquake",
+                "Double Edge",
+                "Stone Edge"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Nidoking",
+              "moves": [
+                "Earth Power",
+                "Thrash",
+                "Outrage",
+                "Megahorn"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Electivire",
+              "moves": [
+                "Thunder",
+                "Thunderbolt",
+                "Cross Chop",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Mamoswine",
+              "moves": [
+                "Blizzard",
+                "Earthquake",
+                "Thrash",
+                "Bulldoze"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "riley_2",
+          "name": "Riley",
+          "trainerClass": "RILEY",
+          "spriteType": "riley",
+          "coordinates": {
+            "x": 7,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 75,
+              "species": "Machamp",
+              "moves": [
+                "Dynamicpunch",
+                "Scary Face",
+                "Cross Chop",
+                "Bulk Up"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 74,
+              "species": "Dragonite",
+              "moves": [
+                "Outrage",
+                "Dragon Dance",
+                "Safeguard",
+                "Barrier"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 73,
+              "species": "Rhyperior",
+              "moves": [
+                "Rock Slide",
+                "Megahorn",
+                "Close Combat",
+                "Earthquake"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 72,
+              "species": "Nidoking",
+              "moves": [
+                "Megahorn",
+                "Earth Power",
+                "Thrash",
+                "Outrage"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 73,
+              "species": "Electivire",
+              "moves": [
+                "Giga Impact",
+                "Thunder",
+                "Thunderbolt",
+                "Cross Chop"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 72,
+              "species": "Mamoswine",
+              "moves": [
+                "Scary Face",
+                "Blizzard",
+                "Earthquake",
+                "Thrash"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "buck_1",
+          "name": "Buck",
+          "trainerClass": "BUCK",
+          "spriteType": "buck",
+          "coordinates": {
+            "x": 9,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 65,
+              "species": "Umbreon",
+              "moves": [
+                "Mean Look",
+                "Double Edge",
+                "Sucker Punch",
+                "Healinglight"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 64,
+              "species": "Golem",
+              "moves": [
+                "Gyro Ball",
+                "Stone Edge",
+                "Double Edge",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Poliwrath",
+              "moves": [
+                "Cross Chop",
+                "Earth Power",
+                "Dynamicpunch",
+                "Bubble Beam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 63,
+              "species": "Forretress",
+              "moves": [
+                "Iron Head",
+                "Zap Cannon",
+                "Double Edge",
+                "Gyro Ball"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Skarmory",
+              "moves": [
+                "Night Slash",
+                "Drill Peck",
+                "Air Slash",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 63,
+              "species": "Steelix",
+              "moves": [
+                "Earthquake",
+                "Double Edge",
+                "Stone Edge",
+                "Dig"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "buck_2",
+          "name": "Buck",
+          "trainerClass": "BUCK",
+          "spriteType": "buck",
+          "coordinates": {
+            "x": 9,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 75,
+              "species": "Golem",
+              "moves": [
+                "Gyro Ball",
+                "Stone Edge",
+                "Double Edge",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 72,
+              "species": "Poliwrath",
+              "moves": [
+                "Cross Chop",
+                "Earth Power",
+                "Dynamicpunch",
+                "Bubble Beam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 73,
+              "species": "Forretress",
+              "moves": [
+                "Iron Head",
+                "Zap Cannon",
+                "Double Edge",
+                "Gyro Ball"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 72,
+              "species": "Skarmory",
+              "moves": [
+                "Night Slash",
+                "Drill Peck",
+                "Air Slash",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 73,
+              "species": "Steelix",
+              "moves": [
+                "Earthquake",
+                "Double Edge",
+                "Stone Edge",
+                "Dig"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 74,
+              "species": "Cloyster",
+              "moves": [
+                "Icicle Crash",
+                "Pin Missile",
+                "Icicle Spear",
+                "Hydro Pump"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "marley_1",
+          "name": "Marley",
+          "trainerClass": "MARLEY",
+          "spriteType": "marley",
+          "coordinates": {
+            "x": 17,
+            "y": 8
+          },
+          "pokemon": [
+            {
+              "level": 28,
+              "species": "Arcanine",
+              "moves": [
+                "Dragon Dance",
+                "Growl",
+                "Bite",
+                "Roar"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 240,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 240,
+                "special": 0
+              }
+            },
+            {
+              "level": 26,
+              "species": "Raichu",
+              "moves": [
+                "Thundershock",
+                "Leer",
+                "Quick Attack",
+                "Thunderbolt"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 240,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 240,
+                "special": 0
+              }
+            },
+            {
+              "level": 25,
+              "species": "Crobat",
+              "moves": [
+                "Swift",
+                "Wing Attack",
+                "Confuse Ray",
+                "Gust"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 240,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 240,
+                "special": 0
+              }
+            },
+            {
+              "level": 25,
+              "species": "Electrode",
+              "moves": [
+                "Thunderbolt",
+                "Swift",
+                "Thunder Wave",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 240,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 240,
+                "special": 0
+              }
+            },
+            {
+              "level": 27,
+              "species": "Weavile",
+              "moves": [
+                "Hone Claws",
+                "Metal Claw",
+                "Nasty Plot",
+                "Fury Strikes"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 240,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 240,
+                "special": 0
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "marley_2",
+          "name": "Marley",
+          "trainerClass": "MARLEY",
+          "spriteType": "marley",
+          "coordinates": {
+            "x": 17,
+            "y": 8
+          },
+          "pokemon": [
+            {
+              "level": 60,
+              "species": "Arcanine",
+              "moves": [
+                "Dragon Dance",
+                "Growl",
+                "Bite",
+                "Roar"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 59,
+              "species": "Pidgeot",
+              "moves": [
+                "Steel Wing",
+                "Drill Peck",
+                "Roost",
+                "Wing Attack"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 58,
+              "species": "Raichu",
+              "moves": [
+                "Thundershock",
+                "Leer",
+                "Quick Attack",
+                "Thunderbolt"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Crobat",
+              "moves": [
+                "Crunch",
+                "Air Slash",
+                "Venoshock",
+                "Haze"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Electrode",
+              "moves": [
+                "Gyro Ball",
+                "Bug Buzz",
+                "Thunder",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 58,
+              "species": "Aerodactyl",
+              "moves": [
+                "Iron Head",
+                "Brave Bird",
+                "Take Down",
+                "Crunch"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "marley_3",
+          "name": "Marley",
+          "trainerClass": "MARLEY",
+          "spriteType": "marley",
+          "coordinates": {
+            "x": 17,
+            "y": 8
+          },
+          "pokemon": [
+            {
+              "level": 75,
+              "species": "Arcanine",
+              "moves": [
+                "Dragon Dance",
+                "Growl",
+                "Bite",
+                "Roar"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 74,
+              "species": "Pidgeot",
+              "moves": [
+                "Hurricane",
+                "Air Slash",
+                "Steel Wing",
+                "Drill Peck"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 73,
+              "species": "Raichu",
+              "moves": [
+                "Thundershock",
+                "Leer",
+                "Quick Attack",
+                "Thunderbolt"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 71,
+              "species": "Crobat",
+              "moves": [
+                "Crunch",
+                "Air Slash",
+                "Venoshock",
+                "Haze"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 71,
+              "species": "Electrode",
+              "moves": [
+                "Mirror Coat",
+                "Gyro Ball",
+                "Bug Buzz",
+                "Thunder"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 73,
+              "species": "Aerodactyl",
+              "moves": [
+                "Rock Slide",
+                "Hyper Beam",
+                "Iron Head",
+                "Brave Bird"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "mira_1",
+          "name": "Mira",
+          "trainerClass": "MIRA",
+          "spriteType": "mira",
+          "coordinates": {
+            "x": 12,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 58,
+              "species": "Togekiss",
+              "moves": [
+                "Disarm Voice",
+                "Hurricane",
+                "Extremespeed",
+                "Aura Sphere"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 57,
+              "species": "Alakazam",
+              "moves": [
+                "Future Sight",
+                "Confuse Ray",
+                "Calm Mind",
+                "Psychic M"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Magmortar",
+              "moves": [
+                "Fire Blast",
+                "Flamethrower",
+                "Focus Blast",
+                "Sunny Day"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Vileplume",
+              "moves": [
+                "Moonblast",
+                "Growth",
+                "Mega Drain",
+                "Heal Bell"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Magnezone",
+              "moves": [
+                "Gyro Ball",
+                "Agility",
+                "Hidden Power",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "PorygonZ",
+              "moves": [
+                "Tri Attack",
+                "Thunderbolt",
+                "Barrier",
+                "Pain Split"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "mira_2",
+          "name": "Mira",
+          "trainerClass": "MIRA",
+          "spriteType": "mira",
+          "coordinates": {
+            "x": 12,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 75,
+              "species": "Alakazam",
+              "moves": [
+                "Future Sight",
+                "Confuse Ray",
+                "Calm Mind",
+                "Psychic M"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 74,
+              "species": "Gengar",
+              "moves": [
+                "Perish Song",
+                "Hex",
+                "Destiny Bond",
+                "Dark Pulse"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 71,
+              "species": "Vileplume",
+              "moves": [
+                "Solar Beam",
+                "Petal Dance",
+                "Moonblast",
+                "Growth"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 73,
+              "species": "Magmortar",
+              "moves": [
+                "Hyper Beam",
+                "Fire Blast",
+                "Flamethrower",
+                "Focus Blast"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 71,
+              "species": "PorygonZ",
+              "moves": [
+                "Hyper Beam",
+                "Zap Cannon",
+                "Mirror Coat",
+                "Tri Attack"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 73,
+              "species": "Magnezone",
+              "moves": [
+                "Zap Cannon",
+                "Thunder",
+                "Gyro Ball",
+                "Agility"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "anabel_1",
+          "name": "Anabel",
+          "trainerClass": "ANABEL",
+          "spriteType": "anabel",
+          "coordinates": {
+            "x": 15,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 30,
+              "species": "Espeon",
+              "moves": [
+                "Reflect",
+                "Future Sight",
+                "Psybeam",
+                "Swift"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            },
+            {
+              "level": 28,
+              "species": "Snorlax",
+              "moves": [
+                "Rest",
+                "Body Slam",
+                "Take Down",
+                "Rage"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            },
+            {
+              "level": 29,
+              "species": "Slowking",
+              "moves": [
+                "Water Pulse",
+                "Headbutt",
+                "Disable",
+                "Confusion"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            },
+            {
+              "level": 27,
+              "species": "Bellossom",
+              "moves": [
+                "Mega Drain",
+                "Heal Bell",
+                "Sunny Day",
+                "Stun Spore"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            },
+            {
+              "level": 28,
+              "species": "Politoed",
+              "moves": [
+                "Swagger",
+                "Giga Drain",
+                "Bubble Beam",
+                "Hypnosis"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            },
+            {
+              "level": 29,
+              "species": "Alakazam",
+              "moves": [
+                "Light Screen",
+                "Reflect",
+                "Night Shade",
+                "Psybeam"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "anabel_2",
+          "name": "Anabel",
+          "trainerClass": "ANABEL",
+          "spriteType": "anabel",
+          "coordinates": {
+            "x": 15,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 74,
+              "species": "Snorlax",
+              "moves": [
+                "Giga Impact",
+                "Close Combat",
+                "Crunch",
+                "Belly Drum"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 75,
+              "species": "Slowking",
+              "moves": [
+                "Recover",
+                "Belly Drum",
+                "Rain Dance",
+                "Psychic M"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 73,
+              "species": "Blastoise",
+              "moves": [
+                "Shell Smash",
+                "Hydro Pump",
+                "Rain Dance",
+                "Mirror Coat"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 71,
+              "species": "Bellossom",
+              "moves": [
+                "Play Rough",
+                "Petal Dance",
+                "Moonblast",
+                "Growth"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 72,
+              "species": "Politoed",
+              "moves": [
+                "Hyper Voice",
+                "Swagger",
+                "Giga Drain",
+                "Bubble Beam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 73,
+              "species": "Mr_Mime",
+              "moves": [
+                "Safeguard",
+                "Baton Pass",
+                "Future Sight",
+                "Psychic M"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "battle_tower_1f",
+          "targetLocationDisplay": "Battle Tower First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "battle_room",
+      "displayName": "Battle Room",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "battle_tower_hallway",
+          "targetLocationDisplay": "Battle Tower Hallway",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "elevator",
+      "displayName": "Elevator",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "battle_tower_hallway",
+          "targetLocationDisplay": "Battle Tower Hallway",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "hallway",
+      "displayName": "Hallway",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "battle_tower_elevator",
+          "targetLocationDisplay": "Battle Tower Elevator",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "battle_tower_battle_room",
+          "targetLocationDisplay": "Battle Tower Battle Room",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "outside",
+      "displayName": "Outside",
+      "trainers": [
+        {
+          "id": "anabel_1",
+          "name": "Anabel",
+          "trainerClass": "ANABEL",
+          "spriteType": "anabel",
+          "coordinates": {
+            "x": 15,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 30,
+              "species": "Espeon",
+              "moves": [
+                "Reflect",
+                "Future Sight",
+                "Psybeam",
+                "Swift"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            },
+            {
+              "level": 28,
+              "species": "Snorlax",
+              "moves": [
+                "Rest",
+                "Body Slam",
+                "Take Down",
+                "Rage"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            },
+            {
+              "level": 29,
+              "species": "Slowking",
+              "moves": [
+                "Water Pulse",
+                "Headbutt",
+                "Disable",
+                "Confusion"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            },
+            {
+              "level": 27,
+              "species": "Bellossom",
+              "moves": [
+                "Mega Drain",
+                "Heal Bell",
+                "Sunny Day",
+                "Stun Spore"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            },
+            {
+              "level": 28,
+              "species": "Politoed",
+              "moves": [
+                "Swagger",
+                "Giga Drain",
+                "Bubble Beam",
+                "Hypnosis"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            },
+            {
+              "level": 29,
+              "species": "Alakazam",
+              "moves": [
+                "Light Screen",
+                "Reflect",
+                "Night Shade",
+                "Psybeam"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 136
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 136
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_40_battle_tower_gate",
+          "targetLocationDisplay": "Route 40 Battle Tower Gate",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "battle_tower_1f",
+          "targetLocationDisplay": "Battle Tower First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [
+        {
+          "type": "coordinate_trigger",
+          "description": "Battle Tower Outside Pan Up Trigger1",
+          "coordinates": {
+            "x": 8,
+            "y": 9
+          }
+        },
+        {
+          "type": "coordinate_trigger",
+          "description": "Battle Tower Outside Pan Up Trigger2",
+          "coordinates": {
+            "x": 9,
+            "y": 9
+          }
+        }
+      ],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "battle_tower",
+    "battle_tower_1f",
+    "battle_tower_2f",
+    "battle_tower_battle_room",
+    "battle_tower_elevator",
+    "battle_tower_hallway",
+    "battle_tower_outside"
+  ],
+  "trainerCount": 15,
+  "hasTrainers": true
+}

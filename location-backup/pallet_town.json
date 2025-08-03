@@ -1,0 +1,42 @@
+{
+  "id": 68,
+  "name": "pallet_town",
+  "displayName": "Pallet Town",
+  "region": "kanto",
+  "x": 52,
+  "y": 100,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_1",
+      "targetLocationDisplay": "Route 1",
+      "offset": -1
+    },
+    {
+      "direction": "south",
+      "targetLocation": "route_21",
+      "targetLocationDisplay": "Route 21",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "reds_house_1f",
+      "targetLocationDisplay": "Reds House First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "blues_house_1f",
+      "targetLocationDisplay": "Blues House First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "oaks_lab",
+      "targetLocationDisplay": "Oaks Lab",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_PALLET"
+}

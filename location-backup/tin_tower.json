@@ -1,0 +1,526 @@
+{
+  "id": 33,
+  "name": "tin_tower",
+  "displayName": "Tin Tower",
+  "region": "johto",
+  "x": 70,
+  "y": 42,
+  "flyable": false,
+  "connections": [],
+  "areas": [
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "bellchime_trail",
+          "targetLocationDisplay": "Bellchime Trail",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_2f",
+          "targetLocationDisplay": "Tin Tower Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_3f",
+          "targetLocationDisplay": "Tin Tower Third Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_1f",
+          "targetLocationDisplay": "Tin Tower First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "3f",
+      "displayName": "3rd Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Full Heal",
+          "coordinates": {
+            "x": 1,
+            "y": 14
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_2f",
+          "targetLocationDisplay": "Tin Tower Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_4f",
+          "targetLocationDisplay": "Tin Tower Fourth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "4f",
+      "displayName": "4th Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Potion",
+          "coordinates": {
+            "x": 9,
+            "y": 6
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 12,
+            "y": 10
+          }
+        },
+        {
+          "type": "item",
+          "name": "Pp Up",
+          "coordinates": {
+            "x": 15,
+            "y": 14
+          }
+        },
+        {
+          "type": "item",
+          "name": "Escape Rope",
+          "coordinates": {
+            "x": 0,
+            "y": 12
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_5f",
+          "targetLocationDisplay": "Tin Tower Fifth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_3f",
+          "targetLocationDisplay": "Tin Tower Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "5f",
+      "displayName": "5th Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 14,
+            "y": 14
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Carbos",
+          "coordinates": {
+            "x": 1,
+            "y": 15
+          }
+        },
+        {
+          "type": "item",
+          "name": "Rare Candy",
+          "coordinates": {
+            "x": 7,
+            "y": 9
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_6f",
+          "targetLocationDisplay": "Tin Tower Sixth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_4f",
+          "targetLocationDisplay": "Tin Tower Fourth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "6f",
+      "displayName": "6th Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Max Potion",
+          "coordinates": {
+            "x": 6,
+            "y": 8
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_7f",
+          "targetLocationDisplay": "Tin Tower Seventh Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_5f",
+          "targetLocationDisplay": "Tin Tower Fifth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "7f",
+      "displayName": "7th Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 14,
+            "y": 1
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_6f",
+          "targetLocationDisplay": "Tin Tower Sixth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_8f",
+          "targetLocationDisplay": "Tin Tower Eighth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_7f",
+          "targetLocationDisplay": "Tin Tower Seventh Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_9f",
+          "targetLocationDisplay": "Tin Tower Ninth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "8f",
+      "displayName": "8th Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Big Nugget",
+          "coordinates": {
+            "x": 5,
+            "y": 13
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Elixir",
+          "coordinates": {
+            "x": 9,
+            "y": 6
+          }
+        },
+        {
+          "type": "item",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 1,
+            "y": 1
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_7f",
+          "targetLocationDisplay": "Tin Tower Seventh Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_9f",
+          "targetLocationDisplay": "Tin Tower Ninth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "9f",
+      "displayName": "9th Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Hp Up",
+          "coordinates": {
+            "x": 7,
+            "y": 1
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_8f",
+          "targetLocationDisplay": "Tin Tower Eighth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_10f",
+          "targetLocationDisplay": "Tin Tower Tenth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_7f",
+          "targetLocationDisplay": "Tin Tower Seventh Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "10f",
+      "displayName": "10th Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_9f",
+          "targetLocationDisplay": "Tin Tower Ninth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_roof",
+          "targetLocationDisplay": "Tin Tower Roof",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "roof",
+      "displayName": "Roof",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "tin_tower_10f",
+          "targetLocationDisplay": "Tin Tower Tenth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "tin_tower",
+    "tin_tower_1f",
+    "tin_tower_2f",
+    "tin_tower_3f",
+    "tin_tower_4f",
+    "tin_tower_5f",
+    "tin_tower_6f",
+    "tin_tower_7f",
+    "tin_tower_8f",
+    "tin_tower_9f",
+    "tin_tower_10f",
+    "tin_tower_roof"
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 1,
+        "y": 14
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 9,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 12,
+        "y": 10
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 15,
+        "y": 14
+      }
+    },
+    {
+      "type": "item",
+      "name": "Escape Rope",
+      "coordinates": {
+        "x": 0,
+        "y": 12
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 14,
+        "y": 14
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Carbos",
+      "coordinates": {
+        "x": 1,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 7,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 6,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 14,
+        "y": 1
+      }
+    },
+    {
+      "type": "item",
+      "name": "Big Nugget",
+      "coordinates": {
+        "x": 5,
+        "y": 13
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 9,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hp Up",
+      "coordinates": {
+        "x": 7,
+        "y": 1
+      }
+    }
+  ],
+  "trainerCount": 0,
+  "hasTrainers": false
+}

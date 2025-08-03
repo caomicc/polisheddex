@@ -1,0 +1,140 @@
+{
+  "id": -1,
+  "name": "ruins_of_alph_outside",
+  "displayName": "Ruins Of Alph Outside",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "magnet_tunnel_east",
+      "targetLocationDisplay": "Magnet Tunnel East",
+      "offset": -2
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_ho_oh_chamber",
+      "targetLocationDisplay": "Ruins Of Alph Ho Oh Chamber",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_kabuto_chamber",
+      "targetLocationDisplay": "Ruins Of Alph Kabuto Chamber",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_omanyte_chamber",
+      "targetLocationDisplay": "Ruins Of Alph Omanyte Chamber",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_aerodactyl_chamber",
+      "targetLocationDisplay": "Ruins Of Alph Aerodactyl Chamber",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_entrance_chamber",
+      "targetLocationDisplay": "Ruins Of Alph Entrance Chamber",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_research_center",
+      "targetLocationDisplay": "Ruins Of Alph Research Center",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "union_cave_b_1f_north",
+      "targetLocationDisplay": "Union Cave B First Floor North",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_36_ruins_of_alph_gate",
+      "targetLocationDisplay": "Route 36 Ruins Of Alph Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_32_ruins_of_alph_gate",
+      "targetLocationDisplay": "Route 32 Ruins Of Alph Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_sinjoh_chamber",
+      "targetLocationDisplay": "Ruins Of Alph Sinjoh Chamber",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_cave_grotto",
+      "targetLocationDisplay": "Hidden Cave Grotto",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "psychic_t_nathan",
+      "name": "Nathan",
+      "trainerClass": "PSYCHIC_T",
+      "spriteType": "psychic",
+      "coordinates": {
+        "x": 6,
+        "y": 26
+      },
+      "pokemon": [
+        {
+          "level": 26,
+          "species": "Girafarig",
+          "moves": [],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "super_nerd_stan",
+      "name": "Stan",
+      "trainerClass": "SUPER_NERD",
+      "spriteType": "super_nerd",
+      "coordinates": {
+        "x": 5,
+        "y": 37
+      },
+      "pokemon": [
+        {
+          "level": 20,
+          "species": "Grimer",
+          "moves": [
+            "Haze",
+            "Venoshock",
+            "Disable",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 4,
+        "y": 13
+      }
+    }
+  ]
+}

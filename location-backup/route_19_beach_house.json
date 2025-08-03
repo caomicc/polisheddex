@@ -1,0 +1,59 @@
+{
+  "id": -1,
+  "name": "route_19_beach_house",
+  "displayName": "Route 19 Beach House",
+  "region": "kanto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "route_19",
+      "targetLocationDisplay": "Route 19",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "victor_1",
+      "name": "Victor",
+      "trainerClass": "VICTOR",
+      "spriteType": "victor",
+      "coordinates": {
+        "x": 2,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 69,
+          "species": "Pikachu",
+          "nickname": "Puka",
+          "item": "Light Ball",
+          "gender": "male",
+          "form": "pikachu surf form",
+          "moves": [
+            "Surf",
+            "Thunderbolt",
+            "Thunder Wave",
+            "Extremespeed"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Static",
+            "nature": "Satk +atk -",
+            "moves": [
+              "Surf",
+              "Thunderbolt",
+              "Thunder Wave",
+              "Extremespeed"
+            ]
+          },
+          "ability": "Static",
+          "nature": "Satk +atk -"
+        }
+      ],
+      "rematchable": false
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "id": 72,
+  "name": "viridian_forest",
+  "displayName": "Viridian Forest",
+  "region": "kanto",
+  "x": 52,
+  "y": 60,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "viridian_forest_pewter_gate",
+      "targetLocationDisplay": "Viridian Forest Pewter Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "viridian_forest_viridian_gate",
+      "targetLocationDisplay": "Viridian Forest Viridian Gate",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "bug_maniac_dane",
+      "name": "Dane",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 29,
+        "y": 42
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "Beedrill",
+          "moves": [
+            "Outrage",
+            "Swords Dance",
+            "Agility",
+            "Poison Jab"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 61,
+          "species": "Butterfree",
+          "moves": [
+            "Psychic M",
+            "Air Slash",
+            "Healinglight",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "bug_maniac_dion",
+      "name": "Dion",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 33,
+        "y": 35
+      },
+      "pokemon": [
+        {
+          "level": 63,
+          "species": "Ariados",
+          "moves": [
+            "Feint Attack",
+            "Leech Life",
+            "Poison Jab",
+            "Psychic M"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "bug_maniac_stacey",
+      "name": "Stacey",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 32,
+        "y": 21
+      },
+      "pokemon": [
+        {
+          "level": 60,
+          "species": "Metapod",
+          "moves": [
+            "Tackle",
+            "String Shot",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Metapod",
+          "moves": [
+            "Tackle",
+            "String Shot",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 64,
+          "species": "Metapod",
+          "moves": [
+            "Tackle",
+            "String Shot",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "bug_maniac_ellis",
+      "name": "Ellis",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 31,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Weedle",
+          "moves": [
+            "Bug Bite",
+            "Poison Sting",
+            "String Shot"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 60,
+          "species": "Kakuna",
+          "moves": [
+            "Poison Sting",
+            "String Shot",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 62,
+          "species": "Beedrill",
+          "moves": [
+            "Outrage",
+            "Swords Dance",
+            "Agility",
+            "Poison Jab"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "bug_maniac_abner",
+      "name": "Abner",
+      "trainerClass": "BUG_MANIAC",
+      "spriteType": "bug_maniac",
+      "coordinates": {
+        "x": 5,
+        "y": 24
+      },
+      "pokemon": [
+        {
+          "level": 59,
+          "species": "Butterfree",
+          "moves": [
+            "Psychic M",
+            "Air Slash",
+            "Healinglight",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Beedrill",
+          "moves": [
+            "Outrage",
+            "Swords Dance",
+            "Agility",
+            "Poison Jab"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 59,
+          "species": "Pikachu",
+          "moves": [
+            "Thunder",
+            "Light Screen",
+            "Wild Charge",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Max Ether",
+      "coordinates": {
+        "x": 32,
+        "y": 44
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 18,
+        "y": 43
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Mulch",
+      "coordinates": {
+        "x": 4,
+        "y": 43
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Big Mushroom",
+      "coordinates": {
+        "x": 30,
+        "y": 9
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Leaf Stone",
+      "coordinates": {
+        "x": 3,
+        "y": 14
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dire Hit",
+      "coordinates": {
+        "x": 14,
+        "y": 31
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 3,
+        "y": 33
+      }
+    }
+  ]
+}

@@ -1,0 +1,1124 @@
+{
+  "id": 23,
+  "name": "radio_tower",
+  "displayName": "Radio Tower",
+  "region": "johto",
+  "x": 50,
+  "y": 92,
+  "flyable": false,
+  "connections": [],
+  "areas": [
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [
+        {
+          "id": "gruntm_3",
+          "name": "Grunt",
+          "trainerClass": "GRUNTM",
+          "spriteType": "team_rocket_grunt_m",
+          "coordinates": {
+            "x": 14,
+            "y": 1
+          },
+          "pokemon": [
+            {
+              "level": 33,
+              "species": "Raticate",
+              "gender": "male",
+              "form": "alolan form",
+              "moves": [
+                "Feint Attack",
+                "Crunch",
+                "Sucker Punch",
+                "Hyper Fang"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Gluttony"
+              },
+              "ability": "Gluttony"
+            },
+            {
+              "level": 33,
+              "species": "Sneasel",
+              "gender": "male",
+              "moves": [
+                "Screech",
+                "Icicle Crash",
+                "Hone Claws",
+                "Metal Claw"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "goldenrod_city",
+          "targetLocationDisplay": "Goldenrod City",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "radio_tower_2f",
+          "targetLocationDisplay": "Radio Tower Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [
+        {
+          "id": "gruntm_4",
+          "name": "Grunt",
+          "trainerClass": "GRUNTM",
+          "spriteType": "team_rocket_grunt_m",
+          "coordinates": {
+            "x": 1,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 32,
+              "species": "Grimer",
+              "gender": "male",
+              "moves": [
+                "Scary Face",
+                "Sludge Bomb",
+                "Feint Attack",
+                "Minimize"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 33,
+              "species": "Houndour",
+              "gender": "male",
+              "moves": [
+                "Feint Attack",
+                "Fire Spin",
+                "Super Fang",
+                "Foresight"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 34,
+              "species": "Muk",
+              "gender": "male",
+              "form": "alolan form",
+              "moves": [
+                "Scary Face",
+                "Sludge Bomb",
+                "Feint Attack",
+                "Minimize"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "gruntm_5",
+          "name": "Grunt",
+          "trainerClass": "GRUNTM",
+          "spriteType": "team_rocket_grunt_m",
+          "coordinates": {
+            "x": 7,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 31,
+              "species": "Rattata",
+              "gender": "male",
+              "moves": [
+                "Double Edge",
+                "Super Fang",
+                "Feint Attack",
+                "Crunch"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 33,
+              "species": "Houndour",
+              "gender": "male",
+              "moves": [
+                "Feint Attack",
+                "Fire Spin",
+                "Super Fang",
+                "Foresight"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 32,
+              "species": "Raticate",
+              "gender": "male",
+              "moves": [
+                "Feint Attack",
+                "Crunch",
+                "Sucker Punch",
+                "Hyper Fang"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 32,
+              "species": "Raticate",
+              "gender": "male",
+              "form": "alolan form",
+              "moves": [
+                "Feint Attack",
+                "Crunch",
+                "Sucker Punch",
+                "Hyper Fang"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 33,
+              "species": "Meowth",
+              "gender": "male",
+              "moves": [
+                "Slash",
+                "Pay Day",
+                "Pursuit",
+                "Feint Attack"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "gruntm_6",
+          "name": "Grunt",
+          "trainerClass": "GRUNTM",
+          "spriteType": "team_rocket_grunt_m",
+          "coordinates": {
+            "x": 4,
+            "y": 1
+          },
+          "pokemon": [
+            {
+              "level": 34,
+              "species": "Golbat",
+              "moves": [
+                "Mean Look",
+                "Super Fang",
+                "Swift",
+                "Wing Attack"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 34,
+              "species": "Venomoth",
+              "moves": [
+                "Gust",
+                "Sleep Powder",
+                "Stun Spore",
+                "Bug Bite"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "gruntf_2",
+          "name": "Grunt",
+          "trainerClass": "GRUNTF",
+          "spriteType": "team_rocket_grunt_f",
+          "coordinates": {
+            "x": 10,
+            "y": 5
+          },
+          "pokemon": [
+            {
+              "level": 35,
+              "species": "Arbok",
+              "moves": [
+                "Pursuit",
+                "Disable",
+                "Acid",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "radio_tower_3f",
+          "targetLocationDisplay": "Radio Tower Third Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "radio_tower_1f",
+          "targetLocationDisplay": "Radio Tower First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "3f",
+      "displayName": "3rd Floor",
+      "trainers": [
+        {
+          "id": "gruntm_7",
+          "name": "Grunt",
+          "trainerClass": "GRUNTM",
+          "spriteType": "team_rocket_grunt_m",
+          "coordinates": {
+            "x": 5,
+            "y": 1
+          },
+          "pokemon": [
+            {
+              "level": 33,
+              "species": "Koffing",
+              "moves": [
+                "Gyro Ball",
+                "Haze",
+                "Rage",
+                "Venoshock"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 33,
+              "species": "Grimer",
+              "moves": [
+                "Scary Face",
+                "Sludge Bomb",
+                "Feint Attack",
+                "Minimize"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 34,
+              "species": "Golbat",
+              "moves": [
+                "Mean Look",
+                "Super Fang",
+                "Swift",
+                "Wing Attack"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 34,
+              "species": "Raticate",
+              "moves": [
+                "Super Fang",
+                "Feint Attack",
+                "Crunch",
+                "Sucker Punch"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "gruntm_8",
+          "name": "Grunt",
+          "trainerClass": "GRUNTM",
+          "spriteType": "team_rocket_grunt_m",
+          "coordinates": {
+            "x": 6,
+            "y": 2
+          },
+          "pokemon": [
+            {
+              "level": 36,
+              "species": "Weezing",
+              "moves": [
+                "Sludge Bomb",
+                "Gyro Ball",
+                "Haze",
+                "Rage"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "gruntm_9",
+          "name": "Grunt",
+          "trainerClass": "GRUNTM",
+          "spriteType": "team_rocket_grunt_m",
+          "coordinates": {
+            "x": 16,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 35,
+              "species": "Raticate",
+              "moves": [
+                "Super Fang",
+                "Feint Attack",
+                "Crunch",
+                "Sucker Punch"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 36,
+              "species": "Weezing",
+              "moves": [
+                "Sludge Bomb",
+                "Gyro Ball",
+                "Haze",
+                "Rage"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "rocket_scientist_marc",
+          "name": "Garrett",
+          "trainerClass": "ROCKET_SCIENTIST",
+          "spriteType": "rocket_scientist",
+          "coordinates": {
+            "x": 9,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 35,
+              "species": "Magneton",
+              "moves": [
+                "Flash Cannon",
+                "Thunderbolt",
+                "Screech",
+                "Swift"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 36,
+              "species": "Magnemite",
+              "moves": [
+                "Explosion",
+                "Flash Cannon",
+                "Thunderbolt",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 35,
+              "species": "Magneton",
+              "moves": [
+                "Flash Cannon",
+                "Thunderbolt",
+                "Screech",
+                "Swift"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "radio_tower_2f",
+          "targetLocationDisplay": "Radio Tower Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "radio_tower_4f",
+          "targetLocationDisplay": "Radio Tower Fourth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "4f",
+      "displayName": "4th Floor",
+      "trainers": [
+        {
+          "id": "gruntm_10",
+          "name": "Grunt",
+          "trainerClass": "GRUNTM",
+          "spriteType": "team_rocket_grunt_m",
+          "coordinates": {
+            "x": 5,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 32,
+              "species": "Zubat",
+              "moves": [
+                "Leech Life",
+                "Mean Look",
+                "Super Fang",
+                "Swift"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 35,
+              "species": "Golbat",
+              "moves": [
+                "Leech Life",
+                "Mean Look",
+                "Super Fang",
+                "Swift"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 33,
+              "species": "Muk",
+              "moves": [
+                "Scary Face",
+                "Sludge Bomb",
+                "Feint Attack",
+                "Minimize"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "proton_proton1",
+          "name": "Proton",
+          "trainerClass": "PROTON",
+          "spriteType": "proton",
+          "coordinates": {
+            "x": 14,
+            "y": 1
+          },
+          "pokemon": [
+            {
+              "level": 39,
+              "species": "Golbat",
+              "item": "Kings Rock",
+              "moves": [
+                "Aerial Ace",
+                "Confuse Ray",
+                "Super Fang",
+                "Poison Jab"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Aerial Ace",
+                  "Confuse Ray",
+                  "Super Fang",
+                  "Poison Jab"
+                ]
+              }
+            },
+            {
+              "level": 40,
+              "species": "Qwilfish",
+              "item": "Brightpowder",
+              "moves": [
+                "Minimize",
+                "Bubble Beam",
+                "Pain Split",
+                "Rollout"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Minimize",
+                  "Bubble Beam",
+                  "Pain Split",
+                  "Rollout"
+                ]
+              }
+            },
+            {
+              "level": 40,
+              "species": "Octillery",
+              "item": "Lum Berry",
+              "moves": [
+                "Octazooka",
+                "Power Whip",
+                "Flamethrower",
+                "Ice Beam"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Octazooka",
+                  "Power Whip",
+                  "Flamethrower",
+                  "Ice Beam"
+                ]
+              }
+            },
+            {
+              "level": 41,
+              "species": "Weezing",
+              "item": "Charcoal",
+              "moves": [
+                "Fire Blast",
+                "Explosion",
+                "Sludge Bomb",
+                "Smokescreen"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Fire Blast",
+                  "Explosion",
+                  "Sludge Bomb",
+                  "Smokescreen"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "gruntf_4",
+          "name": "Grunt",
+          "trainerClass": "GRUNTF",
+          "spriteType": "team_rocket_grunt_f",
+          "coordinates": {
+            "x": 12,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 33,
+              "species": "Ekans",
+              "moves": [
+                "Pursuit",
+                "Disable",
+                "Acid",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 34,
+              "species": "Oddish",
+              "moves": [
+                "Giga Drain",
+                "Healinglight",
+                "Charm",
+                "Mega Drain"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 35,
+              "species": "Arbok",
+              "moves": [
+                "Pursuit",
+                "Disable",
+                "Acid",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 36,
+              "species": "Gloom",
+              "moves": [
+                "Giga Drain",
+                "Healinglight",
+                "Charm",
+                "Mega Drain"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "rocket_scientist_rich",
+          "name": "Trenton",
+          "trainerClass": "ROCKET_SCIENTIST",
+          "spriteType": "rocket_scientist",
+          "coordinates": {
+            "x": 4,
+            "y": 2
+          },
+          "pokemon": [
+            {
+              "level": 35,
+              "species": "PorygonZ",
+              "moves": [
+                "Conversion",
+                "Recover",
+                "Tri Attack",
+                "Psybeam"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Conversion",
+                  "Recover",
+                  "Tri Attack",
+                  "Psybeam"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "radio_tower_5f",
+          "targetLocationDisplay": "Radio Tower Fifth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "radio_tower_3f",
+          "targetLocationDisplay": "Radio Tower Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "5f",
+      "displayName": "5th Floor",
+      "trainers": [
+        {
+          "id": "petrel_petrel1",
+          "name": "Petrel",
+          "trainerClass": "PETREL",
+          "spriteType": "petrel",
+          "coordinates": {
+            "x": 0,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 39,
+              "species": "Koffing",
+              "item": "Eviolite",
+              "gender": "male",
+              "moves": [
+                "Tackle",
+                "Explosion",
+                "Venoshock",
+                "Smokescreen"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Tackle",
+                  "Explosion",
+                  "Venoshock",
+                  "Smokescreen"
+                ]
+              }
+            },
+            {
+              "level": 39,
+              "species": "Golbat",
+              "item": "Eviolite",
+              "gender": "male",
+              "moves": [
+                "Leech Life",
+                "Aerial Ace",
+                "Confuse Ray",
+                "Super Fang"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Leech Life",
+                  "Aerial Ace",
+                  "Confuse Ray",
+                  "Super Fang"
+                ]
+              }
+            },
+            {
+              "level": 40,
+              "species": "Muk",
+              "item": "Hard Stone",
+              "gender": "male",
+              "form": "alolan form",
+              "moves": [
+                "Fire Punch",
+                "Knock Off",
+                "Poison Jab",
+                "Rock Slide"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Fire Punch",
+                  "Knock Off",
+                  "Poison Jab",
+                  "Rock Slide"
+                ]
+              }
+            },
+            {
+              "level": 41,
+              "species": "Weezing",
+              "item": "Silk Scarf",
+              "gender": "male",
+              "moves": [
+                "Tackle",
+                "Explosion",
+                "Venoshock",
+                "Smokescreen"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Tackle",
+                  "Explosion",
+                  "Venoshock",
+                  "Smokescreen"
+                ]
+              }
+            },
+            {
+              "level": 39,
+              "species": "Raticate",
+              "item": "Blackglasses",
+              "gender": "male",
+              "form": "alolan form",
+              "moves": [
+                "Quick Attack",
+                "Screech",
+                "Crunch",
+                "Super Fang"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Quick Attack",
+                  "Screech",
+                  "Crunch",
+                  "Super Fang"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "ariana_ariana1",
+          "name": "Ariana",
+          "trainerClass": "ARIANA",
+          "spriteType": "ariana",
+          "coordinates": {
+            "x": 17,
+            "y": 2
+          },
+          "pokemon": [
+            {
+              "level": 40,
+              "species": "Arbok",
+              "item": "Poison Barb",
+              "gender": "male",
+              "form": "arbok ariana form",
+              "moves": [
+                "Glare",
+                "Screech",
+                "Acid",
+                "Crunch"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Glare",
+                  "Screech",
+                  "Acid",
+                  "Crunch"
+                ]
+              }
+            },
+            {
+              "level": 41,
+              "species": "Vileplume",
+              "item": "Miracle Seed",
+              "gender": "male",
+              "moves": [
+                "Leech Seed",
+                "Acid",
+                "Sleep Powder",
+                "Giga Drain"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Leech Seed",
+                  "Acid",
+                  "Sleep Powder",
+                  "Giga Drain"
+                ]
+              }
+            },
+            {
+              "level": 42,
+              "species": "Honchkrow",
+              "item": "Blackglasses",
+              "gender": "male",
+              "moves": [
+                "Wing Attack",
+                "Night Shade",
+                "Confuse Ray",
+                "Feint Attack"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Wing Attack",
+                  "Night Shade",
+                  "Confuse Ray",
+                  "Feint Attack"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "archer_archer1",
+          "name": "Archer",
+          "trainerClass": "ARCHER",
+          "spriteType": "archer",
+          "coordinates": {
+            "x": 16,
+            "y": 5
+          },
+          "pokemon": [
+            {
+              "level": 41,
+              "species": "Houndour",
+              "item": "Eviolite",
+              "gender": "male",
+              "moves": [
+                "Super Fang",
+                "Fire Spin",
+                "Feint Attack",
+                "Will O Wisp"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Super Fang",
+                  "Fire Spin",
+                  "Feint Attack",
+                  "Will O Wisp"
+                ]
+              }
+            },
+            {
+              "level": 43,
+              "species": "Raticate",
+              "item": "Blackglasses",
+              "gender": "male",
+              "form": "alolan form",
+              "moves": [
+                "Crunch",
+                "Super Fang",
+                "Hyper Fang",
+                "Double Edge"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Crunch",
+                  "Super Fang",
+                  "Hyper Fang",
+                  "Double Edge"
+                ]
+              }
+            },
+            {
+              "level": 41,
+              "species": "Gengar",
+              "item": "Spell Tag",
+              "gender": "male",
+              "moves": [
+                "Hypnosis",
+                "Confuse Ray",
+                "Pain Split",
+                "Shadow Ball"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Hypnosis",
+                  "Confuse Ray",
+                  "Pain Split",
+                  "Shadow Ball"
+                ]
+              }
+            },
+            {
+              "level": 42,
+              "species": "Weezing",
+              "item": "Brightpowder",
+              "gender": "male",
+              "moves": [
+                "Smokescreen",
+                "Will O Wisp",
+                "Pain Split",
+                "Sludge Bomb"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Smokescreen",
+                  "Will O Wisp",
+                  "Pain Split",
+                  "Sludge Bomb"
+                ]
+              }
+            },
+            {
+              "level": 44,
+              "species": "Houndoom",
+              "item": "Kings Rock",
+              "gender": "male",
+              "moves": [
+                "Smokescreen",
+                "Super Fang",
+                "Feint Attack",
+                "Flamethrower"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Smokescreen",
+                  "Super Fang",
+                  "Feint Attack",
+                  "Flamethrower"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Zoom Lens",
+          "coordinates": {
+            "x": 8,
+            "y": 5
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "radio_tower_4f",
+          "targetLocationDisplay": "Radio Tower Fourth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [
+        {
+          "type": "coordinate_trigger",
+          "description": "Radio Tower5 F Rocket Boss Trigger",
+          "coordinates": {
+            "x": 16,
+            "y": 5
+          }
+        }
+      ],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "radio_tower",
+    "radio_tower_1f",
+    "radio_tower_2f",
+    "radio_tower_3f",
+    "radio_tower_4f",
+    "radio_tower_5f"
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Zoom Lens",
+      "coordinates": {
+        "x": 8,
+        "y": 5
+      }
+    }
+  ],
+  "trainerCount": 16,
+  "hasTrainers": true
+}

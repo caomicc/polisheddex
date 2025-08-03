@@ -1,0 +1,45 @@
+{
+  "id": 9,
+  "name": "violet_outskirts",
+  "displayName": "Violet Outskirts",
+  "region": "johto",
+  "x": 84,
+  "y": 52,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_42",
+      "targetLocationDisplay": "Route 42",
+      "offset": -5
+    },
+    {
+      "direction": "south",
+      "targetLocation": "violet_city",
+      "targetLocationDisplay": "Violet City",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "violet_outskirts_house",
+      "targetLocationDisplay": "Violet Outskirts House",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 14,
+        "y": 24
+      }
+    }
+  ]
+}

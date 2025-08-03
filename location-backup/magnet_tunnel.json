@@ -1,0 +1,348 @@
+{
+  "id": 25,
+  "name": "magnet_tunnel",
+  "displayName": "Magnet Tunnel",
+  "region": "johto",
+  "x": 68,
+  "y": 92,
+  "flyable": false,
+  "connections": [],
+  "tmhms": [
+    {
+      "tmNumber": "TM74",
+      "moveName": "Gyro Ball",
+      "location": "Magnet Tunnel"
+    }
+  ],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM74 - Gyro Ball"
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Metal Powder",
+      "coordinates": {
+        "x": 38,
+        "y": 30
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM74 - Gyro Ball"
+        }
+      ],
+      "connections": [],
+      "tmhms": [
+        {
+          "tmNumber": "TM74",
+          "moveName": "Gyro Ball",
+          "location": "Magnet Tunnel"
+        }
+      ],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "east",
+      "displayName": "East",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "north",
+          "targetLocation": "ruins_of_alph_outside",
+          "targetLocationDisplay": "Ruins Of Alph Outside",
+          "offset": 2
+        },
+        {
+          "direction": "east",
+          "targetLocation": "route_32",
+          "targetLocationDisplay": "Route 32",
+          "offset": -9
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "magnet_tunnel_inside",
+          "targetLocationDisplay": "Magnet Tunnel Inside",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "inside",
+      "displayName": "Inside",
+      "trainers": [
+        {
+          "id": "engineer_graden",
+          "name": "Graden",
+          "trainerClass": "ENGINEER",
+          "spriteType": "engineer",
+          "coordinates": {
+            "x": 22,
+            "y": 8
+          },
+          "pokemon": [
+            {
+              "level": 22,
+              "species": "Geodude",
+              "gender": "male",
+              "form": "alolan form",
+              "moves": [
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Galvanize",
+                "moves": [
+                  "Explosion"
+                ]
+              },
+              "ability": "Galvanize"
+            },
+            {
+              "level": 22,
+              "species": "Geodude",
+              "gender": "male",
+              "form": "alolan form",
+              "moves": [
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Galvanize",
+                "moves": [
+                  "Explosion"
+                ]
+              },
+              "ability": "Galvanize"
+            },
+            {
+              "level": 23,
+              "species": "Elekid",
+              "gender": "male",
+              "moves": [
+                "Thunderpunch",
+                "Rock Smash",
+                "Body Slam",
+                "Bulk Up"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Static",
+                "moves": [
+                  "Thunderpunch",
+                  "Rock Smash",
+                  "Body Slam",
+                  "Bulk Up"
+                ]
+              },
+              "ability": "Static"
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "engineer_gustav",
+          "name": "Gustav",
+          "trainerClass": "ENGINEER",
+          "spriteType": "engineer",
+          "coordinates": {
+            "x": 31,
+            "y": 12
+          },
+          "pokemon": [
+            {
+              "level": 21,
+              "species": "Voltorb",
+              "gender": "male",
+              "moves": [
+                "Swift",
+                "Thunder Wave",
+                "Screech",
+                "Rollout"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Aftermath"
+              },
+              "ability": "Aftermath"
+            },
+            {
+              "level": 21,
+              "species": "Voltorb",
+              "gender": "male",
+              "moves": [
+                "Swift",
+                "Thunder Wave",
+                "Screech",
+                "Rollout"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Aftermath"
+              },
+              "ability": "Aftermath"
+            },
+            {
+              "level": 23,
+              "species": "Magnemite",
+              "gender": "male",
+              "moves": [
+                "Swift",
+                "Spark",
+                "Sonic Boom",
+                "Light Screen"
+              ],
+              "faithful": {
+                "ability": "Sturdy"
+              },
+              "polished": {
+                "ability": "Levitate"
+              },
+              "ability": "Sturdy"
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "engineer_nicolas",
+          "name": "Nicolas",
+          "trainerClass": "ENGINEER",
+          "spriteType": "engineer",
+          "coordinates": {
+            "x": 24,
+            "y": 23
+          },
+          "pokemon": [
+            {
+              "level": 21,
+              "species": "Voltorb",
+              "gender": "male",
+              "moves": [
+                "Swift",
+                "Thunder Wave",
+                "Screech",
+                "Rollout"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Aftermath"
+              },
+              "ability": "Aftermath"
+            },
+            {
+              "level": 21,
+              "species": "Voltorb",
+              "gender": "male",
+              "moves": [
+                "Swift",
+                "Thunder Wave",
+                "Screech",
+                "Rollout"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Aftermath"
+              },
+              "ability": "Aftermath"
+            },
+            {
+              "level": 23,
+              "species": "Magnemite",
+              "gender": "male",
+              "moves": [
+                "Swift",
+                "Spark",
+                "Sonic Boom",
+                "Light Screen"
+              ],
+              "faithful": {
+                "ability": "Sturdy"
+              },
+              "polished": {
+                "ability": "Levitate"
+              },
+              "ability": "Sturdy"
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Metal Powder",
+          "coordinates": {
+            "x": 38,
+            "y": 30
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "magnet_tunnel_west",
+          "targetLocationDisplay": "Magnet Tunnel West",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "magnet_tunnel_east",
+          "targetLocationDisplay": "Magnet Tunnel East",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "magnet_tunnel_inside",
+          "targetLocationDisplay": "Magnet Tunnel Inside",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "west",
+      "displayName": "West",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "west",
+          "targetLocation": "goldenrod_city",
+          "targetLocationDisplay": "Goldenrod City",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "magnet_tunnel_inside",
+          "targetLocationDisplay": "Magnet Tunnel Inside",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "magnet_tunnel",
+    "magnet_tunnel_east",
+    "magnet_tunnel_inside",
+    "magnet_tunnel_west"
+  ],
+  "trainerCount": 3,
+  "hasTrainers": true
+}

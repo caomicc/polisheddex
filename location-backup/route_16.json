@@ -1,0 +1,576 @@
+{
+  "id": 106,
+  "name": "route_16",
+  "displayName": "Route 16",
+  "region": "kanto",
+  "x": 68,
+  "y": 60,
+  "flyable": false,
+  "connections": [],
+  "areas": [
+    {
+      "id": "northeast",
+      "displayName": "Northeast",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "west",
+          "targetLocation": "route_16_west",
+          "targetLocationDisplay": "Route 16 West",
+          "offset": -1
+        },
+        {
+          "direction": "east",
+          "targetLocation": "celadon_city",
+          "targetLocationDisplay": "Celadon City",
+          "offset": -10
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_16_17_gate",
+          "targetLocationDisplay": "Route 16 17 Gate",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_16_gate",
+          "targetLocationDisplay": "Route 16 Gate",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "northwest",
+      "displayName": "Northwest",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "west",
+          "targetLocation": "route_16_west",
+          "targetLocationDisplay": "Route 16 West",
+          "offset": -1
+        },
+        {
+          "direction": "east",
+          "targetLocation": "celadon_city",
+          "targetLocationDisplay": "Celadon City",
+          "offset": -10
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_16_fuchsia_speech_house",
+          "targetLocationDisplay": "Route 16 Fuchsia Speech House",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_16_gate",
+          "targetLocationDisplay": "Route 16 Gate",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "south",
+      "displayName": "South",
+      "trainers": [
+        {
+          "id": "officerf_jamie",
+          "name": "Jamie",
+          "trainerClass": "OFFICERF",
+          "spriteType": "officerf",
+          "coordinates": {
+            "x": 12,
+            "y": 11
+          },
+          "pokemon": [
+            {
+              "level": 54,
+              "species": "Growlithe",
+              "moves": [
+                "Flare Blitz",
+                "Play Rough",
+                "Outrage",
+                "Sunny Day"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 58,
+              "species": "Arcanine",
+              "moves": [
+                "Dragon Dance",
+                "Growl",
+                "Bite",
+                "Roar"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 57,
+              "species": "Blastoise",
+              "moves": [
+                "Rain Dance",
+                "Mirror Coat",
+                "Close Combat",
+                "Aqua Tail"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "south",
+          "targetLocation": "route_17",
+          "targetLocationDisplay": "Route 17",
+          "offset": 3
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_16_17_gate",
+          "targetLocationDisplay": "Route 16 17 Gate",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "west",
+      "displayName": "West",
+      "trainers": [
+        {
+          "id": "lass_gina",
+          "name": "Gina",
+          "trainerClass": "LASS",
+          "spriteType": "lass",
+          "coordinates": {
+            "x": 56,
+            "y": 9
+          },
+          "pokemon": [
+            {
+              "level": 63,
+              "species": "Raichu",
+              "item": "Leftovers",
+              "moves": [
+                "Thunderbolt",
+                "Surf",
+                "Thunder Wave",
+                "Substitute"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Thunderbolt",
+                  "Surf",
+                  "Thunder Wave",
+                  "Substitute"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "lass_alice",
+          "name": "Alice",
+          "trainerClass": "LASS",
+          "spriteType": "lass",
+          "coordinates": {
+            "x": 17,
+            "y": 9
+          },
+          "pokemon": [
+            {
+              "level": 60,
+              "species": "Eevee",
+              "nickname": "VuiVui",
+              "item": "Eviolite",
+              "gender": "male",
+              "moves": [
+                "Return",
+                "Shadow Ball",
+                "Protect",
+                "Attract"
+              ],
+              "faithful": {},
+              "polished": {
+                "nature": "Spe +def -",
+                "moves": [
+                  "Return",
+                  "Shadow Ball",
+                  "Protect",
+                  "Attract"
+                ]
+              },
+              "nature": "Spe +def -"
+            },
+            {
+              "level": 61,
+              "species": "Umbreon",
+              "nickname": "Eon",
+              "item": "Leftovers",
+              "gender": "male",
+              "moves": [
+                "Charm",
+                "Rest",
+                "Toxic",
+                "Pursuit"
+              ],
+              "faithful": {},
+              "polished": {
+                "nature": "Sdef +satk -",
+                "moves": [
+                  "Charm",
+                  "Rest",
+                  "Toxic",
+                  "Pursuit"
+                ]
+              },
+              "nature": "Sdef +satk -"
+            },
+            {
+              "level": 61,
+              "species": "Espeon",
+              "nickname": "Vee",
+              "item": "Shell Bell",
+              "gender": "male",
+              "moves": [
+                "Psychic",
+                "Healinglight",
+                "Growth",
+                "Bite"
+              ],
+              "faithful": {},
+              "polished": {
+                "nature": "Satk +atk -",
+                "moves": [
+                  "Psychic",
+                  "Healinglight",
+                  "Growth",
+                  "Bite"
+                ]
+              },
+              "nature": "Satk +atk -"
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "cosplayer_kuroko",
+          "name": "Kuroko",
+          "trainerClass": "COSPLAYER",
+          "spriteType": "cosplayer",
+          "coordinates": {
+            "x": 9,
+            "y": 10
+          },
+          "pokemon": [
+            {
+              "level": 60,
+              "species": "Vulpix",
+              "item": "Eviolite",
+              "moves": [
+                "Healinglight",
+                "Flare Blitz",
+                "Disable",
+                "Shadow Ball"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Ninetales",
+              "item": "Charcoal",
+              "moves": [
+                "Nasty Plot",
+                "Flamethrower",
+                "Quick Attack",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "cooltrainerf_sera",
+          "name": "Sera",
+          "trainerClass": "COOLTRAINERF",
+          "spriteType": "ace_trainer_f",
+          "coordinates": {
+            "x": 40,
+            "y": 13
+          },
+          "pokemon": [
+            {
+              "level": 63,
+              "species": "Charmeleon",
+              "item": "Eviolite",
+              "moves": [
+                "Flare Blitz",
+                "Crunch",
+                "Fire Spin",
+                "Flamethrower"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 61,
+              "species": "Ampharos",
+              "item": "Magnet",
+              "moves": [
+                "Light Screen",
+                "Dazzlingleam",
+                "Safeguard",
+                "Thunderbolt"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 61,
+              "species": "Xatu",
+              "item": "Twistedspoon",
+              "moves": [
+                "Sucker Punch",
+                "Hex",
+                "Future Sight",
+                "Haze"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "beauty_beauty_nicole",
+          "name": "Nicole",
+          "trainerClass": "BEAUTY",
+          "spriteType": "beauty",
+          "coordinates": {
+            "x": 6,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 60,
+              "species": "Marill",
+              "item": "Eviolite",
+              "gender": "male",
+              "moves": [
+                "Hydro Pump",
+                "Close Combat",
+                "Double Edge",
+                "Rain Dance"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Huge Power"
+              },
+              "ability": "Huge Power"
+            },
+            {
+              "level": 63,
+              "species": "Azumarill",
+              "item": "Leftovers",
+              "gender": "male",
+              "moves": [
+                "Hydro Pump",
+                "Close Combat",
+                "Double Edge",
+                "Rain Dance"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Huge Power"
+              },
+              "ability": "Huge Power"
+            },
+            {
+              "level": 60,
+              "species": "Marill",
+              "item": "Black Belt",
+              "gender": "male",
+              "moves": [
+                "Hydro Pump",
+                "Close Combat",
+                "Double Edge",
+                "Rain Dance"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Huge Power"
+              },
+              "ability": "Huge Power"
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Rare Candy",
+          "coordinates": {
+            "x": 22,
+            "y": 7
+          }
+        },
+        {
+          "type": "item",
+          "name": "Metronome I",
+          "coordinates": {
+            "x": 42,
+            "y": 16
+          }
+        },
+        {
+          "type": "item",
+          "name": "Pp Up",
+          "coordinates": {
+            "x": 50,
+            "y": 3
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 21,
+            "y": 4
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "west",
+          "targetLocation": "route_2_south",
+          "targetLocationDisplay": "Route 2 South",
+          "offset": -7
+        },
+        {
+          "direction": "east",
+          "targetLocation": "route_16_northwest",
+          "targetLocationDisplay": "Route 16 Northwest",
+          "offset": 1
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "psychic_invers_house",
+          "targetLocationDisplay": "Psychic Invers House",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "gate",
+      "displayName": "Gate",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_16_northwest",
+          "targetLocationDisplay": "Route 16 Northwest",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_16_northeast",
+          "targetLocationDisplay": "Route 16 Northeast",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "fuchsia_speech_house",
+      "displayName": "Fuchsia Speech House",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_16_northwest",
+          "targetLocationDisplay": "Route 16 Northwest",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "route_16",
+    "route_16_northeast",
+    "route_16_northwest",
+    "route_16_south",
+    "route_16_west",
+    "route_16_gate",
+    "route_16_fuchsia_speech_house"
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 22,
+        "y": 7
+      }
+    },
+    {
+      "type": "item",
+      "name": "Metronome I",
+      "coordinates": {
+        "x": 42,
+        "y": 16
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 50,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 21,
+        "y": 4
+      }
+    }
+  ],
+  "trainerCount": 6,
+  "hasTrainers": true
+}

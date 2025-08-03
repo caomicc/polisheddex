@@ -1,0 +1,306 @@
+{
+  "id": 56,
+  "name": "lake_of_rage",
+  "displayName": "Lake Of Rage",
+  "region": "johto",
+  "x": 108,
+  "y": 28,
+  "flyable": true,
+  "connections": [
+    {
+      "direction": "south",
+      "targetLocation": "route_43",
+      "targetLocationDisplay": "Route 43",
+      "offset": 5
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lake_of_rage_hidden_power_house",
+      "targetLocationDisplay": "Lake Of Rage Hidden Power House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "lake_of_rage_magikarp_house",
+      "targetLocationDisplay": "Lake Of Rage Magikarp House",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "spawnPoint": "SPAWN_LAKE_OF_RAGE",
+  "tmhms": [
+    {
+      "tmNumber": "TM10",
+      "moveName": "Hidden Power",
+      "location": "Lake of Rage"
+    },
+    {
+      "tmNumber": "TM41",
+      "moveName": "Substitute",
+      "location": "Lake of Rage"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "cooltrainerm_aaron",
+      "name": "Aaron",
+      "trainerClass": "COOLTRAINERM",
+      "spriteType": "ace_trainer_m",
+      "coordinates": {
+        "x": 4,
+        "y": 15
+      },
+      "pokemon": [
+        {
+          "level": 28,
+          "species": "Ivysaur",
+          "moves": [
+            "Growth",
+            "Take Down",
+            "Razor Leaf",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 28,
+          "species": "Charmeleon",
+          "moves": [
+            "Scary Face",
+            "Dragon Rage",
+            "Metal Claw",
+            "Smokescreen"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 28,
+          "species": "Wartortle",
+          "moves": [
+            "Water Pulse",
+            "Protect",
+            "Rapid Spin",
+            "Bite"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "cooltrainerf_lois",
+      "name": "Lois",
+      "trainerClass": "COOLTRAINERF",
+      "spriteType": "ace_trainer_f",
+      "coordinates": {
+        "x": 36,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 29,
+          "species": "Jumpluff",
+          "moves": [
+            "Mega Drain",
+            "Leech Seed",
+            "Headbutt",
+            "Sleep Powder"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 29,
+          "species": "Ninetales",
+          "moves": [
+            "Nasty Plot",
+            "Flamethrower",
+            "Quick Attack",
+            "Confuse Ray"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "fisher_andre",
+      "name": "Andre",
+      "trainerClass": "FISHER",
+      "spriteType": "fisher",
+      "coordinates": {
+        "x": 30,
+        "y": 23
+      },
+      "pokemon": [
+        {
+          "level": 32,
+          "species": "Gyarados",
+          "moves": [
+            "Aqua Tail",
+            "Dragon Rage",
+            "Gust",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "fisher_raymond",
+      "name": "Raymond",
+      "trainerClass": "FISHER",
+      "spriteType": "fisher",
+      "coordinates": {
+        "x": 24,
+        "y": 26
+      },
+      "pokemon": [
+        {
+          "level": 30,
+          "species": "Magikarp",
+          "gender": "male",
+          "moves": [
+            "Splash",
+            "Tackle",
+            "Reversal",
+            "Dragon Rage"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Splash",
+              "Tackle",
+              "Reversal",
+              "Dragon Rage"
+            ]
+          }
+        },
+        {
+          "level": 30,
+          "species": "Magikarp",
+          "gender": "male",
+          "moves": [
+            "Splash",
+            "Tackle",
+            "Reversal",
+            "Dragon Rage"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Splash",
+              "Tackle",
+              "Reversal",
+              "Dragon Rage"
+            ]
+          }
+        },
+        {
+          "level": 30,
+          "species": "Magikarp",
+          "gender": "male",
+          "form": "magikarp two tone form",
+          "moves": [
+            "Splash",
+            "Tackle",
+            "Reversal",
+            "Dragon Rage"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Splash",
+              "Tackle",
+              "Reversal",
+              "Dragon Rage"
+            ]
+          }
+        },
+        {
+          "level": 30,
+          "species": "Magikarp",
+          "gender": "male",
+          "form": "magikarp orca form",
+          "moves": [
+            "Splash",
+            "Tackle",
+            "Reversal",
+            "Dragon Rage"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Splash",
+              "Tackle",
+              "Reversal",
+              "Dragon Rage"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 4,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 35,
+        "y": 5
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 11,
+        "y": 28
+      }
+    },
+    {
+      "type": "item",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 13,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 7,
+        "y": 10
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM10 - Hidden Power"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM41 - Substitute"
+    }
+  ]
+}

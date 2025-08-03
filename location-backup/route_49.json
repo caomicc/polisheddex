@@ -1,0 +1,143 @@
+{
+  "id": 141,
+  "name": "route_49",
+  "displayName": "Route 49",
+  "region": "orange",
+  "x": 68,
+  "y": 116,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "east",
+      "targetLocation": "valencia_island",
+      "targetLocationDisplay": "Valencia Island",
+      "offset": 2
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "valencia_port",
+      "targetLocationDisplay": "Valencia Port",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "sightseerm_hari",
+      "name": "Hari",
+      "trainerClass": "SIGHTSEERM",
+      "spriteType": "sightseerm",
+      "coordinates": {
+        "x": 15,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 50,
+          "species": "Bulbasaur",
+          "moves": [
+            "Sludge Bomb",
+            "Seed Bomb",
+            "Healinglight",
+            "Ancientpower"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "tamer_jordan",
+      "name": "Jordan",
+      "trainerClass": "TAMER",
+      "spriteType": "tamer",
+      "coordinates": {
+        "x": 12,
+        "y": 16
+      },
+      "pokemon": [
+        {
+          "level": 50,
+          "species": "Bulbasaur",
+          "moves": [
+            "Sludge Bomb",
+            "Seed Bomb",
+            "Healinglight",
+            "Ancientpower"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "aroma_lady_peony",
+      "name": "Peony",
+      "trainerClass": "AROMA_LADY",
+      "spriteType": "aroma_lady",
+      "coordinates": {
+        "x": 25,
+        "y": 19
+      },
+      "pokemon": [
+        {
+          "level": 50,
+          "species": "Bulbasaur",
+          "moves": [
+            "Sludge Bomb",
+            "Seed Bomb",
+            "Healinglight",
+            "Ancientpower"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "guitaristm_geddy",
+      "name": "Geddy",
+      "trainerClass": "GUITARISTM",
+      "spriteType": "guitaristm",
+      "coordinates": {
+        "x": 25,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 50,
+          "species": "Bulbasaur",
+          "moves": [
+            "Sludge Bomb",
+            "Seed Bomb",
+            "Healinglight",
+            "Ancientpower"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "White Herb",
+      "coordinates": {
+        "x": 21,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 18,
+        "y": 20
+      }
+    }
+  ]
+}

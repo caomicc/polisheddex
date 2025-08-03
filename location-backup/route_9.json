@@ -1,0 +1,308 @@
+{
+  "id": 89,
+  "name": "route_9",
+  "displayName": "Route 9",
+  "region": "kanto",
+  "x": 124,
+  "y": 44,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "cerulean_city",
+      "targetLocationDisplay": "Cerulean City",
+      "offset": -4
+    },
+    {
+      "direction": "east",
+      "targetLocation": "route_10_north",
+      "targetLocationDisplay": "Route 10 North",
+      "offset": -6
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM34",
+      "moveName": "Flash Cannon",
+      "location": "Route 9"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "camper_dean",
+      "name": "Dean",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 25,
+        "y": 11
+      },
+      "pokemon": [
+        {
+          "level": 54,
+          "species": "Golduck",
+          "moves": [
+            "Nasty Plot",
+            "Hydro Pump",
+            "Amnesia",
+            "Psybeam"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 52,
+          "species": "Sandslash",
+          "moves": [
+            "Sandstorm",
+            "Swords Dance",
+            "Gyro Ball",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "picnicker_heidi",
+      "name": "Heidi",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 43,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Jumpluff",
+          "moves": [
+            "U Turn",
+            "Agility",
+            "Encore",
+            "Acrobatics"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 53,
+          "species": "Jumpluff",
+          "moves": [
+            "U Turn",
+            "Agility",
+            "Encore",
+            "Acrobatics"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "camper_sid",
+      "name": "Sid",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 15,
+        "y": 4
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Dugtrio",
+          "moves": [
+            "Night Slash",
+            "Earthquake",
+            "Slash",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 51,
+          "species": "Primeape",
+          "moves": [
+            "Gunk Shot",
+            "Screech",
+            "Close Combat",
+            "Thrash"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 51,
+          "species": "Poliwrath",
+          "moves": [
+            "Earth Power",
+            "Dynamicpunch",
+            "Bubble Beam",
+            "Hypnosis"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "picnicker_edna",
+      "name": "Edna",
+      "trainerClass": "PICNICKER",
+      "spriteType": "picnicker",
+      "coordinates": {
+        "x": 16,
+        "y": 15
+      },
+      "pokemon": [
+        {
+          "level": 51,
+          "species": "Nidorina",
+          "moves": [
+            "Charm",
+            "Crunch",
+            "Healinglight",
+            "Toxic Spikes"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Raichu",
+          "moves": [
+            "Thundershock",
+            "Leer",
+            "Quick Attack",
+            "Thunderbolt"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "hiker_tim",
+      "name": "Eoin",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 34,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 50,
+          "species": "Diglett",
+          "moves": [
+            "Night Slash",
+            "Earthquake",
+            "Slash",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 52,
+          "species": "Graveler",
+          "moves": [
+            "Double Edge",
+            "Explosion",
+            "Earthquake",
+            "Rock Slide"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 54,
+          "species": "Dugtrio",
+          "moves": [
+            "Night Slash",
+            "Earthquake",
+            "Slash",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "hiker_sidney",
+      "name": "Clarke",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 44,
+        "y": 15
+      },
+      "pokemon": [
+        {
+          "level": 53,
+          "species": "Dugtrio",
+          "moves": [
+            "Night Slash",
+            "Earthquake",
+            "Slash",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 55,
+          "species": "Onix",
+          "moves": [
+            "Earthquake",
+            "Double Edge",
+            "Stone Edge",
+            "Dig"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Ether",
+      "coordinates": {
+        "x": 51,
+        "y": 15
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Soft Sand",
+      "coordinates": {
+        "x": 42,
+        "y": 12
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 26,
+        "y": 2
+      }
+    },
+    {
+      "type": "tmHm",
+      "name": "TM34 - Flash Cannon"
+    }
+  ]
+}

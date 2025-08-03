@@ -1,0 +1,640 @@
+{
+  "id": 35,
+  "name": "route_38",
+  "displayName": "Route 38",
+  "region": "johto",
+  "x": 52,
+  "y": 44,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "route_39",
+      "targetLocationDisplay": "Route 39",
+      "offset": -7
+    },
+    {
+      "direction": "east",
+      "targetLocation": "ecruteak_city",
+      "targetLocationDisplay": "Ecruteak City",
+      "offset": -5
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_38_ecruteak_gate",
+      "targetLocationDisplay": "Route 38 Ecruteak Gate",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "bird_keeper_toby",
+      "name": "Toby",
+      "trainerClass": "BIRD_KEEPER",
+      "spriteType": "bird_keeper",
+      "coordinates": {
+        "x": 12,
+        "y": 15
+      },
+      "pokemon": [
+        {
+          "level": 16,
+          "species": "Doduo",
+          "moves": [
+            "Pursuit",
+            "Fury Strikes",
+            "Rage",
+            "Quick Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 17,
+          "species": "Doduo",
+          "moves": [
+            "Pursuit",
+            "Fury Strikes",
+            "Rage",
+            "Quick Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 18,
+          "species": "Doduo",
+          "moves": [
+            "Pursuit",
+            "Fury Strikes",
+            "Rage",
+            "Quick Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "sailor_harry",
+      "name": "Harry",
+      "trainerClass": "SAILOR",
+      "spriteType": "sailor",
+      "coordinates": {
+        "x": 24,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 20,
+          "species": "Wooper",
+          "moves": [
+            "Recover",
+            "Headbutt",
+            "Scary Face",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "lass_dana1",
+      "name": "Dana",
+      "trainerClass": "LASS",
+      "spriteType": "lass",
+      "coordinates": {
+        "x": 15,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 19,
+          "species": "Flaaffy",
+          "moves": [
+            "Tackle",
+            "Growl",
+            "Thundershock",
+            "Thunder Wave"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Tackle",
+              "Growl",
+              "Thundershock",
+              "Thunder Wave"
+            ]
+          }
+        },
+        {
+          "level": 19,
+          "species": "Psyduck",
+          "moves": [
+            "Scratch",
+            "Leer",
+            "Disable",
+            "Confusion"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Scratch",
+              "Leer",
+              "Disable",
+              "Confusion"
+            ]
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "lass_dana2",
+      "name": "Dana",
+      "trainerClass": "LASS",
+      "spriteType": "lass",
+      "coordinates": {
+        "x": 15,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 21,
+          "species": "Flaaffy",
+          "moves": [
+            "Tackle",
+            "Growl",
+            "Thundershock",
+            "Thunder Wave"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Tackle",
+              "Growl",
+              "Thundershock",
+              "Thunder Wave"
+            ]
+          }
+        },
+        {
+          "level": 21,
+          "species": "Psyduck",
+          "moves": [
+            "Scratch",
+            "Leer",
+            "Disable",
+            "Confusion"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Scratch",
+              "Leer",
+              "Disable",
+              "Confusion"
+            ]
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "lass_dana3",
+      "name": "Dana",
+      "trainerClass": "LASS",
+      "spriteType": "lass",
+      "coordinates": {
+        "x": 15,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 29,
+          "species": "Psyduck",
+          "moves": [
+            "Scratch",
+            "Disable",
+            "Confusion",
+            "Screech"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Scratch",
+              "Disable",
+              "Confusion",
+              "Screech"
+            ]
+          }
+        },
+        {
+          "level": 29,
+          "species": "Flaaffy",
+          "moves": [
+            "Tackle",
+            "Thundershock",
+            "Thunder Wave",
+            "Thunderbolt"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Tackle",
+              "Thundershock",
+              "Thunder Wave",
+              "Thunderbolt"
+            ]
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "lass_dana4",
+      "name": "Dana",
+      "trainerClass": "LASS",
+      "spriteType": "lass",
+      "coordinates": {
+        "x": 15,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 32,
+          "species": "Psyduck",
+          "moves": [
+            "Scratch",
+            "Disable",
+            "Confusion",
+            "Screech"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Scratch",
+              "Disable",
+              "Confusion",
+              "Screech"
+            ]
+          }
+        },
+        {
+          "level": 32,
+          "species": "Flaaffy",
+          "moves": [
+            "Tackle",
+            "Thunderpunch",
+            "Thunder Wave",
+            "Thunderbolt"
+          ],
+          "faithful": {
+            "moves": [
+              "Tackle",
+              "Thunderpunch",
+              "Thunder Wave",
+              "Thunderbolt"
+            ]
+          },
+          "polished": {}
+        },
+        {
+          "level": 32,
+          "species": "Ampharos",
+          "moves": [
+            "Tackle",
+            "Thunderpunch",
+            "Thunder Wave",
+            "Thunderbolt"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Tackle",
+              "Thunderpunch",
+              "Thunder Wave",
+              "Thunderbolt"
+            ]
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "lass_dana5",
+      "name": "Dana",
+      "trainerClass": "LASS",
+      "spriteType": "lass",
+      "coordinates": {
+        "x": 15,
+        "y": 3
+      },
+      "pokemon": [
+        {
+          "level": 36,
+          "species": "Ampharos",
+          "moves": [
+            "Swift",
+            "Thunderpunch",
+            "Thunder Wave",
+            "Thunderbolt"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Swift",
+              "Thunderpunch",
+              "Thunder Wave",
+              "Thunderbolt"
+            ]
+          }
+        },
+        {
+          "level": 36,
+          "species": "Golduck",
+          "moves": [
+            "Disable",
+            "Surf",
+            "Psychic",
+            "Screech"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Disable",
+              "Surf",
+              "Psychic",
+              "Screech"
+            ]
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "schoolboy_chad1",
+      "name": "Chad",
+      "trainerClass": "SCHOOLBOY",
+      "spriteType": "schoolboy",
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 20,
+          "species": "Mr_Mime",
+          "moves": [
+            "Encore",
+            "Metronome",
+            "Protect",
+            "Double Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "schoolboy_chad2",
+      "name": "Chad",
+      "trainerClass": "SCHOOLBOY",
+      "spriteType": "schoolboy",
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 20,
+          "species": "Mr_Mime",
+          "moves": [
+            "Encore",
+            "Metronome",
+            "Protect",
+            "Double Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 20,
+          "species": "Magnemite",
+          "moves": [
+            "Spark",
+            "Sonic Boom",
+            "Light Screen",
+            "Quick Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "schoolboy_chad3",
+      "name": "Chad",
+      "trainerClass": "SCHOOLBOY",
+      "spriteType": "schoolboy",
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 27,
+          "species": "Mr_Mime",
+          "moves": [
+            "Psybeam",
+            "Light Screen",
+            "Reflect",
+            "Encore"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 31,
+          "species": "Magneton",
+          "moves": [
+            "Thunderbolt",
+            "Screech",
+            "Swift",
+            "Spark"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "schoolboy_chad4",
+      "name": "Chad",
+      "trainerClass": "SCHOOLBOY",
+      "spriteType": "schoolboy",
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 30,
+          "species": "Mr_Mime",
+          "moves": [
+            "Substitute",
+            "Psybeam",
+            "Light Screen",
+            "Reflect"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 34,
+          "species": "Magneton",
+          "moves": [
+            "Flash Cannon",
+            "Thunderbolt",
+            "Screech",
+            "Swift"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "schoolboy_chad5",
+      "name": "Chad",
+      "trainerClass": "SCHOOLBOY",
+      "spriteType": "schoolboy",
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 34,
+          "species": "Mr_Mime",
+          "moves": [
+            "Psychic",
+            "Light Screen",
+            "Reflect",
+            "Encore"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Psychic",
+              "Light Screen",
+              "Reflect",
+              "Encore"
+            ]
+          }
+        },
+        {
+          "level": 38,
+          "species": "Magneton",
+          "moves": [
+            "Zap Cannon",
+            "Thunder Wave",
+            "Supersonic",
+            "Swift"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Zap Cannon",
+              "Thunder Wave",
+              "Supersonic",
+              "Swift"
+            ]
+          }
+        }
+      ],
+      "rematchable": true
+    },
+    {
+      "id": "beauty_valencia",
+      "name": "Valencia",
+      "trainerClass": "BEAUTY",
+      "spriteType": "beauty",
+      "coordinates": {
+        "x": 19,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 18,
+          "species": "Sunkern",
+          "moves": [
+            "Razor Leaf",
+            "Leech Seed",
+            "Mega Drain",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 18,
+          "species": "Skiploom",
+          "moves": [
+            "Sleep Powder",
+            "Stun Spore",
+            "Poisonpowder",
+            "Confusion"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 18,
+          "species": "Sunflora",
+          "moves": [
+            "Razor Leaf",
+            "Leech Seed",
+            "Mega Drain",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "beauty_olivia",
+      "name": "Olivia",
+      "trainerClass": "BEAUTY",
+      "spriteType": "beauty",
+      "coordinates": {
+        "x": 5,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 19,
+          "species": "Corsola",
+          "moves": [
+            "Ancientpower",
+            "Safeguard",
+            "Bubble Beam",
+            "Rollout"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ]
+}

@@ -1,0 +1,452 @@
+{
+  "id": 115,
+  "name": "seafoam_islands",
+  "displayName": "Seafoam Islands",
+  "region": "kanto",
+  "x": 68,
+  "y": 132,
+  "flyable": false,
+  "connections": [],
+  "areas": [
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Escape Rope",
+          "coordinates": {
+            "x": 17,
+            "y": 29
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_20",
+          "targetLocationDisplay": "Route 20",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "seafoam_gym",
+          "targetLocationDisplay": "Seafoam Gym",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "seafoam_islands_b_1f",
+          "targetLocationDisplay": "Seafoam Islands B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f",
+      "displayName": "Basement 1st Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Ice Heal",
+          "coordinates": {
+            "x": 20,
+            "y": 11
+          }
+        },
+        {
+          "type": "item",
+          "name": "Grip Claw",
+          "coordinates": {
+            "x": 20,
+            "y": 3
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ice Heal",
+          "coordinates": {
+            "x": 24,
+            "y": 5
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "seafoam_islands_1f",
+          "targetLocationDisplay": "Seafoam Islands First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "seafoam_islands_b_2f",
+          "targetLocationDisplay": "Seafoam Islands B Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_2f",
+      "displayName": "Basement 2nd Floor",
+      "trainers": [
+        {
+          "id": "skier_cady",
+          "name": "Cady",
+          "trainerClass": "SKIER",
+          "spriteType": "skier",
+          "coordinates": {
+            "x": 11,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 63,
+              "species": "Mamoswine",
+              "moves": [
+                "Scary Face",
+                "Blizzard",
+                "Earthquake",
+                "Thrash"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "boarder_shaun",
+          "name": "Shaun",
+          "trainerClass": "BOARDER",
+          "spriteType": "boarder",
+          "coordinates": {
+            "x": 16,
+            "y": 5
+          },
+          "pokemon": [
+            {
+              "level": 65,
+              "species": "Cloyster",
+              "moves": [
+                "Icicle Crash",
+                "Pin Missile",
+                "Icicle Spear",
+                "Hydro Pump"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 60,
+              "species": "Dewgong",
+              "moves": [
+                "Ice Beam",
+                "Aqua Tail",
+                "Perish Song",
+                "Take Down"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "boarder_bryce",
+          "name": "Bryce",
+          "trainerClass": "BOARDER",
+          "spriteType": "boarder",
+          "coordinates": {
+            "x": 25,
+            "y": 8
+          },
+          "pokemon": [
+            {
+              "level": 65,
+              "species": "Dewgong",
+              "moves": [
+                "Hail",
+                "Safeguard",
+                "Ice Beam",
+                "Aqua Tail"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 60,
+              "species": "Lapras",
+              "moves": [
+                "Megahorn",
+                "Outrage",
+                "Hydro Pump",
+                "Safeguard"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Pearl",
+          "coordinates": {
+            "x": 7,
+            "y": 9
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Pearl",
+          "coordinates": {
+            "x": 35,
+            "y": 13
+          }
+        },
+        {
+          "type": "item",
+          "name": "Water Stone",
+          "coordinates": {
+            "x": 15,
+            "y": 16
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "seafoam_islands_b_1f",
+          "targetLocationDisplay": "Seafoam Islands B First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "seafoam_islands_b_3f",
+          "targetLocationDisplay": "Seafoam Islands B Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_3f",
+      "displayName": "Basement 3rd Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 29,
+            "y": 17
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Rare Candy",
+          "coordinates": {
+            "x": 7,
+            "y": 5
+          }
+        },
+        {
+          "type": "item",
+          "name": "Revive",
+          "coordinates": {
+            "x": 15,
+            "y": 15
+          }
+        },
+        {
+          "type": "item",
+          "name": "Big Pearl",
+          "coordinates": {
+            "x": 17,
+            "y": 6
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "seafoam_islands_b_2f",
+          "targetLocationDisplay": "Seafoam Islands B Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "seafoam_islands_b_4f",
+          "targetLocationDisplay": "Seafoam Islands B Fourth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_4f",
+      "displayName": "Basement 4th Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Nevermeltice",
+          "coordinates": {
+            "x": 33,
+            "y": 7
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 23,
+            "y": 2
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "seafoam_islands_b_3f",
+          "targetLocationDisplay": "Seafoam Islands B Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "seafoam_islands",
+    "seafoam_islands_1f",
+    "seafoam_islands_b_1f",
+    "seafoam_islands_b_2f",
+    "seafoam_islands_b_3f",
+    "seafoam_islands_b_4f"
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Escape Rope",
+      "coordinates": {
+        "x": 17,
+        "y": 29
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Ice Heal",
+      "coordinates": {
+        "x": 20,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Grip Claw",
+      "coordinates": {
+        "x": 20,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ice Heal",
+      "coordinates": {
+        "x": 24,
+        "y": 5
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Pearl",
+      "coordinates": {
+        "x": 7,
+        "y": 9
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Pearl",
+      "coordinates": {
+        "x": 35,
+        "y": 13
+      }
+    },
+    {
+      "type": "item",
+      "name": "Water Stone",
+      "coordinates": {
+        "x": 15,
+        "y": 16
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 29,
+        "y": 17
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 7,
+        "y": 5
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 15,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Big Pearl",
+      "coordinates": {
+        "x": 17,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nevermeltice",
+      "coordinates": {
+        "x": 33,
+        "y": 7
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 23,
+        "y": 2
+      }
+    }
+  ],
+  "trainerCount": 3,
+  "hasTrainers": true
+}

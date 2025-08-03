@@ -1,0 +1,258 @@
+{
+  "id": 16,
+  "name": "slowpoke_well",
+  "displayName": "Slowpoke Well",
+  "region": "johto",
+  "x": 76,
+  "y": 116,
+  "flyable": false,
+  "connections": [],
+  "areas": [
+    {
+      "id": "entrance",
+      "displayName": "Entrance",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Super Potion",
+          "coordinates": {
+            "x": 6,
+            "y": 13
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "azalea_town",
+          "targetLocationDisplay": "Azalea Town",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "slowpoke_well_b_1f",
+          "targetLocationDisplay": "Slowpoke Well B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f",
+      "displayName": "Basement 1st Floor",
+      "trainers": [
+        {
+          "id": "gruntm_29",
+          "name": "Grunt",
+          "trainerClass": "GRUNTM",
+          "spriteType": "team_rocket_grunt_m",
+          "coordinates": {
+            "x": 15,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 10,
+              "species": "Rattata",
+              "moves": [
+                "Bite",
+                "Focus Energy",
+                "Quick Attack",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 10,
+              "species": "Meowth",
+              "moves": [
+                "Astonish",
+                "Bite",
+                "Scratch",
+                "Growl"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "gruntm_2",
+          "name": "Grunt",
+          "trainerClass": "GRUNTM",
+          "spriteType": "team_rocket_grunt_m",
+          "coordinates": {
+            "x": 5,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 8,
+              "species": "Rattata",
+              "moves": [
+                "Focus Energy",
+                "Quick Attack",
+                "Tackle",
+                "Leer"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 10,
+              "species": "Zubat",
+              "moves": [
+                "Astonish",
+                "Supersonic",
+                "Absorb"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 10,
+              "species": "Gastly",
+              "moves": [
+                "Mean Look",
+                "Disable",
+                "Hypnosis",
+                "Lick"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "gruntf_1",
+          "name": "Grunt",
+          "trainerClass": "GRUNTF",
+          "spriteType": "team_rocket_grunt_f",
+          "coordinates": {
+            "x": 10,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 10,
+              "species": "Zubat",
+              "moves": [
+                "Astonish",
+                "Supersonic",
+                "Absorb"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 12,
+              "species": "Ekans",
+              "moves": [
+                "Glare",
+                "Bite",
+                "Poison Sting",
+                "Wrap"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Super Potion",
+          "coordinates": {
+            "x": 10,
+            "y": 3
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "slowpoke_well_entrance",
+          "targetLocationDisplay": "Slowpoke Well Entrance",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "slowpoke_well_b_2f",
+          "targetLocationDisplay": "Slowpoke Well B Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_2f",
+      "displayName": "Basement 2nd Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Damp Rock",
+          "coordinates": {
+            "x": 15,
+            "y": 5
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "slowpoke_well_b_1f",
+          "targetLocationDisplay": "Slowpoke Well B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "slowpoke_well",
+    "slowpoke_well_entrance",
+    "slowpoke_well_b_1f",
+    "slowpoke_well_b_2f"
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 6,
+        "y": 13
+      }
+    },
+    {
+      "type": "item",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 10,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Damp Rock",
+      "coordinates": {
+        "x": 15,
+        "y": 5
+      }
+    }
+  ],
+  "trainerCount": 3,
+  "hasTrainers": true
+}

@@ -1,0 +1,57 @@
+{
+  "id": -1,
+  "name": "ruins_of_alph_aerodactyl_item_room",
+  "displayName": "Ruins Of Alph Aerodactyl Item Room",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_aerodactyl_chamber",
+      "targetLocationDisplay": "Ruins Of Alph Aerodactyl Chamber",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ruins_of_alph_aerodactyl_word_room",
+      "targetLocationDisplay": "Ruins Of Alph Aerodactyl Word Room",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Rare Bone",
+      "coordinates": {
+        "x": 2,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Energy Root",
+      "coordinates": {
+        "x": 5,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revival Herb",
+      "coordinates": {
+        "x": 2,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Soothe Bell",
+      "coordinates": {
+        "x": 5,
+        "y": 4
+      }
+    }
+  ]
+}

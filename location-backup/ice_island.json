@@ -1,0 +1,39 @@
+{
+  "id": 139,
+  "name": "ice_island",
+  "displayName": "Ice Island",
+  "region": "orange",
+  "x": 76,
+  "y": 76,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "shamouti_coast",
+      "targetLocationDisplay": "Shamouti Coast",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ice_island_roof",
+      "targetLocationDisplay": "Ice Island Roof",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "ice_island",
+      "targetLocationDisplay": "Ice Island",
+      "offset": 0
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Icy Rock",
+      "coordinates": {
+        "x": 19,
+        "y": 6
+      }
+    }
+  ]
+}

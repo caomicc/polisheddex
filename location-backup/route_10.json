@@ -1,0 +1,306 @@
+{
+  "id": 90,
+  "name": "route_10",
+  "displayName": "Route 10",
+  "region": "kanto",
+  "x": 140,
+  "y": 52,
+  "flyable": false,
+  "connections": [],
+  "tmhms": [
+    {
+      "tmNumber": "TM72",
+      "moveName": "Volt Switch",
+      "location": "Route 10"
+    }
+  ],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM72 - Volt Switch"
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 11,
+        "y": 3
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Ether",
+      "coordinates": {
+        "x": 16,
+        "y": 3
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM72 - Volt Switch"
+        }
+      ],
+      "connections": [],
+      "tmhms": [
+        {
+          "tmNumber": "TM72",
+          "moveName": "Volt Switch",
+          "location": "Route 10"
+        }
+      ],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "north",
+      "displayName": "North",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 11,
+            "y": 3
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "south",
+          "targetLocation": "route_10_south",
+          "targetLocationDisplay": "Route 10 South",
+          "offset": 0
+        },
+        {
+          "direction": "west",
+          "targetLocation": "route_9",
+          "targetLocationDisplay": "Route 9",
+          "offset": 6
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_10_pokecenter_1f",
+          "targetLocationDisplay": "Route 10 Pokecenter 1f",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "power_plant",
+          "targetLocationDisplay": "Power Plant",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "rock_tunnel_2f",
+          "targetLocationDisplay": "Rock Tunnel Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "rock_tunnel_1f",
+          "targetLocationDisplay": "Rock Tunnel First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "dim_cave_5f",
+          "targetLocationDisplay": "Dim Cave Fifth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "south",
+      "displayName": "South",
+      "trainers": [
+        {
+          "id": "hiker_jim",
+          "name": "Jim",
+          "trainerClass": "HIKER",
+          "spriteType": "hiker",
+          "coordinates": {
+            "x": 17,
+            "y": 5
+          },
+          "pokemon": [
+            {
+              "level": 57,
+              "species": "Machamp",
+              "moves": [
+                "Dynamicpunch",
+                "Scary Face",
+                "Cross Chop",
+                "Bulk Up"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "pokefanm_robert",
+          "name": "Robert",
+          "trainerClass": "POKEFANM",
+          "spriteType": "pokefanm",
+          "coordinates": {
+            "x": 4,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 56,
+              "species": "Quagsire",
+              "item": "Sitrus Berry",
+              "moves": [
+                "Aqua Tail",
+                "Haze",
+                "Rain Dance",
+                "Earthquake"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "hex_maniac_amy",
+          "name": "Amy",
+          "trainerClass": "HEX_MANIAC",
+          "spriteType": "hex_maniac",
+          "coordinates": {
+            "x": 8,
+            "y": 12
+          },
+          "pokemon": [
+            {
+              "level": 53,
+              "species": "Misdreavus",
+              "moves": [
+                "Dazzlingleam",
+                "Perish Song",
+                "Shadow Ball",
+                "Destiny Bond"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Gengar",
+              "moves": [
+                "Hex",
+                "Destiny Bond",
+                "Dark Pulse",
+                "Dream Eater"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 53,
+              "species": "Haunter",
+              "moves": [
+                "Destiny Bond",
+                "Dark Pulse",
+                "Dream Eater",
+                "Shadow Ball"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Mismagius",
+              "moves": [
+                "Power Gem",
+                "Shadow Ball",
+                "Flamethrower",
+                "Dazzlingleam"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Ether",
+          "coordinates": {
+            "x": 16,
+            "y": 3
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "north",
+          "targetLocation": "route_10_north",
+          "targetLocationDisplay": "Route 10 North",
+          "offset": 0
+        },
+        {
+          "direction": "south",
+          "targetLocation": "lavender_town",
+          "targetLocationDisplay": "Lavender Town",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "rock_tunnel_1f",
+          "targetLocationDisplay": "Rock Tunnel First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "poke_center_1f",
+      "displayName": "Poke Center First Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_10_north",
+          "targetLocationDisplay": "Route 10 North",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "pokecenter_2f",
+          "targetLocationDisplay": "Pokecenter 2f",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "route_10",
+    "route_10_north",
+    "route_10_south",
+    "route_10_poke_center_1f"
+  ],
+  "trainerCount": 3,
+  "hasTrainers": true
+}

@@ -1,0 +1,776 @@
+{
+  "id": 32,
+  "name": "bellchime_trail",
+  "displayName": "Bellchime Trail",
+  "region": "johto",
+  "x": 69,
+  "y": 42,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "wise_trios_room",
+      "targetLocationDisplay": "Wise Trios Room",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "tin_tower_1f",
+      "targetLocationDisplay": "Tin Tower First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_tree_grotto",
+      "targetLocationDisplay": "Hidden Tree Grotto",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Bellchime Trail Pan Up Trigger",
+      "coordinates": {
+        "x": 21,
+        "y": 9
+      }
+    }
+  ],
+  "tmhms": [
+    {
+      "tmNumber": "TM49",
+      "moveName": "Dazzlingleam",
+      "location": "Bellchime Trail"
+    }
+  ],
+  "trainers": [
+    {
+      "id": "valerie_1",
+      "name": "Valerie",
+      "trainerClass": "VALERIE",
+      "spriteType": "valerie",
+      "coordinates": {
+        "x": 16,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 37,
+          "species": "Clefable",
+          "moves": [
+            "Disarm Voice",
+            "Minimize",
+            "Baton Pass",
+            "Metronome"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 224,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Disarm Voice",
+              "Minimize",
+              "Baton Pass",
+              "Metronome"
+            ]
+          },
+          "evs": {
+            "hp": 224,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 37,
+          "species": "Mr_Mime",
+          "moves": [
+            "Psybeam",
+            "Confuse Ray",
+            "Light Screen",
+            "Reflect"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 224,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Psybeam",
+              "Confuse Ray",
+              "Light Screen",
+              "Reflect"
+            ]
+          },
+          "evs": {
+            "hp": 224,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 36,
+          "species": "Azumarill",
+          "moves": [
+            "Play Rough",
+            "Aqua Tail",
+            "Dizzy Punch",
+            "Rollout"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 224,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Play Rough",
+              "Aqua Tail",
+              "Dizzy Punch",
+              "Rollout"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 224,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 38,
+          "species": "Togetic",
+          "moves": [
+            "Ancientpower",
+            "Fresh Snack",
+            "Dazzlingleam",
+            "Encore"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 224
+            },
+            "moves": [
+              "Ancientpower",
+              "Fresh Snack",
+              "Dazzlingleam",
+              "Encore"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 224
+          }
+        },
+        {
+          "level": 40,
+          "species": "Sylveon",
+          "item": "Sitrus Berry",
+          "moves": [
+            "Moonblast",
+            "Calm Mind",
+            "Draining Kiss",
+            "Swift"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 224
+            },
+            "moves": [
+              "Moonblast",
+              "Calm Mind",
+              "Draining Kiss",
+              "Swift"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 224
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "valerie_1",
+      "name": "Valerie",
+      "trainerClass": "VALERIE",
+      "spriteType": "valerie",
+      "coordinates": {
+        "x": 16,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 37,
+          "species": "Clefable",
+          "moves": [
+            "Disarm Voice",
+            "Minimize",
+            "Baton Pass",
+            "Metronome"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 224,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Disarm Voice",
+              "Minimize",
+              "Baton Pass",
+              "Metronome"
+            ]
+          },
+          "evs": {
+            "hp": 224,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 37,
+          "species": "Mr_Mime",
+          "moves": [
+            "Psybeam",
+            "Confuse Ray",
+            "Light Screen",
+            "Reflect"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 224,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Psybeam",
+              "Confuse Ray",
+              "Light Screen",
+              "Reflect"
+            ]
+          },
+          "evs": {
+            "hp": 224,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 36,
+          "species": "Azumarill",
+          "moves": [
+            "Play Rough",
+            "Aqua Tail",
+            "Dizzy Punch",
+            "Rollout"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 224,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Play Rough",
+              "Aqua Tail",
+              "Dizzy Punch",
+              "Rollout"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 224,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 38,
+          "species": "Togetic",
+          "moves": [
+            "Ancientpower",
+            "Fresh Snack",
+            "Dazzlingleam",
+            "Encore"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 224
+            },
+            "moves": [
+              "Ancientpower",
+              "Fresh Snack",
+              "Dazzlingleam",
+              "Encore"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 224
+          }
+        },
+        {
+          "level": 40,
+          "species": "Sylveon",
+          "item": "Sitrus Berry",
+          "moves": [
+            "Moonblast",
+            "Calm Mind",
+            "Draining Kiss",
+            "Swift"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 0,
+              "special": 224
+            },
+            "moves": [
+              "Moonblast",
+              "Calm Mind",
+              "Draining Kiss",
+              "Swift"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 0,
+            "special": 224
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "valerie_2",
+      "name": "Valerie",
+      "trainerClass": "VALERIE",
+      "spriteType": "valerie",
+      "coordinates": {
+        "x": 16,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 57,
+          "species": "Clefable",
+          "item": "Leftovers",
+          "gender": "male",
+          "moves": [
+            "Moonblast",
+            "Calm Mind",
+            "Healinglight",
+            "Metronome"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 252,
+              "attack": 0,
+              "defense": 68,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Moonblast",
+              "Calm Mind",
+              "Healinglight",
+              "Metronome"
+            ]
+          },
+          "evs": {
+            "hp": 252,
+            "attack": 0,
+            "defense": 68,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 57,
+          "species": "Mr_Mime",
+          "item": "Quick Claw",
+          "gender": "male",
+          "moves": [
+            "Psychic",
+            "Dazzlingleam",
+            "Light Screen",
+            "Reflect"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 252,
+              "attack": 0,
+              "defense": 68,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Psychic",
+              "Dazzlingleam",
+              "Light Screen",
+              "Reflect"
+            ]
+          },
+          "evs": {
+            "hp": 252,
+            "attack": 0,
+            "defense": 68,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 56,
+          "species": "Azumarill",
+          "item": "Muscle Band",
+          "gender": "male",
+          "moves": [
+            "Play Rough",
+            "Waterfall",
+            "Dizzy Punch",
+            "Close Combat"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 252,
+              "defense": 0,
+              "speed": 68,
+              "special": 0
+            },
+            "moves": [
+              "Play Rough",
+              "Waterfall",
+              "Dizzy Punch",
+              "Close Combat"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 252,
+            "defense": 0,
+            "speed": 68,
+            "special": 0
+          }
+        },
+        {
+          "level": 56,
+          "species": "Rapidash",
+          "item": "Kings Rock",
+          "gender": "male",
+          "form": "galarian form",
+          "moves": [
+            "Flamethrower",
+            "Zen Headbutt",
+            "Play Rough",
+            "Swords Dance"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 252,
+              "defense": 0,
+              "speed": 68,
+              "special": 0
+            },
+            "moves": [
+              "Flamethrower",
+              "Zen Headbutt",
+              "Play Rough",
+              "Swords Dance"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 252,
+            "defense": 0,
+            "speed": 68,
+            "special": 0
+          }
+        },
+        {
+          "level": 58,
+          "species": "Togekiss",
+          "item": "Wise Glasses",
+          "gender": "male",
+          "moves": [
+            "Aura Sphere",
+            "Fresh Snack",
+            "Dazzlingleam",
+            "Air Slash"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 68,
+              "special": 252
+            },
+            "moves": [
+              "Aura Sphere",
+              "Fresh Snack",
+              "Dazzlingleam",
+              "Air Slash"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 68,
+            "special": 252
+          }
+        },
+        {
+          "level": 60,
+          "species": "Sylveon",
+          "item": "Pink Bow",
+          "gender": "male",
+          "moves": [
+            "Moonblast",
+            "Calm Mind",
+            "Draining Kiss",
+            "Hyper Voice"
+          ],
+          "faithful": {},
+          "polished": {
+            "evs": {
+              "hp": 0,
+              "attack": 0,
+              "defense": 0,
+              "speed": 68,
+              "special": 252
+            },
+            "moves": [
+              "Moonblast",
+              "Calm Mind",
+              "Draining Kiss",
+              "Hyper Voice"
+            ]
+          },
+          "evs": {
+            "hp": 0,
+            "attack": 0,
+            "defense": 0,
+            "speed": 68,
+            "special": 252
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "valerie_3",
+      "name": "Valerie",
+      "trainerClass": "VALERIE",
+      "spriteType": "valerie",
+      "coordinates": {
+        "x": 16,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 73,
+          "species": "Clefable",
+          "item": "Leftovers",
+          "gender": "male",
+          "moves": [
+            "Moonblast",
+            "Calm Mind",
+            "Fresh Snack",
+            "Thunder Wave"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Moonblast",
+              "Calm Mind",
+              "Fresh Snack",
+              "Thunder Wave"
+            ]
+          }
+        },
+        {
+          "level": 73,
+          "species": "Mr_Mime",
+          "item": "Quick Claw",
+          "gender": "male",
+          "moves": [
+            "Psychic",
+            "Dazzlingleam",
+            "Light Screen",
+            "Reflect"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Psychic",
+              "Dazzlingleam",
+              "Light Screen",
+              "Reflect"
+            ]
+          }
+        },
+        {
+          "level": 72,
+          "species": "Azumarill",
+          "item": "Muscle Band",
+          "gender": "male",
+          "moves": [
+            "Play Rough",
+            "Waterfall",
+            "Return",
+            "Close Combat"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Play Rough",
+              "Waterfall",
+              "Return",
+              "Close Combat"
+            ]
+          }
+        },
+        {
+          "level": 72,
+          "species": "Rapidash",
+          "item": "Kings Rock",
+          "gender": "male",
+          "form": "galarian form",
+          "moves": [
+            "Fire Blast",
+            "Zen Headbutt",
+            "Play Rough",
+            "Wild Charge"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Fire Blast",
+              "Zen Headbutt",
+              "Play Rough",
+              "Wild Charge"
+            ]
+          }
+        },
+        {
+          "level": 74,
+          "species": "Togekiss",
+          "item": "Wise Glasses",
+          "gender": "male",
+          "moves": [
+            "Aura Sphere",
+            "Fresh Snack",
+            "Dazzlingleam",
+            "Air Slash"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Aura Sphere",
+              "Fresh Snack",
+              "Dazzlingleam",
+              "Air Slash"
+            ]
+          }
+        },
+        {
+          "level": 75,
+          "species": "Sylveon",
+          "item": "Pink Bow",
+          "gender": "male",
+          "moves": [
+            "Moonblast",
+            "Calm Mind",
+            "Draining Kiss",
+            "Hyper Voice"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Moonblast",
+              "Calm Mind",
+              "Draining Kiss",
+              "Hyper Voice"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM49 - Dazzlingleam"
+    }
+  ]
+}

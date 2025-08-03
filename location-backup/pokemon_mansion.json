@@ -1,0 +1,396 @@
+{
+  "id": 117,
+  "name": "pokemon_mansion",
+  "displayName": "Pokemon Mansion",
+  "region": "kanto",
+  "x": 50,
+  "y": 130,
+  "flyable": false,
+  "connections": [],
+  "areas": [
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [
+        {
+          "id": "burglar_pete",
+          "name": "Pete",
+          "trainerClass": "BURGLAR",
+          "spriteType": "burglar",
+          "coordinates": {
+            "x": 9,
+            "y": 10
+          },
+          "pokemon": [
+            {
+              "level": 59,
+              "species": "Charmeleon",
+              "moves": [
+                "Crunch",
+                "Fire Spin",
+                "Flamethrower",
+                "Slash"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Magmar",
+              "moves": [
+                "Fire Blast",
+                "Flamethrower",
+                "Focus Blast",
+                "Sunny Day"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "burglar_louis",
+          "name": "Louis",
+          "trainerClass": "BURGLAR",
+          "spriteType": "burglar",
+          "coordinates": {
+            "x": 27,
+            "y": 14
+          },
+          "pokemon": [
+            {
+              "level": 62,
+              "species": "Arcanine",
+              "moves": [
+                "Dragon Dance",
+                "Growl",
+                "Bite",
+                "Roar"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Rapidash",
+              "moves": [
+                "Flare Blitz",
+                "Extremespeed",
+                "Fire Blast",
+                "Agility"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 21,
+            "y": 12
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Pp Up",
+          "coordinates": {
+            "x": 14,
+            "y": 23
+          }
+        },
+        {
+          "type": "item",
+          "name": "Moon Stone",
+          "coordinates": {
+            "x": 6,
+            "y": 4
+          }
+        },
+        {
+          "type": "item",
+          "name": "Escape Rope",
+          "coordinates": {
+            "x": 14,
+            "y": 3
+          }
+        },
+        {
+          "type": "item",
+          "name": "Protein",
+          "coordinates": {
+            "x": 17,
+            "y": 22
+          }
+        },
+        {
+          "type": "item",
+          "name": "Iron",
+          "coordinates": {
+            "x": 27,
+            "y": 22
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "cinnabar_island",
+          "targetLocationDisplay": "Cinnabar Island",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "pokemon_mansion_b_1f",
+          "targetLocationDisplay": "Pokemon Mansion B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f",
+      "displayName": "Basement 1st Floor",
+      "trainers": [
+        {
+          "id": "scientist_braydon",
+          "name": "Braydon",
+          "trainerClass": "SCIENTIST",
+          "spriteType": "scientist",
+          "coordinates": {
+            "x": 18,
+            "y": 5
+          },
+          "pokemon": [
+            {
+              "level": 60,
+              "species": "Magneton",
+              "moves": [
+                "Thunder",
+                "Gyro Ball",
+                "Agility",
+                "Hidden Power"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Magnezone",
+              "moves": [
+                "Thunder",
+                "Gyro Ball",
+                "Agility",
+                "Hidden Power"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 63,
+              "species": "Electrode",
+              "moves": [
+                "Mirror Coat",
+                "Gyro Ball",
+                "Bug Buzz",
+                "Thunder"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Elixir",
+          "coordinates": {
+            "x": 26,
+            "y": 4
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Rare Candy",
+          "coordinates": {
+            "x": 8,
+            "y": 13
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Berserk Gene",
+          "coordinates": {
+            "x": 20,
+            "y": 27
+          }
+        },
+        {
+          "type": "item",
+          "name": "Carbos",
+          "coordinates": {
+            "x": 13,
+            "y": 5
+          }
+        },
+        {
+          "type": "item",
+          "name": "Calcium",
+          "coordinates": {
+            "x": 7,
+            "y": 6
+          }
+        },
+        {
+          "type": "item",
+          "name": "Hp Up",
+          "coordinates": {
+            "x": 16,
+            "y": 27
+          }
+        },
+        {
+          "type": "item",
+          "name": "Old Sea Map",
+          "coordinates": {
+            "x": 4,
+            "y": 23
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "pokemon_mansion_1f",
+          "targetLocationDisplay": "Pokemon Mansion First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "pokemon_mansion",
+    "pokemon_mansion_1f",
+    "pokemon_mansion_b_1f"
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 21,
+        "y": 12
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 14,
+        "y": 23
+      }
+    },
+    {
+      "type": "item",
+      "name": "Moon Stone",
+      "coordinates": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Escape Rope",
+      "coordinates": {
+        "x": 14,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Protein",
+      "coordinates": {
+        "x": 17,
+        "y": 22
+      }
+    },
+    {
+      "type": "item",
+      "name": "Iron",
+      "coordinates": {
+        "x": 27,
+        "y": 22
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 26,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 8,
+        "y": 13
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Berserk Gene",
+      "coordinates": {
+        "x": 20,
+        "y": 27
+      }
+    },
+    {
+      "type": "item",
+      "name": "Carbos",
+      "coordinates": {
+        "x": 13,
+        "y": 5
+      }
+    },
+    {
+      "type": "item",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 7,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hp Up",
+      "coordinates": {
+        "x": 16,
+        "y": 27
+      }
+    },
+    {
+      "type": "item",
+      "name": "Old Sea Map",
+      "coordinates": {
+        "x": 4,
+        "y": 23
+      }
+    }
+  ],
+  "trainerCount": 3,
+  "hasTrainers": true
+}

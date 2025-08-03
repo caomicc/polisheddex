@@ -1,0 +1,105 @@
+{
+  "id": -1,
+  "name": "blackthorn_gym_2f",
+  "displayName": "Blackthorn Gym Second Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "blackthorn_gym_1f",
+      "targetLocationDisplay": "Blackthorn Gym First Floor",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "cooltrainerm_cody",
+      "name": "Cody",
+      "trainerClass": "COOLTRAINERM",
+      "spriteType": "ace_trainer_m",
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 36,
+          "species": "Horsea",
+          "moves": [
+            "Agility",
+            "Outrage",
+            "Focus Energy",
+            "Water Pulse"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 37,
+          "species": "Seadra",
+          "moves": [
+            "Outrage",
+            "Focus Energy",
+            "Water Pulse",
+            "Aqua Jet"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 38,
+          "species": "Yanma",
+          "moves": [
+            "Hypnosis",
+            "Pursuit",
+            "Supersonic",
+            "Dragon Rage"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "cooltrainerf_fran",
+      "name": "Fran",
+      "trainerClass": "COOLTRAINERF",
+      "spriteType": "ace_trainer_f",
+      "coordinates": {
+        "x": 4,
+        "y": 11
+      },
+      "pokemon": [
+        {
+          "level": 39,
+          "species": "Seadra",
+          "moves": [
+            "Agility",
+            "Outrage",
+            "Focus Energy",
+            "Water Pulse"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 39,
+          "species": "Charizard",
+          "moves": [
+            "Flame Charge",
+            "Scary Face",
+            "Dragon Rage",
+            "Metal Claw"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ]
+}

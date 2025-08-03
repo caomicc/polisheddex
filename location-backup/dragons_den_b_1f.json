@@ -1,0 +1,354 @@
+{
+  "id": -1,
+  "name": "dragons_den_b_1f",
+  "displayName": "Dragons Den B First Floor",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "dragons_den_1f",
+      "targetLocationDisplay": "Dragons Den First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "dragon_shrine",
+      "targetLocationDisplay": "Dragon Shrine",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Dragons Den B1 F Clair Trigger",
+      "coordinates": {
+        "x": 19,
+        "y": 30
+      }
+    }
+  ],
+  "trainers": [
+    {
+      "id": "dragon_tamer_darin",
+      "name": "Darin",
+      "trainerClass": "DRAGON_TAMER",
+      "spriteType": "dragon_tamer",
+      "coordinates": {
+        "x": 20,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 38,
+          "species": "Dragonair",
+          "moves": [
+            "Body Slam",
+            "Surf",
+            "Dragon Pulse",
+            "Aqua Tail"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Body Slam",
+              "Surf",
+              "Dragon Pulse",
+              "Aqua Tail"
+            ]
+          }
+        },
+        {
+          "level": 38,
+          "species": "Charizard",
+          "moves": [
+            "Slash",
+            "Fly",
+            "Dragon Claw",
+            "Flame Charge"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Slash",
+              "Fly",
+              "Dragon Claw",
+              "Flame Charge"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "dragon_tamer_adam",
+      "name": "Adam",
+      "trainerClass": "DRAGON_TAMER",
+      "spriteType": "dragon_tamer",
+      "coordinates": {
+        "x": 8,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 37,
+          "species": "Yanma",
+          "moves": [
+            "Pursuit",
+            "Supersonic",
+            "Dragon Rage",
+            "Protect"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 38,
+          "species": "Seadra",
+          "moves": [
+            "Agility",
+            "Outrage",
+            "Focus Energy",
+            "Water Pulse"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 39,
+          "species": "Dratini",
+          "moves": [
+            "Aqua Tail",
+            "Dragonbreath",
+            "Agility",
+            "Headbutt"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "ace_duo_danandcara1",
+      "name": "Dan & Cara",
+      "trainerClass": "ACE_DUO",
+      "spriteType": "ace_duo",
+      "coordinates": {
+        "x": 4,
+        "y": 17
+      },
+      "pokemon": [
+        {
+          "level": 38,
+          "species": "Seadra",
+          "gender": "male",
+          "moves": [
+            "Smokescreen",
+            "Water Pulse",
+            "Outrage",
+            "Waterfall"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Smokescreen",
+              "Water Pulse",
+              "Outrage",
+              "Waterfall"
+            ]
+          }
+        },
+        {
+          "level": 38,
+          "species": "Seadra",
+          "gender": "male",
+          "moves": [
+            "Smokescreen",
+            "Water Pulse",
+            "Outrage",
+            "Whirlpool"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Smokescreen",
+              "Water Pulse",
+              "Outrage",
+              "Whirlpool"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "ace_duo_danandcara2",
+      "name": "Dan & Cara",
+      "trainerClass": "ACE_DUO",
+      "spriteType": "ace_duo",
+      "coordinates": {
+        "x": 4,
+        "y": 18
+      },
+      "pokemon": [
+        {
+          "level": 38,
+          "species": "Seadra",
+          "gender": "male",
+          "moves": [
+            "Smokescreen",
+            "Water Pulse",
+            "Outrage",
+            "Whirlpool"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Smokescreen",
+              "Water Pulse",
+              "Outrage",
+              "Whirlpool"
+            ]
+          }
+        },
+        {
+          "level": 38,
+          "species": "Seadra",
+          "gender": "male",
+          "moves": [
+            "Smokescreen",
+            "Water Pulse",
+            "Outrage",
+            "Waterfall"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Smokescreen",
+              "Water Pulse",
+              "Outrage",
+              "Waterfall"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "twins_leaandpia1",
+      "name": "Lea & Pia",
+      "trainerClass": "TWINS",
+      "spriteType": "twins",
+      "coordinates": {
+        "x": 30,
+        "y": 29
+      },
+      "pokemon": [
+        {
+          "level": 38,
+          "species": "Dratini",
+          "moves": [
+            "Thunder Wave",
+            "Dragon Pulse",
+            "Flamethrower",
+            "Headbutt"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Thunder Wave",
+              "Dragon Pulse",
+              "Flamethrower",
+              "Headbutt"
+            ]
+          }
+        },
+        {
+          "level": 38,
+          "species": "Dratini",
+          "moves": [
+            "Thunder Wave",
+            "Dragon Pulse",
+            "Ice Beam",
+            "Headbutt"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Thunder Wave",
+              "Dragon Pulse",
+              "Ice Beam",
+              "Headbutt"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "kimono_girl_8_1",
+      "name": "1",
+      "trainerClass": "KIMONO_GIRL_8",
+      "spriteType": "kimono_girl_8",
+      "coordinates": {
+        "x": 34,
+        "y": 19
+      },
+      "pokemon": [],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Revive",
+      "coordinates": {
+        "x": 33,
+        "y": 29
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 21,
+        "y": 17
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 31,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dragon Fang",
+      "coordinates": {
+        "x": 35,
+        "y": 16
+      }
+    },
+    {
+      "type": "item",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 30,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 5,
+        "y": 20
+      }
+    }
+  ]
+}

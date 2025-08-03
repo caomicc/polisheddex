@@ -1,0 +1,268 @@
+{
+  "id": -1,
+  "name": "celadon_dept_store",
+  "displayName": "Celadon Dept Store",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM04 - Calm Mind"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM07 - Hail"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM08 - Bulk Up"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM11 - Sunny Day"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM18 - Rain Dance"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM20 - Safeguard"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM37 - Sandstorm"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM75 - Swords Dance"
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM04 - Calm Mind"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM07 - Hail"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM08 - Bulk Up"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM11 - Sunny Day"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM18 - Rain Dance"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM20 - Safeguard"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM37 - Sandstorm"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM75 - Swords Dance"
+        }
+      ],
+      "connections": [],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_city",
+          "targetLocationDisplay": "Celadon City",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_2f",
+          "targetLocationDisplay": "Celadon Dept Store Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_elevator",
+          "targetLocationDisplay": "Celadon Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_3f",
+          "targetLocationDisplay": "Celadon Dept Store Third Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_1f",
+          "targetLocationDisplay": "Celadon Dept Store First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_elevator",
+          "targetLocationDisplay": "Celadon Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "3f",
+      "displayName": "3rd Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_2f",
+          "targetLocationDisplay": "Celadon Dept Store Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_4f",
+          "targetLocationDisplay": "Celadon Dept Store Fourth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_elevator",
+          "targetLocationDisplay": "Celadon Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "4f",
+      "displayName": "4th Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_5f",
+          "targetLocationDisplay": "Celadon Dept Store Fifth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_3f",
+          "targetLocationDisplay": "Celadon Dept Store Third Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_elevator",
+          "targetLocationDisplay": "Celadon Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "5f",
+      "displayName": "5th Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_4f",
+          "targetLocationDisplay": "Celadon Dept Store Fourth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_6f",
+          "targetLocationDisplay": "Celadon Dept Store Sixth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_elevator",
+          "targetLocationDisplay": "Celadon Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "6f",
+      "displayName": "6th Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_5f",
+          "targetLocationDisplay": "Celadon Dept Store Fifth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_dept_store_elevator",
+          "targetLocationDisplay": "Celadon Dept Store Elevator",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "celadon_dept_store",
+    "celadon_dept_store_1f",
+    "celadon_dept_store_2f",
+    "celadon_dept_store_3f",
+    "celadon_dept_store_4f",
+    "celadon_dept_store_5f",
+    "celadon_dept_store_6f"
+  ],
+  "trainerCount": 0,
+  "hasTrainers": false
+}

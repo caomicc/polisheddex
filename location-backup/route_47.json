@@ -1,0 +1,591 @@
+{
+  "id": 47,
+  "name": "route_47",
+  "displayName": "Route 47",
+  "region": "johto",
+  "x": 12,
+  "y": 100,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "north",
+      "targetLocation": "route_48",
+      "targetLocationDisplay": "Route 48",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cliff_edge_gate",
+      "targetLocationDisplay": "Cliff Edge Gate",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "cliff_cave",
+      "targetLocationDisplay": "Cliff Cave",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "quiet_cave_1f",
+      "targetLocationDisplay": "Quiet Cave First Floor",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "embedded_tower",
+      "targetLocationDisplay": "Embedded Tower",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "hidden_cave_grotto",
+      "targetLocationDisplay": "Hidden Cave Grotto",
+      "offset": 0
+    }
+  ],
+  "events": [
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge1 Overhead Trigger",
+      "coordinates": {
+        "x": 42,
+        "y": 24
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge1 Underfoot Trigger",
+      "coordinates": {
+        "x": 43,
+        "y": 24
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge2 Overhead Trigger",
+      "coordinates": {
+        "x": 42,
+        "y": 18
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge2 Underfoot Trigger",
+      "coordinates": {
+        "x": 43,
+        "y": 18
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge3 Overhead Trigger",
+      "coordinates": {
+        "x": 18,
+        "y": 24
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge3 Underfoot Trigger",
+      "coordinates": {
+        "x": 19,
+        "y": 24
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge4 Overhead Trigger",
+      "coordinates": {
+        "x": 18,
+        "y": 16
+      }
+    },
+    {
+      "type": "coordinate_trigger",
+      "description": "Route47 Bridge4 Underfoot Trigger",
+      "coordinates": {
+        "x": 19,
+        "y": 16
+      }
+    }
+  ],
+  "trainers": [
+    {
+      "id": "hiker_devin",
+      "name": "Devin",
+      "trainerClass": "HIKER",
+      "spriteType": "hiker",
+      "coordinates": {
+        "x": 59,
+        "y": 26
+      },
+      "pokemon": [
+        {
+          "level": 21,
+          "species": "Dunsparce",
+          "moves": [
+            "Body Slam",
+            "Ancientpower",
+            "Fury Strikes",
+            "Mud Slap"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 22,
+          "species": "Onix",
+          "moves": [
+            "Ancientpower",
+            "Sandstorm",
+            "Body Slam",
+            "Rock Blast"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 21,
+          "species": "Larvitar",
+          "moves": [
+            "Rock Slide",
+            "Rage",
+            "Screech",
+            "Sandstorm"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "camper_grant",
+      "name": "Grant",
+      "trainerClass": "CAMPER",
+      "spriteType": "camper",
+      "coordinates": {
+        "x": 40,
+        "y": 24
+      },
+      "pokemon": [
+        {
+          "level": 21,
+          "species": "Sunflora",
+          "moves": [
+            "Protect",
+            "Razor Leaf",
+            "Leech Seed",
+            "Mega Drain"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 21,
+          "species": "Marill",
+          "moves": [
+            "Aqua Tail",
+            "Dizzy Punch",
+            "Bubble Beam",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "ace_duo_thomandkae1",
+      "name": "Thom & Kae",
+      "trainerClass": "ACE_DUO",
+      "spriteType": "ace_duo",
+      "coordinates": {
+        "x": 38,
+        "y": 18
+      },
+      "pokemon": [
+        {
+          "level": 22,
+          "species": "Magmar",
+          "gender": "male",
+          "moves": [
+            "Flame Charge",
+            "Low Kick",
+            "Fire Spin",
+            "Feint Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 22,
+          "species": "Electabuzz",
+          "gender": "male",
+          "moves": [
+            "Karate Chop",
+            "Thunder Wave",
+            "Bulk Up",
+            "Swift"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "ace_duo_thomandkae2",
+      "name": "Thom & Kae",
+      "trainerClass": "ACE_DUO",
+      "spriteType": "ace_duo",
+      "coordinates": {
+        "x": 39,
+        "y": 18
+      },
+      "pokemon": [
+        {
+          "level": 22,
+          "species": "Electabuzz",
+          "gender": "male",
+          "moves": [
+            "Karate Chop",
+            "Thunder Wave",
+            "Bulk Up",
+            "Swift"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 22,
+          "species": "Magmar",
+          "gender": "male",
+          "moves": [
+            "Flame Charge",
+            "Low Kick",
+            "Fire Spin",
+            "Feint Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "couple_duffandeda1",
+      "name": "Duff & Eda",
+      "trainerClass": "COUPLE",
+      "spriteType": "couple",
+      "coordinates": {
+        "x": 27,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 22,
+          "species": "Cloyster",
+          "gender": "male",
+          "moves": [
+            "Hydro Pump",
+            "Shell Smash",
+            "Toxic Spikes",
+            "Fury Strikes"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 22,
+          "species": "Onix",
+          "gender": "male",
+          "moves": [
+            "Ancientpower",
+            "Sandstorm",
+            "Body Slam",
+            "Rock Blast"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "couple_duffandeda2",
+      "name": "Duff & Eda",
+      "trainerClass": "COUPLE",
+      "spriteType": "couple",
+      "coordinates": {
+        "x": 28,
+        "y": 7
+      },
+      "pokemon": [
+        {
+          "level": 22,
+          "species": "Onix",
+          "gender": "male",
+          "moves": [
+            "Ancientpower",
+            "Sandstorm",
+            "Body Slam",
+            "Rock Blast"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 22,
+          "species": "Cloyster",
+          "gender": "male",
+          "moves": [
+            "Hydro Pump",
+            "Shell Smash",
+            "Toxic Spikes",
+            "Fury Strikes"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "cowgirl_daniela",
+      "name": "Daniela",
+      "trainerClass": "COWGIRL",
+      "spriteType": "cowgirl",
+      "coordinates": {
+        "x": 51,
+        "y": 8
+      },
+      "pokemon": [
+        {
+          "level": 23,
+          "species": "Tauros",
+          "moves": [
+            "Rest",
+            "Pursuit",
+            "Scary Face",
+            "Horn Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 23,
+          "species": "Miltank",
+          "moves": [
+            "Rollout",
+            "Dizzy Punch",
+            "Fresh Snack",
+            "Stomp"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "gruntf_6",
+      "name": "Grunt",
+      "trainerClass": "GRUNTF",
+      "spriteType": "team_rocket_grunt_f",
+      "coordinates": {
+        "x": 55,
+        "y": 27
+      },
+      "pokemon": [
+        {
+          "level": 22,
+          "species": "Ekans",
+          "moves": [
+            "Acid",
+            "Screech",
+            "Glare",
+            "Bite"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 23,
+          "species": "Arbok",
+          "moves": [
+            "Acid",
+            "Screech",
+            "Glare",
+            "Bite"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 23,
+          "species": "Gloom",
+          "moves": [
+            "Mega Drain",
+            "Sleep Powder",
+            "Stun Spore",
+            "Poisonpowder"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "gruntm_23",
+      "name": "Grunt",
+      "trainerClass": "GRUNTM",
+      "spriteType": "team_rocket_grunt_m",
+      "coordinates": {
+        "x": 36,
+        "y": 20
+      },
+      "pokemon": [
+        {
+          "level": 23,
+          "species": "Koffing",
+          "moves": [
+            "Rage",
+            "Venoshock",
+            "Will O Wisp",
+            "Endure"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Houndour",
+          "moves": [
+            "Super Fang",
+            "Foresight",
+            "Bite",
+            "Roar"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 23,
+          "species": "Tentacool",
+          "moves": [
+            "Confuse Ray",
+            "Wrap",
+            "Water Pulse",
+            "Toxic Spikes"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "gruntm_26",
+      "name": "Grunt",
+      "trainerClass": "GRUNTM",
+      "spriteType": "team_rocket_grunt_m",
+      "coordinates": {
+        "x": 25,
+        "y": 10
+      },
+      "pokemon": [
+        {
+          "level": 23,
+          "species": "Zubat",
+          "moves": [
+            "Swift",
+            "Wing Attack",
+            "Confuse Ray",
+            "Gust"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 24,
+          "species": "Raticate",
+          "moves": [
+            "Crunch",
+            "Sucker Punch",
+            "Hyper Fang",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Murkrow",
+          "moves": [
+            "Thief",
+            "Night Shade",
+            "Wing Attack",
+            "Haze"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Pearl",
+      "coordinates": {
+        "x": 34,
+        "y": 33
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Stardust",
+      "coordinates": {
+        "x": 5,
+        "y": 32
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 39,
+        "y": 28
+      }
+    },
+    {
+      "type": "item",
+      "name": "Mystic Water",
+      "coordinates": {
+        "x": 7,
+        "y": 32
+      }
+    },
+    {
+      "type": "item",
+      "name": "Quick Claw",
+      "coordinates": {
+        "x": 31,
+        "y": 20
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Repel",
+      "coordinates": {
+        "x": 7,
+        "y": 6
+      }
+    }
+  ]
+}

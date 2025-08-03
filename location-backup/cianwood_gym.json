@@ -1,0 +1,409 @@
+{
+  "id": -1,
+  "name": "cianwood_gym",
+  "displayName": "Cianwood Gym",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "cianwood_city",
+      "targetLocationDisplay": "Cianwood City",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "chuck_1",
+      "name": "Chuck",
+      "trainerClass": "CHUCK",
+      "spriteType": "chuck",
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "pokemon": [
+        {
+          "level": 30,
+          "species": "Primeape",
+          "gender": "male",
+          "moves": [
+            "Karate Chop",
+            "Seismic Toss",
+            "Screech",
+            "Dynamicpunch"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Defiant",
+            "evs": {
+              "hp": 0,
+              "attack": 160,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Karate Chop",
+              "Seismic Toss",
+              "Screech",
+              "Dynamicpunch"
+            ]
+          },
+          "ability": "Defiant",
+          "evs": {
+            "hp": 0,
+            "attack": 160,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 29,
+          "species": "FarfetchD",
+          "gender": "male",
+          "form": "galarian form",
+          "moves": [
+            "Reversal",
+            "Body Slam",
+            "Feint Attack",
+            "Swords Dance"
+          ],
+          "faithful": {
+            "moves": [
+              "Rock Smash",
+              "Body Slam",
+              "Feint Attack",
+              "Swords Dance"
+            ]
+          },
+          "polished": {
+            "ability": "Steadfast",
+            "evs": {
+              "hp": 0,
+              "attack": 160,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Reversal",
+              "Body Slam",
+              "Feint Attack",
+              "Swords Dance"
+            ]
+          },
+          "ability": "Steadfast",
+          "evs": {
+            "hp": 0,
+            "attack": 160,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 28,
+          "species": "Hitmontop",
+          "gender": "male",
+          "moves": [
+            "Bulk Up",
+            "Sucker Punch",
+            "Double Kick",
+            "Rapid Spin"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Intimidate",
+            "evs": {
+              "hp": 0,
+              "attack": 160,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Bulk Up",
+              "Sucker Punch",
+              "Double Kick",
+              "Rapid Spin"
+            ]
+          },
+          "ability": "Intimidate",
+          "evs": {
+            "hp": 0,
+            "attack": 160,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        },
+        {
+          "level": 31,
+          "species": "Poliwrath",
+          "item": "Zoom Lens",
+          "gender": "male",
+          "moves": [
+            "Ice Punch",
+            "Hypnosis",
+            "Waterfall",
+            "Dynamicpunch"
+          ],
+          "faithful": {},
+          "polished": {
+            "ability": "Water Absorb",
+            "evs": {
+              "hp": 0,
+              "attack": 160,
+              "defense": 0,
+              "speed": 0,
+              "special": 0
+            },
+            "moves": [
+              "Ice Punch",
+              "Hypnosis",
+              "Waterfall",
+              "Dynamicpunch"
+            ]
+          },
+          "ability": "Water Absorb",
+          "evs": {
+            "hp": 0,
+            "attack": 160,
+            "defense": 0,
+            "speed": 0,
+            "special": 0
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "blackbelt_t_yoshi",
+      "name": "Yoshi",
+      "trainerClass": "BLACKBELT_T",
+      "spriteType": "blackbelt",
+      "coordinates": {
+        "x": 2,
+        "y": 12
+      },
+      "pokemon": [
+        {
+          "level": 27,
+          "species": "Hitmonlee",
+          "nickname": "Bruce",
+          "moves": [
+            "Double Kick",
+            "Bulk Up",
+            "Hi Jump Kick",
+            "Focus Energy"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Double Kick",
+              "Bulk Up",
+              "Hi Jump Kick",
+              "Focus Energy"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "blackbelt_t_lao",
+      "name": "Lao",
+      "trainerClass": "BLACKBELT_T",
+      "spriteType": "blackbelt",
+      "coordinates": {
+        "x": 7,
+        "y": 12
+      },
+      "pokemon": [
+        {
+          "level": 27,
+          "species": "Hitmonchan",
+          "nickname": "Jackie",
+          "moves": [
+            "Aerial Ace",
+            "Thunderpunch",
+            "Ice Punch",
+            "Fire Punch"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Aerial Ace",
+              "Thunderpunch",
+              "Ice Punch",
+              "Fire Punch"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "blackbelt_t_nob",
+      "name": "Nob",
+      "trainerClass": "BLACKBELT_T",
+      "spriteType": "blackbelt",
+      "coordinates": {
+        "x": 3,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 25,
+          "species": "Machop",
+          "moves": [
+            "Leer",
+            "Focus Energy",
+            "Karate Chop",
+            "Seismic Toss"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Leer",
+              "Focus Energy",
+              "Karate Chop",
+              "Seismic Toss"
+            ]
+          }
+        },
+        {
+          "level": 25,
+          "species": "Machoke",
+          "moves": [
+            "Leer",
+            "Karate Chop",
+            "Seismic Toss",
+            "Rock Slide"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Leer",
+              "Karate Chop",
+              "Seismic Toss",
+              "Rock Slide"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "blackbelt_t_lung",
+      "name": "Lung",
+      "trainerClass": "BLACKBELT_T",
+      "spriteType": "blackbelt",
+      "coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "pokemon": [
+        {
+          "level": 23,
+          "species": "Mankey",
+          "moves": [
+            "Cross Chop",
+            "Swagger",
+            "Seismic Toss",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 23,
+          "species": "Mankey",
+          "moves": [
+            "Cross Chop",
+            "Swagger",
+            "Seismic Toss",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 25,
+          "species": "Primeape",
+          "moves": [
+            "Cross Chop",
+            "Swagger",
+            "Seismic Toss",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "gymLeader": {
+    "name": "Chuck",
+    "trainerClass": "CHUCK",
+    "badge": "STORMBADGE",
+    "region": "johto",
+    "speciality": "Fighting",
+    "coordinates": {
+      "x": 4,
+      "y": 1
+    },
+    "pokemon": [
+      {
+        "level": 30,
+        "species": "primeape",
+        "gender": "male",
+        "moves": [
+          "Karate Chop",
+          "Seismic Toss",
+          "Screech",
+          "Dynamicpunch"
+        ]
+      },
+      {
+        "level": 29,
+        "species": "farfetch_d",
+        "gender": "male",
+        "moves": [
+          "Reversal",
+          "Body Slam",
+          "Feint Attack",
+          "Swords Dance"
+        ]
+      },
+      {
+        "level": 28,
+        "species": "hitmontop",
+        "gender": "male",
+        "moves": [
+          "Bulk Up",
+          "Sucker Punch",
+          "Double Kick",
+          "Rapid Spin"
+        ]
+      },
+      {
+        "level": 31,
+        "species": "poliwrath",
+        "item": "zoom_lens",
+        "gender": "male",
+        "moves": [
+          "Ice Punch",
+          "Hypnosis",
+          "Waterfall",
+          "Dynamicpunch"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": 87,
+  "name": "route_7",
+  "displayName": "Route 7",
+  "region": "kanto",
+  "x": 96,
+  "y": 60,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "west",
+      "targetLocation": "celadon_city",
+      "targetLocationDisplay": "Celadon City",
+      "offset": -5
+    },
+    {
+      "direction": "east",
+      "targetLocation": "saffron_city",
+      "targetLocationDisplay": "Saffron City",
+      "offset": -6
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "route_7_saffron_gate",
+      "targetLocationDisplay": "Route 7 Saffron Gate",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "breeder_carlene",
+      "name": "Carlene",
+      "trainerClass": "BREEDER",
+      "spriteType": "breeder",
+      "coordinates": {
+        "x": 15,
+        "y": 11
+      },
+      "pokemon": [
+        {
+          "level": 58,
+          "species": "Smeargle",
+          "item": "Wise Glasses",
+          "gender": "male",
+          "moves": [
+            "Spore",
+            "Nasty Plot",
+            "Hyper Voice",
+            "Psychic"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Spore",
+              "Nasty Plot",
+              "Hyper Voice",
+              "Psychic"
+            ]
+          }
+        },
+        {
+          "level": 58,
+          "species": "Smeargle",
+          "item": "Muscle Band",
+          "gender": "male",
+          "moves": [
+            "Spore",
+            "Swords Dance",
+            "Body Slam",
+            "Earthquake"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Spore",
+              "Swords Dance",
+              "Body Slam",
+              "Earthquake"
+            ]
+          }
+        },
+        {
+          "level": 62,
+          "species": "Ditto",
+          "item": "Metal Powder",
+          "gender": "male",
+          "moves": [
+            "Transform"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Transform"
+            ]
+          },
+          "shiny": true
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Mental Herb",
+      "coordinates": {
+        "x": 16,
+        "y": 1
+      }
+    }
+  ]
+}

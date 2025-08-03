@@ -1,0 +1,766 @@
+{
+  "id": 34,
+  "name": "burned_tower",
+  "displayName": "Burned Tower",
+  "region": "johto",
+  "x": 66,
+  "y": 42,
+  "flyable": false,
+  "connections": [],
+  "tmhms": [
+    {
+      "tmNumber": "TM43",
+      "moveName": "Flame Charge",
+      "location": "Burned Tower"
+    }
+  ],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM43 - Flame Charge"
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Ether",
+      "coordinates": {
+        "x": 6,
+        "y": 7
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 11,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hp Up",
+      "coordinates": {
+        "x": 13,
+        "y": 1
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM43 - Flame Charge"
+        }
+      ],
+      "connections": [],
+      "tmhms": [
+        {
+          "tmNumber": "TM43",
+          "moveName": "Flame Charge",
+          "location": "Burned Tower"
+        }
+      ],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [
+        {
+          "id": "rival1_rival1_9",
+          "name": "<RIVAL>",
+          "trainerClass": "RIVAL1",
+          "spriteType": "rival1",
+          "coordinates": {
+            "x": 9,
+            "y": 9
+          },
+          "pokemon": [
+            {
+              "level": 20,
+              "species": "Haunter",
+              "moves": [
+                "Lick",
+                "Confuse Ray",
+                "Mean Look",
+                "Curse"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Lick",
+                  "Confuse Ray",
+                  "Mean Look",
+                  "Curse"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 18,
+              "species": "Magnemite",
+              "moves": [
+                "Tackle",
+                "Thundershock",
+                "Supersonic",
+                "Sonic Boom"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Tackle",
+                  "Thundershock",
+                  "Supersonic",
+                  "Sonic Boom"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 19,
+              "species": "Drowzee",
+              "moves": [
+                "Hypnosis",
+                "Confusion",
+                "Headbutt",
+                "Low Kick"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Hypnosis",
+                  "Confusion",
+                  "Headbutt",
+                  "Low Kick"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 20,
+              "species": "Zubat",
+              "moves": [
+                "Leech Life",
+                "Supersonic",
+                "Bite",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Leech Life",
+                  "Supersonic",
+                  "Bite",
+                  "Confuse Ray"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 22,
+              "species": "Croconaw",
+              "item": "Oran Berry",
+              "moves": [
+                "Leer",
+                "Rage",
+                "Water Gun",
+                "Bite"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 32,
+                  "defense": 0,
+                  "speed": 72,
+                  "special": 0
+                },
+                "moves": [
+                  "Leer",
+                  "Rage",
+                  "Water Gun",
+                  "Bite"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 32,
+                "defense": 0,
+                "speed": 72,
+                "special": 0
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "rival1_rival1_7",
+          "name": "<RIVAL>",
+          "trainerClass": "RIVAL1",
+          "spriteType": "rival1",
+          "coordinates": {
+            "x": 9,
+            "y": 9
+          },
+          "pokemon": [
+            {
+              "level": 20,
+              "species": "Haunter",
+              "moves": [
+                "Lick",
+                "Confuse Ray",
+                "Mean Look",
+                "Curse"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Lick",
+                  "Confuse Ray",
+                  "Mean Look",
+                  "Curse"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 18,
+              "species": "Magnemite",
+              "moves": [
+                "Tackle",
+                "Thundershock",
+                "Supersonic",
+                "Sonic Boom"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Tackle",
+                  "Thundershock",
+                  "Supersonic",
+                  "Sonic Boom"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 19,
+              "species": "Drowzee",
+              "moves": [
+                "Hypnosis",
+                "Confusion",
+                "Headbutt",
+                "Low Kick"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Hypnosis",
+                  "Confusion",
+                  "Headbutt",
+                  "Low Kick"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 20,
+              "species": "Zubat",
+              "moves": [
+                "Leech Life",
+                "Supersonic",
+                "Bite",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Leech Life",
+                  "Supersonic",
+                  "Bite",
+                  "Confuse Ray"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 22,
+              "species": "Bayleef",
+              "item": "Oran Berry",
+              "moves": [
+                "Reflect",
+                "Razor Leaf",
+                "Poisonpowder",
+                "Disarm Voice"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 72,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 32
+                },
+                "moves": [
+                  "Reflect",
+                  "Razor Leaf",
+                  "Poisonpowder",
+                  "Disarm Voice"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 72,
+                "defense": 0,
+                "speed": 0,
+                "special": 32
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "rival1_rival1_8",
+          "name": "<RIVAL>",
+          "trainerClass": "RIVAL1",
+          "spriteType": "rival1",
+          "coordinates": {
+            "x": 9,
+            "y": 9
+          },
+          "pokemon": [
+            {
+              "level": 20,
+              "species": "Haunter",
+              "moves": [
+                "Lick",
+                "Confuse Ray",
+                "Mean Look",
+                "Curse"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Lick",
+                  "Confuse Ray",
+                  "Mean Look",
+                  "Curse"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 18,
+              "species": "Magnemite",
+              "moves": [
+                "Tackle",
+                "Thundershock",
+                "Supersonic",
+                "Sonic Boom"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Tackle",
+                  "Thundershock",
+                  "Supersonic",
+                  "Sonic Boom"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 19,
+              "species": "Drowzee",
+              "moves": [
+                "Hypnosis",
+                "Confusion",
+                "Headbutt",
+                "Low Kick"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Hypnosis",
+                  "Confusion",
+                  "Headbutt",
+                  "Low Kick"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 20,
+              "species": "Zubat",
+              "moves": [
+                "Leech Life",
+                "Supersonic",
+                "Bite",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 104,
+                  "special": 0
+                },
+                "moves": [
+                  "Leech Life",
+                  "Supersonic",
+                  "Bite",
+                  "Confuse Ray"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 104,
+                "special": 0
+              }
+            },
+            {
+              "level": 22,
+              "species": "Quilava",
+              "item": "Oran Berry",
+              "moves": [
+                "Leer",
+                "Smokescreen",
+                "Ember",
+                "Quick Attack"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 32,
+                  "special": 72
+                },
+                "moves": [
+                  "Leer",
+                  "Smokescreen",
+                  "Ember",
+                  "Quick Attack"
+                ]
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 32,
+                "special": 72
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "hex_maniac_tamara",
+          "name": "Tamara",
+          "trainerClass": "HEX_MANIAC",
+          "spriteType": "hex_maniac",
+          "coordinates": {
+            "x": 1,
+            "y": 1
+          },
+          "pokemon": [
+            {
+              "level": 16,
+              "species": "Gastly",
+              "moves": [
+                "Night Shade",
+                "Curse",
+                "Mean Look",
+                "Disable"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 18,
+              "species": "Misdreavus",
+              "moves": [
+                "Confuse Ray",
+                "Astonish",
+                "Confusion",
+                "Growl"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "firebreather_ned",
+          "name": "Ned",
+          "trainerClass": "FIREBREATHER",
+          "spriteType": "firebreather",
+          "coordinates": {
+            "x": 11,
+            "y": 3
+          },
+          "pokemon": [
+            {
+              "level": 16,
+              "species": "Koffing",
+              "moves": [
+                "Will O Wisp",
+                "Endure",
+                "Smokescreen",
+                "Acid"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 17,
+              "species": "Growlithe",
+              "moves": [
+                "Fire Spin",
+                "Baton Pass",
+                "Safeguard",
+                "Leer"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 16,
+              "species": "Koffing",
+              "moves": [
+                "Will O Wisp",
+                "Endure",
+                "Smokescreen",
+                "Acid"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Ether",
+          "coordinates": {
+            "x": 6,
+            "y": 7
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 11,
+            "y": 11
+          }
+        },
+        {
+          "type": "item",
+          "name": "Hp Up",
+          "coordinates": {
+            "x": 13,
+            "y": 1
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "ecruteak_city",
+          "targetLocationDisplay": "Ecruteak City",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "burned_tower_b_1f",
+          "targetLocationDisplay": "Burned Tower B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f",
+      "displayName": "Basement 1st Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "burned_tower_1f",
+          "targetLocationDisplay": "Burned Tower First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "burned_tower",
+    "burned_tower_1f",
+    "burned_tower_b_1f"
+  ],
+  "trainerCount": 5,
+  "hasTrainers": true
+}

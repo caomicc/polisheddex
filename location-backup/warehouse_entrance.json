@@ -1,0 +1,428 @@
+{
+  "id": -1,
+  "name": "warehouse_entrance",
+  "displayName": "Warehouse Entrance",
+  "region": "johto",
+  "x": -1,
+  "y": -1,
+  "flyable": false,
+  "connections": [
+    {
+      "direction": "warp",
+      "targetLocation": "underground_path_switch_room_entrances",
+      "targetLocationDisplay": "Underground Path Switch Room Entrances",
+      "offset": 0
+    },
+    {
+      "direction": "warp",
+      "targetLocation": "warehouse_entrance",
+      "targetLocationDisplay": "Warehouse Entrance",
+      "offset": 0
+    }
+  ],
+  "trainers": [
+    {
+      "id": "super_nerd_eric",
+      "name": "Eric",
+      "trainerClass": "SUPER_NERD",
+      "spriteType": "super_nerd",
+      "coordinates": {
+        "x": 3,
+        "y": 35
+      },
+      "pokemon": [
+        {
+          "level": 13,
+          "species": "Grimer",
+          "moves": [
+            "Disable",
+            "Mud Slap",
+            "Defense Curl",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 14,
+          "species": "Porygon",
+          "moves": [
+            "Agility",
+            "Psybeam",
+            "Tackle",
+            "Conversion"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "super_nerd_teru",
+      "name": "Teru",
+      "trainerClass": "SUPER_NERD",
+      "spriteType": "super_nerd",
+      "coordinates": {
+        "x": 4,
+        "y": 9
+      },
+      "pokemon": [
+        {
+          "level": 9,
+          "species": "Magnemite",
+          "moves": [
+            "Thunder Wave",
+            "Thundershock",
+            "Supersonic",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 13,
+          "species": "Voltorb",
+          "moves": [
+            "Screech",
+            "Rollout",
+            "Spark",
+            "Agility"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 9,
+          "species": "Magnemite",
+          "moves": [
+            "Thunder Wave",
+            "Thundershock",
+            "Supersonic",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 11,
+          "species": "Magnemite",
+          "moves": [
+            "Quick Attack",
+            "Thunder Wave",
+            "Thundershock",
+            "Supersonic"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "pokemaniac_issac",
+      "name": "Issac",
+      "trainerClass": "POKEMANIAC",
+      "spriteType": "pokemaniac",
+      "coordinates": {
+        "x": 1,
+        "y": 31
+      },
+      "pokemon": [
+        {
+          "level": 15,
+          "species": "Lickitung",
+          "moves": [
+            "Lick",
+            "Supersonic",
+            "Cut"
+          ],
+          "faithful": {},
+          "polished": {
+            "moves": [
+              "Lick",
+              "Supersonic",
+              "Cut"
+            ]
+          }
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "pokemaniac_donald",
+      "name": "Donald",
+      "trainerClass": "POKEMANIAC",
+      "spriteType": "pokemaniac",
+      "coordinates": {
+        "x": 0,
+        "y": 6
+      },
+      "pokemon": [
+        {
+          "level": 13,
+          "species": "Slowpoke",
+          "moves": [
+            "Water Gun",
+            "Growl",
+            "Curse",
+            "Tackle"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 13,
+          "species": "NidoranM",
+          "moves": [
+            "Poison Sting",
+            "Double Kick",
+            "Focus Energy",
+            "Leer"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "cosplayer_clara",
+      "name": "Clara",
+      "trainerClass": "COSPLAYER",
+      "spriteType": "cosplayer",
+      "coordinates": {
+        "x": 8,
+        "y": 31
+      },
+      "pokemon": [
+        {
+          "level": 14,
+          "species": "Vulpix",
+          "moves": [
+            "Confuse Ray",
+            "Quick Attack",
+            "Charm",
+            "Astonish"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 14,
+          "species": "Vulpix",
+          "moves": [
+            "Confuse Ray",
+            "Quick Attack",
+            "Charm",
+            "Astonish"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "piers_1",
+      "name": "Piers",
+      "trainerClass": "PIERS",
+      "spriteType": "piers",
+      "coordinates": {
+        "x": 13,
+        "y": 29
+      },
+      "pokemon": [
+        {
+          "level": 16,
+          "species": "Murkrow",
+          "moves": [
+            "Wing Attack",
+            "Haze",
+            "Pursuit",
+            "Peck"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 17,
+          "species": "Qwilfish",
+          "form": "hisuian form",
+          "moves": [
+            "Rollout",
+            "Bubble Beam",
+            "Minimize",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 17,
+          "species": "Muk",
+          "form": "alolan form",
+          "moves": [
+            "Venoshock",
+            "Disable",
+            "Mud Slap",
+            "Defense Curl"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 19,
+          "species": "Raticate",
+          "form": "alolan form",
+          "moves": [
+            "Sucker Punch",
+            "Hyper Fang",
+            "Pursuit",
+            "Bite"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    },
+    {
+      "id": "piers_2",
+      "name": "Piers",
+      "trainerClass": "PIERS",
+      "spriteType": "piers",
+      "coordinates": {
+        "x": -1,
+        "y": -1
+      },
+      "pokemon": [
+        {
+          "level": 32,
+          "species": "Honchkrow",
+          "moves": [
+            "Swagger",
+            "Sucker Punch",
+            "Astonish",
+            "Pursuit"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 36,
+          "species": "Overqwil",
+          "moves": [
+            "Water Pulse",
+            "Reversal",
+            "Pain Split",
+            "Toxic Spikes"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 36,
+          "species": "Muk",
+          "form": "alolan form",
+          "moves": [
+            "Scary Face",
+            "Sludge Bomb",
+            "Feint Attack",
+            "Minimize"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 34,
+          "species": "Persian",
+          "form": "alolan form",
+          "moves": [
+            "Power Gem",
+            "Pursuit",
+            "Feint Attack",
+            "Screech"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 34,
+          "species": "Umbreon",
+          "moves": [
+            "Healinglight",
+            "Screech",
+            "Toxic",
+            "Feint Attack"
+          ],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 34,
+          "species": "Girafarig",
+          "moves": [],
+          "faithful": {},
+          "polished": {}
+        },
+        {
+          "level": 39,
+          "species": "Raticate",
+          "form": "alolan form",
+          "moves": [
+            "Double Edge",
+            "Super Fang",
+            "Feint Attack",
+            "Crunch"
+          ],
+          "faithful": {},
+          "polished": {}
+        }
+      ],
+      "rematchable": false
+    }
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Paralyzeheal",
+      "coordinates": {
+        "x": 4,
+        "y": 17
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Super Potion",
+      "coordinates": {
+        "x": 2,
+        "y": 22
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Antidote",
+      "coordinates": {
+        "x": 15,
+        "y": 8
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "X Sp Atk",
+      "coordinates": {
+        "x": 20,
+        "y": 31
+      }
+    },
+    {
+      "type": "item",
+      "name": "Coin Case",
+      "coordinates": {
+        "x": 5,
+        "y": 28
+      }
+    }
+  ]
+}

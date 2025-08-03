@@ -1,0 +1,1122 @@
+{
+  "id": 93,
+  "name": "dim_cave",
+  "displayName": "Dim Cave",
+  "region": "kanto",
+  "x": 148,
+  "y": 44,
+  "flyable": false,
+  "connections": [],
+  "tmhms": [
+    {
+      "tmNumber": "TM42",
+      "moveName": "Facade",
+      "location": "Dim Cave"
+    },
+    {
+      "tmNumber": "TM44",
+      "moveName": "Rest",
+      "location": "Dim Cave"
+    }
+  ],
+  "items": [
+    {
+      "type": "tmHm",
+      "name": "TM42 - Facade"
+    },
+    {
+      "type": "tmHm",
+      "name": "TM44 - Rest"
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Heal",
+      "coordinates": {
+        "x": 28,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Ball",
+      "coordinates": {
+        "x": 3,
+        "y": 20
+      }
+    },
+    {
+      "type": "item",
+      "name": "Rare Bone",
+      "coordinates": {
+        "x": 28,
+        "y": 31
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Stardust",
+      "coordinates": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Moon Stone",
+      "coordinates": {
+        "x": 2,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 28,
+        "y": 12
+      }
+    },
+    {
+      "type": "item",
+      "name": "Iron",
+      "coordinates": {
+        "x": 2,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Light Clay",
+      "coordinates": {
+        "x": 24,
+        "y": 18
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Star Piece",
+      "coordinates": {
+        "x": 2,
+        "y": 5
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Zinc",
+      "coordinates": {
+        "x": 26,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Metal Coat",
+      "coordinates": {
+        "x": 18,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Escape Rope",
+      "coordinates": {
+        "x": 10,
+        "y": 29
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 25,
+        "y": 23
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "X Attack",
+      "coordinates": {
+        "x": 27,
+        "y": 27
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Ether",
+      "coordinates": {
+        "x": 17,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 27,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 6,
+        "y": 23
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "X Sp Atk",
+      "coordinates": {
+        "x": 12,
+        "y": 28
+      }
+    },
+    {
+      "type": "item",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 13,
+        "y": 13
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Stone",
+      "coordinates": {
+        "x": 9,
+        "y": 27
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 31,
+        "y": 14
+      }
+    }
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM42 - Facade"
+        },
+        {
+          "type": "tmHm",
+          "name": "TM44 - Rest"
+        }
+      ],
+      "connections": [],
+      "tmhms": [
+        {
+          "tmNumber": "TM42",
+          "moveName": "Facade",
+          "location": "Dim Cave"
+        },
+        {
+          "tmNumber": "TM44",
+          "moveName": "Rest",
+          "location": "Dim Cave"
+        }
+      ],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [
+        {
+          "id": "super_nerd_gregg",
+          "name": "Gregg",
+          "trainerClass": "SUPER_NERD",
+          "spriteType": "super_nerd",
+          "coordinates": {
+            "x": 30,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 53,
+              "species": "Porygon",
+              "moves": [
+                "Tri Attack",
+                "Thunderbolt",
+                "Barrier",
+                "Thunder Wave"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Porygon2",
+              "moves": [
+                "Tri Attack",
+                "Thunderbolt",
+                "Barrier",
+                "Thunder Wave"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "scientist_dexter",
+          "name": "Dexter",
+          "trainerClass": "SCIENTIST",
+          "spriteType": "scientist",
+          "coordinates": {
+            "x": 12,
+            "y": 18
+          },
+          "pokemon": [
+            {
+              "level": 54,
+              "species": "Magneton",
+              "moves": [
+                "Gyro Ball",
+                "Agility",
+                "Hidden Power",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Alakazam",
+              "moves": [
+                "Future Sight",
+                "Confuse Ray",
+                "Calm Mind",
+                "Psychic M"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "guitaristm_biff",
+          "name": "Biff",
+          "trainerClass": "GUITARISTM",
+          "spriteType": "guitaristm",
+          "coordinates": {
+            "x": 27,
+            "y": 21
+          },
+          "pokemon": [
+            {
+              "level": 52,
+              "species": "Onix",
+              "moves": [
+                "Earthquake",
+                "Double Edge",
+                "Stone Edge",
+                "Dig"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 54,
+              "species": "Magneton",
+              "moves": [
+                "Gyro Ball",
+                "Agility",
+                "Hidden Power",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Skarmory",
+              "moves": [
+                "Night Slash",
+                "Drill Peck",
+                "Air Slash",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Full Heal",
+          "coordinates": {
+            "x": 28,
+            "y": 2
+          }
+        },
+        {
+          "type": "item",
+          "name": "Dusk Ball",
+          "coordinates": {
+            "x": 3,
+            "y": 20
+          }
+        },
+        {
+          "type": "item",
+          "name": "Rare Bone",
+          "coordinates": {
+            "x": 28,
+            "y": 31
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "dim_cave_2f",
+          "targetLocationDisplay": "Dim Cave Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [
+        {
+          "id": "engineer_lang",
+          "name": "Lang",
+          "trainerClass": "ENGINEER",
+          "spriteType": "engineer",
+          "coordinates": {
+            "x": 15,
+            "y": 12
+          },
+          "pokemon": [
+            {
+              "level": 55,
+              "species": "Electrode",
+              "moves": [
+                "Gyro Ball",
+                "Bug Buzz",
+                "Thunder",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Electrode",
+              "moves": [
+                "Gyro Ball",
+                "Bug Buzz",
+                "Thunder",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "hiker_derrick",
+          "name": "Derrick",
+          "trainerClass": "HIKER",
+          "spriteType": "hiker",
+          "coordinates": {
+            "x": 7,
+            "y": 16
+          },
+          "pokemon": [
+            {
+              "level": 53,
+              "species": "Clodsire",
+              "moves": [
+                "Gunk Shot",
+                "Toxic Spikes",
+                "Poison Jab",
+                "Earthquake"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 53,
+              "species": "Dugtrio",
+              "moves": [
+                "Night Slash",
+                "Earthquake",
+                "Slash",
+                "Dig"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Golem",
+              "moves": [
+                "Stone Edge",
+                "Double Edge",
+                "Explosion",
+                "Earthquake"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Stardust",
+          "coordinates": {
+            "x": 6,
+            "y": 4
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Moon Stone",
+          "coordinates": {
+            "x": 2,
+            "y": 19
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 28,
+            "y": 12
+          }
+        },
+        {
+          "type": "item",
+          "name": "Iron",
+          "coordinates": {
+            "x": 2,
+            "y": 15
+          }
+        },
+        {
+          "type": "item",
+          "name": "Light Clay",
+          "coordinates": {
+            "x": 24,
+            "y": 18
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "cerulean_cape",
+          "targetLocationDisplay": "Cerulean Cape",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "dim_cave_3f",
+          "targetLocationDisplay": "Dim Cave Third Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "dim_cave_1f",
+          "targetLocationDisplay": "Dim Cave First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "3f",
+      "displayName": "3rd Floor",
+      "trainers": [
+        {
+          "id": "engineer_hugo",
+          "name": "Hugo",
+          "trainerClass": "ENGINEER",
+          "spriteType": "engineer",
+          "coordinates": {
+            "x": 14,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 54,
+              "species": "Magneton",
+              "moves": [
+                "Gyro Ball",
+                "Agility",
+                "Hidden Power",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Steelix",
+              "moves": [
+                "Earthquake",
+                "Double Edge",
+                "Stone Edge",
+                "Dig"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "blackbelt_t_takeo",
+          "name": "Takeo",
+          "trainerClass": "BLACKBELT_T",
+          "spriteType": "blackbelt",
+          "coordinates": {
+            "x": 22,
+            "y": 11
+          },
+          "pokemon": [
+            {
+              "level": 52,
+              "species": "Hitmontop",
+              "moves": [
+                "Protect",
+                "Foresight",
+                "Gyro Ball",
+                "Agility"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 54,
+              "species": "Heracross",
+              "moves": [
+                "Reversal",
+                "Close Combat",
+                "Megahorn",
+                "Take Down"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Poliwrath",
+              "moves": [
+                "Cross Chop",
+                "Earth Power",
+                "Dynamicpunch",
+                "Bubble Beam"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "hiker_floyd",
+          "name": "Floyd",
+          "trainerClass": "HIKER",
+          "spriteType": "hiker",
+          "coordinates": {
+            "x": 10,
+            "y": 27
+          },
+          "pokemon": [
+            {
+              "level": 57,
+              "species": "Steelix",
+              "moves": [
+                "Earthquake",
+                "Double Edge",
+                "Stone Edge",
+                "Dig"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Star Piece",
+          "coordinates": {
+            "x": 2,
+            "y": 5
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Zinc",
+          "coordinates": {
+            "x": 26,
+            "y": 6
+          }
+        },
+        {
+          "type": "item",
+          "name": "Metal Coat",
+          "coordinates": {
+            "x": 18,
+            "y": 3
+          }
+        },
+        {
+          "type": "item",
+          "name": "Escape Rope",
+          "coordinates": {
+            "x": 10,
+            "y": 29
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "dim_cave_4f",
+          "targetLocationDisplay": "Dim Cave Fourth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "dim_cave_2f",
+          "targetLocationDisplay": "Dim Cave Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "4f",
+      "displayName": "4th Floor",
+      "trainers": [
+        {
+          "id": "scientist_joseph",
+          "name": "Joseph",
+          "trainerClass": "SCIENTIST",
+          "spriteType": "scientist",
+          "coordinates": {
+            "x": 5,
+            "y": 14
+          },
+          "pokemon": [
+            {
+              "level": 54,
+              "species": "Ditto",
+              "moves": [
+                "Transform"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Golduck",
+              "moves": [
+                "Nasty Plot",
+                "Hydro Pump",
+                "Amnesia",
+                "Psybeam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 53,
+              "species": "Kadabra",
+              "moves": [
+                "Future Sight",
+                "Confuse Ray",
+                "Calm Mind",
+                "Psychic M"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "scientist_nigel",
+          "name": "Nigel",
+          "trainerClass": "SCIENTIST",
+          "spriteType": "scientist",
+          "coordinates": {
+            "x": 12,
+            "y": 2
+          },
+          "pokemon": [
+            {
+              "level": 54,
+              "species": "Electabuzz",
+              "moves": [
+                "Thunderbolt",
+                "Cross Chop",
+                "Screech",
+                "Thunderpunch"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Lanturn",
+              "moves": [
+                "Hydro Pump",
+                "Ice Beam",
+                "Recover",
+                "Take Down"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Calcium",
+          "coordinates": {
+            "x": 25,
+            "y": 23
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "X Attack",
+          "coordinates": {
+            "x": 27,
+            "y": 27
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Ether",
+          "coordinates": {
+            "x": 17,
+            "y": 2
+          }
+        },
+        {
+          "type": "item",
+          "name": "Nugget",
+          "coordinates": {
+            "x": 27,
+            "y": 8
+          }
+        },
+        {
+          "type": "item",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 6,
+            "y": 23
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "dim_cave_5f",
+          "targetLocationDisplay": "Dim Cave Fifth Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "dim_cave_3f",
+          "targetLocationDisplay": "Dim Cave Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "5f",
+      "displayName": "5th Floor",
+      "trainers": [
+        {
+          "id": "riley_1",
+          "name": "Riley",
+          "trainerClass": "RILEY",
+          "spriteType": "riley",
+          "coordinates": {
+            "x": 13,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 58,
+              "species": "Machamp",
+              "moves": [
+                "Dynamicpunch",
+                "Scary Face",
+                "Cross Chop",
+                "Bulk Up"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 57,
+              "species": "Dragonite",
+              "moves": [
+                "Safeguard",
+                "Barrier",
+                "Aqua Tail",
+                "Dragonbreath"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Rhyperior",
+              "moves": [
+                "Close Combat",
+                "Earthquake",
+                "Double Edge",
+                "Stone Edge"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Nidoking",
+              "moves": [
+                "Earth Power",
+                "Thrash",
+                "Outrage",
+                "Megahorn"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Electivire",
+              "moves": [
+                "Thunder",
+                "Thunderbolt",
+                "Cross Chop",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Mamoswine",
+              "moves": [
+                "Blizzard",
+                "Earthquake",
+                "Thrash",
+                "Bulldoze"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "super_nerd_foote",
+          "name": "Foote",
+          "trainerClass": "SUPER_NERD",
+          "spriteType": "super_nerd",
+          "coordinates": {
+            "x": 24,
+            "y": 17
+          },
+          "pokemon": [
+            {
+              "level": 54,
+              "species": "Snorlax",
+              "moves": [
+                "Close Combat",
+                "Crunch",
+                "Belly Drum",
+                "Outrage"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "engineer_howard",
+          "name": "Howard",
+          "trainerClass": "ENGINEER",
+          "spriteType": "engineer",
+          "coordinates": {
+            "x": 13,
+            "y": 25
+          },
+          "pokemon": [
+            {
+              "level": 57,
+              "species": "Magnezone",
+              "moves": [
+                "Gyro Ball",
+                "Agility",
+                "Hidden Power",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "super_nerd_dave",
+          "name": "Dave",
+          "trainerClass": "SUPER_NERD",
+          "spriteType": "super_nerd",
+          "coordinates": {
+            "x": 21,
+            "y": 28
+          },
+          "pokemon": [
+            {
+              "level": 52,
+              "species": "Larvitar",
+              "moves": [
+                "Stone Edge",
+                "Earthquake",
+                "Crunch",
+                "Ancientpower"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 53,
+              "species": "Pupitar",
+              "moves": [
+                "Crunch",
+                "Ancientpower",
+                "Dark Pulse",
+                "Thrash"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "PorygonZ",
+              "moves": [
+                "Mirror Coat",
+                "Tri Attack",
+                "Thunderbolt",
+                "Barrier"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "X Sp Atk",
+          "coordinates": {
+            "x": 12,
+            "y": 28
+          }
+        },
+        {
+          "type": "item",
+          "name": "Rare Candy",
+          "coordinates": {
+            "x": 13,
+            "y": 13
+          }
+        },
+        {
+          "type": "item",
+          "name": "Dusk Stone",
+          "coordinates": {
+            "x": 9,
+            "y": 27
+          }
+        },
+        {
+          "type": "item",
+          "name": "Hyper Potion",
+          "coordinates": {
+            "x": 31,
+            "y": 14
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_10_north",
+          "targetLocationDisplay": "Route 10 North",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "dim_cave_4f",
+          "targetLocationDisplay": "Dim Cave Fourth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "dim_cave",
+    "dim_cave_1f",
+    "dim_cave_2f",
+    "dim_cave_3f",
+    "dim_cave_4f",
+    "dim_cave_5f"
+  ],
+  "trainerCount": 14,
+  "hasTrainers": true
+}
