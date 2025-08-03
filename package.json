@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "node scripts/generate-build-info.mjs && ts-node scripts/smart-sprite-build.ts && ./scripts/copy-dex-files.sh && next build",
+    "build": "node scripts/generate-build-info.mjs && tsx scripts/smart-sprite-build.ts && ./scripts/copy-dex-files.sh && next build",
     "build-full": "node scripts/generate-build-info.mjs && npm run process-sprites && ./scripts/copy-dex-files.sh && next build",
     "start": "next start",
     "lint": "next lint",
@@ -76,6 +76,7 @@
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
     "tw-animate-css": "^1.3.5",
     "typescript": "^5.8.3",
     "vitest": "^0.34.6"
