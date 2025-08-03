@@ -1,15 +1,65 @@
 import * as React from 'react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { PokemonType } from '@/types/types';
+import { SpriteVariant, SpriteType } from '@/types/spriteTypes';
+import { useSpriteData } from '@/hooks/useSpriteData';
 
 interface PokemonSpriteProps {
   className?: string;
-  src: string;
+  pokemonName: string;
   alt?: string;
-  primaryType?: PokemonType['name']; // Optional, can be used for styling or additional features
+  primaryType?: PokemonType['name'];
+  variant?: SpriteVariant;
+  type?: SpriteType;
+  // Legacy prop for backward compatibility
+  src?: string;
 }
 
-export function PokemonSprite({ className, src, alt, primaryType }: PokemonSpriteProps) {
+export function PokemonSprite({ 
+  className, 
+  pokemonName, 
+  alt, 
+  primaryType, 
+  variant = 'normal',
+  type = 'static',
+  src 
+}: PokemonSpriteProps) {
+  const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, type);
+  
+  // Fallback to legacy src prop if provided and sprite data not available
+  const finalSrc = spriteInfo?.url || src;
+  const width = spriteInfo?.width || 64;
+  const height = spriteInfo?.height || 64;
+
+  if (isLoading) {
+    return (
+      <div
+        className={cn(
+          'relative bg-white p-2 w-12 md:w-20 h-12 md:h-20 rounded-lg md:rounded-xl',
+          `shadow-lg shadow-${primaryType?.toLowerCase()}`,
+          'animate-pulse',
+          className,
+        )}
+      />
+    );
+  }
+
+  if (!finalSrc) {
+    return (
+      <div
+        className={cn(
+          'relative bg-white p-2 w-12 md:w-20 h-12 md:h-20 rounded-lg md:rounded-xl',
+          `shadow-lg shadow-${primaryType?.toLowerCase()}`,
+          'flex items-center justify-center text-gray-400',
+          className,
+        )}
+      >
+        ?
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(
@@ -18,7 +68,15 @@ export function PokemonSprite({ className, src, alt, primaryType }: PokemonSprit
         className,
       )}
     >
-      <img src={src} alt={alt} className="mx-auto relative top-1/2 -translate-y-1/2" />
+      <Image
+        src={finalSrc}
+        alt={alt || `${pokemonName} sprite`}
+        width={width}
+        height={height}
+        className="mx-auto relative top-1/2 -translate-y-1/2 object-contain"
+        priority={false}
+        quality={85}
+      />
     </div>
   );
 }

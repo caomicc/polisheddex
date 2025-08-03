@@ -83,15 +83,12 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       style={gradientProps.style}
     >
       <PokemonSprite
+        pokemonName={pokemon.name}
         alt={`${pokemon.name} sprite`}
         primaryType={primaryType as PokemonType['name']}
-        src={
-          pokemon.frontSpriteUrl
-            ? pokemon.frontSpriteUrl
-            : pokemon.forms && pokemon.forms?.length
-              ? `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
-              : `/sprites/pokemon/${pokemon.name.toLowerCase().replace(/-/g, '_')}/normal_front.png`
-        }
+        variant="normal"
+        type="static"
+        src={pokemon.frontSpriteUrl} // fallback for backward compatibility
         className="absolute right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2"
       />
       <p

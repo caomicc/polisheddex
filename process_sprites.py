@@ -460,7 +460,7 @@ class GBCSpriteProcessor:
         print(f"Output directory: {self.sprites_dir}")
 
     def create_sprite_manifest(self):
-        """Create a JSON manifest of all processed sprites"""
+        """Create a JSON manifest of all processed sprites with dimensions"""
         manifest = {}
 
         for pokemon_dir in self.sprites_dir.iterdir():
@@ -473,19 +473,36 @@ class GBCSpriteProcessor:
                     "shiny_animated": None
                 }
 
-                # Find the 4 expected files
+                # Find the 4 expected files and get their dimensions
                 for sprite_file in pokemon_dir.iterdir():
                     if sprite_file.suffix in ['.png', '.gif']:
                         rel_path = f"sprites/pokemon/{pokemon_name}/{sprite_file.name}"
+                        
+                        # Get image dimensions
+                        try:
+                            with Image.open(sprite_file) as img:
+                                width, height = img.size
+                                sprite_info = {
+                                    "url": rel_path,
+                                    "width": width,
+                                    "height": height
+                                }
+                        except Exception as e:
+                            print(f"Warning: Could not read dimensions for {sprite_file}: {e}")
+                            sprite_info = {
+                                "url": rel_path,
+                                "width": 64,  # fallback dimensions
+                                "height": 64
+                            }
 
                         if sprite_file.name == "normal_front.png":
-                            pokemon_data["normal_front"] = rel_path
+                            pokemon_data["normal_front"] = sprite_info
                         elif sprite_file.name == "shiny_front.png":
-                            pokemon_data["shiny_front"] = rel_path
+                            pokemon_data["shiny_front"] = sprite_info
                         elif sprite_file.name == "normal_front_animated.gif":
-                            pokemon_data["normal_animated"] = rel_path
+                            pokemon_data["normal_animated"] = sprite_info
                         elif sprite_file.name == "shiny_front_animated.gif":
-                            pokemon_data["shiny_animated"] = rel_path
+                            pokemon_data["shiny_animated"] = sprite_info
 
                 # Only add Pokemon that have at least normal front sprite
                 if pokemon_data["normal_front"]:
