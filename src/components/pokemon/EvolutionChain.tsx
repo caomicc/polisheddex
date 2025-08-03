@@ -198,6 +198,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               className="items-center flex flex-col text-center"
             >
               <PokemonSprite
+                pokemonName={sourceName}
                 src={getSpriteUrl(sourceName)}
                 alt={`Sprite of Pokémon ${sourceName}`}
                 primaryType={primaryType as PokemonType['name']}
@@ -314,6 +315,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               className="items-center flex flex-col text-center"
             >
               <PokemonSprite
+                pokemonName={targetName}
                 src={getSpriteUrl(targetName)}
                 alt={`Sprite of Pokémon ${targetName}`}
               />
