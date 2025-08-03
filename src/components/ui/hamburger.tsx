@@ -22,6 +22,7 @@ const menuItems: MenuItem[] = [
   { title: 'Abilities', href: '/abilities' },
   { title: 'Team Builder', href: '/team-builder' },
   { title: 'Wiki', href: '/wiki' },
+  { title: 'FAQ', href: '/wiki/faq' },
 ];
 
 const MenuItemComponent: React.FC<{ item: MenuItem; depth?: number }> = ({ item, depth = 0 }) => {
