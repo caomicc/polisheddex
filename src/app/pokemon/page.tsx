@@ -20,6 +20,11 @@ export default async function PokemonList({
   // Load Pokemon data using optimized loader
   const data = await loadPokemonBaseData();
 
+  // Add debugging for empty data
+  if (!data || Object.keys(data).length === 0) {
+    console.error('Pokemon data is empty or null');
+  }
+
   const { sort = 'johtodex' } = (await searchParams) ?? {};
 
   // Determine sort type from query param
@@ -28,6 +33,9 @@ export default async function PokemonList({
 
   // Prepare an array of Pokémon with their names and dex numbers
   const pokemonList: BaseData[] = Object.values(data) as BaseData[];
+
+  // Add debugging for pokemon list
+  console.log(`Loaded ${pokemonList.length} Pokemon`);
 
   // Sort based on selected sort type
   const sortedPokemon = [...pokemonList].sort((a, b) => {
