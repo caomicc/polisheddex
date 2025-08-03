@@ -247,14 +247,34 @@ function TMHMItemDetails({ item }: { item: import('@/types/types').TMHMData }) {
   );
 }
 
-// Generate static params for all items
+// Generate static params for important items only
 export async function generateStaticParams() {
   const itemsData = await loadItemsData();
-
-  return Object.keys(itemsData).map((itemId) => ({
+  
+  // Only pre-generate important items (TMs, evolution items, etc.)
+  const itemKeys = Object.keys(itemsData);
+  const importantItems = itemKeys.filter(itemId => {
+    const item = itemsData[itemId];
+    // Prioritize TMs, HMs, evolution items, berries, and battle items
+    return itemId.includes('tm_') || 
+           itemId.includes('hm_') ||
+           itemId.includes('stone') ||
+           itemId.includes('berry') ||
+           item.category === 'held-items' ||
+           item.category === 'medicine';
+  });
+  
+  // Limit to 200 most important items
+  const topItems = importantItems.length > 200 ? importantItems.slice(0, 200) : importantItems;
+  
+  return topItems.map((itemId) => ({
     name: itemId,
   }));
 }
+
+// Enable ISR for non-pre-rendered pages
+export const dynamicParams = true;
+export const revalidate = 3600; // Revalidate every hour
 
 // Generate metadata for SEO and social sharing
 export async function generateMetadata({ params }: ItemPageProps) {

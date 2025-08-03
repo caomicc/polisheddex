@@ -19,18 +19,26 @@ import {
   loadAllLocationData,
 } from '@/utils/loaders/location-data-loader';
 
-// This function helps Next.js pre-render pages at build time
+// Only pre-render important locations at build time
 export async function generateStaticParams() {
-  const [pokemonLocations, allLocations] = await Promise.all([
-    loadMergedPokemonLocationData(),
-    loadAllLocationData(),
-  ]);
+  const pokemonLocations = await loadMergedPokemonLocationData();
+  
+  // Only pre-generate pages for locations with Pokemon encounters (most important)
+  // Other locations will be generated on-demand with ISR
+  const importantLocations = Object.keys(pokemonLocations).filter(location => {
+    const encounters = pokemonLocations[location];
+    return encounters && Object.keys(encounters).length > 0;
+  });
 
-  // Get all unique location keys from both datasets
-  const allLocationKeys = new Set([...Object.keys(pokemonLocations), ...Object.keys(allLocations)]);
-
-  return Array.from(allLocationKeys).map((name) => ({ name: name.toLowerCase() }));
+  // Limit to top 100 most important locations to reduce build time
+  return importantLocations.slice(0, 100).map((name) => ({ 
+    name: name.toLowerCase() 
+  }));
 }
+
+// Enable ISR for non-pre-rendered pages
+export const dynamicParams = true;
+export const revalidate = 3600; // Revalidate every hour
 
 export default async function LocationDetailPage({
   params,
