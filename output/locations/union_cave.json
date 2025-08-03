@@ -19,6 +19,1163 @@
     {
       "type": "tmHm",
       "name": "TM39 - Swift"
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Great Ball",
+      "coordinates": {
+        "x": 7,
+        "y": 19
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Big Pearl",
+      "coordinates": {
+        "x": 2,
+        "y": 33
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Paralyzeheal",
+      "coordinates": {
+        "x": 8,
+        "y": 33
+      }
+    },
+    {
+      "type": "item",
+      "name": "Great Ball",
+      "coordinates": {
+        "x": 15,
+        "y": 33
+      }
+    },
+    {
+      "type": "item",
+      "name": "X Attack",
+      "coordinates": {
+        "x": 2,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Potion",
+      "coordinates": {
+        "x": 3,
+        "y": 28
+      }
+    },
+    {
+      "type": "item",
+      "name": "Awakening",
+      "coordinates": {
+        "x": 12,
+        "y": 45
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "X Speed",
+      "coordinates": {
+        "x": 11,
+        "y": 23
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Revive",
+      "coordinates": {
+        "x": 13,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "X Defend",
+      "coordinates": {
+        "x": 17,
+        "y": 21
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "X Sp Def",
+      "coordinates": {
+        "x": 2,
+        "y": 18
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 12,
+        "y": 25
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 4,
+        "y": 30
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Stone",
+      "coordinates": {
+        "x": 14,
+        "y": 20
+      }
+    },
+    {
+      "type": "item",
+      "name": "Super Repel",
+      "coordinates": {
+        "x": 8,
+        "y": 26
+      }
+    },
+    {
+      "type": "item",
+      "name": "Light Clay",
+      "coordinates": {
+        "x": 2,
+        "y": 28
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 2,
+        "y": 25
+      }
+    },
+    {
+      "type": "item",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 4,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 12,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Linking Cord",
+      "coordinates": {
+        "x": 16,
+        "y": 2
+      }
     }
-  ]
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM39 - Swift"
+        }
+      ],
+      "connections": [],
+      "tmhms": [
+        {
+          "tmNumber": "TM39",
+          "moveName": "Swift",
+          "location": "Union Cave"
+        }
+      ],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [
+        {
+          "id": "pokemaniac_larry",
+          "name": "Larry",
+          "trainerClass": "POKEMANIAC",
+          "spriteType": "pokemaniac",
+          "coordinates": {
+            "x": 7,
+            "y": 37
+          },
+          "pokemon": [
+            {
+              "level": 12,
+              "species": "Slowpoke",
+              "moves": [
+                "Water Gun",
+                "Growl",
+                "Curse",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "hiker_russell",
+          "name": "Russell",
+          "trainerClass": "HIKER",
+          "spriteType": "hiker",
+          "coordinates": {
+            "x": 11,
+            "y": 20
+          },
+          "pokemon": [
+            {
+              "level": 6,
+              "species": "Geodude",
+              "moves": [
+                "Rapid Spin",
+                "Mud Slap",
+                "Tackle",
+                "Defense Curl"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 8,
+              "species": "Geodude",
+              "moves": [
+                "Rapid Spin",
+                "Mud Slap",
+                "Tackle",
+                "Defense Curl"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 10,
+              "species": "Geodude",
+              "moves": [
+                "Rollout",
+                "Rapid Spin",
+                "Mud Slap",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "hiker_daniel",
+          "name": "Daniel",
+          "trainerClass": "HIKER",
+          "spriteType": "hiker",
+          "coordinates": {
+            "x": 3,
+            "y": 18
+          },
+          "pokemon": [
+            {
+              "level": 12,
+              "species": "Onix",
+              "moves": [
+                "Rage",
+                "Rock Throw",
+                "Curse",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "firebreather_bill",
+          "name": "Bill",
+          "trainerClass": "FIREBREATHER",
+          "spriteType": "firebreather",
+          "coordinates": {
+            "x": 11,
+            "y": 32
+          },
+          "pokemon": [
+            {
+              "level": 8,
+              "species": "Koffing",
+              "moves": [
+                "Smokescreen",
+                "Acid",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 8,
+              "species": "Koffing",
+              "moves": [
+                "Smokescreen",
+                "Acid",
+                "Tackle"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "firebreather_ray",
+          "name": "Ray",
+          "trainerClass": "FIREBREATHER",
+          "spriteType": "firebreather",
+          "coordinates": {
+            "x": 15,
+            "y": 39
+          },
+          "pokemon": [
+            {
+              "level": 11,
+              "species": "Vulpix",
+              "moves": [
+                "Quick Attack",
+                "Charm",
+                "Astonish",
+                "Growl"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "ruin_maniac_jones",
+          "name": "Jones",
+          "trainerClass": "RUIN_MANIAC",
+          "spriteType": "ruin_maniac",
+          "coordinates": {
+            "x": 5,
+            "y": 3
+          },
+          "pokemon": [
+            {
+              "level": 8,
+              "species": "Omanyte",
+              "moves": [
+                "Bite",
+                "Wrap",
+                "Defense Curl"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 8,
+              "species": "Kabuto",
+              "moves": [
+                "Absorb",
+                "Scratch",
+                "Defense Curl"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Great Ball",
+          "coordinates": {
+            "x": 7,
+            "y": 19
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Big Pearl",
+          "coordinates": {
+            "x": 2,
+            "y": 33
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Paralyzeheal",
+          "coordinates": {
+            "x": 8,
+            "y": 33
+          }
+        },
+        {
+          "type": "item",
+          "name": "Great Ball",
+          "coordinates": {
+            "x": 15,
+            "y": 33
+          }
+        },
+        {
+          "type": "item",
+          "name": "X Attack",
+          "coordinates": {
+            "x": 2,
+            "y": 8
+          }
+        },
+        {
+          "type": "item",
+          "name": "Potion",
+          "coordinates": {
+            "x": 3,
+            "y": 28
+          }
+        },
+        {
+          "type": "item",
+          "name": "Awakening",
+          "coordinates": {
+            "x": 12,
+            "y": 45
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "union_cave_b_1f_north",
+          "targetLocationDisplay": "Union Cave B First Floor North",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "union_cave_b_1f_south",
+          "targetLocationDisplay": "Union Cave B First Floor South",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_33",
+          "targetLocationDisplay": "Route 33",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_32",
+          "targetLocationDisplay": "Route 32",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f_north",
+      "displayName": "B First Floor North",
+      "trainers": [
+        {
+          "id": "ruin_maniac_leland",
+          "name": "Leland",
+          "trainerClass": "RUIN_MANIAC",
+          "spriteType": "ruin_maniac",
+          "coordinates": {
+            "x": 9,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 23,
+              "species": "Dunsparce",
+              "moves": [
+                "Dragon Rage",
+                "Body Slam",
+                "Ancientpower",
+                "Fury Strikes"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Aerodactyl",
+              "moves": [
+                "Ancientpower",
+                "Agility",
+                "Rock Throw",
+                "Roar"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "ruin_maniac_petry",
+          "name": "Petry",
+          "trainerClass": "RUIN_MANIAC",
+          "spriteType": "ruin_maniac",
+          "coordinates": {
+            "x": 13,
+            "y": 10
+          },
+          "pokemon": [
+            {
+              "level": 23,
+              "species": "Omanyte",
+              "moves": [
+                "Leer",
+                "Rock Throw",
+                "Water Gun",
+                "Bite"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 23,
+              "species": "Kabuto",
+              "moves": [
+                "Leer",
+                "Rock Throw",
+                "Mud Slap",
+                "Absorb"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Aerodactyl",
+              "moves": [
+                "Ancientpower",
+                "Agility",
+                "Rock Throw",
+                "Roar"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "X Speed",
+          "coordinates": {
+            "x": 11,
+            "y": 23
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Revive",
+          "coordinates": {
+            "x": 13,
+            "y": 4
+          }
+        },
+        {
+          "type": "item",
+          "name": "X Defend",
+          "coordinates": {
+            "x": 17,
+            "y": 21
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "ruins_of_alph_outside",
+          "targetLocationDisplay": "Ruins Of Alph Outside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "union_cave_1f",
+          "targetLocationDisplay": "Union Cave First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f_south",
+      "displayName": "B First Floor South",
+      "trainers": [
+        {
+          "id": "pokemaniac_andrew",
+          "name": "Andrew",
+          "trainerClass": "POKEMANIAC",
+          "spriteType": "pokemaniac",
+          "coordinates": {
+            "x": 5,
+            "y": 4
+          },
+          "pokemon": [
+            {
+              "level": 24,
+              "species": "Marowak",
+              "moves": [
+                "Rage",
+                "Bonemerang",
+                "Focus Energy",
+                "Leer"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 24,
+              "species": "Marowak",
+              "moves": [
+                "Rage",
+                "Bonemerang",
+                "Focus Energy",
+                "Leer"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "pokemaniac_calvin",
+          "name": "Calvin",
+          "trainerClass": "POKEMANIAC",
+          "spriteType": "pokemaniac",
+          "coordinates": {
+            "x": 17,
+            "y": 2
+          },
+          "pokemon": [
+            {
+              "level": 26,
+              "species": "Kangaskhan",
+              "moves": [
+                "Take Down",
+                "Rage",
+                "Double Kick",
+                "Headbutt"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "hiker_phillip",
+          "name": "Phillip",
+          "trainerClass": "HIKER",
+          "spriteType": "hiker",
+          "coordinates": {
+            "x": 16,
+            "y": 13
+          },
+          "pokemon": [
+            {
+              "level": 23,
+              "species": "Geodude",
+              "moves": [
+                "Bulldoze",
+                "Ancientpower",
+                "Rock Throw",
+                "Magnitude"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 23,
+              "species": "Geodude",
+              "moves": [
+                "Bulldoze",
+                "Ancientpower",
+                "Rock Throw",
+                "Magnitude"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Graveler",
+              "moves": [
+                "Rock Blast",
+                "Bulldoze",
+                "Ancientpower",
+                "Rock Throw"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "hiker_leonard",
+          "name": "Leonard",
+          "trainerClass": "HIKER",
+          "spriteType": "hiker",
+          "coordinates": {
+            "x": 14,
+            "y": 30
+          },
+          "pokemon": [
+            {
+              "level": 23,
+              "species": "Geodude",
+              "moves": [
+                "Bulldoze",
+                "Ancientpower",
+                "Rock Throw",
+                "Magnitude"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Machop",
+              "moves": [
+                "Mach Punch",
+                "Knock Off",
+                "Reversal",
+                "Seismic Toss"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "firebreather_jay",
+          "name": "Jay",
+          "trainerClass": "FIREBREATHER",
+          "spriteType": "firebreather",
+          "coordinates": {
+            "x": 3,
+            "y": 20
+          },
+          "pokemon": [
+            {
+              "level": 26,
+              "species": "Magmar",
+              "moves": [
+                "Confuse Ray",
+                "Flame Charge",
+                "Low Kick",
+                "Fire Spin"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "super_nerd_rory",
+          "name": "Rory",
+          "trainerClass": "SUPER_NERD",
+          "spriteType": "super_nerd",
+          "coordinates": {
+            "x": 7,
+            "y": 30
+          },
+          "pokemon": [
+            {
+              "level": 26,
+              "species": "Porygon",
+              "moves": [
+                "Growth",
+                "Recover",
+                "Agility",
+                "Psybeam"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "ruin_maniac_glyn",
+          "name": "Glyn",
+          "trainerClass": "RUIN_MANIAC",
+          "spriteType": "ruin_maniac",
+          "coordinates": {
+            "x": 12,
+            "y": 17
+          },
+          "pokemon": [
+            {
+              "level": 25,
+              "species": "Omastar",
+              "moves": [
+                "Rollout",
+                "Leer",
+                "Rock Throw",
+                "Water Gun"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 25,
+              "species": "Kabutops",
+              "moves": [
+                "Leer",
+                "Rock Throw",
+                "Mud Slap",
+                "Absorb"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "X Sp Def",
+          "coordinates": {
+            "x": 2,
+            "y": 18
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Nugget",
+          "coordinates": {
+            "x": 12,
+            "y": 25
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 4,
+            "y": 30
+          }
+        },
+        {
+          "type": "item",
+          "name": "Dusk Stone",
+          "coordinates": {
+            "x": 14,
+            "y": 20
+          }
+        },
+        {
+          "type": "item",
+          "name": "Super Repel",
+          "coordinates": {
+            "x": 8,
+            "y": 26
+          }
+        },
+        {
+          "type": "item",
+          "name": "Light Clay",
+          "coordinates": {
+            "x": 2,
+            "y": 28
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "union_cave_1f",
+          "targetLocationDisplay": "Union Cave First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "union_cave_b_2f",
+          "targetLocationDisplay": "Union Cave B Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "murky_swamp",
+          "targetLocationDisplay": "Murky Swamp",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_32_coast",
+          "targetLocationDisplay": "Route 32 Coast",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_2f",
+      "displayName": "Basement 2nd Floor",
+      "trainers": [
+        {
+          "id": "cooltrainerm_nick",
+          "name": "Nick",
+          "trainerClass": "COOLTRAINERM",
+          "spriteType": "ace_trainer_m",
+          "coordinates": {
+            "x": 15,
+            "y": 19
+          },
+          "pokemon": [
+            {
+              "level": 26,
+              "species": "Charmander",
+              "moves": [
+                "Ember",
+                "Smokescreen",
+                "Rage",
+                "Scary Face"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Ember",
+                  "Smokescreen",
+                  "Rage",
+                  "Scary Face"
+                ]
+              }
+            },
+            {
+              "level": 26,
+              "species": "Squirtle",
+              "moves": [
+                "Defense Curl",
+                "Water Gun",
+                "Bite",
+                "Curse"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Defense Curl",
+                  "Water Gun",
+                  "Bite",
+                  "Curse"
+                ]
+              }
+            },
+            {
+              "level": 26,
+              "species": "Bulbasaur",
+              "moves": [
+                "Leech Seed",
+                "Poisonpowder",
+                "Sleep Powder",
+                "Razor Leaf"
+              ],
+              "faithful": {},
+              "polished": {
+                "moves": [
+                  "Leech Seed",
+                  "Poisonpowder",
+                  "Sleep Powder",
+                  "Razor Leaf"
+                ]
+              }
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "cooltrainerf_gwen",
+          "name": "Gwen",
+          "trainerClass": "COOLTRAINERF",
+          "spriteType": "ace_trainer_f",
+          "coordinates": {
+            "x": 5,
+            "y": 13
+          },
+          "pokemon": [
+            {
+              "level": 26,
+              "species": "Eevee",
+              "moves": [
+                "Take Down",
+                "Thief",
+                "Heal Bell",
+                "Bite"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 22,
+              "species": "Flareon",
+              "moves": [
+                "Fire Spin",
+                "Bite",
+                "Quick Attack",
+                "Double Kick"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 22,
+              "species": "Vaporeon",
+              "moves": [
+                "Aurora Beam",
+                "Water Pulse",
+                "Quick Attack",
+                "Double Kick"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 22,
+              "species": "Jolteon",
+              "moves": [
+                "Light Screen",
+                "Spark",
+                "Quick Attack",
+                "Double Kick"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "cooltrainerf_emma",
+          "name": "Emma",
+          "trainerClass": "COOLTRAINERF",
+          "spriteType": "ace_trainer_f",
+          "coordinates": {
+            "x": 3,
+            "y": 30
+          },
+          "pokemon": [
+            {
+              "level": 28,
+              "species": "Poliwhirl",
+              "moves": [
+                "Bubble Beam",
+                "Body Slam",
+                "Rain Dance",
+                "Mud Slap"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Calcium",
+          "coordinates": {
+            "x": 9,
+            "y": 4
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 2,
+            "y": 25
+          }
+        },
+        {
+          "type": "item",
+          "name": "Elixir",
+          "coordinates": {
+            "x": 4,
+            "y": 11
+          }
+        },
+        {
+          "type": "item",
+          "name": "Hyper Potion",
+          "coordinates": {
+            "x": 12,
+            "y": 19
+          }
+        },
+        {
+          "type": "item",
+          "name": "Linking Cord",
+          "coordinates": {
+            "x": 16,
+            "y": 2
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "union_cave_b_1f_south",
+          "targetLocationDisplay": "Union Cave B First Floor South",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "union_cave",
+    "union_cave_1f",
+    "union_cave_b_1f_north",
+    "union_cave_b_1f_south",
+    "union_cave_b_2f"
+  ],
+  "trainerCount": 18,
+  "hasTrainers": true
 }

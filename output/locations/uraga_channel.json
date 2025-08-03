@@ -6,5 +6,335 @@
   "x": 64,
   "y": 108,
   "flyable": false,
-  "connections": []
+  "connections": [],
+  "areas": [
+    {
+      "id": "east",
+      "displayName": "East",
+      "trainers": [
+        {
+          "id": "swimmerf_woda",
+          "name": "Woda",
+          "trainerClass": "SWIMMERF",
+          "spriteType": "swimmerf",
+          "coordinates": {
+            "x": 5,
+            "y": 2
+          },
+          "pokemon": [
+            {
+              "level": 57,
+              "species": "Mantine",
+              "moves": [
+                "Hydro Pump",
+                "Mirror Coat",
+                "Roost",
+                "Air Slash"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 57,
+              "species": "Octillery",
+              "moves": [
+                "Gunk Shot",
+                "Seed Bomb",
+                "Ice Beam",
+                "Flamethrower"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "cooltrainerm_kieran",
+          "name": "Kieran",
+          "trainerClass": "COOLTRAINERM",
+          "spriteType": "ace_trainer_m",
+          "coordinates": {
+            "x": 22,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 52,
+              "species": "Hypno",
+              "moves": [
+                "Psychic M",
+                "Swagger",
+                "Zen Headbutt",
+                "Belly Drum"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 53,
+              "species": "Rhyhorn",
+              "moves": [
+                "Megahorn",
+                "Close Combat",
+                "Earthquake",
+                "Double Edge"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Primeape",
+              "moves": [
+                "Outrage",
+                "Gunk Shot",
+                "Screech",
+                "Close Combat"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "biker_tyrone",
+          "name": "Tyrone",
+          "trainerClass": "BIKER",
+          "spriteType": "biker",
+          "coordinates": {
+            "x": 34,
+            "y": 15
+          },
+          "pokemon": [
+            {
+              "level": 22,
+              "species": "Tyrogue",
+              "moves": [
+                "Tackle",
+                "Rage",
+                "Foresight"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 32,
+              "species": "Grimer",
+              "moves": [
+                "Scary Face",
+                "Sludge Bomb",
+                "Feint Attack",
+                "Minimize"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 42,
+              "species": "Muk",
+              "moves": [
+                "Gunk Shot",
+                "Screech",
+                "Scary Face",
+                "Sludge Bomb"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 52,
+              "species": "Weezing",
+              "moves": [
+                "Pain Split",
+                "Destiny Bond",
+                "Explosion",
+                "Sludge Bomb"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Nugget",
+          "coordinates": {
+            "x": 33,
+            "y": 4
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Pearl",
+          "coordinates": {
+            "x": 34,
+            "y": 14
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Bottle Cap",
+          "coordinates": {
+            "x": 22,
+            "y": 12
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Star Piece",
+          "coordinates": {
+            "x": 9,
+            "y": 11
+          }
+        },
+        {
+          "type": "item",
+          "name": "Dive Ball",
+          "coordinates": {
+            "x": 9,
+            "y": 2
+          }
+        },
+        {
+          "type": "item",
+          "name": "Eviolite",
+          "coordinates": {
+            "x": 20,
+            "y": 8
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "west",
+          "targetLocation": "uraga_channel_west",
+          "targetLocationDisplay": "Uraga Channel West",
+          "offset": 0
+        },
+        {
+          "direction": "east",
+          "targetLocation": "route_18_west",
+          "targetLocationDisplay": "Route 18 West",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "scary_cave_1f",
+          "targetLocationDisplay": "Scary Cave First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "west",
+      "displayName": "West",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Big Pearl",
+          "coordinates": {
+            "x": 15,
+            "y": 11
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "west",
+          "targetLocation": "route_21",
+          "targetLocationDisplay": "Route 21",
+          "offset": -19
+        },
+        {
+          "direction": "east",
+          "targetLocation": "uraga_channel_east",
+          "targetLocationDisplay": "Uraga Channel East",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "scary_cave_1f",
+          "targetLocationDisplay": "Scary Cave First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "uraga_channel",
+    "uraga_channel_east",
+    "uraga_channel_west"
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 33,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Pearl",
+      "coordinates": {
+        "x": 34,
+        "y": 14
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Bottle Cap",
+      "coordinates": {
+        "x": 22,
+        "y": 12
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Star Piece",
+      "coordinates": {
+        "x": 9,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dive Ball",
+      "coordinates": {
+        "x": 9,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Eviolite",
+      "coordinates": {
+        "x": 20,
+        "y": 8
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Big Pearl",
+      "coordinates": {
+        "x": 15,
+        "y": 11
+      }
+    }
+  ],
+  "trainerCount": 3,
+  "hasTrainers": true
 }

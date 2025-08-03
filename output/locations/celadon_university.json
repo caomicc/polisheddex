@@ -6,5 +6,1250 @@
   "x": 82,
   "y": 62,
   "flyable": false,
-  "connections": []
+  "connections": [],
+  "areas": [
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_city",
+          "targetLocationDisplay": "Celadon City",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_2f",
+          "targetLocationDisplay": "Celadon University Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_library_1f",
+          "targetLocationDisplay": "Celadon University Library First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_principals_office",
+          "targetLocationDisplay": "Celadon University Principals Office",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_classroom_1",
+          "targetLocationDisplay": "Celadon University Classroom 1",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_classroom_2",
+          "targetLocationDisplay": "Celadon University Classroom 2",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_classroom_3",
+          "targetLocationDisplay": "Celadon University Classroom 3",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_classroom_4",
+          "targetLocationDisplay": "Celadon University Classroom 4",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_lounge",
+          "targetLocationDisplay": "Celadon University Lounge",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_1f",
+          "targetLocationDisplay": "Celadon University First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_cafeteria",
+          "targetLocationDisplay": "Celadon University Cafeteria",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_willows_office",
+          "targetLocationDisplay": "Celadon University Willows Office",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_hyper_test_room",
+          "targetLocationDisplay": "Celadon University Hyper Test Room",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_westwoods_office",
+          "targetLocationDisplay": "Celadon University Westwoods Office",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_pool",
+          "targetLocationDisplay": "Celadon University Pool",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_nurses_office",
+          "targetLocationDisplay": "Celadon University Nurses Office",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "cafeteria",
+      "displayName": "Cafeteria",
+      "trainers": [
+        {
+          "id": "cooltrainerm_cooltrainerm_corey",
+          "name": "Corey",
+          "trainerClass": "COOLTRAINERM",
+          "spriteType": "ace_trainer_m",
+          "coordinates": {
+            "x": 11,
+            "y": 2
+          },
+          "pokemon": [
+            {
+              "level": 63,
+              "species": "Pidgeot",
+              "item": "Quick Claw",
+              "moves": [
+                "Air Slash",
+                "Steel Wing",
+                "Drill Peck",
+                "Roost"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 252,
+                  "defense": 0,
+                  "speed": 132,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 252,
+                "defense": 0,
+                "speed": 132,
+                "special": 0
+              }
+            },
+            {
+              "level": 62,
+              "species": "Rhydon",
+              "item": "Rocky Helmet",
+              "moves": [
+                "Megahorn",
+                "Close Combat",
+                "Earthquake",
+                "Double Edge"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 252,
+                  "attack": 132,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 252,
+                "attack": 132,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 62,
+              "species": "Scyther",
+              "item": "Eviolite",
+              "moves": [
+                "Swords Dance",
+                "Air Slash",
+                "Close Combat",
+                "Night Slash"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 252,
+                  "attack": 132,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 252,
+                "attack": 132,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 62,
+              "species": "Hitmonlee",
+              "item": "Focus Band",
+              "moves": [
+                "Counter",
+                "Close Combat",
+                "Focus Blast",
+                "Endure"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 192,
+                  "defense": 0,
+                  "speed": 192,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 192,
+                "defense": 0,
+                "speed": 192,
+                "special": 0
+              }
+            },
+            {
+              "level": 63,
+              "species": "Sandslash",
+              "item": "Kings Rock",
+              "moves": [
+                "Earthquake",
+                "Sandstorm",
+                "Swords Dance",
+                "Gyro Ball"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 132,
+                  "attack": 252,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 132,
+                "attack": 252,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 64,
+              "species": "Venusaur",
+              "nickname": "Bruteroot",
+              "item": "Leftovers",
+              "moves": [
+                "Solar Beam",
+                "Sludge Bomb",
+                "Seed Bomb",
+                "Healinglight"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 252,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 132
+                }
+              },
+              "evs": {
+                "hp": 252,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 132
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_2f",
+          "targetLocationDisplay": "Celadon University Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "classroom1",
+      "displayName": "Classroom1",
+      "trainers": [
+        {
+          "id": "imakuni_1",
+          "name": "Imakuni",
+          "trainerClass": "IMAKUNI",
+          "spriteType": "imakuni",
+          "coordinates": {
+            "x": 0,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 62,
+              "species": "Golduck",
+              "item": "Brightpowder",
+              "moves": [
+                "Psychic M",
+                "Nasty Plot",
+                "Hydro Pump",
+                "Amnesia"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Slowbro",
+              "item": "Twistedspoon",
+              "moves": [
+                "Belly Drum",
+                "Rain Dance",
+                "Psychic M",
+                "Amnesia"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 63,
+              "species": "Hypno",
+              "item": "Quick Claw",
+              "moves": [
+                "Future Sight",
+                "Toxic",
+                "Nasty Plot",
+                "Psychic M"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 61,
+              "species": "FarfetchD",
+              "item": "Leek",
+              "moves": [
+                "Brave Bird",
+                "Air Slash",
+                "False Swipe",
+                "Hi Jump Kick"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 61,
+              "species": "Dodrio",
+              "item": "Sharp Beak",
+              "moves": [
+                "Thrash",
+                "Reversal",
+                "Drill Peck",
+                "Hi Jump Kick"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 64,
+              "species": "Wobbuffet",
+              "item": "Leftovers",
+              "moves": [
+                "Splash",
+                "Charm",
+                "Encore",
+                "Amnesia"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_1f",
+          "targetLocationDisplay": "Celadon University First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "classroom2",
+      "displayName": "Classroom2",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_1f",
+          "targetLocationDisplay": "Celadon University First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "classroom3",
+      "displayName": "Classroom3",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_1f",
+          "targetLocationDisplay": "Celadon University First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "classroom4",
+      "displayName": "Classroom4",
+      "trainers": [
+        {
+          "id": "cooltrainerm_cooltrainerm_raymond",
+          "name": "Ray",
+          "trainerClass": "COOLTRAINERM",
+          "spriteType": "ace_trainer_m",
+          "coordinates": {
+            "x": 5,
+            "y": 2
+          },
+          "pokemon": [
+            {
+              "level": 63,
+              "species": "Donphan",
+              "item": "Soft Sand",
+              "moves": [
+                "Giga Impact",
+                "Earthquake",
+                "Scary Face",
+                "Iron Tail"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 192,
+                  "defense": 0,
+                  "speed": 192,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 192,
+                "defense": 0,
+                "speed": 192,
+                "special": 0
+              }
+            },
+            {
+              "level": 62,
+              "species": "Venomoth",
+              "item": "Black Sludge",
+              "moves": [
+                "Bug Buzz",
+                "Psychic M",
+                "Baton Pass",
+                "Zen Headbutt"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 192,
+                  "special": 192
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 192,
+                "special": 192
+              }
+            },
+            {
+              "level": 62,
+              "species": "Golem",
+              "item": "Rocky Helmet",
+              "moves": [
+                "Gyro Ball",
+                "Stone Edge",
+                "Double Edge",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 192,
+                  "defense": 0,
+                  "speed": 192,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 192,
+                "defense": 0,
+                "speed": 192,
+                "special": 0
+              }
+            },
+            {
+              "level": 62,
+              "species": "Pinsir",
+              "item": "Kings Rock",
+              "moves": [
+                "Megahorn",
+                "Close Combat",
+                "Thrash",
+                "Swords Dance"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 192,
+                  "defense": 0,
+                  "speed": 192,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 192,
+                "defense": 0,
+                "speed": 192,
+                "special": 0
+              }
+            },
+            {
+              "level": 63,
+              "species": "Machamp",
+              "item": "Focus Band",
+              "moves": [
+                "Dynamicpunch",
+                "Scary Face",
+                "Cross Chop",
+                "Bulk Up"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 132,
+                  "attack": 252,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 132,
+                "attack": 252,
+                "defense": 0,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 64,
+              "species": "Charizard",
+              "nickname": "Firebrand",
+              "item": "Leftovers",
+              "moves": [
+                "Crunch",
+                "Fire Spin",
+                "Flamethrower",
+                "Slash"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 192,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 192
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 192,
+                "defense": 0,
+                "speed": 0,
+                "special": 192
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_1f",
+          "targetLocationDisplay": "Celadon University First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "hyper_test_room",
+      "displayName": "Hyper Test Room",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_2f",
+          "targetLocationDisplay": "Celadon University Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "library_1f",
+      "displayName": "Library First Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_1f",
+          "targetLocationDisplay": "Celadon University First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_library_2f",
+          "targetLocationDisplay": "Celadon University Library Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "library_2f",
+      "displayName": "Library Second Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Timer Ball",
+          "coordinates": {
+            "x": 0,
+            "y": 1
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_library_1f",
+          "targetLocationDisplay": "Celadon University Library First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "lounge",
+      "displayName": "Lounge",
+      "trainers": [
+        {
+          "id": "cooltrainerf_neesha",
+          "name": "Neesha",
+          "trainerClass": "COOLTRAINERF",
+          "spriteType": "ace_trainer_f",
+          "coordinates": {
+            "x": 5,
+            "y": 8
+          },
+          "pokemon": [
+            {
+              "level": 62,
+              "species": "Dewgong",
+              "item": "Focus Band",
+              "moves": [
+                "Safeguard",
+                "Ice Beam",
+                "Aqua Tail",
+                "Perish Song"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 192,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 192
+                }
+              },
+              "evs": {
+                "hp": 192,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 192
+              }
+            },
+            {
+              "level": 62,
+              "species": "Wigglytuff",
+              "item": "Pink Bow",
+              "moves": [
+                "Minimize",
+                "Nasty Plot",
+                "Double Edge",
+                "Play Rough"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 192,
+                  "attack": 0,
+                  "defense": 192,
+                  "speed": 0,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 192,
+                "attack": 0,
+                "defense": 192,
+                "speed": 0,
+                "special": 0
+              }
+            },
+            {
+              "level": 62,
+              "species": "Rapidash",
+              "item": "Quick Claw",
+              "moves": [
+                "Flare Blitz",
+                "Extremespeed",
+                "Fire Blast",
+                "Agility"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 252,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 132
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 252,
+                "defense": 0,
+                "speed": 0,
+                "special": 132
+              }
+            },
+            {
+              "level": 63,
+              "species": "Vileplume",
+              "item": "Black Sludge",
+              "moves": [
+                "Petal Dance",
+                "Moonblast",
+                "Growth",
+                "Mega Drain"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 252,
+                  "special": 132
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 252,
+                "special": 132
+              }
+            },
+            {
+              "level": 63,
+              "species": "Ninetales",
+              "item": "Charcoal",
+              "moves": [
+                "Nasty Plot",
+                "Flamethrower",
+                "Quick Attack",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 252,
+                  "special": 132
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 252,
+                "special": 132
+              }
+            },
+            {
+              "level": 63,
+              "species": "Blastoise",
+              "nickname": "Shellshock",
+              "item": "Leftovers",
+              "moves": [
+                "Hydro Pump",
+                "Rain Dance",
+                "Mirror Coat",
+                "Close Combat"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 132,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 252,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 132,
+                "attack": 0,
+                "defense": 0,
+                "speed": 252,
+                "special": 0
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_1f",
+          "targetLocationDisplay": "Celadon University First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "nurses_office",
+      "displayName": "Nurses Office",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_2f",
+          "targetLocationDisplay": "Celadon University Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "pool",
+      "displayName": "Pool",
+      "trainers": [
+        {
+          "id": "cooltrainerm_fergus",
+          "name": "Fergus",
+          "trainerClass": "COOLTRAINERM",
+          "spriteType": "ace_trainer_m",
+          "coordinates": {
+            "x": 11,
+            "y": 5
+          },
+          "pokemon": [
+            {
+              "level": 63,
+              "species": "Gyarados",
+              "item": "Brightpowder",
+              "moves": [
+                "Outrage",
+                "Hyper Beam",
+                "Rain Dance",
+                "Hurricane"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 252,
+                  "special": 132
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 252,
+                "special": 132
+              }
+            },
+            {
+              "level": 62,
+              "species": "Golduck",
+              "item": "Twistedspoon",
+              "moves": [
+                "Psychic M",
+                "Nasty Plot",
+                "Hydro Pump",
+                "Amnesia"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 132,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 252
+                }
+              },
+              "evs": {
+                "hp": 132,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 252
+              }
+            },
+            {
+              "level": 62,
+              "species": "Vaporeon",
+              "item": "Focus Band",
+              "moves": [
+                "Hydro Pump",
+                "Double Edge",
+                "Scald",
+                "Haze"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 132,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 0,
+                  "special": 252
+                }
+              },
+              "evs": {
+                "hp": 132,
+                "attack": 0,
+                "defense": 0,
+                "speed": 0,
+                "special": 252
+              }
+            },
+            {
+              "level": 62,
+              "species": "Tentacruel",
+              "item": "Black Sludge",
+              "moves": [
+                "Hydro Pump",
+                "Sludge Bomb",
+                "Hex",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 192,
+                  "special": 192
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 192,
+                "special": 192
+              }
+            },
+            {
+              "level": 63,
+              "species": "Kingdra",
+              "item": "Quick Claw",
+              "moves": [
+                "Hydro Pump",
+                "Dragon Dance",
+                "Dragon Pulse",
+                "Agility"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 0,
+                  "defense": 0,
+                  "speed": 192,
+                  "special": 192
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 0,
+                "defense": 0,
+                "speed": 192,
+                "special": 192
+              }
+            },
+            {
+              "level": 64,
+              "species": "Nidoqueen",
+              "nickname": "Empress",
+              "item": "Leftovers",
+              "moves": [
+                "Close Combat",
+                "Earth Power",
+                "Body Slam",
+                "Outrage"
+              ],
+              "faithful": {},
+              "polished": {
+                "evs": {
+                  "hp": 0,
+                  "attack": 192,
+                  "defense": 0,
+                  "speed": 192,
+                  "special": 0
+                }
+              },
+              "evs": {
+                "hp": 0,
+                "attack": 192,
+                "defense": 0,
+                "speed": 192,
+                "special": 0
+              }
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Water Stone",
+          "coordinates": {
+            "x": 12,
+            "y": 8
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_2f",
+          "targetLocationDisplay": "Celadon University Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "principals_office",
+      "displayName": "Principals Office",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_1f",
+          "targetLocationDisplay": "Celadon University First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "westwoods_office",
+      "displayName": "Westwoods Office",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_2f",
+          "targetLocationDisplay": "Celadon University Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "willows_office",
+      "displayName": "Willows Office",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_university_2f",
+          "targetLocationDisplay": "Celadon University Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "celadon_university",
+    "celadon_university_1f",
+    "celadon_university_2f",
+    "celadon_university_cafeteria",
+    "celadon_university_classroom1",
+    "celadon_university_classroom2",
+    "celadon_university_classroom3",
+    "celadon_university_classroom4",
+    "celadon_university_hyper_test_room",
+    "celadon_university_library_1f",
+    "celadon_university_library_2f",
+    "celadon_university_lounge",
+    "celadon_university_nurses_office",
+    "celadon_university_pool",
+    "celadon_university_principals_office",
+    "celadon_university_westwoods_office",
+    "celadon_university_willows_office"
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Timer Ball",
+      "coordinates": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "type": "item",
+      "name": "Water Stone",
+      "coordinates": {
+        "x": 12,
+        "y": 8
+      }
+    }
+  ],
+  "trainerCount": 5,
+  "hasTrainers": true
 }

@@ -7,5 +7,584 @@
   "y": 60,
   "flyable": true,
   "connections": [],
-  "spawnPoint": "SPAWN_MT_SILVER"
+  "spawnPoint": "SPAWN_MT_SILVER",
+  "areas": [
+    {
+      "id": "outside",
+      "displayName": "Outside",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 9,
+            "y": 19
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "east",
+          "targetLocation": "route_28",
+          "targetLocationDisplay": "Route 28",
+          "offset": 6
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "silver_cave_pokecenter_1f",
+          "targetLocationDisplay": "Silver Cave Pokecenter 1f",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "silver_cave_room_1",
+          "targetLocationDisplay": "Silver Cave Room 1",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "hidden_cave_grotto",
+          "targetLocationDisplay": "Hidden Cave Grotto",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "item_rooms",
+      "displayName": "Item Rooms",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 14,
+            "y": 33
+          }
+        },
+        {
+          "type": "item",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 13,
+            "y": 23
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "silver_cave_room_2",
+          "targetLocationDisplay": "Silver Cave Room 2",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "poke_center_1f",
+      "displayName": "Poke Center First Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "silver_cave_outside",
+          "targetLocationDisplay": "Silver Cave Outside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "pokecenter_2f",
+          "targetLocationDisplay": "Pokecenter 2f",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "room1",
+      "displayName": "Room1",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Dire Hit",
+          "coordinates": {
+            "x": 16,
+            "y": 23
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 17,
+            "y": 12
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Elixir",
+          "coordinates": {
+            "x": 4,
+            "y": 9
+          }
+        },
+        {
+          "type": "item",
+          "name": "Protein",
+          "coordinates": {
+            "x": 15,
+            "y": 29
+          }
+        },
+        {
+          "type": "item",
+          "name": "Escape Rope",
+          "coordinates": {
+            "x": 5,
+            "y": 30
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 7,
+            "y": 18
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "silver_cave_outside",
+          "targetLocationDisplay": "Silver Cave Outside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "silver_cave_room_2",
+          "targetLocationDisplay": "Silver Cave Room 2",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "room2",
+      "displayName": "Room2",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Potion",
+          "coordinates": {
+            "x": 14,
+            "y": 31
+          }
+        },
+        {
+          "type": "item",
+          "name": "Calcium",
+          "coordinates": {
+            "x": 24,
+            "y": 10
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 22,
+            "y": 24
+          }
+        },
+        {
+          "type": "item",
+          "name": "Pp Up",
+          "coordinates": {
+            "x": 4,
+            "y": 20
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "silver_cave_room_1",
+          "targetLocationDisplay": "Silver Cave Room 1",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "silver_cave_room_3",
+          "targetLocationDisplay": "Silver Cave Room 3",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "silver_cave_item_rooms",
+          "targetLocationDisplay": "Silver Cave Item Rooms",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "room3",
+      "displayName": "Room3",
+      "trainers": [
+        {
+          "id": "red_1",
+          "name": "Red",
+          "trainerClass": "RED",
+          "spriteType": "red",
+          "coordinates": {
+            "x": 10,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 90,
+              "species": "Pikachu",
+              "item": "Light Ball",
+              "gender": "male",
+              "form": "pikachu red form",
+              "moves": [
+                "Thunderbolt",
+                "Surf",
+                "Iron Tail",
+                "Wild Charge"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Static",
+                "nature": "Spe +sdef -",
+                "moves": [
+                  "Thunderbolt",
+                  "Surf",
+                  "Iron Tail",
+                  "Wild Charge"
+                ]
+              },
+              "ability": "Static",
+              "nature": "Spe +sdef -"
+            },
+            {
+              "level": 84,
+              "species": "Espeon",
+              "item": "Twistedspoon",
+              "gender": "male",
+              "moves": [
+                "Psychic",
+                "Healinglight",
+                "Reflect",
+                "Shadow Ball"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Magic Bounce",
+                "nature": "Satk +atk -",
+                "moves": [
+                  "Psychic",
+                  "Healinglight",
+                  "Reflect",
+                  "Shadow Ball"
+                ]
+              },
+              "ability": "Magic Bounce",
+              "nature": "Satk +atk -"
+            },
+            {
+              "level": 85,
+              "species": "Snorlax",
+              "item": "Leftovers",
+              "gender": "male",
+              "moves": [
+                "Curse",
+                "Rest",
+                "Sleep Talk",
+                "Return"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Immunity",
+                "nature": "Atk +satk -",
+                "moves": [
+                  "Curse",
+                  "Rest",
+                  "Sleep Talk",
+                  "Return"
+                ]
+              },
+              "ability": "Immunity",
+              "nature": "Atk +satk -"
+            },
+            {
+              "level": 87,
+              "species": "Omastar",
+              "item": "Wise Glasses",
+              "gender": "male",
+              "moves": [
+                "Surf",
+                "Ancientpower",
+                "Earth Power",
+                "Ice Beam"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Shell Armor",
+                "nature": "Satk +atk -",
+                "moves": [
+                  "Surf",
+                  "Ancientpower",
+                  "Earth Power",
+                  "Ice Beam"
+                ]
+              },
+              "ability": "Shell Armor",
+              "nature": "Satk +atk -"
+            },
+            {
+              "level": 87,
+              "species": "Gyarados",
+              "item": "Quick Claw",
+              "gender": "male",
+              "moves": [
+                "Dragon Dance",
+                "Waterfall",
+                "Earthquake",
+                "Crunch"
+              ],
+              "faithful": {},
+              "polished": {
+                "ability": "Moxie",
+                "nature": "Atk +satk -",
+                "moves": [
+                  "Dragon Dance",
+                  "Waterfall",
+                  "Earthquake",
+                  "Crunch"
+                ]
+              },
+              "ability": "Moxie",
+              "nature": "Atk +satk -",
+              "shiny": true
+            },
+            {
+              "level": 88,
+              "species": "Charizard",
+              "item": "Muscle Band",
+              "gender": "male",
+              "moves": [
+                "Flare Blitz",
+                "Swords Dance",
+                "Earthquake",
+                "Dragon Claw"
+              ],
+              "faithful": {
+                "ability": "Drought",
+                "nature": "Atk +satk -",
+                "moves": [
+                  "Flare Blitz",
+                  "Swords Dance",
+                  "Earthquake",
+                  "Aerial Ace"
+                ]
+              },
+              "polished": {
+                "ability": "Tough Claws",
+                "nature": "Atk +satk -",
+                "moves": [
+                  "Flare Blitz",
+                  "Swords Dance",
+                  "Earthquake",
+                  "Dragon Claw"
+                ]
+              },
+              "ability": "Drought",
+              "nature": "Atk +satk -"
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "silver_cave_room_2",
+          "targetLocationDisplay": "Silver Cave Room 2",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "room_1",
+      "displayName": "Room 1",
+      "trainers": [],
+      "items": [],
+      "connections": [],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "room_2",
+      "displayName": "Room 2",
+      "trainers": [],
+      "items": [],
+      "connections": [],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "room_3",
+      "displayName": "Room 3",
+      "trainers": [],
+      "items": [],
+      "connections": [],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "silver_cave",
+    "silver_cave_outside",
+    "silver_cave_item_rooms",
+    "silver_cave_poke_center_1f",
+    "silver_cave_room1",
+    "silver_cave_room2",
+    "silver_cave_room3",
+    "silver_cave_room_1",
+    "silver_cave_room_2",
+    "silver_cave_room_3"
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 9,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 14,
+        "y": 33
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 13,
+        "y": 23
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Dire Hit",
+      "coordinates": {
+        "x": 16,
+        "y": 23
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 17,
+        "y": 12
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 4,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Protein",
+      "coordinates": {
+        "x": 15,
+        "y": 29
+      }
+    },
+    {
+      "type": "item",
+      "name": "Escape Rope",
+      "coordinates": {
+        "x": 5,
+        "y": 30
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 7,
+        "y": 18
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 14,
+        "y": 31
+      }
+    },
+    {
+      "type": "item",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 24,
+        "y": 10
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 22,
+        "y": 24
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 4,
+        "y": 20
+      }
+    }
+  ],
+  "trainerCount": 1,
+  "hasTrainers": true
 }

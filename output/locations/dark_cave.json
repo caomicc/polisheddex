@@ -18,6 +18,195 @@
     {
       "type": "tmHm",
       "name": "TM58 - Dark Pulse"
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 21,
+        "y": 24
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 26,
+        "y": 3
+      }
+    },
+    {
+      "type": "item",
+      "name": "Potion",
+      "coordinates": {
+        "x": 6,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Stone",
+      "coordinates": {
+        "x": 36,
+        "y": 22
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 35,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dire Hit",
+      "coordinates": {
+        "x": 30,
+        "y": 28
+      }
     }
-  ]
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM58 - Dark Pulse"
+        }
+      ],
+      "connections": [],
+      "tmhms": [
+        {
+          "tmNumber": "TM58",
+          "moveName": "Dark Pulse",
+          "location": "Dark Cave"
+        }
+      ],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "blackthorn_entrance",
+      "displayName": "Blackthorn Entrance",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Revive",
+          "coordinates": {
+            "x": 21,
+            "y": 24
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_45",
+          "targetLocationDisplay": "Route 45",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "dark_cave_violet_entrance",
+          "targetLocationDisplay": "Dark Cave Violet Entrance",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "violet_entrance",
+      "displayName": "Violet Entrance",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Elixir",
+          "coordinates": {
+            "x": 26,
+            "y": 3
+          }
+        },
+        {
+          "type": "item",
+          "name": "Potion",
+          "coordinates": {
+            "x": 6,
+            "y": 8
+          }
+        },
+        {
+          "type": "item",
+          "name": "Dusk Stone",
+          "coordinates": {
+            "x": 36,
+            "y": 22
+          }
+        },
+        {
+          "type": "item",
+          "name": "Hyper Potion",
+          "coordinates": {
+            "x": 35,
+            "y": 9
+          }
+        },
+        {
+          "type": "item",
+          "name": "Dire Hit",
+          "coordinates": {
+            "x": 30,
+            "y": 28
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_31",
+          "targetLocationDisplay": "Route 31",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "dark_cave_blackthorn_entrance",
+          "targetLocationDisplay": "Dark Cave Blackthorn Entrance",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_46",
+          "targetLocationDisplay": "Route 46",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [
+        {
+          "type": "coordinate_trigger",
+          "description": "Dark Cave Violet Entrance Falkner Trigger",
+          "coordinates": {
+            "x": 6,
+            "y": 2
+          }
+        }
+      ],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "dark_cave",
+    "dark_cave_blackthorn_entrance",
+    "dark_cave_violet_entrance"
+  ],
+  "trainerCount": 0,
+  "hasTrainers": false
 }

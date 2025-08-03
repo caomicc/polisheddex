@@ -6,5 +6,126 @@
   "x": 142,
   "y": 58,
   "flyable": false,
-  "connections": []
+  "connections": [],
+  "areas": [
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "lavender_town",
+          "targetLocationDisplay": "Lavender Town",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "lav_radio_tower_2f",
+          "targetLocationDisplay": "Lav Radio Tower Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "lav_radio_tower_1f",
+          "targetLocationDisplay": "Lav Radio Tower First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "lav_radio_tower_3f",
+          "targetLocationDisplay": "Lav Radio Tower Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "3f",
+      "displayName": "3rd Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "lav_radio_tower_2f",
+          "targetLocationDisplay": "Lav Radio Tower Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "lav_radio_tower_4f",
+          "targetLocationDisplay": "Lav Radio Tower Fourth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "4f",
+      "displayName": "4th Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "lav_radio_tower_3f",
+          "targetLocationDisplay": "Lav Radio Tower Third Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "lav_radio_tower_5f",
+          "targetLocationDisplay": "Lav Radio Tower Fifth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "5f",
+      "displayName": "5th Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "lav_radio_tower_4f",
+          "targetLocationDisplay": "Lav Radio Tower Fourth Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "lav_radio_tower",
+    "lav_radio_tower_1f",
+    "lav_radio_tower_2f",
+    "lav_radio_tower_3f",
+    "lav_radio_tower_4f",
+    "lav_radio_tower_5f"
+  ],
+  "trainerCount": 0,
+  "hasTrainers": false
 }

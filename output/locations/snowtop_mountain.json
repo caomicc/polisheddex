@@ -7,5 +7,170 @@
   "y": 28,
   "flyable": true,
   "connections": [],
-  "spawnPoint": "SPAWN_SNOWTOP"
+  "spawnPoint": "SPAWN_SNOWTOP",
+  "areas": [
+    {
+      "id": "inside",
+      "displayName": "Inside",
+      "trainers": [
+        {
+          "id": "kimono_girl_7_1",
+          "name": "1",
+          "trainerClass": "KIMONO_GIRL_7",
+          "spriteType": "kimono_girl_7",
+          "coordinates": {
+            "x": 28,
+            "y": 14
+          },
+          "pokemon": [],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Zinc",
+          "coordinates": {
+            "x": 6,
+            "y": 22
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ether",
+          "coordinates": {
+            "x": 8,
+            "y": 8
+          }
+        },
+        {
+          "type": "item",
+          "name": "Heavy Boots",
+          "coordinates": {
+            "x": 16,
+            "y": 9
+          }
+        },
+        {
+          "type": "item",
+          "name": "Covert Cloak",
+          "coordinates": {
+            "x": 31,
+            "y": 17
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "rugged_road_north",
+          "targetLocationDisplay": "Rugged Road North",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "snowtop_mountain_outside",
+          "targetLocationDisplay": "Snowtop Mountain Outside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "hidden_cave_grotto",
+          "targetLocationDisplay": "Hidden Cave Grotto",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "outside",
+      "displayName": "Outside",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "snowtop_mountain_inside",
+          "targetLocationDisplay": "Snowtop Mountain Inside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "snowtop_pokecenter_1f",
+          "targetLocationDisplay": "Snowtop Pokecenter 1f",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "snowtop_poke_center_1f",
+      "displayName": "Snowtop Poke Center First Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "snowtop_mountain_outside",
+          "targetLocationDisplay": "Snowtop Mountain Outside",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "pokecenter_2f",
+          "targetLocationDisplay": "Pokecenter 2f",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "snowtop_mountain",
+    "snowtop_mountain_inside",
+    "snowtop_mountain_outside",
+    "snowtop_poke_center_1f"
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Zinc",
+      "coordinates": {
+        "x": 6,
+        "y": 22
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ether",
+      "coordinates": {
+        "x": 8,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Heavy Boots",
+      "coordinates": {
+        "x": 16,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Covert Cloak",
+      "coordinates": {
+        "x": 31,
+        "y": 17
+      }
+    }
+  ],
+  "trainerCount": 1,
+  "hasTrainers": true
 }

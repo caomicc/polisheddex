@@ -34,7 +34,7 @@ interface LocationManifest {
 }
 
 /**
- * Calculate trainer count for a location (including gym leaders)
+ * Calculate trainer count for a location (including gym leaders, areas, and Elite 4)
  */
 function calculateTrainerCount(locationData: LocationData): number {
   let count = 0;
@@ -47,6 +47,20 @@ function calculateTrainerCount(locationData: LocationData): number {
   // Count gym leader (always counts as 1 trainer if present)
   if (locationData.gymLeader) {
     count += 1;
+  }
+
+  // Count Elite 4 trainers (for Indigo Plateau)
+  if (locationData.eliteFour) {
+    count += locationData.eliteFour.length;
+  }
+
+  // Count trainers in areas (for consolidated locations)
+  if (locationData.areas) {
+    for (const area of locationData.areas) {
+      if (area.trainers) {
+        count += area.trainers.length;
+      }
+    }
   }
 
   return count;

@@ -12,5 +12,141 @@
       "type": "tmHm",
       "name": "TM03 - Curse"
     }
-  ]
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM03 - Curse"
+        }
+      ],
+      "connections": [],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_city",
+          "targetLocationDisplay": "Celadon City",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_mansion_2f",
+          "targetLocationDisplay": "Celadon Mansion Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_mansion_1f",
+          "targetLocationDisplay": "Celadon Mansion First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_mansion_3f",
+          "targetLocationDisplay": "Celadon Mansion Third Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "3f",
+      "displayName": "3rd Floor",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_mansion_roof",
+          "targetLocationDisplay": "Celadon Mansion Roof",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_mansion_2f",
+          "targetLocationDisplay": "Celadon Mansion Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "roof",
+      "displayName": "Roof",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_mansion_3f",
+          "targetLocationDisplay": "Celadon Mansion Third Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_mansion_roof_house",
+          "targetLocationDisplay": "Celadon Mansion Roof House",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "roof_house",
+      "displayName": "Roof House",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "celadon_mansion_roof",
+          "targetLocationDisplay": "Celadon Mansion Roof",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "celadon_mansion",
+    "celadon_mansion_1f",
+    "celadon_mansion_2f",
+    "celadon_mansion_3f",
+    "celadon_mansion_roof",
+    "celadon_mansion_roof_house"
+  ],
+  "trainerCount": 0,
+  "hasTrainers": false
 }

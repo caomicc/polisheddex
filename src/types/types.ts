@@ -527,6 +527,19 @@ export interface TMHMReference {
   location: string;
 }
 
+// Location area for consolidated multi-floor/multi-area locations
+export interface LocationArea {
+  id: string; // e.g., "1f", "2f", "basement", "roof"
+  displayName: string; // e.g., "First Floor", "Second Floor"
+  description?: string;
+  connections?: LocationConnection[];
+  items?: LocationItem[];
+  trainers?: LocationTrainer[];
+  tmhms?: TMHMReference[];
+  events?: LocationEvent[];
+  npcTrades?: NPCTrade[];
+}
+
 // Main location data interface
 export interface LocationData {
   id: number;
@@ -562,6 +575,11 @@ export interface LocationData {
   hasHiddenGrottoes?: boolean;
   hasTrainers?: boolean;
   trainerCount?: number;
+  
+  // New consolidated fields
+  areas?: LocationArea[]; // For multi-floor/multi-area locations
+  eliteFour?: LocationTrainer[]; // For Indigo Plateau Elite 4 integration
+  consolidatedFrom?: string[]; // Track which locations were merged into this one
 }
 // Gym Leader interface
 export interface GymLeader {

@@ -6,5 +6,589 @@
   "x": 140,
   "y": 76,
   "flyable": false,
-  "connections": []
+  "connections": [],
+  "areas": [
+    {
+      "id": "north",
+      "displayName": "North",
+      "trainers": [
+        {
+          "id": "fisher_kyle",
+          "name": "Kyle",
+          "trainerClass": "FISHER",
+          "spriteType": "fisher",
+          "coordinates": {
+            "x": 6,
+            "y": 11
+          },
+          "pokemon": [
+            {
+              "level": 57,
+              "species": "Seaking",
+              "moves": [
+                "Megahorn",
+                "Knock Off",
+                "Body Slam",
+                "Waterfall"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 54,
+              "species": "Qwilfish",
+              "moves": [
+                "Destiny Bond",
+                "Poison Jab",
+                "Aqua Tail",
+                "Take Down"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 57,
+              "species": "Seaking",
+              "moves": [
+                "Megahorn",
+                "Knock Off",
+                "Body Slam",
+                "Waterfall"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "north",
+          "targetLocation": "lavender_town",
+          "targetLocationDisplay": "Lavender Town",
+          "offset": 0
+        },
+        {
+          "direction": "south",
+          "targetLocation": "route_12_south",
+          "targetLocationDisplay": "Route 12 South",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_12_gate",
+          "targetLocationDisplay": "Route 12 Gate",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "south",
+      "displayName": "South",
+      "trainers": [
+        {
+          "id": "fisher_martin",
+          "name": "Martin",
+          "trainerClass": "FISHER",
+          "spriteType": "fisher",
+          "coordinates": {
+            "x": 7,
+            "y": 7
+          },
+          "pokemon": [
+            {
+              "level": 56,
+              "species": "Remoraid",
+              "moves": [
+                "Hyper Beam",
+                "Aura Sphere",
+                "Hydro Pump",
+                "Gunk Shot"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 58,
+              "species": "Octillery",
+              "moves": [
+                "Hydro Pump",
+                "Gunk Shot",
+                "Seed Bomb",
+                "Ice Beam"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "fisher_stephen",
+          "name": "Stephen",
+          "trainerClass": "FISHER",
+          "spriteType": "fisher",
+          "coordinates": {
+            "x": 14,
+            "y": 33
+          },
+          "pokemon": [
+            {
+              "level": 60,
+              "species": "Magikarp",
+              "moves": [
+                "Reversal",
+                "Tackle",
+                "Splash"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 58,
+              "species": "Quagsire",
+              "moves": [
+                "Aqua Tail",
+                "Haze",
+                "Rain Dance",
+                "Earthquake"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Qwilfish",
+              "moves": [
+                "Destiny Bond",
+                "Poison Jab",
+                "Aqua Tail",
+                "Take Down"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Tentacruel",
+              "moves": [
+                "Hydro Pump",
+                "Sludge Bomb",
+                "Hex",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "fisher_barney",
+          "name": "Barney",
+          "trainerClass": "FISHER",
+          "spriteType": "fisher",
+          "coordinates": {
+            "x": 12,
+            "y": 63
+          },
+          "pokemon": [
+            {
+              "level": 57,
+              "species": "Gyarados",
+              "moves": [
+                "Outrage",
+                "Hyper Beam",
+                "Rain Dance",
+                "Hurricane"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Gyarados",
+              "moves": [
+                "Hyper Beam",
+                "Rain Dance",
+                "Hurricane",
+                "Dragon Dance"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Gyarados",
+              "moves": [
+                "Hyper Beam",
+                "Rain Dance",
+                "Hurricane",
+                "Dragon Dance"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "fisher_kyler",
+          "name": "Kyler",
+          "trainerClass": "FISHER",
+          "spriteType": "fisher",
+          "coordinates": {
+            "x": 10,
+            "y": 74
+          },
+          "pokemon": [
+            {
+              "level": 48,
+              "species": "Magikarp",
+              "gender": "male",
+              "form": "plain form",
+              "moves": [
+                "Reversal",
+                "Tackle",
+                "Splash"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 48,
+              "species": "Magikarp",
+              "gender": "male",
+              "form": "magikarp bubbles form",
+              "moves": [
+                "Reversal",
+                "Tackle",
+                "Splash"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 48,
+              "species": "Magikarp",
+              "gender": "male",
+              "moves": [
+                "Reversal",
+                "Tackle",
+                "Splash"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "bird_keeper_bird_keeper_justin",
+          "name": "Justin",
+          "trainerClass": "BIRD_KEEPER",
+          "spriteType": "bird_keeper",
+          "coordinates": {
+            "x": 10,
+            "y": 24
+          },
+          "pokemon": [
+            {
+              "level": 57,
+              "species": "Xatu",
+              "moves": [
+                "Sucker Punch",
+                "Hex",
+                "Future Sight",
+                "Haze"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 50,
+              "species": "Noctowl",
+              "moves": [
+                "Hyper Voice",
+                "Roost",
+                "Extrasensory",
+                "Air Slash"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "bird_keeper_gail",
+          "name": "Gail",
+          "trainerClass": "BIRD_KEEPER",
+          "spriteType": "bird_keeper",
+          "coordinates": {
+            "x": 7,
+            "y": 57
+          },
+          "pokemon": [
+            {
+              "level": 56,
+              "species": "Pidgeot",
+              "moves": [
+                "Steel Wing",
+                "Drill Peck",
+                "Roost",
+                "Wing Attack"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 53,
+              "species": "Pidgeotto",
+              "moves": [
+                "Steel Wing",
+                "Drill Peck",
+                "Roost",
+                "Wing Attack"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "couple_vicandtara1",
+          "name": "Vic & Tara",
+          "trainerClass": "COUPLE",
+          "spriteType": "couple",
+          "coordinates": {
+            "x": 10,
+            "y": 39
+          },
+          "pokemon": [
+            {
+              "level": 54,
+              "species": "Magmar",
+              "gender": "male",
+              "moves": [
+                "Flamethrower",
+                "Focus Blast",
+                "Sunny Day",
+                "Fire Punch"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 53,
+              "species": "Sunkern",
+              "gender": "male",
+              "moves": [
+                "Seed Bomb",
+                "Sunny Day",
+                "Double Edge",
+                "Solar Beam"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "couple_vicandtara2",
+          "name": "Vic & Tara",
+          "trainerClass": "COUPLE",
+          "spriteType": "couple",
+          "coordinates": {
+            "x": 10,
+            "y": 38
+          },
+          "pokemon": [
+            {
+              "level": 53,
+              "species": "Sunkern",
+              "gender": "male",
+              "moves": [
+                "Seed Bomb",
+                "Sunny Day",
+                "Double Edge",
+                "Solar Beam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 54,
+              "species": "Magmar",
+              "gender": "male",
+              "moves": [
+                "Flamethrower",
+                "Focus Blast",
+                "Sunny Day",
+                "Fire Punch"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Elixir",
+          "coordinates": {
+            "x": 14,
+            "y": 15
+          }
+        },
+        {
+          "type": "item",
+          "name": "Calcium",
+          "coordinates": {
+            "x": 5,
+            "y": 68
+          }
+        },
+        {
+          "type": "item",
+          "name": "Nugget",
+          "coordinates": {
+            "x": 5,
+            "y": 82
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "north",
+          "targetLocation": "route_12_north",
+          "targetLocationDisplay": "Route 12 North",
+          "offset": 0
+        },
+        {
+          "direction": "south",
+          "targetLocation": "route_13_east",
+          "targetLocationDisplay": "Route 13 East",
+          "offset": -13
+        },
+        {
+          "direction": "west",
+          "targetLocation": "route_11",
+          "targetLocationDisplay": "Route 11",
+          "offset": 17
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_12_super_rod_house",
+          "targetLocationDisplay": "Route 12 Super Rod House",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_11_gate",
+          "targetLocationDisplay": "Route 11 Gate",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_12_gate",
+          "targetLocationDisplay": "Route 12 Gate",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "gate",
+      "displayName": "Gate",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_12_north",
+          "targetLocationDisplay": "Route 12 North",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_12_south",
+          "targetLocationDisplay": "Route 12 South",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_12_gate_2f",
+          "targetLocationDisplay": "Route 12 Gate 2f",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "super_rod_house",
+      "displayName": "Super Rod House",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_12_south",
+          "targetLocationDisplay": "Route 12 South",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "route_12",
+    "route_12_north",
+    "route_12_south",
+    "route_12_gate",
+    "route_12_super_rod_house"
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 14,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 5,
+        "y": 68
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 5,
+        "y": 82
+      }
+    }
+  ],
+  "trainerCount": 9,
+  "hasTrainers": true
 }

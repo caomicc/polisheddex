@@ -6,5 +6,305 @@
   "x": 52,
   "y": 68,
   "flyable": false,
-  "connections": []
+  "connections": [],
+  "areas": [
+    {
+      "id": "north",
+      "displayName": "North",
+      "trainers": [
+        {
+          "id": "bug_maniac_ed",
+          "name": "Ed",
+          "trainerClass": "BUG_MANIAC",
+          "spriteType": "bug_maniac",
+          "coordinates": {
+            "x": 6,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 61,
+              "species": "Yanma",
+              "moves": [
+                "Bug Buzz",
+                "Air Slash",
+                "U Turn",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Beedrill",
+              "moves": [
+                "Outrage",
+                "Swords Dance",
+                "Agility",
+                "Poison Jab"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Butterfree",
+              "moves": [
+                "Psychic M",
+                "Air Slash",
+                "Healinglight",
+                "Agility"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Carbos",
+          "coordinates": {
+            "x": 19,
+            "y": 4
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "north",
+          "targetLocation": "pewter_city",
+          "targetLocationDisplay": "Pewter City",
+          "offset": -5
+        },
+        {
+          "direction": "south",
+          "targetLocation": "route_2_south",
+          "targetLocationDisplay": "Route 2 South",
+          "offset": -2
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_2_nugget_speech_house",
+          "targetLocationDisplay": "Route 2 Nugget Speech House",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_2_gate",
+          "targetLocationDisplay": "Route 2 Gate",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "digletts_cave",
+          "targetLocationDisplay": "Digletts Cave",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "viridian_forest_pewter_gate",
+          "targetLocationDisplay": "Viridian Forest Pewter Gate",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "south",
+      "displayName": "South",
+      "trainers": [
+        {
+          "id": "bug_maniac_rob",
+          "name": "Rob",
+          "trainerClass": "BUG_MANIAC",
+          "spriteType": "bug_maniac",
+          "coordinates": {
+            "x": 14,
+            "y": 23
+          },
+          "pokemon": [
+            {
+              "level": 60,
+              "species": "Beedrill",
+              "moves": [
+                "Outrage",
+                "Swords Dance",
+                "Agility",
+                "Poison Jab"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 59,
+              "species": "Butterfree",
+              "moves": [
+                "Psychic M",
+                "Air Slash",
+                "Healinglight",
+                "Agility"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "bug_maniac_doug",
+          "name": "Doug",
+          "trainerClass": "BUG_MANIAC",
+          "spriteType": "bug_maniac",
+          "coordinates": {
+            "x": 4,
+            "y": 16
+          },
+          "pokemon": [
+            {
+              "level": 59,
+              "species": "Butterfree",
+              "moves": [
+                "Psychic M",
+                "Air Slash",
+                "Healinglight",
+                "Agility"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 57,
+              "species": "Ariados",
+              "moves": [
+                "Leech Life",
+                "Poison Jab",
+                "Psychic M",
+                "Pin Missile"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "item",
+          "name": "Elixir",
+          "coordinates": {
+            "x": 18,
+            "y": 30
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "north",
+          "targetLocation": "route_2_north",
+          "targetLocationDisplay": "Route 2 North",
+          "offset": 2
+        },
+        {
+          "direction": "south",
+          "targetLocation": "viridian_city",
+          "targetLocationDisplay": "Viridian City",
+          "offset": -3
+        },
+        {
+          "direction": "east",
+          "targetLocation": "route_16_west",
+          "targetLocationDisplay": "Route 16 West",
+          "offset": 7
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_2_gate",
+          "targetLocationDisplay": "Route 2 Gate",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "viridian_forest_viridian_gate",
+          "targetLocationDisplay": "Viridian Forest Viridian Gate",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "gate",
+      "displayName": "Gate",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_2_north",
+          "targetLocationDisplay": "Route 2 North",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_2_south",
+          "targetLocationDisplay": "Route 2 South",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "nugget_speech_house",
+      "displayName": "Nugget Speech House",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_2_north",
+          "targetLocationDisplay": "Route 2 North",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "route_2",
+    "route_2_north",
+    "route_2_south",
+    "route_2_gate",
+    "route_2_nugget_speech_house"
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Carbos",
+      "coordinates": {
+        "x": 19,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 18,
+        "y": 30
+      }
+    }
+  ],
+  "trainerCount": 3,
+  "hasTrainers": true
 }

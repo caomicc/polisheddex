@@ -6,5 +6,258 @@
   "x": 80,
   "y": 108,
   "flyable": false,
-  "connections": []
+  "connections": [],
+  "areas": [
+    {
+      "id": "east",
+      "displayName": "East",
+      "trainers": [
+        {
+          "id": "bird_keeper_boris",
+          "name": "Boris",
+          "trainerClass": "BIRD_KEEPER",
+          "spriteType": "bird_keeper",
+          "coordinates": {
+            "x": 7,
+            "y": 12
+          },
+          "pokemon": [
+            {
+              "level": 56,
+              "species": "Doduo",
+              "moves": [
+                "Thrash",
+                "Reversal",
+                "Drill Peck",
+                "Hi Jump Kick"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Doduo",
+              "moves": [
+                "Thrash",
+                "Reversal",
+                "Drill Peck",
+                "Hi Jump Kick"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 58,
+              "species": "Dodrio",
+              "moves": [
+                "Thrash",
+                "Reversal",
+                "Drill Peck",
+                "Hi Jump Kick"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "bird_keeper_bob",
+          "name": "Bob",
+          "trainerClass": "BIRD_KEEPER",
+          "spriteType": "bird_keeper",
+          "coordinates": {
+            "x": 11,
+            "y": 6
+          },
+          "pokemon": [
+            {
+              "level": 59,
+              "species": "Noctowl",
+              "moves": [
+                "Dream Eater",
+                "Moonblast",
+                "Hyper Voice",
+                "Roost"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "west",
+          "targetLocation": "route_18_west",
+          "targetLocationDisplay": "Route 18 West",
+          "offset": 0
+        },
+        {
+          "direction": "east",
+          "targetLocation": "fuchsia_city",
+          "targetLocationDisplay": "Fuchsia City",
+          "offset": -7
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_18_gate",
+          "targetLocationDisplay": "Route 18 Gate",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "west",
+      "displayName": "West",
+      "trainers": [
+        {
+          "id": "biker_charles",
+          "name": "Charles",
+          "trainerClass": "BIKER",
+          "spriteType": "biker",
+          "coordinates": {
+            "x": 6,
+            "y": 2
+          },
+          "pokemon": [
+            {
+              "level": 54,
+              "species": "Koffing",
+              "moves": [
+                "Fire Blast",
+                "Pain Split",
+                "Destiny Bond",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 54,
+              "species": "Charmeleon",
+              "moves": [
+                "Crunch",
+                "Fire Spin",
+                "Flamethrower",
+                "Slash"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 57,
+              "species": "Weezing",
+              "moves": [
+                "Fire Blast",
+                "Pain Split",
+                "Destiny Bond",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [],
+      "connections": [
+        {
+          "direction": "north",
+          "targetLocation": "route_17",
+          "targetLocationDisplay": "Route 17",
+          "offset": 0
+        },
+        {
+          "direction": "west",
+          "targetLocation": "uraga_channel_east",
+          "targetLocationDisplay": "Uraga Channel East",
+          "offset": 0
+        },
+        {
+          "direction": "east",
+          "targetLocation": "route_18_east",
+          "targetLocationDisplay": "Route 18 East",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_18_gate",
+          "targetLocationDisplay": "Route 18 Gate",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "gate",
+      "displayName": "Gate",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_18_west",
+          "targetLocationDisplay": "Route 18 West",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_18_east",
+          "targetLocationDisplay": "Route 18 East",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_18_gate_2f",
+          "targetLocationDisplay": "Route 18 Gate 2f",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [
+        {
+          "type": "coordinate_trigger",
+          "description": "Route18 Gate Step Up One Trigger",
+          "coordinates": {
+            "x": 5,
+            "y": 5
+          }
+        },
+        {
+          "type": "coordinate_trigger",
+          "description": "Route18 Gate Step Up Two Trigger",
+          "coordinates": {
+            "x": 5,
+            "y": 6
+          }
+        },
+        {
+          "type": "coordinate_trigger",
+          "description": "Route18 Gate Step Up Three Trigger",
+          "coordinates": {
+            "x": 5,
+            "y": 7
+          }
+        }
+      ],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "route_18",
+    "route_18_east",
+    "route_18_west",
+    "route_18_gate"
+  ],
+  "trainerCount": 3,
+  "hasTrainers": true
 }

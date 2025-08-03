@@ -10,6 +10,7 @@ import { extractGymLeaders } from './src/utils/extractors/gymExtractors.ts';
 import { extractTMHMLocations } from './src/utils/extractors/tmHmExtractors.ts';
 import { extractLocationEvents, extractNPCTrades } from './src/utils/extractors/eventExtractors.ts';
 import { extractLocationItems } from './src/utils/extractors/itemExtractors.ts';
+import { consolidateLocations } from './src/utils/locationConsolidator.ts';
 
 // Use this workaround for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -1432,14 +1433,18 @@ export async function exportAllLocations() {
       }
     });
 
+    // Apply location consolidation before exporting
+    console.log('🔄 Applying location consolidation...');
+    const finalConsolidatedLocations = consolidateLocations(sortedLocations);
+
     // Export as both object format (for compatibility) and ordered array format (to preserve order)
     const outputPath = path.join(__dirname, 'output/all_locations.json');
-    await fs.promises.writeFile(outputPath, JSON.stringify(sortedLocations, null, 2));
+    await fs.promises.writeFile(outputPath, JSON.stringify(finalConsolidatedLocations, null, 2));
 
-    console.log(`📍 Exported ${Object.keys(sortedLocations).length} locations to ${outputPath}`);
+    console.log(`📍 Exported ${Object.keys(finalConsolidatedLocations).length} locations to ${outputPath}`);
 
     // Export as ordered array to preserve logical order
-    const orderedLocationsArray = Object.entries(sortedLocations).map(([key, location], index) => ({
+    const orderedLocationsArray = Object.entries(finalConsolidatedLocations).map(([key, location], index) => ({
       ...location,
       key,
       order: index,
@@ -1486,7 +1491,7 @@ export async function exportAllLocations() {
     console.log('🏗️  Creating individual location files...');
     await restructureLocationsToIndividualFiles();
 
-    return sortedLocations;
+    return finalConsolidatedLocations;
   } catch (error) {
     console.error('❌ Error exporting locations:', error);
     throw error;

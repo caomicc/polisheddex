@@ -6,5 +6,388 @@
   "x": 100,
   "y": 36,
   "flyable": false,
-  "connections": []
+  "connections": [],
+  "areas": [
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 10,
+            "y": 13
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Pp Up",
+          "coordinates": {
+            "x": 5,
+            "y": 16
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Rare Candy",
+          "coordinates": {
+            "x": 16,
+            "y": 15
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Berserk Gene",
+          "coordinates": {
+            "x": 25,
+            "y": 2
+          }
+        },
+        {
+          "type": "item",
+          "name": "Big Nugget",
+          "coordinates": {
+            "x": 7,
+            "y": 6
+          }
+        },
+        {
+          "type": "item",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 9,
+            "y": 17
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 14,
+            "y": 2
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "cerulean_city",
+          "targetLocationDisplay": "Cerulean City",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "cerulean_cave_2f",
+          "targetLocationDisplay": "Cerulean Cave Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "cerulean_cave_b_1f",
+          "targetLocationDisplay": "Cerulean Cave B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [
+        {
+          "type": "coordinate_trigger",
+          "description": "Cerulean Cave1 F Bridge Overhead Trigger",
+          "coordinates": {
+            "x": 20,
+            "y": 4
+          }
+        },
+        {
+          "type": "coordinate_trigger",
+          "description": "Cerulean Cave1 F Bridge Underfoot Trigger",
+          "coordinates": {
+            "x": 21,
+            "y": 7
+          }
+        }
+      ],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Protein",
+          "coordinates": {
+            "x": 17,
+            "y": 19
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Nugget",
+          "coordinates": {
+            "x": 16,
+            "y": 4
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Hyper Potion",
+          "coordinates": {
+            "x": 13,
+            "y": 17
+          }
+        },
+        {
+          "type": "item",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 31,
+            "y": 11
+          }
+        },
+        {
+          "type": "item",
+          "name": "Pp Up",
+          "coordinates": {
+            "x": 7,
+            "y": 17
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 27,
+            "y": 15
+          }
+        },
+        {
+          "type": "item",
+          "name": "Dusk Stone",
+          "coordinates": {
+            "x": 2,
+            "y": 7
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "cerulean_cave_1f",
+          "targetLocationDisplay": "Cerulean Cave First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f",
+      "displayName": "Basement 1st Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 8,
+            "y": 6
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 24,
+            "y": 11
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Elixir",
+          "coordinates": {
+            "x": 26,
+            "y": 9
+          }
+        },
+        {
+          "type": "item",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 26,
+            "y": 3
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "cerulean_cave_1f",
+          "targetLocationDisplay": "Cerulean Cave First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "cerulean_cave",
+    "cerulean_cave_1f",
+    "cerulean_cave_2f",
+    "cerulean_cave_b_1f"
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 10,
+        "y": 13
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 5,
+        "y": 16
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 16,
+        "y": 15
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Berserk Gene",
+      "coordinates": {
+        "x": 25,
+        "y": 2
+      }
+    },
+    {
+      "type": "item",
+      "name": "Big Nugget",
+      "coordinates": {
+        "x": 7,
+        "y": 6
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 9,
+        "y": 17
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 14,
+        "y": 2
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Protein",
+      "coordinates": {
+        "x": 17,
+        "y": 19
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 16,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Hyper Potion",
+      "coordinates": {
+        "x": 13,
+        "y": 17
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 31,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 7,
+        "y": 17
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 27,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Dusk Stone",
+      "coordinates": {
+        "x": 2,
+        "y": 7
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 8,
+        "y": 6
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 24,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 26,
+        "y": 9
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 26,
+        "y": 3
+      }
+    }
+  ],
+  "trainerCount": 0,
+  "hasTrainers": false
 }

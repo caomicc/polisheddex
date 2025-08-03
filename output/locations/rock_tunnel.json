@@ -19,6 +19,464 @@
     {
       "type": "tmHm",
       "name": "TM73 - Thunder Wave"
+    },
+    {
+      "type": "hiddenItem",
+      "name": "X Accuracy",
+      "coordinates": {
+        "x": 23,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "X Defend",
+      "coordinates": {
+        "x": 4,
+        "y": 18
+      }
+    },
+    {
+      "type": "item",
+      "name": "Elixir",
+      "coordinates": {
+        "x": 21,
+        "y": 15
+      }
+    },
+    {
+      "type": "item",
+      "name": "Hp Up",
+      "coordinates": {
+        "x": 10,
+        "y": 15
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Ether",
+      "coordinates": {
+        "x": 15,
+        "y": 19
+      }
+    },
+    {
+      "type": "item",
+      "name": "Thunderstone",
+      "coordinates": {
+        "x": 2,
+        "y": 23
+      }
+    },
+    {
+      "type": "item",
+      "name": "Electirizer",
+      "coordinates": {
+        "x": 21,
+        "y": 3
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Potion",
+      "coordinates": {
+        "x": 3,
+        "y": 18
+      }
+    },
+    {
+      "type": "item",
+      "name": "Iron",
+      "coordinates": {
+        "x": 7,
+        "y": 17
+      }
+    },
+    {
+      "type": "item",
+      "name": "Pp Up",
+      "coordinates": {
+        "x": 8,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Revive",
+      "coordinates": {
+        "x": 15,
+        "y": 2
+      }
     }
-  ]
+  ],
+  "areas": [
+    {
+      "id": "main",
+      "displayName": "Main Area",
+      "trainers": [],
+      "items": [
+        {
+          "type": "tmHm",
+          "name": "TM73 - Thunder Wave"
+        }
+      ],
+      "connections": [],
+      "tmhms": [
+        {
+          "tmNumber": "TM73",
+          "moveName": "Thunder Wave",
+          "location": "Rock Tunnel"
+        }
+      ],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [
+        {
+          "id": "hiker_seamus",
+          "name": "Seamus",
+          "trainerClass": "HIKER",
+          "spriteType": "hiker",
+          "coordinates": {
+            "x": 23,
+            "y": 18
+          },
+          "pokemon": [
+            {
+              "level": 56,
+              "species": "Dudunsparce",
+              "moves": [
+                "Hyper Voice",
+                "Hurricane",
+                "Reversal",
+                "Endure"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 53,
+              "species": "Onix",
+              "moves": [
+                "Earthquake",
+                "Double Edge",
+                "Stone Edge",
+                "Dig"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 54,
+              "species": "Golem",
+              "moves": [
+                "Stone Edge",
+                "Double Edge",
+                "Explosion",
+                "Earthquake"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 53,
+              "species": "Onix",
+              "moves": [
+                "Earthquake",
+                "Double Edge",
+                "Stone Edge",
+                "Dig"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "X Accuracy",
+          "coordinates": {
+            "x": 23,
+            "y": 4
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "X Defend",
+          "coordinates": {
+            "x": 4,
+            "y": 18
+          }
+        },
+        {
+          "type": "item",
+          "name": "Elixir",
+          "coordinates": {
+            "x": 21,
+            "y": 15
+          }
+        },
+        {
+          "type": "item",
+          "name": "Hp Up",
+          "coordinates": {
+            "x": 10,
+            "y": 15
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_10_north",
+          "targetLocationDisplay": "Route 10 North",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "route_10_south",
+          "targetLocationDisplay": "Route 10 South",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "rock_tunnel_b_1f",
+          "targetLocationDisplay": "Rock Tunnel B First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "rock_tunnel_2f",
+          "targetLocationDisplay": "Rock Tunnel Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "2f",
+      "displayName": "2nd Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Ether",
+          "coordinates": {
+            "x": 15,
+            "y": 19
+          }
+        },
+        {
+          "type": "item",
+          "name": "Thunderstone",
+          "coordinates": {
+            "x": 2,
+            "y": 23
+          }
+        },
+        {
+          "type": "item",
+          "name": "Electirizer",
+          "coordinates": {
+            "x": 21,
+            "y": 3
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_10_north",
+          "targetLocationDisplay": "Route 10 North",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "rock_tunnel_1f",
+          "targetLocationDisplay": "Rock Tunnel First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f",
+      "displayName": "Basement 1st Floor",
+      "trainers": [
+        {
+          "id": "firebreather_dick",
+          "name": "Dick",
+          "trainerClass": "FIREBREATHER",
+          "spriteType": "firebreather",
+          "coordinates": {
+            "x": 27,
+            "y": 14
+          },
+          "pokemon": [
+            {
+              "level": 53,
+              "species": "Charmander",
+              "moves": [
+                "Flare Blitz",
+                "Crunch",
+                "Fire Spin",
+                "Flamethrower"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 55,
+              "species": "Charmeleon",
+              "moves": [
+                "Crunch",
+                "Fire Spin",
+                "Flamethrower",
+                "Slash"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 57,
+              "species": "Charizard",
+              "moves": [
+                "Fire Spin",
+                "Flamethrower",
+                "Slash",
+                "Flame Charge"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "hex_maniac_vivian",
+          "name": "Vivian",
+          "trainerClass": "HEX_MANIAC",
+          "spriteType": "hex_maniac",
+          "coordinates": {
+            "x": 24,
+            "y": 24
+          },
+          "pokemon": [
+            {
+              "level": 54,
+              "species": "Haunter",
+              "moves": [
+                "Destiny Bond",
+                "Dark Pulse",
+                "Dream Eater",
+                "Shadow Ball"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 52,
+              "species": "Haunter",
+              "moves": [
+                "Destiny Bond",
+                "Dark Pulse",
+                "Dream Eater",
+                "Shadow Ball"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 54,
+              "species": "Haunter",
+              "moves": [
+                "Destiny Bond",
+                "Dark Pulse",
+                "Dream Eater",
+                "Shadow Ball"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 56,
+              "species": "Alakazam",
+              "moves": [
+                "Future Sight",
+                "Confuse Ray",
+                "Calm Mind",
+                "Psychic M"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Potion",
+          "coordinates": {
+            "x": 3,
+            "y": 18
+          }
+        },
+        {
+          "type": "item",
+          "name": "Iron",
+          "coordinates": {
+            "x": 7,
+            "y": 17
+          }
+        },
+        {
+          "type": "item",
+          "name": "Pp Up",
+          "coordinates": {
+            "x": 8,
+            "y": 4
+          }
+        },
+        {
+          "type": "item",
+          "name": "Revive",
+          "coordinates": {
+            "x": 15,
+            "y": 2
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "rock_tunnel_1f",
+          "targetLocationDisplay": "Rock Tunnel First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "rock_tunnel",
+    "rock_tunnel_1f",
+    "rock_tunnel_2f",
+    "rock_tunnel_b_1f"
+  ],
+  "trainerCount": 3,
+  "hasTrainers": true
 }

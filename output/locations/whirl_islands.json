@@ -6,5 +6,466 @@
   "x": 28,
   "y": 92,
   "flyable": false,
-  "connections": []
+  "connections": [],
+  "areas": [
+    {
+      "id": "whirl_island_ne",
+      "displayName": "Whirl Island Northeast",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 11,
+            "y": 11
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_41",
+          "targetLocationDisplay": "Route 41",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_b_1f",
+          "targetLocationDisplay": "Whirl Island B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "whirl_island_nw",
+      "displayName": "Whirl Island Northwest",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_41",
+          "targetLocationDisplay": "Route 41",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_b_1f",
+          "targetLocationDisplay": "Whirl Island B First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_sw",
+          "targetLocationDisplay": "Whirl Island Southwest",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_cave",
+          "targetLocationDisplay": "Whirl Island Cave",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "whirl_island_se",
+      "displayName": "Whirl Island Southeast",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_41",
+          "targetLocationDisplay": "Route 41",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_b_1f",
+          "targetLocationDisplay": "Whirl Island B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "whirl_island_sw",
+      "displayName": "Whirl Island Southwest",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 15,
+            "y": 2
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "route_41",
+          "targetLocationDisplay": "Route 41",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_b_1f",
+          "targetLocationDisplay": "Whirl Island B First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_nw",
+          "targetLocationDisplay": "Whirl Island Northwest",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_b_2f",
+          "targetLocationDisplay": "Whirl Island B Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "whirl_island_b_1f",
+      "displayName": "Whirl Island B First Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Rare Candy",
+          "coordinates": {
+            "x": 30,
+            "y": 4
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Ultra Ball",
+          "coordinates": {
+            "x": 36,
+            "y": 18
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 2,
+            "y": 23
+          }
+        },
+        {
+          "type": "item",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 7,
+            "y": 13
+          }
+        },
+        {
+          "type": "item",
+          "name": "Carbos",
+          "coordinates": {
+            "x": 2,
+            "y": 18
+          }
+        },
+        {
+          "type": "item",
+          "name": "Calcium",
+          "coordinates": {
+            "x": 33,
+            "y": 23
+          }
+        },
+        {
+          "type": "item",
+          "name": "Big Nugget",
+          "coordinates": {
+            "x": 17,
+            "y": 8
+          }
+        },
+        {
+          "type": "item",
+          "name": "Escape Rope",
+          "coordinates": {
+            "x": 19,
+            "y": 26
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_nw",
+          "targetLocationDisplay": "Whirl Island Northwest",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_ne",
+          "targetLocationDisplay": "Whirl Island Northeast",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_sw",
+          "targetLocationDisplay": "Whirl Island Southwest",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_se",
+          "targetLocationDisplay": "Whirl Island Southeast",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_b_2f",
+          "targetLocationDisplay": "Whirl Island B Second Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_cave",
+          "targetLocationDisplay": "Whirl Island Cave",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "whirl_island_b_2f",
+      "displayName": "Whirl Island B Second Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 10,
+            "y": 11
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 6,
+            "y": 4
+          }
+        },
+        {
+          "type": "item",
+          "name": "Max Elixir",
+          "coordinates": {
+            "x": 5,
+            "y": 12
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_b_1f",
+          "targetLocationDisplay": "Whirl Island B First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_lugia_chamber",
+          "targetLocationDisplay": "Whirl Island Lugia Chamber",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_sw",
+          "targetLocationDisplay": "Whirl Island Southwest",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "whirl_island_cave",
+      "displayName": "Whirl Island Cave",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_b_1f",
+          "targetLocationDisplay": "Whirl Island B First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_nw",
+          "targetLocationDisplay": "Whirl Island Northwest",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "whirl_island_lugia_chamber",
+      "displayName": "Whirl Island Lugia Chamber",
+      "trainers": [],
+      "items": [],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "whirl_island_b_2f",
+          "targetLocationDisplay": "Whirl Island B Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "whirl_islands",
+    "whirl_island_ne",
+    "whirl_island_nw",
+    "whirl_island_se",
+    "whirl_island_sw",
+    "whirl_island_b_1f",
+    "whirl_island_b_2f",
+    "whirl_island_cave",
+    "whirl_island_lugia_chamber"
+  ],
+  "items": [
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 11,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 15,
+        "y": 2
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Rare Candy",
+      "coordinates": {
+        "x": 30,
+        "y": 4
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Ultra Ball",
+      "coordinates": {
+        "x": 36,
+        "y": 18
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 2,
+        "y": 23
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 7,
+        "y": 13
+      }
+    },
+    {
+      "type": "item",
+      "name": "Carbos",
+      "coordinates": {
+        "x": 2,
+        "y": 18
+      }
+    },
+    {
+      "type": "item",
+      "name": "Calcium",
+      "coordinates": {
+        "x": 33,
+        "y": 23
+      }
+    },
+    {
+      "type": "item",
+      "name": "Big Nugget",
+      "coordinates": {
+        "x": 17,
+        "y": 8
+      }
+    },
+    {
+      "type": "item",
+      "name": "Escape Rope",
+      "coordinates": {
+        "x": 19,
+        "y": 26
+      }
+    },
+    {
+      "type": "item",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 10,
+        "y": 11
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 6,
+        "y": 4
+      }
+    },
+    {
+      "type": "item",
+      "name": "Max Elixir",
+      "coordinates": {
+        "x": 5,
+        "y": 12
+      }
+    }
+  ],
+  "trainerCount": 0,
+  "hasTrainers": false
 }

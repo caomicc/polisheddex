@@ -6,5 +6,363 @@
   "x": 54,
   "y": 130,
   "flyable": false,
-  "connections": []
+  "connections": [],
+  "areas": [
+    {
+      "id": "1f",
+      "displayName": "1st Floor",
+      "trainers": [
+        {
+          "id": "buck_1",
+          "name": "Buck",
+          "trainerClass": "BUCK",
+          "spriteType": "buck",
+          "coordinates": {
+            "x": 4,
+            "y": 9
+          },
+          "pokemon": [
+            {
+              "level": 65,
+              "species": "Umbreon",
+              "moves": [
+                "Mean Look",
+                "Double Edge",
+                "Sucker Punch",
+                "Healinglight"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 64,
+              "species": "Golem",
+              "moves": [
+                "Gyro Ball",
+                "Stone Edge",
+                "Double Edge",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Poliwrath",
+              "moves": [
+                "Cross Chop",
+                "Earth Power",
+                "Dynamicpunch",
+                "Bubble Beam"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 63,
+              "species": "Forretress",
+              "moves": [
+                "Iron Head",
+                "Zap Cannon",
+                "Double Edge",
+                "Gyro Ball"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Skarmory",
+              "moves": [
+                "Night Slash",
+                "Drill Peck",
+                "Air Slash",
+                "Screech"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 63,
+              "species": "Steelix",
+              "moves": [
+                "Earthquake",
+                "Double Edge",
+                "Stone Edge",
+                "Dig"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "scientist_oskar",
+          "name": "Oskar",
+          "trainerClass": "SCIENTIST",
+          "spriteType": "scientist",
+          "coordinates": {
+            "x": 2,
+            "y": 19
+          },
+          "pokemon": [
+            {
+              "level": 64,
+              "species": "Porygon2",
+              "moves": [
+                "Zap Cannon",
+                "Mirror Coat",
+                "Tri Attack",
+                "Thunderbolt"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 62,
+              "species": "Ninetales",
+              "moves": [
+                "Nasty Plot",
+                "Flamethrower",
+                "Quick Attack",
+                "Confuse Ray"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 60,
+              "species": "Magnezone",
+              "moves": [
+                "Thunder",
+                "Gyro Ball",
+                "Agility",
+                "Hidden Power"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        },
+        {
+          "id": "super_nerd_luis",
+          "name": "Luis",
+          "trainerClass": "SUPER_NERD",
+          "spriteType": "super_nerd",
+          "coordinates": {
+            "x": 17,
+            "y": 24
+          },
+          "pokemon": [
+            {
+              "level": 62,
+              "species": "Magmar",
+              "moves": [
+                "Fire Blast",
+                "Flamethrower",
+                "Focus Blast",
+                "Sunny Day"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 63,
+              "species": "Weezing",
+              "moves": [
+                "Fire Blast",
+                "Pain Split",
+                "Destiny Bond",
+                "Explosion"
+              ],
+              "faithful": {},
+              "polished": {}
+            },
+            {
+              "level": 59,
+              "species": "Magmar",
+              "moves": [
+                "Fire Blast",
+                "Flamethrower",
+                "Focus Blast",
+                "Sunny Day"
+              ],
+              "faithful": {},
+              "polished": {}
+            }
+          ],
+          "rematchable": false
+        }
+      ],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Full Restore",
+          "coordinates": {
+            "x": 13,
+            "y": 1
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "cinnabar_island",
+          "targetLocationDisplay": "Cinnabar Island",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "cinnabar_volcano_b_1f",
+          "targetLocationDisplay": "Cinnabar Volcano B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_1f",
+      "displayName": "Basement 1st Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "hiddenItem",
+          "name": "Max Revive",
+          "coordinates": {
+            "x": 28,
+            "y": 5
+          }
+        },
+        {
+          "type": "hiddenItem",
+          "name": "Dire Hit",
+          "coordinates": {
+            "x": 28,
+            "y": 18
+          }
+        },
+        {
+          "type": "item",
+          "name": "Nugget",
+          "coordinates": {
+            "x": 2,
+            "y": 18
+          }
+        },
+        {
+          "type": "item",
+          "name": "Fire Stone",
+          "coordinates": {
+            "x": 4,
+            "y": 29
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "cinnabar_volcano_1f",
+          "targetLocationDisplay": "Cinnabar Volcano First Floor",
+          "offset": 0
+        },
+        {
+          "direction": "warp",
+          "targetLocation": "cinnabar_volcano_b_2f",
+          "targetLocationDisplay": "Cinnabar Volcano B Second Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    },
+    {
+      "id": "b_2f",
+      "displayName": "Basement 2nd Floor",
+      "trainers": [],
+      "items": [
+        {
+          "type": "item",
+          "name": "Flame Orb",
+          "coordinates": {
+            "x": 18,
+            "y": 3
+          }
+        }
+      ],
+      "connections": [
+        {
+          "direction": "warp",
+          "targetLocation": "cinnabar_volcano_b_1f",
+          "targetLocationDisplay": "Cinnabar Volcano B First Floor",
+          "offset": 0
+        }
+      ],
+      "tmhms": [],
+      "events": [],
+      "npcTrades": []
+    }
+  ],
+  "consolidatedFrom": [
+    "cinnabar_volcano",
+    "cinnabar_volcano_1f",
+    "cinnabar_volcano_b_1f",
+    "cinnabar_volcano_b_2f"
+  ],
+  "items": [
+    {
+      "type": "hiddenItem",
+      "name": "Full Restore",
+      "coordinates": {
+        "x": 13,
+        "y": 1
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Max Revive",
+      "coordinates": {
+        "x": 28,
+        "y": 5
+      }
+    },
+    {
+      "type": "hiddenItem",
+      "name": "Dire Hit",
+      "coordinates": {
+        "x": 28,
+        "y": 18
+      }
+    },
+    {
+      "type": "item",
+      "name": "Nugget",
+      "coordinates": {
+        "x": 2,
+        "y": 18
+      }
+    },
+    {
+      "type": "item",
+      "name": "Fire Stone",
+      "coordinates": {
+        "x": 4,
+        "y": 29
+      }
+    },
+    {
+      "type": "item",
+      "name": "Flame Orb",
+      "coordinates": {
+        "x": 18,
+        "y": 3
+      }
+    }
+  ],
+  "trainerCount": 3,
+  "hasTrainers": true
 }
