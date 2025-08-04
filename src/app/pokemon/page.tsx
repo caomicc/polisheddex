@@ -20,6 +20,9 @@ export default async function PokemonList({
   const pokemonData = await loadPokemonBaseDataFromManifest();
   const { sort = 'johtodex' } = (await searchParams) ?? {};
 
+  console.log('Pokemon data loaded:', Object.keys(pokemonData).length, 'entries');
+  console.log(JSON.stringify(pokemonData, null, 2));
+
   // Determine sort type from query param
   const sortType =
     sort === 'nationaldex' ? 'nationaldex' : sort === 'johtodex' ? 'johtodex' : 'alphabetical';
@@ -40,6 +43,11 @@ export default async function PokemonList({
     }
     return 0;
   });
+
+  console.log(
+    `Sorted Pokémon by ${sortType}:`,
+    sortedPokemon.map((p) => `${p.name} (${p.johtoDex ?? 'N/A'})`).join(', '),
+  );
 
   return (
     <>
