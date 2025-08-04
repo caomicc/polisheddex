@@ -14,6 +14,7 @@ import { ColumnFiltersState, SortingState } from '@tanstack/react-table';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 import { createPokemonListColumns } from './pokemon-list-columns';
 import { Badge } from '../ui/badge';
+import Link from 'next/link';
 
 export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseData[] }) {
   const [tableView, setTableView] = React.useState(false);
@@ -329,7 +330,9 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
           {sortedData.map((pokemon) => (
-            <PokemonCard key={pokemon.name} pokemon={pokemon} />
+            <Link key={pokemon.name} href={`/pokemon/${pokemon.name}`}>
+              <PokemonCard key={pokemon.name} pokemon={pokemon} />
+            </Link>
           ))}
         </div>
       )}
