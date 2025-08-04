@@ -175,10 +175,10 @@ export async function getPokemonThatCanLearnMove(moveName: string): Promise<Poke
       }
 
       const pokemonData = JSON.parse(fs.readFileSync(pokemonFilePath, 'utf8'));
-      const pokemon = { 
-        ...basePokemon, 
-        ...pokemonData, 
-        normalizedUrl: normalizePokemonUrlKey(basePokemon.name).toLowerCase()
+      const pokemon = {
+        ...basePokemon,
+        ...pokemonData,
+        normalizedUrl: normalizePokemonUrlKey(basePokemon.name).toLowerCase(),
       };
 
       // Check level moves (faithful and updated)
