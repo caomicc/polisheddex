@@ -23,6 +23,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
 
   const columns = React.useMemo(() => createPokemonListColumns(showFaithful), [showFaithful]);
 
+  // Added `view` parameter to URL state for persisting list vs card view
   const [urlState, setUrlState] = useQueryStates(
     {
       search: parseAsString.withDefault(''),
@@ -31,6 +32,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
       hasJohtoDex: parseAsBoolean.withDefault(false),
       hasNationalDex: parseAsBoolean.withDefault(false),
       hasForms: parseAsBoolean.withDefault(false),
+      view: parseAsString.withDefault('card'), // Added view parameter
     },
     {
       shallow: true,
@@ -55,7 +57,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
   );
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
 
-  const { search, type, generation, hasJohtoDex, hasNationalDex, hasForms } = urlState;
+  const { search, type, generation, hasJohtoDex, hasNationalDex, hasForms, view } = urlState;
 
   React.useEffect(() => {
     const nameColumn = columns.find((col) => 'accessorKey' in col && col.accessorKey === 'name');
@@ -208,6 +210,10 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
     setPagination,
   ]);
 
+  React.useEffect(() => {
+    setTableView(view === 'table');
+  }, [view]);
+
   return (
     <>
       <div className="flex flex-col gap-4 py-4">
@@ -253,7 +259,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
             <Switch
               id="table-toggle"
               checked={tableView}
-              onCheckedChange={setTableView}
+              onCheckedChange={(checked) => setUrlState({ view: checked ? 'table' : 'card' })}
               aria-label="Toggle between table and card views"
             />
           </div>
