@@ -10,15 +10,25 @@ import {
 } from '@/components/ui/breadcrumb';
 import PokemonSearch from '@/components/pokemon/PokemonSearch';
 import { Hero } from '@/components/ui/Hero';
-import { loadPokemonBaseData } from '@/utils/loaders/pokemon-base-data-loader';
-
 export default async function PokemonList({
   searchParams,
 }: {
   searchParams: Promise<{ sort?: string }>;
 }) {
-  // Load Pokemon data using optimized loader
-  const data = await loadPokemonBaseData();
+  // Load Pokemon data directly from file system
+  let data: Record<string, BaseData> = {};
+  try {
+    if (typeof window === 'undefined') {
+      // Server-side: Load directly from output directory
+      const fs = await import('fs/promises');
+      const path = await import('path');
+      const dataPath = path.join(process.cwd(), 'output', 'manifests', 'pokemon_base_data.json');
+      const fileContent = await fs.readFile(dataPath, 'utf8');
+      data = JSON.parse(fileContent);
+    }
+  } catch (error) {
+    console.error('Error loading Pokemon data:', error);
+  }
 
   const { sort = 'johtodex' } = (await searchParams) ?? {};
 
