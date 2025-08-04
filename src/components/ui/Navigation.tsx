@@ -169,7 +169,7 @@ export default function Navigation() {
             <NavigationMenuItem>
               <NavigationMenuLink
                 asChild
-                className={cn(navigationMenuTriggerStyle(), isActive('/wiki/faq') && 'active-link')}
+                className={cn(navigationMenuTriggerStyle(), isActive('/faq') && 'active-link')}
               >
                 <Link href="/faq">FAQ</Link>
               </NavigationMenuLink>
