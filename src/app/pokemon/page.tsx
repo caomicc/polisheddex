@@ -12,12 +12,32 @@ import PokemonSearch from '@/components/pokemon/PokemonSearch';
 import { Hero } from '@/components/ui/Hero';
 import { loadPokemonBaseData } from '@/utils/loaders/pokemon-base-data-loader';
 
-export default async function PokemonList() {
+export default async function PokemonList({
+  searchParams,
+}: {
+  searchParams: Promise<{ sort?: string }>;
+}) {
   // Load Pokemon data using optimized loader
   const pokemonData = await loadPokemonBaseData();
 
-  // Convert to array for the search component
-  const allPokemon: BaseData[] = Object.values(pokemonData);
+  // Get sort type from search params (with default)
+  const { sort = 'johtodex' } = (await searchParams) ?? {};
+  const sortType = sort === 'nationaldex' ? 'nationaldex' : sort === 'johtodex' ? 'johtodex' : 'alphabetical';
+
+  // Convert to array and sort based on selected sort type
+  const pokemonList: BaseData[] = Object.values(pokemonData);
+  const sortedPokemon = [...pokemonList].sort((a, b) => {
+    if (sortType === 'alphabetical') {
+      return a.name.localeCompare(b.name);
+    }
+    if (sortType === 'nationaldex') {
+      return (a.nationalDex ?? 0) - (b.nationalDex ?? 0) || a.name.localeCompare(b.name);
+    }
+    if (sortType === 'johtodex') {
+      return (a.johtoDex ?? 999) - (b.johtoDex ?? 999) || a.name.localeCompare(b.name);
+    }
+    return 0;
+  });
 
   return (
     <>
@@ -43,7 +63,7 @@ export default async function PokemonList() {
         }
       />
       <div className="max-w-xl md:max-w-4xl mx-auto md:px-4">
-        <PokemonSearch pokemon={allPokemon} sortType="johtodex" />
+        <PokemonSearch pokemon={sortedPokemon} sortType={sortType} />
       </div>
     </>
   );
