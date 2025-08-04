@@ -7,7 +7,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Hero } from '@/components/ui/hero';
+import { Hero } from '@/components/ui/Hero';
 import AbilitiesDataTableSearch from '@/components/abilities/abilities-data-table-search';
 import { loadAbilitiesData } from '@/utils/loaders/ability-data-loader';
 

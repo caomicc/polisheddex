@@ -10,7 +10,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Hero } from '@/components/ui/hero';
+import { Hero } from '@/components/ui/Hero';
 import { Badge } from '@/components/ui/badge';
 import { loadItemById, loadItemsData } from '@/utils/loaders/item-data-loader';
 import ItemDetailClient from '@/components/items/item-detail-client';

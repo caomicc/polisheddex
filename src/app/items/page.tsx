@@ -9,7 +9,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import ItemDataTableSearch from '@/components/items/item-data-table-search';
-import { Hero } from '@/components/ui/hero';
+import { Hero } from '@/components/ui/Hero';
 import { loadItemsData } from '@/utils/loaders/item-data-loader';
 
 export default async function ItemsList() {

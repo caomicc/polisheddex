@@ -12,7 +12,7 @@ import {
 import LocationClient from '@/components/locations/location-client';
 import { normalizeLocationKey } from '@/utils/locationUtils';
 import { GroupedPokemon, EncounterDetail } from '@/types/locationTypes';
-import { Hero } from '@/components/ui/hero';
+import { Hero } from '@/components/ui/Hero';
 import { groupLocationsHierarchically } from '@/utils/locationGrouping';
 import {
   loadMergedPokemonLocationData,

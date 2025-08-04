@@ -9,7 +9,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Hero } from '@/components/ui/hero';
+import { Hero } from '@/components/ui/Hero';
 
 function TeamBuilderLoading() {
   return (

@@ -13,7 +13,7 @@ import {
   BreadcrumbSeparator,
 } from '../ui/breadcrumb';
 import Link from 'next/link';
-import { Hero } from '../ui/hero';
+import { Hero } from '../ui/Hero';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 const PokedexHeader = ({

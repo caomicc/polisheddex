@@ -8,7 +8,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Hero } from '@/components/ui/hero';
+import { Hero } from '@/components/ui/Hero';
 import { loadPokemonBaseDataFromManifest } from '@/utils/loaders/pokemon-data-loader';
 import { Suspense } from 'react';
 import PokemonListDisplay from '@/components/pokemon/pokemon-list-display';

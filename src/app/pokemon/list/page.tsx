@@ -9,7 +9,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import PokemonSearch from '@/components/pokemon/pokemon-search';
-import { Hero } from '@/components/ui/hero';
+import { Hero } from '@/components/ui/Hero';
 import { loadPokemonBaseDataFromManifest } from '@/utils/loaders/pokemon-data-loader';
 export default async function PokemonList({
   searchParams,

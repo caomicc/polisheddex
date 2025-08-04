@@ -9,7 +9,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Hero } from '@/components/ui/hero';
+import { Hero } from '@/components/ui/Hero';
 import { loadAbilityById, getPokemonThatHaveAbility } from '@/utils/loaders/ability-data-loader';
 import AbilityDetailClient from '@/components/abilities/ability-detail-client';
 import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
