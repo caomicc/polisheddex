@@ -245,6 +245,7 @@ export interface BaseData extends DetailedStats {
       name: string;
     }
   >;
+  [key: string]: unknown; // Replaced `any` with `unknown` to resolve lint issue
 }
 
 export interface LevelMovesData {

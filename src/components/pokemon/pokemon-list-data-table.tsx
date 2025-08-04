@@ -16,8 +16,6 @@ import { useQueryStates, parseAsBoolean, parseAsString } from 'nuqs';
 
 import { Button } from '@/components/ui/button';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
-import { Input } from '@/components/ui/input';
-// import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import {
   Table,
@@ -65,7 +63,7 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
   const columns = React.useMemo(() => createPokemonListColumns(showFaithful), [showFaithful]);
 
   // URL-based state for filters that should persist across navigation
-  const [urlState, setUrlState] = useQueryStates(
+  const [urlState] = useQueryStates(
     {
       search: parseAsString.withDefault(''),
       type: parseAsString.withDefault('all'),
@@ -120,22 +118,22 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
     }
   }, [search, columns]);
 
-  // Get unique types from the data
-  const types = React.useMemo(() => {
-    const typeSet = new Set<string>();
+  // // Get unique types from the data
+  // const types = React.useMemo(() => {
+  //   const typeSet = new Set<string>();
 
-    data.forEach((pokemon) => {
-      const displayTypes = showFaithful
-        ? pokemon.faithfulTypes || pokemon.types
-        : pokemon.updatedTypes || pokemon.types;
-      const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
-      typesArray.forEach((type) => {
-        if (type) typeSet.add(type);
-      });
-    });
+  //   data.forEach((pokemon) => {
+  //     const displayTypes = showFaithful
+  //       ? pokemon.faithfulTypes || pokemon.types
+  //       : pokemon.updatedTypes || pokemon.types;
+  //     const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
+  //     typesArray.forEach((type) => {
+  //       if (type) typeSet.add(type);
+  //     });
+  //   });
 
-    return Array.from(typeSet).sort();
-  }, [data, showFaithful]);
+  //   return Array.from(typeSet).sort();
+  // }, [data, showFaithful]);
 
   // Apply filters to the data
   const filteredData = React.useMemo(() => {
@@ -264,43 +262,6 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
   return (
     <div className="w-full px-2 sm:px-0">
       <div className="flex flex-col gap-4 py-4">
-        {/* Primary search and filters */}
-        <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex flex-col gap-2">
-            <Label htmlFor="pokemon-filter">Pokémon Name</Label>
-            <Input
-              id="pokemon-filter"
-              placeholder="Search by name..."
-              value={search}
-              onChange={(event) => setUrlState({ search: event.target.value || null })}
-              className="max-w-sm bg-white"
-            />
-          </div>
-
-          {/* Type filter */}
-          <div className="flex flex-row gap-4 w-full sm:w-auto">
-            <div className="flex flex-col gap-2 w-1/2 md:w-auto">
-              <Label htmlFor="type-select">Type</Label>
-              <Select
-                value={type}
-                onValueChange={(value) => setUrlState({ type: value === 'all' ? null : value })}
-              >
-                <SelectTrigger id="type-select" className="bg-white w-[140px]">
-                  <SelectValue placeholder="All Types" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Types</SelectItem>
-                  {types.map((pokemonType) => (
-                    <SelectItem key={pokemonType} value={pokemonType}>
-                      {pokemonType}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </div>
-
         {/* Checkbox Filters
         <div className="flex flex-wrap gap-4">
           <div className="flex items-center space-x-2">
@@ -317,36 +278,6 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
 
         {/* Results Summary */}
         <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
-          {(Boolean(search) ||
-            type !== 'all' ||
-            generation !== 'all' ||
-            sorting.length > 0 ||
-            hasJohtoDex ||
-            hasNationalDex ||
-            hasForms) && (
-            <Button
-              size="sm"
-              onClick={() => {
-                setUrlState({
-                  search: null,
-                  type: null,
-                  generation: null,
-                  hasJohtoDex: null,
-                  hasNationalDex: null,
-                  hasForms: null,
-                });
-                setSorting([{ id: 'johtoDex', desc: false }]);
-                try {
-                  localStorage.removeItem(STORAGE_KEY);
-                } catch (error) {
-                  console.warn('Failed to clear table state from localStorage:', error);
-                }
-              }}
-              className="text-xs sm:text-sm whitespace-nowrap"
-            >
-              Clear filters & sort
-            </Button>
-          )}
           <span className="flex">
             Showing {table.getFilteredRowModel().rows.length} of {filteredData.length} Pokémon
             {sorting.length > 0 && (

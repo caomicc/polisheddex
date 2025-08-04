@@ -10,8 +10,8 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Hero } from '@/components/ui/Hero';
 import { loadPokemonBaseDataFromManifest } from '@/utils/loaders/pokemon-data-loader';
-import { PokemonListDataTable } from '@/components/pokemon/pokemon-list-data-table';
 import { Suspense } from 'react';
+import PokemonListDisplay from '@/components/pokemon/pokemon-list-display';
 
 export default async function PokemonTableList() {
   // Load Pokemon data from manifest system
@@ -23,7 +23,7 @@ export default async function PokemonTableList() {
   return (
     <>
       <Hero
-        headline={'Pokédex'}
+        headline={'Pokédex Table'}
         description={'Browse all Pokémon in a searchable, sortable table format'}
         breadcrumbs={
           <Breadcrumb>
@@ -46,7 +46,7 @@ export default async function PokemonTableList() {
 
       <div className="max-w-xl md:max-w-4xl mx-auto md:px-4">
         <Suspense fallback={<div className="flex justify-center py-8">Loading Pokemon...</div>}>
-          <PokemonListDataTable data={pokemonList} />
+          <PokemonListDisplay pokemonList={pokemonList} />
         </Suspense>
       </div>
     </>
