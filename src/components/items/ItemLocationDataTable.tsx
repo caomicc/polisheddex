@@ -31,6 +31,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import { normalizeLocationKey } from '@/utils/locationUtils';
+import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 
 export interface ItemLocation {
   area: string;
@@ -131,32 +132,20 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
     const methods = Array.from(new Set(locations.map((loc) => loc.details || 'Unknown')));
     return methods.sort();
   }, [locations]);
+  const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
 
   const table = useReactTable({
     data: locations,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    onPaginationChange: setPagination,
     state: {
-      globalFilter,
-      columnFilters: methodFilter === 'all' ? [] : [{ id: 'method', value: methodFilter }],
+      pagination: { pageIndex, pageSize },
     },
-    onGlobalFilterChange: setGlobalFilter,
-    globalFilterFn: (row, columnId, value) => {
-      const location = row.original;
-      const searchText = value.toLowerCase();
-      return Boolean(
-        location.area.toLowerCase().includes(searchText) ||
-          (location.details && location.details.toLowerCase().includes(searchText)),
-      );
-    },
-    initialState: {
-      pagination: {
-        pageSize: 10,
-      },
-    },
+    pageCount: Math.ceil(locations.length / pageSize),
   });
 
   return (
@@ -252,18 +241,21 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
           </div>
           <div className="flex items-center space-x-2">
             <Button
-              variant="outline"
               size="sm"
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
+              className="px-3 py-1.5 text-sm"
             >
               Previous
             </Button>
+            <div className="text-sm text-muted-foreground px-2">
+              Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+            </div>
             <Button
-              variant="outline"
               size="sm"
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
+              className="px-3 py-1.5 text-sm"
             >
               Next
             </Button>
