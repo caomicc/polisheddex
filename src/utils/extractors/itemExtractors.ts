@@ -1433,31 +1433,11 @@ export function extractEventItemLocations(itemData: Record<string, ItemData>): v
         currentNPC = line.replace('Script:', '');
       }
 
-      // Look for giveitem/verbosegiveitem patterns for special items
+      // Look for giveitem/verbosegiveitem patterns for all items
       const giveItemMatch = line.match(
         /(giveitem|givekeyitem|verbosegiveitem|verbosegivekeyitem)\s+(\w+)/,
       );
 
-      if (giveItemMatch) {
-        const itemName = giveItemMatch[2];
-        const normalizedItemId = normalizeItemId(itemName);
-
-        if (!eventItems[normalizedItemId]) {
-          eventItems[normalizedItemId] = [];
-        }
-
-        // Determine details based on NPC and location
-        let details = 'Event/NPC reward';
-        if (currentNPC) {
-          details = `Given by NPC (${currentNPC})`;
-        }
-
-        eventItems[normalizedItemId].push({
-          area: locationName,
-          details,
-          npc: currentNPC || undefined,
-        });
-      }
       if (giveItemMatch) {
         const itemName = giveItemMatch[2];
         const normalizedItemId = normalizeItemId(itemName);
