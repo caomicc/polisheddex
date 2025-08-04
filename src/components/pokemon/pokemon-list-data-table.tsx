@@ -17,7 +17,7 @@ import { useQueryStates, parseAsBoolean, parseAsString } from 'nuqs';
 import { Button } from '@/components/ui/button';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 import { Input } from '@/components/ui/input';
-import { Checkbox } from '@/components/ui/checkbox';
+// import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import {
   Table,
@@ -301,7 +301,7 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
           </div>
         </div>
 
-        {/* Checkbox Filters */}
+        {/* Checkbox Filters
         <div className="flex flex-wrap gap-4">
           <div className="flex items-center space-x-2">
             <Checkbox
@@ -313,7 +313,7 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
               Has multiple forms
             </Label>
           </div>
-        </div>
+        </div> */}
 
         {/* Results Summary */}
         <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">

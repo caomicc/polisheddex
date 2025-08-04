@@ -152,11 +152,10 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
       const searchText = value.toLowerCase();
       const pokemonName = pokemon.name.toLowerCase();
       const displayName = formatPokemonName(pokemon.name).toLowerCase();
-      const types = row.getValue(id) as string[];
+      // const types = row.getValue(id) as string[];
       return (
-        types.some((type) => type.toLowerCase().includes(value.toLowerCase())) ||
-        pokemonName.includes(searchText) ||
-        displayName.includes(searchText)
+        // types.some((type) => type.toLowerCase().includes(value.toLowerCase())) ||
+        pokemonName.includes(searchText) || displayName.includes(searchText)
       );
     },
     // size: 150,
