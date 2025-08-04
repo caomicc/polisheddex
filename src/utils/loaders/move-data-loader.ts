@@ -133,7 +133,7 @@ export async function getMovesByCategory(category: string): Promise<any[]> {
 }
 
 // Additional functionality for finding Pokemon that can learn moves
-import { loadPokemonBaseData } from './pokemon-base-data-loader';
+import { loadPokemonBaseDataFromManifest } from './pokemon-data-loader';
 import { normalizePokemonUrlKey } from '../pokemonUrlNormalizer';
 
 export interface BaseData {
@@ -154,7 +154,7 @@ export interface PokemonWithMove {
 }
 
 export async function getPokemonThatCanLearnMove(moveName: string): Promise<PokemonWithMove[]> {
-  const pokemonBaseData = await loadPokemonBaseData();
+  const pokemonBaseData = await loadPokemonBaseDataFromManifest();
   const pokemonWithMove: PokemonWithMove[] = [];
 
   // Normalize move name for comparison

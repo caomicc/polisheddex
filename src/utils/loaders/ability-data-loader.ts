@@ -87,7 +87,7 @@ export async function getAllAbilities(): Promise<any[]> {
 
 // Additional functionality for finding Pokemon that have abilities
 import { BaseData } from '@/types/types';
-import { loadPokemonBaseData } from './pokemon-base-data-loader';
+import { loadPokemonBaseDataFromManifest } from './pokemon-data-loader';
 
 export interface PokemonWithAbility {
   pokemon: BaseData;
@@ -98,7 +98,7 @@ export interface PokemonWithAbility {
 }
 
 export async function getPokemonThatHaveAbility(abilityId: string): Promise<PokemonWithAbility[]> {
-  const pokemonBaseData = await loadPokemonBaseData();
+  const pokemonBaseData = await loadPokemonBaseDataFromManifest();
   const pokemonWithAbility: PokemonWithAbility[] = [];
 
   // Normalize ability ID for comparison

@@ -10,26 +10,14 @@ import {
 } from '@/components/ui/breadcrumb';
 import PokemonSearch from '@/components/pokemon/PokemonSearch';
 import { Hero } from '@/components/ui/Hero';
+import { loadPokemonBaseDataFromManifest } from '@/utils/loaders/pokemon-data-loader';
 export default async function PokemonList({
   searchParams,
 }: {
   searchParams: Promise<{ sort?: string }>;
 }) {
-  // Load Pokemon data directly from file system
-  let data: Record<string, BaseData> = {};
-  try {
-    if (typeof window === 'undefined') {
-      // Server-side: Load directly from output directory
-      const fs = await import('fs/promises');
-      const path = await import('path');
-      const dataPath = path.join(process.cwd(), 'output', 'manifests', 'pokemon_base_data.json');
-      const fileContent = await fs.readFile(dataPath, 'utf8');
-      data = JSON.parse(fileContent);
-    }
-  } catch (error) {
-    console.error('Error loading Pokemon data:', error);
-  }
-
+  // Load Pokemon data from manifest system
+  const pokemonData = await loadPokemonBaseDataFromManifest();
   const { sort = 'johtodex' } = (await searchParams) ?? {};
 
   // Determine sort type from query param
@@ -37,7 +25,7 @@ export default async function PokemonList({
     sort === 'nationaldex' ? 'nationaldex' : sort === 'johtodex' ? 'johtodex' : 'alphabetical';
 
   // Prepare an array of Pokémon with their names and dex numbers
-  const pokemonList: BaseData[] = Object.values(data) as BaseData[];
+  const pokemonList: BaseData[] = Object.values(pokemonData) as BaseData[];
 
   // Sort based on selected sort type
   const sortedPokemon = [...pokemonList].sort((a, b) => {

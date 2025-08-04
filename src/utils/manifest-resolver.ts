@@ -25,6 +25,24 @@ interface ItemManifest {
   [itemId: string]: any;
 }
 
+interface PokemonManifest {
+  [pokemonId: string]: {
+    name: string;
+    johtoNumber: number | null;
+    nationalNumber: number;
+    spriteUrl: string;
+    spriteDimensions?: {
+      width: number;
+      height: number;
+    };
+    types: {
+      faithful: string[];
+      polished: string[];
+    };
+    forms: string[];
+  };
+}
+
 interface CompressedAbility {
   id: string;
   isHidden: boolean;
@@ -178,7 +196,12 @@ export function normalizeId(name: string): string {
 // Preload commonly used manifests
 export async function preloadManifests(): Promise<void> {
   try {
-    await Promise.all([loadManifest('abilities'), loadManifest('moves'), loadManifest('items')]);
+    await Promise.all([
+      loadManifest('abilities'),
+      loadManifest('moves'),
+      loadManifest('items'),
+      loadManifest('pokemon'),
+    ]);
     console.log('Manifests preloaded successfully');
   } catch (error) {
     console.error('Error preloading manifests:', error);
@@ -190,4 +213,11 @@ export function clearManifestCache(): void {
   manifestCache.clear();
 }
 
-export type { AbilityManifest, MoveManifest, ItemManifest, CompressedAbility, ExpandedAbility };
+export type {
+  AbilityManifest,
+  MoveManifest,
+  ItemManifest,
+  PokemonManifest,
+  CompressedAbility,
+  ExpandedAbility,
+};
