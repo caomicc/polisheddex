@@ -84,7 +84,15 @@ export function getFallbackSprite(
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
 ): SpriteInfo {
-  const normalizedName = pokemonName.toLowerCase().replace(/-/g, '_');
+  let normalizedName = pokemonName.toLowerCase().replace(/-/g, '_');
+  
+  // If this is a form and the form-specific fallback doesn't work, try the base pokemon
+  if (normalizedName.includes('_')) {
+    const baseName = normalizedName.split('_')[0];
+    // Return the base pokemon fallback instead of the form-specific one
+    normalizedName = baseName;
+  }
+  
   const extension = type === 'animated' ? 'gif' : 'png';
   const filename =
     type === 'animated'
@@ -99,7 +107,7 @@ export function getFallbackSprite(
 }
 
 /**
- * Get sprite with automatic fallback
+ * Get sprite with automatic fallback, including form-based fallback
  */
 export function getSpriteWithFallback(
   manifest: UnifiedSpriteManifest | SpriteManifest,
@@ -108,7 +116,21 @@ export function getSpriteWithFallback(
   type: SpriteType = 'static',
 ): SpriteInfo {
   const sprite = getSprite(manifest, spriteName, variant, type);
-  return sprite || getFallbackSprite(spriteName, variant, type);
+  
+  if (sprite) {
+    return sprite;
+  }
+  
+  // If sprite not found and name contains form (has underscore), try base pokemon
+  if (spriteName.includes('_')) {
+    const baseName = spriteName.split('_')[0];
+    const baseSprite = getSprite(manifest, baseName, variant, type);
+    if (baseSprite) {
+      return baseSprite;
+    }
+  }
+  
+  return getFallbackSprite(spriteName, variant, type);
 }
 
 /**
@@ -194,7 +216,7 @@ export function getUnifiedSprite(
 }
 
 /**
- * Get sprite with fallback for any category
+ * Get sprite with fallback for any category, including form-based fallback for Pokemon
  */
 export function getUnifiedSpriteWithFallback(
   manifest: UnifiedSpriteManifest,
@@ -210,6 +232,14 @@ export function getUnifiedSpriteWithFallback(
   }
 
   if (category === 'pokemon') {
+    // If sprite not found and name contains form (has underscore), try base pokemon
+    if (spriteName.includes('_')) {
+      const baseName = spriteName.split('_')[0];
+      const baseSprite = getUnifiedSprite(manifest, baseName, category, variant, type);
+      if (baseSprite) {
+        return baseSprite;
+      }
+    }
     return getFallbackSprite(spriteName, variant as SpriteVariant, type);
   } else {
     return getFallbackTrainerSprite(spriteName, type || 'static');

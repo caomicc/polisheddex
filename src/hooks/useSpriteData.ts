@@ -12,11 +12,19 @@ export function useSpriteData(
   spriteName: string,
   variant: SpriteVariant = 'normal',
   type: SpriteType = 'static',
+  form?: string | null,
 ): UseSpriteDataResult {
   const [spriteInfo, setSpriteInfo] = useState<SpriteInfo | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [manifest, setManifest] = useState<UnifiedSpriteManifest | null>(null);
+
+  console.log('useSpriteData called with:', {
+    spriteName,
+    variant,
+    type,
+    form,
+  });
 
   // Load manifest once
   useEffect(() => {
@@ -48,14 +56,24 @@ export function useSpriteData(
     }
 
     try {
-      const sprite = getUnifiedSpriteWithFallback(manifest, spriteName, 'pokemon', variant, type);
+      // Construct the full sprite name including form if provided
+      const fullSpriteName = form ? `${spriteName}_${form}` : spriteName;
+
+      // Try with form first if provided, then fallback to base pokemon
+      const sprite = getUnifiedSpriteWithFallback(
+        manifest,
+        fullSpriteName,
+        'pokemon',
+        variant,
+        type,
+      );
       setSpriteInfo(sprite);
       setIsLoading(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error');
       setIsLoading(false);
     }
-  }, [manifest, spriteName, variant, type]);
+  }, [manifest, spriteName, variant, type, form]);
 
   return {
     spriteInfo,

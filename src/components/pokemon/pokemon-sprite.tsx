@@ -12,6 +12,7 @@ interface PokemonSpriteProps {
   primaryType?: PokemonType['name'];
   variant?: SpriteVariant;
   type?: SpriteType;
+  form?: string; // Optional form prop for specific Pokemon forms
   // Legacy prop for backward compatibility
   src?: string;
 }
@@ -24,8 +25,9 @@ export function PokemonSprite({
   variant = 'normal',
   type = 'static',
   src,
+  form, // Optional form prop for specific Pokemon forms
 }: PokemonSpriteProps) {
-  const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, type);
+  const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, type, form);
 
   // Fallback to legacy src prop if provided and sprite data not available
   const finalSrc = spriteInfo?.url || src;

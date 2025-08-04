@@ -134,53 +134,10 @@ const PokedexHeader = ({
         )
       }
       image={`/sprites/pokemon/${pokemonName.toLowerCase().replace(/-/g, '_')}${selectedForm && selectedForm !== 'default' ? `_${selectedForm.toLowerCase().replace(/-/g, '_')}` : ''}/normal_front.png`}
+      form={selectedForm}
       headline={pokemonName}
     >
       <div className="flex flex-col flex-wrap items-start gap-2 ">
-        {/* {showFaithful ? (
-          <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-            {formData.types ? (
-              Array.isArray(formData.types) ? (
-                formData.types.map((type: string) => (
-                  <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                    {type}
-                  </Badge>
-                ))
-              ) : (
-                <Badge
-                  key={formData.types}
-                  variant={formData.types.toLowerCase() as PokemonType['name']}
-                >
-                  {formData.types}
-                </Badge>
-              )
-            ) : (
-              <Badge variant="secondary">Unknown</Badge>
-            )}
-          </div>
-        ) : (
-          <div className="flex flex-wrap gap-2" aria-label="Pokemon Types" role="group">
-            {formData.updatedTypes ? (
-              Array.isArray(formData.updatedTypes) ? (
-                formData.updatedTypes.map((type: string) => (
-                  <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
-                    {type}
-                  </Badge>
-                ))
-              ) : (
-                <Badge
-                  key={formData.updatedTypes}
-                  variant={formData.updatedTypes.toLowerCase() as PokemonType['name']}
-                >
-                  {formData.types}
-                </Badge>
-              )
-            ) : (
-              <></>
-            )}
-          </div>
-        )} */}
-
         {uniqueForms.length > 0 && (
           <PokemonFormSelect
             selectedForm={selectedForm}
