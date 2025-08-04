@@ -12,50 +12,18 @@ import PokemonSearch from '@/components/pokemon/PokemonSearch';
 import { Hero } from '@/components/ui/Hero';
 import { loadPokemonBaseData } from '@/utils/loaders/pokemon-base-data-loader';
 
-export default async function PokemonList({
-  searchParams,
-}: {
-  searchParams: Promise<{ sort?: string }>;
-}) {
+export default async function PokemonList() {
   // Load Pokemon data using optimized loader
-  const data = await loadPokemonBaseData();
+  const pokemonData = await loadPokemonBaseData();
 
-  // Add debugging for empty data
-  if (!data || Object.keys(data).length === 0) {
-    console.error('Pokemon data is empty or null');
-  }
-
-  const { sort = 'johtodex' } = (await searchParams) ?? {};
-
-  // Determine sort type from query param
-  const sortType =
-    sort === 'nationaldex' ? 'nationaldex' : sort === 'johtodex' ? 'johtodex' : 'alphabetical';
-
-  // Prepare an array of Pokémon with their names and dex numbers
-  const pokemonList: BaseData[] = Object.values(data) as BaseData[];
-
-  // Add debugging for pokemon list
-  console.log(`Loaded ${pokemonList.length} Pokemon`);
-
-  // Sort based on selected sort type
-  const sortedPokemon = [...pokemonList].sort((a, b) => {
-    if (sortType === 'alphabetical') {
-      return a.name.localeCompare(b.name);
-    }
-    if (sortType === 'nationaldex') {
-      return (a.nationalDex ?? 0) - (b.nationalDex ?? 0) || a.name.localeCompare(b.name);
-    }
-    if (sortType === 'johtodex') {
-      return (a.johtoDex ?? 999) - (b.johtoDex ?? 999) || a.name.localeCompare(b.name);
-    }
-    return 0;
-  });
+  // Convert to array for the search component
+  const allPokemon: BaseData[] = Object.values(pokemonData);
 
   return (
     <>
       <Hero
-        headline={'Pokedex'}
-        description={'Browse all Pokémon available in Pokémon Polished Crystal'}
+        headline="Pokédex"
+        description="Browse all Pokémon available in Pokémon Polished Crystal"
         breadcrumbs={
           <Breadcrumb>
             <BreadcrumbList>
@@ -74,39 +42,28 @@ export default async function PokemonList({
           </Breadcrumb>
         }
       />
-
-      <div className="max-w-xl md:max-w-4xl mx-auto md:p-4">
-        <PokemonSearch pokemon={sortedPokemon} sortType={sortType} />
+      <div className="max-w-xl md:max-w-4xl mx-auto md:px-4">
+        <PokemonSearch pokemon={allPokemon} sortType="johtodex" />
       </div>
     </>
   );
 }
 
 // Generate metadata for SEO and social sharing
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: Promise<{ sort?: string }>;
-}) {
-  const { sort = 'johtodex' } = (await searchParams) ?? {};
-
-  const sortType =
-    sort === 'nationaldex' ? 'National Dex' : sort === 'johtodex' ? 'Johto Dex' : 'Alphabetical';
-
-  const title = `Pokédex - ${sortType} Order | PolishedDex`;
-  const description = `Browse all Pokémon available in Pokémon Polished Crystal, sorted by ${sortType} order. View detailed stats, types, evolutions, moves, and locations.`;
-  const url = `https://polisheddex.com/pokemon${sort !== 'johtodex' ? `?sort=${sort}` : ''}`;
+export async function generateMetadata() {
+  const title = 'Pokédex | PolishedDex';
+  const description = 'Browse all Pokémon available in Pokémon Polished Crystal. View detailed stats, types, evolutions, moves, and locations.';
+  const url = 'https://www.polisheddx.app/pokemon';
 
   return {
     title,
     description,
     keywords: [
       'pokemon polished crystal',
-      'pokedex',
+      'pokédex',
       'pokemon list',
       'pokemon database',
-      'polisheddex',
-      sortType.toLowerCase(),
+      'polisheddx',
       'pokemon stats',
       'pokemon types',
       'pokemon evolutions',
@@ -124,7 +81,7 @@ export async function generateMetadata({
           url: '/og-image.png',
           width: 1200,
           height: 630,
-          alt: `Pokédex - ${sortType} Order - PolishedDex`,
+          alt: 'Pokédex - PolishedDex',
         },
       ],
       locale: 'en_US',
