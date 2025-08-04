@@ -1,2 +1,3 @@
-export { default as Navigation } from './navigation';
-export { Footer } from './footer';
+export { default as Navigation } from './Navigation';
+export { Footer } from './Footer';
+export { Hero } from './Hero';
