@@ -21,7 +21,7 @@ function formatPokemonName(name: string): string {
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-export const pokemonListColumns: ColumnDef<BaseData>[] = [
+export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseData>[] => [
   {
     accessorKey: 'sprite',
     id: 'sprite',
@@ -153,8 +153,10 @@ export const pokemonListColumns: ColumnDef<BaseData>[] = [
     header: 'Types',
     cell: ({ row }) => {
       const pokemon = row.original;
-      // Use updatedTypes if available, otherwise fall back to types
-      const displayTypes = pokemon.updatedTypes || pokemon.types;
+      // Use faithful vs polished types based on context
+      const displayTypes = showFaithful
+        ? pokemon.faithfulTypes || pokemon.types
+        : pokemon.updatedTypes || pokemon.types;
       const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
 
       return (
@@ -170,7 +172,9 @@ export const pokemonListColumns: ColumnDef<BaseData>[] = [
     filterFn: (row, id, value) => {
       const pokemon = row.original;
       const searchText = value.toLowerCase();
-      const displayTypes = pokemon.updatedTypes || pokemon.types;
+      const displayTypes = showFaithful
+        ? pokemon.faithfulTypes || pokemon.types
+        : pokemon.updatedTypes || pokemon.types;
       const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
 
       return typesArray.some((type) => type.toLowerCase().includes(searchText));
@@ -178,3 +182,6 @@ export const pokemonListColumns: ColumnDef<BaseData>[] = [
     size: 150,
   },
 ];
+
+// Backwards compatibility - keep the old export for any existing usage
+export const pokemonListColumns = createPokemonListColumns(false);

@@ -37,6 +37,7 @@ import {
 } from '@/components/ui/select';
 import { BaseData } from '@/types/types';
 import { useFaithfulPreference } from '@/contexts';
+import { createPokemonListColumns } from './pokemon-list-columns';
 
 /**
  * PokemonListDataTable - A data table component for Pokemon list data with persistent state
@@ -51,15 +52,17 @@ import { useFaithfulPreference } from '@/contexts';
  */
 
 interface PokemonListDataTableProps {
-  columns: ColumnDef<BaseData, unknown>[];
   data: BaseData[];
 }
 
-export function PokemonListDataTable({ columns, data }: PokemonListDataTableProps) {
+export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
   // Storage key for persisting non-URL table state
   const STORAGE_KEY = 'pokemonListDataTable';
 
   const { showFaithful } = useFaithfulPreference();
+
+  // Create columns dynamically based on faithful preference
+  const columns = React.useMemo(() => createPokemonListColumns(showFaithful), [showFaithful]);
 
   // URL-based state for filters that should persist across navigation
   const [urlState, setUrlState] = useQueryStates(
