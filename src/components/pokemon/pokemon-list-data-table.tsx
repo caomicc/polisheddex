@@ -261,58 +261,6 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
 
   return (
     <div className="w-full px-2 sm:px-0">
-      <div className="flex flex-col gap-4 py-4">
-        {/* Checkbox Filters
-        <div className="flex flex-wrap gap-4">
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="has-forms"
-              checked={hasForms}
-              onCheckedChange={(checked) => setUrlState({ hasForms: checked ? true : null })}
-            />
-            <Label htmlFor="has-forms" className="text-sm">
-              Has multiple forms
-            </Label>
-          </div>
-        </div> */}
-
-        {/* Results Summary */}
-        <div className="flex flex-col sm:items-start gap-2 text-sm text-muted-foreground">
-          <span className="flex">
-            Showing {table.getFilteredRowModel().rows.length} of {filteredData.length} Pokémon
-            {sorting.length > 0 && (
-              <span className="ml-2">
-                • Sorted by{' '}
-                {sorting
-                  .map((sort) => {
-                    const direction = sort.desc ? 'desc' : 'asc';
-                    return `${sort.id} (${direction === 'desc' ? 'Z-A' : 'A-Z'})`;
-                  })
-                  .join(', ')}
-              </span>
-            )}
-            {(hasJohtoDex ||
-              hasNationalDex ||
-              hasForms ||
-              type !== 'all' ||
-              generation !== 'all') && (
-              <span className="ml-2">
-                • Filtered:{' '}
-                {[
-                  hasJohtoDex && 'In Johto Dex',
-                  hasNationalDex && 'Has National Dex',
-                  hasForms && 'Has multiple forms',
-                  type !== 'all' && `Type: ${type}`,
-                  generation !== 'all' && `Generation: ${generation.replace('gen', 'Gen ')}`,
-                ]
-                  .filter(Boolean)
-                  .join(', ')}
-              </span>
-            )}
-          </span>
-        </div>
-      </div>
-
       {/* Data Table */}
       <div className="rounded-md border bg-white dark:bg-white/10 overflow-x-auto border-border">
         <Table className="table-fixed w-full lg:min-w-[500px]">
