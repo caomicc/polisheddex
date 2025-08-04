@@ -73,6 +73,13 @@ export default async function PokemonList({
         }
       />
 
+      {console.log('Pokemon data loaded:', Object.keys(pokemonData).length, 'entries')}
+      {console.log(JSON.stringify(pokemonData, null, 2))}
+      {console.log(
+        `Sorted Pokémon by ${sortType}:`,
+        sortedPokemon.map((p) => `${p.name} (${p.johtoDex ?? 'N/A'})`).join(', '),
+      )}
+
       <div className="max-w-xl md:max-w-4xl mx-auto md:p-4">
         <PokemonSearch pokemon={sortedPokemon} sortType={sortType} />
       </div>

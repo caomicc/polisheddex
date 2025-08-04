@@ -45,6 +45,96 @@ const nextConfig: NextConfig = {
         destination: '/items/dusk',
         permanent: true,
       },
+      {
+        source: '/items/pokeball',
+        destination: '/items/poke',
+        permanent: true,
+      },
+      {
+        source: '/items/ultraball',
+        destination: '/items/ultra',
+        permanent: true,
+      },
+      {
+        source: '/items/greatball',
+        destination: '/items/great',
+        permanent: true,
+      },
+      {
+        source: '/items/masterball',
+        destination: '/items/master',
+        permanent: true,
+      },
+      {
+        source: '/items/safariball',
+        destination: '/items/safari',
+        permanent: true,
+      },
+      {
+        source: '/items/netball',
+        destination: '/items/net',
+        permanent: true,
+      },
+      {
+        source: '/items/moonball',
+        destination: '/items/moon',
+        permanent: true,
+      },
+      {
+        source: '/items/lureball',
+        destination: '/items/lure',
+        permanent: true,
+      },
+      {
+        source: '/items/levelball',
+        destination: '/items/level',
+        permanent: true,
+      },
+      {
+        source: '/items/fastball',
+        destination: '/items/fast',
+        permanent: true,
+      },
+      {
+        source: '/items/cherishball',
+        destination: '/items/cherish',
+        permanent: true,
+      },
+      {
+        source: '/items/premierball',
+        destination: '/items/premier',
+        permanent: true,
+      },
+      {
+        source: '/items/luxuryball',
+        destination: '/items/luxury',
+        permanent: true,
+      },
+      {
+        source: '/items/friendball',
+        destination: '/items/friend',
+        permanent: true,
+      },
+      {
+        source: '/items/loveball',
+        destination: '/items/love',
+        permanent: true,
+      },
+      {
+        source: '/items/repeatball',
+        destination: '/items/repeat',
+        permanent: true,
+      },
+      {
+        source: '/items/timerball',
+        destination: '/items/timer',
+        permanent: true,
+      },
+      {
+        source: '/items/diveball',
+        destination: '/items/dive',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {
