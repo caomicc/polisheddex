@@ -367,7 +367,7 @@ export interface LocationEvent {
 }
 
 export interface LocationItem {
-  type: 'item' | 'hiddenItem' | 'tmHm';
+  type: 'item' | 'hiddenItem' | 'tmHm' | 'berry';
   name: string;
   coordinates?: {
     x: number;

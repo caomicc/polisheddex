@@ -317,6 +317,9 @@ export function extractItemData(): Record<string, ItemData> {
   console.log('🔧 Extracting item maniacs data...');
   extractItemManiacs(items);
 
+  console.log('🔧 Extracting berry tree locations...');
+  extractBerryTreeLocations(items);
+
   // Write the extracted data to a JSON file
   fs.writeFileSync(outputFile, JSON.stringify(items, null, 2));
 
@@ -1147,6 +1150,118 @@ export function extractItemManiacs(itemData: Record<string, ItemData>): void {
   }
 }
 
+/**
+ * Extract berry tree locations from fruittree_event data and add location information to item data
+ * @param itemData The existing item data to update with location information
+ */
+export function extractBerryTreeLocations(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  console.log('🔧 Extracting berry tree locations...');
+
+  // Path to maps directory
+  const mapsDir = path.join(__dirname, '../../../polishedcrystal/maps');
+
+  if (!fs.existsSync(mapsDir)) {
+    console.log('⚠️ Maps directory not found, skipping berry tree extraction');
+    return;
+  }
+
+  // Store berry locations with area names
+  const berryLocations: Record<string, Array<{ area: string; coordinates?: { x: number; y: number } }>> = {};
+  
+  // Get all map files
+  const mapFiles = fs.readdirSync(mapsDir).filter((file) => file.endsWith('.asm'));
+
+  for (const mapFile of mapFiles) {
+    const mapPath = path.join(mapsDir, mapFile);
+    const mapContent = fs.readFileSync(mapPath, 'utf8');
+    const lines = mapContent.split(/\r?\n/);
+
+    // Extract location name from filename
+    const locationName = path.basename(mapFile, '.asm')
+      .replace(/([a-z])([A-Z])/g, '$1 $2') // Add spaces between camelCase
+      .replace(/(\d+)([A-Z])/g, '$1 $2') // Add spaces between numbers and letters
+      .replace(/([A-Z])(\d+)/g, '$1 $2') // Add spaces between letters and numbers
+      .trim();
+
+    for (const line of lines) {
+      const trimmedLine = line.trim();
+      
+      // Look for fruittree_event patterns
+      const fruitTreeMatch = trimmedLine.match(/fruittree_event\s+(-?\d+),\s*(-?\d+),\s*\w+,\s*(\w+),/);
+      if (fruitTreeMatch) {
+        const x = parseInt(fruitTreeMatch[1]);
+        const y = parseInt(fruitTreeMatch[2]);
+        const berryName = fruitTreeMatch[3];
+
+        // Normalize berry name to match item IDs
+        const normalizedBerryId = normalizeItemId(berryName);
+
+        if (!berryLocations[normalizedBerryId]) {
+          berryLocations[normalizedBerryId] = [];
+        }
+
+        berryLocations[normalizedBerryId].push({
+          area: locationName,
+          coordinates: { x, y }
+        });
+      }
+    }
+  }
+
+  // Update item data with berry tree location information
+  let itemsWithBerryTrees = 0;
+  const unmatchedBerries: string[] = [];
+
+  for (const [berryId, locations] of Object.entries(berryLocations)) {
+    // Try different ID variations to match with existing items
+    const possibleIds = [
+      berryId,
+      berryId.replace('_berry', '').replace('-berry', ''),
+      berryId + '-berry',
+      berryId.replace(/berry$/, '') + 'berry',
+    ];
+
+    let found = false;
+    for (const id of possibleIds) {
+      if (itemData[id]) {
+        if (!itemData[id].locations) {
+          itemData[id].locations = [];
+        }
+
+        // Add all locations for this berry
+        for (const location of locations) {
+          itemData[id].locations.push({
+            area: location.area,
+            details: 'Berry tree',
+          });
+        }
+
+        itemsWithBerryTrees++;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      unmatchedBerries.push(berryId);
+    }
+  }
+
+  console.log(`✅ Added berry tree location data to ${itemsWithBerryTrees} berry items`);
+  console.log(`🍇 Found ${Object.keys(berryLocations).length} unique berry types in ${mapFiles.length} map files`);
+
+  if (unmatchedBerries.length > 0) {
+    console.log(
+      `⚠️ Could not match ${unmatchedBerries.length} berry items:`,
+      unmatchedBerries.join(', '),
+    );
+  }
+}
+
 // --- Location Items Extraction ---
 export function extractLocationItems(): Record<string, LocationItem[]> {
   // Use this workaround for __dirname in ES modules
@@ -1212,6 +1327,25 @@ export function extractLocationItems(): Record<string, LocationItem[]> {
           coordinates: {
             x: parseInt(hiddenItemMatch[1]),
             y: parseInt(hiddenItemMatch[2]),
+          },
+        });
+      }
+
+      // Fruit tree events (fruittree_event)
+      const fruitTreeMatch = line.match(/fruittree_event\s+(-?\d+),\s*(-?\d+),\s*\w+,\s*(\w+),/);
+      if (fruitTreeMatch) {
+        const berryName = fruitTreeMatch[3].replace(/_/g, ' ').toLowerCase();
+        const formattedBerryName = berryName
+          .split(' ')
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+
+        items.push({
+          type: 'berry',
+          name: formattedBerryName,
+          coordinates: {
+            x: parseInt(fruitTreeMatch[1]),
+            y: parseInt(fruitTreeMatch[2]),
           },
         });
       }
