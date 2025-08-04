@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import {
-  ColumnDef,
   ColumnFiltersState,
   SortingState,
   VisibilityState,
@@ -38,6 +37,7 @@ import {
 import { BaseData } from '@/types/types';
 import { useFaithfulPreference } from '@/contexts';
 import { createPokemonListColumns } from './pokemon-list-columns';
+import { cn } from '@/lib/utils';
 
 /**
  * PokemonListDataTable - A data table component for Pokemon list data with persistent state
@@ -384,13 +384,32 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
 
       {/* Data Table */}
       <div className="rounded-md border bg-white dark:bg-white/10 overflow-x-auto border-border">
-        <Table className="table-fixed w-full min-w-[500px]">
+        <Table className="table-fixed w-full lg:min-w-[500px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} style={{ width: header.column.columnDef.size }}>
+                    // <TableHead
+                    //   key={header.id}
+                    //   className="w-[60px]!"
+                    //   // style={{
+                    //   //   width: header.column.columnDef.size ?? 'auto',
+                    //   //   maxWidth: header.column.columnDef.maxSize ?? 'auto',
+                    //   // }}
+                    // >
+                    //   {header.isPlaceholder
+                    //     ? null
+                    //     : flexRender(header.column.columnDef.header, header.getContext())}
+                    // </TableHead>
+                    <TableHead
+                      key={header.id}
+                      className={
+                        header.column.columnDef.size === 60
+                          ? 'w-11 md:w-[60px]! max-w-16 text-center'
+                          : ''
+                      }
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(header.column.columnDef.header, header.getContext())}
@@ -405,7 +424,13 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
               table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell
+                      key={cell.id}
+                      className={cn(
+                        cell.column.columnDef.size === 60 ? 'w-[60px]!  max-w-16 text-center' : '',
+                        'p-1 md:p-2',
+                      )}
+                    >
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}

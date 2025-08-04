@@ -34,16 +34,18 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
           : 'unknown';
 
       return (
-        <div className="w-12 h-12 flex items-center justify-center">
-          <PokemonSprite
-            pokemonName={pokemon.name}
-            alt={`${pokemon.name} sprite`}
-            primaryType={primaryType as PokemonType['name']}
-            variant="normal"
-            type="static"
-            src={pokemon.frontSpriteUrl}
-            className="w-10! h-10! p-1! rounded-md!"
-          />
+        <div className="">
+          <Link href={`/pokemon/${pokemon.normalizedUrl || pokemon.name.toLowerCase()}`}>
+            <PokemonSprite
+              pokemonName={pokemon.name}
+              alt={`${pokemon.name} sprite`}
+              primaryType={primaryType as PokemonType['name']}
+              variant="normal"
+              type="static"
+              src={pokemon.frontSpriteUrl}
+              className="w-10! h-10! p-1! rounded-md!"
+            />
+          </Link>
         </div>
       );
     },
@@ -55,7 +57,11 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
     id: 'johtoDex',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button
+          variant="ghost"
+          className="-ml-3"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
           #
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -77,37 +83,41 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
     },
     size: 60,
   },
-  {
-    accessorKey: 'nationalDex',
-    id: 'nationalDex',
-    header: ({ column }) => {
-      return (
-        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
-          National #
-          {column.getIsSorted() === 'desc' ? (
-            <ArrowDown className="size-3" />
-          ) : column.getIsSorted() === 'asc' ? (
-            <ArrowUp className="size-3" />
-          ) : (
-            <ArrowUpDown className="size-3" />
-          )}
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      const nationalDex = row.getValue('nationalDex') as number | null;
-      return (
-        <div className="text-sm font-mono">{nationalDex !== null ? `#${nationalDex}` : '—'}</div>
-      );
-    },
-    size: 100,
-  },
+  // {
+  //   accessorKey: 'nationalDex',
+  //   id: 'nationalDex',
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
+  //         National #
+  //         {column.getIsSorted() === 'desc' ? (
+  //           <ArrowDown className="size-3" />
+  //         ) : column.getIsSorted() === 'asc' ? (
+  //           <ArrowUp className="size-3" />
+  //         ) : (
+  //           <ArrowUpDown className="size-3" />
+  //         )}
+  //       </Button>
+  //     );
+  //   },
+  //   cell: ({ row }) => {
+  //     const nationalDex = row.getValue('nationalDex') as number | null;
+  //     return (
+  //       <div className="text-sm font-mono">{nationalDex !== null ? `#${nationalDex}` : '—'}</div>
+  //     );
+  //   },
+  //   size: 100,
+  // },
   {
     accessorKey: 'name',
     id: 'name',
     header: ({ column }) => {
       return (
-        <Button className="-ml-3" variant="ghost" onClick={() => column.toggleSorting()}>
+        <Button
+          className="-ml-3"
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
           Name
           {column.getIsSorted() === 'desc' ? (
             <ArrowDown className="size-3" />
@@ -127,7 +137,7 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
         <div className="min-w-0">
           <Link
             href={`/pokemon/${pokemon.normalizedUrl || pokemon.name.toLowerCase()}`}
-            className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold"
+            className="font-semibold"
           >
             {displayName}
           </Link>
@@ -142,10 +152,14 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
       const searchText = value.toLowerCase();
       const pokemonName = pokemon.name.toLowerCase();
       const displayName = formatPokemonName(pokemon.name).toLowerCase();
-
-      return pokemonName.includes(searchText) || displayName.includes(searchText);
+      const types = row.getValue(id) as string[];
+      return (
+        types.some((type) => type.toLowerCase().includes(value.toLowerCase())) ||
+        pokemonName.includes(searchText) ||
+        displayName.includes(searchText)
+      );
     },
-    size: 150,
+    // size: 150,
   },
   {
     accessorKey: 'types',
@@ -179,7 +193,7 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
 
       return typesArray.some((type) => type.toLowerCase().includes(searchText));
     },
-    size: 150,
+    // size: 150,
   },
 ];
 
