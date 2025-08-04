@@ -78,7 +78,9 @@ export async function loadManifest<T>(manifestName: string): Promise<T> {
       return manifest;
     } else {
       // Client-side: use fetch
-      const response = await fetch(`/output/manifests/${manifestName}.json`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/output/manifests/${manifestName}.json`,
+      );
       if (!response.ok) {
         throw new Error(`Failed to load manifest: ${manifestName}`);
       }
