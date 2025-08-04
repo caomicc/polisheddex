@@ -23,7 +23,7 @@ export default async function PokemonTableList() {
   return (
     <>
       <Hero
-        headline={'Pokédex Table'}
+        headline={'Pokédex'}
         description={'Browse all Pokémon in a searchable, sortable table format'}
         breadcrumbs={
           <Breadcrumb>
@@ -37,15 +37,7 @@ export default async function PokemonTableList() {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/pokemon" className="hover:underline">
-                    Pokemon
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="">Table</BreadcrumbPage>
+                <BreadcrumbPage>Pokemon</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
