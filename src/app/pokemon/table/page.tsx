@@ -52,19 +52,8 @@ export default async function PokemonTableList() {
         }
       />
 
-      <div className="max-w-7xl mx-auto md:p-4">
-        <div className="flex justify-end mb-4">
-          <Link 
-            href="/pokemon"
-            className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
-          >
-            ← View as cards
-          </Link>
-        </div>
-        <PokemonListDataTable 
-          columns={pokemonListColumns} 
-          data={pokemonList} 
-        />
+      <div className="max-w-xl md:max-w-4xl mx-auto md:px-4">
+        <PokemonListDataTable columns={pokemonListColumns} data={pokemonList} />
       </div>
     </>
   );
@@ -73,7 +62,8 @@ export default async function PokemonTableList() {
 // Generate metadata for SEO and social sharing
 export async function generateMetadata() {
   const title = 'Pokédex Table | PolishedDex';
-  const description = 'Browse all Pokémon available in Pokémon Polished Crystal in a searchable, sortable table format. Filter by type, generation, and more.';
+  const description =
+    'Browse all Pokémon available in Pokémon Polished Crystal in a searchable, sortable table format. Filter by type, generation, and more.';
   const url = 'https://polisheddex.com/pokemon/table';
 
   return {

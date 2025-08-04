@@ -93,7 +93,7 @@ export function PokemonListDataTable({ columns, data }: PokemonListDataTableProp
   const storedState = loadStoredState();
 
   const [sorting, setSorting] = React.useState<SortingState>(
-    storedState?.sorting || [{ id: 'johtoDex', desc: false }]
+    storedState?.sorting || [{ id: 'johtoDex', desc: false }],
   );
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(
@@ -101,14 +101,7 @@ export function PokemonListDataTable({ columns, data }: PokemonListDataTableProp
   );
 
   // Extract URL state values
-  const {
-    search,
-    type,
-    generation,
-    hasJohtoDex,
-    hasNationalDex,
-    hasForms,
-  } = urlState;
+  const { search, type, generation, hasJohtoDex, hasNationalDex, hasForms } = urlState;
 
   // Sync search value with table filter for name column
   React.useEffect(() => {
@@ -127,13 +120,13 @@ export function PokemonListDataTable({ columns, data }: PokemonListDataTableProp
   // Get unique types from the data
   const types = React.useMemo(() => {
     const typeSet = new Set<string>();
-    
+
     data.forEach((pokemon) => {
-      const displayTypes = showFaithful 
-        ? (pokemon.faithfulTypes || pokemon.types)
-        : (pokemon.updatedTypes || pokemon.types);
+      const displayTypes = showFaithful
+        ? pokemon.faithfulTypes || pokemon.types
+        : pokemon.updatedTypes || pokemon.types;
       const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
-      typesArray.forEach(type => {
+      typesArray.forEach((type) => {
         if (type) typeSet.add(type);
       });
     });
@@ -145,11 +138,11 @@ export function PokemonListDataTable({ columns, data }: PokemonListDataTableProp
   const filteredData = React.useMemo(() => {
     return data.filter((pokemon) => {
       // Type filter
-      const displayTypes = showFaithful 
-        ? (pokemon.faithfulTypes || pokemon.types)
-        : (pokemon.updatedTypes || pokemon.types);
+      const displayTypes = showFaithful
+        ? pokemon.faithfulTypes || pokemon.types
+        : pokemon.updatedTypes || pokemon.types;
       const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
-      const matchesType = type === 'all' || typesArray.some(t => t === type);
+      const matchesType = type === 'all' || typesArray.some((t) => t === type);
 
       // Generation filter (based on national dex ranges)
       let matchesGeneration = true;
@@ -195,25 +188,13 @@ export function PokemonListDataTable({ columns, data }: PokemonListDataTableProp
       // Checkbox filters
       const matchesJohtoDex = !hasJohtoDex || (pokemon.johtoDex !== null && pokemon.johtoDex < 999);
       const matchesNationalDex = !hasNationalDex || pokemon.nationalDex !== null;
-      const matchesForms = !hasForms || (pokemon.forms && pokemon.forms.length > 1);
+      const matchesForms = !hasForms || (Array.isArray(pokemon.forms) && pokemon.forms.length > 1);
 
       return (
-        matchesType &&
-        matchesGeneration &&
-        matchesJohtoDex &&
-        matchesNationalDex &&
-        matchesForms
+        matchesType && matchesGeneration && matchesJohtoDex && matchesNationalDex && matchesForms
       );
     });
-  }, [
-    data,
-    type,
-    generation,
-    showFaithful,
-    hasJohtoDex,
-    hasNationalDex,
-    hasForms,
-  ]);
+  }, [data, type, generation, showFaithful, hasJohtoDex, hasNationalDex, hasForms]);
 
   // URL-based pagination state
   const [{ pageIndex, pageSize }, setPagination] = usePaginationSearchParams();
@@ -292,7 +273,7 @@ export function PokemonListDataTable({ columns, data }: PokemonListDataTableProp
               className="max-w-sm bg-white"
             />
           </div>
-          
+
           {/* Type filter */}
           <div className="flex flex-row gap-4 w-full sm:w-auto">
             <div className="flex flex-col gap-2 w-1/2 md:w-auto">
@@ -314,58 +295,11 @@ export function PokemonListDataTable({ columns, data }: PokemonListDataTableProp
                 </SelectContent>
               </Select>
             </div>
-
-            {/* Generation filter */}
-            <div className="flex flex-col gap-2 w-1/2 md:w-auto">
-              <Label htmlFor="generation-select">Generation</Label>
-              <Select
-                value={generation}
-                onValueChange={(value) => setUrlState({ generation: value === 'all' ? null : value })}
-              >
-                <SelectTrigger id="generation-select" className="bg-white w-[140px]">
-                  <SelectValue placeholder="All Generations" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Generations</SelectItem>
-                  <SelectItem value="gen1">Gen 1 (Kanto)</SelectItem>
-                  <SelectItem value="gen2">Gen 2 (Johto)</SelectItem>
-                  <SelectItem value="gen3">Gen 3 (Hoenn)</SelectItem>
-                  <SelectItem value="gen4">Gen 4 (Sinnoh)</SelectItem>
-                  <SelectItem value="gen5">Gen 5 (Unova)</SelectItem>
-                  <SelectItem value="gen6">Gen 6 (Kalos)</SelectItem>
-                  <SelectItem value="gen7">Gen 7 (Alola)</SelectItem>
-                  <SelectItem value="gen8">Gen 8 (Galar)</SelectItem>
-                  <SelectItem value="gen9">Gen 9 (Paldea)</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
           </div>
         </div>
 
         {/* Checkbox Filters */}
         <div className="flex flex-wrap gap-4">
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="has-johto-dex"
-              checked={hasJohtoDex}
-              onCheckedChange={(checked) => setUrlState({ hasJohtoDex: checked ? true : null })}
-            />
-            <Label htmlFor="has-johto-dex" className="text-sm">
-              In Johto Dex
-            </Label>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="has-national-dex"
-              checked={hasNationalDex}
-              onCheckedChange={(checked) => setUrlState({ hasNationalDex: checked ? true : null })}
-            />
-            <Label htmlFor="has-national-dex" className="text-sm">
-              Has National Dex number
-            </Label>
-          </div>
-
           <div className="flex items-center space-x-2">
             <Checkbox
               id="has-forms"
@@ -447,16 +381,13 @@ export function PokemonListDataTable({ columns, data }: PokemonListDataTableProp
 
       {/* Data Table */}
       <div className="rounded-md border bg-white dark:bg-white/10 overflow-x-auto border-border">
-        <Table className="table-fixed w-full min-w-[600px]">
+        <Table className="table-fixed w-full min-w-[500px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead
-                      key={header.id}
-                      style={{ width: header.column.columnDef.size }}
-                    >
+                    <TableHead key={header.id} style={{ width: header.column.columnDef.size }}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(header.column.columnDef.header, header.getContext())}

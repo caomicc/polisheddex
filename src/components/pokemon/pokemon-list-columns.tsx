@@ -11,7 +11,7 @@ import { PokemonSprite } from './pokemon-sprite';
 // Helper function to format Pokemon names
 function formatPokemonName(name: string): string {
   if (name === 'nidoran-f') return 'Nidoran ♀';
-  if (name === 'nidoran-m') return 'Nidoran ♂'; 
+  if (name === 'nidoran-m') return 'Nidoran ♂';
   if (name === 'Mr-Mime') return 'Mr. Mime';
   if (name === 'Mime-Jr') return 'Mime Jr.';
   if (name === 'Farfetchd') return "Farfetch'd";
@@ -28,10 +28,11 @@ export const pokemonListColumns: ColumnDef<BaseData>[] = [
     header: '',
     cell: ({ row }) => {
       const pokemon = row.original;
-      const primaryType = Array.isArray(pokemon.types) && pokemon.types.length > 0 
-        ? pokemon.types[0].toLowerCase() 
-        : 'unknown';
-      
+      const primaryType =
+        Array.isArray(pokemon.types) && pokemon.types.length > 0
+          ? pokemon.types[0].toLowerCase()
+          : 'unknown';
+
       return (
         <div className="w-12 h-12 flex items-center justify-center">
           <PokemonSprite
@@ -41,7 +42,7 @@ export const pokemonListColumns: ColumnDef<BaseData>[] = [
             variant="normal"
             type="static"
             src={pokemon.frontSpriteUrl}
-            className="w-10 h-10"
+            className="w-10! h-10! p-1! rounded-md!"
           />
         </div>
       );
@@ -96,9 +97,7 @@ export const pokemonListColumns: ColumnDef<BaseData>[] = [
     cell: ({ row }) => {
       const nationalDex = row.getValue('nationalDex') as number | null;
       return (
-        <div className="text-sm font-mono">
-          {nationalDex !== null ? `#${nationalDex}` : '—'}
-        </div>
+        <div className="text-sm font-mono">{nationalDex !== null ? `#${nationalDex}` : '—'}</div>
       );
     },
     size: 100,
@@ -123,7 +122,7 @@ export const pokemonListColumns: ColumnDef<BaseData>[] = [
     cell: ({ row }) => {
       const pokemon = row.original;
       const displayName = formatPokemonName(pokemon.name);
-      
+
       return (
         <div className="min-w-0">
           <Link
@@ -132,10 +131,8 @@ export const pokemonListColumns: ColumnDef<BaseData>[] = [
           >
             {displayName}
           </Link>
-          {pokemon.forms && pokemon.forms.length > 1 && (
-            <div className="text-xs text-muted-foreground">
-              {pokemon.forms.length} forms
-            </div>
+          {Array.isArray(pokemon.forms) && pokemon.forms.length > 1 && (
+            <div className="text-xs text-muted-foreground">{pokemon.forms.length} forms</div>
           )}
         </div>
       );
@@ -145,7 +142,7 @@ export const pokemonListColumns: ColumnDef<BaseData>[] = [
       const searchText = value.toLowerCase();
       const pokemonName = pokemon.name.toLowerCase();
       const displayName = formatPokemonName(pokemon.name).toLowerCase();
-      
+
       return pokemonName.includes(searchText) || displayName.includes(searchText);
     },
     size: 150,
@@ -159,7 +156,7 @@ export const pokemonListColumns: ColumnDef<BaseData>[] = [
       // Use updatedTypes if available, otherwise fall back to types
       const displayTypes = pokemon.updatedTypes || pokemon.types;
       const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
-      
+
       return (
         <div className="flex gap-1">
           {typesArray.map((type, index) => (
@@ -175,8 +172,8 @@ export const pokemonListColumns: ColumnDef<BaseData>[] = [
       const searchText = value.toLowerCase();
       const displayTypes = pokemon.updatedTypes || pokemon.types;
       const typesArray = Array.isArray(displayTypes) ? displayTypes : [displayTypes];
-      
-      return typesArray.some(type => type.toLowerCase().includes(searchText));
+
+      return typesArray.some((type) => type.toLowerCase().includes(searchText));
     },
     size: 150,
   },
