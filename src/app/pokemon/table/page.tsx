@@ -12,6 +12,7 @@ import { Hero } from '@/components/ui/Hero';
 import { loadPokemonBaseDataFromManifest } from '@/utils/loaders/pokemon-data-loader';
 import { PokemonListDataTable } from '@/components/pokemon/pokemon-list-data-table';
 import { pokemonListColumns } from '@/components/pokemon/pokemon-list-columns';
+import { Suspense } from 'react';
 
 export default async function PokemonTableList() {
   // Load Pokemon data from manifest system
@@ -53,7 +54,9 @@ export default async function PokemonTableList() {
       />
 
       <div className="max-w-xl md:max-w-4xl mx-auto md:px-4">
-        <PokemonListDataTable columns={pokemonListColumns} data={pokemonList} />
+        <Suspense fallback={<div className="flex justify-center py-8">Loading Pokemon...</div>}>
+          <PokemonListDataTable columns={pokemonListColumns} data={pokemonList} />
+        </Suspense>
       </div>
     </>
   );
