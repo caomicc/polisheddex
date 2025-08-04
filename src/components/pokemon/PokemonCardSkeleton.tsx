@@ -1,5 +1,5 @@
-import { Skeleton } from "@/components/ui/skeleton"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Skeleton } from '@/components/ui/skeleton';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 export function PokemonCardSkeleton() {
   return (
@@ -20,7 +20,7 @@ export function PokemonCardSkeleton() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 export function PokemonGridSkeleton({ count = 12 }: { count?: number }) {
@@ -32,5 +32,5 @@ export function PokemonGridSkeleton({ count = 12 }: { count?: number }) {
         </li>
       ))}
     </ul>
-  )
+  );
 }

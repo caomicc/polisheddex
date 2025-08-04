@@ -20,11 +20,11 @@ const MAX_TEAMS = 6;
 // Get all saved teams from localStorage
 export function getSavedTeams(): SavedTeam[] {
   if (typeof window === 'undefined') return [];
-  
+
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) return [];
-    
+
     const teams = JSON.parse(stored);
     return Array.isArray(teams) ? teams : [];
   } catch (error) {
@@ -35,9 +35,9 @@ export function getSavedTeams(): SavedTeam[] {
 
 // Save a new team or update existing one
 export function saveTeam(
-  teamName: string, 
-  pokemon: (SavedTeamPokemon | null)[], 
-  teamId?: string
+  teamName: string,
+  pokemon: (SavedTeamPokemon | null)[],
+  teamId?: string,
 ): { success: boolean; error?: string; team?: SavedTeam } {
   if (typeof window === 'undefined') {
     return { success: false, error: 'Not available server-side' };
@@ -46,45 +46,45 @@ export function saveTeam(
   try {
     const teams = getSavedTeams();
     const now = new Date().toISOString();
-    
+
     // Validate team name
     if (!teamName.trim()) {
       return { success: false, error: 'Team name is required' };
     }
-    
+
     // Check if team name already exists (for new teams)
-    if (!teamId && teams.some(team => team.name.toLowerCase() === teamName.toLowerCase())) {
+    if (!teamId && teams.some((team) => team.name.toLowerCase() === teamName.toLowerCase())) {
       return { success: false, error: 'A team with this name already exists' };
     }
-    
+
     // Filter out empty slots and validate pokemon data
-    const filteredPokemon = pokemon.map(p => {
+    const filteredPokemon = pokemon.map((p) => {
       if (!p || !p.name) return null;
       return {
         name: p.name,
         formName: p.formName || undefined,
       };
     });
-    
+
     // Check if team has at least one Pokemon
-    if (!filteredPokemon.some(p => p !== null)) {
+    if (!filteredPokemon.some((p) => p !== null)) {
       return { success: false, error: 'Team must have at least one Pokémon' };
     }
 
     if (teamId) {
       // Update existing team
-      const teamIndex = teams.findIndex(team => team.id === teamId);
+      const teamIndex = teams.findIndex((team) => team.id === teamId);
       if (teamIndex === -1) {
         return { success: false, error: 'Team not found' };
       }
-      
+
       teams[teamIndex] = {
         ...teams[teamIndex],
         name: teamName,
         pokemon: filteredPokemon,
         updatedAt: now,
       };
-      
+
       localStorage.setItem(STORAGE_KEY, JSON.stringify(teams));
       return { success: true, team: teams[teamIndex] };
     } else {
@@ -92,7 +92,7 @@ export function saveTeam(
       if (teams.length >= MAX_TEAMS) {
         return { success: false, error: `Maximum of ${MAX_TEAMS} teams allowed` };
       }
-      
+
       const newTeam: SavedTeam = {
         id: `team_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
         name: teamName,
@@ -100,7 +100,7 @@ export function saveTeam(
         createdAt: now,
         updatedAt: now,
       };
-      
+
       teams.push(newTeam);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(teams));
       return { success: true, team: newTeam };
@@ -119,12 +119,12 @@ export function deleteTeam(teamId: string): { success: boolean; error?: string }
 
   try {
     const teams = getSavedTeams();
-    const filteredTeams = teams.filter(team => team.id !== teamId);
-    
+    const filteredTeams = teams.filter((team) => team.id !== teamId);
+
     if (filteredTeams.length === teams.length) {
       return { success: false, error: 'Team not found' };
     }
-    
+
     localStorage.setItem(STORAGE_KEY, JSON.stringify(filteredTeams));
     return { success: true };
   } catch (error) {
@@ -136,16 +136,16 @@ export function deleteTeam(teamId: string): { success: boolean; error?: string }
 // Get a specific team by ID
 export function getTeamById(teamId: string): SavedTeam | null {
   const teams = getSavedTeams();
-  return teams.find(team => team.id === teamId) || null;
+  return teams.find((team) => team.id === teamId) || null;
 }
 
 // Convert team URL param format to SavedTeamPokemon format
 export function parseTeamFromUrl(teamParam: string): (SavedTeamPokemon | null)[] {
   if (!teamParam) return Array(6).fill(null);
-  
-  const pokemonEntries = teamParam.split(',').filter(entry => entry.trim());
+
+  const pokemonEntries = teamParam.split(',').filter((entry) => entry.trim());
   const teamArray: (SavedTeamPokemon | null)[] = Array(6).fill(null);
-  
+
   pokemonEntries.forEach((entry, index) => {
     if (index < 6) {
       const [name, formName] = entry.split(':');
@@ -157,7 +157,7 @@ export function parseTeamFromUrl(teamParam: string): (SavedTeamPokemon | null)[]
       }
     }
   });
-  
+
   return teamArray;
 }
 
@@ -168,12 +168,12 @@ export function formatTeamForUrl(pokemon: (SavedTeamPokemon | null)[]): string {
   pokemon.forEach((p, index) => {
     if (p) lastIndex = index;
   });
-  
+
   if (lastIndex === -1) return '';
-  
+
   return pokemon
     .slice(0, lastIndex + 1)
-    .map(p => {
+    .map((p) => {
       if (!p) return '';
       return p.formName ? `${p.name}:${p.formName}` : p.name;
     })
@@ -185,7 +185,7 @@ export function clearAllTeams(): { success: boolean } {
   if (typeof window === 'undefined') {
     return { success: false };
   }
-  
+
   try {
     localStorage.removeItem(STORAGE_KEY);
     return { success: true };

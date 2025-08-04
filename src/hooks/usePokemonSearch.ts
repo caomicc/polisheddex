@@ -8,9 +8,13 @@ interface UsePokemonSearchProps {
   showUpdatedTypes: boolean;
 }
 
-export function usePokemonSearch({ pokemon, searchQuery, showUpdatedTypes }: UsePokemonSearchProps) {
+export function usePokemonSearch({
+  pokemon,
+  searchQuery,
+  showUpdatedTypes,
+}: UsePokemonSearchProps) {
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
-  
+
   const filteredPokemon = useMemo(() => {
     if (!debouncedSearchQuery.trim()) {
       return pokemon;

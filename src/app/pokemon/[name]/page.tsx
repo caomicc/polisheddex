@@ -99,9 +99,13 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
             baseStats:
               formValue.detailedStats?.baseStats || pokemonData.detailedStats?.baseStats || {},
             faithfulBaseStats:
-              formValue.detailedStats?.faithfulBaseStats || pokemonData.detailedStats?.faithfulBaseStats || undefined,
+              formValue.detailedStats?.faithfulBaseStats ||
+              pokemonData.detailedStats?.faithfulBaseStats ||
+              undefined,
             polishedBaseStats:
-              formValue.detailedStats?.polishedBaseStats || pokemonData.detailedStats?.polishedBaseStats || undefined,
+              formValue.detailedStats?.polishedBaseStats ||
+              pokemonData.detailedStats?.polishedBaseStats ||
+              undefined,
             // Provide safe defaults for missing detailedStats fields
             height: formValue.detailedStats?.height ?? pokemonData.detailedStats?.height ?? 0,
             weight: formValue.detailedStats?.weight ?? pokemonData.detailedStats?.weight ?? 0,

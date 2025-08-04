@@ -41,6 +41,22 @@
         "details": "For sale"
       },
       {
+        "area": "Route29",
+        "details": "Given by NPC (Route29Tutorial)"
+      },
+      {
+        "area": "Route29",
+        "details": "Given by NPC (Route29Tutorial)"
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (FisherWilton1)"
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (FisherWilton1)"
+      },
+      {
         "area": "Route 31",
         "details": "Visible item",
         "coordinates": {
@@ -122,6 +138,14 @@
       {
         "area": "Pickup",
         "details": "Common"
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (FisherWilton1)"
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (FisherWilton1)"
       },
       {
         "area": "Route 32",
@@ -210,6 +234,14 @@
       {
         "area": "Pickup",
         "details": "Common"
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (FisherWilton1)"
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (FisherWilton1)"
       },
       {
         "area": "Burned Tower First Floor",
@@ -435,6 +467,22 @@
     },
     "locations": [
       {
+        "area": "Elms Lab",
+        "details": "Given by NPC (ElmGiveMasterBall)"
+      },
+      {
+        "area": "Elms Lab",
+        "details": "Given by NPC (ElmGiveMasterBall)"
+      },
+      {
+        "area": "Radio Tower1 F",
+        "details": "Given by NPC (RadioTower1FLuckyNumberMan)"
+      },
+      {
+        "area": "Radio Tower1 F",
+        "details": "Given by NPC (RadioTower1FLuckyNumberMan)"
+      },
+      {
         "area": "Navel Rock Inside",
         "details": "Visible item",
         "coordinates": {
@@ -455,7 +503,25 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Fuchsia Safari Ball House",
+        "details": "Given by NPC (FuchsiaSafariBallHouseOfficer)"
+      },
+      {
+        "area": "Fuchsia Safari Ball House",
+        "details": "Given by NPC (FuchsiaSafariBallHouseOfficer)"
+      },
+      {
+        "area": "Fuchsia Safari Ball House",
+        "details": "Given by NPC (FuchsiaSafariBallHouseOfficer)"
+      },
+      {
+        "area": "Fuchsia Safari Ball House",
+        "details": "Given by NPC (FuchsiaSafariBallHouseOfficer)"
+      }
+    ]
   },
   "level": {
     "id": "level",
@@ -470,6 +536,10 @@
       "useInBattle": "Use and close menu"
     },
     "locations": [
+      {
+        "area": "Kurt's House (Azalea Town)",
+        "details": "Crafted from Red Apricorn"
+      },
       {
         "area": "Route 32 Coast",
         "details": "Hidden item",
@@ -491,7 +561,21 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Kurt's House (Azalea Town)",
+        "details": "Crafted from Blu Apricorn"
+      },
+      {
+        "area": "Route32 Poke Center1 F",
+        "details": "Given by NPC (Route32PokeCenter1FPokefanM)"
+      },
+      {
+        "area": "Route32 Poke Center1 F",
+        "details": "Given by NPC (Route32PokeCenter1FPokefanM)"
+      }
+    ]
   },
   "moon": {
     "id": "moon",
@@ -504,7 +588,13 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Kurt's House (Azalea Town)",
+        "details": "Crafted from Ylw Apricorn"
+      }
+    ]
   },
   "friend": {
     "id": "friend",
@@ -517,7 +607,13 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Kurt's House (Azalea Town)",
+        "details": "Crafted from Grn Apricorn"
+      }
+    ]
   },
   "fast": {
     "id": "fast",
@@ -530,20 +626,32 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Kurt's House (Azalea Town)",
+        "details": "Crafted from Wht Apricorn"
+      }
+    ]
   },
   "heavy": {
     "id": "heavy",
     "name": "Heavy Ball",
     "description": "A Ball for catching heavy Pokemon.",
     "attributes": {
-      "price": 4000,
-      "effect": "HELD_HEAVY_BOOTS",
+      "price": 150,
+      "effect": "0",
       "parameter": 0,
-      "category": "Item",
-      "useOutsideBattle": "Cannot use",
-      "useInBattle": "Cannot use"
-    }
+      "category": "Poké Ball",
+      "useOutsideBattle": "Use on party Pokémon",
+      "useInBattle": "Use and close menu"
+    },
+    "locations": [
+      {
+        "area": "Kurt's House (Azalea Town)",
+        "details": "Crafted from Blk Apricorn"
+      }
+    ]
   },
   "love": {
     "id": "love",
@@ -556,7 +664,13 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Kurt's House (Azalea Town)",
+        "details": "Crafted from Pnk Apricorn"
+      }
+    ]
   },
   "abilitypatch": {
     "id": "abilitypatch",
@@ -569,7 +683,25 @@
       "category": "Item",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Battle Tower1 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Battle Tower1 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Dragons Den B 1 F",
+        "details": "Given by NPC (KimonoGirlMina)"
+      },
+      {
+        "area": "Dragons Den B 1 F",
+        "details": "Given by NPC (KimonoGirlMina)"
+      }
+    ]
   },
   "repeat": {
     "id": "repeat",
@@ -668,6 +800,14 @@
       {
         "area": "Viridian City Poké Mart",
         "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Net Ball House",
+        "details": "Given by NPC (GoldenrodNetBallHouseYoungster)"
+      },
+      {
+        "area": "Goldenrod Net Ball House",
+        "details": "Given by NPC (GoldenrodNetBallHouseYoungster)"
       }
     ]
   },
@@ -869,7 +1009,25 @@
       "category": "Poké Ball",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use and close menu"
-    }
+    },
+    "locations": [
+      {
+        "area": "Ecruteak Cherish Ball House",
+        "details": "Given by NPC (EcruteakCherishBallHouseGramps)"
+      },
+      {
+        "area": "Ecruteak Cherish Ball House",
+        "details": "Given by NPC (EcruteakCherishBallHouseGramps)"
+      },
+      {
+        "area": "Silph Co3 F",
+        "details": "Given by NPC (SilphCo3FSilphEmployee)"
+      },
+      {
+        "area": "Silph Co3 F",
+        "details": "Given by NPC (SilphCo3FSilphEmployee)"
+      }
+    ]
   },
   "potion": {
     "id": "potion",
@@ -919,6 +1077,14 @@
       {
         "area": "Pickup",
         "details": "Common"
+      },
+      {
+        "area": "Elms Lab",
+        "details": "Given by NPC (LyraBattle)"
+      },
+      {
+        "area": "Elms Lab",
+        "details": "Given by NPC (LyraBattle)"
       },
       {
         "area": "Dark Cave Violet Entrance",
@@ -1326,6 +1492,14 @@
         "details": "For sale"
       },
       {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
         "area": "Dragons Den B First Floor",
         "details": "Hidden item",
         "coordinates": {
@@ -1535,6 +1709,14 @@
       {
         "area": "Pickup",
         "details": "Common"
+      },
+      {
+        "area": "Celadon University2 F",
+        "details": "Given by NPC (CeladonUniversity2FCooltrainerf)"
+      },
+      {
+        "area": "Celadon University2 F",
+        "details": "Given by NPC (CeladonUniversity2FCooltrainerf)"
       },
       {
         "area": "Ilex Forest",
@@ -2026,6 +2208,22 @@
         "area": "Gourmet Maniac",
         "details": "300 points",
         "price": 300
+      },
+      {
+        "area": "Celadon University Westwoods Office",
+        "details": "Given by NPC (CeladonUniversityWestwoodsOfficeChild)"
+      },
+      {
+        "area": "Celadon University Westwoods Office",
+        "details": "Given by NPC (CeladonUniversityWestwoodsOfficeChild)"
+      },
+      {
+        "area": "Mahogany Town",
+        "details": "Given by NPC (RageCandyBarMerchant)"
+      },
+      {
+        "area": "Mahogany Town",
+        "details": "Given by NPC (RageCandyBarMerchant)"
       }
     ]
   },
@@ -2046,6 +2244,14 @@
         "area": "Gourmet Maniac",
         "details": "300 points",
         "price": 300
+      },
+      {
+        "area": "Pewter City",
+        "details": "Given by NPC (PewterCityPokefanM)"
+      },
+      {
+        "area": "Pewter City",
+        "details": "Given by NPC (PewterCityPokefanM)"
       }
     ]
   },
@@ -2065,6 +2271,22 @@
       {
         "area": "Indigo Plateau Poké Mart",
         "details": "For sale"
+      },
+      {
+        "area": "Olivine Lighthouse1 F",
+        "details": "Given by NPC (OlivineLighthouse1FSailor)"
+      },
+      {
+        "area": "Olivine Lighthouse1 F",
+        "details": "Given by NPC (OlivineLighthouse1FSailor)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
       },
       {
         "area": "Beautiful Beach",
@@ -2459,6 +2681,14 @@
       {
         "area": "Celadon Dept. Store 2F",
         "details": "For sale"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
       },
       {
         "area": "Cerulean Cave First Floor",
@@ -2860,6 +3090,14 @@
         "details": "Rare"
       },
       {
+        "area": "Lake Of Rage Magikarp House",
+        "details": "Given by NPC (MagikarpLengthRater)"
+      },
+      {
+        "area": "Lake Of Rage Magikarp House",
+        "details": "Given by NPC (MagikarpLengthRater)"
+      },
+      {
         "area": "Dark Cave Violet Entrance",
         "details": "Hidden item",
         "coordinates": {
@@ -2971,6 +3209,14 @@
     },
     "locations": [
       {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
         "area": "Cerulean Cave B First Floor",
         "details": "Visible item",
         "coordinates": {
@@ -3070,6 +3316,46 @@
         "details": "For sale"
       },
       {
+        "area": "Cerulean Berry Powder House",
+        "details": "Given by NPC (CeruleanBerryPowderHouseGramps)"
+      },
+      {
+        "area": "Cerulean Berry Powder House",
+        "details": "Given by NPC (CeruleanBerryPowderHouseGramps)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route30",
+        "details": "Given by NPC (YoungsterJoey_ImportantBattle)"
+      },
+      {
+        "area": "Route30",
+        "details": "Given by NPC (YoungsterJoey_ImportantBattle)"
+      },
+      {
+        "area": "Route30",
+        "details": "Given by NPC (YoungsterJoey_ImportantBattle)"
+      },
+      {
+        "area": "Route30",
+        "details": "Given by NPC (YoungsterJoey_ImportantBattle)"
+      },
+      {
+        "area": "Route35 Goldenrod Gate",
+        "details": "Given by NPC (Randy)"
+      },
+      {
+        "area": "Route35 Goldenrod Gate",
+        "details": "Given by NPC (Randy)"
+      },
+      {
         "area": "Burned Tower First Floor",
         "details": "Visible item",
         "coordinates": {
@@ -3135,6 +3421,38 @@
       {
         "area": "Celadon Dept. Store 5F",
         "details": "For sale"
+      },
+      {
+        "area": "Olivine Lighthouse2 F",
+        "details": "Given by NPC (SailorHuey1)"
+      },
+      {
+        "area": "Olivine Lighthouse2 F",
+        "details": "Given by NPC (SailorHuey1)"
+      },
+      {
+        "area": "Olivine Lighthouse2 F",
+        "details": "Given by NPC (SailorHuey1)"
+      },
+      {
+        "area": "Olivine Lighthouse2 F",
+        "details": "Given by NPC (SailorHuey1)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route5 Saffron City Gate",
+        "details": "Given by NPC (Route5SaffronCityGateBlackBelt)"
+      },
+      {
+        "area": "Route5 Saffron City Gate",
+        "details": "Given by NPC (Route5SaffronCityGateBlackBelt)"
       },
       {
         "area": "Cerulean Cave Second Floor",
@@ -3217,6 +3535,30 @@
         "price": 32
       },
       {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route45",
+        "details": "Given by NPC (HikerParry1)"
+      },
+      {
+        "area": "Route45",
+        "details": "Given by NPC (HikerParry1)"
+      },
+      {
+        "area": "Route45",
+        "details": "Given by NPC (HikerParry1)"
+      },
+      {
+        "area": "Route45",
+        "details": "Given by NPC (HikerParry1)"
+      },
+      {
         "area": "Rugged Road South",
         "details": "Visible item",
         "coordinates": {
@@ -3242,6 +3584,30 @@
       {
         "area": "Celadon Dept. Store 5F",
         "details": "For sale"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (Bird_keeperVance1)"
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (Bird_keeperVance1)"
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (Bird_keeperVance1)"
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (Bird_keeperVance1)"
       },
       {
         "area": "Ice Path B Second Floor Mahogany Side",
@@ -3325,6 +3691,30 @@
       {
         "area": "Celadon Dept. Store 5F",
         "details": "For sale"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route46",
+        "details": "Given by NPC (PicnickerErin1)"
+      },
+      {
+        "area": "Route46",
+        "details": "Given by NPC (PicnickerErin1)"
+      },
+      {
+        "area": "Route46",
+        "details": "Given by NPC (PicnickerErin1)"
+      },
+      {
+        "area": "Route46",
+        "details": "Given by NPC (PicnickerErin1)"
       },
       {
         "area": "Dim Cave Fourth Floor",
@@ -3434,6 +3824,14 @@
         "details": "For sale"
       },
       {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
         "area": "Dim Cave Third Floor",
         "details": "Hidden item",
         "coordinates": {
@@ -3484,6 +3882,54 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 16)",
         "price": 16
+      },
+      {
+        "area": "Celadon University Principals Office",
+        "details": "Given by NPC (CeladonUniversityPrincipalsOfficeMatsumoto)"
+      },
+      {
+        "area": "Celadon University Principals Office",
+        "details": "Given by NPC (CeladonUniversityPrincipalsOfficeMatsumoto)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Pokemon Fan Club",
+        "details": "Given by NPC (PokemonFanClubChairman)"
+      },
+      {
+        "area": "Pokemon Fan Club",
+        "details": "Given by NPC (PokemonFanClubChairman)"
+      },
+      {
+        "area": "Radio Tower1 F",
+        "details": "Given by NPC (RadioTower1FLuckyNumberMan)"
+      },
+      {
+        "area": "Radio Tower1 F",
+        "details": "Given by NPC (RadioTower1FLuckyNumberMan)"
+      },
+      {
+        "area": "Route39 Rugged Road Gate",
+        "details": "Given by NPC (Route39RuggedRoadGateSwimmer)"
+      },
+      {
+        "area": "Route39 Rugged Road Gate",
+        "details": "Given by NPC (Route39RuggedRoadGateSwimmer)"
+      },
+      {
+        "area": "Sprout Tower1 F",
+        "details": "Given by NPC (KimonoGirlMako)"
+      },
+      {
+        "area": "Sprout Tower1 F",
+        "details": "Given by NPC (KimonoGirlMako)"
       },
       {
         "area": "Cerulean Cave First Floor",
@@ -3677,6 +4123,30 @@
     },
     "locations": [
       {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Radio Tower1 F",
+        "details": "Given by NPC (RadioTower1FLuckyNumberMan)"
+      },
+      {
+        "area": "Radio Tower1 F",
+        "details": "Given by NPC (RadioTower1FLuckyNumberMan)"
+      },
+      {
+        "area": "Route45",
+        "details": "Given by NPC (BlackbeltKenji1)"
+      },
+      {
+        "area": "Route45",
+        "details": "Given by NPC (BlackbeltKenji1)"
+      },
+      {
         "area": "Celadon City",
         "details": "Hidden item",
         "coordinates": {
@@ -3831,6 +4301,46 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 64)",
         "price": 64
+      },
+      {
+        "area": "Celadon University Lounge",
+        "details": "Given by NPC (CeladonUniversityLoungeNeesha)"
+      },
+      {
+        "area": "Celadon University Lounge",
+        "details": "Given by NPC (CeladonUniversityLoungeNeesha)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Radio Tower1 F",
+        "details": "Given by NPC (RadioTower1FLuckyNumberMan)"
+      },
+      {
+        "area": "Radio Tower1 F",
+        "details": "Given by NPC (RadioTower1FLuckyNumberMan)"
+      },
+      {
+        "area": "Route39",
+        "details": "Given by NPC (Route39CowgirlAnnie)"
+      },
+      {
+        "area": "Route39",
+        "details": "Given by NPC (Route39CowgirlAnnie)"
+      },
+      {
+        "area": "Snowtop Mountain Inside",
+        "details": "Given by NPC (KimonoGirlAmi)"
+      },
+      {
+        "area": "Snowtop Mountain Inside",
+        "details": "Given by NPC (KimonoGirlAmi)"
       }
     ]
   },
@@ -3854,6 +4364,14 @@
       {
         "area": "Mt. Moon Shop",
         "details": "For sale"
+      },
+      {
+        "area": "Celadon University2 F",
+        "details": "Given by NPC (CeladonUniversity2FCooltrainerf)"
+      },
+      {
+        "area": "Celadon University2 F",
+        "details": "Given by NPC (CeladonUniversity2FCooltrainerf)"
       }
     ]
   },
@@ -3899,6 +4417,14 @@
         "price": 350
       },
       {
+        "area": "Celadon University Cafeteria",
+        "details": "Given by NPC (CeladonUniversityCafeteriaYoungster2)"
+      },
+      {
+        "area": "Celadon University Cafeteria",
+        "details": "Given by NPC (CeladonUniversityCafeteriaYoungster2)"
+      },
+      {
         "area": "Yellow Forest",
         "details": "Visible item",
         "coordinates": {
@@ -3919,7 +4445,25 @@
       "category": "Medicine",
       "useOutsideBattle": "Use on party Pokémon",
       "useInBattle": "Use on party Pokémon"
-    }
+    },
+    "locations": [
+      {
+        "area": "Route39 Farmhouse",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route39 Farmhouse",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route39 Farmhouse",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route39 Farmhouse",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "sacredash": {
     "id": "sacredash",
@@ -3934,6 +4478,14 @@
       "useInBattle": "Cannot use"
     },
     "locations": [
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
       {
         "area": "Navel Rock Inside",
         "details": "Visible item",
@@ -4596,6 +5148,22 @@
         "details": "For sale"
       },
       {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
         "area": "Digletts Cave",
         "details": "Hidden item",
         "coordinates": {
@@ -4665,6 +5233,14 @@
       {
         "area": "Celadon Dept. Store 2F",
         "details": "For sale"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
       },
       {
         "area": "Dim Cave Third Floor",
@@ -4797,6 +5373,22 @@
         "area": "Radio Tower Buena's Password Club",
         "details": "Prize for 7 Blue Card points",
         "price": 7
+      },
+      {
+        "area": "Celadon University Classroom4",
+        "details": "Given by NPC (CeladonUniversityClassroom4Rich_boy)"
+      },
+      {
+        "area": "Celadon University Classroom4",
+        "details": "Given by NPC (CeladonUniversityClassroom4Rich_boy)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
       }
     ]
   },
@@ -4821,6 +5413,30 @@
         "area": "Ore Maniac",
         "details": "3000 points",
         "price": 3000
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route34",
+        "details": "Given by NPC (DayCareMon2)"
+      },
+      {
+        "area": "Route34",
+        "details": "Given by NPC (DayCareMon2)"
       },
       {
         "area": "Shamouti Tunnel",
@@ -4863,6 +5479,30 @@
         "price": 3000
       },
       {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route36",
+        "details": "Given by NPC (Route36Lass)"
+      },
+      {
+        "area": "Route36",
+        "details": "Given by NPC (Route36Lass)"
+      },
+      {
         "area": "Cinnabar Volcano B First Floor",
         "details": "Visible item",
         "coordinates": {
@@ -4888,6 +5528,30 @@
       {
         "area": "Celadon Dept. Store 4F",
         "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route42",
+        "details": "Given by NPC (FisherTully1)"
+      },
+      {
+        "area": "Route42",
+        "details": "Given by NPC (FisherTully1)"
       },
       {
         "area": "Celadon University Pool",
@@ -4930,6 +5594,30 @@
         "price": 3000
       },
       {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route38",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route38",
+        "details": "Event/NPC reward"
+      },
+      {
         "area": "Rock Tunnel Second Floor",
         "details": "Visible item",
         "coordinates": {
@@ -4952,6 +5640,30 @@
       "useInBattle": "Cannot use"
     },
     "locations": [
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Ivys Lab",
+        "details": "Given by NPC (ProfIvy)"
+      },
+      {
+        "area": "Ivys Lab",
+        "details": "Given by NPC (ProfIvy)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
       {
         "area": "Dim Cave Second Floor",
         "details": "Hidden item",
@@ -5045,6 +5757,22 @@
         "price": 3000
       },
       {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
         "area": "Ruins Of Alph Ho Oh Item Room",
         "details": "Visible item",
         "coordinates": {
@@ -5075,6 +5803,22 @@
         "area": "Ore Maniac",
         "details": "3000 points",
         "price": 3000
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
       },
       {
         "area": "Cerulean Cave Second Floor",
@@ -5157,6 +5901,22 @@
         "price": 3000
       },
       {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
         "area": "Cherrygrove Bay",
         "details": "Visible item",
         "coordinates": {
@@ -5213,6 +5973,14 @@
         "price": 3000
       },
       {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
         "area": "Ice Path B Second Floor Mahogany Side",
         "details": "Visible item",
         "coordinates": {
@@ -5238,6 +6006,14 @@
       {
         "area": "Celadon Dept. Store 4F",
         "details": "For sale"
+      },
+      {
+        "area": "Route38 Ecruteak Gate",
+        "details": "Given by NPC (ProfOaksAide2)"
+      },
+      {
+        "area": "Route38 Ecruteak Gate",
+        "details": "Given by NPC (ProfOaksAide2)"
       },
       {
         "area": "Union Cave B Second Floor",
@@ -5266,6 +6042,14 @@
         "area": "Ore Maniac",
         "details": "3000 points",
         "price": 3000
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Goldenrod Bills House",
+        "details": "Event/NPC reward"
       }
     ]
   },
@@ -5289,6 +6073,22 @@
       {
         "area": "Celadon Dept. Store 4F",
         "details": "For sale"
+      },
+      {
+        "area": "Ilex Forest Azalea Gate",
+        "details": "Given by NPC (ProfOaksAide1)"
+      },
+      {
+        "area": "Ilex Forest Azalea Gate",
+        "details": "Given by NPC (ProfOaksAide1)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
       }
     ]
   },
@@ -5305,6 +6105,14 @@
       "useInBattle": "Use on party Pokémon"
     },
     "locations": [
+      {
+        "area": "Route31",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route31",
+        "details": "Event/NPC reward"
+      },
       {
         "area": "Route 46",
         "details": "",
@@ -5367,6 +6175,14 @@
       "useInBattle": "Use on party Pokémon"
     },
     "locations": [
+      {
+        "area": "Route31",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route31",
+        "details": "Event/NPC reward"
+      },
       {
         "area": "Route 30",
         "details": "",
@@ -5492,6 +6308,14 @@
     },
     "locations": [
       {
+        "area": "Route31",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route31",
+        "details": "Event/NPC reward"
+      },
+      {
         "area": "Route 29",
         "details": "",
         "coordinates": {
@@ -5522,6 +6346,22 @@
       "useInBattle": "Use on party Pokémon"
     },
     "locations": [
+      {
+        "area": "Celadon University Classroom1",
+        "details": "Given by NPC (CeladonUniversityClassroom1Imakuni)"
+      },
+      {
+        "area": "Celadon University Classroom1",
+        "details": "Given by NPC (CeladonUniversityClassroom1Imakuni)"
+      },
+      {
+        "area": "Route31",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route31",
+        "details": "Event/NPC reward"
+      },
       {
         "area": "Route 31",
         "details": "",
@@ -5816,6 +6656,22 @@
       "useInBattle": "Use on party Pokémon"
     },
     "locations": [
+      {
+        "area": "Ivys Lab",
+        "details": "Given by NPC (ProfIvy)"
+      },
+      {
+        "area": "Ivys Lab",
+        "details": "Given by NPC (ProfIvy)"
+      },
+      {
+        "area": "Ivys Lab",
+        "details": "Given by NPC (ProfIvy)"
+      },
+      {
+        "area": "Ivys Lab",
+        "details": "Given by NPC (ProfIvy)"
+      },
       {
         "area": "Fuchsia City",
         "details": "",
@@ -6143,7 +6999,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Route29",
+        "details": "Given by NPC (Tuscany)"
+      },
+      {
+        "area": "Route29",
+        "details": "Given by NPC (Tuscany)"
+      }
+    ]
   },
   "blackbelt": {
     "id": "blackbelt",
@@ -6156,7 +7022,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Lake Of Rage",
+        "details": "Given by NPC (Wesley)"
+      },
+      {
+        "area": "Lake Of Rage",
+        "details": "Given by NPC (Wesley)"
+      }
+    ]
   },
   "sharpbeak": {
     "id": "sharpbeak",
@@ -6169,7 +7045,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Route40",
+        "details": "Given by NPC (Monica)"
+      },
+      {
+        "area": "Route40",
+        "details": "Given by NPC (Monica)"
+      }
+    ]
   },
   "poisonbarb": {
     "id": "poisonbarb",
@@ -6182,7 +7068,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Route32",
+        "details": "Given by NPC (Frieda)"
+      },
+      {
+        "area": "Route32",
+        "details": "Given by NPC (Frieda)"
+      }
+    ]
   },
   "softsand": {
     "id": "softsand",
@@ -6234,7 +7130,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Route36",
+        "details": "Given by NPC (Arthur)"
+      },
+      {
+        "area": "Route36",
+        "details": "Given by NPC (Arthur)"
+      }
+    ]
   },
   "silverpowder": {
     "id": "silverpowder",
@@ -6270,7 +7176,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Blackthorn City",
+        "details": "Given by NPC (Santos)"
+      },
+      {
+        "area": "Blackthorn City",
+        "details": "Given by NPC (Santos)"
+      }
+    ]
   },
   "metalcoat": {
     "id": "metalcoat",
@@ -6321,6 +7237,14 @@
         "details": "For sale"
       },
       {
+        "area": "Charcoal Kiln",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Charcoal Kiln",
+        "details": "Event/NPC reward"
+      },
+      {
         "area": "Ruins Of Alph Ho Oh Item Room",
         "details": "Visible item",
         "coordinates": {
@@ -6343,6 +7267,14 @@
       "useInBattle": "Cannot use"
     },
     "locations": [
+      {
+        "area": "Cherrygrove City",
+        "details": "Given by NPC (CherrygroveYoungster)"
+      },
+      {
+        "area": "Cherrygrove City",
+        "details": "Given by NPC (CherrygroveYoungster)"
+      },
       {
         "area": "Route 47",
         "details": "Visible item",
@@ -6367,6 +7299,14 @@
     },
     "locations": [
       {
+        "area": "Route32",
+        "details": "Given by NPC (Route32CooltrainermPetrie)"
+      },
+      {
+        "area": "Route32",
+        "details": "Given by NPC (Route32CooltrainermPetrie)"
+      },
+      {
         "area": "Yellow Forest",
         "details": "Visible item",
         "coordinates": {
@@ -6387,7 +7327,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Route37",
+        "details": "Given by NPC (Sunny)"
+      },
+      {
+        "area": "Route37",
+        "details": "Given by NPC (Sunny)"
+      }
+    ]
   },
   "twistedspoon": {
     "id": "twistedspoon",
@@ -6477,7 +7427,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Dark Cave Blackthorn Entrance",
+        "details": "Given by NPC (DarkCaveBlackthornEntrancePharmacist)"
+      },
+      {
+        "area": "Dark Cave Blackthorn Entrance",
+        "details": "Given by NPC (DarkCaveBlackthornEntrancePharmacist)"
+      }
+    ]
   },
   "pinkbow": {
     "id": "pinkbow",
@@ -6490,7 +7450,25 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Radio Tower4 F",
+        "details": "Given by NPC (RadioTower4FDJMary)"
+      },
+      {
+        "area": "Radio Tower4 F",
+        "details": "Given by NPC (RadioTower4FDJMary)"
+      },
+      {
+        "area": "Route43",
+        "details": "Given by NPC (PicnickerTiffany1)"
+      },
+      {
+        "area": "Route43",
+        "details": "Given by NPC (PicnickerTiffany1)"
+      }
+    ]
   },
   "brightpowder": {
     "id": "brightpowder",
@@ -6573,6 +7551,14 @@
         "details": "For sale"
       },
       {
+        "area": "National Park",
+        "details": "Given by NPC (NationalParkTeacher1)"
+      },
+      {
+        "area": "National Park",
+        "details": "Given by NPC (NationalParkTeacher1)"
+      },
+      {
         "area": "Route 47",
         "details": "Visible item",
         "coordinates": {
@@ -6598,6 +7584,14 @@
       {
         "area": "Mahogany Town Poké Mart",
         "details": "For sale"
+      },
+      {
+        "area": "Slowpoke Well B 2 F",
+        "details": "Given by NPC (SlowpokeWellB2FGymGuide)"
+      },
+      {
+        "area": "Slowpoke Well B 2 F",
+        "details": "Given by NPC (SlowpokeWellB2FGymGuide)"
       }
     ]
   },
@@ -6641,6 +7635,14 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 16)",
         "price": 16
+      },
+      {
+        "area": "Celadon University Library1 F",
+        "details": "Given by NPC (CeladonUniversityLibrary1FCooltrainerm)"
+      },
+      {
+        "area": "Celadon University Library1 F",
+        "details": "Given by NPC (CeladonUniversityLibrary1FCooltrainerm)"
       }
     ]
   },
@@ -6665,6 +7667,22 @@
         "area": "Gourmet Maniac",
         "details": "4000 points",
         "price": 4000
+      },
+      {
+        "area": "Celadon University Cafeteria",
+        "details": "Given by NPC (CeladonUniversityCafeteriaBaker)"
+      },
+      {
+        "area": "Celadon University Cafeteria",
+        "details": "Given by NPC (CeladonUniversityCafeteriaBaker)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
       }
     ]
   },
@@ -6679,7 +7697,25 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Blackthorn Poke Center1 F",
+        "details": "Given by NPC (ProfOaksAide4)"
+      },
+      {
+        "area": "Blackthorn Poke Center1 F",
+        "details": "Given by NPC (ProfOaksAide4)"
+      },
+      {
+        "area": "Lucky Island",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Lucky Island",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "amuletcoin": {
     "id": "amuletcoin",
@@ -6692,7 +7728,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Olivine Cafe",
+        "details": "Given by NPC (OlivineCafeLyra)"
+      },
+      {
+        "area": "Olivine Cafe",
+        "details": "Given by NPC (OlivineCafeLyra)"
+      }
+    ]
   },
   "cleansetag": {
     "id": "cleansetag",
@@ -6705,7 +7751,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Route5 Cleanse Tag Speech House",
+        "details": "Given by NPC (Route5CleanseTagHouseGranny)"
+      },
+      {
+        "area": "Route5 Cleanse Tag Speech House",
+        "details": "Given by NPC (Route5CleanseTagHouseGranny)"
+      }
+    ]
   },
   "smoke": {
     "id": "smoke",
@@ -6796,7 +7852,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Yellow Forest",
+        "details": "Given by NPC (YellowTryGiveLightBall)"
+      },
+      {
+        "area": "Yellow Forest",
+        "details": "Given by NPC (YellowTryGiveLightBall)"
+      }
+    ]
   },
   "leek": {
     "id": "leek",
@@ -6901,7 +7967,25 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Ilex Forest",
+        "details": "Given by NPC (IlexForestLyraContinue)"
+      },
+      {
+        "area": "Ilex Forest",
+        "details": "Given by NPC (IlexForestLyraContinue)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "airballoon": {
     "id": "airballoon",
@@ -6919,6 +8003,22 @@
       {
         "area": "Mahogany Town Poké Mart",
         "details": "For sale"
+      },
+      {
+        "area": "Route31",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route31",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Saffron Hitmontop Kid House",
+        "details": "Given by NPC (SaffronHitmontopKidHouseTeacher)"
+      },
+      {
+        "area": "Saffron Hitmontop Kid House",
+        "details": "Given by NPC (SaffronHitmontopKidHouseTeacher)"
       }
     ]
   },
@@ -6939,6 +8039,14 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 48)",
         "price": 48
+      },
+      {
+        "area": "Cianwood Lugia Speech House",
+        "details": "Given by NPC (CianwoodHouseBlackBelt)"
+      },
+      {
+        "area": "Cianwood Lugia Speech House",
+        "details": "Given by NPC (CianwoodHouseBlackBelt)"
       }
     ]
   },
@@ -6994,6 +8102,14 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 32)",
         "price": 32
+      },
+      {
+        "area": "Route36",
+        "details": "Given by NPC (Route36CooltrainerfChiara)"
+      },
+      {
+        "area": "Route36",
+        "details": "Given by NPC (Route36CooltrainerfChiara)"
       }
     ]
   },
@@ -7013,6 +8129,14 @@
       {
         "area": "Goldenrod Harbor Shop",
         "details": "For sale"
+      },
+      {
+        "area": "Ecruteak Destiny Knot House",
+        "details": "Given by NPC (EcruteakDestinyKnotHouseCooltrainerF)"
+      },
+      {
+        "area": "Ecruteak Destiny Knot House",
+        "details": "Given by NPC (EcruteakDestinyKnotHouseCooltrainerF)"
       },
       {
         "area": "Route 27",
@@ -7041,6 +8165,14 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 32)",
         "price": 32
+      },
+      {
+        "area": "Silver Cave Poke Center1 F",
+        "details": "Given by NPC (SilverCavePokeCenterGramps)"
+      },
+      {
+        "area": "Silver Cave Poke Center1 F",
+        "details": "Given by NPC (SilverCavePokeCenterGramps)"
       }
     ]
   },
@@ -7061,6 +8193,14 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 48)",
         "price": 48
+      },
+      {
+        "area": "Route45",
+        "details": "Given by NPC (Route45Dragon_tamer)"
+      },
+      {
+        "area": "Route45",
+        "details": "Given by NPC (Route45Dragon_tamer)"
       }
     ]
   },
@@ -7200,6 +8340,14 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 16)",
         "price": 16
+      },
+      {
+        "area": "Olivine Lighthouse3 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Olivine Lighthouse3 F",
+        "details": "Event/NPC reward"
       }
     ]
   },
@@ -7220,6 +8368,14 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 48)",
         "price": 48
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (Route44Veteranm)"
+      },
+      {
+        "area": "Route44",
+        "details": "Given by NPC (Route44Veteranm)"
       }
     ]
   },
@@ -7240,6 +8396,14 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 32)",
         "price": 32
+      },
+      {
+        "area": "Celadon Hotel Pool",
+        "details": "Given by NPC (CeladonHotelPoolSwimmerM)"
+      },
+      {
+        "area": "Celadon Hotel Pool",
+        "details": "Given by NPC (CeladonHotelPoolSwimmerM)"
       },
       {
         "area": "Quiet Cave B Second Floor",
@@ -7277,6 +8441,14 @@
       "useInBattle": "Cannot use"
     },
     "locations": [
+      {
+        "area": "Warm Beach",
+        "details": "Given by NPC (WarmBeachLass)"
+      },
+      {
+        "area": "Warm Beach",
+        "details": "Given by NPC (WarmBeachLass)"
+      },
       {
         "area": "Cerulean Cape",
         "details": "Visible item",
@@ -7327,6 +8499,14 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 48)",
         "price": 48
+      },
+      {
+        "area": "Viridian School House",
+        "details": "Given by NPC (ViridianSchoolHouseYoungster)"
+      },
+      {
+        "area": "Viridian School House",
+        "details": "Given by NPC (ViridianSchoolHouseYoungster)"
       }
     ]
   },
@@ -7429,6 +8609,14 @@
       {
         "area": "Shamouti Island Shop",
         "details": "For sale"
+      },
+      {
+        "area": "Route34",
+        "details": "Given by NPC (Route34RichBoyIrving)"
+      },
+      {
+        "area": "Route34",
+        "details": "Given by NPC (Route34RichBoyIrving)"
       }
     ]
   },
@@ -7590,6 +8778,22 @@
         "details": "For sale"
       },
       {
+        "area": "Ice Path B 3 F",
+        "details": "Given by NPC (LoreleiAfterIntro)"
+      },
+      {
+        "area": "Ice Path B 3 F",
+        "details": "Given by NPC (LoreleiAfterIntro)"
+      },
+      {
+        "area": "Ice Path B 3 F",
+        "details": "Given by NPC (LoreleiAfterRematchIntro)"
+      },
+      {
+        "area": "Ice Path B 3 F",
+        "details": "Given by NPC (LoreleiAfterRematchIntro)"
+      },
+      {
         "area": "Ice Island",
         "details": "Visible item",
         "coordinates": {
@@ -7616,6 +8820,38 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 48)",
         "price": 48
+      },
+      {
+        "area": "Celadon University Cafeteria",
+        "details": "Given by NPC (CeladonUniversityCafeteriaCorey)"
+      },
+      {
+        "area": "Celadon University Cafeteria",
+        "details": "Given by NPC (CeladonUniversityCafeteriaCorey)"
+      },
+      {
+        "area": "Celadon University Classroom4",
+        "details": "Given by NPC (CeladonUniversityClassroom4Raymond)"
+      },
+      {
+        "area": "Celadon University Classroom4",
+        "details": "Given by NPC (CeladonUniversityClassroom4Raymond)"
+      },
+      {
+        "area": "Celadon University Lounge",
+        "details": "Given by NPC (CeladonUniversityLoungeNeesha)"
+      },
+      {
+        "area": "Celadon University Lounge",
+        "details": "Given by NPC (CeladonUniversityLoungeNeesha)"
+      },
+      {
+        "area": "Celadon University Pool",
+        "details": "Given by NPC (CeladonUniversityPoolFergus)"
+      },
+      {
+        "area": "Celadon University Pool",
+        "details": "Given by NPC (CeladonUniversityPoolFergus)"
       }
     ]
   },
@@ -7656,6 +8892,14 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 48)",
         "price": 48
+      },
+      {
+        "area": "Route27",
+        "details": "Given by NPC (Route27Veteranf)"
+      },
+      {
+        "area": "Route27",
+        "details": "Given by NPC (Route27Veteranf)"
       }
     ]
   },
@@ -7676,6 +8920,14 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 32)",
         "price": 32
+      },
+      {
+        "area": "Route43",
+        "details": "Given by NPC (Route43Sightseerf)"
+      },
+      {
+        "area": "Route43",
+        "details": "Given by NPC (Route43Sightseerf)"
       },
       {
         "area": "Cinnabar Volcano B Second Floor",
@@ -7760,6 +9012,30 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 16)",
         "price": 16
+      },
+      {
+        "area": "Cliff Edge Gate",
+        "details": "Given by NPC (ProfOaksAide3)"
+      },
+      {
+        "area": "Cliff Edge Gate",
+        "details": "Given by NPC (ProfOaksAide3)"
+      },
+      {
+        "area": "Fast Ship Cabins_SE_SSE_Captains Cabin",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Fast Ship Cabins_SE_SSE_Captains Cabin",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Fast Ship Cabins_SE_SSE_Captains Cabin",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Fast Ship Cabins_SE_SSE_Captains Cabin",
+        "details": "Event/NPC reward"
       }
     ]
   },
@@ -7780,6 +9056,14 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 24)",
         "price": 24
+      },
+      {
+        "area": "Murky Swamp",
+        "details": "Given by NPC (MurkySwampCheryl)"
+      },
+      {
+        "area": "Murky Swamp",
+        "details": "Given by NPC (MurkySwampCheryl)"
       }
     ]
   },
@@ -7800,6 +9084,14 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 24)",
         "price": 24
+      },
+      {
+        "area": "Dim Cave5 F",
+        "details": "Given by NPC (DimCave5FRiley)"
+      },
+      {
+        "area": "Dim Cave5 F",
+        "details": "Given by NPC (DimCave5FRiley)"
       }
     ]
   },
@@ -7820,6 +9112,14 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 24)",
         "price": 24
+      },
+      {
+        "area": "Cinnabar Volcano1 F",
+        "details": "Given by NPC (CinnabarVolcano1FBuck)"
+      },
+      {
+        "area": "Cinnabar Volcano1 F",
+        "details": "Given by NPC (CinnabarVolcano1FBuck)"
       }
     ]
   },
@@ -7840,6 +9140,14 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 24)",
         "price": 24
+      },
+      {
+        "area": "Scary Cave1 F",
+        "details": "Given by NPC (ScaryCave1FMira)"
+      },
+      {
+        "area": "Scary Cave1 F",
+        "details": "Given by NPC (ScaryCave1FMira)"
       }
     ]
   },
@@ -7860,6 +9168,14 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 24)",
         "price": 24
+      },
+      {
+        "area": "Battle Tower Outside",
+        "details": "Given by NPC (BattleTowerOutsideAnabel)"
+      },
+      {
+        "area": "Battle Tower Outside",
+        "details": "Given by NPC (BattleTowerOutsideAnabel)"
       }
     ]
   },
@@ -7880,6 +9196,14 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 24)",
         "price": 24
+      },
+      {
+        "area": "Quiet Cave B 3 F",
+        "details": "Given by NPC (QuietCaveB3FMarley)"
+      },
+      {
+        "area": "Quiet Cave B 3 F",
+        "details": "Given by NPC (QuietCaveB3FMarley)"
       }
     ]
   },
@@ -7896,6 +9220,38 @@
       "useInBattle": "Cannot use"
     },
     "locations": [
+      {
+        "area": "Goldenrod Flower Shop",
+        "details": "Given by NPC (FlowerShopTeacher)"
+      },
+      {
+        "area": "Goldenrod Flower Shop",
+        "details": "Given by NPC (FlowerShopTeacher)"
+      },
+      {
+        "area": "Goldenrod Flower Shop",
+        "details": "Given by NPC (FlowerShopTeacher)"
+      },
+      {
+        "area": "Goldenrod Flower Shop",
+        "details": "Given by NPC (FlowerShopTeacher)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route30 Berry Speech House",
+        "details": "Given by NPC (Route30BerryHousePokefanM)"
+      },
+      {
+        "area": "Route30 Berry Speech House",
+        "details": "Given by NPC (Route30BerryHousePokefanM)"
+      },
       {
         "area": "Ilex Forest",
         "details": "Visible item",
@@ -7949,7 +9305,49 @@
       "category": "Item",
       "useOutsideBattle": "Use and close menu",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Honey House",
+        "details": "Given by NPC (GoldenrodHoneyHousePokefanF)"
+      },
+      {
+        "area": "Goldenrod Honey House",
+        "details": "Given by NPC (GoldenrodHoneyHousePokefanF)"
+      },
+      {
+        "area": "Goldenrod Honey House",
+        "details": "Given by NPC (GoldenrodHoneyHousePokefanF)"
+      },
+      {
+        "area": "Goldenrod Honey House",
+        "details": "Given by NPC (GoldenrodHoneyHousePokefanF)"
+      },
+      {
+        "area": "Goldenrod Honey House",
+        "details": "Given by NPC (GoldenrodHoneyHousePokefanF)"
+      },
+      {
+        "area": "Goldenrod Honey House",
+        "details": "Given by NPC (GoldenrodHoneyHousePokefanF)"
+      },
+      {
+        "area": "Noisy Forest",
+        "details": "Given by NPC (Katy)"
+      },
+      {
+        "area": "Noisy Forest",
+        "details": "Given by NPC (Katy)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "eviolite": {
     "id": "eviolite",
@@ -7972,6 +9370,14 @@
         "area": "Radio Tower Buena's Password Club",
         "details": "Prize for 5 Blue Card points",
         "price": 5
+      },
+      {
+        "area": "Goldenrod Pokecom Center1 F",
+        "details": "Given by NPC (GoldenrodPokecenter1FNurse)"
+      },
+      {
+        "area": "Goldenrod Pokecom Center1 F",
+        "details": "Given by NPC (GoldenrodPokecenter1FNurse)"
       },
       {
         "area": "Safari Zone North",
@@ -8008,6 +9414,14 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 32)",
         "price": 32
+      },
+      {
+        "area": "Embedded Tower",
+        "details": "Given by NPC (EmbeddedTowerSteven1)"
+      },
+      {
+        "area": "Embedded Tower",
+        "details": "Given by NPC (EmbeddedTowerSteven1)"
       }
     ]
   },
@@ -8028,6 +9442,14 @@
         "area": "Battle Tower Exchange",
         "details": "For sale (BP: 32)",
         "price": 32
+      },
+      {
+        "area": "Mystri Stage",
+        "details": "Given by NPC (MystriStageBeatCynthia)"
+      },
+      {
+        "area": "Mystri Stage",
+        "details": "Given by NPC (MystriStageBeatCynthia)"
       }
     ]
   },
@@ -8070,6 +9492,14 @@
       {
         "area": "Silph Co. Shop",
         "details": "For sale"
+      },
+      {
+        "area": "Silph Co2 F",
+        "details": "Given by NPC (SilphCo2FScientist1)"
+      },
+      {
+        "area": "Silph Co2 F",
+        "details": "Given by NPC (SilphCo2FScientist1)"
       }
     ]
   },
@@ -8216,6 +9646,38 @@
       {
         "area": "Shamouti Island Shop",
         "details": "For sale"
+      },
+      {
+        "area": "Elms Lab",
+        "details": "Given by NPC (ElmGiveOddSouvenir)"
+      },
+      {
+        "area": "Elms Lab",
+        "details": "Given by NPC (ElmGiveOddSouvenir)"
+      },
+      {
+        "area": "Noisy Forest",
+        "details": "Given by NPC (NoisyForestPikablu)"
+      },
+      {
+        "area": "Noisy Forest",
+        "details": "Given by NPC (NoisyForestPikablu)"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Shamouti Island",
+        "details": "Given by NPC (ShamoutiIslandYoungster)"
+      },
+      {
+        "area": "Shamouti Island",
+        "details": "Given by NPC (ShamoutiIslandYoungster)"
       }
     ]
   },
@@ -8259,6 +9721,38 @@
         "area": "Ore Maniac",
         "details": "10000 points",
         "price": 10000
+      },
+      {
+        "area": "National Park",
+        "details": "Given by NPC (PokefanfBeverly1)"
+      },
+      {
+        "area": "National Park",
+        "details": "Given by NPC (PokefanfBeverly1)"
+      },
+      {
+        "area": "Route25",
+        "details": "Given by NPC (Route25Slowpoke)"
+      },
+      {
+        "area": "Route25",
+        "details": "Given by NPC (Route25Slowpoke)"
+      },
+      {
+        "area": "Route2 Nugget Speech House",
+        "details": "Given by NPC (Route2NuggetSpeechHouseFisher)"
+      },
+      {
+        "area": "Route2 Nugget Speech House",
+        "details": "Given by NPC (Route2NuggetSpeechHouseFisher)"
+      },
+      {
+        "area": "Route39",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route39",
+        "details": "Event/NPC reward"
       },
       {
         "area": "Cerulean Cave Second Floor",
@@ -8435,6 +9929,22 @@
       "useInBattle": "Cannot use"
     },
     "locations": [
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Route34",
+        "details": "Given by NPC (Route34RichBoyIrving)"
+      },
+      {
+        "area": "Route34",
+        "details": "Given by NPC (Route34RichBoyIrving)"
+      },
       {
         "area": "Cerulean Cave First Floor",
         "details": "Visible item",
@@ -8936,6 +10446,14 @@
     },
     "locations": [
       {
+        "area": "Route27",
+        "details": "Given by NPC (Bird_keeperJose1)"
+      },
+      {
+        "area": "Route27",
+        "details": "Given by NPC (Bird_keeperJose1)"
+      },
+      {
         "area": "Dim Cave Third Floor",
         "details": "Hidden item",
         "coordinates": {
@@ -9012,7 +10530,18 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Rock Smash",
+        "details": "Rock smashing (Common)"
+      },
+      {
+        "area": "Ore Maniac",
+        "details": "100 points",
+        "price": 100
+      }
+    ]
   },
   "rarebone": {
     "id": "rarebone",
@@ -9083,6 +10612,14 @@
     },
     "locations": [
       {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
         "area": "Ilex Forest",
         "details": "Hidden item",
         "coordinates": {
@@ -9113,6 +10650,14 @@
       "useInBattle": "Cannot use"
     },
     "locations": [
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
       {
         "area": "Route 32",
         "details": "Hidden item",
@@ -9164,6 +10709,30 @@
     },
     "locations": [
       {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Radio Tower1 F",
+        "details": "Given by NPC (RadioTower1FLuckyNumberMan)"
+      },
+      {
+        "area": "Radio Tower1 F",
+        "details": "Given by NPC (RadioTower1FLuckyNumberMan)"
+      },
+      {
+        "area": "Vermilion City",
+        "details": "Given by NPC (LawrenceIntro)"
+      },
+      {
+        "area": "Vermilion City",
+        "details": "Given by NPC (LawrenceIntro)"
+      },
+      {
         "area": "Cerulean Cape",
         "details": "Hidden item",
         "coordinates": {
@@ -9192,7 +10761,18 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Rock Smash",
+        "details": "Rock smashing (Very rare)"
+      },
+      {
+        "area": "Fossil Maniac",
+        "details": "1000 points",
+        "price": 1000
+      }
+    ]
   },
   "domefossil": {
     "id": "domefossil",
@@ -9205,7 +10785,18 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Rock Smash",
+        "details": "Rock smashing (Very rare)"
+      },
+      {
+        "area": "Fossil Maniac",
+        "details": "1000 points",
+        "price": 1000
+      }
+    ]
   },
   "oldamber": {
     "id": "oldamber",
@@ -9218,7 +10809,17 @@
       "category": "Item",
       "useOutsideBattle": "Cannot use",
       "useInBattle": "Cannot use"
-    }
+    },
+    "locations": [
+      {
+        "area": "Pewter City",
+        "details": "Given by NPC (PewterCityGramps)"
+      },
+      {
+        "area": "Pewter City",
+        "details": "Given by NPC (PewterCityGramps)"
+      }
+    ]
   },
   "flowermail": {
     "id": "flowermail",
@@ -9363,6 +10964,14 @@
       {
         "area": "Goldenrod Dept. Store 2F",
         "details": "For sale"
+      },
+      {
+        "area": "Goldenrod Pokecom Center1 F",
+        "details": "Given by NPC (GoldenrodPokecenter1FNurse)"
+      },
+      {
+        "area": "Goldenrod Pokecom Center1 F",
+        "details": "Given by NPC (GoldenrodPokecenter1FNurse)"
       }
     ]
   },
@@ -9519,6 +11128,14 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 16)",
         "price": 16
+      },
+      {
+        "area": "Azalea Town",
+        "details": "Given by NPC (AzaleaTownTeacher)"
+      },
+      {
+        "area": "Azalea Town",
+        "details": "Given by NPC (AzaleaTownTeacher)"
       }
     ]
   },
@@ -9674,6 +11291,22 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 24)",
         "price": 24
+      },
+      {
+        "area": "Warehouse Entrance",
+        "details": "Given by NPC (Piers)"
+      },
+      {
+        "area": "Warehouse Entrance",
+        "details": "Given by NPC (Piers)"
+      },
+      {
+        "area": "Warehouse Entrance",
+        "details": "Given by NPC (PiersRematch)"
+      },
+      {
+        "area": "Warehouse Entrance",
+        "details": "Given by NPC (PiersRematch)"
       }
     ]
   },
@@ -9722,6 +11355,14 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 16)",
         "price": 16
+      },
+      {
+        "area": "Underground Path Switch Room Entrances",
+        "details": "Given by NPC (UndergroundPathSwitchRoomEntrancesVeteranM)"
+      },
+      {
+        "area": "Underground Path Switch Room Entrances",
+        "details": "Given by NPC (UndergroundPathSwitchRoomEntrancesVeteranM)"
       }
     ]
   },
@@ -9742,6 +11383,22 @@
         "area": "Battle Factory Exchange",
         "details": "For sale (BP: 32)",
         "price": 32
+      },
+      {
+        "area": "Battle Factory1 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Battle Factory1 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Players House2 F",
+        "details": "Event/NPC reward"
       }
     ]
   },
@@ -9752,7 +11409,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Bike Shop",
+        "details": "Given by NPC (GoldenrodBikeShopClerk)"
+      },
+      {
+        "area": "Goldenrod Bike Shop",
+        "details": "Given by NPC (GoldenrodBikeShopClerk)"
+      }
+    ]
   },
   "oldrod": {
     "id": "oldrod",
@@ -9761,7 +11428,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Route32 Poke Center1 F",
+        "details": "Given by NPC (Route32Pokecenter1FFishingGuru)"
+      },
+      {
+        "area": "Route32 Poke Center1 F",
+        "details": "Given by NPC (Route32Pokecenter1FFishingGuru)"
+      }
+    ]
   },
   "goodrod": {
     "id": "goodrod",
@@ -9770,7 +11447,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Olivine Good Rod House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Olivine Good Rod House",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "superrod": {
     "id": "superrod",
@@ -9779,7 +11466,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Route12 Super Rod House",
+        "details": "Given by NPC (Route12SuperRodHouseFishingGuru)"
+      },
+      {
+        "area": "Route12 Super Rod House",
+        "details": "Given by NPC (Route12SuperRodHouseFishingGuru)"
+      }
+    ]
   },
   "coincase": {
     "id": "coincase",
@@ -9807,7 +11504,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Ecruteak Itemfinder House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Ecruteak Itemfinder House",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "mysteryegg": {
     "id": "mysteryegg",
@@ -9816,7 +11523,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Mr Pokemons House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Mr Pokemons House",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "squirtbottle": {
     "id": "squirtbottle",
@@ -9825,7 +11542,25 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Goldenrod Flower Shop",
+        "details": "Given by NPC (FlowerShopTeacher)"
+      },
+      {
+        "area": "Goldenrod Flower Shop",
+        "details": "Given by NPC (FlowerShopTeacher)"
+      },
+      {
+        "area": "Goldenrod Flower Shop",
+        "details": "Given by NPC (FlowerShopTeacher)"
+      },
+      {
+        "area": "Goldenrod Flower Shop",
+        "details": "Given by NPC (FlowerShopTeacher)"
+      }
+    ]
   },
   "gogoggles": {
     "id": "gogoggles",
@@ -9861,7 +11596,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Cianwood Pharmacy",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Cianwood Pharmacy",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "redscale": {
     "id": "redscale",
@@ -9870,7 +11615,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Lake Of Rage",
+        "details": "Given by NPC (LakeOfRageRedGyarados)"
+      },
+      {
+        "area": "Lake Of Rage",
+        "details": "Given by NPC (LakeOfRageRedGyarados)"
+      }
+    ]
   },
   "cardkey": {
     "id": "cardkey",
@@ -9879,7 +11634,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Underground Warehouse",
+        "details": "Given by NPC (GoldenrodUndergroundWarehouseDirector)"
+      },
+      {
+        "area": "Underground Warehouse",
+        "details": "Given by NPC (GoldenrodUndergroundWarehouseDirector)"
+      }
+    ]
   },
   "basementkey": {
     "id": "basementkey",
@@ -9888,7 +11653,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Radio Tower5 F",
+        "details": "Given by NPC (Petrel1)"
+      },
+      {
+        "area": "Radio Tower5 F",
+        "details": "Given by NPC (Petrel1)"
+      }
+    ]
   },
   "ssticket": {
     "id": "ssticket",
@@ -9902,7 +11677,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Copycats House2 F",
+        "details": "Given by NPC (CopycatGivePass)"
+      },
+      {
+        "area": "Copycats House2 F",
+        "details": "Given by NPC (CopycatGivePass)"
+      }
+    ]
   },
   "machinepart": {
     "id": "machinepart",
@@ -9911,7 +11696,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Cerulean Gym",
+        "details": "Given by NPC (CeruleanGymGuy)"
+      },
+      {
+        "area": "Cerulean Gym",
+        "details": "Given by NPC (CeruleanGymGuy)"
+      }
+    ]
   },
   "lostitem": {
     "id": "lostitem",
@@ -9920,7 +11715,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Pokemon Fan Club",
+        "details": "Given by NPC (PokemonFanClubClefairyGuy)"
+      },
+      {
+        "area": "Pokemon Fan Club",
+        "details": "Given by NPC (PokemonFanClubClefairyGuy)"
+      }
+    ]
   },
   "rainbowwing": {
     "id": "rainbowwing",
@@ -9929,7 +11734,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Tin Tower1 F",
+        "details": "Given by NPC (TinTower1FSage5)"
+      },
+      {
+        "area": "Tin Tower1 F",
+        "details": "Given by NPC (TinTower1FSage5)"
+      }
+    ]
   },
   "silverwing": {
     "id": "silverwing",
@@ -9938,7 +11753,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Shamouti Shrine Ruins",
+        "details": "Given by NPC (ShamoutiShrineRuinsLawrence)"
+      },
+      {
+        "area": "Shamouti Shrine Ruins",
+        "details": "Given by NPC (ShamoutiShrineRuinsLawrence)"
+      }
+    ]
   },
   "clearbell": {
     "id": "clearbell",
@@ -9947,7 +11772,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Radio Tower5 F",
+        "details": "Given by NPC (Petrel1)"
+      },
+      {
+        "area": "Radio Tower5 F",
+        "details": "Given by NPC (Petrel1)"
+      }
+    ]
   },
   "gs": {
     "id": "gs",
@@ -9965,7 +11800,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Radio Tower3 F",
+        "details": "Given by NPC (RadioTower3FCooltrainerF)"
+      },
+      {
+        "area": "Radio Tower3 F",
+        "details": "Given by NPC (RadioTower3FCooltrainerF)"
+      }
+    ]
   },
   "bluecard": {
     "id": "bluecard",
@@ -9974,7 +11819,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Radio Tower2 F",
+        "details": "Given by NPC (RadioTower2FTeacher)"
+      },
+      {
+        "area": "Radio Tower2 F",
+        "details": "Given by NPC (RadioTower2FTeacher)"
+      }
+    ]
   },
   "orangeticket": {
     "id": "orangeticket",
@@ -9983,7 +11838,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Seagallop Ferry Vermilion Gate",
+        "details": "Given by NPC (SeagallopFerryVermilionGateSailor)"
+      },
+      {
+        "area": "Seagallop Ferry Vermilion Gate",
+        "details": "Given by NPC (SeagallopFerryVermilionGateSailor)"
+      }
+    ]
   },
   "mysticticket": {
     "id": "mysticticket",
@@ -9992,7 +11857,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Silver Cave Room3",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Silver Cave Room3",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "oldseamap": {
     "id": "oldseamap",
@@ -10020,7 +11895,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Rocket Hideout B 4 F",
+        "details": "Given by NPC (RocketHideoutB4FCandela)"
+      },
+      {
+        "area": "Rocket Hideout B 4 F",
+        "details": "Given by NPC (RocketHideoutB4FCandela)"
+      }
+    ]
   },
   "potentlure": {
     "id": "potentlure",
@@ -10029,7 +11914,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Rocket Hideout B 4 F",
+        "details": "Given by NPC (RocketHideoutB4FBlanche)"
+      },
+      {
+        "area": "Rocket Hideout B 4 F",
+        "details": "Given by NPC (RocketHideoutB4FBlanche)"
+      }
+    ]
   },
   "malignlure": {
     "id": "malignlure",
@@ -10038,7 +11933,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Rocket Hideout B 4 F",
+        "details": "Given by NPC (RocketHideoutB4FSpark)"
+      },
+      {
+        "area": "Rocket Hideout B 4 F",
+        "details": "Given by NPC (RocketHideoutB4FSpark)"
+      }
+    ]
   },
   "liftkey": {
     "id": "liftkey",
@@ -10066,7 +11971,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Oaks Lab",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Oaks Lab",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "ovalcharm": {
     "id": "ovalcharm",
@@ -10075,7 +11990,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Oaks Lab",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Oaks Lab",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "catchcharm": {
     "id": "catchcharm",
@@ -10084,7 +12009,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Oaks Lab",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Oaks Lab",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "silphscope2": {
     "id": "silphscope2",
@@ -10093,7 +12028,25 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Soul House",
+        "details": "Given by NPC (MrFuji)"
+      },
+      {
+        "area": "Soul House",
+        "details": "Given by NPC (MrFuji)"
+      },
+      {
+        "area": "Soul House B 3 F",
+        "details": "Given by NPC (SoulHouseB3FMrFuji)"
+      },
+      {
+        "area": "Soul House B 3 F",
+        "details": "Given by NPC (SoulHouseB3FMrFuji)"
+      }
+    ]
   },
   "apricornbox": {
     "id": "apricornbox",
@@ -10102,7 +12055,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Kurts House",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Kurts House",
+        "details": "Event/NPC reward"
+      }
+    ]
   },
   "typechart": {
     "id": "typechart",
@@ -10111,7 +12074,25 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Earls Pokemon Academy",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Earls Pokemon Academy",
+        "details": "Event/NPC reward"
+      },
+      {
+        "area": "Violet City",
+        "details": "Given by NPC (VioletCityEarl)"
+      },
+      {
+        "area": "Violet City",
+        "details": "Given by NPC (VioletCityEarl)"
+      }
+    ]
   },
   "wingcase": {
     "id": "wingcase",
@@ -10120,7 +12101,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Ilex Forest",
+        "details": "Given by NPC (IlexForestHeadbuttGuy)"
+      },
+      {
+        "area": "Ilex Forest",
+        "details": "Given by NPC (IlexForestHeadbuttGuy)"
+      }
+    ]
   },
   "candyjar": {
     "id": "candyjar",
@@ -10129,7 +12120,17 @@
     "attributes": {
       "price": 0,
       "isKeyItem": true
-    }
+    },
+    "locations": [
+      {
+        "area": "Warehouse Entrance",
+        "details": "Given by NPC (GoldenrodUndergroundCandyMan)"
+      },
+      {
+        "area": "Warehouse Entrance",
+        "details": "Given by NPC (GoldenrodUndergroundCandyMan)"
+      }
+    ]
   },
   "expcandyxs": {
     "id": "expcandyxs",

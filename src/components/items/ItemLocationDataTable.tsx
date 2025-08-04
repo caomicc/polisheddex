@@ -61,7 +61,7 @@ const columns: ColumnDef<ItemLocation>[] = [
       const shouldLink =
         location.details?.toLowerCase() === 'hidden item' ||
         location.details?.toLowerCase() === 'visible item';
-      
+
       return (
         <div className="min-w-0">
           {shouldLink ? (
@@ -102,7 +102,7 @@ const columns: ColumnDef<ItemLocation>[] = [
     },
     cell: ({ row }) => {
       const method = row.original.details || 'Unknown';
-      
+
       return (
         <Badge variant="secondary" className="text-xs">
           {method}
@@ -128,7 +128,7 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
 
   // Get unique methods for the filter dropdown
   const uniqueMethods = useMemo(() => {
-    const methods = Array.from(new Set(locations.map(loc => loc.details || 'Unknown')));
+    const methods = Array.from(new Set(locations.map((loc) => loc.details || 'Unknown')));
     return methods.sort();
   }, [locations]);
 
@@ -149,7 +149,7 @@ export default function ItemLocationDataTable({ locations }: ItemLocationDataTab
       const searchText = value.toLowerCase();
       return Boolean(
         location.area.toLowerCase().includes(searchText) ||
-        (location.details && location.details.toLowerCase().includes(searchText))
+          (location.details && location.details.toLowerCase().includes(searchText)),
       );
     },
     initialState: {

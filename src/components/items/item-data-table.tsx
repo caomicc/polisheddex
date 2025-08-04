@@ -139,7 +139,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
         (isTMHMItem(item) && item.location);
 
       const itemCategory = isRegularItem(item)
-        ? item.attributes?.isKeyItem 
+        ? item.attributes?.isKeyItem
           ? 'Key Item'
           : item.attributes?.category || 'Item'
         : isTMHMItem(item)

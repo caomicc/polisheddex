@@ -75,7 +75,7 @@ export default async function PokemonList({
 
       <div className="max-w-xl md:max-w-4xl mx-auto md:p-4">
         <div className="flex justify-end mb-4">
-          <Link 
+          <Link
             href="/pokemon/table"
             className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
           >

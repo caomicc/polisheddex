@@ -320,6 +320,12 @@ export function extractItemData(): Record<string, ItemData> {
   console.log('🔧 Extracting berry tree locations...');
   extractBerryTreeLocations(items);
 
+  console.log("🔧 Extracting Kurt's ball crafting locations...");
+  extractKurtBallLocations(items);
+
+  console.log('🔧 Extracting event-based item locations...');
+  extractEventItemLocations(items);
+
   // Write the extracted data to a JSON file
   fs.writeFileSync(outputFile, JSON.stringify(items, null, 2));
 
@@ -478,6 +484,7 @@ export function normalizeItemId(rawName: string): string {
     dreamball: 'dream',
     'dream-ball': 'dream',
     cherishball: 'cherish',
+    'cherish-ball': 'cherish',
 
     // Medicine
     superpotion: 'super',
@@ -524,6 +531,11 @@ export function normalizeItemId(rawName: string): string {
     'dusk-stone': 'duskstone',
     shinystone: 'shinystone',
 
+    'helix-fossil': 'helixfossil',
+    'dome-fossil': 'domefossil',
+    'quick-powder': 'quickpowder',
+    shedshell: 'shed-shell',
+
     // Hold items
     luckyegg: 'lucky-egg',
     amuletcoin: 'amulet-coin',
@@ -567,13 +579,16 @@ export function normalizeItemId(rawName: string): string {
     protectpads: 'protect',
     rockyhelmet: 'rocky',
     safegoggles: 'safe',
-    heavyboots: 'heavy',
+    heavyboots: 'heavyboots',
     punchinglove: 'punching',
     covertcloak: 'covert',
     ejectbutton: 'eject',
     ejectpack: 'eject-pack',
     redcard: 'red',
+    'thick-club': 'thickclub',
     ironball: 'iron',
+    brickpiece: 'brickpiece',
+    'brick-piece': 'brickpiece',
     laggingtail: 'lagging',
     flameorb: 'flame',
     toxicorb: 'toxic',
@@ -587,6 +602,7 @@ export function normalizeItemId(rawName: string): string {
     lifeorb: 'life',
     smokeball: 'smoke',
     lightball: 'light',
+    'light-ball': 'light',
     mintleaf: 'mint',
     bottlecap: 'bottlecap',
   };
@@ -1170,8 +1186,11 @@ export function extractBerryTreeLocations(itemData: Record<string, ItemData>): v
   }
 
   // Store berry locations with area names
-  const berryLocations: Record<string, Array<{ area: string; coordinates?: { x: number; y: number } }>> = {};
-  
+  const berryLocations: Record<
+    string,
+    Array<{ area: string; coordinates?: { x: number; y: number } }>
+  > = {};
+
   // Get all map files
   const mapFiles = fs.readdirSync(mapsDir).filter((file) => file.endsWith('.asm'));
 
@@ -1181,7 +1200,8 @@ export function extractBerryTreeLocations(itemData: Record<string, ItemData>): v
     const lines = mapContent.split(/\r?\n/);
 
     // Extract location name from filename
-    const locationName = path.basename(mapFile, '.asm')
+    const locationName = path
+      .basename(mapFile, '.asm')
       .replace(/([a-z])([A-Z])/g, '$1 $2') // Add spaces between camelCase
       .replace(/(\d+)([A-Z])/g, '$1 $2') // Add spaces between numbers and letters
       .replace(/([A-Z])(\d+)/g, '$1 $2') // Add spaces between letters and numbers
@@ -1189,9 +1209,11 @@ export function extractBerryTreeLocations(itemData: Record<string, ItemData>): v
 
     for (const line of lines) {
       const trimmedLine = line.trim();
-      
+
       // Look for fruittree_event patterns
-      const fruitTreeMatch = trimmedLine.match(/fruittree_event\s+(-?\d+),\s*(-?\d+),\s*\w+,\s*(\w+),/);
+      const fruitTreeMatch = trimmedLine.match(
+        /fruittree_event\s+(-?\d+),\s*(-?\d+),\s*\w+,\s*(\w+),/,
+      );
       if (fruitTreeMatch) {
         const x = parseInt(fruitTreeMatch[1]);
         const y = parseInt(fruitTreeMatch[2]);
@@ -1206,7 +1228,7 @@ export function extractBerryTreeLocations(itemData: Record<string, ItemData>): v
 
         berryLocations[normalizedBerryId].push({
           area: locationName,
-          coordinates: { x, y }
+          coordinates: { x, y },
         });
       }
     }
@@ -1252,12 +1274,264 @@ export function extractBerryTreeLocations(itemData: Record<string, ItemData>): v
   }
 
   console.log(`✅ Added berry tree location data to ${itemsWithBerryTrees} berry items`);
-  console.log(`🍇 Found ${Object.keys(berryLocations).length} unique berry types in ${mapFiles.length} map files`);
+  console.log(
+    `🍇 Found ${Object.keys(berryLocations).length} unique berry types in ${mapFiles.length} map files`,
+  );
 
   if (unmatchedBerries.length > 0) {
     console.log(
       `⚠️ Could not match ${unmatchedBerries.length} berry items:`,
       unmatchedBerries.join(', '),
+    );
+  }
+}
+
+/**
+ * Extract Kurt's ball crafting locations and add them to item data
+ * @param itemData The existing item data to update with location information
+ */
+export function extractKurtBallLocations(itemData: Record<string, ItemData>): void {
+  console.log("🔧 Extracting Kurt's ball crafting locations...");
+
+  // Kurt's special balls and their associated apricorn colors
+  const kurtBalls = [
+    {
+      ball: 'level',
+      ballName: 'Level Ball',
+      apricorn: 'Red Apricorn',
+      area: "Kurt's House (Azalea Town)",
+    },
+    {
+      ball: 'lure',
+      ballName: 'Lure Ball',
+      apricorn: 'Blu Apricorn',
+      area: "Kurt's House (Azalea Town)",
+    },
+    {
+      ball: 'moon',
+      ballName: 'Moon Ball',
+      apricorn: 'Ylw Apricorn',
+      area: "Kurt's House (Azalea Town)",
+    },
+    {
+      ball: 'friend',
+      ballName: 'Friend Ball',
+      apricorn: 'Grn Apricorn',
+      area: "Kurt's House (Azalea Town)",
+    },
+    {
+      ball: 'fast',
+      ballName: 'Fast Ball',
+      apricorn: 'Wht Apricorn',
+      area: "Kurt's House (Azalea Town)",
+    },
+    {
+      ball: 'heavy',
+      ballName: 'Heavy Ball',
+      apricorn: 'Blk Apricorn',
+      area: "Kurt's House (Azalea Town)",
+    },
+    {
+      ball: 'love',
+      ballName: 'Love Ball',
+      apricorn: 'Pnk Apricorn',
+      area: "Kurt's House (Azalea Town)",
+    },
+  ];
+
+  let itemsWithKurtBalls = 0;
+  const unmatchedBalls: string[] = [];
+
+  for (const { ball, ballName, apricorn, area } of kurtBalls) {
+    // Try different ID variations to match with existing items
+    const possibleIds = [
+      ball,
+      ball + 'ball',
+      ball + '-ball',
+      normalizeItemId(ballName),
+      normalizeItemId(ball + ' ball'),
+    ];
+
+    let found = false;
+    for (const id of possibleIds) {
+      if (itemData[id]) {
+        if (!itemData[id].locations) {
+          itemData[id].locations = [];
+        }
+
+        itemData[id].locations.push({
+          area,
+          details: `Crafted from ${apricorn}`,
+        });
+
+        itemsWithKurtBalls++;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      unmatchedBalls.push(`${ballName} (${ball})`);
+    }
+  }
+
+  console.log(`✅ Added Kurt's ball crafting location data to ${itemsWithKurtBalls} ball items`);
+
+  if (unmatchedBalls.length > 0) {
+    console.log(
+      `⚠️ Could not match ${unmatchedBalls.length} Kurt's balls:`,
+      unmatchedBalls.join(', '),
+    );
+  }
+}
+
+/**
+ * Extract event-based item locations from map files and add them to item data
+ * @param itemData The existing item data to update with location information
+ */
+export function extractEventItemLocations(itemData: Record<string, ItemData>): void {
+  // Use this workaround for __dirname in ES modules
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  console.log('🔧 Extracting event-based item locations...');
+
+  // Path to maps directory
+  const mapsDir = path.join(__dirname, '../../../polishedcrystal/maps');
+
+  if (!fs.existsSync(mapsDir)) {
+    console.log('⚠️ Maps directory not found, skipping event items extraction');
+    return;
+  }
+
+  // Store event items with their locations
+  const eventItems: Record<string, Array<{ area: string; details: string; npc?: string }>> = {};
+
+  // Get all map files
+  const mapFiles = fs.readdirSync(mapsDir).filter((file) => file.endsWith('.asm'));
+
+  for (const mapFile of mapFiles) {
+    const mapPath = path.join(mapsDir, mapFile);
+    const mapContent = fs.readFileSync(mapPath, 'utf8');
+    const lines = mapContent.split(/\r?\n/);
+
+    // Extract location name from filename
+    const locationName = path
+      .basename(mapFile, '.asm')
+      .replace(/([a-z])([A-Z])/g, '$1 $2') // Add spaces between camelCase
+      .replace(/(\d+)([A-Z])/g, '$1 $2') // Add spaces between numbers and letters
+      .replace(/([A-Z])(\d+)/g, '$1 $2') // Add spaces between letters and numbers
+      .trim();
+
+    let currentNPC = null;
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+
+      // Track NPC scripts for context
+      if (line.match(/^\w+Script:$/)) {
+        currentNPC = line.replace('Script:', '');
+      }
+
+      // Look for giveitem/verbosegiveitem patterns for special items
+      const giveItemMatch = line.match(
+        /(giveitem|givekeyitem|verbosegiveitem|verbosegivekeyitem)\s+(\w+)/,
+      );
+
+      if (giveItemMatch) {
+        const itemName = giveItemMatch[2];
+        const normalizedItemId = normalizeItemId(itemName);
+
+        if (!eventItems[normalizedItemId]) {
+          eventItems[normalizedItemId] = [];
+        }
+
+        // Determine details based on NPC and location
+        let details = 'Event/NPC reward';
+        if (currentNPC) {
+          details = `Given by NPC (${currentNPC})`;
+        }
+
+        eventItems[normalizedItemId].push({
+          area: locationName,
+          details,
+          npc: currentNPC || undefined,
+        });
+      }
+      if (giveItemMatch) {
+        const itemName = giveItemMatch[2];
+        const normalizedItemId = normalizeItemId(itemName);
+
+        if (!eventItems[normalizedItemId]) {
+          eventItems[normalizedItemId] = [];
+        }
+
+        // Determine details based on NPC and location
+        let details = 'Event/NPC reward';
+        if (currentNPC) {
+          details = `Given by NPC (${currentNPC})`;
+        }
+
+        eventItems[normalizedItemId].push({
+          area: locationName,
+          details,
+          npc: currentNPC || undefined,
+        });
+      }
+    }
+  }
+
+  // Update item data with event item location information
+  let itemsWithEventLocations = 0;
+  const unmatchedEventItems: string[] = [];
+
+  for (const [itemId, locations] of Object.entries(eventItems)) {
+    // Try different ID variations to match with existing items
+    const possibleIds = [
+      itemId,
+      itemId.replace('_', '').replace('-', ''),
+      itemId
+        .replace(/tag$/, '')
+        .replace(/patch$/, '')
+        .replace(/egg$/, ''),
+      itemId + 'desc',
+    ];
+
+    let found = false;
+    for (const id of possibleIds) {
+      if (itemData[id]) {
+        if (!itemData[id].locations) {
+          itemData[id].locations = [];
+        }
+
+        // Add all locations for this item
+        for (const location of locations) {
+          itemData[id].locations.push({
+            area: location.area,
+            details: location.details,
+          });
+        }
+
+        itemsWithEventLocations++;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      unmatchedEventItems.push(itemId);
+    }
+  }
+
+  console.log(`✅ Added event-based location data to ${itemsWithEventLocations} items`);
+  console.log(
+    `🎯 Found ${Object.keys(eventItems).length} unique event items in ${mapFiles.length} map files`,
+  );
+
+  if (unmatchedEventItems.length > 0) {
+    console.log(
+      `⚠️ Could not match ${unmatchedEventItems.length} event items:`,
+      unmatchedEventItems.join(', '),
     );
   }
 }
