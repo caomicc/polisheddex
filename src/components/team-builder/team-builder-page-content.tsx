@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { TeamBuilderClient } from './TeamBuilderClient';
+import { TeamBuilderClient } from './team-builder-client';
 import { DetailedStats } from '@/types/types';
 
 export function TeamBuilderPageContent() {

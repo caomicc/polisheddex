@@ -5,8 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonWithMove } from '@/utils/loaders/move-data-loader';
-import PokemonWithMoveDataTable from './PokemonWithMoveDataTable';
-import { Hero } from '../ui/Hero';
+import PokemonWithMoveDataTable from './pokemon-with-move-data-table';
+import { Hero } from '../ui/hero';
 import {
   Breadcrumb,
   BreadcrumbItem,

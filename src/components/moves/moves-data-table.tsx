@@ -37,7 +37,7 @@ import {
 } from '@/components/ui/select';
 import { MoveDescription } from '@/types/types';
 import { useFaithfulPreference } from '@/contexts';
-import MoveRow from './MoveRow';
+import MoveRow from './move-row';
 
 /**
  * MovesDataTable - A data table component for move data with persistent state

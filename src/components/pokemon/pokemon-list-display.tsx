@@ -1,7 +1,7 @@
 'use client';
 import { BaseData } from '@/types/types';
 import { PokemonListDataTable } from './pokemon-list-data-table';
-import PokemonCard from './PokemonCard';
+import PokemonCard from './pokemon-card';
 import { Switch } from '../ui/switch';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';

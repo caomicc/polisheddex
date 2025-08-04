@@ -3,9 +3,9 @@ import { Suspense } from 'react';
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import PokemonFormClient from '@/components/pokemon/PokemonFormClient';
-import PokemonNavigation from '@/components/pokemon/PokemonNavigation';
-import PokemonKeyboardNavigation from '@/components/pokemon/PokemonKeyboardNavigation';
+import PokemonFormClient from '@/components/pokemon/pokemon-form-client';
+import PokemonNavigation from '@/components/pokemon/pokemon-navigation';
+import PokemonKeyboardNavigation from '@/components/pokemon/pokemon-keyboard-navigation';
 import { FormData } from '@/types/types';
 import { urlKeyToStandardKey, getPokemonFileName } from '@/utils/pokemonUrlNormalizer';
 import { loadDexOrders, getDexOrderToUse, getPokemonNavigation } from '@/utils/pokemonNavigation';

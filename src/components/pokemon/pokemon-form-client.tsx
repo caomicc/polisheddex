@@ -1,22 +1,23 @@
 'use client';
 import Image from 'next/image';
-import { MoveRow, LocationListItem } from '@/components/pokemon';
 import { FormData, Move, MoveDescription, LocationEntry } from '@/types/types';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 import { Badge } from '../ui/badge';
-import { EvolutionChain } from './EvolutionChain';
+import { EvolutionChain } from './pokemon-evolution-chain';
 import { cn } from '@/lib/utils';
 import { Progress } from '../ui/progress';
 import { PokemonAbilities } from './pokemon-abilities';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
-import { GenderPieChart } from './gender-pie-chart';
-import PokedexHeader from './PokedexHeader';
-import { WeaknessChart } from './WeaknessChart';
-import PokemonTypeSetter from './PokemonTypeSetter';
-import SectionCard from './SectionCard';
+import { GenderPieChart } from './pokemon-gender-pie-chart';
+import PokedexHeader from './pokemon-header';
+import { WeaknessChart } from './weakness-chart';
+import PokemonTypeSetter from './pokemon-type-setter';
+import SectionCard from './section-card';
 import { useQueryState } from 'nuqs';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonSprite } from './pokemon-sprite';
+import { MoveRow } from '../moves';
+import { LocationListItem } from '../locations';
 
 // Helper function to deduplicate moves based on name and level
 function deduplicateMoves(moves: Move[]): Move[] {

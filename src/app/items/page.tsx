@@ -8,8 +8,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import ItemDataTableSearch from '@/components/items/ItemDataTableSearch';
-import { Hero } from '@/components/ui/Hero';
+import ItemDataTableSearch from '@/components/items/item-data-table-search';
+import { Hero } from '@/components/ui/hero';
 import { loadItemsData } from '@/utils/loaders/item-data-loader';
 
 export default async function ItemsList() {

@@ -13,9 +13,9 @@ import {
 } from '@/types/types';
 import { GroupedPokemon } from '@/types/locationTypes';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
-import { PokemonDataTable } from './pokemon-data-table';
-import { pokemonColumns } from './pokemon-columns';
-import TrainerCard from '../trainer/TrainerCard';
+import { PokemonDataTable } from '../pokemon/pokemon-data-table';
+import { pokemonColumns } from '../pokemon/pokemon-columns';
+import TrainerCard from '../trainer/trainer-card';
 import { Badge } from '../ui/badge';
 
 export default function LocationClient({

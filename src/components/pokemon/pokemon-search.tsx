@@ -2,7 +2,7 @@
 
 import { BaseData } from '@/types/types';
 import React, { useState } from 'react';
-import PokemonCard from './PokemonCard';
+import PokemonCard from './pokemon-card';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger } from '../ui/select';
@@ -11,7 +11,7 @@ import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import Link from 'next/link';
 import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';
 import { usePokemonSearch } from '@/hooks/usePokemonSearch';
-import { PokemonGridSkeleton } from './PokemonCardSkeleton';
+import { PokemonGridSkeleton } from './pokemon-card-skeleton';
 
 interface PokemonSearchProps {
   pokemon: BaseData[];

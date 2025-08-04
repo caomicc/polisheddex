@@ -9,10 +9,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import LocationClient from '@/components/pokemon/LocationClient';
+import LocationClient from '@/components/locations/location-client';
 import { normalizeLocationKey } from '@/utils/locationUtils';
 import { GroupedPokemon, EncounterDetail } from '@/types/locationTypes';
-import { Hero } from '@/components/ui/Hero';
+import { Hero } from '@/components/ui/hero';
 import { groupLocationsHierarchically } from '@/utils/locationGrouping';
 import {
   loadMergedPokemonLocationData,

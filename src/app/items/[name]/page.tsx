@@ -10,11 +10,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Hero } from '@/components/ui/Hero';
+import { Hero } from '@/components/ui/hero';
 import { Badge } from '@/components/ui/badge';
 import { loadItemById, loadItemsData } from '@/utils/loaders/item-data-loader';
-import ItemDetailClient from '@/components/items/ItemDetailClient';
-import { PokemonGridSkeleton } from '@/components/pokemon/PokemonCardSkeleton';
+import ItemDetailClient from '@/components/items/item-detail-client';
+import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
 
 interface ItemPageProps {
   params: Promise<{ name: string }>;

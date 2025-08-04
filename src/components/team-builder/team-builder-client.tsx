@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 import { DetailedStats } from '@/types/types';
-import { TeamSlot } from './TeamSlot';
-import { TeamAnalysis } from './TeamAnalysis';
-import { PokemonSearchModal } from './PokemonSearchModal';
-import { SaveTeamModal } from './SaveTeamModal';
-import { LoadTeamModal } from './LoadTeamModal';
+import { TeamSlot } from './team-slot';
+import { TeamAnalysis } from './team-analysis';
+import { PokemonSearchModal } from './pokemon-search-modal';
+import { SaveTeamModal } from './save-team-modal';
+import { LoadTeamModal } from './load-team-modal';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { useTeamSearchParams } from '@/hooks/use-team-search-params';
 import { Button } from '../ui/button';

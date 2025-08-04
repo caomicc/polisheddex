@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
-import { TeamBuilderPageContent } from '@/components/team-builder/TeamBuilderPageContent';
+import { TeamBuilderPageContent } from '@/components/team-builder/team-builder-page-content';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,7 +9,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Hero } from '@/components/ui/Hero';
+import { Hero } from '@/components/ui/hero';
 
 function TeamBuilderLoading() {
   return (

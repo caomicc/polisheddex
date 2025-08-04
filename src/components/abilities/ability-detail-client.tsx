@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonWithAbility } from '@/utils/loaders/ability-data-loader';
-import PokemonWithAbilityDataTable from './PokemonWithAbilityDataTable';
+import PokemonWithAbilityDataTable from './pokemon-with-ability-data-table';
 
 interface AbilityDetailClientProps {
   abilityData: {

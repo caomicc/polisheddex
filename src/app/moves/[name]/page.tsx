@@ -2,8 +2,8 @@ import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
 import { loadManifest } from '@/utils/manifest-resolver';
-import MoveDetailClient from '@/components/moves/MoveDetailClient';
-import { PokemonGridSkeleton } from '@/components/pokemon/PokemonCardSkeleton';
+import MoveDetailClient from '@/components/moves/move-detail-client';
+import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
 import { MoveManifest, getPokemonThatCanLearnMove } from '@/utils/loaders/move-data-loader';
 import { Move, MoveDescription } from '@/types/types';
 

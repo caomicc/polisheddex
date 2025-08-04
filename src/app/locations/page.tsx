@@ -8,8 +8,8 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { LocationData } from '@/types/types';
-import LocationSearch from '@/components/pokemon/LocationSearch';
-import { Hero } from '@/components/ui/Hero';
+import LocationSearch from '@/components/locations/location-search';
+import { Hero } from '@/components/ui/hero';
 import { loadEnhancedLocations } from '@/utils/loaders/location-data-loader';
 
 export default async function LocationsPage() {

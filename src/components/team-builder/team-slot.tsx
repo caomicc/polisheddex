@@ -2,7 +2,7 @@
 
 import { TeamPokemon } from '@/hooks/use-team-search-params';
 import { X, Plus } from 'lucide-react';
-import PokemonCard from '../pokemon/PokemonCard';
+import PokemonCard from '../pokemon/pokemon-card';
 import { BaseData } from '@/types/types';
 import Link from 'next/link';
 import { normalizePokemonUrlKey } from '@/utils/pokemonUrlNormalizer';

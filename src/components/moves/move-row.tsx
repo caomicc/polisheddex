@@ -3,7 +3,7 @@ import { TableCell, TableRow } from '../ui/table';
 import { cn } from '@/lib/utils';
 import { Move, MoveDescription, PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
-import MoveCategoryIcon from './MoveCategoryIcon';
+import MoveCategoryIcon from './move-category-icon';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';

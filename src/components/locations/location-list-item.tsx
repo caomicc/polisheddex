@@ -2,7 +2,7 @@ import { LocationEntry } from '@/types/types';
 import Link from 'next/link';
 import { TableRow, TableCell } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
-import TimeIcon from './TimeIcon';
+import TimeIcon from '../pokemon/time-icon';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import { normalizeLocationKey, getLocationDisplayName } from '@/utils/locationUtils';
 

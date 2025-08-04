@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import EmulatorRecommendations from '@/components/ui/emulator-recomendations';
-import { Hero } from '@/components/ui/Hero';
+import { Hero } from '@/components/ui/hero';
 import { ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 

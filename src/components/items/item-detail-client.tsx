@@ -4,7 +4,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { isRegularItem, isTMHMItem, type ItemData, type TMHMData } from '@/types/types';
-import ItemLocationDataTable from './ItemLocationDataTable';
+import ItemLocationDataTable from './item-location-data-table';
 
 interface ItemDetailClientProps {
   item: ItemData | TMHMData;

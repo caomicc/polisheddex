@@ -2,7 +2,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { FormData, PokemonType } from '@/types/types';
 import { Badge } from '../ui/badge';
-import PokemonFormSelect from './PokemonFormSelect';
+import PokemonFormSelect from './pokemon-form-select';
 import { getTypeGradientProps } from '@/utils/css-gradients';
 import {
   Breadcrumb,
@@ -13,7 +13,7 @@ import {
   BreadcrumbSeparator,
 } from '../ui/breadcrumb';
 import Link from 'next/link';
-import { Hero } from '../ui/Hero';
+import { Hero } from '../ui/hero';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 const PokedexHeader = ({

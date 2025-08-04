@@ -8,8 +8,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Hero } from '@/components/ui/Hero';
-import MovesDataTableSearch from '@/components/moves/MovesDataTableSearch';
+import { Hero } from '@/components/ui/hero';
+import MovesDataTableSearch from '@/components/moves/moves-data-table-search';
 import { loadMovesData } from '@/utils/loaders/move-data-loader';
 
 export default async function MovesList() {

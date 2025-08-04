@@ -9,10 +9,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Hero } from '@/components/ui/Hero';
+import { Hero } from '@/components/ui/hero';
 import { loadAbilityById, getPokemonThatHaveAbility } from '@/utils/loaders/ability-data-loader';
-import AbilityDetailClient from '@/components/abilities/AbilityDetailClient';
-import { PokemonGridSkeleton } from '@/components/pokemon/PokemonCardSkeleton';
+import AbilityDetailClient from '@/components/abilities/ability-detail-client';
+import { PokemonGridSkeleton } from '@/components/pokemon/pokemon-card-skeleton';
 
 export default async function AbilityDetail({ params }: { params: Promise<{ name: string }> }) {
   const nameParam = (await params).name;
