@@ -15,7 +15,7 @@ export interface PokemonCardProps {
 
 const PokemonCard: React.FC<PokemonCardProps> = ({
   pokemon,
-  sortType = 'nationaldex',
+  sortType = 'johtodex',
   showUpdatedTypes = true,
 }) => {
   // Get the appropriate types based on preference
