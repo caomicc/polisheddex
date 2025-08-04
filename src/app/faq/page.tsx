@@ -76,14 +76,6 @@ export default function FAQPage() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link href="/wiki" className="hover:underline">
-                      Wiki
-                    </Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
                   <BreadcrumbPage className="">FAQ</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>

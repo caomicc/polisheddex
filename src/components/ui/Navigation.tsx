@@ -158,20 +158,20 @@ export default function Navigation() {
                 <Link href="/locations">Locations</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <NavigationMenuLink
                 asChild
                 className={cn(navigationMenuTriggerStyle(), isActive('/wiki') && 'active-link')}
               >
                 <Link href="/wiki">Wiki</Link>
               </NavigationMenuLink>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
             <NavigationMenuItem>
               <NavigationMenuLink
                 asChild
                 className={cn(navigationMenuTriggerStyle(), isActive('/wiki/faq') && 'active-link')}
               >
-                <Link href="/wiki/faq">FAQ</Link>
+                <Link href="/faq">FAQ</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
 

@@ -135,6 +135,16 @@ const nextConfig: NextConfig = {
         destination: '/items/dive',
         permanent: true,
       },
+      {
+        source: '/wiki',
+        destination: 'https://github.com/Rangi42/polishedcrystal/wiki',
+        permanent: false,
+      },
+      {
+        source: '/wiki/faq',
+        destination: '/faq',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {
