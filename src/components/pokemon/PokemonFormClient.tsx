@@ -354,14 +354,14 @@ export default function PokemonFormClient({
 
               <div className="flex flex-row gap-4 items-start justify-center mb-8">
                 <div className="flex flex-col items-center justify-center gap-2">
-                  <PokemonSprite pokemonName={pokemonName} />
+                  <PokemonSprite form={selectedForm} pokemonName={pokemonName} />
 
                   <span className="text-xs font-bold text-muted-foreground capitalize leading-none ">
                     Front Sprite
                   </span>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-2">
-                  <PokemonSprite pokemonName={pokemonName} type="animated" />
+                  <PokemonSprite form={selectedForm} pokemonName={pokemonName} type="animated" />
                   <span className="text-xs font-bold text-muted-foreground capitalize leading-base">
                     Front Sprite
                     <br />
@@ -370,13 +370,18 @@ export default function PokemonFormClient({
                 </div>
 
                 <div className="flex flex-col items-center justify-center gap-2">
-                  <PokemonSprite pokemonName={pokemonName} variant="shiny" />
+                  <PokemonSprite form={selectedForm} pokemonName={pokemonName} variant="shiny" />
                   <span className="text-xs font-bold text-muted-foreground capitalize leading-none">
                     Shiny Sprite
                   </span>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-2">
-                  <PokemonSprite pokemonName={pokemonName} variant="shiny" type="animated" />
+                  <PokemonSprite
+                    form={selectedForm}
+                    pokemonName={pokemonName}
+                    variant="shiny"
+                    type="animated"
+                  />
 
                   <span className="text-xs font-bold text-muted-foreground capitalize leading-base">
                     Shiny Sprite
