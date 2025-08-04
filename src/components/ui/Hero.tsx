@@ -110,3 +110,5 @@ export const Hero: React.FC<HeroProps> = ({ ...props }) => {
     </div>
   );
 };
+
+export default Hero;
