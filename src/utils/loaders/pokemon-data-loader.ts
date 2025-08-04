@@ -307,7 +307,13 @@ export async function loadAllPokemonDataFromManifest(): Promise<PokemonManifest>
     }
   } catch (error) {
     console.error('Error loading pokemon manifest:', error);
-    return {};
+    try {
+      const fallbackData = await loadJsonFile<Record<string, any>>('/output/pokemon/_index.json');
+      return fallbackData || {};
+    } catch (fallbackError) {
+      console.error('Failed to load fallback pokemon data:', fallbackError);
+      return {};
+    }
   }
 }
 
