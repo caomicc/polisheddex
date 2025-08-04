@@ -296,12 +296,13 @@ export async function loadAllPokemonDataFromManifest(): Promise<PokemonManifest>
     if (typeof window === 'undefined') {
       // Server-side: Load the pokemon manifest directly
       const pokemonManifest = await loadManifest<PokemonManifest>('pokemon');
+      console.log('Loaded Pokemon manifest from server:', Object.keys(pokemonManifest).length);
       return pokemonManifest;
     } else {
       // Client-side: Use fetch
       const response = await fetch('/output/manifests/pokemon.json');
       if (!response.ok) {
-        throw new Error('Failed to load pokemon manifest');
+        throw new Error('Failed to load pokemon manifest on client');
       }
       return await response.json();
     }
