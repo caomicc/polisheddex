@@ -198,10 +198,11 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               className="items-center flex flex-col text-center"
             >
               <PokemonSprite
-                pokemonName={sourceName}
-                src={getSpriteUrl(sourceName)}
-                alt={`Sprite of Pokémon ${sourceName}`}
+                pokemonName={path.source}
+                src={getSpriteUrl(path.source)}
+                alt={`Sprite of Pokémon ${path.source}`}
                 primaryType={primaryType as PokemonType['name']}
+                form={path.sourceForm?.toLowerCase()}
               />
               <span className="mt-2 flex text-xs md:text-sm font-black text-muted-foreground capitalize leading-none ">
                 {sourceName}
@@ -315,9 +316,11 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               className="items-center flex flex-col text-center"
             >
               <PokemonSprite
-                pokemonName={targetName}
-                src={getSpriteUrl(targetName)}
-                alt={`Sprite of Pokémon ${targetName}`}
+                pokemonName={path.target}
+                src={getSpriteUrl(path.target)}
+                alt={`Sprite of Pokémon ${path.target}`}
+                primaryType={primaryType as PokemonType['name']}
+                form={path.targetForm?.replace(/ form$/i, '').toLowerCase()}
               />
               <span className="mt-2 flex text-xs md:text-sm font-black text-muted-foreground capitalize leading-none">
                 {targetName}
