@@ -145,6 +145,11 @@ const nextConfig: NextConfig = {
         destination: '/faq',
         permanent: true,
       },
+      {
+        source: '/moves/psychic-m',
+        destination: '/moves/psychic',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {
