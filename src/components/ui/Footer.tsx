@@ -3,6 +3,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 // import { Switch } from "@/components/ui/switch"; // Commented out for now
 import { useBuildInfo } from '@/hooks/useBuildInfo';
+import { Button } from './button';
 // import { Switch } from './switch';
 
 type FooterProps = {
@@ -69,12 +70,12 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
       <div className="flex items-center gap-4">
         <span className="text-sm text-gray-500 dark:text-gray-400">
           <a
-            href="https://github.com/caomicc/polisheddex/issues"
+            href="https://www.notion.so/Polished-Dex-Roadmap-24662146b03a805e88f3c6db6b800837"
             target="_blank"
             rel="noopener noreferrer"
             className="font-bold hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
-            Found a bug? Looking for a feature request?
+            <Button>Bugs & Feature Requests</Button>
           </a>
         </span>
         <span className="text-sm text-gray-400 dark:text-gray-500">

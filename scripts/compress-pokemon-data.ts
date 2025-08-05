@@ -3,6 +3,49 @@
 import fs from 'fs/promises';
 import path from 'path';
 
+// Move normalization function to fix remaining PSYCHIC issues
+function normalizeMoveData(moveArray: any[]): any[] {
+  if (!Array.isArray(moveArray)) return moveArray;
+  
+  return moveArray.map((move: any) => {
+    if (!move || typeof move !== 'object') return move;
+    
+    const normalizedMove = { ...move };
+    
+    // Normalize move names - specifically handle "Psychic M" -> "Psychic"
+    if (move.name === 'Psychic M' || move.name === 'PSYCHIC_M') {
+      normalizedMove.name = 'Psychic';
+      
+      // Check if this is a level move (has info object) or TM/HM move (direct properties)
+      if (move.info !== undefined) {
+        // Level move structure - update info object
+        if (!move.info || !move.info.description || move.info.type === 'None' || move.info.pp === 0) {
+          normalizedMove.info = {
+            description: "An attack that may lower Sp.Def.",
+            type: "Psychic", 
+            pp: 10,
+            power: 90,
+            accuracy: 100,
+            category: "Special"
+          };
+        }
+      } else {
+        // TM/HM move structure - update direct properties
+        if (!move.description || move.type === 'None' || move.pp === 0) {
+          normalizedMove.description = "An attack that may lower Sp.Def.";
+          normalizedMove.type = "Psychic";
+          normalizedMove.pp = 10;
+          normalizedMove.power = 90;
+          normalizedMove.accuracy = 100;
+          normalizedMove.category = "Special";
+        }
+      }
+    }
+    
+    return normalizedMove;
+  });
+}
+
 interface CompressedAbility {
   id: string;
   isHidden: boolean;
@@ -189,13 +232,15 @@ async function compressPokemonFile(filePath: string): Promise<void> {
 
     // Load location data
     const allLocationsData = await loadLocationData();
-    const pokemonName = data.name.toLowerCase();
+    // Derive Pokemon name from filename instead of data.name which may not exist
+    const fileName = path.basename(filePath, '.json');
+    const pokemonName = fileName.toLowerCase();
     const pokemonLocationData = allLocationsData[pokemonName];
     const locations = pokemonLocationData?.locations || [];
 
     // Load detailed stats data to get faithful/polished base stats
     const allDetailedStatsData = await loadDetailedStatsData();
-    const pokemonNameCapitalized = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+    const pokemonNameCapitalized = fileName.charAt(0).toUpperCase() + fileName.slice(1);
     const pokemonDetailedStats = allDetailedStatsData[pokemonNameCapitalized];
 
     // Extract faithful and polished base stats if they exist and are different
@@ -216,12 +261,24 @@ async function compressPokemonFile(filePath: string): Promise<void> {
       }
     }
 
+    // Apply move normalization to fix remaining PSYCHIC issues
+    const normalizedData = {
+      ...data,
+      levelMoves: data.levelMoves ? normalizeMoveData(data.levelMoves) : data.levelMoves,
+      faithfulLevelMoves: data.faithfulLevelMoves ? normalizeMoveData(data.faithfulLevelMoves) : data.faithfulLevelMoves,
+      updatedLevelMoves: data.updatedLevelMoves ? normalizeMoveData(data.updatedLevelMoves) : data.updatedLevelMoves,
+      moves: data.moves ? normalizeMoveData(data.moves) : data.moves,
+      faithfulMoves: data.faithfulMoves ? normalizeMoveData(data.faithfulMoves) : data.faithfulMoves,
+      updatedMoves: data.updatedMoves ? normalizeMoveData(data.updatedMoves) : data.updatedMoves,
+      tmHmMoves: data.tmHmMoves ? normalizeMoveData(data.tmHmMoves) : data.tmHmMoves,
+    };
+
     // Create compressed version
     const compressed: CompressedPokemon = {
-      ...data,
-      name: data.name.toLowerCase(), // Normalize to lowercase for consistency
+      ...normalizedData,
+      name: pokemonName, // Use derived name from filename
       detailedStats: {
-        ...data.detailedStats,
+        ...normalizedData.detailedStats,
         abilities: compressedAbilities,
         faithfulAbilities: faithfulAbilities,
         updatedAbilities: updatedAbilities,

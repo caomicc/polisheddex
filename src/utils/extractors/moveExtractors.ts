@@ -221,6 +221,7 @@ export function extractMoveDescriptions() {
     PSYCHIC: 'PSYCHIC_M',
     psychic: 'PSYCHIC_M',
     psychic_m: 'PSYCHIC_M',
+    'psychic m': 'PSYCHIC_M',
     WILL_O_WISP: 'WILL_O_WISP',
     will_o_wisp: 'WILL_O_WISP',
     willow_wisp: 'WILL_O_WISP',
@@ -299,6 +300,21 @@ export function extractMoveDescriptions() {
           console.log(`Mapped move stats: ${normalizedName} -> ${move}`);
         }
       }
+
+      // Special case: ensure PSYCHIC gets PSYCHIC_M stats
+      if (move === 'PSYCHIC_M') {
+        const psychicKey = 'psychic';
+        if (!moveStats[psychicKey]) moveStats[psychicKey] = {};
+        if (inFaithfulBlock === true) {
+          moveStats[psychicKey].faithful = moveData;
+        } else if (inFaithfulBlock === false) {
+          moveStats[psychicKey].updated = moveData;
+        } else {
+          moveStats[psychicKey].faithful = moveData;
+          moveStats[psychicKey].updated = moveData;
+        }
+        console.log(`Mapped PSYCHIC_M stats to psychic key`);
+      }
     }
   }
 
@@ -335,8 +351,9 @@ export function extractMoveDescriptions() {
 
   // Special case mappings for problematic move names
   const specialMappings: Record<string, string> = {
-    psychic: 'psychic_m', // Psychic move uses PsychicM description
-    psychic_m: 'psychic_m',
+    psychic: 'psychicm', // Psychic move uses PsychicM description (no underscore in description file!)
+    psychic_m: 'psychicm',
+    'psychic m': 'psychicm',
     doubleslap: 'double_slap',
     double_slap: 'double_slap',
     will_o_wisp: 'will_o_wisp',
@@ -346,6 +363,15 @@ export function extractMoveDescriptions() {
     brick_break: 'rock_smash', // Brick Break uses RockSmash description in polished mode
     brickbreak: 'rock_smash',
   };
+
+  // Add the Psychic description directly since it's shared with other moves
+  const psychicDesc = 'An attack that may lower Sp.Def.';
+  descMap['psychic'] = psychicDesc;
+  descMap['PSYCHIC'] = psychicDesc;
+  descMap['psychicm'] = psychicDesc;
+  descMap['PSYCHICM'] = psychicDesc;
+  descMap['psychic_m'] = psychicDesc;
+  descMap['PSYCHIC_M'] = psychicDesc;
 
   for (let i = 0; i < moveNames.length; i++) {
     // Normalize the move name to match the keys in descMap and moveStats
@@ -582,7 +608,13 @@ export function extractTmHmLearnset() {
 
       tmHmLearnset[pokemonName] = moves.map((name) => {
         // Check if we have move description data for this move
-        const moveData = moveDescriptions[name];
+        let moveData = moveDescriptions[name];
+
+        // Special handling for PSYCHIC move - try alternate names if not found
+        if (!moveData && name === 'Psychic') {
+          moveData = moveDescriptions['Psychic M'] || moveDescriptions['Psychic_M'];
+        }
+
         if (moveData) {
           return {
             name,

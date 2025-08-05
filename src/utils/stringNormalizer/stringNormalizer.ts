@@ -47,6 +47,9 @@ export const normalizeString = (str: string): string => {
     SLASH: 'Slash',
     NightSlashDescription: 'Night Slash',
     SlashDescription: 'Slash',
+    PSYCHIC_M: 'Psychic', // Special case for PSYCHIC move constant
+    PsychicM: 'Psychic', // CamelCase variant
+    'Psychic M': 'Psychic', // Space variant
     'Ho-Oh': 'Ho-Oh', // Special case for Ho-Oh
     'Ho Oh': 'Ho-Oh', // Special case for Ho-Oh
     Hooh: 'Ho-Oh', // Another variant for Ho-Oh

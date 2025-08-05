@@ -173,15 +173,41 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
 
   function createMoveFromMatch(level: number, moveKey: string): Move {
     const prettyName = normalizeMoveString(moveKey);
-    const info = moveDescriptions[prettyName]
+    
+    // Debug logging for PSYCHIC moves
+    if (moveKey.includes('PSYCHIC')) {
+      console.log(`DEBUG createMoveFromMatch: moveKey="${moveKey}", prettyName="${prettyName}"`);
+    }
+    
+    // Try to find move data - first direct lookup, then fallbacks for special cases
+    let moveData = moveDescriptions[prettyName];
+    
+    // Special handling for PSYCHIC move
+    if (!moveData && (prettyName === 'Psychic' || moveKey === 'PSYCHIC' || moveKey === 'PSYCHIC_M')) {
+      console.log(`DEBUG: Trying fallback for PSYCHIC move. Keys available:`, Object.keys(moveDescriptions).filter(k => k.toLowerCase().includes('psychic')));
+      moveData = moveDescriptions['Psychic M'] || moveDescriptions['Psychic_M'] || moveDescriptions['Psychic'];
+      if (moveData) {
+        console.log(`DEBUG: Found PSYCHIC move data via fallback`);
+      } else {
+        console.log(`DEBUG: No PSYCHIC move data found even with fallback`);
+      }
+      // Keep the original name as "Psychic" even if we found data under a different key
+    }
+    
+    // Final debug for PSYCHIC moves
+    if (moveKey.includes('PSYCHIC')) {
+      console.log(`DEBUG: Final result for PSYCHIC move - moveData found: ${!!moveData}, will have info: ${!!moveData}`);
+    }
+    
+    const info = moveData
       ? {
-          description: moveDescriptions[prettyName].description,
-          type: moveDescriptions[prettyName].type,
-          pp: moveDescriptions[prettyName].pp,
-          power: moveDescriptions[prettyName].power,
-          accuracy: moveDescriptions[prettyName].accuracy,
-          effectPercent: moveDescriptions[prettyName].effectPercent,
-          category: moveDescriptions[prettyName].category,
+          description: moveData.description,
+          type: moveData.updated?.type || moveData.faithful?.type || moveData.type,
+          pp: moveData.updated?.pp || moveData.faithful?.pp || moveData.pp,
+          power: moveData.updated?.power || moveData.faithful?.power || moveData.power,
+          accuracy: moveData.updated?.accuracy || moveData.faithful?.accuracy || moveData.accuracy,
+          effectPercent: moveData.updated?.effectPercent || moveData.faithful?.effectPercent || moveData.effectPercent,
+          category: moveData.updated?.category || moveData.faithful?.category || moveData.category,
         }
       : undefined;
 
