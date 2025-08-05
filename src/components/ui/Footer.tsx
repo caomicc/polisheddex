@@ -4,6 +4,8 @@ import { cn } from '@/lib/utils';
 // import { Switch } from "@/components/ui/switch"; // Commented out for now
 import { useBuildInfo } from '@/hooks/useBuildInfo';
 import { Button } from './button';
+import Link from 'next/link';
+import { Bug } from 'lucide-react';
 // import { Switch } from './switch';
 
 type FooterProps = {
@@ -50,8 +52,8 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
       )}
       role="contentinfo"
     >
-      <div className="flex flex-col md:flex-row md:items-center gap-1">
-        <span className="text-sm text-gray-500 dark:text-gray-400">
+      <div className="flex flex-col md:flex-row items-center gap-1">
+        <span className="text-sm text-gray-500 dark:text-gray-400 flex md:flex-inline">
           &copy; {new Date().getFullYear()} PolishedDex. All rights reserved.
         </span>
         <span className="text-sm text-gray-500 dark:text-gray-400">
@@ -67,20 +69,19 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
           .
         </span>
       </div>
-      <div className="flex items-center gap-4">
-        <span className="text-sm text-gray-500 dark:text-gray-400">
-          <a
+      <div className="flex flex-col md:flex-row items-center gap-4">
+        <Button variant={'bugs'} asChild>
+          <Link
             href="https://www.notion.so/Polished-Dex-Roadmap-24662146b03a805e88f3c6db6b800837"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            passHref
           >
-            <Button>Bugs & Feature Requests</Button>
-          </a>
-        </span>
-        <span className="text-sm text-gray-400 dark:text-gray-500">
-          Last built: {getLastUpdatedDate()}
-        </span>
+            Bugs & Feature Requests{' '}
+            <Bug className="text-pink-950 dark:text-pink-100 inline-block ml-1 size-4" />
+          </Link>
+        </Button>
+        <span className="text-muted-foreground">Updated: {getLastUpdatedDate()}</span>
         {/* <Switch checked={isDark} onCheckedChange={setIsDark} aria-label="Toggle dark mode" /> */}
       </div>
     </footer>

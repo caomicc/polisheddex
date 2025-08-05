@@ -19,6 +19,7 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
         save: 'bg-grass text-white shadow-xs hover:bg-grass/90 focus-visible:ring-grass/20 dark:focus-visible:ring-grass/40 dark:bg-grass/60 cursor-pointer',
         load: 'bg-flying text-white shadow-xs hover:bg-dark/90 focus-visible:ring-dark/20 dark:focus-visible:ring-dark/40 dark:bg-dark/60',
+        bugs: 'bg-pink-200 text-pink-950 shadow-xs hover:bg-pink-300 hover:text-pink-950 dark:text-pink-100 focus-visible:ring-dark/20 dark:focus-visible:ring-dark/40 dark:bg-pink-950',
       },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',
