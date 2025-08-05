@@ -42,7 +42,7 @@ export default async function ItemsList() {
           </Breadcrumb>
         }
       />
-      <div className="max-w-xl md:max-w-4xl mx-auto md:px-4">
+      <div className="max-w-xl md:max-w-4xl mx-auto ">
         <ItemDataTableSearch items={allItems} />
       </div>
     </>

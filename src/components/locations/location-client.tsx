@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
-import { Card, CardContent, CardHeader } from '../ui/card';
+import { CardContent, CardHeader } from '../ui/card';
 import Link from 'next/link';
 import {
   LocationConnection,
@@ -17,6 +17,7 @@ import { PokemonDataTable } from '../pokemon/pokemon-data-table';
 import { pokemonColumns } from '../pokemon/pokemon-columns';
 import TrainerCard from '../trainer/trainer-card';
 import { Badge } from '../ui/badge';
+import TableWrapper from '../ui/table-wrapper';
 
 export default function LocationClient({
   comprehensiveInfo,
@@ -96,8 +97,6 @@ export default function LocationClient({
         </div>
       )} */}
 
-      {console.log('Comprehensive Info:', comprehensiveInfo)}
-
       {/* Conditional rendering for location type */}
       {comprehensiveInfo?.gymLeader && (
         <div className="gym-details">
@@ -176,33 +175,34 @@ export default function LocationClient({
 
       {Object.keys(groupedPokemonData).length > 0 ? (
         <div className="space-y-6">
+          <h3 className="pt-4">Pokémon:</h3>
           {(() => {
             const areaGroups = groupPokemonByArea(groupedPokemonData);
             return Object.entries(areaGroups).map(([areaName, methodData]) => (
-              <Card key={areaName} className="w-full p-0 overflow-hidden">
-                <CardHeader className="sr-only">
-                  <h3>{areaName}</h3>
-                </CardHeader>
-                <CardContent className="p-0">
-                  {(() => {
-                    // Flatten all encounters from all methods and times into one array
-                    const allEncounters: PokemonEncounter[] = [];
-                    Object.values(methodData).forEach((timeData) => {
-                      Object.values(timeData).forEach((encounters) => {
-                        allEncounters.push(...encounters);
-                      });
+              <React.Fragment key={areaName}>
+                {/* <CardHeader className="sr-only"> */}
+                {/* <h3>{areaName}</h3> */}
+                {/* </CardHeader> */}
+                {/* <CardContent className="p-0"> */}
+                {(() => {
+                  // Flatten all encounters from all methods and times into one array
+                  const allEncounters: PokemonEncounter[] = [];
+                  Object.values(methodData).forEach((timeData) => {
+                    Object.values(timeData).forEach((encounters) => {
+                      allEncounters.push(...encounters);
                     });
+                  });
 
-                    return (
-                      <PokemonDataTable
-                        columns={pokemonColumns}
-                        data={allEncounters}
-                        searchPlaceholder="Filter Pokémon..."
-                      />
-                    );
-                  })()}
-                </CardContent>
-              </Card>
+                  return (
+                    <PokemonDataTable
+                      columns={pokemonColumns}
+                      data={allEncounters}
+                      searchPlaceholder="Filter Pokémon..."
+                    />
+                  );
+                })()}
+                {/* </CardContent> */}
+              </React.Fragment>
             ));
           })()}
         </div>
@@ -211,11 +211,10 @@ export default function LocationClient({
       )}
 
       {comprehensiveInfo?.items && (
-        <Card>
-          <CardHeader>
-            <h3>Items Found Here</h3>
-          </CardHeader>
-          <CardContent>
+        <>
+          <h3 className="pt-4">Items Found Here</h3>
+
+          <TableWrapper>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -247,12 +246,12 @@ export default function LocationClient({
                 ))}
               </TableBody>
             </Table>
-          </CardContent>
-        </Card>
+          </TableWrapper>
+        </>
       )}
 
       {comprehensiveInfo?.events && (
-        <Card>
+        <TableWrapper className="pt-4 pb-6">
           <CardHeader>
             <h3>Special Events</h3>
           </CardHeader>
@@ -271,11 +270,11 @@ export default function LocationClient({
               ))}
             </div>
           </CardContent>
-        </Card>
+        </TableWrapper>
       )}
 
       {comprehensiveInfo?.trades && (
-        <Card>
+        <TableWrapper className="pt-4 pb-6">
           <CardHeader>
             <h3>NPC Trades</h3>
           </CardHeader>
@@ -316,14 +315,14 @@ export default function LocationClient({
               ))}
             </div>
           </CardContent>
-        </Card>
+        </TableWrapper>
       )}
 
       {/* About tab - Location details */}
       {comprehensiveInfo &&
       comprehensiveInfo.connections &&
       comprehensiveInfo.connections.length > 0 ? (
-        <Card>
+        <TableWrapper className="pt-4 pb-6">
           <CardHeader>
             <h3>Connections</h3>
           </CardHeader>
@@ -375,7 +374,7 @@ export default function LocationClient({
               )}
             </div>
           </CardContent>
-        </Card>
+        </TableWrapper>
       ) : (
         <></>
       )}

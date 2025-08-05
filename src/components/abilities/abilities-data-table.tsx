@@ -34,6 +34,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import TableWrapper from '../ui/table-wrapper';
 
 interface Ability {
   id: string;
@@ -236,7 +237,7 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
       </div>
 
       {/* Data Table */}
-      <div className="rounded-md border bg-white dark:bg-white/10 overflow-x-auto border-border">
+      <TableWrapper>
         <Table className="table-fixed w-full min-w-[500px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -273,8 +274,7 @@ export function AbilitiesDataTable({ columns, data }: AbilitiesDataTableProps) {
             )}
           </TableBody>
         </Table>
-      </div>
-
+      </TableWrapper>
       {/* Pagination */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 py-4">
         <div className="text-sm text-muted-foreground">

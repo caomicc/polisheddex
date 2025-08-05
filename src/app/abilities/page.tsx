@@ -44,7 +44,7 @@ export default async function AbilitiesList() {
           </Breadcrumb>
         }
       />
-      <div className="max-w-xl md:max-w-4xl mx-auto md:px-4">
+      <div className="max-w-xl md:max-w-4xl mx-auto ">
         <AbilitiesDataTableSearch abilities={allAbilities} />
       </div>
     </>

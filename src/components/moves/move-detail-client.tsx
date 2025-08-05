@@ -106,7 +106,7 @@ export default function MoveDetailClient({
           </Breadcrumb>
         }
       />
-      <div className="space-y-6">
+      <div className="space-y-6 max-w-4xl mx-auto  mb-10">
         {/* Move Information Card */}
         <Card>
           <CardContent className="">
@@ -144,21 +144,13 @@ export default function MoveDetailClient({
         </Card>
 
         {/* Pokemon List Section */}
-        <Card>
-          <CardHeader>
-            <CardTitle>
-              <h3>Pokémon that can learn {moveName}</h3>
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <PokemonWithMoveDataTable
-              pokemonWithMove={pokemonWithMove}
-              learnMethodFilter={learnMethodFilter}
-              onLearnMethodFilterChange={setLearnMethodFilter}
-              showFaithful={showFaithful}
-            />
-          </CardContent>
-        </Card>
+        <h3>Pokémon that can learn {moveName}</h3>
+        <PokemonWithMoveDataTable
+          pokemonWithMove={pokemonWithMove}
+          learnMethodFilter={learnMethodFilter}
+          onLearnMethodFilterChange={setLearnMethodFilter}
+          showFaithful={showFaithful}
+        />
       </div>
     </>
   );

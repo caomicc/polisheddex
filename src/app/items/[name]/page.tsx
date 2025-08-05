@@ -72,9 +72,7 @@ export default async function ItemPage({ params }: ItemPageProps) {
         }
       />
 
-      <div className="max-w-xl md:max-w-4xl mx-auto">
-        <h1 className="text-2xl font-bold mb-4 sr-only">{item.name}</h1>
-
+      <div className="max-w-xl md:max-w-4xl mx-auto ">
         <Suspense fallback={<PokemonGridSkeleton count={4} />}>
           <ItemDetailClient item={item} itemName={item.name} />
         </Suspense>

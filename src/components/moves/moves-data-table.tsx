@@ -38,6 +38,7 @@ import {
 import { MoveDescription } from '@/types/types';
 import { useFaithfulPreference } from '@/contexts';
 import MoveRow from './move-row';
+import TableWrapper from '../ui/table-wrapper';
 
 /**
  * MovesDataTable - A data table component for move data with persistent state
@@ -545,7 +546,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
       </div>
 
       {/* Data Table */}
-      <div className="rounded-md border bg-white dark:bg-white/10 overflow-x-auto border-border">
+      <TableWrapper>
         <Table className="table-fixed w-full min-w-[500px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -590,7 +591,7 @@ export function MovesDataTable({ columns, data }: MovesDataTableProps) {
             )}
           </TableBody>
         </Table>
-      </div>
+      </TableWrapper>
 
       {/* Pagination */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 py-4">

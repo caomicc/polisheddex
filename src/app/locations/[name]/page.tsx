@@ -224,37 +224,37 @@ export default async function LocationDetailPage({
 
   return (
     <Suspense fallback={<div className="flex justify-center py-8">Loading...</div>}>
-      <div className="max-w-xl md:max-w-4xl mx-auto">
+      <Hero
+        headline={displayName}
+        description=""
+        breadcrumbs={
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:underline">
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/locations" className="hover:underline">
+                    Locations
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="">{displayName}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        }
+      />
+      <div className="max-w-xl md:max-w-4xl mx-auto ">
         <div className="space-y-6">
-          <Hero
-            headline={displayName}
-            description=""
-            breadcrumbs={
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link href="/" className="hover:underline">
-                        Home
-                      </Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <BreadcrumbLink asChild>
-                      <Link href="/locations" className="hover:underline">
-                        Locations
-                      </Link>
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage className="">{displayName}</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
-            }
-          />
           <LocationClient
             comprehensiveInfo={comprehensiveInfo}
             groupedPokemonData={groupedByMethodAndTime}

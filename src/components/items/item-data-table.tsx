@@ -36,6 +36,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { AnyItemData, isRegularItem, isTMHMItem } from '@/types/types';
+import TableWrapper from '../ui/table-wrapper';
 
 /**
  * ItemDataTable - A data table component with persistent state
@@ -337,10 +338,8 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
           </span>
         </div>
       </div>
-
-      {/* Data Table */}
-      <div className="rounded-md border bg-white dark:bg-white/10 overflow-x-auto border-border">
-        <Table className="table-fixed w-full min-w-[600px]">
+      <TableWrapper>
+        <Table className="table-fixed w-full min-w-[500px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -380,7 +379,7 @@ export function ItemDataTable({ columns, data }: ItemDataTableProps) {
             )}
           </TableBody>
         </Table>
-      </div>
+      </TableWrapper>
 
       {/* Pagination */}
       {/* <div className="flex items-center justify-between space-x-2 py-4">

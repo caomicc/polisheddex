@@ -35,6 +35,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
+import TableWrapper from '../ui/table-wrapper';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -468,8 +469,8 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
           </span>
         </div>
       </div>
-      <div className="rounded-md border bg-white dark:bg-white/10 overflow-x-auto border-border">
-        <Table className="table-fixed w-full min-w-[600px]">
+      <TableWrapper>
+        <Table className="table-fixed w-full min-w-[500px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -522,7 +523,7 @@ export function LocationDataTable<TData, TValue>({ columns, data }: DataTablePro
             )}
           </TableBody>
         </Table>
-      </div>
+      </TableWrapper>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 py-4">
         <div className="text-sm text-muted-foreground">
           {table.getFilteredRowModel().rows.length} of {filteredData.length} location(s) shown

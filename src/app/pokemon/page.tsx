@@ -44,7 +44,7 @@ export default async function PokemonTableList() {
         }
       />
 
-      <div className="max-w-xl md:max-w-4xl mx-auto md:px-4">
+      <div className="max-w-xl md:max-w-4xl mx-auto ">
         <Suspense fallback={<div className="flex justify-center py-8">Loading Pokemon...</div>}>
           <PokemonListDisplay pokemonList={pokemonList} />
         </Suspense>

@@ -60,9 +60,7 @@ export default async function AbilityDetail({ params }: { params: Promise<{ name
         }
       />
 
-      <div className="max-w-xl md:max-w-4xl mx-auto">
-        <h1 className="text-2xl font-bold mb-4 sr-only">{abilityData.name || abilityName}</h1>
-
+      <div className="max-w-xl md:max-w-4xl mx-auto ">
         <Suspense fallback={<PokemonGridSkeleton count={8} />}>
           <AbilityDetailClient
             abilityData={abilityData}

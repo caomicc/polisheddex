@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { isRegularItem, isTMHMItem, type ItemData, type TMHMData } from '@/types/types';
 import ItemLocationDataTable from './item-location-data-table';
@@ -13,43 +13,19 @@ interface ItemDetailClientProps {
 
 export default function ItemDetailClient({ item }: ItemDetailClientProps) {
   return (
-    <div className="space-y-6">
+    <>
       {/* Item Information Card */}
-      <Card>
+      <Card className="mb-6">
         <CardContent className="space-y-4">
-          {isRegularItem(item) ? (
-            <RegularItemDetails item={item} />
-          ) : isTMHMItem(item) ? (
-            <TMHMItemDetails item={item} />
-          ) : null}
+          {isRegularItem(item) && <RegularItemDetails item={item} />}
+          {isTMHMItem(item) && <TMHMItemDetails item={item} />}
         </CardContent>
       </Card>
 
-      {/* Locations Card */}
-      {isRegularItem(item) && item.locations && item.locations.length > 0 ? (
-        <Card>
-          <CardHeader>
-            <CardTitle>
-              <h3>Locations ({item.locations.length})</h3>
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ItemLocationDataTable locations={item.locations} />
-          </CardContent>
-        </Card>
-      ) : isTMHMItem(item) && item.location ? (
-        <Card>
-          <CardHeader>
-            <CardTitle>
-              <h3>Location</h3>
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ItemLocationDataTable locations={[item.location]} />
-          </CardContent>
-        </Card>
-      ) : null}
-    </div>
+      {((isRegularItem(item) && item.locations?.length) || (isTMHMItem(item) && item.location)) && (
+        <ItemLocationDataTable locations={isRegularItem(item) ? item.locations : [item.location]} />
+      )}
+    </>
   );
 }
 

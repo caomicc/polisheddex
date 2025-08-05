@@ -36,6 +36,7 @@ import { BaseData } from '@/types/types';
 import { useFaithfulPreference } from '@/contexts';
 import { createPokemonListColumns } from './pokemon-list-columns';
 import { cn } from '@/lib/utils';
+import TableWrapper from '../ui/table-wrapper';
 
 /**
  * PokemonListDataTable - A data table component for Pokemon list data with persistent state
@@ -260,27 +261,14 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
   ]);
 
   return (
-    <div className="w-full px-2 sm:px-0">
-      {/* Data Table */}
-      <div className="rounded-md border bg-white dark:bg-white/10 overflow-x-auto border-border">
-        <Table className="table-fixed w-full lg:min-w-[500px]">
+    <div>
+      <TableWrapper>
+        <Table className="table-fixed w-full min-w-[500px]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    // <TableHead
-                    //   key={header.id}
-                    //   className="w-[60px]!"
-                    //   // style={{
-                    //   //   width: header.column.columnDef.size ?? 'auto',
-                    //   //   maxWidth: header.column.columnDef.maxSize ?? 'auto',
-                    //   // }}
-                    // >
-                    //   {header.isPlaceholder
-                    //     ? null
-                    //     : flexRender(header.column.columnDef.header, header.getContext())}
-                    // </TableHead>
                     <TableHead
                       key={header.id}
                       className={
@@ -324,7 +312,7 @@ export function PokemonListDataTable({ data }: PokemonListDataTableProps) {
             )}
           </TableBody>
         </Table>
-      </div>
+      </TableWrapper>
 
       {/* Pagination */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 py-4">
