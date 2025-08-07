@@ -11,8 +11,8 @@ const TableWrapper: React.FC<TableWrapperProps> = ({ children, className }) => {
   return (
     <Card
       className={cn(
-        'bg-white/90 backdrop-blur-xl dark:bg-black/5 rounded-2xl p-0 overflow-hidden',
-        'border-2 shadow-2xl',
+        'bg-white/30 backdrop-blur-xl dark:bg-white/5 rounded-2xl p-0 overflow-hidden',
+        'border-indigo-300 dark:border-border border-2 shadow-lg',
         className,
       )}
     >
