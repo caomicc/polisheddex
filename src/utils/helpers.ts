@@ -429,6 +429,7 @@ export function parseFormName(pokemonName: string): { baseName: string; formName
     { suffix: 'galar', form: 'galar' },
     { suffix: 'hisuian', form: 'hisuian' },
     { suffix: 'red', form: 'red' },
+    { suffix: 'armored', form: 'armored' },
     { suffix: 'bloodmoon', form: 'bloodmoon' },
     { suffix: 'paldean_fire', form: 'paldean_fire' },
     { suffix: 'paldean_water', form: 'paldean_water' },

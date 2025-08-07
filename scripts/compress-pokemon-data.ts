@@ -115,6 +115,7 @@ interface CompressedPokemon {
   moves?: any; // Keep as-is for now
   locations?: any; // Keep as-is for now
   pokedexEntry?: any; // Keep as-is for now
+  forms?: any; // Keep forms data for Pokemon variants
 }
 
 function normalizeId(name?: string): string {

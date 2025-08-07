@@ -556,14 +556,18 @@ export default function PokemonFormClient({
                       const faithfulMoves =
                         formData.faithfulLevelMoves && formData.faithfulLevelMoves.length > 0
                           ? formData.faithfulLevelMoves
-                          : formData.moves || [];
+                          : formData.faithfulMoves && formData.faithfulMoves.length > 0
+                            ? formData.faithfulMoves
+                            : formData.moves || [];
 
                       // Deduplicate moves (same name + level)
                       movesToShow = deduplicateMoves(faithfulMoves);
                     } else {
+                      console.log('Showing updated moves', formData);
                       // Show updated moves combined with regular moves
                       const regularMoves = formData.moves || [];
-                      const updatedMoves = formData.updatedLevelMoves || [];
+                      const updatedMoves =
+                        formData.updatedLevelMoves || formData.updatedMoves || [];
 
                       // Combine regular and updated moves, with updated moves taking precedence
                       const combinedMoves = [...regularMoves];
