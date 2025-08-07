@@ -167,25 +167,36 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
   let faithfulMovesV2: Move[] = [];
   let updatedMovesV2: Move[] = [];
   let evoMethods: EvoRaw[] = [];
+  let faithfulEvoMethods: EvoRaw[] = [];
+  let updatedEvoMethods: EvoRaw[] = [];
   let isInFaithfulBlock = false;
   let isInUpdatedBlock = false;
   let faithfulBlockDepth = 0;
 
   function createMoveFromMatch(level: number, moveKey: string): Move {
     const prettyName = normalizeMoveString(moveKey);
-    
+
     // Debug logging for PSYCHIC moves
     if (moveKey.includes('PSYCHIC')) {
       console.log(`DEBUG createMoveFromMatch: moveKey="${moveKey}", prettyName="${prettyName}"`);
     }
-    
+
     // Try to find move data - first direct lookup, then fallbacks for special cases
     let moveData = moveDescriptions[prettyName];
-    
+
     // Special handling for PSYCHIC move
-    if (!moveData && (prettyName === 'Psychic' || moveKey === 'PSYCHIC' || moveKey === 'PSYCHIC_M')) {
-      console.log(`DEBUG: Trying fallback for PSYCHIC move. Keys available:`, Object.keys(moveDescriptions).filter(k => k.toLowerCase().includes('psychic')));
-      moveData = moveDescriptions['Psychic M'] || moveDescriptions['Psychic_M'] || moveDescriptions['Psychic'];
+    if (
+      !moveData &&
+      (prettyName === 'Psychic' || moveKey === 'PSYCHIC' || moveKey === 'PSYCHIC_M')
+    ) {
+      console.log(
+        `DEBUG: Trying fallback for PSYCHIC move. Keys available:`,
+        Object.keys(moveDescriptions).filter((k) => k.toLowerCase().includes('psychic')),
+      );
+      moveData =
+        moveDescriptions['Psychic M'] ||
+        moveDescriptions['Psychic_M'] ||
+        moveDescriptions['Psychic'];
       if (moveData) {
         console.log(`DEBUG: Found PSYCHIC move data via fallback`);
       } else {
@@ -193,12 +204,14 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
       }
       // Keep the original name as "Psychic" even if we found data under a different key
     }
-    
+
     // Final debug for PSYCHIC moves
     if (moveKey.includes('PSYCHIC')) {
-      console.log(`DEBUG: Final result for PSYCHIC move - moveData found: ${!!moveData}, will have info: ${!!moveData}`);
+      console.log(
+        `DEBUG: Final result for PSYCHIC move - moveData found: ${!!moveData}, will have info: ${!!moveData}`,
+      );
     }
-    
+
     const info = moveData
       ? {
           description: moveData.description,
@@ -206,7 +219,10 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
           pp: moveData.updated?.pp || moveData.faithful?.pp || moveData.pp,
           power: moveData.updated?.power || moveData.faithful?.power || moveData.power,
           accuracy: moveData.updated?.accuracy || moveData.faithful?.accuracy || moveData.accuracy,
-          effectPercent: moveData.updated?.effectPercent || moveData.faithful?.effectPercent || moveData.effectPercent,
+          effectPercent:
+            moveData.updated?.effectPercent ||
+            moveData.faithful?.effectPercent ||
+            moveData.effectPercent,
           category: moveData.updated?.category || moveData.faithful?.category || moveData.category,
         }
       : undefined;
@@ -272,18 +288,72 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
       };
     }
 
-    if (evoMethods.length) {
+    // Handle evolution methods - for the main evoMap, use only non-conditional evolution methods
+    // Don't combine faithful and updated methods as that creates duplicates
+    const mainEvoMethods = evoMethods.length > 0 ? evoMethods : [];
+
+    // Store evolution methods separately by version
+    if (
+      mainEvoMethods.length > 0 ||
+      faithfulEvoMethods.length > 0 ||
+      updatedEvoMethods.length > 0
+    ) {
       // Preserve form information for evolution mapping to prevent form stacking
       const evoKey = currentMonV2; // Keep the original form-specific name (e.g., SlowpokePlain, SlowpokeGalarian)
-      evoMap[evoKey] = evoMethods.map((e) => ({
-        ...e,
-        target: normalizeMoveString(e.target),
-        form: e.form ? normalizeMoveString(e.form) : undefined,
-      }));
-      for (const evo of evoMethods) {
-        const tgt = normalizeMoveString(evo.target);
-        if (!preEvoMap[tgt]) preEvoMap[tgt] = [];
-        preEvoMap[tgt].push(currentMonV2); // Also preserve form info in preEvoMap
+
+      // Store main evolution methods (non-conditional ones)
+      if (mainEvoMethods.length > 0) {
+        evoMap[evoKey] = mainEvoMethods.map((e) => ({
+          ...e,
+          target: normalizeMoveString(e.target),
+          form: e.form ? normalizeMoveString(e.form) : undefined,
+        }));
+
+        // Add to preEvoMap for main evolution methods
+        for (const evo of mainEvoMethods) {
+          const tgt = normalizeMoveString(evo.target);
+          if (!preEvoMap[tgt]) preEvoMap[tgt] = [];
+          preEvoMap[tgt].push(currentMonV2);
+        }
+      }
+
+      // Store faithful and updated evolution methods separately if they exist
+      if (faithfulEvoMethods.length > 0) {
+        evoMap[`${evoKey}_faithful`] = faithfulEvoMethods.map((e) => ({
+          ...e,
+          target: normalizeMoveString(e.target),
+          form: e.form ? normalizeMoveString(e.form) : undefined,
+        }));
+
+        // If there are no main evolution methods, use faithful for preEvoMap
+        if (mainEvoMethods.length === 0) {
+          for (const evo of faithfulEvoMethods) {
+            const tgt = normalizeMoveString(evo.target);
+            if (!preEvoMap[tgt]) preEvoMap[tgt] = [];
+            if (!preEvoMap[tgt].includes(currentMonV2)) {
+              preEvoMap[tgt].push(currentMonV2);
+            }
+          }
+        }
+      }
+
+      if (updatedEvoMethods.length > 0) {
+        evoMap[`${evoKey}_updated`] = updatedEvoMethods.map((e) => ({
+          ...e,
+          target: normalizeMoveString(e.target),
+          form: e.form ? normalizeMoveString(e.form) : undefined,
+        }));
+
+        // If there are no main evolution methods, use updated for preEvoMap
+        if (mainEvoMethods.length === 0) {
+          for (const evo of updatedEvoMethods) {
+            const tgt = normalizeMoveString(evo.target);
+            if (!preEvoMap[tgt]) preEvoMap[tgt] = [];
+            if (!preEvoMap[tgt].includes(currentMonV2)) {
+              preEvoMap[tgt].push(currentMonV2);
+            }
+          }
+        }
       }
     }
   }
@@ -338,6 +408,8 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
       faithfulMovesV2 = [];
       updatedMovesV2 = [];
       evoMethods = [];
+      faithfulEvoMethods = [];
+      updatedEvoMethods = [];
       isInFaithfulBlock = false;
       isInUpdatedBlock = false;
       faithfulBlockDepth = 0;
@@ -386,12 +458,24 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
           parsedParam = parseInt(param, 10);
         }
 
-        evoMethods.push({
+        const evoData = {
           method,
           parameter: parsedParam,
           target: target,
           ...(form ? { form: form } : {}),
-        });
+        };
+
+        // Add to appropriate evolution list based on current context
+        if (isInFaithfulBlock) {
+          faithfulEvoMethods.push(evoData);
+        } else if (isInUpdatedBlock) {
+          updatedEvoMethods.push(evoData);
+        } else {
+          // Regular evolution (no conditional block) - should be available in both versions
+          evoMethods.push(evoData);
+          faithfulEvoMethods.push(evoData);
+          updatedEvoMethods.push(evoData);
+        }
       }
     } else if (line.startsWith('learnset ')) {
       const match = line.match(/learnset (\d+),\s*([A-Z0-9_]+)/);
@@ -433,8 +517,11 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
 // Use the new parsing function
 const movesetData = parseMovesetWithFaithfulSupport(lines);
 
-// Non-recursive function to build the complete evolution chain with methods
-function buildCompleteEvolutionChain(startMon: string): {
+// Non-recursive function to build the complete evolution chain with methods using custom evolution map
+function buildCompleteEvolutionChainWithMap(
+  startMon: string,
+  customEvoMap: Record<string, EvoRaw[]>,
+): {
   chain: string[];
   methodsByPokemon: Record<string, EvolutionMethod[]>;
 } {
@@ -442,80 +529,40 @@ function buildCompleteEvolutionChain(startMon: string): {
   const processedMons = new Set<string>();
   // This map will store evolution methods for each Pokémon in the chain
   const methodsByPokemon: Record<string, EvolutionMethod[]> = {};
-
   // Starting with the requested Pokémon
   const standardizedStartMon = standardizePokemonKey(startMon);
-
   const queue: string[] = [standardizedStartMon];
   const chain: string[] = [];
 
   // Also check for form variations of the starting Pokémon
   // This helps with Pokémon like "GrowlithePlain" vs "Growlithe"
-  for (const key of Object.keys(evoMap)) {
+  for (const key of Object.keys(customEvoMap)) {
     const standardKey = standardizePokemonKey(key);
-    if (standardKey === standardizedStartMon && key !== standardizedStartMon) {
+    if (standardKey === standardizedStartMon && key !== startMon) {
       queue.push(key);
     }
   }
 
-  for (const key of Object.keys(preEvoMap)) {
-    const standardKey = standardizePokemonKey(key);
-    if (standardKey === standardizedStartMon && key !== standardizedStartMon) {
-      queue.push(key);
-    }
-  }
-
-  // Process Pokémon in breadth-first order
   while (queue.length > 0) {
     const currentMon = queue.shift()!;
-    // Always standardize to remove form suffixes
-    const standardMon = standardizePokemonKey(currentMon);
-    const { baseName } = normalizeMonName(standardMon, null);
-    // Apply URL-safe normalization to get the proper display name
-    const normalizedDisplayName = normalizePokemonDisplayName(baseName);
+    const standardCurrentMon = standardizePokemonKey(currentMon);
 
-    // Skip if we've already processed this Pokémon
-    if (processedMons.has(normalizedDisplayName)) continue;
-    processedMons.add(normalizedDisplayName);
+    if (processedMons.has(currentMon)) continue;
 
-    // Add to our evolution chain if not already included
-    if (!chain.includes(normalizedDisplayName)) {
-      chain.push(normalizedDisplayName);
+    processedMons.add(currentMon);
+    // Add to chain
+    const normalizedCurrentName = normalizePokemonDisplayName(standardCurrentMon);
+    if (!chain.includes(normalizedCurrentName)) {
+      chain.push(normalizedCurrentName);
     }
 
-    // Check for any pre-evolutions, including form variants
-    // We need to check both the standardized name and possibly the original name with form
-    for (const [preKey, preEvos] of Object.entries(preEvoMap)) {
-      // Check if this entry matches our current Pokémon (either exact or standardized)
-      const standardPreKey = standardizePokemonKey(preKey);
-      if (preKey === currentMon || standardPreKey === standardMon) {
-        // Add all its pre-evolutions to the queue
-        for (const pre of preEvos) {
-          const standardPre = standardizePokemonKey(pre);
-          if (!processedMons.has(standardPre)) {
-            queue.push(pre);
-          }
-        }
-      }
-    }
-
-    // Check for any evolutions, including form variants
-    for (const [evoKey, evos] of Object.entries(evoMap)) {
-      // Check if this entry matches our current Pokémon (either exact or standardized)
+    // Look for evolution data for this Pokémon (check various key formats)
+    for (const [evoKey, evos] of Object.entries(customEvoMap)) {
       const standardEvoKey = standardizePokemonKey(evoKey);
-      if (evoKey === currentMon || standardEvoKey === standardMon) {
-        // Determine the proper source key for storing methods
-        // If evoKey contains form info (like SlowpokeGalarian), extract it for display
-        let sourceKey = normalizedDisplayName;
-        if (evoKey !== standardEvoKey) {
-          // This is a form-specific evolution key, extract form info
-          const { baseName: evoBaseName, formName } = parseFormFromName(evoKey);
-          if (formName) {
-            sourceKey = `${normalizedDisplayName} (${capitalizeFirstLetter(formName)} Form)`;
-          }
-        }
 
-        // Store evolution methods for this Pokémon (potentially with form info)
+      if (evoKey === currentMon || standardEvoKey === standardCurrentMon) {
+        // Found evolution data for this Pokémon
+        const sourceKey = normalizedCurrentName;
         if (!methodsByPokemon[sourceKey]) {
           methodsByPokemon[sourceKey] = [];
         }
@@ -563,7 +610,113 @@ function buildCompleteEvolutionChain(startMon: string): {
   };
 }
 
-// Function to get the evolution chain and methods for a Pokémon
+// Non-recursive function to build the complete evolution chain with methods
+function buildCompleteEvolutionChain(startMon: string): {
+  chain: string[];
+  methodsByPokemon: Record<string, EvolutionMethod[]>;
+} {
+  // Create a comprehensive evoMap that includes ALL evolution data
+  // This ensures the default chain includes the full evolution family
+  const comprehensiveEvoMap: Record<string, EvoRaw[]> = {};
+
+  // Add all main evolution data (non-version-specific)
+  for (const [key, evos] of Object.entries(evoMap)) {
+    if (!key.endsWith('_faithful') && !key.endsWith('_updated')) {
+      comprehensiveEvoMap[key] = evos;
+    }
+  }
+
+  // Add faithful evolution data as fallback if main data doesn't exist
+  for (const [key, evos] of Object.entries(evoMap)) {
+    if (key.endsWith('_faithful')) {
+      const baseKey = key.slice(0, -'_faithful'.length);
+      if (!comprehensiveEvoMap[baseKey]) {
+        comprehensiveEvoMap[baseKey] = evos;
+      }
+    }
+  }
+
+  // Add updated evolution data as fallback if main and faithful data don't exist
+  for (const [key, evos] of Object.entries(evoMap)) {
+    if (key.endsWith('_updated')) {
+      const baseKey = key.slice(0, -'_updated'.length);
+      if (!comprehensiveEvoMap[baseKey]) {
+        comprehensiveEvoMap[baseKey] = evos;
+      }
+    }
+  }
+
+  return buildCompleteEvolutionFamily(startMon, comprehensiveEvoMap);
+}
+
+// Function to get the evolution chain and methods for a Pokémon with faithful/updated support
+function getEvolutionChainWithVersions(mon: string): {
+  chain: string[];
+  methodsByPokemon: Record<string, EvolutionMethod[]>;
+  faithfulMethodsByPokemon?: Record<string, EvolutionMethod[]>;
+  updatedMethodsByPokemon?: Record<string, EvolutionMethod[]>;
+} {
+  // Get the standard chain (merged data)
+  const standardResult = buildCompleteEvolutionChain(mon);
+
+  // Check if we have version-specific data
+  const faithfulData = buildEvolutionChainForVersion(mon, 'faithful');
+  const updatedData = buildEvolutionChainForVersion(mon, 'updated');
+
+  return {
+    chain: standardResult.chain,
+    methodsByPokemon: standardResult.methodsByPokemon,
+    ...(faithfulData && Object.keys(faithfulData.methodsByPokemon).length > 0
+      ? { faithfulMethodsByPokemon: faithfulData.methodsByPokemon }
+      : {}),
+    ...(updatedData && Object.keys(updatedData.methodsByPokemon).length > 0
+      ? { updatedMethodsByPokemon: updatedData.methodsByPokemon }
+      : {}),
+  };
+}
+
+// Helper function to build evolution chains for specific versions
+function buildEvolutionChainForVersion(
+  startMon: string,
+  version: 'faithful' | 'updated',
+): {
+  chain: string[];
+  methodsByPokemon: Record<string, EvolutionMethod[]>;
+} | null {
+  const versionSuffix = `_${version}`;
+
+  // Check if we have version-specific evolution data
+  let hasVersionData = false;
+  for (const key of Object.keys(evoMap)) {
+    if (key.endsWith(versionSuffix)) {
+      hasVersionData = true;
+      break;
+    }
+  }
+
+  if (!hasVersionData) {
+    return null;
+  }
+
+  // Create a temporary evoMap with only the version-specific data
+  const versionEvoMap: Record<string, EvoRaw[]> = {};
+  for (const [key, evos] of Object.entries(evoMap)) {
+    if (key.endsWith(versionSuffix)) {
+      const baseKey = key.slice(0, -versionSuffix.length);
+      versionEvoMap[baseKey] = evos;
+    }
+  }
+
+  // If no version-specific data for this version, return null
+  if (Object.keys(versionEvoMap).length === 0) {
+    return null;
+  }
+
+  // Build complete family chain using version-specific data
+  return buildCompleteEvolutionFamily(startMon, versionEvoMap);
+}
+
+// Function to get the evolution chain and methods for a Pokémon (backward compatibility)
 function getEvolutionChain(mon: string): {
   chain: string[];
   methodsByPokemon: Record<string, EvolutionMethod[]>;
@@ -871,7 +1024,7 @@ for (const mon of Object.keys(movesetData)) {
 
   // Get the evolution chain and methods - this will work even for final evolutions
   // as it will include all pre-evolutions
-  const evolutionResult = getEvolutionChain(standardMon);
+  const evolutionResult = getEvolutionChainWithVersions(standardMon);
 
   if (isDebug) {
     console.log(`DEBUG: Evolution chain for ${standardMon}:`, evolutionResult.chain);
@@ -883,6 +1036,18 @@ for (const mon of Object.keys(movesetData)) {
     methods,
     chain: evolutionResult.chain,
     chainWithMethods: evolutionResult.methodsByPokemon,
+    ...(evolutionResult.faithfulMethodsByPokemon
+      ? {
+          faithfulMethods: methods, // fallback for backward compatibility
+          faithfulChainWithMethods: evolutionResult.faithfulMethodsByPokemon,
+        }
+      : {}),
+    ...(evolutionResult.updatedMethodsByPokemon
+      ? {
+          updatedMethods: methods, // fallback for backward compatibility
+          updatedChainWithMethods: evolutionResult.updatedMethodsByPokemon,
+        }
+      : {}),
   };
 
   if (isDebug) {
@@ -1518,3 +1683,94 @@ console.log(
   `✅ Wrote detailed stats for ${Object.keys(finalResult).length} Pokemon to ${DETAILED_STATS_OUTPUT}`,
 );
 export { isDebugPokemon };
+
+// Function to find the complete evolution family for a Pokemon
+function buildCompleteEvolutionFamily(
+  targetMon: string,
+  customEvoMap: Record<string, EvoRaw[]>,
+): {
+  chain: string[];
+  methodsByPokemon: Record<string, EvolutionMethod[]>;
+} {
+  const standardizedTargetMon = standardizePokemonKey(targetMon);
+  const normalizedTargetName = normalizePokemonDisplayName(standardizedTargetMon);
+
+  // Find all Pokemon in the evolution family
+  const familyMembers = new Set<string>();
+  const methodsByPokemon: Record<string, EvolutionMethod[]> = {};
+  const pendingToProcess = new Set<string>();
+
+  // Helper function to add a Pokemon to the family and mark it for processing
+  function addToFamily(mon: string) {
+    const standardizedMon = standardizePokemonKey(mon);
+    const normalizedMon = normalizePokemonDisplayName(standardizedMon);
+
+    if (!familyMembers.has(normalizedMon)) {
+      familyMembers.add(normalizedMon);
+      pendingToProcess.add(normalizedMon);
+    }
+  }
+
+  // Start with the target Pokemon
+  addToFamily(targetMon);
+
+  // Process all Pokemon until we've exhausted the family
+  while (pendingToProcess.size > 0) {
+    const currentNormalizedMon = Array.from(pendingToProcess)[0];
+    pendingToProcess.delete(currentNormalizedMon);
+
+    // Initialize methods array for this Pokemon
+    if (!methodsByPokemon[currentNormalizedMon]) {
+      methodsByPokemon[currentNormalizedMon] = [];
+    }
+
+    // Find forward evolutions (what this Pokemon evolves into)
+    for (const [sourceKey, evos] of Object.entries(customEvoMap)) {
+      const standardSourceKey = standardizePokemonKey(sourceKey);
+      const normalizedSourceKey = normalizePokemonDisplayName(standardSourceKey);
+
+      if (normalizedSourceKey === currentNormalizedMon) {
+        for (const evo of evos) {
+          const targetKey = standardizePokemonKey(evo.target);
+          const normalizedTargetKey = normalizePokemonDisplayName(targetKey);
+
+          // Store evolution method
+          methodsByPokemon[currentNormalizedMon].push({
+            method: evo.method,
+            parameter: evo.parameter,
+            target: normalizedTargetKey,
+            ...(evo.form ? { form: evo.form } : {}),
+          });
+
+          // Add the evolution target to family
+          addToFamily(evo.target);
+        }
+      }
+    }
+
+    // Find backward evolutions (what evolves into this Pokemon)
+    for (const [sourceKey, evos] of Object.entries(customEvoMap)) {
+      for (const evo of evos) {
+        const targetKey = standardizePokemonKey(evo.target);
+        const normalizedTargetKey = normalizePokemonDisplayName(targetKey);
+
+        if (normalizedTargetKey === currentNormalizedMon) {
+          // This sourceKey Pokemon evolves into our current Pokemon
+          addToFamily(sourceKey);
+        }
+      }
+    }
+  }
+
+  // Convert set to sorted array
+  const chain = sortEvolutionChain(Array.from(familyMembers));
+
+  // Ensure all Pokemon in chain have entries in methodsByPokemon (even if empty)
+  for (const pokemon of chain) {
+    if (!methodsByPokemon[pokemon]) {
+      methodsByPokemon[pokemon] = [];
+    }
+  }
+
+  return { chain, methodsByPokemon };
+}

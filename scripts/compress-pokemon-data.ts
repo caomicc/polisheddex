@@ -163,6 +163,8 @@ function removeDuplicateAbilities(abilities: CompressedAbility[]): CompressedAbi
 let pokemonLocationsData: any = null;
 // Global variable to cache detailed stats data
 let pokemonDetailedStatsData: any = null;
+// Global variable to cache evolution data
+let pokemonEvolutionData: Record<string, any> | null = null;
 
 async function loadLocationData(): Promise<any> {
   if (pokemonLocationsData) {
@@ -192,6 +194,26 @@ async function loadDetailedStatsData(): Promise<any> {
     return pokemonDetailedStatsData;
   } catch (error) {
     console.warn('Could not load pokemon_detailed_stats.json:', error);
+    return {};
+  }
+}
+
+// Add function to load evolution data
+async function loadEvolutionData(): Promise<Record<string, any>> {
+  if (pokemonEvolutionData) {
+    return pokemonEvolutionData;
+  }
+
+  const evolutionPath = path.join(process.cwd(), 'output', 'pokemon_evolution_data.json');
+  try {
+    const data = JSON.parse(await fs.readFile(evolutionPath, 'utf8'));
+    pokemonEvolutionData = data;
+    return data;
+  } catch {
+    console.warn(
+      'Could not load pokemon_evolution_data.json, individual files will have stale evolution data',
+    );
+    pokemonEvolutionData = {};
     return {};
   }
 }
@@ -248,6 +270,10 @@ async function compressPokemonFile(filePath: string): Promise<void> {
     const pokemonNameCapitalized = fileName.charAt(0).toUpperCase() + fileName.slice(1);
     const pokemonDetailedStats = allDetailedStatsData[pokemonNameCapitalized];
 
+    // Load fresh evolution data
+    const allEvolutionData = await loadEvolutionData();
+    const pokemonEvolution = allEvolutionData[pokemonNameCapitalized] || null;
+
     // Extract faithful and polished base stats if they exist and are different
     let faithfulBaseStats = undefined;
     let polishedBaseStats = undefined;
@@ -294,6 +320,7 @@ async function compressPokemonFile(filePath: string): Promise<void> {
     const compressed: CompressedPokemon = {
       ...normalizedData,
       name: pokemonName, // Use derived name from filename
+      evolution: pokemonEvolution, // Use fresh evolution data
       detailedStats: {
         ...normalizedData.detailedStats,
         abilities: compressedAbilities,

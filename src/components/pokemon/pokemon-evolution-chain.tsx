@@ -6,6 +6,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 import { getItemIdFromDisplayName } from '@/utils/itemUtils';
 import { PokemonSprite } from './pokemon-sprite';
 import { usePokemonType } from '@/contexts/PokemonTypeContext';
+import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonType } from '@/types/types';
 
 interface EvolutionMethod {
@@ -19,6 +20,10 @@ interface EvolutionData {
   methods: EvolutionMethod[];
   chain: string[];
   chainWithMethods: Record<string, EvolutionMethod[]>;
+  faithfulMethods?: EvolutionMethod[];
+  updatedMethods?: EvolutionMethod[];
+  faithfulChainWithMethods?: Record<string, EvolutionMethod[]>;
+  updatedChainWithMethods?: Record<string, EvolutionMethod[]>;
 }
 
 interface Props {
@@ -28,9 +33,15 @@ interface Props {
 }
 
 export function EvolutionChain({ evolutionData, spritesByGen, className }: Props) {
-  const { chain, chainWithMethods } = evolutionData;
+  const { chain, chainWithMethods, faithfulChainWithMethods, updatedChainWithMethods } =
+    evolutionData;
   const { primaryType } = usePokemonType();
-  console.log('Evolution Chain Data:', primaryType);
+  const { showFaithful } = useFaithfulPreference();
+
+  // Determine which evolution data to use based on faithful preference
+  const currentChainWithMethods = showFaithful
+    ? faithfulChainWithMethods || chainWithMethods
+    : updatedChainWithMethods || chainWithMethods;
   const formatMethod = (method: string) => method.replace('EVOLVE_', '').toLowerCase();
 
   const processEvolutionData = () => {
@@ -46,7 +57,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
 
     const addedFormVariants = new Set<string>();
 
-    Object.entries(chainWithMethods).forEach(([sourcePokemon, methods]) => {
+    Object.entries(currentChainWithMethods).forEach(([sourcePokemon, methods]) => {
       if (!Array.isArray(methods) || methods.length === 0 || methods.every((m) => !m)) return;
 
       const formRegex = /^(.+?)(?: \((.+)\)|-(.+)-form)$/i;

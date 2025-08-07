@@ -199,6 +199,10 @@ export interface Evolution {
   methods: EvolutionMethod[];
   chain: string[];
   chainWithMethods: Record<string, EvolutionMethod[]>;
+  faithfulMethods?: EvolutionMethod[]; // Evolution methods in the faithful version
+  updatedMethods?: EvolutionMethod[]; // Evolution methods in the updated (non-faithful) version
+  faithfulChainWithMethods?: Record<string, EvolutionMethod[]>; // Evolution chain with methods for faithful version
+  updatedChainWithMethods?: Record<string, EvolutionMethod[]>; // Evolution chain with methods for updated version
 }
 
 export interface Ability {
