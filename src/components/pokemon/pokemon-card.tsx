@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { getTypeGradientProps } from '@/utils/css-gradients';
 import { TYPE_COLORS } from '@/contexts/PokemonTypeContext';
 import { PokemonSprite } from './pokemon-sprite';
+import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 
 export interface PokemonCardProps {
   pokemon: BaseData & { formName?: string };
@@ -13,13 +14,13 @@ export interface PokemonCardProps {
   showUpdatedTypes?: boolean;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({
-  pokemon,
-  sortType = 'johtodex',
-  showUpdatedTypes = true,
-}) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex' }) => {
+  const { showFaithful } = useFaithfulPreference();
+
   // Get the appropriate types based on preference
-  const displayTypes = showUpdatedTypes ? pokemon.updatedTypes || pokemon.types : pokemon.types;
+  const displayTypes = showFaithful
+    ? pokemon.faithfulTypes || pokemon.types
+    : pokemon.updatedTypes || pokemon.types;
 
   let displayName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
