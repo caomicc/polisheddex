@@ -78,26 +78,74 @@
       }
     ],
     "chain": [
-      "bellsprout",
-      "weepinbell",
-      "victreebel"
+      "Bellsprout",
+      "Weepinbell",
+      "Victreebel"
     ],
     "chainWithMethods": {
-      "bellsprout": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 21,
-          "target": "Weepinbell"
-        }
-      ],
-      "weepinbell": [
+      "Weepinbell": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
           "target": "Victreebel"
         }
       ],
-      "victreebel": []
+      "Victreebel": [],
+      "Bellsprout": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Weepinbell"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "LEAF_STONE",
+        "target": "Victreebel"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Weepinbell": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Victreebel"
+        }
+      ],
+      "Victreebel": [],
+      "Bellsprout": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Weepinbell"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "LEAF_STONE",
+        "target": "Victreebel"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Weepinbell": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Victreebel"
+        }
+      ],
+      "Victreebel": [],
+      "Bellsprout": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Weepinbell"
+        }
+      ]
     }
   },
   "levelMoves": [

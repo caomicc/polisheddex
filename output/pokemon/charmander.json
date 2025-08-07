@@ -63,26 +63,74 @@
       }
     ],
     "chain": [
-      "charmander",
-      "charmeleon",
-      "charizard"
+      "Charmander",
+      "Charmeleon",
+      "Charizard"
     ],
     "chainWithMethods": {
-      "charmander": [
+      "Charmander": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 16,
           "target": "Charmeleon"
         }
       ],
-      "charmeleon": [
+      "Charmeleon": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 36,
           "target": "Charizard"
         }
       ],
-      "charizard": []
+      "Charizard": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 16,
+        "target": "Charmeleon"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Charmander": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Charmeleon"
+        }
+      ],
+      "Charmeleon": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Charizard"
+        }
+      ],
+      "Charizard": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 16,
+        "target": "Charmeleon"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Charmander": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Charmeleon"
+        }
+      ],
+      "Charmeleon": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Charizard"
+        }
+      ],
+      "Charizard": []
     }
   },
   "levelMoves": [

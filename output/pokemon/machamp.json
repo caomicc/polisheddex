@@ -59,26 +59,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "machop",
-      "machoke",
-      "machamp"
+      "Machop",
+      "Machoke",
+      "Machamp"
     ],
     "chainWithMethods": {
-      "machop": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 28,
-          "target": "Machoke"
-        }
-      ],
-      "machoke": [
+      "Machamp": [],
+      "Machoke": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Machamp"
         }
       ],
-      "machamp": []
+      "Machop": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Machoke"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Machamp": [],
+      "Machoke": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Machamp"
+        }
+      ],
+      "Machop": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Machoke"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Machamp": [],
+      "Machoke": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Machamp"
+        }
+      ],
+      "Machop": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Machoke"
+        }
+      ]
     }
   },
   "levelMoves": [

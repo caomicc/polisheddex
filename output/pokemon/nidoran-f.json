@@ -54,31 +54,7 @@
     "bodyShape": "Quadruped",
     "bodyColor": "Blue"
   },
-  "evolution": {
-    "methods": [],
-    "chain": [
-      "nidoran-f",
-      "nidorina",
-      "nidoqueen"
-    ],
-    "chainWithMethods": {
-      "nidoran-f": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 16,
-          "target": "Nidorina"
-        }
-      ],
-      "nidorina": [
-        {
-          "method": "EVOLVE_ITEM",
-          "parameter": "MOON_STONE",
-          "target": "Nidoqueen"
-        }
-      ],
-      "nidoqueen": []
-    }
-  },
+  "evolution": null,
   "levelMoves": [
     {
       "name": "Growl",

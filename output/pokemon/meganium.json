@@ -80,26 +80,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "chikorita",
-      "bayleef",
-      "meganium"
+      "Chikorita",
+      "Bayleef",
+      "Meganium"
     ],
     "chainWithMethods": {
-      "chikorita": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 16,
-          "target": "Bayleef"
-        }
-      ],
-      "bayleef": [
+      "Meganium": [],
+      "Bayleef": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 32,
           "target": "Meganium"
         }
       ],
-      "meganium": []
+      "Chikorita": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Bayleef"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Meganium": [],
+      "Bayleef": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Meganium"
+        }
+      ],
+      "Chikorita": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Bayleef"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Meganium": [],
+      "Bayleef": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Meganium"
+        }
+      ],
+      "Chikorita": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Bayleef"
+        }
+      ]
     }
   },
   "levelMoves": [

@@ -66,26 +66,74 @@
       }
     ],
     "chain": [
-      "cleffa",
-      "clefairy",
-      "clefable"
+      "Cleffa",
+      "Clefairy",
+      "Clefable"
     ],
     "chainWithMethods": {
-      "cleffa": [
-        {
-          "method": "EVOLVE_HAPPINESS",
-          "parameter": "TR_ANYTIME",
-          "target": "Clefairy"
-        }
-      ],
-      "clefairy": [
+      "Clefairy": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "MOON_STONE",
           "target": "Clefable"
         }
       ],
-      "clefable": []
+      "Clefable": [],
+      "Cleffa": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Clefairy"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "MOON_STONE",
+        "target": "Clefable"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Clefairy": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Clefable"
+        }
+      ],
+      "Clefable": [],
+      "Cleffa": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Clefairy"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "MOON_STONE",
+        "target": "Clefable"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Clefairy": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Clefable"
+        }
+      ],
+      "Clefable": [],
+      "Cleffa": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Clefairy"
+        }
+      ]
     }
   },
   "levelMoves": [

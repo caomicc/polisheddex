@@ -75,19 +75,12 @@
       }
     ],
     "chain": [
-      "teddiursa",
-      "ursaring",
-      "ursaluna"
+      "Teddiursa",
+      "Ursaring",
+      "Ursaluna"
     ],
     "chainWithMethods": {
-      "teddiursa": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 30,
-          "target": "Ursaring"
-        }
-      ],
-      "ursaring": [
+      "Ursaring": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "MOON_STONE",
@@ -104,7 +97,102 @@
           "target": "Ursaluna"
         }
       ],
-      "ursaluna": []
+      "Ursaluna": [],
+      "Teddiursa": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ursaring"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "MOON_STONE",
+        "target": "Ursaluna"
+      },
+      {
+        "method": "EVOLVE_LOCATION",
+        "parameter": "SINJOH_RUINS",
+        "target": "Ursaluna"
+      },
+      {
+        "method": "EVOLVE_LOCATION",
+        "parameter": "MYSTRI_STAGE",
+        "target": "Ursaluna"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Ursaring": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SINJOH_RUINS",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MYSTRI_STAGE",
+          "target": "Ursaluna"
+        }
+      ],
+      "Ursaluna": [],
+      "Teddiursa": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ursaring"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "MOON_STONE",
+        "target": "Ursaluna"
+      },
+      {
+        "method": "EVOLVE_LOCATION",
+        "parameter": "SINJOH_RUINS",
+        "target": "Ursaluna"
+      },
+      {
+        "method": "EVOLVE_LOCATION",
+        "parameter": "MYSTRI_STAGE",
+        "target": "Ursaluna"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Ursaring": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SINJOH_RUINS",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MYSTRI_STAGE",
+          "target": "Ursaluna"
+        }
+      ],
+      "Ursaluna": [],
+      "Teddiursa": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ursaring"
+        }
+      ]
     }
   },
   "levelMoves": [

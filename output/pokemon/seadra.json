@@ -64,26 +64,74 @@
       }
     ],
     "chain": [
-      "horsea",
-      "seadra",
-      "kingdra"
+      "Horsea",
+      "Seadra",
+      "Kingdra"
     ],
     "chainWithMethods": {
-      "horsea": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 32,
-          "target": "Seadra"
-        }
-      ],
-      "seadra": [
+      "Seadra": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "DRAGON_SCALE",
           "target": "Kingdra"
         }
       ],
-      "kingdra": []
+      "Kingdra": [],
+      "Horsea": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Seadra"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_TRADE",
+        "parameter": "DRAGON_SCALE",
+        "target": "Kingdra"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Seadra": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DRAGON_SCALE",
+          "target": "Kingdra"
+        }
+      ],
+      "Kingdra": [],
+      "Horsea": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Seadra"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_TRADE",
+        "parameter": "DRAGON_SCALE",
+        "target": "Kingdra"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Seadra": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DRAGON_SCALE",
+          "target": "Kingdra"
+        }
+      ],
+      "Kingdra": [],
+      "Horsea": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Seadra"
+        }
+      ]
     }
   },
   "levelMoves": [

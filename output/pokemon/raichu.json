@@ -69,19 +69,13 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "pichu",
-      "pikachu",
-      "raichu"
+      "Pichu",
+      "Pikachu",
+      "Raichu"
     ],
     "chainWithMethods": {
-      "pichu": [
-        {
-          "method": "EVOLVE_HAPPINESS",
-          "parameter": "TR_ANYTIME",
-          "target": "Pikachu"
-        }
-      ],
-      "pikachu": [
+      "Raichu": [],
+      "Pikachu": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
@@ -95,7 +89,63 @@
           "form": "Alolan Form"
         }
       ],
-      "raichu": []
+      "Pichu": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Pikachu"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Raichu": [],
+      "Pikachu": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Raichu",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Raichu",
+          "form": "Alolan Form"
+        }
+      ],
+      "Pichu": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Pikachu"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Raichu": [],
+      "Pikachu": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Raichu",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Raichu",
+          "form": "Alolan Form"
+        }
+      ],
+      "Pichu": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Pikachu"
+        }
+      ]
     }
   },
   "levelMoves": [

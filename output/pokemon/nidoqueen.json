@@ -70,26 +70,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "nidoran-f",
-      "nidorina",
-      "nidoqueen"
+      "Nidoran-F",
+      "Nidorina",
+      "Nidoqueen"
     ],
     "chainWithMethods": {
-      "nidoran-f": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 16,
-          "target": "Nidorina"
-        }
-      ],
-      "nidorina": [
+      "Nidoqueen": [],
+      "Nidorina": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "MOON_STONE",
           "target": "Nidoqueen"
         }
       ],
-      "nidoqueen": []
+      "Nidoran-F": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorina"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Nidoqueen": [],
+      "Nidorina": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoqueen"
+        }
+      ],
+      "Nidoran-F": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorina"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Nidoqueen": [],
+      "Nidorina": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoqueen"
+        }
+      ],
+      "Nidoran-F": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorina"
+        }
+      ]
     }
   },
   "levelMoves": [

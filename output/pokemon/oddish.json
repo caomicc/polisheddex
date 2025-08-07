@@ -78,20 +78,20 @@
       }
     ],
     "chain": [
-      "oddish",
-      "gloom",
-      "vileplume",
-      "bellossom"
+      "Oddish",
+      "Gloom",
+      "Vileplume",
+      "Bellossom"
     ],
     "chainWithMethods": {
-      "oddish": [
+      "Oddish": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 21,
           "target": "Gloom"
         }
       ],
-      "gloom": [
+      "Gloom": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
@@ -103,8 +103,68 @@
           "target": "Bellossom"
         }
       ],
-      "vileplume": [],
-      "bellossom": []
+      "Vileplume": [],
+      "Bellossom": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 21,
+        "target": "Gloom"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Oddish": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Gloom"
+        }
+      ],
+      "Gloom": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Vileplume"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Bellossom"
+        }
+      ],
+      "Vileplume": [],
+      "Bellossom": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 21,
+        "target": "Gloom"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Oddish": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 21,
+          "target": "Gloom"
+        }
+      ],
+      "Gloom": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Vileplume"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Bellossom"
+        }
+      ],
+      "Vileplume": [],
+      "Bellossom": []
     }
   },
   "levelMoves": [

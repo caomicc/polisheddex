@@ -73,47 +73,59 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "gligar",
-      "tr-evenite",
-      "sneasel",
-      "tr-mornday",
-      "happiny"
+      "Sneasel",
+      "Weavile",
+      "Sneasler"
     ],
     "chainWithMethods": {
-      "gligar": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_FANG",
-          "target": "Tr Evenite",
-          "form": "Gliscor"
-        }
-      ],
-      "tr-evenite": [],
-      "sneasel": [
+      "Sneasel": [
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "RAZOR_CLAW",
-          "target": "Tr Evenite",
-          "form": "Weavile"
-        }
-      ],
-      "sneasel-hisuian-form": [
+          "target": "Weavile"
+        },
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "RAZOR_CLAW",
-          "target": "Tr Mornday",
-          "form": "Sneasler"
+          "target": "Sneasler"
         }
       ],
-      "tr-mornday": [],
-      "happiny": [
+      "Weavile": [],
+      "Sneasler": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Sneasel": [
         {
           "method": "EVOLVE_HOLDING",
-          "parameter": "OVAL_STONE",
-          "target": "Tr Mornday",
-          "form": "Chansey"
+          "parameter": "RAZOR_CLAW",
+          "target": "Weavile"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Sneasler"
         }
-      ]
+      ],
+      "Weavile": [],
+      "Sneasler": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Sneasel": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Weavile"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Sneasler"
+        }
+      ],
+      "Weavile": [],
+      "Sneasler": []
     }
   },
   "levelMoves": [

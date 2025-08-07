@@ -57,10 +57,78 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "hitmonlee"
+      "Tyrogue",
+      "Hitmonlee",
+      "Hitmonchan",
+      "Hitmontop"
     ],
     "chainWithMethods": {
-      "hitmonlee": []
+      "Hitmonlee": [],
+      "Tyrogue": [
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonchan"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonlee"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmontop"
+        }
+      ],
+      "Hitmonchan": [],
+      "Hitmontop": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Hitmonlee": [],
+      "Tyrogue": [
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonchan"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonlee"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmontop"
+        }
+      ],
+      "Hitmonchan": [],
+      "Hitmontop": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Hitmonlee": [],
+      "Tyrogue": [
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonchan"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmonlee"
+        },
+        {
+          "method": "EVOLVE_STAT",
+          "parameter": "20",
+          "target": "Hitmontop"
+        }
+      ],
+      "Hitmonchan": [],
+      "Hitmontop": []
     }
   },
   "levelMoves": [

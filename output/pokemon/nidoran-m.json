@@ -54,31 +54,7 @@
     "bodyShape": "Quadruped",
     "bodyColor": "Purple"
   },
-  "evolution": {
-    "methods": [],
-    "chain": [
-      "nidoran-m",
-      "nidorino",
-      "nidoking"
-    ],
-    "chainWithMethods": {
-      "nidoran-m": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 16,
-          "target": "Nidorino"
-        }
-      ],
-      "nidorino": [
-        {
-          "method": "EVOLVE_ITEM",
-          "parameter": "MOON_STONE",
-          "target": "Nidoking"
-        }
-      ],
-      "nidoking": []
-    }
-  },
+  "evolution": null,
   "levelMoves": [
     {
       "name": "Leer",

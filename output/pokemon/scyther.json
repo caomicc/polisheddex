@@ -77,17 +77,16 @@
       {
         "method": "EVOLVE_HOLDING",
         "parameter": "HARD_STONE",
-        "target": "Tr Anytime",
-        "form": "Kleavor"
+        "target": "Kleavor"
       }
     ],
     "chain": [
-      "scyther",
-      "scizor",
-      "tr-anytime"
+      "Scyther",
+      "Scizor",
+      "Kleavor"
     ],
     "chainWithMethods": {
-      "scyther": [
+      "Scyther": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "METAL_COAT",
@@ -96,12 +95,67 @@
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "HARD_STONE",
-          "target": "Tr Anytime",
-          "form": "Kleavor"
+          "target": "Kleavor"
         }
       ],
-      "scizor": [],
-      "tr-anytime": []
+      "Scizor": [],
+      "Kleavor": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_TRADE",
+        "parameter": "METAL_COAT",
+        "target": "Scizor"
+      },
+      {
+        "method": "EVOLVE_HOLDING",
+        "parameter": "HARD_STONE",
+        "target": "Kleavor"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Scyther": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Scizor"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "HARD_STONE",
+          "target": "Kleavor"
+        }
+      ],
+      "Scizor": [],
+      "Kleavor": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_TRADE",
+        "parameter": "METAL_COAT",
+        "target": "Scizor"
+      },
+      {
+        "method": "EVOLVE_HOLDING",
+        "parameter": "HARD_STONE",
+        "target": "Kleavor"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Scyther": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Scizor"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "HARD_STONE",
+          "target": "Kleavor"
+        }
+      ],
+      "Scizor": [],
+      "Kleavor": []
     }
   },
   "levelMoves": [

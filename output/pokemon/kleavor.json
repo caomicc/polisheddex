@@ -70,10 +70,59 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "kleavor"
+      "Scyther",
+      "Kleavor",
+      "Scizor"
     ],
     "chainWithMethods": {
-      "kleavor": []
+      "Kleavor": [],
+      "Scyther": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Scizor"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "HARD_STONE",
+          "target": "Kleavor"
+        }
+      ],
+      "Scizor": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Kleavor": [],
+      "Scyther": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Scizor"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "HARD_STONE",
+          "target": "Kleavor"
+        }
+      ],
+      "Scizor": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Kleavor": [],
+      "Scyther": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "METAL_COAT",
+          "target": "Scizor"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "HARD_STONE",
+          "target": "Kleavor"
+        }
+      ],
+      "Scizor": []
     }
   },
   "levelMoves": [

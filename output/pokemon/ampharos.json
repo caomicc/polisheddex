@@ -73,31 +73,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "mareep",
-      "flaaffy",
-      "ampharos"
+      "Mareep",
+      "Flaaffy",
+      "Ampharos"
     ],
     "chainWithMethods": {
-      "mareep": [
+      "Ampharos": [],
+      "Flaaffy": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ampharos"
+        }
+      ],
+      "Mareep": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 15,
           "target": "Flaaffy"
         }
-      ],
-      "flaaffy": [
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Ampharos": [],
+      "Flaaffy": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Ampharos"
-        },
+        }
+      ],
+      "Mareep": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Flaaffy"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Ampharos": [],
+      "Flaaffy": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 36,
           "target": "Ampharos"
         }
       ],
-      "ampharos": []
+      "Mareep": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Flaaffy"
+        }
+      ]
     }
   },
   "levelMoves": [

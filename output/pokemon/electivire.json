@@ -76,26 +76,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "elekid",
-      "electabuzz",
-      "electivire"
+      "Elekid",
+      "Electabuzz",
+      "Electivire"
     ],
     "chainWithMethods": {
-      "elekid": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 30,
-          "target": "Electabuzz"
-        }
-      ],
-      "electabuzz": [
+      "Electivire": [],
+      "Electabuzz": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "ELECTIRIZER",
           "target": "Electivire"
         }
       ],
-      "electivire": []
+      "Elekid": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electabuzz"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Electivire": [],
+      "Electabuzz": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "ELECTIRIZER",
+          "target": "Electivire"
+        }
+      ],
+      "Elekid": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electabuzz"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Electivire": [],
+      "Electabuzz": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "ELECTIRIZER",
+          "target": "Electivire"
+        }
+      ],
+      "Elekid": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electabuzz"
+        }
+      ]
     }
   },
   "levelMoves": [

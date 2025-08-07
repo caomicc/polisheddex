@@ -81,26 +81,74 @@
       }
     ],
     "chain": [
-      "mankey",
-      "primeape",
-      "annihilape"
+      "Mankey",
+      "Primeape",
+      "Annihilape"
     ],
     "chainWithMethods": {
-      "mankey": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 28,
-          "target": "Primeape"
-        }
-      ],
-      "primeape": [
+      "Primeape": [
         {
           "method": "EVOLVE_MOVE",
           "parameter": "OUTRAGE",
           "target": "Annihilape"
         }
       ],
-      "annihilape": []
+      "Annihilape": [],
+      "Mankey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Primeape"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_MOVE",
+        "parameter": "OUTRAGE",
+        "target": "Annihilape"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Primeape": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "OUTRAGE",
+          "target": "Annihilape"
+        }
+      ],
+      "Annihilape": [],
+      "Mankey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Primeape"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_MOVE",
+        "parameter": "OUTRAGE",
+        "target": "Annihilape"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Primeape": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "OUTRAGE",
+          "target": "Annihilape"
+        }
+      ],
+      "Annihilape": [],
+      "Mankey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Primeape"
+        }
+      ]
     }
   },
   "levelMoves": [

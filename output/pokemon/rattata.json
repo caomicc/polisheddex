@@ -59,19 +59,16 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "rattata",
-      "raticate",
-      "rattataalolan"
+      "Rattata",
+      "Raticate"
     ],
     "chainWithMethods": {
-      "rattata": [
+      "Rattata": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Raticate"
-        }
-      ],
-      "rattata-alolan-form": [
+        },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
@@ -79,8 +76,41 @@
           "form": "Alolan Form"
         }
       ],
-      "raticate": [],
-      "rattataalolan": []
+      "Raticate": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Rattata": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Raticate"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Raticate",
+          "form": "Alolan Form"
+        }
+      ],
+      "Raticate": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Rattata": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Raticate"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Raticate",
+          "form": "Alolan Form"
+        }
+      ],
+      "Raticate": []
     }
   },
   "levelMoves": [

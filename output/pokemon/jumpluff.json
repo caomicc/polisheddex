@@ -79,26 +79,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "hoppip",
-      "skiploom",
-      "jumpluff"
+      "Hoppip",
+      "Skiploom",
+      "Jumpluff"
     ],
     "chainWithMethods": {
-      "hoppip": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 18,
-          "target": "Skiploom"
-        }
-      ],
-      "skiploom": [
+      "Jumpluff": [],
+      "Skiploom": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 27,
           "target": "Jumpluff"
         }
       ],
-      "jumpluff": []
+      "Hoppip": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Skiploom"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Jumpluff": [],
+      "Skiploom": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 27,
+          "target": "Jumpluff"
+        }
+      ],
+      "Hoppip": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Skiploom"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Jumpluff": [],
+      "Skiploom": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 27,
+          "target": "Jumpluff"
+        }
+      ],
+      "Hoppip": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Skiploom"
+        }
+      ]
     }
   },
   "levelMoves": [

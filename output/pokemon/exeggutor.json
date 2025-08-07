@@ -72,11 +72,12 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "exeggcute",
-      "exeggutor"
+      "Exeggcute",
+      "Exeggutor"
     ],
     "chainWithMethods": {
-      "exeggcute": [
+      "Exeggutor": [],
+      "Exeggcute": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
@@ -89,8 +90,43 @@
           "target": "Exeggutor",
           "form": "Alolan Form"
         }
-      ],
-      "exeggutor": []
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Exeggutor": [],
+      "Exeggcute": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Exeggutor",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Exeggutor",
+          "form": "Alolan Form"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Exeggutor": [],
+      "Exeggcute": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Exeggutor",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Exeggutor",
+          "form": "Alolan Form"
+        }
+      ]
     }
   },
   "levelMoves": [

@@ -76,26 +76,74 @@
       }
     ],
     "chain": [
-      "togepi",
-      "togetic",
-      "togekiss"
+      "Togepi",
+      "Togetic",
+      "Togekiss"
     ],
     "chainWithMethods": {
-      "togepi": [
-        {
-          "method": "EVOLVE_HAPPINESS",
-          "parameter": "TR_ANYTIME",
-          "target": "Togetic"
-        }
-      ],
-      "togetic": [
+      "Togetic": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "SHINY_STONE",
           "target": "Togekiss"
         }
       ],
-      "togekiss": []
+      "Togekiss": [],
+      "Togepi": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Togetic"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "SHINY_STONE",
+        "target": "Togekiss"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Togetic": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Togekiss"
+        }
+      ],
+      "Togekiss": [],
+      "Togepi": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Togetic"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "SHINY_STONE",
+        "target": "Togekiss"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Togetic": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Togekiss"
+        }
+      ],
+      "Togekiss": [],
+      "Togepi": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Togetic"
+        }
+      ]
     }
   },
   "levelMoves": [

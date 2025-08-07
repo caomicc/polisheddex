@@ -81,18 +81,40 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "spearow",
-      "fearow"
+      "Spearow",
+      "Fearow"
     ],
     "chainWithMethods": {
-      "spearow": [
+      "Fearow": [],
+      "Spearow": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Fearow"
         }
-      ],
-      "fearow": []
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Fearow": [],
+      "Spearow": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Fearow"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Fearow": [],
+      "Spearow": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Fearow"
+        }
+      ]
     }
   },
   "levelMoves": [

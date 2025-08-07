@@ -59,26 +59,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "abra",
-      "kadabra",
-      "alakazam"
+      "Abra",
+      "Kadabra",
+      "Alakazam"
     ],
     "chainWithMethods": {
-      "abra": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 16,
-          "target": "Kadabra"
-        }
-      ],
-      "kadabra": [
+      "Alakazam": [],
+      "Kadabra": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Alakazam"
         }
       ],
-      "alakazam": []
+      "Abra": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Kadabra"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Alakazam": [],
+      "Kadabra": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Alakazam"
+        }
+      ],
+      "Abra": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Kadabra"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Alakazam": [],
+      "Kadabra": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Alakazam"
+        }
+      ],
+      "Abra": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Kadabra"
+        }
+      ]
     }
   },
   "levelMoves": [

@@ -72,19 +72,13 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "teddiursa",
-      "ursaring",
-      "ursaluna"
+      "Teddiursa",
+      "Ursaring",
+      "Ursaluna"
     ],
     "chainWithMethods": {
-      "teddiursa": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 30,
-          "target": "Ursaring"
-        }
-      ],
-      "ursaring": [
+      "Ursaluna": [],
+      "Ursaring": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "MOON_STONE",
@@ -101,7 +95,69 @@
           "target": "Ursaluna"
         }
       ],
-      "ursaluna": []
+      "Teddiursa": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ursaring"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Ursaluna": [],
+      "Ursaring": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SINJOH_RUINS",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MYSTRI_STAGE",
+          "target": "Ursaluna"
+        }
+      ],
+      "Teddiursa": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ursaring"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Ursaluna": [],
+      "Ursaring": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "SINJOH_RUINS",
+          "target": "Ursaluna"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MYSTRI_STAGE",
+          "target": "Ursaluna"
+        }
+      ],
+      "Teddiursa": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ursaring"
+        }
+      ]
     }
   },
   "levelMoves": [

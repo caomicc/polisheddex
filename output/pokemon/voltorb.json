@@ -57,19 +57,16 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "voltorb",
-      "electrode",
-      "voltorbhisuian"
+      "Voltorb",
+      "Electrode"
     ],
     "chainWithMethods": {
-      "voltorb": [
+      "Voltorb": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Electrode"
-        }
-      ],
-      "voltorb-hisuian-form": [
+        },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "LEAF_STONE",
@@ -77,8 +74,41 @@
           "form": "Hisuian Form"
         }
       ],
-      "electrode": [],
-      "voltorbhisuian": []
+      "Electrode": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Voltorb": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electrode"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Electrode",
+          "form": "Hisuian Form"
+        }
+      ],
+      "Electrode": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Voltorb": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Electrode"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Electrode",
+          "form": "Hisuian Form"
+        }
+      ],
+      "Electrode": []
     }
   },
   "levelMoves": [

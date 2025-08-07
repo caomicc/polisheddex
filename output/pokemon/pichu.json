@@ -66,19 +66,19 @@
       }
     ],
     "chain": [
-      "pichu",
-      "pikachu",
-      "raichu"
+      "Pichu",
+      "Pikachu",
+      "Raichu"
     ],
     "chainWithMethods": {
-      "pichu": [
+      "Pichu": [
         {
           "method": "EVOLVE_HAPPINESS",
           "parameter": "TR_ANYTIME",
           "target": "Pikachu"
         }
       ],
-      "pikachu": [
+      "Pikachu": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
@@ -92,7 +92,69 @@
           "form": "Alolan Form"
         }
       ],
-      "raichu": []
+      "Raichu": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_HAPPINESS",
+        "parameter": "TR_ANYTIME",
+        "target": "Pikachu"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Pichu": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Pikachu"
+        }
+      ],
+      "Pikachu": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Raichu",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Raichu",
+          "form": "Alolan Form"
+        }
+      ],
+      "Raichu": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_HAPPINESS",
+        "parameter": "TR_ANYTIME",
+        "target": "Pikachu"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Pichu": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Pikachu"
+        }
+      ],
+      "Pikachu": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Raichu",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Raichu",
+          "form": "Alolan Form"
+        }
+      ],
+      "Raichu": []
     }
   },
   "levelMoves": [

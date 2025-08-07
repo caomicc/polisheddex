@@ -59,28 +59,58 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "growlithe",
-      "arcanine",
-      "growlithehisuian"
+      "Growlithe",
+      "Arcanine"
     ],
     "chainWithMethods": {
-      "growlithe": [
+      "Arcanine": [],
+      "Growlithe": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "FIRE_STONE",
           "target": "Arcanine"
-        }
-      ],
-      "growlithe-hisuian-form": [
+        },
         {
           "method": "EVOLVE_ITEM",
           "parameter": "FIRE_STONE",
           "target": "Arcanine",
           "form": "Hisuian Form"
         }
-      ],
-      "arcanine": [],
-      "growlithehisuian": []
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Arcanine": [],
+      "Growlithe": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Arcanine"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Arcanine",
+          "form": "Hisuian Form"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Arcanine": [],
+      "Growlithe": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Arcanine"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Arcanine",
+          "form": "Hisuian Form"
+        }
+      ]
     }
   },
   "levelMoves": [

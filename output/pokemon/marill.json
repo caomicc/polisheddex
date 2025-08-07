@@ -75,26 +75,74 @@
       }
     ],
     "chain": [
-      "azurill",
-      "marill",
-      "azumarill"
+      "Azurill",
+      "Marill",
+      "Azumarill"
     ],
     "chainWithMethods": {
-      "azurill": [
-        {
-          "method": "EVOLVE_HAPPINESS",
-          "parameter": "TR_ANYTIME",
-          "target": "Marill"
-        }
-      ],
-      "marill": [
+      "Marill": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 18,
           "target": "Azumarill"
         }
       ],
-      "azumarill": []
+      "Azumarill": [],
+      "Azurill": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Marill"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 18,
+        "target": "Azumarill"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Marill": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Azumarill"
+        }
+      ],
+      "Azumarill": [],
+      "Azurill": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Marill"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 18,
+        "target": "Azumarill"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Marill": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Azumarill"
+        }
+      ],
+      "Azumarill": [],
+      "Azurill": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Marill"
+        }
+      ]
     }
   },
   "levelMoves": [

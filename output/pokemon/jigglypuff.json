@@ -95,26 +95,74 @@
       }
     ],
     "chain": [
-      "igglybuff",
-      "jigglypuff",
-      "wigglytuff"
+      "Igglybuff",
+      "Jigglypuff",
+      "Wigglytuff"
     ],
     "chainWithMethods": {
-      "igglybuff": [
-        {
-          "method": "EVOLVE_HAPPINESS",
-          "parameter": "TR_ANYTIME",
-          "target": "Jigglypuff"
-        }
-      ],
-      "jigglypuff": [
+      "Jigglypuff": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "MOON_STONE",
           "target": "Wigglytuff"
         }
       ],
-      "wigglytuff": []
+      "Wigglytuff": [],
+      "Igglybuff": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Jigglypuff"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "MOON_STONE",
+        "target": "Wigglytuff"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Jigglypuff": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Wigglytuff"
+        }
+      ],
+      "Wigglytuff": [],
+      "Igglybuff": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Jigglypuff"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "MOON_STONE",
+        "target": "Wigglytuff"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Jigglypuff": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Wigglytuff"
+        }
+      ],
+      "Wigglytuff": [],
+      "Igglybuff": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Jigglypuff"
+        }
+      ]
     }
   },
   "levelMoves": [

@@ -72,21 +72,18 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "geodude",
-      "graveler",
-      "golem",
-      "geodudealolan"
+      "Geodude",
+      "Graveler",
+      "Golem"
     ],
     "chainWithMethods": {
-      "geodude": [
+      "Geodude": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Graveler",
           "form": "Plain Form"
-        }
-      ],
-      "geodude-alolan-form": [
+        },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
@@ -94,15 +91,13 @@
           "form": "Alolan Form"
         }
       ],
-      "graveler": [
+      "Graveler": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Golem",
           "form": "Plain Form"
-        }
-      ],
-      "graveler-alolan-form": [
+        },
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
@@ -110,8 +105,71 @@
           "form": "Alolan Form"
         }
       ],
-      "golem": [],
-      "geodudealolan": []
+      "Golem": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Geodude": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Alolan Form"
+        }
+      ],
+      "Graveler": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Alolan Form"
+        }
+      ],
+      "Golem": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Geodude": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Graveler",
+          "form": "Alolan Form"
+        }
+      ],
+      "Graveler": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Golem",
+          "form": "Alolan Form"
+        }
+      ],
+      "Golem": []
     }
   },
   "levelMoves": [

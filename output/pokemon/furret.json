@@ -69,18 +69,40 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "sentret",
-      "furret"
+      "Sentret",
+      "Furret"
     ],
     "chainWithMethods": {
-      "sentret": [
+      "Furret": [],
+      "Sentret": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 15,
           "target": "Furret"
         }
-      ],
-      "furret": []
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Furret": [],
+      "Sentret": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Furret"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Furret": [],
+      "Sentret": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Furret"
+        }
+      ]
     }
   },
   "levelMoves": [

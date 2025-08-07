@@ -79,26 +79,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "pidgey",
-      "pidgeotto",
-      "pidgeot"
+      "Pidgey",
+      "Pidgeotto",
+      "Pidgeot"
     ],
     "chainWithMethods": {
-      "pidgey": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 18,
-          "target": "Pidgeotto"
-        }
-      ],
-      "pidgeotto": [
+      "Pidgeot": [],
+      "Pidgeotto": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 36,
           "target": "Pidgeot"
         }
       ],
-      "pidgeot": []
+      "Pidgey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Pidgeotto"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Pidgeot": [],
+      "Pidgeotto": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Pidgeot"
+        }
+      ],
+      "Pidgey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Pidgeotto"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Pidgeot": [],
+      "Pidgeotto": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Pidgeot"
+        }
+      ],
+      "Pidgey": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Pidgeotto"
+        }
+      ]
     }
   },
   "levelMoves": [

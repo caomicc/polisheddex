@@ -94,26 +94,74 @@
       }
     ],
     "chain": [
-      "rhyhorn",
-      "rhydon",
-      "rhyperior"
+      "Rhyhorn",
+      "Rhydon",
+      "Rhyperior"
     ],
     "chainWithMethods": {
-      "rhyhorn": [
+      "Rhyhorn": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 42,
           "target": "Rhydon"
         }
       ],
-      "rhydon": [
+      "Rhydon": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "PROTECTOR",
           "target": "Rhyperior"
         }
       ],
-      "rhyperior": []
+      "Rhyperior": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 42,
+        "target": "Rhydon"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Rhyhorn": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "Rhydon"
+        }
+      ],
+      "Rhydon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "PROTECTOR",
+          "target": "Rhyperior"
+        }
+      ],
+      "Rhyperior": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 42,
+        "target": "Rhydon"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Rhyhorn": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 42,
+          "target": "Rhydon"
+        }
+      ],
+      "Rhydon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "PROTECTOR",
+          "target": "Rhyperior"
+        }
+      ],
+      "Rhyperior": []
     }
   },
   "levelMoves": [

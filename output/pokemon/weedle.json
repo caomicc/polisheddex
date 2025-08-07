@@ -76,26 +76,74 @@
       }
     ],
     "chain": [
-      "weedle",
-      "kakuna",
-      "beedrill"
+      "Weedle",
+      "Kakuna",
+      "Beedrill"
     ],
     "chainWithMethods": {
-      "weedle": [
+      "Weedle": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 7,
           "target": "Kakuna"
         }
       ],
-      "kakuna": [
+      "Kakuna": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 10,
           "target": "Beedrill"
         }
       ],
-      "beedrill": []
+      "Beedrill": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 7,
+        "target": "Kakuna"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ],
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 7,
+        "target": "Kakuna"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Weedle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Kakuna"
+        }
+      ],
+      "Kakuna": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Beedrill"
+        }
+      ],
+      "Beedrill": []
     }
   },
   "levelMoves": [

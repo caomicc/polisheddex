@@ -94,19 +94,19 @@
       }
     ],
     "chain": [
-      "magnemite",
-      "magneton",
-      "magnezone"
+      "Magnemite",
+      "Magneton",
+      "Magnezone"
     ],
     "chainWithMethods": {
-      "magnemite": [
+      "Magnemite": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Magneton"
         }
       ],
-      "magneton": [
+      "Magneton": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
@@ -123,7 +123,75 @@
           "target": "Magnezone"
         }
       ],
-      "magnezone": []
+      "Magnezone": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 30,
+        "target": "Magneton"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ],
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnezone": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 30,
+        "target": "Magneton"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ],
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnezone": []
     }
   },
   "levelMoves": [

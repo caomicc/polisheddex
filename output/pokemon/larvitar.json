@@ -92,26 +92,74 @@
       }
     ],
     "chain": [
-      "larvitar",
-      "pupitar",
-      "tyranitar"
+      "Larvitar",
+      "Pupitar",
+      "Tyranitar"
     ],
     "chainWithMethods": {
-      "larvitar": [
+      "Larvitar": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Pupitar"
         }
       ],
-      "pupitar": [
+      "Pupitar": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 55,
           "target": "Tyranitar"
         }
       ],
-      "tyranitar": []
+      "Tyranitar": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 30,
+        "target": "Pupitar"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Larvitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Pupitar"
+        }
+      ],
+      "Pupitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Tyranitar"
+        }
+      ],
+      "Tyranitar": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 30,
+        "target": "Pupitar"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Larvitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Pupitar"
+        }
+      ],
+      "Pupitar": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Tyranitar"
+        }
+      ],
+      "Tyranitar": []
     }
   },
   "levelMoves": [

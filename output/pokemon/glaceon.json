@@ -73,18 +73,19 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "eevee",
-      "jolteon",
-      "vaporeon",
-      "flareon",
-      "espeon",
-      "umbreon",
-      "leafeon",
-      "glaceon",
-      "sylveon"
+      "Eevee",
+      "Glaceon",
+      "Jolteon",
+      "Vaporeon",
+      "Flareon",
+      "Espeon",
+      "Umbreon",
+      "Leafeon",
+      "Sylveon"
     ],
     "chainWithMethods": {
-      "eevee": [
+      "Glaceon": [],
+      "Eevee": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
@@ -146,14 +147,159 @@
           "target": "Umbreon"
         }
       ],
-      "jolteon": [],
-      "vaporeon": [],
-      "flareon": [],
-      "espeon": [],
-      "umbreon": [],
-      "leafeon": [],
-      "glaceon": [],
-      "sylveon": []
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Sylveon": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Glaceon": [],
+      "Eevee": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Sylveon": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Glaceon": [],
+      "Eevee": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Jolteon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Vaporeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "FIRE_STONE",
+          "target": "Flareon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SUN_STONE",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Umbreon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "LEAF_STONE",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ICE_STONE",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "SHINY_STONE",
+          "target": "Sylveon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ILEX_FOREST",
+          "target": "Leafeon"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "ICE_PATH",
+          "target": "Glaceon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_MORNDAY",
+          "target": "Espeon"
+        },
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_EVENITE",
+          "target": "Umbreon"
+        }
+      ],
+      "Jolteon": [],
+      "Vaporeon": [],
+      "Flareon": [],
+      "Espeon": [],
+      "Umbreon": [],
+      "Leafeon": [],
+      "Sylveon": []
     }
   },
   "levelMoves": [

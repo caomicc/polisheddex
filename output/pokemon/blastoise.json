@@ -64,26 +64,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "squirtle",
-      "wartortle",
-      "blastoise"
+      "Squirtle",
+      "Wartortle",
+      "Blastoise"
     ],
     "chainWithMethods": {
-      "squirtle": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 16,
-          "target": "Wartortle"
-        }
-      ],
-      "wartortle": [
+      "Blastoise": [],
+      "Wartortle": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 36,
           "target": "Blastoise"
         }
       ],
-      "blastoise": []
+      "Squirtle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Wartortle"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Blastoise": [],
+      "Wartortle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Blastoise"
+        }
+      ],
+      "Squirtle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Wartortle"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Blastoise": [],
+      "Wartortle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Blastoise"
+        }
+      ],
+      "Squirtle": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Wartortle"
+        }
+      ]
     }
   },
   "levelMoves": [

@@ -68,11 +68,12 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "cubone",
-      "marowak"
+      "Cubone",
+      "Marowak"
     ],
     "chainWithMethods": {
-      "cubone": [
+      "Marowak": [],
+      "Cubone": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 28,
@@ -85,8 +86,43 @@
           "target": "Marowak",
           "form": "Alolan Form"
         }
-      ],
-      "marowak": []
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Marowak": [],
+      "Cubone": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Marowak",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Marowak",
+          "form": "Alolan Form"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Marowak": [],
+      "Cubone": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 28,
+          "target": "Marowak",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "ODD_SOUVENIR",
+          "target": "Marowak",
+          "form": "Alolan Form"
+        }
+      ]
     }
   },
   "levelMoves": [

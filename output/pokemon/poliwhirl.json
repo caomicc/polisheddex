@@ -69,20 +69,13 @@
       }
     ],
     "chain": [
-      "poliwag",
-      "poliwhirl",
-      "politoed",
-      "poliwrath"
+      "Poliwag",
+      "Poliwhirl",
+      "Politoed",
+      "Poliwrath"
     ],
     "chainWithMethods": {
-      "poliwag": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 25,
-          "target": "Poliwhirl"
-        }
-      ],
-      "poliwhirl": [
+      "Poliwhirl": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
@@ -94,8 +87,85 @@
           "target": "Poliwrath"
         }
       ],
-      "politoed": [],
-      "poliwrath": []
+      "Politoed": [],
+      "Poliwrath": [],
+      "Poliwag": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Poliwhirl"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_TRADE",
+        "parameter": "KINGS_ROCK",
+        "target": "Politoed"
+      },
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "WATER_STONE",
+        "target": "Poliwrath"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Poliwhirl": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Politoed"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Poliwrath"
+        }
+      ],
+      "Politoed": [],
+      "Poliwrath": [],
+      "Poliwag": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Poliwhirl"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_TRADE",
+        "parameter": "KINGS_ROCK",
+        "target": "Politoed"
+      },
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "WATER_STONE",
+        "target": "Poliwrath"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Poliwhirl": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Politoed"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Poliwrath"
+        }
+      ],
+      "Politoed": [],
+      "Poliwrath": [],
+      "Poliwag": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Poliwhirl"
+        }
+      ]
     }
   },
   "levelMoves": [

@@ -62,20 +62,20 @@
       }
     ],
     "chain": [
-      "poliwag",
-      "poliwhirl",
-      "politoed",
-      "poliwrath"
+      "Poliwag",
+      "Poliwhirl",
+      "Politoed",
+      "Poliwrath"
     ],
     "chainWithMethods": {
-      "poliwag": [
+      "Poliwag": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Poliwhirl"
         }
       ],
-      "poliwhirl": [
+      "Poliwhirl": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
@@ -87,8 +87,68 @@
           "target": "Poliwrath"
         }
       ],
-      "politoed": [],
-      "poliwrath": []
+      "Politoed": [],
+      "Poliwrath": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 25,
+        "target": "Poliwhirl"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Poliwag": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Poliwhirl"
+        }
+      ],
+      "Poliwhirl": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Politoed"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Poliwrath"
+        }
+      ],
+      "Politoed": [],
+      "Poliwrath": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 25,
+        "target": "Poliwhirl"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Poliwag": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Poliwhirl"
+        }
+      ],
+      "Poliwhirl": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Politoed"
+        },
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "WATER_STONE",
+          "target": "Poliwrath"
+        }
+      ],
+      "Politoed": [],
+      "Poliwrath": []
     }
   },
   "levelMoves": [

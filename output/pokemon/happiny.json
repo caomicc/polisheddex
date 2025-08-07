@@ -62,52 +62,78 @@
       {
         "method": "EVOLVE_HOLDING",
         "parameter": "OVAL_STONE",
-        "target": "Tr Mornday",
-        "form": "Chansey"
+        "target": "Chansey"
       }
     ],
     "chain": [
-      "gligar",
-      "tr-evenite",
-      "sneasel",
-      "tr-mornday",
-      "happiny"
+      "Happiny",
+      "Chansey",
+      "Blissey"
     ],
     "chainWithMethods": {
-      "gligar": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_FANG",
-          "target": "Tr Evenite",
-          "form": "Gliscor"
-        }
-      ],
-      "tr-evenite": [],
-      "sneasel": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_CLAW",
-          "target": "Tr Evenite",
-          "form": "Weavile"
-        }
-      ],
-      "sneasel-hisuian-form": [
-        {
-          "method": "EVOLVE_HOLDING",
-          "parameter": "RAZOR_CLAW",
-          "target": "Tr Mornday",
-          "form": "Sneasler"
-        }
-      ],
-      "tr-mornday": [],
-      "happiny": [
+      "Happiny": [
         {
           "method": "EVOLVE_HOLDING",
           "parameter": "OVAL_STONE",
-          "target": "Tr Mornday",
-          "form": "Chansey"
+          "target": "Chansey"
         }
-      ]
+      ],
+      "Chansey": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Blissey"
+        }
+      ],
+      "Blissey": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_HOLDING",
+        "parameter": "OVAL_STONE",
+        "target": "Chansey"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Happiny": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "OVAL_STONE",
+          "target": "Chansey"
+        }
+      ],
+      "Chansey": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Blissey"
+        }
+      ],
+      "Blissey": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_HOLDING",
+        "parameter": "OVAL_STONE",
+        "target": "Chansey"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Happiny": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "OVAL_STONE",
+          "target": "Chansey"
+        }
+      ],
+      "Chansey": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Blissey"
+        }
+      ],
+      "Blissey": []
     }
   },
   "levelMoves": [

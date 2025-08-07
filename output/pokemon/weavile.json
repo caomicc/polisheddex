@@ -89,10 +89,59 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "weavile"
+      "Sneasel",
+      "Weavile",
+      "Sneasler"
     ],
     "chainWithMethods": {
-      "weavile": []
+      "Weavile": [],
+      "Sneasel": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Weavile"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Sneasler"
+        }
+      ],
+      "Sneasler": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Weavile": [],
+      "Sneasel": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Weavile"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Sneasler"
+        }
+      ],
+      "Sneasler": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Weavile": [],
+      "Sneasel": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Weavile"
+        },
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "RAZOR_CLAW",
+          "target": "Sneasler"
+        }
+      ],
+      "Sneasler": []
     }
   },
   "levelMoves": [

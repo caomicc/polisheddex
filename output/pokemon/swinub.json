@@ -78,26 +78,74 @@
       }
     ],
     "chain": [
-      "swinub",
-      "piloswine",
-      "mamoswine"
+      "Swinub",
+      "Piloswine",
+      "Mamoswine"
     ],
     "chainWithMethods": {
-      "swinub": [
+      "Swinub": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 33,
           "target": "Piloswine"
         }
       ],
-      "piloswine": [
+      "Piloswine": [
         {
           "method": "EVOLVE_MOVE",
           "parameter": "ANCIENTPOWER",
           "target": "Mamoswine"
         }
       ],
-      "mamoswine": []
+      "Mamoswine": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 33,
+        "target": "Piloswine"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Swinub": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Piloswine"
+        }
+      ],
+      "Piloswine": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Mamoswine"
+        }
+      ],
+      "Mamoswine": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 33,
+        "target": "Piloswine"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Swinub": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 33,
+          "target": "Piloswine"
+        }
+      ],
+      "Piloswine": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ANCIENTPOWER",
+          "target": "Mamoswine"
+        }
+      ],
+      "Mamoswine": []
     }
   },
   "levelMoves": [

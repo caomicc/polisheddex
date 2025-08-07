@@ -87,26 +87,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "dratini",
-      "dragonair",
-      "dragonite"
+      "Dratini",
+      "Dragonair",
+      "Dragonite"
     ],
     "chainWithMethods": {
-      "dratini": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 30,
-          "target": "Dragonair"
-        }
-      ],
-      "dragonair": [
+      "Dragonite": [],
+      "Dragonair": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 55,
           "target": "Dragonite"
         }
       ],
-      "dragonite": []
+      "Dratini": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Dragonair"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Dragonite": [],
+      "Dragonair": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Dragonite"
+        }
+      ],
+      "Dratini": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Dragonair"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Dragonite": [],
+      "Dragonair": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 55,
+          "target": "Dragonite"
+        }
+      ],
+      "Dratini": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Dragonair"
+        }
+      ]
     }
   },
   "levelMoves": [

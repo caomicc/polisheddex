@@ -63,18 +63,52 @@
       }
     ],
     "chain": [
-      "bonsly",
-      "sudowoodo"
+      "Bonsly",
+      "Sudowoodo"
     ],
     "chainWithMethods": {
-      "bonsly": [
+      "Bonsly": [
         {
           "method": "EVOLVE_MOVE",
           "parameter": "ROCK_THROW",
           "target": "Sudowoodo"
         }
       ],
-      "sudowoodo": []
+      "Sudowoodo": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_MOVE",
+        "parameter": "ROCK_THROW",
+        "target": "Sudowoodo"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Bonsly": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ROCK_THROW",
+          "target": "Sudowoodo"
+        }
+      ],
+      "Sudowoodo": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_MOVE",
+        "parameter": "ROCK_THROW",
+        "target": "Sudowoodo"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Bonsly": [
+        {
+          "method": "EVOLVE_MOVE",
+          "parameter": "ROCK_THROW",
+          "target": "Sudowoodo"
+        }
+      ],
+      "Sudowoodo": []
     }
   },
   "levelMoves": [

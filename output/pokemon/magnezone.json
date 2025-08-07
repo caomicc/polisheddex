@@ -88,19 +88,13 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "magnemite",
-      "magneton",
-      "magnezone"
+      "Magnemite",
+      "Magneton",
+      "Magnezone"
     ],
     "chainWithMethods": {
-      "magnemite": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 30,
-          "target": "Magneton"
-        }
-      ],
-      "magneton": [
+      "Magnezone": [],
+      "Magneton": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
@@ -117,7 +111,69 @@
           "target": "Magnezone"
         }
       ],
-      "magnezone": []
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Magnezone": [],
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Magnezone": [],
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ]
     }
   },
   "levelMoves": [

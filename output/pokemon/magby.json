@@ -75,26 +75,74 @@
       }
     ],
     "chain": [
-      "magby",
-      "magmar",
-      "magmortar"
+      "Magby",
+      "Magmar",
+      "Magmortar"
     ],
     "chainWithMethods": {
-      "magby": [
+      "Magby": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Magmar"
         }
       ],
-      "magmar": [
+      "Magmar": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "MAGMARIZER",
           "target": "Magmortar"
         }
       ],
-      "magmortar": []
+      "Magmortar": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 30,
+        "target": "Magmar"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Magby": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magmar"
+        }
+      ],
+      "Magmar": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "MAGMARIZER",
+          "target": "Magmortar"
+        }
+      ],
+      "Magmortar": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 30,
+        "target": "Magmar"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Magby": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magmar"
+        }
+      ],
+      "Magmar": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "MAGMARIZER",
+          "target": "Magmortar"
+        }
+      ],
+      "Magmortar": []
     }
   },
   "levelMoves": [

@@ -69,19 +69,43 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "magikarp",
-      "gyarados"
+      "Magikarp",
+      "Gyarados"
     ],
     "chainWithMethods": {
-      "magikarp": [
+      "Gyarados": [],
+      "Magikarp": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Gyarados",
-          "form": "No Form"
+          "form": "No_form ; Preserve Pre-evo Form"
         }
-      ],
-      "gyarados": []
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Gyarados": [],
+      "Magikarp": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Gyarados",
+          "form": "No_form ; Preserve Pre-evo Form"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Gyarados": [],
+      "Magikarp": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Gyarados",
+          "form": "No_form ; Preserve Pre-evo Form"
+        }
+      ]
     }
   },
   "levelMoves": [

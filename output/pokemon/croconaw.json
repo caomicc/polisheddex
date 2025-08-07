@@ -79,26 +79,74 @@
       }
     ],
     "chain": [
-      "totodile",
-      "croconaw",
-      "feraligatr"
+      "Totodile",
+      "Croconaw",
+      "Feraligatr"
     ],
     "chainWithMethods": {
-      "totodile": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 18,
-          "target": "Croconaw"
-        }
-      ],
-      "croconaw": [
+      "Croconaw": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Feraligatr"
         }
       ],
-      "feraligatr": []
+      "Feraligatr": [],
+      "Totodile": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Croconaw"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 30,
+        "target": "Feraligatr"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Croconaw": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Feraligatr"
+        }
+      ],
+      "Feraligatr": [],
+      "Totodile": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Croconaw"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 30,
+        "target": "Feraligatr"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Croconaw": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Feraligatr"
+        }
+      ],
+      "Feraligatr": [],
+      "Totodile": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 18,
+          "target": "Croconaw"
+        }
+      ]
     }
   },
   "levelMoves": [

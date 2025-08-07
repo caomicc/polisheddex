@@ -81,13 +81,13 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "slowpoke",
-      "slowking",
-      "slowbro",
-      "slowpokegalarian"
+      "Slowpoke",
+      "Slowbro",
+      "Slowking"
     ],
     "chainWithMethods": {
-      "slowpoke": [
+      "Slowbro": [],
+      "Slowpoke": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
@@ -99,9 +99,7 @@
           "parameter": 37,
           "target": "Slowbro",
           "form": "Plain Form"
-        }
-      ],
-      "slowpoke-galarian-form": [
+        },
         {
           "method": "EVOLVE_TRADE",
           "parameter": "KINGS_ROCK",
@@ -115,9 +113,69 @@
           "form": "Galarian Form"
         }
       ],
-      "slowking": [],
-      "slowbro": [],
-      "slowpokegalarian": []
+      "Slowking": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Slowbro": [],
+      "Slowpoke": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "Galarian Form"
+        }
+      ],
+      "Slowking": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Slowbro": [],
+      "Slowpoke": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "Plain Form"
+        },
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "KINGS_ROCK",
+          "target": "Slowking",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 37,
+          "target": "Slowbro",
+          "form": "Galarian Form"
+        }
+      ],
+      "Slowking": []
     }
   },
   "levelMoves": [

@@ -72,11 +72,11 @@
       }
     ],
     "chain": [
-      "koffing",
-      "weezing"
+      "Koffing",
+      "Weezing"
     ],
     "chainWithMethods": {
-      "koffing": [
+      "Koffing": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "CHARCOAL",
@@ -90,7 +90,69 @@
           "form": "Plain Form"
         }
       ],
-      "weezing": []
+      "Weezing": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_TRADE",
+        "parameter": "CHARCOAL",
+        "target": "Weezing",
+        "form": "Galarian Form"
+      },
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 35,
+        "target": "Weezing",
+        "form": "Plain Form"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Koffing": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "CHARCOAL",
+          "target": "Weezing",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 35,
+          "target": "Weezing",
+          "form": "Plain Form"
+        }
+      ],
+      "Weezing": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_TRADE",
+        "parameter": "CHARCOAL",
+        "target": "Weezing",
+        "form": "Galarian Form"
+      },
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 35,
+        "target": "Weezing",
+        "form": "Plain Form"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Koffing": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "CHARCOAL",
+          "target": "Weezing",
+          "form": "Galarian Form"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 35,
+          "target": "Weezing",
+          "form": "Plain Form"
+        }
+      ],
+      "Weezing": []
     }
   },
   "levelMoves": [

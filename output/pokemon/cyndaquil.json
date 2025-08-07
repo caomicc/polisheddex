@@ -79,26 +79,74 @@
       }
     ],
     "chain": [
-      "cyndaquil",
-      "quilava",
-      "typhlosion"
+      "Cyndaquil",
+      "Quilava",
+      "Typhlosion"
     ],
     "chainWithMethods": {
-      "cyndaquil": [
+      "Cyndaquil": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 14,
           "target": "Quilava"
         }
       ],
-      "quilava": [
+      "Quilava": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 36,
           "target": "Typhlosion"
         }
       ],
-      "typhlosion": []
+      "Typhlosion": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 14,
+        "target": "Quilava"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Cyndaquil": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 14,
+          "target": "Quilava"
+        }
+      ],
+      "Quilava": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Typhlosion"
+        }
+      ],
+      "Typhlosion": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 14,
+        "target": "Quilava"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Cyndaquil": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 14,
+          "target": "Quilava"
+        }
+      ],
+      "Quilava": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 36,
+          "target": "Typhlosion"
+        }
+      ],
+      "Typhlosion": []
     }
   },
   "levelMoves": [

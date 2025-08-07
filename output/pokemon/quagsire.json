@@ -80,29 +80,59 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "wooper",
-      "quagsire",
-      "clodsire",
-      "wooperpaldean"
+      "Wooper",
+      "Quagsire",
+      "Clodsire"
     ],
     "chainWithMethods": {
-      "wooper": [
+      "Quagsire": [],
+      "Wooper": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Quagsire"
-        }
-      ],
-      "wooper-paldean-form": [
+        },
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 20,
           "target": "Clodsire"
         }
       ],
-      "quagsire": [],
-      "clodsire": [],
-      "wooperpaldean": []
+      "Clodsire": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Quagsire": [],
+      "Wooper": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Quagsire"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Clodsire"
+        }
+      ],
+      "Clodsire": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Quagsire": [],
+      "Wooper": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Quagsire"
+        },
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 20,
+          "target": "Clodsire"
+        }
+      ],
+      "Clodsire": []
     }
   },
   "levelMoves": [

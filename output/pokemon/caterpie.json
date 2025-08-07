@@ -63,26 +63,74 @@
       }
     ],
     "chain": [
-      "caterpie",
-      "metapod",
-      "butterfree"
+      "Caterpie",
+      "Metapod",
+      "Butterfree"
     ],
     "chainWithMethods": {
-      "caterpie": [
+      "Caterpie": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 7,
           "target": "Metapod"
         }
       ],
-      "metapod": [
+      "Metapod": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 10,
           "target": "Butterfree"
         }
       ],
-      "butterfree": []
+      "Butterfree": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 7,
+        "target": "Metapod"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Caterpie": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Metapod"
+        }
+      ],
+      "Metapod": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Butterfree"
+        }
+      ],
+      "Butterfree": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 7,
+        "target": "Metapod"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Caterpie": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 7,
+          "target": "Metapod"
+        }
+      ],
+      "Metapod": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 10,
+          "target": "Butterfree"
+        }
+      ],
+      "Butterfree": []
     }
   },
   "levelMoves": [

@@ -70,26 +70,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "bulbasaur",
-      "ivysaur",
-      "venusaur"
+      "Bulbasaur",
+      "Ivysaur",
+      "Venusaur"
     ],
     "chainWithMethods": {
-      "bulbasaur": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 16,
-          "target": "Ivysaur"
-        }
-      ],
-      "ivysaur": [
+      "Venusaur": [],
+      "Ivysaur": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 32,
           "target": "Venusaur"
         }
       ],
-      "venusaur": []
+      "Bulbasaur": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Ivysaur"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Venusaur": [],
+      "Ivysaur": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Venusaur"
+        }
+      ],
+      "Bulbasaur": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Ivysaur"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Venusaur": [],
+      "Ivysaur": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 32,
+          "target": "Venusaur"
+        }
+      ],
+      "Bulbasaur": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Ivysaur"
+        }
+      ]
     }
   },
   "levelMoves": [

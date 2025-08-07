@@ -79,31 +79,74 @@
       }
     ],
     "chain": [
-      "mareep",
-      "flaaffy",
-      "ampharos"
+      "Mareep",
+      "Flaaffy",
+      "Ampharos"
     ],
     "chainWithMethods": {
-      "mareep": [
+      "Mareep": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 15,
           "target": "Flaaffy"
         }
       ],
-      "flaaffy": [
+      "Flaaffy": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 30,
           "target": "Ampharos"
-        },
+        }
+      ],
+      "Ampharos": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 15,
+        "target": "Flaaffy"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Mareep": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Flaaffy"
+        }
+      ],
+      "Flaaffy": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Ampharos"
+        }
+      ],
+      "Ampharos": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 15,
+        "target": "Flaaffy"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Mareep": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 15,
+          "target": "Flaaffy"
+        }
+      ],
+      "Flaaffy": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 36,
           "target": "Ampharos"
         }
       ],
-      "ampharos": []
+      "Ampharos": []
     }
   },
   "levelMoves": [

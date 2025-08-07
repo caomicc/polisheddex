@@ -86,26 +86,62 @@
   "evolution": {
     "methods": [],
     "chain": [
-      "zubat",
-      "golbat",
-      "crobat"
+      "Zubat",
+      "Golbat",
+      "Crobat"
     ],
     "chainWithMethods": {
-      "zubat": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 22,
-          "target": "Golbat"
-        }
-      ],
-      "golbat": [
+      "Crobat": [],
+      "Golbat": [
         {
           "method": "EVOLVE_HAPPINESS",
           "parameter": "TR_ANYTIME",
           "target": "Crobat"
         }
       ],
-      "crobat": []
+      "Zubat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Golbat"
+        }
+      ]
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Crobat": [],
+      "Golbat": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Crobat"
+        }
+      ],
+      "Zubat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Golbat"
+        }
+      ]
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Crobat": [],
+      "Golbat": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Crobat"
+        }
+      ],
+      "Zubat": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 22,
+          "target": "Golbat"
+        }
+      ]
     }
   },
   "levelMoves": [

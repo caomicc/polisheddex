@@ -66,18 +66,74 @@
       }
     ],
     "chain": [
-      "chansey",
-      "blissey"
+      "Happiny",
+      "Chansey",
+      "Blissey"
     ],
     "chainWithMethods": {
-      "chansey": [
+      "Chansey": [
         {
           "method": "EVOLVE_HAPPINESS",
           "parameter": "TR_ANYTIME",
           "target": "Blissey"
         }
       ],
-      "blissey": []
+      "Blissey": [],
+      "Happiny": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "OVAL_STONE",
+          "target": "Chansey"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_HAPPINESS",
+        "parameter": "TR_ANYTIME",
+        "target": "Blissey"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Chansey": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Blissey"
+        }
+      ],
+      "Blissey": [],
+      "Happiny": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "OVAL_STONE",
+          "target": "Chansey"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_HAPPINESS",
+        "parameter": "TR_ANYTIME",
+        "target": "Blissey"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Chansey": [
+        {
+          "method": "EVOLVE_HAPPINESS",
+          "parameter": "TR_ANYTIME",
+          "target": "Blissey"
+        }
+      ],
+      "Blissey": [],
+      "Happiny": [
+        {
+          "method": "EVOLVE_HOLDING",
+          "parameter": "OVAL_STONE",
+          "target": "Chansey"
+        }
+      ]
     }
   },
   "levelMoves": [

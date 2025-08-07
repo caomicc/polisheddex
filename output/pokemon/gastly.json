@@ -78,26 +78,74 @@
       }
     ],
     "chain": [
-      "gastly",
-      "haunter",
-      "gengar"
+      "Gastly",
+      "Haunter",
+      "Gengar"
     ],
     "chainWithMethods": {
-      "gastly": [
+      "Gastly": [
         {
           "method": "EVOLVE_LEVEL",
           "parameter": 25,
           "target": "Haunter"
         }
       ],
-      "haunter": [
+      "Haunter": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "LINKING_CORD",
           "target": "Gengar"
         }
       ],
-      "gengar": []
+      "Gengar": []
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 25,
+        "target": "Haunter"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Gastly": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Haunter"
+        }
+      ],
+      "Haunter": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Gengar"
+        }
+      ],
+      "Gengar": []
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_LEVEL",
+        "parameter": 25,
+        "target": "Haunter"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Gastly": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 25,
+          "target": "Haunter"
+        }
+      ],
+      "Haunter": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "LINKING_CORD",
+          "target": "Gengar"
+        }
+      ],
+      "Gengar": []
     }
   },
   "levelMoves": [

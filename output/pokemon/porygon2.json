@@ -61,31 +61,78 @@
       {
         "method": "EVOLVE_TRADE",
         "parameter": "DUBIOUS_DISC",
-        "target": "porygon-z"
+        "target": "porygon-Z"
       }
     ],
     "chain": [
-      "porygon",
-      "porygon2",
-      "porygon-z",
+      "Porygon",
+      "Porygon2",
       "porygon-z"
     ],
     "chainWithMethods": {
-      "porygon": [
-        {
-          "method": "EVOLVE_TRADE",
-          "parameter": "UPGRADE",
-          "target": "Porygon2"
-        }
-      ],
-      "porygon2": [
+      "Porygon2": [
         {
           "method": "EVOLVE_TRADE",
           "parameter": "DUBIOUS_DISC",
           "target": "porygon-z"
         }
       ],
-      "porygon-z": []
+      "porygon-z": [],
+      "Porygon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "UPGRADE",
+          "target": "Porygon2"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_TRADE",
+        "parameter": "DUBIOUS_DISC",
+        "target": "porygon-Z"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Porygon2": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DUBIOUS_DISC",
+          "target": "porygon-z"
+        }
+      ],
+      "porygon-z": [],
+      "Porygon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "UPGRADE",
+          "target": "Porygon2"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_TRADE",
+        "parameter": "DUBIOUS_DISC",
+        "target": "porygon-Z"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Porygon2": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "DUBIOUS_DISC",
+          "target": "porygon-z"
+        }
+      ],
+      "porygon-z": [],
+      "Porygon": [
+        {
+          "method": "EVOLVE_TRADE",
+          "parameter": "UPGRADE",
+          "target": "Porygon2"
+        }
+      ]
     }
   },
   "levelMoves": [

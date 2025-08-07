@@ -104,19 +104,12 @@
       }
     ],
     "chain": [
-      "magnemite",
-      "magneton",
-      "magnezone"
+      "Magnemite",
+      "Magneton",
+      "Magnezone"
     ],
     "chainWithMethods": {
-      "magnemite": [
-        {
-          "method": "EVOLVE_LEVEL",
-          "parameter": 30,
-          "target": "Magneton"
-        }
-      ],
-      "magneton": [
+      "Magneton": [
         {
           "method": "EVOLVE_ITEM",
           "parameter": "THUNDERSTONE",
@@ -133,7 +126,102 @@
           "target": "Magnezone"
         }
       ],
-      "magnezone": []
+      "Magnezone": [],
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ]
+    },
+    "faithfulMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "THUNDERSTONE",
+        "target": "Magnezone"
+      },
+      {
+        "method": "EVOLVE_LOCATION",
+        "parameter": "MAGNET_TUNNEL",
+        "target": "Magnezone"
+      },
+      {
+        "method": "EVOLVE_LOCATION",
+        "parameter": "DIM_CAVE",
+        "target": "Magnezone"
+      }
+    ],
+    "faithfulChainWithMethods": {
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnezone": [],
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ]
+    },
+    "updatedMethods": [
+      {
+        "method": "EVOLVE_ITEM",
+        "parameter": "THUNDERSTONE",
+        "target": "Magnezone"
+      },
+      {
+        "method": "EVOLVE_LOCATION",
+        "parameter": "MAGNET_TUNNEL",
+        "target": "Magnezone"
+      },
+      {
+        "method": "EVOLVE_LOCATION",
+        "parameter": "DIM_CAVE",
+        "target": "Magnezone"
+      }
+    ],
+    "updatedChainWithMethods": {
+      "Magneton": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "THUNDERSTONE",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "MAGNET_TUNNEL",
+          "target": "Magnezone"
+        },
+        {
+          "method": "EVOLVE_LOCATION",
+          "parameter": "DIM_CAVE",
+          "target": "Magnezone"
+        }
+      ],
+      "Magnezone": [],
+      "Magnemite": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 30,
+          "target": "Magneton"
+        }
+      ]
     }
   },
   "levelMoves": [
