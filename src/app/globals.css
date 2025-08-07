@@ -114,16 +114,10 @@ html {
   --pokemon-theme-breadcrumb-inactive: inherit;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 /* ---break--- */
 :root {
   --radius: 0.625rem;
-  --background: #fff;
+  --background: linear-gradient(to bottom left, var(--color-fuchsia-100), var(--color-indigo-300));
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -154,6 +148,18 @@ html {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
 }
 
 /*
