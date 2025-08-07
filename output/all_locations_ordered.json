@@ -47772,314 +47772,6 @@
   },
   {
     "id": -1,
-    "name": "cinnabar_volcano_b_1f",
-    "displayName": "Cinnabar Volcano B First Floor",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": [
-      {
-        "direction": "warp",
-        "targetLocation": "cinnabar_volcano_1f",
-        "targetLocationDisplay": "Cinnabar Volcano First Floor",
-        "offset": 0
-      },
-      {
-        "direction": "warp",
-        "targetLocation": "cinnabar_volcano_b_2f",
-        "targetLocationDisplay": "Cinnabar Volcano B Second Floor",
-        "offset": 0
-      }
-    ],
-    "items": [
-      {
-        "type": "hiddenItem",
-        "name": "Max Revive",
-        "coordinates": {
-          "x": 28,
-          "y": 5
-        }
-      },
-      {
-        "type": "hiddenItem",
-        "name": "Dire Hit",
-        "coordinates": {
-          "x": 28,
-          "y": 18
-        }
-      },
-      {
-        "type": "item",
-        "name": "Nugget",
-        "coordinates": {
-          "x": 2,
-          "y": 18
-        }
-      },
-      {
-        "type": "item",
-        "name": "Fire Stone",
-        "coordinates": {
-          "x": 4,
-          "y": 29
-        }
-      }
-    ],
-    "key": "cinnabar_volcano_b_1f",
-    "order": 357
-  },
-  {
-    "id": -1,
-    "name": "cinnabar_volcano_b_2f",
-    "displayName": "Cinnabar Volcano B Second Floor",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": [
-      {
-        "direction": "warp",
-        "targetLocation": "cinnabar_volcano_b_1f",
-        "targetLocationDisplay": "Cinnabar Volcano B First Floor",
-        "offset": 0
-      }
-    ],
-    "items": [
-      {
-        "type": "item",
-        "name": "Flame Orb",
-        "coordinates": {
-          "x": 18,
-          "y": 3
-        }
-      }
-    ],
-    "key": "cinnabar_volcano_b_2f",
-    "order": 358
-  },
-  {
-    "id": -1,
-    "name": "cinnabar_volcano_1f",
-    "displayName": "Cinnabar Volcano First Floor",
-    "region": "johto",
-    "x": -1,
-    "y": -1,
-    "flyable": false,
-    "connections": [
-      {
-        "direction": "warp",
-        "targetLocation": "cinnabar_island",
-        "targetLocationDisplay": "Cinnabar Island",
-        "offset": 0
-      },
-      {
-        "direction": "warp",
-        "targetLocation": "cinnabar_volcano_b_1f",
-        "targetLocationDisplay": "Cinnabar Volcano B First Floor",
-        "offset": 0
-      }
-    ],
-    "trainers": [
-      {
-        "id": "buck_1",
-        "name": "Buck",
-        "trainerClass": "BUCK",
-        "spriteType": "buck",
-        "coordinates": {
-          "x": 4,
-          "y": 9
-        },
-        "pokemon": [
-          {
-            "level": 65,
-            "species": "Umbreon",
-            "moves": [
-              "Mean Look",
-              "Double Edge",
-              "Sucker Punch",
-              "Healinglight"
-            ],
-            "faithful": {},
-            "polished": {}
-          },
-          {
-            "level": 64,
-            "species": "Golem",
-            "moves": [
-              "Gyro Ball",
-              "Stone Edge",
-              "Double Edge",
-              "Explosion"
-            ],
-            "faithful": {},
-            "polished": {}
-          },
-          {
-            "level": 62,
-            "species": "Poliwrath",
-            "moves": [
-              "Cross Chop",
-              "Earth Power",
-              "Dynamicpunch",
-              "Bubble Beam"
-            ],
-            "faithful": {},
-            "polished": {}
-          },
-          {
-            "level": 63,
-            "species": "Forretress",
-            "moves": [
-              "Iron Head",
-              "Zap Cannon",
-              "Double Edge",
-              "Gyro Ball"
-            ],
-            "faithful": {},
-            "polished": {}
-          },
-          {
-            "level": 62,
-            "species": "Skarmory",
-            "moves": [
-              "Night Slash",
-              "Drill Peck",
-              "Air Slash",
-              "Screech"
-            ],
-            "faithful": {},
-            "polished": {}
-          },
-          {
-            "level": 63,
-            "species": "Steelix",
-            "moves": [
-              "Earthquake",
-              "Double Edge",
-              "Stone Edge",
-              "Dig"
-            ],
-            "faithful": {},
-            "polished": {}
-          }
-        ],
-        "rematchable": false
-      },
-      {
-        "id": "scientist_oskar",
-        "name": "Oskar",
-        "trainerClass": "SCIENTIST",
-        "spriteType": "scientist",
-        "coordinates": {
-          "x": 2,
-          "y": 19
-        },
-        "pokemon": [
-          {
-            "level": 64,
-            "species": "Porygon2",
-            "moves": [
-              "Zap Cannon",
-              "Mirror Coat",
-              "Tri Attack",
-              "Thunderbolt"
-            ],
-            "faithful": {},
-            "polished": {}
-          },
-          {
-            "level": 62,
-            "species": "Ninetales",
-            "moves": [
-              "Nasty Plot",
-              "Flamethrower",
-              "Quick Attack",
-              "Confuse Ray"
-            ],
-            "faithful": {},
-            "polished": {}
-          },
-          {
-            "level": 60,
-            "species": "Magnezone",
-            "moves": [
-              "Thunder",
-              "Gyro Ball",
-              "Agility",
-              "Hidden Power"
-            ],
-            "faithful": {},
-            "polished": {}
-          }
-        ],
-        "rematchable": false
-      },
-      {
-        "id": "super_nerd_luis",
-        "name": "Luis",
-        "trainerClass": "SUPER_NERD",
-        "spriteType": "super_nerd",
-        "coordinates": {
-          "x": 17,
-          "y": 24
-        },
-        "pokemon": [
-          {
-            "level": 62,
-            "species": "Magmar",
-            "moves": [
-              "Fire Blast",
-              "Flamethrower",
-              "Focus Blast",
-              "Sunny Day"
-            ],
-            "faithful": {},
-            "polished": {}
-          },
-          {
-            "level": 63,
-            "species": "Weezing",
-            "moves": [
-              "Fire Blast",
-              "Pain Split",
-              "Destiny Bond",
-              "Explosion"
-            ],
-            "faithful": {},
-            "polished": {}
-          },
-          {
-            "level": 59,
-            "species": "Magmar",
-            "moves": [
-              "Fire Blast",
-              "Flamethrower",
-              "Focus Blast",
-              "Sunny Day"
-            ],
-            "faithful": {},
-            "polished": {}
-          }
-        ],
-        "rematchable": false
-      }
-    ],
-    "items": [
-      {
-        "type": "hiddenItem",
-        "name": "Full Restore",
-        "coordinates": {
-          "x": 13,
-          "y": 1
-        }
-      }
-    ],
-    "key": "cinnabar_volcano_1f",
-    "order": 359
-  },
-  {
-    "id": -1,
     "name": "giovannis_cave",
     "displayName": "Giovannis Cave",
     "region": "johto",
@@ -48295,7 +47987,7 @@
       }
     ],
     "key": "giovannis_cave",
-    "order": 360
+    "order": 357
   },
   {
     "id": -1,
@@ -48350,7 +48042,7 @@
       }
     ],
     "key": "pokemon_league_gate",
-    "order": 361
+    "order": 358
   },
   {
     "id": -1,
@@ -48727,7 +48419,7 @@
       }
     ],
     "key": "wills_room",
-    "order": 362
+    "order": 359
   },
   {
     "id": -1,
@@ -49111,7 +48803,7 @@
       }
     ],
     "key": "kogas_room",
-    "order": 363
+    "order": 360
   },
   {
     "id": -1,
@@ -49488,7 +49180,7 @@
       }
     ],
     "key": "brunos_room",
-    "order": 364
+    "order": 361
   },
   {
     "id": -1,
@@ -49872,7 +49564,7 @@
       }
     ],
     "key": "karens_room",
-    "order": 365
+    "order": 362
   },
   {
     "id": -1,
@@ -50341,7 +50033,7 @@
       }
     ],
     "key": "lances_room",
-    "order": 366
+    "order": 363
   },
   {
     "id": -1,
@@ -50360,7 +50052,7 @@
       }
     ],
     "key": "hall_of_fame",
-    "order": 367
+    "order": 364
   },
   {
     "id": -1,
@@ -50391,7 +50083,7 @@
       }
     ],
     "key": "shamouti_hotel_1f",
-    "order": 368
+    "order": 365
   },
   {
     "id": -1,
@@ -50428,7 +50120,7 @@
       }
     ],
     "key": "shamouti_hotel_2f",
-    "order": 369
+    "order": 366
   },
   {
     "id": -1,
@@ -50459,7 +50151,7 @@
       }
     ],
     "key": "shamouti_hotel_3f",
-    "order": 370
+    "order": 367
   },
   {
     "id": -1,
@@ -50496,7 +50188,7 @@
       }
     ],
     "key": "shamouti_hotel_restaurant",
-    "order": 371
+    "order": 368
   },
   {
     "id": -1,
@@ -50515,7 +50207,7 @@
       }
     ],
     "key": "shamouti_hotel_room2_a",
-    "order": 372
+    "order": 369
   },
   {
     "id": -1,
@@ -50534,7 +50226,7 @@
       }
     ],
     "key": "shamouti_hotel_room2_b",
-    "order": 373
+    "order": 370
   },
   {
     "id": -1,
@@ -50553,7 +50245,7 @@
       }
     ],
     "key": "shamouti_hotel_room3_b",
-    "order": 374
+    "order": 371
   },
   {
     "id": -1,
@@ -50572,7 +50264,7 @@
       }
     ],
     "key": "shamouti_hotel_room3_c",
-    "order": 375
+    "order": 372
   },
   {
     "id": -1,
@@ -50591,7 +50283,7 @@
       }
     ],
     "key": "shamouti_house",
-    "order": 376
+    "order": 373
   },
   {
     "id": -1,
@@ -50610,7 +50302,7 @@
       }
     ],
     "key": "shamouti_merchant",
-    "order": 377
+    "order": 374
   },
   {
     "id": -1,
@@ -50629,7 +50321,7 @@
       }
     ],
     "key": "shamouti_tourist_center",
-    "order": 378
+    "order": 375
   },
   {
     "id": -1,
@@ -50648,7 +50340,7 @@
       }
     ],
     "key": "beautiful_beach_villa",
-    "order": 379
+    "order": 376
   },
   {
     "id": -1,
@@ -50667,7 +50359,7 @@
       }
     ],
     "key": "rocky_beach_house",
-    "order": 380
+    "order": 377
   },
   {
     "id": -1,
@@ -50855,7 +50547,7 @@
       }
     ],
     "key": "shamouti_shrine_ruins",
-    "order": 381
+    "order": 378
   },
   {
     "id": -1,
@@ -50874,7 +50566,7 @@
       }
     ],
     "key": "warm_beach_house",
-    "order": 382
+    "order": 379
   },
   {
     "id": -1,
@@ -50893,7 +50585,7 @@
       }
     ],
     "key": "warm_beach_shack",
-    "order": 383
+    "order": 380
   },
   {
     "id": -1,
@@ -50922,7 +50614,7 @@
       }
     ],
     "key": "valencia_port",
-    "order": 384
+    "order": 381
   },
   {
     "id": -1,
@@ -50941,7 +50633,7 @@
       }
     ],
     "key": "valencia_house",
-    "order": 385
+    "order": 382
   },
   {
     "id": -1,
@@ -51047,7 +50739,7 @@
       }
     ],
     "key": "ivys_lab",
-    "order": 386
+    "order": 383
   },
   {
     "id": -1,
@@ -51066,7 +50758,7 @@
       }
     ],
     "key": "ivys_house",
-    "order": 387
+    "order": 384
   },
   {
     "id": -1,
@@ -51259,7 +50951,7 @@
       }
     ],
     "key": "navel_rock_roof",
-    "order": 388
+    "order": 385
   },
   {
     "id": -1,
@@ -51284,7 +50976,7 @@
       }
     ],
     "key": "navel_rock_outside",
-    "order": 389
+    "order": 386
   },
   {
     "id": -1,
@@ -51333,7 +51025,7 @@
       }
     ],
     "key": "navel_rock_inside",
-    "order": 390
+    "order": 387
   },
   {
     "id": -1,
@@ -51352,7 +51044,7 @@
       }
     ],
     "key": "seagallop_ferry_navel_gate",
-    "order": 391
+    "order": 388
   },
   {
     "id": -1,
@@ -51371,7 +51063,7 @@
       }
     ],
     "key": "faraway_jungle",
-    "order": 392
+    "order": 389
   },
   {
     "id": -1,
@@ -51390,7 +51082,7 @@
       }
     ],
     "key": "fire_island_roof",
-    "order": 393
+    "order": 390
   },
   {
     "id": -1,
@@ -51409,7 +51101,7 @@
       }
     ],
     "key": "ice_island_roof",
-    "order": 394
+    "order": 391
   },
   {
     "id": -1,
@@ -51428,7 +51120,7 @@
       }
     ],
     "key": "lightning_island_roof",
-    "order": 395
+    "order": 392
   },
   {
     "id": -1,
@@ -51447,7 +51139,7 @@
       }
     ],
     "key": "colosseum",
-    "order": 396
+    "order": 393
   },
   {
     "id": -1,
@@ -51466,7 +51158,7 @@
       }
     ],
     "key": "trade_center",
-    "order": 397
+    "order": 394
   },
   {
     "id": -1,
@@ -51491,7 +51183,7 @@
       }
     ],
     "key": "azalea_poke_center_1f",
-    "order": 398
+    "order": 395
   },
   {
     "id": -1,
@@ -51510,7 +51202,7 @@
       }
     ],
     "key": "battle_factory_battle_room",
-    "order": 399
+    "order": 396
   },
   {
     "id": -1,
@@ -51535,7 +51227,7 @@
       }
     ],
     "key": "battle_factory_hallway",
-    "order": 400
+    "order": 397
   },
   {
     "id": -1,
@@ -51560,7 +51252,7 @@
       }
     ],
     "key": "blackthorn_poke_center_1f",
-    "order": 401
+    "order": 398
   },
   {
     "id": -1,
@@ -51579,7 +51271,7 @@
       }
     ],
     "key": "celadon_development_speech_house",
-    "order": 402
+    "order": 399
   },
   {
     "id": -1,
@@ -51604,7 +51296,7 @@
       }
     ],
     "key": "celadon_home_decor_store_1f",
-    "order": 403
+    "order": 400
   },
   {
     "id": -1,
@@ -51629,7 +51321,7 @@
       }
     ],
     "key": "celadon_home_decor_store_2f",
-    "order": 404
+    "order": 401
   },
   {
     "id": -1,
@@ -51654,7 +51346,7 @@
       }
     ],
     "key": "celadon_home_decor_store_3f",
-    "order": 405
+    "order": 402
   },
   {
     "id": -1,
@@ -51673,7 +51365,7 @@
       }
     ],
     "key": "celadon_home_decor_store_4f",
-    "order": 406
+    "order": 403
   },
   {
     "id": -1,
@@ -51692,7 +51384,7 @@
       }
     ],
     "key": "celadon_hotel_pool",
-    "order": 407
+    "order": 404
   },
   {
     "id": -1,
@@ -51711,7 +51403,7 @@
       }
     ],
     "key": "celadon_hotel_room2",
-    "order": 408
+    "order": 405
   },
   {
     "id": -1,
@@ -51730,7 +51422,7 @@
       }
     ],
     "key": "celadon_old_man_speech_house",
-    "order": 409
+    "order": 406
   },
   {
     "id": -1,
@@ -51755,7 +51447,7 @@
       }
     ],
     "key": "celadon_poke_center_1f",
-    "order": 410
+    "order": 407
   },
   {
     "id": -1,
@@ -51774,7 +51466,7 @@
       }
     ],
     "key": "cerulean_berry_powder_house",
-    "order": 411
+    "order": 408
   },
   {
     "id": -1,
@@ -51793,7 +51485,7 @@
       }
     ],
     "key": "cerulean_couple_house",
-    "order": 412
+    "order": 409
   },
   {
     "id": -1,
@@ -51818,7 +51510,7 @@
       }
     ],
     "key": "cerulean_poke_center_1f",
-    "order": 413
+    "order": 410
   },
   {
     "id": -1,
@@ -51837,7 +51529,7 @@
       }
     ],
     "key": "cerulean_water_show_speech_house",
-    "order": 414
+    "order": 411
   },
   {
     "id": -1,
@@ -51856,7 +51548,7 @@
       }
     ],
     "key": "cherrygrove_evolution_speech_house",
-    "order": 415
+    "order": 412
   },
   {
     "id": -1,
@@ -51881,7 +51573,7 @@
       }
     ],
     "key": "cherrygrove_poke_center_1f",
-    "order": 416
+    "order": 413
   },
   {
     "id": -1,
@@ -51906,7 +51598,7 @@
       }
     ],
     "key": "cianwood_poke_center_1f",
-    "order": 417
+    "order": 414
   },
   {
     "id": -1,
@@ -51931,7 +51623,7 @@
       }
     ],
     "key": "cinnabar_poke_center_1f",
-    "order": 418
+    "order": 415
   },
   {
     "id": -1,
@@ -51956,7 +51648,7 @@
       }
     ],
     "key": "copycats_house_1f",
-    "order": 419
+    "order": 416
   },
   {
     "id": -1,
@@ -51975,7 +51667,7 @@
       }
     ],
     "key": "copycats_house_2f",
-    "order": 420
+    "order": 417
   },
   {
     "id": -1,
@@ -52126,7 +51818,7 @@
       }
     ],
     "key": "dance_theatre",
-    "order": 421
+    "order": 418
   },
   {
     "id": -1,
@@ -52145,7 +51837,7 @@
       }
     ],
     "key": "day_care",
-    "order": 422
+    "order": 419
   },
   {
     "id": -1,
@@ -52164,7 +51856,7 @@
       }
     ],
     "key": "ecruteak_cherish_ball_house",
-    "order": 423
+    "order": 420
   },
   {
     "id": -1,
@@ -52183,7 +51875,7 @@
       }
     ],
     "key": "ecruteak_destiny_knot_house",
-    "order": 424
+    "order": 421
   },
   {
     "id": -1,
@@ -52202,7 +51894,7 @@
       }
     ],
     "key": "ecruteak_itemfinder_house",
-    "order": 425
+    "order": 422
   },
   {
     "id": -1,
@@ -52227,7 +51919,7 @@
       }
     ],
     "key": "ecruteak_poke_center_1f",
-    "order": 426
+    "order": 423
   },
   {
     "id": -1,
@@ -52720,7 +52412,7 @@
       }
     ],
     "key": "ecruteak_shrine_inside",
-    "order": 427
+    "order": 424
   },
   {
     "id": -1,
@@ -52745,7 +52437,7 @@
       }
     ],
     "key": "ecruteak_shrine_outside",
-    "order": 428
+    "order": 425
   },
   {
     "id": -1,
@@ -53088,7 +52780,7 @@
       }
     ],
     "key": "embedded_tower",
-    "order": 429
+    "order": 426
   },
   {
     "id": -1,
@@ -53107,7 +52799,7 @@
       }
     ],
     "key": "eusines_house",
-    "order": 430
+    "order": 427
   },
   {
     "id": -1,
@@ -53126,7 +52818,7 @@
       }
     ],
     "key": "fuchsia_bill_speech_house",
-    "order": 431
+    "order": 428
   },
   {
     "id": -1,
@@ -53151,7 +52843,7 @@
       }
     ],
     "key": "fuchsia_poke_center_1f",
-    "order": 432
+    "order": 429
   },
   {
     "id": -1,
@@ -53170,7 +52862,7 @@
       }
     ],
     "key": "fuchsia_safari_ball_house",
-    "order": 433
+    "order": 430
   },
   {
     "id": -1,
@@ -53229,7 +52921,7 @@
       }
     ],
     "key": "goldenrod_dept_store_b_1f",
-    "order": 434
+    "order": 431
   },
   {
     "id": -1,
@@ -53248,7 +52940,7 @@
       }
     ],
     "key": "goldenrod_dept_store_roof",
-    "order": 435
+    "order": 432
   },
   {
     "id": -1,
@@ -53273,7 +52965,7 @@
       }
     ],
     "key": "goldenrod_magnet_train_station",
-    "order": 436
+    "order": 433
   },
   {
     "id": -1,
@@ -53292,7 +52984,7 @@
       }
     ],
     "key": "goldenrod_museum_2f",
-    "order": 437
+    "order": 434
   },
   {
     "id": -1,
@@ -53311,7 +53003,7 @@
       }
     ],
     "key": "goldenrod_pokecom_center_office",
-    "order": 438
+    "order": 435
   },
   {
     "id": -1,
@@ -53336,7 +53028,7 @@
       }
     ],
     "key": "haunted_radio_tower_2f",
-    "order": 439
+    "order": 436
   },
   {
     "id": -1,
@@ -53361,7 +53053,7 @@
       }
     ],
     "key": "haunted_radio_tower_3f",
-    "order": 440
+    "order": 437
   },
   {
     "id": -1,
@@ -53386,7 +53078,7 @@
       }
     ],
     "key": "haunted_radio_tower_4f",
-    "order": 441
+    "order": 438
   },
   {
     "id": -1,
@@ -53411,7 +53103,7 @@
       }
     ],
     "key": "haunted_radio_tower_5f",
-    "order": 442
+    "order": 439
   },
   {
     "id": -1,
@@ -53430,7 +53122,7 @@
       }
     ],
     "key": "haunted_radio_tower_6f",
-    "order": 443
+    "order": 440
   },
   {
     "id": -1,
@@ -53449,7 +53141,7 @@
       }
     ],
     "key": "lavender_name_rater",
-    "order": 444
+    "order": 441
   },
   {
     "id": -1,
@@ -53474,7 +53166,7 @@
       }
     ],
     "key": "lavender_poke_center_1f",
-    "order": 445
+    "order": 442
   },
   {
     "id": -1,
@@ -53499,7 +53191,7 @@
       }
     ],
     "key": "mahogany_poke_center_1f",
-    "order": 446
+    "order": 443
   },
   {
     "id": -1,
@@ -53518,7 +53210,7 @@
       }
     ],
     "key": "manias_house",
-    "order": 447
+    "order": 444
   },
   {
     "id": -1,
@@ -53567,7 +53259,7 @@
       }
     ],
     "key": "mount_moon_b_1f",
-    "order": 448
+    "order": 445
   },
   {
     "id": -1,
@@ -53883,7 +53575,7 @@
       }
     ],
     "key": "mount_moon_b_2f",
-    "order": 449
+    "order": 446
   },
   {
     "id": -1,
@@ -53902,7 +53594,7 @@
       }
     ],
     "key": "mount_moon_gift_shop",
-    "order": 450
+    "order": 447
   },
   {
     "id": -1,
@@ -54052,7 +53744,7 @@
       }
     ],
     "key": "mount_mortar_b_1f",
-    "order": 451
+    "order": 448
   },
   {
     "id": -1,
@@ -54071,7 +53763,7 @@
       }
     ],
     "key": "move_deleters_house",
-    "order": 452
+    "order": 449
   },
   {
     "id": -1,
@@ -54090,7 +53782,7 @@
       }
     ],
     "key": "move_maniacs_house",
-    "order": 453
+    "order": 450
   },
   {
     "id": -1,
@@ -54109,7 +53801,7 @@
       }
     ],
     "key": "mr_fujis_house",
-    "order": 454
+    "order": 451
   },
   {
     "id": -1,
@@ -54128,7 +53820,7 @@
       }
     ],
     "key": "mr_psychics_house",
-    "order": 455
+    "order": 452
   },
   {
     "id": -1,
@@ -54183,7 +53875,7 @@
       }
     ],
     "key": "olivine_poke_center_1f",
-    "order": 456
+    "order": 453
   },
   {
     "id": -1,
@@ -54208,7 +53900,7 @@
       }
     ],
     "key": "pewter_museum_of_science_1f",
-    "order": 457
+    "order": 454
   },
   {
     "id": -1,
@@ -54227,7 +53919,7 @@
       }
     ],
     "key": "pewter_museum_of_science_2f",
-    "order": 458
+    "order": 455
   },
   {
     "id": -1,
@@ -54252,7 +53944,7 @@
       }
     ],
     "key": "pewter_poke_center_1f",
-    "order": 459
+    "order": 456
   },
   {
     "id": -1,
@@ -54271,7 +53963,7 @@
       }
     ],
     "key": "pewter_snooze_speech_house",
-    "order": 460
+    "order": 457
   },
   {
     "id": -1,
@@ -54296,7 +53988,7 @@
       }
     ],
     "key": "poke_center_2f",
-    "order": 461
+    "order": 458
   },
   {
     "id": -1,
@@ -54315,7 +54007,7 @@
       }
     ],
     "key": "pokemon_trainer_fan_club",
-    "order": 462
+    "order": 459
   },
   {
     "id": -1,
@@ -54348,7 +54040,7 @@
       }
     ],
     "key": "psychic_invers_house",
-    "order": 463
+    "order": 460
   },
   {
     "id": -1,
@@ -54603,7 +54295,7 @@
       }
     ],
     "key": "rocket_hideout_b_1f",
-    "order": 464
+    "order": 461
   },
   {
     "id": -1,
@@ -54719,7 +54411,7 @@
       }
     ],
     "key": "rocket_hideout_b_2f",
-    "order": 465
+    "order": 462
   },
   {
     "id": -1,
@@ -54870,7 +54562,7 @@
       }
     ],
     "key": "rocket_hideout_b_3f",
-    "order": 466
+    "order": 463
   },
   {
     "id": -1,
@@ -55254,7 +54946,7 @@
       }
     ],
     "key": "rocket_hideout_b_4f",
-    "order": 467
+    "order": 464
   },
   {
     "id": -1,
@@ -55279,7 +54971,7 @@
       }
     ],
     "key": "route_2946_gate",
-    "order": 468
+    "order": 465
   },
   {
     "id": -1,
@@ -55298,7 +54990,7 @@
       }
     ],
     "key": "saffron_book_speech_house",
-    "order": 469
+    "order": 466
   },
   {
     "id": -1,
@@ -55317,7 +55009,7 @@
       }
     ],
     "key": "saffron_hitmontop_kid_house",
-    "order": 470
+    "order": 467
   },
   {
     "id": -1,
@@ -55336,7 +55028,7 @@
       }
     ],
     "key": "saffron_orre_speech_house",
-    "order": 471
+    "order": 468
   },
   {
     "id": -1,
@@ -55361,7 +55053,7 @@
       }
     ],
     "key": "saffron_poke_center_1f",
-    "order": 472
+    "order": 469
   },
   {
     "id": -1,
@@ -55380,7 +55072,7 @@
       }
     ],
     "key": "saffron_rich_speech_house",
-    "order": 473
+    "order": 470
   },
   {
     "id": -1,
@@ -55405,7 +55097,7 @@
       }
     ],
     "key": "saffron_train_station",
-    "order": 474
+    "order": 471
   },
   {
     "id": -1,
@@ -55860,7 +55552,7 @@
       ]
     },
     "key": "seafoam_gym",
-    "order": 475
+    "order": 472
   },
   {
     "id": -1,
@@ -55879,7 +55571,7 @@
       }
     ],
     "key": "seagallop_ferry_shamouti_gate",
-    "order": 476
+    "order": 473
   },
   {
     "id": -1,
@@ -55904,7 +55596,7 @@
       }
     ],
     "key": "shamouti_poke_center_1f",
-    "order": 477
+    "order": 474
   },
   {
     "id": -1,
@@ -55929,7 +55621,7 @@
       }
     ],
     "key": "snowtop_poke_center_1f",
-    "order": 478
+    "order": 475
   },
   {
     "id": -1,
@@ -56210,7 +55902,7 @@
       }
     ],
     "key": "team_rocket_base_b_1f",
-    "order": 479
+    "order": 476
   },
   {
     "id": -1,
@@ -56443,7 +56135,7 @@
       }
     ],
     "key": "team_rocket_base_b_2f",
-    "order": 480
+    "order": 477
   },
   {
     "id": -1,
@@ -56735,7 +56427,7 @@
       }
     ],
     "key": "team_rocket_base_b_3f",
-    "order": 481
+    "order": 478
   },
   {
     "id": -1,
@@ -56754,7 +56446,7 @@
       }
     ],
     "key": "trainer_house_b_1f",
-    "order": 482
+    "order": 479
   },
   {
     "id": -1,
@@ -56779,7 +56471,7 @@
       }
     ],
     "key": "vermilion_poke_center_1f",
-    "order": 483
+    "order": 480
   },
   {
     "id": -1,
@@ -56798,7 +56490,7 @@
       }
     ],
     "key": "vermilion_ss_anne_speech_house",
-    "order": 484
+    "order": 481
   },
   {
     "id": -1,
@@ -56823,7 +56515,7 @@
       }
     ],
     "key": "violet_poke_center_1f",
-    "order": 485
+    "order": 482
   },
   {
     "id": -1,
@@ -56848,7 +56540,7 @@
       }
     ],
     "key": "viridian_poke_center_1f",
-    "order": 486
+    "order": 483
   },
   {
     "id": -1,
@@ -56963,7 +56655,7 @@
       }
     ],
     "key": "whirl_island_b_1f",
-    "order": 487
+    "order": 484
   },
   {
     "id": -1,
@@ -57020,7 +56712,7 @@
       }
     ],
     "key": "whirl_island_b_2f",
-    "order": 488
+    "order": 485
   },
   {
     "id": -1,
@@ -57032,7 +56724,7 @@
     "flyable": false,
     "connections": [],
     "key": "route",
-    "order": 489
+    "order": 486
   },
   {
     "id": -1,
@@ -57050,7 +56742,7 @@
       }
     ],
     "key": "chuck",
-    "order": 490
+    "order": 487
   },
   {
     "id": -1,
@@ -57068,7 +56760,7 @@
       }
     ],
     "key": "celadon_mansion",
-    "order": 491
+    "order": 488
   },
   {
     "id": -1,
@@ -57114,7 +56806,7 @@
       }
     ],
     "key": "celadon_dept_store",
-    "order": 492
+    "order": 489
   },
   {
     "id": -1,
@@ -57164,7 +56856,7 @@
       }
     ],
     "key": "goldenrod_dept_store",
-    "order": 493
+    "order": 490
   },
   {
     "id": -1,
@@ -57182,7 +56874,7 @@
       }
     ],
     "key": "erika",
-    "order": 494
+    "order": 491
   },
   {
     "id": -1,
@@ -57200,7 +56892,7 @@
       }
     ],
     "key": "jasmine",
-    "order": 495
+    "order": 492
   },
   {
     "id": -1,
@@ -57218,7 +56910,7 @@
       }
     ],
     "key": "sabrina",
-    "order": 496
+    "order": 493
   },
   {
     "id": -1,
@@ -57236,7 +56928,7 @@
       }
     ],
     "key": "morty",
-    "order": 497
+    "order": 494
   },
   {
     "id": -1,
@@ -57254,7 +56946,7 @@
       }
     ],
     "key": "mount_mortar",
-    "order": 498
+    "order": 495
   },
   {
     "id": -1,
@@ -57272,7 +56964,7 @@
       }
     ],
     "key": "whitney",
-    "order": 499
+    "order": 496
   },
   {
     "id": -1,
@@ -57290,7 +56982,7 @@
       }
     ],
     "key": "team_rocket_base",
-    "order": 500
+    "order": 497
   },
   {
     "id": -1,
@@ -57308,7 +57000,7 @@
       }
     ],
     "key": "brock",
-    "order": 501
+    "order": 498
   },
   {
     "id": -1,
@@ -57326,7 +57018,7 @@
       }
     ],
     "key": "falkner",
-    "order": 502
+    "order": 499
   },
   {
     "id": -1,
@@ -57344,7 +57036,7 @@
       }
     ],
     "key": "olivine_lighthouse",
-    "order": 503
+    "order": 500
   },
   {
     "id": -1,
@@ -57362,7 +57054,7 @@
       }
     ],
     "key": "lt_surge",
-    "order": 504
+    "order": 501
   },
   {
     "id": -1,
@@ -57380,7 +57072,7 @@
       }
     ],
     "key": "clair",
-    "order": 505
+    "order": 502
   },
   {
     "id": -1,
@@ -57398,7 +57090,7 @@
       }
     ],
     "key": "blaine",
-    "order": 506
+    "order": 503
   },
   {
     "id": -1,
@@ -57416,7 +57108,7 @@
       }
     ],
     "key": "misty",
-    "order": 507
+    "order": 504
   },
   {
     "id": -1,
@@ -57434,7 +57126,7 @@
       }
     ],
     "key": "lavender_soul_house",
-    "order": 508
+    "order": 505
   },
   {
     "id": -1,
@@ -57452,7 +57144,7 @@
       }
     ],
     "key": "janine",
-    "order": 509
+    "order": 506
   },
   {
     "id": -1,
@@ -57470,7 +57162,7 @@
       }
     ],
     "key": "pryce",
-    "order": 510
+    "order": 507
   },
   {
     "id": -1,
@@ -57488,7 +57180,7 @@
       }
     ],
     "key": "bugsy",
-    "order": 511
+    "order": 508
   },
   {
     "id": -1,
@@ -57506,7 +57198,7 @@
       }
     ],
     "key": "blue",
-    "order": 512
+    "order": 509
   },
   {
     "id": 68,
@@ -57560,7 +57252,7 @@
       }
     ],
     "key": "pallet_town",
-    "order": 513
+    "order": 510
   },
   {
     "id": 69,
@@ -57763,7 +57455,7 @@
       }
     ],
     "key": "route_1",
-    "order": 514
+    "order": 511
   },
   {
     "id": -1,
@@ -57788,7 +57480,7 @@
       }
     ],
     "key": "route_1_viridian_gate",
-    "order": 515
+    "order": 512
   },
   {
     "id": 70,
@@ -57862,7 +57554,7 @@
     ],
     "spawnPoint": "SPAWN_VIRIDIAN",
     "key": "viridian_city",
-    "order": 516
+    "order": 513
   },
   {
     "id": 71,
@@ -57874,7 +57566,7 @@
     "flyable": false,
     "connections": [],
     "key": "route_2",
-    "order": 517
+    "order": 514
   },
   {
     "id": -1,
@@ -57893,7 +57585,7 @@
       }
     ],
     "key": "route_2_nugget_speech_house",
-    "order": 518
+    "order": 515
   },
   {
     "id": -1,
@@ -58011,7 +57703,7 @@
       }
     ],
     "key": "route_2_north",
-    "order": 519
+    "order": 516
   },
   {
     "id": -1,
@@ -58140,7 +57832,7 @@
       }
     ],
     "key": "route_2_south",
-    "order": 520
+    "order": 517
   },
   {
     "id": -1,
@@ -58165,7 +57857,7 @@
       }
     ],
     "key": "route_2_gate",
-    "order": 521
+    "order": 518
   },
   {
     "id": -1,
@@ -58190,7 +57882,7 @@
       }
     ],
     "key": "viridian_forest_viridian_gate",
-    "order": 522
+    "order": 519
   },
   {
     "id": -1,
@@ -58215,7 +57907,7 @@
       }
     ],
     "key": "viridian_forest_pewter_gate",
-    "order": 523
+    "order": 520
   },
   {
     "id": 72,
@@ -58504,7 +58196,7 @@
       }
     ],
     "key": "viridian_forest",
-    "order": 524
+    "order": 521
   },
   {
     "id": 73,
@@ -58593,7 +58285,7 @@
       }
     ],
     "key": "pewter_city",
-    "order": 525
+    "order": 522
   },
   {
     "id": 74,
@@ -59091,7 +58783,7 @@
       }
     ],
     "key": "route_3",
-    "order": 526
+    "order": 523
   },
   {
     "id": -1,
@@ -59116,7 +58808,7 @@
       }
     ],
     "key": "route_3_poke_center_1f",
-    "order": 527
+    "order": 524
   },
   {
     "id": 75,
@@ -59129,7 +58821,7 @@
     "connections": [],
     "spawnPoint": "SPAWN_MT_MOON",
     "key": "mt_moon",
-    "order": 528
+    "order": 525
   },
   {
     "id": 76,
@@ -59377,7 +59069,7 @@
       }
     ],
     "key": "route_4",
-    "order": 529
+    "order": 526
   },
   {
     "id": 77,
@@ -59509,7 +59201,7 @@
       }
     ],
     "key": "cerulean_city",
-    "order": 530
+    "order": 527
   },
   {
     "id": 78,
@@ -59521,7 +59213,7 @@
     "flyable": false,
     "connections": [],
     "key": "cerulean_cave",
-    "order": 531
+    "order": 528
   },
   {
     "id": -1,
@@ -59574,7 +59266,7 @@
       }
     ],
     "key": "cerulean_cave_b_1f",
-    "order": 532
+    "order": 529
   },
   {
     "id": -1,
@@ -59681,7 +59373,7 @@
       }
     ],
     "key": "cerulean_cave_1f",
-    "order": 533
+    "order": 530
   },
   {
     "id": -1,
@@ -59758,7 +59450,7 @@
       }
     ],
     "key": "cerulean_cave_2f",
-    "order": 534
+    "order": 531
   },
   {
     "id": 79,
@@ -59819,7 +59511,7 @@
       }
     ],
     "key": "route_24",
-    "order": 535
+    "order": 532
   },
   {
     "id": 80,
@@ -60155,7 +59847,7 @@
       }
     ],
     "key": "route_25",
-    "order": 536
+    "order": 533
   },
   {
     "id": 81,
@@ -60648,7 +60340,7 @@
       }
     ],
     "key": "cerulean_cape",
-    "order": 537
+    "order": 534
   },
   {
     "id": 82,
@@ -60691,7 +60383,7 @@
       }
     ],
     "key": "route_5",
-    "order": 538
+    "order": 535
   },
   {
     "id": -1,
@@ -60710,7 +60402,7 @@
       }
     ],
     "key": "route_5_cleanse_tag_speech_house",
-    "order": 539
+    "order": 536
   },
   {
     "id": -1,
@@ -60735,7 +60427,7 @@
       }
     ],
     "key": "route_5_saffron_city_gate",
-    "order": 540
+    "order": 537
   },
   {
     "id": -1,
@@ -60760,7 +60452,7 @@
       }
     ],
     "key": "route_5_underground_entrance",
-    "order": 541
+    "order": 538
   },
   {
     "id": 83,
@@ -60814,7 +60506,7 @@
       }
     ],
     "key": "underground",
-    "order": 542
+    "order": 539
   },
   {
     "id": 84,
@@ -61136,7 +60828,7 @@
       }
     ],
     "key": "route_6",
-    "order": 543
+    "order": 540
   },
   {
     "id": -1,
@@ -61161,7 +60853,7 @@
       }
     ],
     "key": "route_6_underground_entrance",
-    "order": 544
+    "order": 541
   },
   {
     "id": -1,
@@ -61186,7 +60878,7 @@
       }
     ],
     "key": "route_6_saffron_gate",
-    "order": 545
+    "order": 542
   },
   {
     "id": 85,
@@ -61300,7 +60992,7 @@
       }
     ],
     "key": "vermilion_city",
-    "order": 546
+    "order": 543
   },
   {
     "id": 86,
@@ -61531,7 +61223,7 @@
       }
     ],
     "key": "digletts_cave",
-    "order": 547
+    "order": 544
   },
   {
     "id": 87,
@@ -61645,7 +61337,7 @@
       }
     ],
     "key": "route_7",
-    "order": 548
+    "order": 545
   },
   {
     "id": -1,
@@ -61670,7 +61362,7 @@
       }
     ],
     "key": "route_7_saffron_gate",
-    "order": 549
+    "order": 546
   },
   {
     "id": 88,
@@ -62086,7 +61778,7 @@
       }
     ],
     "key": "route_8",
-    "order": 550
+    "order": 547
   },
   {
     "id": -1,
@@ -62111,7 +61803,7 @@
       }
     ],
     "key": "route_8_saffron_gate",
-    "order": 551
+    "order": 548
   },
   {
     "id": 89,
@@ -62421,7 +62113,7 @@
       }
     ],
     "key": "route_9",
-    "order": 552
+    "order": 549
   },
   {
     "id": 90,
@@ -62446,7 +62138,7 @@
       }
     ],
     "key": "route_10",
-    "order": 553
+    "order": 550
   },
   {
     "id": -1,
@@ -62471,7 +62163,7 @@
       }
     ],
     "key": "route_10_poke_center_1f",
-    "order": 554
+    "order": 551
   },
   {
     "id": -1,
@@ -62536,7 +62228,7 @@
       }
     ],
     "key": "route_10_north",
-    "order": 555
+    "order": 552
   },
   {
     "id": -1,
@@ -62691,7 +62383,7 @@
       }
     ],
     "key": "route_10_south",
-    "order": 556
+    "order": 553
   },
   {
     "id": 91,
@@ -62717,7 +62409,7 @@
       }
     ],
     "key": "rock_tunnel",
-    "order": 557
+    "order": 554
   },
   {
     "id": -1,
@@ -62882,7 +62574,7 @@
       }
     ],
     "key": "rock_tunnel_b_1f",
-    "order": 558
+    "order": 555
   },
   {
     "id": -1,
@@ -63016,7 +62708,7 @@
       }
     ],
     "key": "rock_tunnel_1f",
-    "order": 559
+    "order": 556
   },
   {
     "id": -1,
@@ -63067,7 +62759,7 @@
       }
     ],
     "key": "rock_tunnel_2f",
-    "order": 560
+    "order": 557
   },
   {
     "id": 92,
@@ -63086,7 +62778,7 @@
       }
     ],
     "key": "power_plant",
-    "order": 561
+    "order": 558
   },
   {
     "id": 93,
@@ -63120,7 +62812,7 @@
       }
     ],
     "key": "dim_cave",
-    "order": 562
+    "order": 559
   },
   {
     "id": 94,
@@ -63220,7 +62912,7 @@
       }
     ],
     "key": "lavender_town",
-    "order": 563
+    "order": 560
   },
   {
     "id": -1,
@@ -63239,7 +62931,7 @@
       }
     ],
     "key": "lavender_town_speech_house",
-    "order": 564
+    "order": 561
   },
   {
     "id": 95,
@@ -63251,7 +62943,7 @@
     "flyable": false,
     "connections": [],
     "key": "lav_radio_tower",
-    "order": 565
+    "order": 562
   },
   {
     "id": 96,
@@ -63538,7 +63230,7 @@
       }
     ],
     "key": "soul_house",
-    "order": 566
+    "order": 563
   },
   {
     "id": 97,
@@ -63666,7 +63358,7 @@
       }
     ],
     "key": "celadon_city",
-    "order": 567
+    "order": 564
   },
   {
     "id": 98,
@@ -63678,7 +63370,7 @@
     "flyable": false,
     "connections": [],
     "key": "celadon_university",
-    "order": 568
+    "order": 565
   },
   {
     "id": 99,
@@ -63818,7 +63510,7 @@
     ],
     "spawnPoint": "SPAWN_SAFFRON",
     "key": "saffron_city",
-    "order": 569
+    "order": 566
   },
   {
     "id": -1,
@@ -63843,7 +63535,7 @@
       }
     ],
     "key": "silph_co_1f",
-    "order": 570
+    "order": 567
   },
   {
     "id": -1,
@@ -63868,7 +63560,7 @@
       }
     ],
     "key": "silph_co_2f",
-    "order": 571
+    "order": 568
   },
   {
     "id": -1,
@@ -63887,7 +63579,7 @@
       }
     ],
     "key": "silph_co_3f",
-    "order": 572
+    "order": 569
   },
   {
     "id": 100,
@@ -64333,7 +64025,7 @@
       }
     ],
     "key": "route_11",
-    "order": 573
+    "order": 570
   },
   {
     "id": -1,
@@ -64364,7 +64056,7 @@
       }
     ],
     "key": "route_11_gate",
-    "order": 574
+    "order": 571
   },
   {
     "id": 101,
@@ -64376,7 +64068,7 @@
     "flyable": false,
     "connections": [],
     "key": "route_12",
-    "order": 575
+    "order": 572
   },
   {
     "id": -1,
@@ -64458,7 +64150,7 @@
       }
     ],
     "key": "route_12_north",
-    "order": 576
+    "order": 573
   },
   {
     "id": -1,
@@ -64489,7 +64181,7 @@
       }
     ],
     "key": "route_12_gate",
-    "order": 577
+    "order": 574
   },
   {
     "id": -1,
@@ -64508,7 +64200,7 @@
       }
     ],
     "key": "route_12_super_rod_house",
-    "order": 578
+    "order": 575
   },
   {
     "id": -1,
@@ -64934,7 +64626,7 @@
       }
     ],
     "key": "route_12_south",
-    "order": 579
+    "order": 576
   },
   {
     "id": 102,
@@ -64946,7 +64638,7 @@
     "flyable": false,
     "connections": [],
     "key": "route_13",
-    "order": 580
+    "order": 577
   },
   {
     "id": -1,
@@ -65322,7 +65014,7 @@
       }
     ],
     "key": "route_13_east",
-    "order": 581
+    "order": 578
   },
   {
     "id": -1,
@@ -65461,7 +65153,7 @@
       }
     ],
     "key": "route_13_west",
-    "order": 582
+    "order": 579
   },
   {
     "id": 103,
@@ -65777,7 +65469,7 @@
       }
     ],
     "key": "route_14",
-    "order": 583
+    "order": 580
   },
   {
     "id": 104,
@@ -66252,7 +65944,7 @@
       }
     ],
     "key": "route_15",
-    "order": 584
+    "order": 581
   },
   {
     "id": -1,
@@ -66283,7 +65975,7 @@
       }
     ],
     "key": "route_15_fuchsia_gate",
-    "order": 585
+    "order": 582
   },
   {
     "id": 105,
@@ -66633,7 +66325,7 @@
       }
     ],
     "key": "lucky_island",
-    "order": 586
+    "order": 583
   },
   {
     "id": 106,
@@ -66645,7 +66337,7 @@
     "flyable": false,
     "connections": [],
     "key": "route_16",
-    "order": 587
+    "order": 584
   },
   {
     "id": -1,
@@ -66721,7 +66413,7 @@
       }
     ],
     "key": "route_16_south",
-    "order": 588
+    "order": 585
   },
   {
     "id": -1,
@@ -66758,7 +66450,7 @@
       }
     ],
     "key": "route_16_northeast",
-    "order": 589
+    "order": 586
   },
   {
     "id": -1,
@@ -66795,7 +66487,7 @@
       }
     ],
     "key": "route_16_northwest",
-    "order": 590
+    "order": 587
   },
   {
     "id": -1,
@@ -66814,7 +66506,7 @@
       }
     ],
     "key": "route_16_fuchsia_speech_house",
-    "order": 591
+    "order": 588
   },
   {
     "id": -1,
@@ -66839,7 +66531,7 @@
       }
     ],
     "key": "route_16_gate",
-    "order": 592
+    "order": 589
   },
   {
     "id": -1,
@@ -67179,7 +66871,7 @@
       }
     ],
     "key": "route_16_west",
-    "order": 593
+    "order": 590
   },
   {
     "id": -1,
@@ -67236,7 +66928,7 @@
       }
     ],
     "key": "route_1617_gate",
-    "order": 594
+    "order": 591
   },
   {
     "id": 107,
@@ -67700,7 +67392,7 @@
       }
     ],
     "key": "route_17",
-    "order": 595
+    "order": 592
   },
   {
     "id": 108,
@@ -67712,7 +67404,7 @@
     "flyable": false,
     "connections": [],
     "key": "route_18",
-    "order": 596
+    "order": 593
   },
   {
     "id": -1,
@@ -67819,7 +67511,7 @@
       }
     ],
     "key": "route_18_east",
-    "order": 597
+    "order": 594
   },
   {
     "id": -1,
@@ -67907,7 +67599,7 @@
       }
     ],
     "key": "route_18_west",
-    "order": 598
+    "order": 595
   },
   {
     "id": -1,
@@ -67964,7 +67656,7 @@
       }
     ],
     "key": "route_18_gate",
-    "order": 599
+    "order": 596
   },
   {
     "id": 109,
@@ -68060,7 +67752,7 @@
       }
     ],
     "key": "fuchsia_city",
-    "order": 600
+    "order": 597
   },
   {
     "id": 110,
@@ -68072,7 +67764,7 @@
     "flyable": false,
     "connections": [],
     "key": "safari_zone",
-    "order": 601
+    "order": 598
   },
   {
     "id": -1,
@@ -68097,7 +67789,7 @@
       }
     ],
     "key": "safari_zone_fuchsia_gate",
-    "order": 602
+    "order": 599
   },
   {
     "id": -1,
@@ -68116,7 +67808,7 @@
       }
     ],
     "key": "safari_zone_wardens_home",
-    "order": 603
+    "order": 600
   },
   {
     "id": -1,
@@ -68216,7 +67908,7 @@
       }
     ],
     "key": "safari_zone_hub",
-    "order": 604
+    "order": 601
   },
   {
     "id": -1,
@@ -68235,7 +67927,7 @@
       }
     ],
     "key": "safari_zone_hub_rest_house",
-    "order": 605
+    "order": 602
   },
   {
     "id": -1,
@@ -68358,7 +68050,7 @@
       }
     ],
     "key": "safari_zone_east",
-    "order": 606
+    "order": 603
   },
   {
     "id": -1,
@@ -68377,7 +68069,7 @@
       }
     ],
     "key": "safari_zone_east_rest_house",
-    "order": 607
+    "order": 604
   },
   {
     "id": -1,
@@ -68579,7 +68271,7 @@
       }
     ],
     "key": "safari_zone_north",
-    "order": 608
+    "order": 605
   },
   {
     "id": -1,
@@ -68598,7 +68290,7 @@
       }
     ],
     "key": "safari_zone_north_rest_house",
-    "order": 609
+    "order": 606
   },
   {
     "id": -1,
@@ -68808,7 +68500,7 @@
       }
     ],
     "key": "safari_zone_west",
-    "order": 610
+    "order": 607
   },
   {
     "id": -1,
@@ -68827,7 +68519,7 @@
       }
     ],
     "key": "safari_zone_west_rest_house1",
-    "order": 611
+    "order": 608
   },
   {
     "id": -1,
@@ -69108,7 +68800,7 @@
       }
     ],
     "key": "safari_zone_west_rest_house2",
-    "order": 612
+    "order": 609
   },
   {
     "id": 111,
@@ -69120,7 +68812,7 @@
     "flyable": false,
     "connections": [],
     "key": "uraga_channel",
-    "order": 613
+    "order": 610
   },
   {
     "id": 112,
@@ -69132,7 +68824,7 @@
     "flyable": false,
     "connections": [],
     "key": "scary_cave",
-    "order": 614
+    "order": 611
   },
   {
     "id": 113,
@@ -69413,7 +69105,7 @@
       }
     ],
     "key": "route_19",
-    "order": 615
+    "order": 612
   },
   {
     "id": -1,
@@ -69474,7 +69166,7 @@
       }
     ],
     "key": "route_19_beach_house",
-    "order": 616
+    "order": 613
   },
   {
     "id": -1,
@@ -69499,7 +69191,7 @@
       }
     ],
     "key": "route_19_fuchsia_gate",
-    "order": 617
+    "order": 614
   },
   {
     "id": 114,
@@ -69958,7 +69650,7 @@
       }
     ],
     "key": "route_20",
-    "order": 618
+    "order": 615
   },
   {
     "id": 115,
@@ -69970,7 +69662,7 @@
     "flyable": false,
     "connections": [],
     "key": "seafoam_islands",
-    "order": 619
+    "order": 616
   },
   {
     "id": -1,
@@ -70021,7 +69713,7 @@
       }
     ],
     "key": "seafoam_islands_b_1f",
-    "order": 620
+    "order": 617
   },
   {
     "id": -1,
@@ -70173,7 +69865,7 @@
       }
     ],
     "key": "seafoam_islands_b_2f",
-    "order": 621
+    "order": 618
   },
   {
     "id": -1,
@@ -70232,7 +69924,7 @@
       }
     ],
     "key": "seafoam_islands_b_3f",
-    "order": 622
+    "order": 619
   },
   {
     "id": -1,
@@ -70269,7 +69961,7 @@
       }
     ],
     "key": "seafoam_islands_b_4f",
-    "order": 623
+    "order": 620
   },
   {
     "id": -1,
@@ -70310,7 +70002,7 @@
       }
     ],
     "key": "seafoam_islands_1f",
-    "order": 624
+    "order": 621
   },
   {
     "id": 116,
@@ -70372,7 +70064,7 @@
       }
     ],
     "key": "cinnabar_island",
-    "order": 625
+    "order": 622
   },
   {
     "id": 117,
@@ -70384,7 +70076,7 @@
     "flyable": false,
     "connections": [],
     "key": "pokemon_mansion",
-    "order": 626
+    "order": 623
   },
   {
     "id": -1,
@@ -70512,7 +70204,7 @@
       }
     ],
     "key": "pokemon_mansion_b_1f",
-    "order": 627
+    "order": 624
   },
   {
     "id": -1,
@@ -70663,7 +70355,7 @@
       }
     ],
     "key": "pokemon_mansion_1f",
-    "order": 628
+    "order": 625
   },
   {
     "id": 118,
@@ -70675,6 +70367,314 @@
     "flyable": false,
     "connections": [],
     "key": "cinnabar_volcano",
+    "order": 626
+  },
+  {
+    "id": -1,
+    "name": "cinnabar_volcano_b_1f",
+    "displayName": "Cinnabar Volcano B First Floor",
+    "region": "kanto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "warp",
+        "targetLocation": "cinnabar_volcano_1f",
+        "targetLocationDisplay": "Cinnabar Volcano First Floor",
+        "offset": 0
+      },
+      {
+        "direction": "warp",
+        "targetLocation": "cinnabar_volcano_b_2f",
+        "targetLocationDisplay": "Cinnabar Volcano B Second Floor",
+        "offset": 0
+      }
+    ],
+    "items": [
+      {
+        "type": "hiddenItem",
+        "name": "Max Revive",
+        "coordinates": {
+          "x": 28,
+          "y": 5
+        }
+      },
+      {
+        "type": "hiddenItem",
+        "name": "Dire Hit",
+        "coordinates": {
+          "x": 28,
+          "y": 18
+        }
+      },
+      {
+        "type": "item",
+        "name": "Nugget",
+        "coordinates": {
+          "x": 2,
+          "y": 18
+        }
+      },
+      {
+        "type": "item",
+        "name": "Fire Stone",
+        "coordinates": {
+          "x": 4,
+          "y": 29
+        }
+      }
+    ],
+    "key": "cinnabar_volcano_b_1f",
+    "order": 627
+  },
+  {
+    "id": -1,
+    "name": "cinnabar_volcano_b_2f",
+    "displayName": "Cinnabar Volcano B Second Floor",
+    "region": "kanto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "warp",
+        "targetLocation": "cinnabar_volcano_b_1f",
+        "targetLocationDisplay": "Cinnabar Volcano B First Floor",
+        "offset": 0
+      }
+    ],
+    "items": [
+      {
+        "type": "item",
+        "name": "Flame Orb",
+        "coordinates": {
+          "x": 18,
+          "y": 3
+        }
+      }
+    ],
+    "key": "cinnabar_volcano_b_2f",
+    "order": 628
+  },
+  {
+    "id": -1,
+    "name": "cinnabar_volcano_1f",
+    "displayName": "Cinnabar Volcano First Floor",
+    "region": "kanto",
+    "x": -1,
+    "y": -1,
+    "flyable": false,
+    "connections": [
+      {
+        "direction": "warp",
+        "targetLocation": "cinnabar_island",
+        "targetLocationDisplay": "Cinnabar Island",
+        "offset": 0
+      },
+      {
+        "direction": "warp",
+        "targetLocation": "cinnabar_volcano_b_1f",
+        "targetLocationDisplay": "Cinnabar Volcano B First Floor",
+        "offset": 0
+      }
+    ],
+    "trainers": [
+      {
+        "id": "buck_1",
+        "name": "Buck",
+        "trainerClass": "BUCK",
+        "spriteType": "buck",
+        "coordinates": {
+          "x": 4,
+          "y": 9
+        },
+        "pokemon": [
+          {
+            "level": 65,
+            "species": "Umbreon",
+            "moves": [
+              "Mean Look",
+              "Double Edge",
+              "Sucker Punch",
+              "Healinglight"
+            ],
+            "faithful": {},
+            "polished": {}
+          },
+          {
+            "level": 64,
+            "species": "Golem",
+            "moves": [
+              "Gyro Ball",
+              "Stone Edge",
+              "Double Edge",
+              "Explosion"
+            ],
+            "faithful": {},
+            "polished": {}
+          },
+          {
+            "level": 62,
+            "species": "Poliwrath",
+            "moves": [
+              "Cross Chop",
+              "Earth Power",
+              "Dynamicpunch",
+              "Bubble Beam"
+            ],
+            "faithful": {},
+            "polished": {}
+          },
+          {
+            "level": 63,
+            "species": "Forretress",
+            "moves": [
+              "Iron Head",
+              "Zap Cannon",
+              "Double Edge",
+              "Gyro Ball"
+            ],
+            "faithful": {},
+            "polished": {}
+          },
+          {
+            "level": 62,
+            "species": "Skarmory",
+            "moves": [
+              "Night Slash",
+              "Drill Peck",
+              "Air Slash",
+              "Screech"
+            ],
+            "faithful": {},
+            "polished": {}
+          },
+          {
+            "level": 63,
+            "species": "Steelix",
+            "moves": [
+              "Earthquake",
+              "Double Edge",
+              "Stone Edge",
+              "Dig"
+            ],
+            "faithful": {},
+            "polished": {}
+          }
+        ],
+        "rematchable": false
+      },
+      {
+        "id": "scientist_oskar",
+        "name": "Oskar",
+        "trainerClass": "SCIENTIST",
+        "spriteType": "scientist",
+        "coordinates": {
+          "x": 2,
+          "y": 19
+        },
+        "pokemon": [
+          {
+            "level": 64,
+            "species": "Porygon2",
+            "moves": [
+              "Zap Cannon",
+              "Mirror Coat",
+              "Tri Attack",
+              "Thunderbolt"
+            ],
+            "faithful": {},
+            "polished": {}
+          },
+          {
+            "level": 62,
+            "species": "Ninetales",
+            "moves": [
+              "Nasty Plot",
+              "Flamethrower",
+              "Quick Attack",
+              "Confuse Ray"
+            ],
+            "faithful": {},
+            "polished": {}
+          },
+          {
+            "level": 60,
+            "species": "Magnezone",
+            "moves": [
+              "Thunder",
+              "Gyro Ball",
+              "Agility",
+              "Hidden Power"
+            ],
+            "faithful": {},
+            "polished": {}
+          }
+        ],
+        "rematchable": false
+      },
+      {
+        "id": "super_nerd_luis",
+        "name": "Luis",
+        "trainerClass": "SUPER_NERD",
+        "spriteType": "super_nerd",
+        "coordinates": {
+          "x": 17,
+          "y": 24
+        },
+        "pokemon": [
+          {
+            "level": 62,
+            "species": "Magmar",
+            "moves": [
+              "Fire Blast",
+              "Flamethrower",
+              "Focus Blast",
+              "Sunny Day"
+            ],
+            "faithful": {},
+            "polished": {}
+          },
+          {
+            "level": 63,
+            "species": "Weezing",
+            "moves": [
+              "Fire Blast",
+              "Pain Split",
+              "Destiny Bond",
+              "Explosion"
+            ],
+            "faithful": {},
+            "polished": {}
+          },
+          {
+            "level": 59,
+            "species": "Magmar",
+            "moves": [
+              "Fire Blast",
+              "Flamethrower",
+              "Focus Blast",
+              "Sunny Day"
+            ],
+            "faithful": {},
+            "polished": {}
+          }
+        ],
+        "rematchable": false
+      }
+    ],
+    "items": [
+      {
+        "type": "hiddenItem",
+        "name": "Full Restore",
+        "coordinates": {
+          "x": 13,
+          "y": 1
+        }
+      }
+    ],
+    "key": "cinnabar_volcano_1f",
     "order": 629
   },
   {

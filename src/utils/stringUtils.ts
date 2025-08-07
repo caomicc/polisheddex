@@ -408,6 +408,7 @@ export function inferLocationRegion(locationKey: string): 'johto' | 'kanto' | 'o
     'fuchsia_city',
     'saffron_city',
     'cinnabar_island',
+    'cinnabar_volcano',
     'indigo_plateau',
     'viridian_forest',
     'mt_moon',
