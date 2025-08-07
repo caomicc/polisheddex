@@ -33,6 +33,7 @@ import Link from 'next/link';
 import { normalizeLocationKey } from '@/utils/locationUtils';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 import TableWrapper from '../ui/table-wrapper';
+import { ExternalLink } from 'lucide-react';
 
 export interface ItemLocation {
   area: string;
@@ -62,16 +63,26 @@ const columns: ColumnDef<ItemLocation>[] = [
       const location = row.original;
       const shouldLink =
         location.details?.toLowerCase() === 'hidden item' ||
+        location.details?.toLowerCase() !== 'for sale' ||
         location.details?.toLowerCase() === 'visible item';
-
+      console.log('Location:', location);
+      // If the location is a hidden or visible item, link to the area page
       return (
-        <div className="min-w-0">
+        <div className="flex items-center space-x-2 min-w-0">
           {shouldLink ? (
+            // <Link
+            //   className="hover:text-blue-600 hover:underline truncate"
+            //   `href={`/locations/${normalizeLocationKey(location.area)}`}`
+            // >
+            //   {location.area}
+            //   <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
+            // </Link>
             <Link
               href={`/locations/${normalizeLocationKey(location.area)}`}
-              className="hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium text-blue-600 dark:text-blue-400"
+              className="flex items-center"
             >
               {location.area}
+              <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0 ml-2" />
             </Link>
           ) : (
             <span className="font-medium">{location.area}</span>

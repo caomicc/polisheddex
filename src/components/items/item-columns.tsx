@@ -38,8 +38,8 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
             className="hover:text-blue-600 hover:underline truncate"
           >
             {item.name}
+            <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
           </Link>
-          <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
         </div>
       );
     },
