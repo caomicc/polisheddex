@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { useFaithfulPreference } from '@/contexts/FaithfulPreferenceContext';
 import { PokemonWithMove } from '@/utils/loaders/move-data-loader';

@@ -42,6 +42,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
   const currentChainWithMethods = showFaithful
     ? faithfulChainWithMethods || chainWithMethods
     : updatedChainWithMethods || chainWithMethods;
+
   const formatMethod = (method: string) => method.replace('EVOLVE_', '').toLowerCase();
 
   const processEvolutionData = () => {
@@ -119,12 +120,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
     return { chainWithForms: enhancedChain, evolutionPaths };
   };
 
-  const { chainWithForms, evolutionPaths } = processEvolutionData();
-
-  console.log('Evolution Chain Data:', {
-    chainWithForms,
-    evolutionPaths,
-  });
+  const { evolutionPaths } = processEvolutionData();
 
   const getEvolutionInfo = (fromPokemon: string, toPokemon: string) => {
     const isFromFormVariant = fromPokemon.includes('(') && fromPokemon.includes(')');

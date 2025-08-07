@@ -475,6 +475,10 @@ export default function PokemonFormClient({
                     chain: formData.evolution.chain,
                     chainWithMethods: formData.evolution.chainWithMethods || {},
                     methods: formData.evolution.methods || [], // if not present, fallback to empty array
+                    faithfulChainWithMethods: formData.evolution.faithfulChainWithMethods,
+                    updatedChainWithMethods: formData.evolution.updatedChainWithMethods,
+                    faithfulMethods: formData.evolution.faithfulMethods,
+                    updatedMethods: formData.evolution.updatedMethods,
                   }}
                   spritesByGen={(() => {
                     const sprites: Record<string, string> = {};
