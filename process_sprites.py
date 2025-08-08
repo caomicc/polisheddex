@@ -77,9 +77,9 @@ class GBCAnimationParser:
         except FileNotFoundError:
             print(f"Warning: Animation file {anim_path} not found")
             # Return default single frame with Game Boy accurate timing
-            return [{'frame': 0, 'duration': 500}]
+            return [{'frame': 0, 'duration': 300}]
 
-        return frames if frames else [{'frame': 0, 'duration': 500}]
+        return frames if frames else [{'frame': 0, 'duration': 300}]
 
     @staticmethod
     def _parse_animation_commands(lines: List[str]) -> List[Dict[str, int]]:
@@ -161,6 +161,10 @@ class GBCSpriteProcessor:
             'pikachu_spark': 'pikachu_spark',
             'pikachu_surf': 'pikachu_surf',
 
+            'dudunsparce': 'dudunsparce',  # Dunsparce variant
+            'dudunsparce_two_segment': 'dudunsparce_two_segment',  # Dunsparce variant
+            'dudunsparce_three_segment': 'dudunsparce_three_segment',  # Dunsparce variant
+
             # Unown variants - use unown_a as base (first letter form)
             'unown_a': 'unown_a',
             'unown_b': 'unown_b', 'unown_c': 'unown_c', 'unown_d': 'unown_d', 'unown_e': 'unown_e',
@@ -192,6 +196,7 @@ class GBCSpriteProcessor:
             'unown': 'unown_a',  # Use A form as default
             'magikarp': 'magikarp_plain',
             'pichu': 'pichu_plain',
+            'dudunsparce': 'dudunsparce_two_segment',  # Use two-segment as default
         }
 
         # Palette directory mapping - where to find palette files for variants
@@ -206,6 +211,10 @@ class GBCSpriteProcessor:
 
             'pichu_plain': 'pichu',
             'pichu_spiky': 'pichu',
+
+            'dudunsparce': 'dudunsparce',
+            'dudunsparce_two_segment': 'dudunsparce',
+            'dudunsparce_three_segment': 'dudunsparce',
 
             # Unown variants - all use base unown palette
             'unown_a': 'unown', 'unown_b': 'unown', 'unown_c': 'unown', 'unown_d': 'unown',
@@ -263,7 +272,9 @@ class GBCSpriteProcessor:
 
     def get_output_name(self, pokemon_name: str) -> str:
         """Get the output directory name for a Pokemon"""
-        # Use the actual directory name as output name to preserve form variants
+        # Map dudunsparce_two_segment to the default dudunsparce folder
+        if pokemon_name == 'dudunsparce_two_segment':
+            return 'dudunsparce'
         return pokemon_name
 
     def extract_sprite_frames(self, sprite_path: str) -> List[Image.Image]:
@@ -353,13 +364,14 @@ class GBCSpriteProcessor:
                 gif_durations.append(gif_durations[-1] if gif_durations else 50)
 
             # Add a 300ms (30 centiseconds) pause after the last frame
-            gif_durations[-1] += 300
+            gif_durations[-1] += 30
 
+            # Save the animated GIF with the calculated durations
             frames[0].save(
                 output_path,
                 save_all=True,
                 append_images=frames[1:],
-                duration=gif_durations,
+                duration=[d * 10 for d in gif_durations],  # Convert centiseconds back to milliseconds
                 loop=0,
                 disposal=2,  # Clear frame before next
                 optimize=True
@@ -382,7 +394,7 @@ class GBCSpriteProcessor:
             return False
 
         # Get the output name (base Pokemon name)
-        output_name = self.get_output_name(pokemon_name)
+        output_name = self.base_form_directories.get(pokemon_name, pokemon_name)
         print(f"Processing {pokemon_name} -> {output_name}...")
 
         # Create output directory for this Pokemon using the base name
@@ -400,7 +412,7 @@ class GBCSpriteProcessor:
 
             palette_file = palette_dir / f"{variant}.pal"
             if not palette_file.exists():
-                print(f"Skipping {variant} variant - no palette file at {palette_file}")
+                print(f"Palette file not found: {palette_file}")
                 continue
 
             palette = GBCPaletteParser.parse_palette_file(str(palette_file))
@@ -408,43 +420,35 @@ class GBCSpriteProcessor:
             # Only process front sprites
             sprite_file = pokemon_path / "front.png"
             if not sprite_file.exists():
+                print(f"Sprite file not found: {sprite_file}")
                 continue
 
             # Extract frames from sprite sheet
             raw_frames = self.extract_sprite_frames(str(sprite_file))
             if not raw_frames:
+                print(f"No frames extracted from sprite: {sprite_file}")
                 continue
 
             # Apply palette and transparency
-            processed_frames = []
-            for frame in raw_frames:
-                processed_frame = self.apply_palette_to_sprite(frame, palette)
-                processed_frames.append(processed_frame)
+            processed_frames = [
+                self.apply_palette_to_sprite(frame, palette) for frame in raw_frames
+            ]
 
-            # Save static PNG (first frame)
-            if processed_frames:
-                static_path = output_dir / f"{variant}_front.png"
-                processed_frames[0].save(static_path)
+            # Use accurate Game Boy timing from animation data
+            animation_data = self.get_animation_data(pokemon_name, variant)  # Assume this method exists
+            durations = []
+            for i in range(len(processed_frames)):
+                if i < len(animation_data):
+                    # Use the parsed duration directly (already in milliseconds)
+                    duration = animation_data[i]['duration']
+                    durations.append(duration)
+                else:
+                    # Fallback to reasonable default if we run out of animation data
+                    durations.append(300)
 
-            # Create animated GIF if multiple frames
-            if len(processed_frames) > 1:
-                # Parse animation timing
-                anim_file = pokemon_path / "anim.asm"
-                animation_data = GBCAnimationParser.parse_animation_file(str(anim_file))
-
-                # Use accurate Game Boy timing from animation data
-                durations = []
-                for i in range(len(processed_frames)):
-                    if i < len(animation_data):
-                        # Use the parsed duration directly (already in milliseconds)
-                        duration = animation_data[i]['duration']
-                        durations.append(duration)
-                    else:
-                        # Fallback to reasonable default if we run out of animation data
-                        durations.append(300)
-
-                gif_path = output_dir / f"{variant}_front_animated.gif"
-                self.create_animated_gif(processed_frames, durations, gif_path)
+            # Save processed frames as an animated GIF
+            gif_output_path = output_dir / f"{variant}_front_animated.gif"
+            self.create_animated_gif(processed_frames, durations, str(gif_output_path))
 
         return True
 
@@ -480,7 +484,7 @@ class GBCSpriteProcessor:
 
                 # Find the 4 expected files and get their dimensions
                 for sprite_file in pokemon_dir.iterdir():
-                    if sprite_file.suffix in ['.png', '.gif']:
+                    if sprite_file.suffix in ['.png', '.gif'] and "back" not in sprite_file.name:
                         rel_path = f"sprites/pokemon/{pokemon_name}/{sprite_file.name}"
 
                         # Get image dimensions
@@ -684,6 +688,12 @@ class GBCSpriteProcessor:
             print(f"Sprite exported to {output_path}")
         except Exception as e:
             print(f"Error exporting sprite to {output_path}: {e}")
+
+    def get_animation_data(self, pokemon_name: str, variant: str) -> List[Dict[str, int]]:
+        """Retrieve animation data for a given Pokémon and variant."""
+        # Placeholder implementation: Replace with actual logic to fetch animation data
+        # For now, return mock data with equal durations for all frames
+        return [{'duration': 300} for _ in range(10)]  # Example: 10 frames, each 100ms
 
 def main():
     parser = argparse.ArgumentParser(description="Process Game Boy Color sprites (Pokemon and Trainers)")
