@@ -583,7 +583,7 @@ export async function loadPokemonBaseDataFromManifest(): Promise<Record<string, 
         updatedTypes: pokemon.types.polished,
         frontSpriteUrl: pokemon.spriteUrl,
         normalizedUrl: pokemonId,
-        forms: pokemon.forms.length > 1 ? {} : undefined, // TODO: Could expand this if needed
+        forms: pokemon.forms,
       };
     });
 

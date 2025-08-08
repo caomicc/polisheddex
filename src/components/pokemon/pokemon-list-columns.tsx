@@ -35,13 +35,16 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
 
       return (
         <div className="">
-          <Link href={`/pokemon/${pokemon.normalizedUrl || pokemon.name.toLowerCase()}`}>
+          <Link
+            href={`/pokemon/${pokemon.normalizedUrl || pokemon.name.toLowerCase()}${pokemon.form ? `?form=${pokemon.form}` : ''}`}
+          >
             <PokemonSprite
               pokemonName={pokemon.name}
               alt={`${pokemon.name} sprite`}
               primaryType={primaryType as PokemonType['name']}
               variant="normal"
               type="static"
+              form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
               src={pokemon.frontSpriteUrl}
               className="w-10! h-10! p-1! rounded-md!"
             />
@@ -141,8 +144,8 @@ export const createPokemonListColumns = (showFaithful: boolean): ColumnDef<BaseD
           >
             {displayName}
           </Link>
-          {Array.isArray(pokemon.forms) && pokemon.forms.length > 1 && (
-            <div className="text-xs text-muted-foreground">{pokemon.forms.length} forms</div>
+          {typeof pokemon.form === 'string' && (
+            <div className="text-xs text-muted-foreground capitalize">{pokemon.form}</div>
           )}
         </div>
       );

@@ -263,19 +263,19 @@ export function extractPokedexEntries() {
         )
           ? potentialRegionalForm
           : '';
-        console.log(`Processing Pokémon: ${currentMon}`, 'regionalForm:', regionalForm);
-        if (regionalForm) {
-          console.log(
-            'currentMon:',
-            currentMon,
-            'standardizedMon:',
-            standardizedMon,
-            'currentSpecies:',
-            currentSpecies,
-            'currentEntries:',
-            currentEntries,
-          );
-        }
+        // console.log(`Processing Pokémon: ${currentMon}`, 'regionalForm:', regionalForm);
+        // if (regionalForm) {
+        //   console.log(
+        //     'currentMon:',
+        //     currentMon,
+        //     'standardizedMon:',
+        //     standardizedMon,
+        //     'currentSpecies:',
+        //     currentSpecies,
+        //     'currentEntries:',
+        //     currentEntries,
+        //   );
+        // }
         if (pokedexEntries[standardizedMon]) {
           console.log(`Duplicate entry for ${standardizedMon}`);
           const currentData = pokedexEntries[standardizedMon];

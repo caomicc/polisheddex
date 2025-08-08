@@ -19,13 +19,6 @@ export function useSpriteData(
   const [error, setError] = useState<string | null>(null);
   const [manifest, setManifest] = useState<UnifiedSpriteManifest | null>(null);
 
-  console.log('useSpriteData called with:', {
-    spriteName,
-    variant,
-    type,
-    form,
-  });
-
   // Load manifest once
   useEffect(() => {
     let isMounted = true;
@@ -57,8 +50,10 @@ export function useSpriteData(
 
     try {
       // Construct the full sprite name including form if provided
-      const fullSpriteName = form ? `${spriteName}_${form}` : spriteName;
-
+      const fullSpriteName = form !== 'plain' ? `${spriteName}_${form}` : spriteName;
+      console.log(
+        `DEBUG: Fetching sprite for ${fullSpriteName} with variant=${variant} and type=${type}`,
+      );
       // Try with form first if provided, then fallback to base pokemon
       const sprite = getUnifiedSpriteWithFallback(
         manifest,

@@ -1111,11 +1111,11 @@ for (const mon of Object.keys(movesetData)) {
   const johtoDex =
     johtoDexOrder.indexOf(baseMonNameDex) >= 0 ? johtoDexOrder.indexOf(baseMonNameDex) + 1 : null; // Types
 
-  console.log(`DEBUG: Processing Pokémon: ${mon} (base: ${baseMonName})`);
-  console.log(
-    `DEBUG: Processing Dex for ${baseMonNameDex},  National Dex: ${nationalDex}, Johto Dex: ${johtoDex}`,
-    johtoDexOrder.indexOf('porygon-z'),
-  );
+  // console.log(`DEBUG: Processing Pokémon: ${mon} (base: ${baseMonName})`);
+  // console.log(
+  //   `DEBUG: Processing Dex for ${baseMonNameDex},  National Dex: ${nationalDex}, Johto Dex: ${johtoDex}`,
+  //   johtoDexOrder.indexOf('porygon-z'),
+  // );
 
   // Determine if this is a form and extract the base name and form name
   let basePokemonName = baseMonName;

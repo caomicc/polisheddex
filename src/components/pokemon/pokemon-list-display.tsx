@@ -1,8 +1,9 @@
 'use client';
 import { BaseData } from '@/types/types';
 import { PokemonListDataTable } from './pokemon-list-data-table';
-import PokemonCard from './pokemon-card';
+import LazyPokemonCardGrid from './lazy-pokemon-card-grid';
 import { Switch } from '../ui/switch';
+import { Checkbox } from '../ui/checkbox';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
@@ -14,7 +15,6 @@ import { ColumnFiltersState, SortingState } from '@tanstack/react-table';
 import { usePaginationSearchParams } from '@/hooks/use-pagination-search-params';
 import { createPokemonListColumns } from './pokemon-list-columns';
 import { Badge } from '../ui/badge';
-import Link from 'next/link';
 
 export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseData[] }) {
   const [tableView, setTableView] = React.useState(false);
@@ -32,6 +32,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
       hasJohtoDex: parseAsBoolean.withDefault(false),
       hasNationalDex: parseAsBoolean.withDefault(false),
       hasForms: parseAsBoolean.withDefault(false),
+      showForms: parseAsBoolean.withDefault(true), // Added show forms toggle
       view: parseAsString.withDefault('card'), // Added view parameter
     },
     {
@@ -57,7 +58,8 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
   );
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
 
-  const { search, type, generation, hasJohtoDex, hasNationalDex, hasForms, view } = urlState;
+  const { search, type, generation, hasJohtoDex, hasNationalDex, hasForms, showForms, view } =
+    urlState;
 
   React.useEffect(() => {
     const nameColumn = columns.find((col) => 'accessorKey' in col && col.accessorKey === 'name');
@@ -146,16 +148,30 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
       const matchesNationalDex = !hasNationalDex || pokemon.nationalDex !== null;
       const matchesForms = !hasForms || (Array.isArray(pokemon.forms) && pokemon.forms.length > 1);
 
+      // Form visibility filter - hide forms if showForms is false
+      const matchesFormVisibility = showForms || !pokemon.isForm;
+
       return (
         matchesSearch &&
         matchesType &&
         matchesGeneration &&
         matchesJohtoDex &&
         matchesNationalDex &&
-        matchesForms
+        matchesForms &&
+        matchesFormVisibility
       );
     });
-  }, [pokemonList, search, type, generation, showFaithful, hasJohtoDex, hasNationalDex, hasForms]);
+  }, [
+    pokemonList,
+    search,
+    type,
+    generation,
+    showFaithful,
+    hasJohtoDex,
+    hasNationalDex,
+    hasForms,
+    showForms,
+  ]);
 
   // Apply sorting to the filtered data
   const sortedData = React.useMemo(() => {
@@ -207,6 +223,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
     hasJohtoDex,
     hasNationalDex,
     hasForms,
+    showForms,
     setPagination,
   ]);
 
@@ -252,6 +269,20 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
               </Select>
             </div>
           </div>
+
+          {/* Form visibility toggle */}
+          <div className="flex flex-row gap-4 w-full sm:w-auto">
+            <div className="flex flex-row items-center gap-2 w-1/2 md:w-auto md:pt-4">
+              <Label htmlFor="forms-toggle">Show Forms</Label>
+              <Checkbox
+                id="forms-toggle"
+                checked={showForms}
+                onCheckedChange={(checked) => setUrlState({ showForms: checked === true })}
+                aria-label="Toggle form visibility"
+              />
+            </div>
+          </div>
+
           <div className={'flex items-center gap-2 ml-auto'}>
             <Label htmlFor="table-toggle" className="text-sm whitespace-nowrap">
               <Badge>{tableView ? 'Table' : 'Cards'}</Badge>
@@ -273,7 +304,8 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
             sorting.length > 0 ||
             hasJohtoDex ||
             hasNationalDex ||
-            hasForms) && (
+            hasForms ||
+            !showForms) && (
             <Button
               size="sm"
               onClick={() => {
@@ -284,6 +316,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
                   hasJohtoDex: null,
                   hasNationalDex: null,
                   hasForms: null,
+                  showForms: null,
                 });
                 setSorting([{ id: 'johtoDex', desc: false }]);
                 try {
@@ -314,7 +347,8 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
               hasNationalDex ||
               hasForms ||
               type !== 'all' ||
-              generation !== 'all') && (
+              generation !== 'all' ||
+              !showForms) && (
               <span className="ml-2">
                 • Filtered:{' '}
                 {[
@@ -323,6 +357,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
                   hasForms && 'Has multiple forms',
                   type !== 'all' && `Type: ${type}`,
                   generation !== 'all' && `Generation: ${generation.replace('gen', 'Gen ')}`,
+                  !showForms && 'Forms hidden',
                 ]
                   .filter(Boolean)
                   .join(', ')}
@@ -334,13 +369,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
       {tableView ? (
         <PokemonListDataTable data={sortedData} />
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-          {sortedData.map((pokemon) => (
-            <Link key={pokemon.name} href={`/pokemon/${pokemon.name}`}>
-              <PokemonCard key={pokemon.name} pokemon={pokemon} />
-            </Link>
-          ))}
-        </div>
+        <LazyPokemonCardGrid pokemonData={sortedData} itemsPerPage={24} />
       )}
     </>
   );

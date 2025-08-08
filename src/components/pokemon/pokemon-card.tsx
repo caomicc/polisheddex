@@ -89,6 +89,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
         primaryType={primaryType as PokemonType['name']}
         variant="normal"
         type="static"
+        form={typeof pokemon.form === 'string' ? pokemon.form : 'plain'}
         src={pokemon.frontSpriteUrl} // fallback for backward compatibility
         className="absolute right-2 bottom-2 md:bottom-auto md:right-auto md:top-0 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2"
       />
@@ -107,6 +108,18 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
             ? pokemon.nationalDex
             : '—'}
       </p>
+
+      {pokemon.form ? (
+        <Badge
+          variant="secondary"
+          className={cn(
+            'text-xs md:text-xs md:absolute md:top-4 md:right-4 capitalize',
+            pokemon.nationalDex === null && pokemon.johtoDex === null ? 'hidden' : '',
+          )}
+        >
+          {pokemon.form.toString()}
+        </Badge>
+      ) : null}
       <div className="flex flex-col gap-0 relative z-20">
         <h2
           className="text-sm md:text-xl md:mb-4 font-bold leading-none mb-2 dark:text-white!"

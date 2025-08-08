@@ -18,7 +18,59 @@ export default async function PokemonTableList() {
   const pokemonData = await loadPokemonBaseDataFromManifest();
 
   // Prepare an array of Pokémon with their names and dex numbers
-  const pokemonList: BaseData[] = Object.values(pokemonData) as BaseData[];
+  // Flatten Pokémon data to include forms as separate items next to their parent species
+  const pokemonList: BaseData[] = await Promise.all(
+    Object.values(pokemonData).flatMap(async (pokemon: BaseData) => {
+      if (pokemon.forms && Array.isArray(pokemon.forms) && pokemon.forms.length > 0) {
+        // Load the full Pokemon data to get form-specific information
+        const fullPokemonData = await import(
+          `../../../output/pokemon/${pokemon.normalizedUrl}.json`
+        )
+          .then((m) => m.default)
+          .catch(() => null);
+
+        // Place parent first, then each form as a separate item
+        return [
+          // Parent species (not a form)
+          { ...pokemon, isForm: false, parentSpecies: undefined, form: undefined },
+          // Each form as a separate item with form-specific data
+          ...pokemon.forms
+            .filter((formName) => formName !== 'plain' && formName !== 'normal')
+            .map((formName) => {
+              // Get form-specific data if available
+              const formData = fullPokemonData?.forms?.[formName];
+
+              if (formData) {
+                // Use form-specific data
+                return {
+                  ...pokemon, // Base data
+                  ...formData, // Override with form-specific data
+                  name: pokemon.name, // Keep parent name for consistency and sprite loading
+                  form: formName,
+                  parentSpecies: pokemon.name,
+                  isForm: true,
+                  forms: undefined, // Remove forms array from form entry
+                  // Ensure form types are properly set
+                  types: formData.types || pokemon.types,
+                  updatedTypes: formData.updatedTypes || pokemon.updatedTypes,
+                  faithfulTypes: formData.faithfulTypes || pokemon.faithfulTypes,
+                };
+              } else {
+                // Fallback to parent data if no form-specific data
+                return {
+                  ...pokemon,
+                  form: formName,
+                  parentSpecies: pokemon.name,
+                  isForm: true,
+                  forms: undefined,
+                };
+              }
+            }),
+        ];
+      }
+      return [pokemon];
+    }),
+  ).then((results) => results.flat());
 
   return (
     <>
