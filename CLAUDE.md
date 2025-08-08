@@ -18,7 +18,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run extract` - Extract all Pokémon and location data from ROM files
 - `npm run crop` - Crop top sprites using image processing script
 - `npm run update-rom` - Update the polishedcrystal submodule
-
+- `npm run do-the-thing` - Run the whole function
 ### Testing
 - `npm run test` - Run all tests with Vitest
 - `npm run test:watch` - Run tests in watch mode
