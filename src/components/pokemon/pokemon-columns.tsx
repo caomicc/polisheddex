@@ -54,8 +54,10 @@ export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
           >
             {formatPokemonDisplayWithForm(pokemon.name)}
             {form && (
-              <span className={`text-xs text-muted-foreground block ${getFormTypeClass(form)}`}>
-                {formatPokemonDisplayWithForm(form.replace(/_form$/, ''))}
+              <span
+                className={`text-xs text-muted-foreground block capitalize ${getFormTypeClass(form)}`}
+              >
+                {formatPokemonDisplayWithForm(form.replace(/_form$/, '')) || form}
               </span>
             )}
           </Link>
