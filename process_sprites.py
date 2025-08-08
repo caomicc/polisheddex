@@ -458,6 +458,12 @@ class GBCSpriteProcessor:
                     # Fallback to reasonable default if we run out of animation data
                     durations.append(300)
 
+            # Save static PNG (first frame)
+            png_output_path = output_dir / f"{variant}_front.png"
+            if processed_frames:
+                processed_frames[0].save(png_output_path)
+                print(f"Saved static PNG: {png_output_path}")
+
             # Save processed frames as an animated GIF
             gif_output_path = output_dir / f"{variant}_front_animated.gif"
             self.create_animated_gif(processed_frames, durations, str(gif_output_path))

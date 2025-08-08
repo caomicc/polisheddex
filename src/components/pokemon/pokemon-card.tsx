@@ -111,13 +111,16 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
 
       {pokemon.form ? (
         <Badge
-          variant="secondary"
+          variant="form"
           className={cn(
-            'text-xs md:text-xs md:absolute md:top-4 md:right-4 capitalize',
+            'text-xs md:absolute md:top-4 md:right-4',
             pokemon.nationalDex === null && pokemon.johtoDex === null ? 'hidden' : '',
           )}
         >
-          {pokemon.form.toString()}
+          {pokemon.form
+            .toString()
+            .replace(/_/g, ' ')
+            .replace(/\bsegment\b/gi, 'seg.')}
         </Badge>
       ) : null}
       <div className="flex flex-col gap-0 relative z-20">

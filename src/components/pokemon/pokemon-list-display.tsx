@@ -32,7 +32,7 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
       hasJohtoDex: parseAsBoolean.withDefault(false),
       hasNationalDex: parseAsBoolean.withDefault(false),
       hasForms: parseAsBoolean.withDefault(false),
-      showForms: parseAsBoolean.withDefault(true), // Added show forms toggle
+      showForms: parseAsBoolean.withDefault(false), // Added show forms toggle
       view: parseAsString.withDefault('card'), // Added view parameter
     },
     {
@@ -272,10 +272,11 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
 
           {/* Form visibility toggle */}
           <div className="flex flex-row gap-4 w-full sm:w-auto">
-            <div className="flex flex-row items-center gap-2 w-1/2 md:w-auto md:pt-4">
+            <div className="flex flex-col items-start gap-2 w-1/2 md:w-auto">
               <Label htmlFor="forms-toggle">Show Forms</Label>
               <Checkbox
                 id="forms-toggle"
+                className="mt-2"
                 checked={showForms}
                 onCheckedChange={(checked) => setUrlState({ showForms: checked === true })}
                 aria-label="Toggle form visibility"
@@ -348,21 +349,22 @@ export default function PokemonListDisplay({ pokemonList }: { pokemonList: BaseD
               hasForms ||
               type !== 'all' ||
               generation !== 'all' ||
-              !showForms) && (
-              <span className="ml-2">
-                • Filtered:{' '}
-                {[
-                  hasJohtoDex && 'In Johto Dex',
-                  hasNationalDex && 'Has National Dex',
-                  hasForms && 'Has multiple forms',
-                  type !== 'all' && `Type: ${type}`,
-                  generation !== 'all' && `Generation: ${generation.replace('gen', 'Gen ')}`,
-                  !showForms && 'Forms hidden',
-                ]
-                  .filter(Boolean)
-                  .join(', ')}
-              </span>
-            )}
+              showForms) &&
+              showForms && (
+                <span className="ml-2">
+                  • Filtered:{' '}
+                  {[
+                    hasJohtoDex && 'In Johto Dex',
+                    hasNationalDex && 'Has National Dex',
+                    hasForms && 'Has multiple forms',
+                    type !== 'all' && `Type: ${type}`,
+                    generation !== 'all' && `Generation: ${generation.replace('gen', 'Gen ')}`,
+                    showForms && 'Forms visible',
+                  ]
+                    .filter(Boolean)
+                    .join(', ')}
+                </span>
+              )}
           </span>
         </div>
       </div>

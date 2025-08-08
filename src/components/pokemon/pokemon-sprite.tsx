@@ -29,6 +29,11 @@ export function PokemonSprite({
 }: PokemonSpriteProps) {
   const { spriteInfo, isLoading } = useSpriteData(pokemonName, variant, type, form);
 
+  console.log(
+    `Rendering sprite for ${pokemonName} with variant ${variant} and type ${type}`,
+    spriteInfo,
+  );
+
   // Fallback to legacy src prop if provided and sprite data not available
   const finalSrc = spriteInfo?.url || src;
   const width = spriteInfo?.width || 64;

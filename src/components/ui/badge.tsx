@@ -101,6 +101,7 @@ const badgeVariants = cva(
         item: 'bg-green-100 text-green-900 border-green-200',
         berry: 'bg-pink-100 text-pink-900 border-pink-200',
         medicine: 'bg-blue-100 text-blue-900 border-blue-200',
+        form: 'bg-white/70 text-foreground dark:bg-black/30 border-border',
       },
     },
     defaultVariants: {
