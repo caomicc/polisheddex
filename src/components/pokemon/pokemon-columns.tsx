@@ -22,6 +22,9 @@ function formatMethod(method: string): string {
   if (method === 'headbutt_common') return 'Headbutt (Common)';
   if (method === 'rocksmash') return 'Rock Smash';
   if (method === 'swarm') return 'Swarm';
+  if (method === 'fish_super') return 'Fishing - Super Rod';
+  if (method === 'fish_good') return 'Fishing - Good Rod';
+  if (method === 'fish_old') return 'Fishing - Old Rod';
   return method.charAt(0).toUpperCase() + method.slice(1);
 }
 export const pokemonColumns: ColumnDef<PokemonEncounter>[] = [
