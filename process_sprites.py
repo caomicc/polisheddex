@@ -145,7 +145,7 @@ class GBCSpriteProcessor:
         # Create output directories
         self.sprites_dir = self.output_path / "sprites" / "pokemon"
         self.sprites_dir.mkdir(exist_ok=True)
-        
+
         self.trainer_sprites_dir = self.output_path / "sprites" / "trainers"
         self.trainer_sprites_dir.mkdir(parents=True, exist_ok=True)
 
@@ -154,36 +154,36 @@ class GBCSpriteProcessor:
         # contains the "base" or most common form to use as the default sprite
         self.variant_to_base_mapping = {
             # Pikachu variants - use pikachu_plain as base (most common form)
-            'pikachu_plain': 'pikachu',
-            'pikachu_chuchu': 'pikachu',
-            'pikachu_fly': 'pikachu',
-            'pikachu_pika': 'pikachu',
-            'pikachu_spark': 'pikachu',
-            'pikachu_surf': 'pikachu',
+            'pikachu_plain': 'pikachu_plain',
+            'pikachu_chuchu': 'pikachu_chuchu',
+            'pikachu_fly': 'pikachu_fly',
+            'pikachu_pika': 'pikachu_pika',
+            'pikachu_spark': 'pikachu_spark',
+            'pikachu_surf': 'pikachu_surf',
 
             # Unown variants - use unown_a as base (first letter form)
-            'unown_a': 'unown',
-            'unown_b': 'unown', 'unown_c': 'unown', 'unown_d': 'unown', 'unown_e': 'unown',
-            'unown_f': 'unown', 'unown_g': 'unown', 'unown_h': 'unown', 'unown_i': 'unown',
-            'unown_j': 'unown', 'unown_k': 'unown', 'unown_l': 'unown', 'unown_m': 'unown',
-            'unown_n': 'unown', 'unown_o': 'unown', 'unown_p': 'unown', 'unown_q': 'unown',
-            'unown_r': 'unown', 'unown_s': 'unown', 'unown_t': 'unown', 'unown_u': 'unown',
-            'unown_v': 'unown', 'unown_w': 'unown', 'unown_x': 'unown', 'unown_y': 'unown',
-            'unown_z': 'unown', 'unown_question': 'unown', 'unown_exclamation': 'unown',
+            'unown_a': 'unown_a',
+            'unown_b': 'unown_b', 'unown_c': 'unown_c', 'unown_d': 'unown_d', 'unown_e': 'unown_e',
+            'unown_f': 'unown_f', 'unown_g': 'unown_g', 'unown_h': 'unown_h', 'unown_i': 'unown_i',
+            'unown_j': 'unown_j', 'unown_k': 'unown_k', 'unown_l': 'unown_l', 'unown_m': 'unown_m',
+            'unown_n': 'unown_n', 'unown_o': 'unown_o', 'unown_p': 'unown_p', 'unown_q': 'unown_q',
+            'unown_r': 'unown_r', 'unown_s': 'unown_s', 'unown_t': 'unown_t', 'unown_u': 'unown_u',
+            'unown_v': 'unown_v', 'unown_w': 'unown_w', 'unown_x': 'unown_x', 'unown_y': 'unown_y',
+            'unown_z': 'unown_z', 'unown_question': 'unown_question', 'unown_exclamation': 'unown_exclamation',
 
             # Magikarp variants - use magikarp_plain as base
-            'magikarp_plain': 'magikarp',
-            'magikarp_bubbles': 'magikarp', 'magikarp_calico1': 'magikarp', 'magikarp_calico2': 'magikarp',
-            'magikarp_calico3': 'magikarp', 'magikarp_dapples': 'magikarp', 'magikarp_diamonds': 'magikarp',
-            'magikarp_forehead1': 'magikarp', 'magikarp_forehead2': 'magikarp', 'magikarp_mask1': 'magikarp',
-            'magikarp_mask2': 'magikarp', 'magikarp_orca': 'magikarp', 'magikarp_patches': 'magikarp',
-            'magikarp_raindrop': 'magikarp', 'magikarp_saucy': 'magikarp', 'magikarp_skelly': 'magikarp',
-            'magikarp_stripe': 'magikarp', 'magikarp_tiger': 'magikarp', 'magikarp_twotone': 'magikarp',
-            'magikarp_zebra': 'magikarp',
+            'magikarp_plain': 'magikarp_plain',
+            'magikarp_bubbles': 'magikarp_bubbles', 'magikarp_calico1': 'magikarp_calico1', 'magikarp_calico2': 'magikarp_calico2',
+            'magikarp_calico3': 'magikarp_calico3', 'magikarp_dapples': 'magikarp_dapples', 'magikarp_diamonds': 'magikarp_diamonds',
+            'magikarp_forehead1': 'magikarp_forehead1', 'magikarp_forehead2': 'magikarp_forehead2', 'magikarp_mask1': 'magikarp_mask1',
+            'magikarp_mask2': 'magikarp_mask2', 'magikarp_orca': 'magikarp_orca', 'magikarp_patches': 'magikarp_patches',
+            'magikarp_raindrop': 'magikarp_raindrop', 'magikarp_saucy': 'magikarp_saucy', 'magikarp_skelly': 'magikarp_skelly',
+            'magikarp_stripe': 'magikarp_stripe', 'magikarp_tiger': 'magikarp_tiger', 'magikarp_twotone': 'magikarp_twotone',
+            'magikarp_zebra': 'magikarp_zebra',
 
             # Pichu variants - use pichu_plain as base
-            'pichu_plain': 'pichu',
-            'pichu_spiky': 'pichu',
+            'pichu_plain': 'pichu_plain',
+            'pichu_spiky': 'pichu_spiky',
         }
 
         # Base forms that should be processed (directories that represent the default sprite)
@@ -195,7 +195,7 @@ class GBCSpriteProcessor:
         }
 
         # Palette directory mapping - where to find palette files for variants
-        # Some variants store sprites in one directory but palettes in another
+        # Form variants use the base Pokemon's palette files
         self.palette_directory_mapping = {
             'pikachu_plain': 'pikachu',
             'pikachu_chuchu': 'pikachu',
@@ -216,6 +216,7 @@ class GBCSpriteProcessor:
             'unown_u': 'unown', 'unown_v': 'unown', 'unown_w': 'unown', 'unown_x': 'unown',
             'unown_y': 'unown', 'unown_z': 'unown', 'unown_question': 'unown', 'unown_exclamation': 'unown',
 
+            # Magikarp variants - all use base magikarp palette
             'magikarp_plain': 'magikarp',
             'magikarp_bubbles': 'magikarp',
             'magikarp_calico1': 'magikarp',
@@ -236,6 +237,13 @@ class GBCSpriteProcessor:
             'magikarp_tiger': 'magikarp',
             'magikarp_twotone': 'magikarp',
             'magikarp_zebra': 'magikarp',
+
+            # Arbok variants - all use base arbok palette
+            'arbok_agatha': 'arbok',
+            'arbok_ariana': 'arbok',
+            'arbok_johto': 'arbok',
+            'arbok_kanto': 'arbok',
+            'arbok_koga': 'arbok',
         }
 
     def get_pokemon_list(self) -> List[str]:
@@ -250,18 +258,13 @@ class GBCSpriteProcessor:
 
     def should_process_pokemon(self, pokemon_name: str) -> bool:
         """Determine if this Pokemon directory should be processed"""
-        # Always process if it's not a variant
-        if pokemon_name not in self.variant_to_base_mapping:
-            return True
-
-        # For variants, only process the designated base form
-        base_pokemon = self.variant_to_base_mapping[pokemon_name]
-        return self.base_form_directories.get(base_pokemon) == pokemon_name
+        # Process all Pokemon directories as individual entities
+        return True
 
     def get_output_name(self, pokemon_name: str) -> str:
         """Get the output directory name for a Pokemon"""
-        # If this is a variant, use the base name for output
-        return self.variant_to_base_mapping.get(pokemon_name, pokemon_name)
+        # Use the actual directory name as output name to preserve form variants
+        return pokemon_name
 
     def extract_sprite_frames(self, sprite_path: str) -> List[Image.Image]:
         """Extract individual frames using auto-detection logic from crop_top_sprite.ts"""
@@ -370,7 +373,7 @@ class GBCSpriteProcessor:
         """Process a single Pokemon's sprites - only front sprites, 4 files total"""
         # Check if we should process this Pokemon
         if not self.should_process_pokemon(pokemon_name):
-            print(f"Skipping {pokemon_name} (variant will be processed by base form)")
+            print(f"Skipping {pokemon_name}")
             return True
 
         pokemon_path = self.pokemon_dir / pokemon_name
@@ -421,7 +424,6 @@ class GBCSpriteProcessor:
             # Save static PNG (first frame)
             if processed_frames:
                 static_path = output_dir / f"{variant}_front.png"
-                static_path = static_path.as_posix().replace('_plain', '')  # Ensure '_plain' is removed
                 processed_frames[0].save(static_path)
 
             # Create animated GIF if multiple frames
@@ -442,7 +444,6 @@ class GBCSpriteProcessor:
                         durations.append(300)
 
                 gif_path = output_dir / f"{variant}_front_animated.gif"
-                gif_path = gif_path.as_posix().replace('_plain', '')  # Ensure '_plain' is removed
                 self.create_animated_gif(processed_frames, durations, gif_path)
 
         return True
@@ -481,7 +482,7 @@ class GBCSpriteProcessor:
                 for sprite_file in pokemon_dir.iterdir():
                     if sprite_file.suffix in ['.png', '.gif']:
                         rel_path = f"sprites/pokemon/{pokemon_name}/{sprite_file.name}"
-                        
+
                         # Get image dimensions
                         try:
                             with Image.open(sprite_file) as img:
@@ -527,12 +528,12 @@ class GBCSpriteProcessor:
     def get_trainer_palettes(self, trainer_name: str) -> List[str]:
         """Get all palette files for a trainer"""
         palettes = []
-        
+
         # Look for exact match first
         exact_pal = self.trainer_dir / f"{trainer_name}.pal"
         if exact_pal.exists():
             palettes.append(trainer_name)
-        
+
         # Look for numbered variants (e.g., kimono_girl_1.pal, kimono_girl_2.pal, etc.)
         for item in self.trainer_dir.iterdir():
             if item.is_file() and item.suffix == '.pal':
@@ -540,7 +541,7 @@ class GBCSpriteProcessor:
                     # Extract the variant (e.g., "1" from "kimono_girl_1")
                     variant = item.stem.replace(f"{trainer_name}_", "")
                     palettes.append(f"{trainer_name}_{variant}")
-        
+
         return sorted(palettes)
 
     def process_trainer(self, trainer_name: str) -> bool:
@@ -558,7 +559,7 @@ class GBCSpriteProcessor:
 
         # Get all palette variants for this trainer
         palettes = self.get_trainer_palettes(trainer_name)
-        
+
         if not palettes:
             print(f"No palette files found for {trainer_name}")
             return False
@@ -660,17 +661,17 @@ class GBCSpriteProcessor:
         """Create a unified JSON manifest containing both Pokemon and trainer sprites"""
         pokemon_data = self.create_sprite_manifest()
         trainer_data = self.create_trainer_manifest()
-        
+
         unified_manifest = {
             "pokemon": pokemon_data,
             "trainers": trainer_data
         }
-        
+
         # Save unified manifest
         manifest_path = self.output_path / "sprite_manifest.json"
         with open(manifest_path, 'w') as f:
             json.dump(unified_manifest, f, indent=2, sort_keys=True)
-        
+
         print(f"Created unified sprite manifest: {manifest_path}")
         print(f"Pokemon sprites: {len(pokemon_data)}")
         print(f"Trainer sprites: {len(trainer_data)}")
@@ -678,9 +679,6 @@ class GBCSpriteProcessor:
     def export_sprite(self, sprite: Image.Image, output_path: str) -> None:
         """Export the processed sprite to the specified output path."""
         try:
-            # Remove '_plain' from the output path if it exists
-            output_path = output_path.replace('_plain', '')
-
             # Save the sprite
             sprite.save(output_path)
             print(f"Sprite exported to {output_path}")
@@ -705,26 +703,26 @@ def main():
         # Process everything
         print("Processing all Pokemon sprites...")
         processor.process_all_pokemon()
-        
+
         print("\nProcessing all trainer sprites...")
         processor.process_all_trainers()
-        
+
         # Create unified manifest
         print("\nCreating unified sprite manifest...")
         processor.create_unified_manifest()
-        
+
     elif args.pokemon:
         # Process only Pokemon
         processor.process_all_pokemon()
         # Create unified manifest with existing trainer data
         processor.create_unified_manifest()
-        
+
     elif args.trainers:
         # Process only trainers
         processor.process_all_trainers()
         # Create unified manifest with existing Pokemon data
         processor.create_unified_manifest()
-        
+
     elif args.target:
         # Try to process specific target (check if it's Pokemon or trainer)
         if processor.process_pokemon(args.target):
@@ -733,7 +731,7 @@ def main():
             print(f"Processed trainer: {args.target}")
         else:
             print(f"Target '{args.target}' not found as Pokemon or trainer")
-            
+
     else:
         # Default: process test cases
         print("No target specified. Processing test cases...")
@@ -742,13 +740,13 @@ def main():
             print("Pokemon test successful!")
         else:
             print("Pokemon test failed")
-            
+
         print("Testing trainer (red)...")
         if processor.process_trainer('red'):
             print("Trainer test successful!")
         else:
             print("Trainer test failed")
-            
+
         print("Run with --all to process all sprites, --pokemon for Pokemon only, or --trainers for trainers only")
 
 if __name__ == "__main__":
