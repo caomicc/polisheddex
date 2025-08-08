@@ -275,6 +275,14 @@ class GBCSpriteProcessor:
         # Map dudunsparce_two_segment to the default dudunsparce folder
         if pokemon_name == 'dudunsparce_two_segment':
             return 'dudunsparce'
+        # Map dudunsparce_three_segment to the default dudunsparce folder
+        if pokemon_name == 'dudunsparce_three_segment':
+            return 'dudunsparce'
+        if pokemon_name == 'arbok_johto':
+            return 'arbok'
+        # Map arbok_johto to the default arbok folder
+        if pokemon_name == 'unown':
+            return 'unown_z'
         return pokemon_name
 
     def extract_sprite_frames(self, sprite_path: str) -> List[Image.Image]:
@@ -394,12 +402,16 @@ class GBCSpriteProcessor:
             return False
 
         # Get the output name (base Pokemon name)
-        output_name = self.base_form_directories.get(pokemon_name, pokemon_name)
+        output_name = self.get_output_name(pokemon_name)
         print(f"Processing {pokemon_name} -> {output_name}...")
 
         # Create output directory for this Pokemon using the base name
         output_dir = self.sprites_dir / output_name
         output_dir.mkdir(exist_ok=True)
+
+        # DEBUG: Log the output name and directory
+        print(f"DEBUG: Output name for {pokemon_name} is {output_name}")
+        print(f"DEBUG: Output directory for {pokemon_name} is {output_dir}")
 
         # Only process front sprites for normal and shiny variants
         variants = ['normal', 'shiny']
