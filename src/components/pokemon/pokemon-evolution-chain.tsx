@@ -229,7 +229,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                     )}
                     {path.method === 'location' && (
                       <div>
-                        <p>Location:</p>
+                        <p>Level up at:</p>
                         <span>
                           {String(path.parameter)
                             .split('_')
