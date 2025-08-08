@@ -615,6 +615,9 @@ export function extractTmHmLearnset() {
           moveData = moveDescriptions['Psychic M'] || moveDescriptions['Psychic_M'];
         }
 
+        // Get TM/HM/MT information for this move
+        const tmHmInfo = getTmHmInfo(name);
+
         if (moveData) {
           return {
             name,
@@ -625,6 +628,10 @@ export function extractTmHmLearnset() {
             category: moveData.updated?.category || moveData.faithful?.category || 'unknown',
             accuracy: moveData.updated?.accuracy || moveData.faithful?.accuracy || 0,
             effectPercent: moveData.updated?.effectPercent || moveData.faithful?.effectPercent,
+            ...(tmHmInfo && {
+              tmNumber: tmHmInfo.tmNumber,
+              location: tmHmInfo.location,
+            }),
           };
         } else {
           return {
@@ -635,6 +642,10 @@ export function extractTmHmLearnset() {
             power: 0,
             category: 'unknown',
             accuracy: 0,
+            ...(tmHmInfo && {
+              tmNumber: tmHmInfo.tmNumber,
+              location: tmHmInfo.location,
+            }),
           };
         }
       });

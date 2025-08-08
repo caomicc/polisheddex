@@ -23,9 +23,9 @@ export interface TmHmItemData {
 }
 
 /**
- * Extracts TM/HM item data from ROM files and adds them to the items_data.json file
- * @param itemData The existing item data to update with TM/HM information
- * @returns A record of TM/HM items with their details
+ * Extracts TM/HM/MT item data from ROM files and adds them to the items_data.json file
+ * @param itemData The existing item data to update with TM/HM/MT information
+ * @returns A record of TM/HM/MT items with their details
  */
 export function extractTmHmItems(itemData?: Record<string, any>): Record<string, TmHmItemData> {
   // Use this workaround for __dirname in ES modules
@@ -38,7 +38,7 @@ export function extractTmHmItems(itemData?: Record<string, any>): Record<string,
   // Output and items data file paths
   const itemsDataFile = path.join(__dirname, '../../../output/items_data.json');
 
-  console.log('🔧 Extracting TM/HM item data and integrating with items_data.json...');
+  console.log('🔧 Extracting TM/HM/MT item data and integrating with items_data.json...');
 
   // Read TM/HM moves file
   const tmhmMovesData = fs.readFileSync(tmhmMovesFile, 'utf8');
@@ -89,12 +89,12 @@ export function extractTmHmItems(itemData?: Record<string, any>): Record<string,
         // Extract move name
         const moveName = parts[0].replace('db', '').trim();
 
-        // Extract TM/HM number and location
+        // Extract TM/HM/MT number and location
         const tmhmInfo = parts[1].trim();
-        const tmhmMatch = tmhmInfo.match(/(TM|HM)(\d+)\s*(?:\(([^)]+)\))?/);
+        const tmhmMatch = tmhmInfo.match(/(TM|HM|MT)(\d+)\s*(?:\(([^)]+)\))?/);
 
         if (tmhmMatch) {
-          const tmType = tmhmMatch[1]; // TM or HM
+          const tmType = tmhmMatch[1]; // TM, HM, or MT
           const tmNumber = tmhmMatch[2].padStart(2, '0'); // Pad with leading zero if needed
           const location = tmhmMatch[3] || '';
 
@@ -176,7 +176,7 @@ export function extractTmHmItems(itemData?: Record<string, any>): Record<string,
     }
   }
 
-  // Merge TM/HM items into the existing items data
+  // Merge TM/HM/MT items into the existing items data
   for (const [itemId, tmhmData] of Object.entries(tmhmItems)) {
     existingItems[itemId] = {
       id: tmhmData.id,
@@ -195,7 +195,7 @@ export function extractTmHmItems(itemData?: Record<string, any>): Record<string,
 
   // Write the combined data back to the items_data.json file
   fs.writeFileSync(itemsDataFile, JSON.stringify(existingItems, null, 2));
-  console.log(`✅ TM/HM item data integrated into items_data.json`);
+  console.log(`✅ TM/HM/MT item data integrated into items_data.json`);
 
   return tmhmItems;
 }

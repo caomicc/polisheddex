@@ -150,6 +150,41 @@ const nextConfig: NextConfig = {
         destination: '/moves/psychic',
         permanent: true,
       },
+      {
+        source: '/locations/route_16_south_gate',
+        destination: '/locations/route_16_south',
+        permanent: true,
+      },
+      {
+        source: '/locations/battle_tower',
+        destination: '/locations/battle_tower_outside',
+        permanent: true,
+      },
+      {
+        source: '/locations/scary_cave',
+        destination: '/locations/scary_cave_1f',
+        permanent: true,
+      },
+      {
+        source: '/locations/goldenrod',
+        destination: '/locations/goldenrod_city',
+        permanent: true,
+      },
+      {
+        source: '/locations/celadon',
+        destination: '/locations/celadon_city',
+        permanent: true,
+      },
+      {
+        source: '/locations/route_35-natioal_park_gate',
+        destination: '/locations/route_35_coast_north',
+        permanent: true,
+      },
+      {
+        source: '/locations/mahogany_mart',
+        destination: '/locations/mahogany_town',
+        permanent: true,
+      },
     ];
   },
   webpack: (config) => {
