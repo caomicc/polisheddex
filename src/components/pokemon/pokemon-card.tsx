@@ -113,7 +113,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
         <Badge
           variant="form"
           className={cn(
-            'text-xs md:absolute md:top-4 md:right-4',
+            'text-xs absolute top-[9.5px] md:top-4 right-2 md:right-4',
             pokemon.nationalDex === null && pokemon.johtoDex === null ? 'hidden' : '',
           )}
         >
