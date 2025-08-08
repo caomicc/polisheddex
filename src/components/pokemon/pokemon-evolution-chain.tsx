@@ -122,52 +122,6 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
 
   const { evolutionPaths } = processEvolutionData();
 
-  const getEvolutionInfo = (fromPokemon: string, toPokemon: string) => {
-    const isFromFormVariant = fromPokemon.includes('(') && fromPokemon.includes(')');
-    let baseFromPokemon = fromPokemon;
-    let fromFormName = '';
-
-    if (isFromFormVariant) {
-      const matches = fromPokemon.match(/^(.+) \((.+)\)$/);
-      if (matches) {
-        baseFromPokemon = matches[1];
-        fromFormName = matches[2];
-      }
-    }
-
-    const isToFormVariant = toPokemon.includes('(') && toPokemon.includes(')');
-    let baseToPokemon = toPokemon;
-    let toFormName = '';
-
-    if (isToFormVariant) {
-      const matches = toPokemon.match(/^(.+) \((.+)\)$/);
-      if (matches) {
-        baseToPokemon = matches[1];
-        toFormName = matches[2];
-      }
-    }
-
-    const path = evolutionPaths.find((p) => {
-      const sourceMatches =
-        p.source.toLowerCase() === baseFromPokemon.toLowerCase() &&
-        (!isFromFormVariant || p.sourceForm === fromFormName);
-
-      const targetMatches =
-        p.target.toLowerCase() === baseToPokemon.toLowerCase() &&
-        (!isToFormVariant || p.targetForm === toFormName);
-
-      return sourceMatches && targetMatches;
-    });
-
-    if (!path) return null;
-
-    return {
-      methodName: path.method,
-      parameter: path.parameter,
-      form: path.targetForm,
-    };
-  };
-
   const getSpriteUrl = (name: string) => {
     if (name.includes('(') && name.includes(')')) {
       const matches = name.match(/^(.+) \((.+)\)$/);
@@ -190,12 +144,15 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
   };
 
   return (
-    <div className={cn('grid grid-cols-3 md:grid-cols-3 gap-6 items-start', className)}>
+    <div className={cn('flex flex-col gap-6', className)}>
       {evolutionPaths.map((path, index) => {
         const sourceName = path.sourceForm ? `${path.source} (${path.sourceForm})` : path.source;
         const targetName = path.targetForm ? `${path.target} (${path.targetForm})` : path.target;
         return (
-          <React.Fragment key={`${sourceName}-${targetName}-${index}`}>
+          <div
+            key={`${sourceName}-${targetName}-${index}`}
+            className="grid grid-cols-3 gap-6 items-center"
+          >
             <Link
               href={`/pokemon/${sourceName.includes('(') ? sourceName.split(' (')[0] : sourceName}${
                 path.sourceForm && path.sourceForm.toLowerCase() !== 'plain form'
@@ -216,24 +173,19 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
               </span>
             </Link>
             {(() => {
-              const evolutionInfo = getEvolutionInfo(sourceName, targetName);
-              if (!evolutionInfo) {
-                return (
-                  <span>
-                    {sourceName} → {targetName} ({path.method})
-                  </span>
-                );
-              }
-
+              // Use path data directly instead of getEvolutionInfo since we have all the correct data
               return (
                 <div className="flex flex-col items-center min-w-[80px]">
                   <span className="text-lg">→</span>
                   <div className="text-xs text-muted-foreground text-center">
-                    {evolutionInfo.methodName === 'item' && (
+                    {path.method === 'level' && typeof path.parameter === 'number' && (
+                      <div>Level {path.parameter}</div>
+                    )}
+                    {path.method === 'item' && (
                       <div className="flex flex-col items-center gap-1">
                         <p>Item:</p>
                         {(() => {
-                          const itemName = String(evolutionInfo.parameter);
+                          const itemName = String(path.parameter);
                           const itemId = getItemIdFromDisplayName(itemName);
 
                           const itemImage = (
@@ -275,40 +227,39 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                         })()}
                       </div>
                     )}
-                    {evolutionInfo.methodName === 'happiness' && (
+                    {path.method === 'location' && (
                       <div>
-                        <p>Happiness:</p>
-                        {evolutionInfo.parameter === 'TR_MORNDAY' && <span>(Morning/Day)</span>}
-                        {evolutionInfo.parameter === 'TR_EVENITE' && <span>(Evening/Night)</span>}
-                        {evolutionInfo.parameter === 'TR_ANYTIME' && <span>Anytime</span>}
-                      </div>
-                    )}
-                    {evolutionInfo.methodName === 'stat' && (
-                      <div>
-                        Stat:
-                        {evolutionInfo.parameter === 'ATK_GT_DEF' && (
-                          <span> Attack &gt; Defense</span>
-                        )}
-                        {evolutionInfo.parameter === 'ATK_LT_DEF' && (
-                          <span> Attack &lt; Defense</span>
-                        )}
-                        {evolutionInfo.parameter === 'ATK_EQ_DEF' && <span> Attack = Defense</span>}
-                      </div>
-                    )}
-                    {typeof evolutionInfo.parameter !== 'number' &&
-                      evolutionInfo.parameter &&
-                      !['item', 'happiness', 'stat'].includes(evolutionInfo.methodName) && (
-                        <div>
-                          {String(evolutionInfo.parameter)
+                        <p>Location:</p>
+                        <span>
+                          {String(path.parameter)
                             .split('_')
                             .map(
                               (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
                             )
                             .join(' ')}
-                        </div>
-                      )}
-                    {typeof evolutionInfo.parameter === 'number' && (
-                      <div>Level {evolutionInfo.parameter}</div>
+                        </span>
+                      </div>
+                    )}
+                    {path.method === 'happiness' && (
+                      <div>
+                        <p>Happiness:</p>
+                        {path.parameter === 'TR_MORNDAY' && <span>(Morning/Day)</span>}
+                        {path.parameter === 'TR_EVENITE' && <span>(Evening/Night)</span>}
+                        {path.parameter === 'TR_ANYTIME' && <span>Anytime</span>}
+                      </div>
+                    )}
+                    {path.method === 'stat' && (
+                      <div>
+                        Stat:
+                        {path.parameter === 'ATK_GT_DEF' && <span> Attack &gt; Defense</span>}
+                        {path.parameter === 'ATK_LT_DEF' && <span> Attack &lt; Defense</span>}
+                        {path.parameter === 'ATK_EQ_DEF' && <span> Attack = Defense</span>}
+                      </div>
+                    )}
+                    {!['level', 'item', 'location', 'happiness', 'stat'].includes(path.method) && (
+                      <div>
+                        {path.method}: {String(path.parameter)}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -333,7 +284,7 @@ export function EvolutionChain({ evolutionData, spritesByGen, className }: Props
                 {targetName}
               </span>
             </Link>
-          </React.Fragment>
+          </div>
         );
       })}
     </div>
