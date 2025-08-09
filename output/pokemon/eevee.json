@@ -1,59 +1,7 @@
 {
-  "name": "eevee",
+  "name": "Eevee",
   "nationalDex": 133,
   "johtoDex": 203,
-  "types": "Normal",
-  "frontSpriteUrl": "/sprites/pokemon/eevee/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 55,
-      "attack": 55,
-      "defense": 50,
-      "speed": 55,
-      "specialAttack": 45,
-      "specialDefense": 65,
-      "total": 325
-    },
-    "catchRate": 45,
-    "baseExp": 92,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 87.5,
-      "female": 12.5
-    },
-    "hatchRate": "Very Slow (10,240 steps)",
-    "abilities": [
-      {
-        "id": "run-away",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "adaptability",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "anticipation",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Field",
-      "Field"
-    ],
-    "evYield": "1 SDf",
-    "types": "Normal",
-    "updatedTypes": "Normal",
-    "height": 3,
-    "weight": 65,
-    "bodyShape": "Quadruped",
-    "bodyColor": "Brown"
-  },
   "evolution": {
     "methods": [
       {
@@ -469,860 +417,1126 @@
       "Sylveon": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
+  "detailedStats": {
+    "baseStats": {
+      "hp": 55,
+      "attack": 55,
+      "defense": 50,
+      "speed": 55,
+      "specialAttack": 45,
+      "specialDefense": 65,
+      "total": 325
+    },
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 55,
+      "defense": 50,
+      "speed": 55,
+      "specialAttack": 45,
+      "specialDefense": 65,
+      "total": 325
+    },
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 55,
+      "defense": 50,
+      "speed": 55,
+      "specialAttack": 45,
+      "specialDefense": 65,
+      "total": 325
+    },
+    "catchRate": 45,
+    "baseExp": 92,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 87.5,
+      "female": 12.5
+    },
+    "hatchRate": "Very Slow (10,240 steps)",
+    "abilities": [
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "adaptability",
+        "name": "Adaptability",
+        "description": "\tPowers up same- \ttype moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "anticipation",
+        "name": "Anticipation",
+        "description": "\tSenses the foe's \tdangerous moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "adaptability",
+        "name": "Adaptability",
+        "description": "\tPowers up same- \ttype moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "anticipation",
+        "name": "Anticipation",
+        "description": "\tSenses the foe's \tdangerous moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 5,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Double Kick",
-      "level": 9,
-      "info": {
-        "description": "A double kicking attack.",
-        "type": "Fighting",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swift",
-      "level": 10,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Quick Attack",
-      "level": 13,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 17,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Heal Bell",
-      "level": 20,
-      "info": {
-        "description": "Eliminates all status problems.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thief",
-      "level": 23,
-      "info": {
-        "description": "An attack that may steal a held item.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 25,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 29,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Baton Pass",
-      "level": 33,
-      "info": {
-        "description": "Switches while keeping effects.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 37,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Growth",
-      "level": 41,
-      "info": {
-        "description": "Raises the user's Atk and Sp.Atk.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 45,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 5,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Double Kick",
-      "level": 9,
-      "info": {
-        "description": "A double kicking attack.",
-        "type": "Fighting",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swift",
-      "level": 10,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Quick Attack",
-      "level": 13,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 17,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Heal Bell",
-      "level": 20,
-      "info": {
-        "description": "Eliminates all status problems.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thief",
-      "level": 23,
-      "info": {
-        "description": "An attack that may steal a held item.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 25,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 29,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Baton Pass",
-      "level": 33,
-      "info": {
-        "description": "Switches while keeping effects.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 37,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Growth",
-      "level": 41,
-      "info": {
-        "description": "Raises the user's Atk and Sp.Atk.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 45,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 5,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Double Kick",
-      "level": 9,
-      "info": {
-        "description": "A double kicking attack.",
-        "type": "Fighting",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swift",
-      "level": 10,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Quick Attack",
-      "level": 13,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 17,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Heal Bell",
-      "level": 20,
-      "info": {
-        "description": "Eliminates all status problems.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thief",
-      "level": 23,
-      "info": {
-        "description": "An attack that may steal a held item.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 25,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 29,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Baton Pass",
-      "level": 33,
-      "info": {
-        "description": "Switches while keeping effects.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 37,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Growth",
-      "level": 41,
-      "info": {
-        "description": "Raises the user's Atk and Sp.Atk.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 45,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Calm Mind",
-      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
-      "type": "Psychic",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dig",
-      "description": "\t1st turn: Burrow \t2nd turn: Attack",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Shadow Ball",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Ghost",
-      "pp": 15,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Baton Pass",
-      "description": "\tSwitches while \tkeeping effects.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Charm",
-      "description": "\tSharply lowers the \tfoe's Attack.",
-      "type": "Fairy",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Earth Power",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Hyper Voice",
-      "description": "\tAttack the foe \twith sound waves.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Pay Day",
-      "description": "\tThrows coins. Gets \tthem back later.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    }
-  ],
-  "eggMoves": [
-    "Charm"
-  ],
-  "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Evolution",
-      "description": "Its ability to evolve into many forms allows it to adapt smoothly and perfectly to any environment."
-    }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "1 SDf",
+    "types": "Normal",
+    "updatedTypes": "Normal"
   },
-  "forms": {}
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Normal",
+      "faithfulTypes": "Normal",
+      "updatedTypes": "Normal",
+      "moves": [
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 5,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 9,
+          "info": {
+            "description": "A double kicking attack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 10,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 13,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 17,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Heal Bell",
+          "level": 20,
+          "info": {
+            "description": "Eliminates all status problems.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thief",
+          "level": 23,
+          "info": {
+            "description": "An attack that may steal a held item.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 25,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 29,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 33,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 37,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growth",
+          "level": 41,
+          "info": {
+            "description": "Raises the user's Atk and Sp.Atk.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 45,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 5,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 9,
+          "info": {
+            "description": "A double kicking attack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 10,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 13,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 17,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Heal Bell",
+          "level": 20,
+          "info": {
+            "description": "Eliminates all status problems.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thief",
+          "level": 23,
+          "info": {
+            "description": "An attack that may steal a held item.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 25,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 29,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 33,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 37,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growth",
+          "level": 41,
+          "info": {
+            "description": "Raises the user's Atk and Sp.Atk.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 45,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 5,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 9,
+          "info": {
+            "description": "A double kicking attack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 10,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 13,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 17,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Heal Bell",
+          "level": 20,
+          "info": {
+            "description": "Eliminates all status problems.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thief",
+          "level": 23,
+          "info": {
+            "description": "An attack that may steal a held item.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 25,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 29,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 33,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 37,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growth",
+          "level": 41,
+          "info": {
+            "description": "Raises the user's Atk and Sp.Atk.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 45,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Charm"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Calm Mind",
+          "description": "Raises the user's Sp.Atk and Sp.Def.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM04",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM30",
+          "location": {
+            "area": "Morty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "description": "Switches while keeping effects.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT03",
+          "location": {
+            "area": "Goldenrod Museum"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Charm",
+          "description": "Sharply lowers the foe's Attack.",
+          "type": "Fairy",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT05",
+          "location": {
+            "area": "Route 35-Natioal Park Gate"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT10",
+          "location": {
+            "area": "Cherrygrove Bay"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Hyper Voice",
+          "description": "Attack the foe with sound waves.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT14",
+          "location": {
+            "area": "Goldenrod Harbor"
+          }
+        },
+        {
+          "name": "Pay Day",
+          "description": "Throws coins. Gets them back later.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 40,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT19",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "adaptability",
+          "name": "Adaptability",
+          "description": "\tPowers up same- \ttype moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "adaptability",
+          "name": "Adaptability",
+          "description": "\tPowers up same- \ttype moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "anticipation",
+          "name": "Anticipation",
+          "description": "\tSenses the foe's \tdangerous moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 55,
+        "defense": 50,
+        "speed": 55,
+        "specialAttack": 45,
+        "specialDefense": 65,
+        "total": 325
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 55,
+        "defense": 50,
+        "speed": 55,
+        "specialAttack": 45,
+        "specialDefense": 65,
+        "total": 325
+      }
+    }
+  }
 }

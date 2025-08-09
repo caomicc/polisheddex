@@ -1,11 +1,44 @@
 {
-  "name": "unown",
+  "name": "Unown",
   "nationalDex": 201,
   "johtoDex": 64,
-  "types": "Psychic",
-  "frontSpriteUrl": "/sprites/pokemon/unown/front_cropped.png",
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Unown"
+    ],
+    "chainWithMethods": {
+      "Unown": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Unown": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Unown": []
+    }
+  },
   "detailedStats": {
     "baseStats": {
+      "hp": 48,
+      "attack": 72,
+      "defense": 48,
+      "speed": 48,
+      "specialAttack": 72,
+      "specialDefense": 48,
+      "total": 336
+    },
+    "faithfulBaseStats": {
+      "hp": 48,
+      "attack": 72,
+      "defense": 48,
+      "speed": 48,
+      "specialAttack": 72,
+      "specialDefense": 48,
+      "total": 336
+    },
+    "polishedBaseStats": {
       "hp": 48,
       "attack": 72,
       "defense": 48,
@@ -25,22 +58,50 @@
     "abilities": [
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Fast",
     "eggGroups": [
       "Undiscovered",
@@ -48,83 +109,4266 @@
     ],
     "evYield": "1 Atk",
     "types": "Psychic",
-    "updatedTypes": "Psychic",
-    "height": 5,
-    "weight": 50,
-    "bodyShape": "Head",
-    "bodyColor": "Black"
+    "updatedTypes": "Psychic"
   },
-  "evolution": {
-    "methods": [],
-    "chain": [
-      "Unown"
-    ],
-    "chainWithMethods": {
-      "Unown": []
+  "forms": {
+    "a": {
+      "name": "A",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
     },
-    "faithfulMethods": [],
-    "faithfulChainWithMethods": {
-      "Unown": []
+    "b": {
+      "name": "B",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
     },
-    "updatedMethods": [],
-    "updatedChainWithMethods": {
-      "Unown": []
+    "c": {
+      "name": "C",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "d": {
+      "name": "D",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "e": {
+      "name": "E",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "f": {
+      "name": "F",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "g": {
+      "name": "G",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "h": {
+      "name": "H",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "i": {
+      "name": "I",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "j": {
+      "name": "J",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "k": {
+      "name": "K",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "l": {
+      "name": "L",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "m": {
+      "name": "M",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "n": {
+      "name": "N",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "o": {
+      "name": "O",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "p": {
+      "name": "P",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "q": {
+      "name": "Q",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "r": {
+      "name": "R",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "s": {
+      "name": "S",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "t": {
+      "name": "T",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "u": {
+      "name": "U",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "v": {
+      "name": "V",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "w": {
+      "name": "W",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "x": {
+      "name": "X",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "y": {
+      "name": "Y",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "z": {
+      "name": "Z",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "exclamation": {
+      "name": "exclamation",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
+    },
+    "question": {
+      "name": "question",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hidden Power",
+          "level": 1,
+          "info": {
+            "description": "The type varies with the Pokemon.",
+            "type": "Unknown",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "polishedBaseStats": {
+        "hp": 48,
+        "attack": 72,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 72,
+        "specialDefense": 48,
+        "total": 336
+      },
+      "catchRate": 225,
+      "baseExp": 61,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Extremely Slow (20,480 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "1 Atk"
     }
   },
-  "levelMoves": [
-    {
-      "name": "Hidden Power",
-      "level": 1,
-      "info": {
-        "description": "The type varies with the Pokemon.",
-        "type": "Unknown",
-        "pp": 15,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Hidden Power",
-      "level": 1,
-      "info": {
-        "description": "The type varies with the Pokemon.",
-        "type": "Unknown",
-        "pp": 15,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Hidden Power",
-      "level": 1,
-      "info": {
-        "description": "The type varies with the Pokemon.",
-        "type": "Unknown",
-        "pp": 15,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    }
-  ],
-  "eggMoves": [],
   "locations": [
     {
       "area": "ruins_of_alph_entrance_chamber",
@@ -238,12 +4482,5 @@
       "chance": 2,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Symbol",
-      "description": "Because different types of Unown exist, it is said that they must have a variety of abilities."
-    }
-  },
-  "forms": {}
+  ]
 }

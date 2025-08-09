@@ -1,68 +1,7 @@
 {
-  "name": "smeargle",
+  "name": "Smeargle",
   "nationalDex": 235,
   "johtoDex": 175,
-  "types": "Normal",
-  "frontSpriteUrl": "/sprites/pokemon/smeargle/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 55,
-      "attack": 20,
-      "defense": 35,
-      "speed": 75,
-      "specialAttack": 20,
-      "specialDefense": 45,
-      "total": 250
-    },
-    "catchRate": 45,
-    "baseExp": 106,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "own-tempo",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "technician",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "moody",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Fast",
-    "eggGroups": [
-      "Field",
-      "Field"
-    ],
-    "evYield": "1 Spe",
-    "types": "Normal",
-    "updatedTypes": "Normal",
-    "height": 12,
-    "weight": 580,
-    "bodyShape": "Bipedal Tail",
-    "bodyColor": "White",
-    "polishedBaseStats": {
-      "hp": 55,
-      "attack": 20,
-      "defense": 35,
-      "speed": 100,
-      "specialAttack": 20,
-      "specialDefense": 45,
-      "total": 275
-    }
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -80,374 +19,509 @@
       "Smeargle": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Sketch",
-      "level": 1,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 55,
+      "attack": 20,
+      "defense": 35,
+      "speed": 75,
+      "specialAttack": 20,
+      "specialDefense": 45,
+      "total": 250
     },
-    {
-      "name": "Sketch",
-      "level": 11,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 20,
+      "defense": 35,
+      "speed": 75,
+      "specialAttack": 20,
+      "specialDefense": 45,
+      "total": 250
     },
-    {
-      "name": "Sketch",
-      "level": 21,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 20,
+      "defense": 35,
+      "speed": 100,
+      "specialAttack": 20,
+      "specialDefense": 45,
+      "total": 275
     },
-    {
-      "name": "Sketch",
-      "level": 31,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
+    "catchRate": 45,
+    "baseExp": 106,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
     },
-    {
-      "name": "Sketch",
-      "level": 41,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "technician",
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "moody",
+        "name": "Moody",
+        "description": "\tRaises a stat and \tlowers another.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Sketch",
-      "level": 51,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "own-tempo",
+        "name": "Own Tempo",
+        "description": "\tPrevents it from \tbecoming confused.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "technician",
+        "name": "Technician",
+        "description": "\tPowers up its \tweaker moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "moody",
+        "name": "Moody",
+        "description": "\tRaises a stat and \tlowers another.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Sketch",
-      "level": 61,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 71,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 81,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 91,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Fast",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "1 Spe",
+    "types": "Normal",
+    "updatedTypes": "Normal"
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Normal",
+      "faithfulTypes": "Normal",
+      "updatedTypes": "Normal",
+      "moves": [
+        {
+          "name": "Sketch",
+          "level": 1,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 11,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 21,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 31,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 41,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 51,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 61,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 71,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 81,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 91,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Sketch",
+          "level": 1,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 11,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 21,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 31,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 41,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 51,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 61,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 71,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 81,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 91,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Sketch",
+          "level": 1,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 11,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 21,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 31,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 41,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 51,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 61,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 71,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 81,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sketch",
+          "level": 91,
+          "info": {
+            "description": "Copies the foe's move permanently.",
+            "type": "Normal",
+            "pp": 1,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "own-tempo",
+          "name": "Own Tempo",
+          "description": "\tPrevents it from \tbecoming confused.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "moody",
+          "name": "Moody",
+          "description": "\tRaises a stat and \tlowers another.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "own-tempo",
+          "name": "Own Tempo",
+          "description": "\tPrevents it from \tbecoming confused.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "technician",
+          "name": "Technician",
+          "description": "\tPowers up its \tweaker moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "moody",
+          "name": "Moody",
+          "description": "\tRaises a stat and \tlowers another.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 20,
+        "defense": 35,
+        "speed": 75,
+        "specialAttack": 20,
+        "specialDefense": 45,
+        "total": 250
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 20,
+        "defense": 35,
+        "speed": 75,
+        "specialAttack": 20,
+        "specialDefense": 45,
+        "total": 250
       }
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Sketch",
-      "level": 1,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 11,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 21,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 31,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 41,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 51,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 61,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 71,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 81,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 91,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Sketch",
-      "level": 1,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 11,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 21,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 31,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 41,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 51,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 61,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 71,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 81,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sketch",
-      "level": 91,
-      "info": {
-        "description": "Copies the foe's move permanently.",
-        "type": "Normal",
-        "pp": 1,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "tmHmMoves": [],
-  "eggMoves": [],
+  },
   "locations": [
     {
       "area": "ruins_of_alph_outside",
@@ -497,12 +571,5 @@
       "chance": 5,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Painter",
-      "description": "The color of the mysterious fluid secreted from its tail is predetermined for each Smeargle."
-    }
-  },
-  "forms": {}
+  ]
 }

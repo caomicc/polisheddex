@@ -1,59 +1,7 @@
 {
-  "name": "metapod",
+  "name": "Metapod",
   "nationalDex": 11,
   "johtoDex": 25,
-  "types": "Bug",
-  "frontSpriteUrl": "/sprites/pokemon/metapod/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 50,
-      "attack": 20,
-      "defense": 55,
-      "speed": 30,
-      "specialAttack": 25,
-      "specialDefense": 25,
-      "total": 205
-    },
-    "catchRate": 120,
-    "baseExp": 72,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "shed-skin",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "shed-skin",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "shed-skin",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Bug",
-      "Bug"
-    ],
-    "evYield": "2 Def",
-    "types": "Bug",
-    "updatedTypes": "Bug",
-    "height": 7,
-    "weight": 99,
-    "bodyShape": "Serpentine",
-    "bodyColor": "Green"
-  },
   "evolution": {
     "methods": [
       {
@@ -133,122 +81,281 @@
       ]
     }
   },
-  "levelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 50,
+      "attack": 20,
+      "defense": 55,
+      "speed": 30,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 205
     },
-    {
-      "name": "String Shot",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Speed.",
-        "type": "Bug",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 95,
-        "category": "Status"
-      }
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 20,
+      "defense": 55,
+      "speed": 30,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 205
     },
-    {
-      "name": "Defense Curl",
-      "level": 1,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 20,
+      "defense": 55,
+      "speed": 30,
+      "specialAttack": 25,
+      "specialDefense": 25,
+      "total": 205
+    },
+    "catchRate": 120,
+    "baseExp": 72,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "shed-skin",
+        "name": "Shed Skin",
+        "description": "\tMay heal its own \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Bug",
+      "Bug"
+    ],
+    "evYield": "2 Def",
+    "types": "Bug",
+    "updatedTypes": "Bug"
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Bug",
+      "faithfulTypes": "Bug",
+      "updatedTypes": "Bug",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shed-skin",
+          "name": "Shed Skin",
+          "description": "\tMay heal its own \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 50,
+        "attack": 20,
+        "defense": 55,
+        "speed": 30,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "total": 205
+      },
+      "faithfulBaseStats": {
+        "hp": 50,
+        "attack": 20,
+        "defense": 55,
+        "speed": 30,
+        "specialAttack": 25,
+        "specialDefense": 25,
+        "total": 205
       }
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "String Shot",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Speed.",
-        "type": "Bug",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 95,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Defense Curl",
-      "level": 1,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "String Shot",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Speed.",
-        "type": "Bug",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 95,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Defense Curl",
-      "level": 1,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "tmHmMoves": [],
-  "eggMoves": [],
+  },
   "locations": [
     {
       "area": "ilex_forest",
@@ -314,12 +421,5 @@
       "chance": 5,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Cocoon",
-      "description": "This is its preevolved form. At this stage, it can only harden, so it remains motionless to avoid attack."
-    }
-  },
-  "forms": {}
+  ]
 }

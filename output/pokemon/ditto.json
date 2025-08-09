@@ -1,71 +1,7 @@
 {
-  "name": "ditto",
+  "name": "Ditto",
   "nationalDex": 132,
   "johtoDex": 97,
-  "types": "Normal",
-  "frontSpriteUrl": "/sprites/pokemon/ditto/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 48,
-      "attack": 48,
-      "defense": 48,
-      "speed": 48,
-      "specialAttack": 48,
-      "specialDefense": 48,
-      "total": 288
-    },
-    "catchRate": 35,
-    "baseExp": 61,
-    "heldItems": [
-      "QUICK_POWDER",
-      "METAL_POWDER"
-    ],
-    "genderRatio": {
-      "male": 0,
-      "female": 0
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "limber",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "limber",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "imposter",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Ditto",
-      "Ditto"
-    ],
-    "evYield": "1 HP",
-    "types": "Normal",
-    "updatedTypes": "Normal",
-    "height": 3,
-    "weight": 40,
-    "bodyShape": "Head",
-    "bodyColor": "Purple",
-    "polishedBaseStats": {
-      "hp": 78,
-      "attack": 28,
-      "defense": 48,
-      "speed": 108,
-      "specialAttack": 28,
-      "specialDefense": 48,
-      "total": 338
-    }
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -83,50 +19,215 @@
       "Ditto": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Transform",
-      "level": 1,
-      "info": {
-        "description": "The user assumes the foe's guise.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+  "detailedStats": {
+    "baseStats": {
+      "hp": 48,
+      "attack": 48,
+      "defense": 48,
+      "speed": 48,
+      "specialAttack": 48,
+      "specialDefense": 48,
+      "total": 288
+    },
+    "faithfulBaseStats": {
+      "hp": 48,
+      "attack": 48,
+      "defense": 48,
+      "speed": 48,
+      "specialAttack": 48,
+      "specialDefense": 48,
+      "total": 288
+    },
+    "polishedBaseStats": {
+      "hp": 78,
+      "attack": 28,
+      "defense": 48,
+      "speed": 108,
+      "specialAttack": 28,
+      "specialDefense": 48,
+      "total": 338
+    },
+    "catchRate": 35,
+    "baseExp": 61,
+    "heldItems": [
+      "QUICK_POWDER",
+      "METAL_POWDER"
+    ],
+    "genderRatio": {
+      "male": 0,
+      "female": 0
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "limber",
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "limber",
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "imposter",
+        "name": "Imposter",
+        "description": "\tTransforms itself \tinto the foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "limber",
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "limber",
+        "name": "Limber",
+        "description": "\tProtects from \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "imposter",
+        "name": "Imposter",
+        "description": "\tTransforms itself \tinto the foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Ditto",
+      "Ditto"
+    ],
+    "evYield": "1 HP",
+    "types": "Normal",
+    "updatedTypes": "Normal"
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Normal",
+      "faithfulTypes": "Normal",
+      "updatedTypes": "Normal",
+      "moves": [
+        {
+          "name": "Transform",
+          "level": 1,
+          "info": {
+            "description": "The user assumes the foe's guise.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Transform",
+          "level": 1,
+          "info": {
+            "description": "The user assumes the foe's guise.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Transform",
+          "level": 1,
+          "info": {
+            "description": "The user assumes the foe's guise.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "limber",
+          "name": "Limber",
+          "description": "\tProtects from \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "limber",
+          "name": "Limber",
+          "description": "\tProtects from \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "imposter",
+          "name": "Imposter",
+          "description": "\tTransforms itself \tinto the foe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "limber",
+          "name": "Limber",
+          "description": "\tProtects from \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "limber",
+          "name": "Limber",
+          "description": "\tProtects from \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "imposter",
+          "name": "Imposter",
+          "description": "\tTransforms itself \tinto the foe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 48,
+        "attack": 48,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 48,
+        "specialDefense": 48,
+        "total": 288
+      },
+      "faithfulBaseStats": {
+        "hp": 48,
+        "attack": 48,
+        "defense": 48,
+        "speed": 48,
+        "specialAttack": 48,
+        "specialDefense": 48,
+        "total": 288
       }
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Transform",
-      "level": 1,
-      "info": {
-        "description": "The user assumes the foe's guise.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Transform",
-      "level": 1,
-      "info": {
-        "description": "The user assumes the foe's guise.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "tmHmMoves": [],
-  "eggMoves": [],
+  },
   "locations": [
     {
       "area": "route_34",
@@ -392,12 +493,5 @@
       "chance": 100,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Transform",
-      "description": "When it encounters another Ditto, it will move faster than normal to duplicate that opponent exactly."
-    }
-  },
-  "forms": {}
+  ]
 }

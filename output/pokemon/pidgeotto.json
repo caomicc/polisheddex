@@ -1,72 +1,7 @@
 {
-  "name": "pidgeotto",
+  "name": "Pidgeotto",
   "nationalDex": 17,
   "johtoDex": 11,
-  "types": [
-    "Normal",
-    "Flying"
-  ],
-  "updatedTypes": [
-    "Normal",
-    "Flying"
-  ],
-  "frontSpriteUrl": "/sprites/pokemon/pidgeotto/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 63,
-      "attack": 60,
-      "defense": 55,
-      "speed": 71,
-      "specialAttack": 50,
-      "specialDefense": 50,
-      "total": 349
-    },
-    "catchRate": 120,
-    "baseExp": 113,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "keen-eye",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "tangled-feet",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "big-pecks",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Slow",
-    "eggGroups": [
-      "Flying",
-      "Flying"
-    ],
-    "evYield": "2 Spe",
-    "types": [
-      "Normal",
-      "Flying"
-    ],
-    "updatedTypes": [
-      "Normal",
-      "Flying"
-    ],
-    "height": 11,
-    "weight": 300,
-    "bodyShape": "Wings",
-    "bodyColor": "Brown"
-  },
   "evolution": {
     "methods": [
       {
@@ -146,754 +81,1034 @@
       ]
     }
   },
-  "levelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 63,
+      "attack": 60,
+      "defense": 55,
+      "speed": 71,
+      "specialAttack": 50,
+      "specialDefense": 50,
+      "total": 349
     },
-    {
-      "name": "Gust",
-      "level": 5,
-      "info": {
-        "description": "Whips up a strong gust of wind.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
+    "faithfulBaseStats": {
+      "hp": 63,
+      "attack": 60,
+      "defense": 55,
+      "speed": 71,
+      "specialAttack": 50,
+      "specialDefense": 50,
+      "total": 349
     },
-    {
-      "name": "Mud Slap",
-      "level": 9,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
+    "polishedBaseStats": {
+      "hp": 63,
+      "attack": 60,
+      "defense": 55,
+      "speed": 71,
+      "specialAttack": 50,
+      "specialDefense": 50,
+      "total": 349
     },
-    {
-      "name": "Quick Attack",
-      "level": 13,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "catchRate": 120,
+    "baseExp": 113,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
     },
-    {
-      "name": "Rage",
-      "level": 17,
-      "info": {
-        "description": "Raises Attack if the user is hit.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Physical"
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "tangled-feet",
+        "name": "Tangled Feet",
+        "description": "\tBoosts evasion if \tit is confused.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "big-pecks",
+        "name": "Big Pecks",
+        "description": "\tPrevents foes from \tlowering Defense.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Charm",
-      "level": 22,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "tangled-feet",
+        "name": "Tangled Feet",
+        "description": "\tBoosts evasion if \tit is confused.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "big-pecks",
+        "name": "Big Pecks",
+        "description": "\tPrevents foes from \tlowering Defense.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Swift",
-      "level": 27,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 32,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Wing Attack",
-      "level": 37,
-      "info": {
-        "description": "Strikes the foe with wings.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Roost",
-      "level": 42,
-      "info": {
-        "description": "Lands to restore 1/2 the max HP.",
-        "type": "Flying",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Drill Peck",
-      "level": 47,
-      "info": {
-        "description": "A strong, spin- ning-peck attack.",
-        "type": "Flying",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Steel Wing",
-      "level": 52,
-      "info": {
-        "description": "An attack that may up user's Defense.",
-        "type": "Steel",
-        "pp": 25,
-        "power": 70,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Air Slash",
-      "level": 57,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Hurricane",
-      "level": 62,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Flying",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Flying",
+      "Flying"
+    ],
+    "evYield": "2 Spe",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Normal",
+      "Flying"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Normal",
+        "Flying"
+      ],
+      "faithfulTypes": [
+        "Normal",
+        "Flying"
+      ],
+      "updatedTypes": [
+        "Normal",
+        "Flying"
+      ],
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 5,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 9,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 13,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 17,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 22,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 27,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 32,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wing Attack",
+          "level": 37,
+          "info": {
+            "description": "Strikes the foe with wings.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roost",
+          "level": 42,
+          "info": {
+            "description": "Lands to restore 1/2 the max HP.",
+            "type": "Flying",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Drill Peck",
+          "level": 47,
+          "info": {
+            "description": "A strong, spinning-peck attack.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "level": 52,
+          "info": {
+            "description": "An attack that may up user's Defense.",
+            "type": "Steel",
+            "pp": 25,
+            "power": 70,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 57,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 62,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 5,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 9,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 13,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 17,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 22,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 27,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 32,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wing Attack",
+          "level": 37,
+          "info": {
+            "description": "Strikes the foe with wings.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roost",
+          "level": 42,
+          "info": {
+            "description": "Lands to restore 1/2 the max HP.",
+            "type": "Flying",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Drill Peck",
+          "level": 47,
+          "info": {
+            "description": "A strong, spinning-peck attack.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "level": 52,
+          "info": {
+            "description": "An attack that may up user's Defense.",
+            "type": "Steel",
+            "pp": 25,
+            "power": 70,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 57,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 62,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 5,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 9,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 13,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 17,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 22,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 27,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 32,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wing Attack",
+          "level": 37,
+          "info": {
+            "description": "Strikes the foe with wings.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roost",
+          "level": 42,
+          "info": {
+            "description": "Lands to restore 1/2 the max HP.",
+            "type": "Flying",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Drill Peck",
+          "level": 47,
+          "info": {
+            "description": "A strong, spinning-peck attack.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "level": 52,
+          "info": {
+            "description": "An attack that may up user's Defense.",
+            "type": "Steel",
+            "pp": 25,
+            "power": 70,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 57,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 62,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Peck",
+        "Feint Attack",
+        "Foresight",
+        "Pursuit",
+        "Air Slash",
+        "Steel Wing",
+        "Charm",
+        "Extremespeed",
+        "Brave Bird"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "description": "An attack that may up user's Defense.",
+          "type": "Steel",
+          "pp": 25,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM47",
+          "location": {
+            "area": "Route 28"
+          }
+        },
+        {
+          "name": "Roost",
+          "description": "Lands to restore 1/2 the max HP.",
+          "type": "Flying",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM51",
+          "location": {
+            "area": "Falkner's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Focus Blast",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM52",
+          "location": {
+            "area": "Quiet Cave"
+          }
+        },
+        {
+          "name": "U Turn",
+          "description": "Switches out after making its attack.",
+          "type": "Bug",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM69",
+          "location": {
+            "area": "Bugsy's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Fly",
+          "description": "1st turn: Fly 2nd turn: Attack",
+          "type": "Flying",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM02",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tangled-feet",
+          "name": "Tangled Feet",
+          "description": "\tBoosts evasion if \tit is confused.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "big-pecks",
+          "name": "Big Pecks",
+          "description": "\tPrevents foes from \tlowering Defense.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "tangled-feet",
+          "name": "Tangled Feet",
+          "description": "\tBoosts evasion if \tit is confused.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "big-pecks",
+          "name": "Big Pecks",
+          "description": "\tPrevents foes from \tlowering Defense.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 63,
+        "attack": 60,
+        "defense": 55,
+        "speed": 71,
+        "specialAttack": 50,
+        "specialDefense": 50,
+        "total": 349
+      },
+      "faithfulBaseStats": {
+        "hp": 63,
+        "attack": 60,
+        "defense": 55,
+        "speed": 71,
+        "specialAttack": 50,
+        "specialDefense": 50,
+        "total": 349
       }
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Gust",
-      "level": 5,
-      "info": {
-        "description": "Whips up a strong gust of wind.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 9,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Quick Attack",
-      "level": 13,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rage",
-      "level": 17,
-      "info": {
-        "description": "Raises Attack if the user is hit.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 22,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Swift",
-      "level": 27,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 32,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Wing Attack",
-      "level": 37,
-      "info": {
-        "description": "Strikes the foe with wings.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Roost",
-      "level": 42,
-      "info": {
-        "description": "Lands to restore 1/2 the max HP.",
-        "type": "Flying",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Drill Peck",
-      "level": 47,
-      "info": {
-        "description": "A strong, spin- ning-peck attack.",
-        "type": "Flying",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Steel Wing",
-      "level": 52,
-      "info": {
-        "description": "An attack that may up user's Defense.",
-        "type": "Steel",
-        "pp": 25,
-        "power": 70,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Air Slash",
-      "level": 57,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Hurricane",
-      "level": 62,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Flying",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Gust",
-      "level": 5,
-      "info": {
-        "description": "Whips up a strong gust of wind.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 9,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Quick Attack",
-      "level": 13,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rage",
-      "level": 17,
-      "info": {
-        "description": "Raises Attack if the user is hit.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 22,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Swift",
-      "level": 27,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 32,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Wing Attack",
-      "level": 37,
-      "info": {
-        "description": "Strikes the foe with wings.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Roost",
-      "level": 42,
-      "info": {
-        "description": "Lands to restore 1/2 the max HP.",
-        "type": "Flying",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Drill Peck",
-      "level": 47,
-      "info": {
-        "description": "A strong, spin- ning-peck attack.",
-        "type": "Flying",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Steel Wing",
-      "level": 52,
-      "info": {
-        "description": "An attack that may up user's Defense.",
-        "type": "Steel",
-        "pp": 25,
-        "power": 70,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Air Slash",
-      "level": 57,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Hurricane",
-      "level": 62,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Flying",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Aerial Ace",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Flying",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Steel Wing",
-      "description": "\tAn attack that may \tup user's Defense.",
-      "type": "Steel",
-      "pp": 25,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Roost",
-      "description": "\tLands to restore \t1/2 the max HP.",
-      "type": "Flying",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Focus Blast",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Fighting",
-      "pp": 5,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "U Turn",
-      "description": "",
-      "type": "Bug",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Fly",
-      "description": "\t1st turn: Fly \t2nd turn: Attack",
-      "type": "Flying",
-      "pp": 15,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Agility",
-      "description": "\tSharply raises the \tuser's Speed.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    }
-  ],
-  "eggMoves": [
-    "Peck",
-    "Feint Attack",
-    "Foresight",
-    "Pursuit",
-    "Air Slash",
-    "Steel Wing",
-    "Charm",
-    "Extremespeed",
-    "Brave Bird"
-  ],
+  },
   "locations": [
     {
       "area": "route_37",
@@ -1327,12 +1542,5 @@
       "chance": 5,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Bird",
-      "description": "It slowly flies in a circular pattern, all the while keeping a sharp lookout for prey."
-    }
-  },
-  "forms": {}
+  ]
 }

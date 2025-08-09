@@ -1,62 +1,7 @@
 {
-  "name": "blissey",
+  "name": "Blissey",
   "nationalDex": 242,
   "johtoDex": 255,
-  "types": "Normal",
-  "frontSpriteUrl": "/sprites/pokemon/blissey/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 255,
-      "attack": 10,
-      "defense": 10,
-      "speed": 55,
-      "specialAttack": 75,
-      "specialDefense": 135,
-      "total": 540
-    },
-    "catchRate": 30,
-    "baseExp": 255,
-    "heldItems": [
-      "OVAL_STONE",
-      "LUCKY_EGG"
-    ],
-    "genderRatio": {
-      "male": 0,
-      "female": 100
-    },
-    "hatchRate": "Extremely Slow (20,480 steps)",
-    "abilities": [
-      {
-        "id": "natural-cure",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "serene-grace",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "natural-cure",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Fast",
-    "eggGroups": [
-      "Fairy",
-      "Fairy"
-    ],
-    "evYield": "3 HP",
-    "types": "Normal",
-    "updatedTypes": "Normal",
-    "height": 15,
-    "weight": 468,
-    "bodyShape": "Bipedal",
-    "bodyColor": "Pink"
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -118,1196 +63,1610 @@
       ]
     }
   },
-  "levelMoves": [
-    {
-      "name": "Defense Curl",
-      "level": 1,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 255,
+      "attack": 10,
+      "defense": 10,
+      "speed": 55,
+      "specialAttack": 75,
+      "specialDefense": 135,
+      "total": 540
     },
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "faithfulBaseStats": {
+      "hp": 255,
+      "attack": 10,
+      "defense": 10,
+      "speed": 55,
+      "specialAttack": 75,
+      "specialDefense": 135,
+      "total": 540
     },
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
+    "polishedBaseStats": {
+      "hp": 255,
+      "attack": 10,
+      "defense": 10,
+      "speed": 55,
+      "specialAttack": 75,
+      "specialDefense": 135,
+      "total": 540
     },
-    {
-      "name": "Leer",
-      "level": 5,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
+    "catchRate": 30,
+    "baseExp": 255,
+    "heldItems": [
+      "OVAL_STONE",
+      "LUCKY_EGG"
+    ],
+    "genderRatio": {
+      "male": 0,
+      "female": 100
     },
-    {
-      "name": "Sweet Kiss",
-      "level": 9,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 75,
-        "category": "Status"
+    "hatchRate": "Extremely Slow (20,480 steps)",
+    "abilities": [
+      {
+        "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "serene-grace",
+        "name": "Serene Grace",
+        "description": "\tBoosts the rate of \tadded effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Double Slap",
-      "level": 12,
-      "info": {
-        "description": "",
-        "type": "None",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "serene-grace",
+        "name": "Serene Grace",
+        "description": "\tBoosts the rate of \tadded effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "natural-cure",
+        "name": "Natural Cure",
+        "description": "\tSwitch-outs heal \tstatus problems.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Fresh Snack",
-      "level": 16,
-      "info": {
-        "description": "Restores HP by 1/2 the user's max HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Metronome",
-      "level": 20,
-      "info": {
-        "description": "Randomly uses any Pokemon move.",
-        "type": "Unknown",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Minimize",
-      "level": 23,
-      "info": {
-        "description": "Sharply raises the user's evasiveness.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 27,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sing",
-      "level": 31,
-      "info": {
-        "description": "May cause the foe to fall asleep.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 0,
-        "accuracy": 75,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 35,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Heal Bell",
-      "level": 39,
-      "info": {
-        "description": "Eliminates all status problems.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Body Slam",
-      "level": 44,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 85,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Light Screen",
-      "level": 50,
-      "info": {
-        "description": "Raises Sp.Def with a wall of light.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Substitute",
-      "level": 57,
-      "info": {
-        "description": "Makes a decoy with 1/4 user's max HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 65,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Fast",
+    "eggGroups": [
+      "Fairy",
+      "Fairy"
+    ],
+    "evYield": "3 HP",
+    "types": "Normal",
+    "updatedTypes": "Normal"
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Normal",
+      "faithfulTypes": "Normal",
+      "updatedTypes": "Normal",
+      "moves": [
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 5,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sweet Kiss",
+          "level": 9,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Fairy",
+            "pp": 10,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Slap",
+          "level": 12,
+          "info": {
+            "description": "Repeatedly slaps 2-5 times.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 15,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fresh Snack",
+          "level": 16,
+          "info": {
+            "description": "Restores HP by 1/2 the user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metronome",
+          "level": 20,
+          "info": {
+            "description": "Randomly uses any Pokemon move.",
+            "type": "Unknown",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Minimize",
+          "level": 23,
+          "info": {
+            "description": "Sharply raises the user's evasiveness.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 27,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sing",
+          "level": 31,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 35,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Heal Bell",
+          "level": 39,
+          "info": {
+            "description": "Eliminates all status problems.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 44,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 50,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Substitute",
+          "level": 57,
+          "info": {
+            "description": "Makes a decoy with 1/4 user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 65,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 5,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sweet Kiss",
+          "level": 9,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Fairy",
+            "pp": 10,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Slap",
+          "level": 12,
+          "info": {
+            "description": "Repeatedly slaps 2-5 times.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 15,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fresh Snack",
+          "level": 16,
+          "info": {
+            "description": "Restores HP by 1/2 the user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metronome",
+          "level": 20,
+          "info": {
+            "description": "Randomly uses any Pokemon move.",
+            "type": "Unknown",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Minimize",
+          "level": 23,
+          "info": {
+            "description": "Sharply raises the user's evasiveness.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 27,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sing",
+          "level": 31,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 35,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Heal Bell",
+          "level": 39,
+          "info": {
+            "description": "Eliminates all status problems.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 44,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 50,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Substitute",
+          "level": 57,
+          "info": {
+            "description": "Makes a decoy with 1/4 user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 65,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 5,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sweet Kiss",
+          "level": 9,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Fairy",
+            "pp": 10,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Slap",
+          "level": 12,
+          "info": {
+            "description": "Repeatedly slaps 2-5 times.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 15,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fresh Snack",
+          "level": 16,
+          "info": {
+            "description": "Restores HP by 1/2 the user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metronome",
+          "level": 20,
+          "info": {
+            "description": "Randomly uses any Pokemon move.",
+            "type": "Unknown",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Minimize",
+          "level": 23,
+          "info": {
+            "description": "Sharply raises the user's evasiveness.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 27,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sing",
+          "level": 31,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 35,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Heal Bell",
+          "level": 39,
+          "info": {
+            "description": "Eliminates all status problems.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 44,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 50,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Substitute",
+          "level": 57,
+          "info": {
+            "description": "Makes a decoy with 1/4 user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 65,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Heal Bell"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Dynamicpunch",
+          "description": "An attack that confuses the foe.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 50,
+          "tmNumber": "TM01",
+          "location": {
+            "area": "Chuck's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Calm Mind",
+          "description": "Raises the user's Sp.Atk and Sp.Def.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM04",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hail",
+          "description": "Inflicts damage every turn.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM07",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "description": "Raises Sp.Def with a wall of light.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM16",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "description": "Prevents all status problems.",
+          "type": "Normal",
+          "pp": 25,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM20",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Solar Beam",
+          "description": "1st turn: Prepare 2nd turn: Attack",
+          "type": "Grass",
+          "pp": 10,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM22",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Psychic",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Psychic",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM29",
+          "location": {
+            "area": "Sabrina's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM30",
+          "location": {
+            "area": "Morty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM35",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 85,
+          "tmNumber": "TM38",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Dazzlingleam",
+          "description": "Dazzles with a powerful flash.",
+          "type": "Fairy",
+          "pp": 10,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM49",
+          "location": {
+            "area": "Bellchime Trail"
+          }
+        },
+        {
+          "name": "Focus Blast",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM52",
+          "location": {
+            "area": "Quiet Cave"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "description": "A charge that also hurts the user.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM57",
+          "location": {
+            "area": "Lt. Surge's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Drain Punch",
+          "description": "Steals 1/2 of the damage inflicted.",
+          "type": "Fighting",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM60",
+          "location": {
+            "area": "Noisy Forest"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "description": "An attack that may confuse the foe.",
+          "type": "Water",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM63",
+          "location": {
+            "area": "Misty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Avalanche",
+          "description": "Damage doubles if user is hit first.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM67",
+          "location": {
+            "area": "Pryce's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flash",
+          "description": "A move that lowers the foe's accuracy.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM70",
+          "location": {
+            "area": "Sprout Tower"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Charm",
+          "description": "Sharply lowers the foe's Attack.",
+          "type": "Fairy",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT05",
+          "location": {
+            "area": "Route 35-Natioal Park Gate"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "description": "Steals HP from a sleeping victim.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 100,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT09",
+          "location": {
+            "area": "Viridian City"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Fire Punch",
+          "description": "A fiery punch. May cause a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT12",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Hyper Voice",
+          "description": "Attack the foe with sound waves.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT14",
+          "location": {
+            "area": "Goldenrod Harbor"
+          }
+        },
+        {
+          "name": "Ice Punch",
+          "description": "An icy punch. May cause freezing.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT15",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "description": "Damage equals the user's level.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT22",
+          "location": {
+            "area": "Pewter City"
+          }
+        },
+        {
+          "name": "Skill Swap",
+          "description": "Swaps abilities with the foe.",
+          "type": "Psychic",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT23",
+          "location": {
+            "area": "Route 27"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Thunderpunch",
+          "description": "An electric punch. It may paralyze.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT27",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "description": "An attack that always paralyzes.",
+          "type": "Electric",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 50,
+          "tmNumber": "MT30",
+          "location": {
+            "area": "Power Plant"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT31",
+          "location": {
+            "area": "Saffron City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "serene-grace",
+          "name": "Serene Grace",
+          "description": "\tBoosts the rate of \tadded effects.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "serene-grace",
+          "name": "Serene Grace",
+          "description": "\tBoosts the rate of \tadded effects.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "natural-cure",
+          "name": "Natural Cure",
+          "description": "\tSwitch-outs heal \tstatus problems.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 255,
+        "attack": 10,
+        "defense": 10,
+        "speed": 55,
+        "specialAttack": 75,
+        "specialDefense": 135,
+        "total": 540
+      },
+      "faithfulBaseStats": {
+        "hp": 255,
+        "attack": 10,
+        "defense": 10,
+        "speed": 55,
+        "specialAttack": 75,
+        "specialDefense": 135,
+        "total": 540
       }
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Defense Curl",
-      "level": 1,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 5,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sweet Kiss",
-      "level": 9,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 75,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Double Slap",
-      "level": 12,
-      "info": {
-        "description": "",
-        "type": "None",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
-    },
-    {
-      "name": "Fresh Snack",
-      "level": 16,
-      "info": {
-        "description": "Restores HP by 1/2 the user's max HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Metronome",
-      "level": 20,
-      "info": {
-        "description": "Randomly uses any Pokemon move.",
-        "type": "Unknown",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Minimize",
-      "level": 23,
-      "info": {
-        "description": "Sharply raises the user's evasiveness.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 27,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sing",
-      "level": 31,
-      "info": {
-        "description": "May cause the foe to fall asleep.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 0,
-        "accuracy": 75,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 35,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Heal Bell",
-      "level": 39,
-      "info": {
-        "description": "Eliminates all status problems.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Body Slam",
-      "level": 44,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 85,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Light Screen",
-      "level": 50,
-      "info": {
-        "description": "Raises Sp.Def with a wall of light.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Substitute",
-      "level": 57,
-      "info": {
-        "description": "Makes a decoy with 1/4 user's max HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 65,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Defense Curl",
-      "level": 1,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 5,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sweet Kiss",
-      "level": 9,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 75,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Double Slap",
-      "level": 12,
-      "info": {
-        "description": "",
-        "type": "None",
-        "pp": 0,
-        "power": 0,
-        "accuracy": 0,
-        "category": "Unknown"
-      }
-    },
-    {
-      "name": "Fresh Snack",
-      "level": 16,
-      "info": {
-        "description": "Restores HP by 1/2 the user's max HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Metronome",
-      "level": 20,
-      "info": {
-        "description": "Randomly uses any Pokemon move.",
-        "type": "Unknown",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Minimize",
-      "level": 23,
-      "info": {
-        "description": "Sharply raises the user's evasiveness.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 27,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sing",
-      "level": 31,
-      "info": {
-        "description": "May cause the foe to fall asleep.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 0,
-        "accuracy": 75,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 35,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Heal Bell",
-      "level": 39,
-      "info": {
-        "description": "Eliminates all status problems.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Body Slam",
-      "level": 44,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 85,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Light Screen",
-      "level": 50,
-      "info": {
-        "description": "Raises Sp.Def with a wall of light.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Substitute",
-      "level": 57,
-      "info": {
-        "description": "Makes a decoy with 1/4 user's max HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 65,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Dynamicpunch",
-      "description": "\tAn attack that \tconfuses the foe.",
-      "type": "Fighting",
-      "pp": 5,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 50
-    },
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Calm Mind",
-      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
-      "type": "Psychic",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hail",
-      "description": "\tInflicts damage \tevery turn.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Ice Beam",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Blizzard",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Hyper Beam",
-      "description": "",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
-      "name": "Light Screen",
-      "description": "\tRaises Sp.Def with \ta wall of light.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Safeguard",
-      "description": "\tPrevents all \tstatus problems.",
-      "type": "Normal",
-      "pp": 25,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Bulldoze",
-      "description": "\tA Ground attack \tthat lowers Speed.",
-      "type": "Ground",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Solar Beam",
-      "description": "\t1st turn: Prepare \t2nd turn: Attack",
-      "type": "Grass",
-      "pp": 10,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Thunderbolt",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 10,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Earthquake",
-      "description": "\tTough but useless \tvs. flying foes.",
-      "type": "Ground",
-      "pp": 10,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Psychic",
-      "description": "",
-      "type": "None",
-      "pp": 0,
-      "power": 0,
-      "category": "Unknown",
-      "accuracy": 0
-    },
-    {
-      "name": "Shadow Ball",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Ghost",
-      "pp": 15,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Flamethrower",
-      "description": "",
-      "type": "Fire",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sandstorm",
-      "description": "",
-      "type": "Rock",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Fire Blast",
-      "description": "\tAn attack that may \tinflict a burn.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 85
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Slide",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Rock",
-      "pp": 10,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Dazzlingleam",
-      "description": "\tDazzles with a \tpowerful flash.",
-      "type": "Fairy",
-      "pp": 10,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Focus Blast",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Fighting",
-      "pp": 5,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Wild Charge",
-      "description": "\tA charge that also \thurts the user.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Drain Punch",
-      "description": "\tSteals 1/2 of the \tdamage inflicted.",
-      "type": "Fighting",
-      "pp": 10,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Water Pulse",
-      "description": "\tAn attack that may \tconfuse the foe.",
-      "type": "Water",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Avalanche",
-      "description": "\tDamage doubles if \tuser is hit first.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Giga Impact",
-      "description": "\t1st turn: Attack \t2nd turn: Rest",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Flash",
-      "description": "\tA move that lowers \tthe foe's accuracy.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder Wave",
-      "description": "\tparalyzes the foe.@",
-      "type": "Electric",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Strength",
-      "description": "\tA powerful physi- \tcal attack.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Charm",
-      "description": "\tSharply lowers the \tfoe's Attack.",
-      "type": "Fairy",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Counter",
-      "description": "\tReturns a physical \tattack double.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Defense Curl",
-      "description": "\tRaises the user's \tDefense.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dream Eater",
-      "description": "\tSteals HP from a \tsleeping victim.",
-      "type": "Psychic",
-      "pp": 15,
-      "power": 100,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Fire Punch",
-      "description": "\tA fiery punch. May \tcause a burn.",
-      "type": "Fire",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Hyper Voice",
-      "description": "\tAttack the foe \twith sound waves.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Ice Punch",
-      "description": "\tAn icy punch. May \tcause freezing.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Icy Wind",
-      "description": "\tAn icy attack that \tlowers Speed.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 55,
-      "category": "Special",
-      "accuracy": 95
-    },
-    {
-      "name": "Rollout",
-      "description": "\tAttacks 5 turns \twith rising power.",
-      "type": "Rock",
-      "pp": 20,
-      "power": 30,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Seismic Toss",
-      "description": "\tDamage equals the \tuser's level.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Skill Swap",
-      "description": "\tSwaps abilities \twith the foe.",
-      "type": "Psychic",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Thunderpunch",
-      "description": "\tAn electric punch. \tIt may paralyze.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Zap Cannon",
-      "description": "\tAn attack that \talways paralyzes.",
-      "type": "Electric",
-      "pp": 5,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 50
-    },
-    {
-      "name": "Zen Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Psychic",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 90
-    }
-  ],
-  "eggMoves": [
-    "Heal Bell"
-  ],
+  },
   "locations": [
     {
       "area": "lucky_island",
@@ -1325,12 +1684,5 @@
       "chance": 2,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Happiness",
-      "description": "Biting into one of the delicious eggs that Blissey provides will make everyone around smile with joy."
-    }
-  },
-  "forms": {}
+  ]
 }

@@ -1,65 +1,7 @@
 {
-  "name": "octillery",
+  "name": "Octillery",
   "nationalDex": 224,
   "johtoDex": 194,
-  "types": "Water",
-  "updatedTypes": [
-    "Water",
-    "Fire"
-  ],
-  "frontSpriteUrl": "/sprites/pokemon/octillery/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 75,
-      "attack": 105,
-      "defense": 75,
-      "speed": 45,
-      "specialAttack": 105,
-      "specialDefense": 75,
-      "total": 480
-    },
-    "catchRate": 75,
-    "baseExp": 164,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "suction-cups",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sniper",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "moody",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Undiscovered"
-    ],
-    "evYield": "1 Atk",
-    "types": "Water",
-    "updatedTypes": [
-      "Water",
-      "Fire"
-    ],
-    "height": 9,
-    "weight": 285,
-    "bodyShape": "Tentacles",
-    "bodyColor": "Red"
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -99,1027 +41,1358 @@
       ]
     }
   },
-  "levelMoves": [
-    {
-      "name": "Octazooka",
-      "level": 1,
-      "info": {
-        "description": "An attack that may lower accuracy.",
-        "type": "Water",
-        "pp": 10,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 75,
+      "attack": 105,
+      "defense": 75,
+      "speed": 45,
+      "specialAttack": 105,
+      "specialDefense": 75,
+      "total": 480
     },
-    {
-      "name": "Rock Blast",
-      "level": 1,
-      "info": {
-        "description": "Hurls boulders to hit 2-5 times.",
-        "type": "Rock",
-        "pp": 25,
-        "power": 25,
-        "accuracy": 90,
-        "category": "Physical"
-      }
+    "faithfulBaseStats": {
+      "hp": 75,
+      "attack": 105,
+      "defense": 75,
+      "speed": 45,
+      "specialAttack": 105,
+      "specialDefense": 75,
+      "total": 480
     },
-    {
-      "name": "Power Whip",
-      "level": 1,
-      "info": {
-        "description": "A violent lash attack.",
-        "type": "Grass",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 85,
-        "category": "Physical"
-      }
+    "polishedBaseStats": {
+      "hp": 75,
+      "attack": 105,
+      "defense": 75,
+      "speed": 45,
+      "specialAttack": 105,
+      "specialDefense": 75,
+      "total": 480
     },
-    {
-      "name": "Water Gun",
-      "level": 1,
-      "info": {
-        "description": "Squirts water to attack.",
-        "type": "Water",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
+    "catchRate": 75,
+    "baseExp": 164,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
     },
-    {
-      "name": "Foresight",
-      "level": 6,
-      "info": {
-        "description": "Negates foe's eva- sion and immunity.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "suction-cups",
+        "name": "Suction Cups",
+        "description": "\tNegates forced \tswitch-outs.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "moody",
+        "name": "Moody",
+        "description": "\tRaises a stat and \tlowers another.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Psybeam",
-      "level": 10,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "suction-cups",
+        "name": "Suction Cups",
+        "description": "\tNegates forced \tswitch-outs.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "moody",
+        "name": "Moody",
+        "description": "\tRaises a stat and \tlowers another.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Aurora Beam",
-      "level": 14,
-      "info": {
-        "description": "An attack that may lower Attack.",
-        "type": "Ice",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Bubble Beam",
-      "level": 18,
-      "info": {
-        "description": "An attack that may lower Speed.",
-        "type": "Water",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Focus Energy",
-      "level": 22,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Wrap",
-      "level": 26,
-      "info": {
-        "description": "Traps the foe for 2-5 turns.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 15,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Water Pulse",
-      "level": 28,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Water",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Flamethrower",
-      "level": 34,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Ice Beam",
-      "level": 40,
-      "info": {
-        "description": "An attack that may freeze the foe.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Seed Bomb",
-      "level": 46,
-      "info": {
-        "description": "Slams a barrage of seeds at the foe.",
-        "type": "Grass",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Gunk Shot",
-      "level": 52,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 80,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hydro Pump",
-      "level": 58,
-      "info": {
-        "description": "A powerful Water- type attack.",
-        "type": "Water",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 80,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aura Sphere",
-      "level": 64,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 80,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Hyper Beam",
-      "level": 70,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 150,
-        "accuracy": 90,
-        "category": "Special"
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "1 Atk",
+    "types": "Water",
+    "updatedTypes": [
+      "Water",
+      "Fire"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": [
+        "Water",
+        "Fire"
+      ],
+      "moves": [
+        {
+          "name": "Octazooka",
+          "level": 1,
+          "info": {
+            "description": "An attack that may lower accuracy.",
+            "type": "Water",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 1,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Power Whip",
+          "level": 1,
+          "info": {
+            "description": "A violent lash attack.",
+            "type": "Grass",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Water Gun",
+          "level": 1,
+          "info": {
+            "description": "Squirts water to attack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Foresight",
+          "level": 6,
+          "info": {
+            "description": "Negates foe's evasion and immunity.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 10,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 14,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bubble Beam",
+          "level": 18,
+          "info": {
+            "description": "An attack that may lower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 22,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 26,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "level": 28,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Water",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 34,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "level": 40,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Seed Bomb",
+          "level": 46,
+          "info": {
+            "description": "Slams a barrage of seeds at the foe.",
+            "type": "Grass",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gunk Shot",
+          "level": 52,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 58,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aura Sphere",
+          "level": 64,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 80,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 70,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Octazooka",
+          "level": 1,
+          "info": {
+            "description": "An attack that may lower accuracy.",
+            "type": "Water",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 1,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Power Whip",
+          "level": 1,
+          "info": {
+            "description": "A violent lash attack.",
+            "type": "Grass",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Water Gun",
+          "level": 1,
+          "info": {
+            "description": "Squirts water to attack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Foresight",
+          "level": 6,
+          "info": {
+            "description": "Negates foe's evasion and immunity.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 10,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 14,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bubble Beam",
+          "level": 18,
+          "info": {
+            "description": "An attack that may lower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 22,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 26,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "level": 28,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Water",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 34,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "level": 40,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Seed Bomb",
+          "level": 46,
+          "info": {
+            "description": "Slams a barrage of seeds at the foe.",
+            "type": "Grass",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gunk Shot",
+          "level": 52,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 58,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aura Sphere",
+          "level": 64,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 80,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 70,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Octazooka",
+          "level": 1,
+          "info": {
+            "description": "An attack that may lower accuracy.",
+            "type": "Water",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 1,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Power Whip",
+          "level": 1,
+          "info": {
+            "description": "A violent lash attack.",
+            "type": "Grass",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Water Gun",
+          "level": 1,
+          "info": {
+            "description": "Squirts water to attack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Foresight",
+          "level": 6,
+          "info": {
+            "description": "Negates foe's evasion and immunity.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 10,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 14,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bubble Beam",
+          "level": 18,
+          "info": {
+            "description": "An attack that may lower Speed.",
+            "type": "Water",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 22,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 26,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "level": 28,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Water",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 34,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "level": 40,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Seed Bomb",
+          "level": 46,
+          "info": {
+            "description": "Slams a barrage of seeds at the foe.",
+            "type": "Grass",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gunk Shot",
+          "level": 52,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 58,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "level": 58,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 85,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aura Sphere",
+          "level": 64,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 80,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 70,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Splash",
+        "Haze",
+        "Octazooka",
+        "Rock Blast",
+        "Screech",
+        "Supersonic",
+        "Aurora Beam",
+        "Gunk Shot",
+        "Water Pulse"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Psychic",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Psychic",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM29",
+          "location": {
+            "area": "Sabrina's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flash Cannon",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Steel",
+          "pp": 10,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM34",
+          "location": {
+            "area": "Route 9"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM35",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sludge Bomb",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM36",
+          "location": {
+            "area": "Route 43"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 85,
+          "tmNumber": "TM38",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Energy Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Grass",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM53",
+          "location": {
+            "area": "Olivine Lighthouse"
+          }
+        },
+        {
+          "name": "Scald",
+          "description": "An attack that may inflict a burn.",
+          "type": "Water",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM55",
+          "location": {
+            "area": "Route 19"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "description": "An attack that may confuse the foe.",
+          "type": "Water",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM63",
+          "location": {
+            "area": "Misty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Surf",
+          "description": "A strong Watertype attack.",
+          "type": "Water",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "HM03",
+          "location": {
+            "area": "Ecruteak City"
+          }
+        },
+        {
+          "name": "Whirlpool",
+          "description": "Traps the foe for 2-5 turns.",
+          "type": "Water",
+          "pp": 15,
+          "power": 40,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "HM05",
+          "location": {
+            "area": "Route 42"
+          }
+        },
+        {
+          "name": "Waterfall",
+          "description": "An attack that may cause flinching.",
+          "type": "Water",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM06",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Seed Bomb",
+          "description": "Slams a barrage of seeds at the foe.",
+          "type": "Grass",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT21",
+          "location": {
+            "area": "Yellow Forest"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "description": "Damage equals the user's level.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT22",
+          "location": {
+            "area": "Pewter City"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "suction-cups",
+          "name": "Suction Cups",
+          "description": "\tNegates forced \tswitch-outs.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "moody",
+          "name": "Moody",
+          "description": "\tRaises a stat and \tlowers another.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "suction-cups",
+          "name": "Suction Cups",
+          "description": "\tNegates forced \tswitch-outs.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "moody",
+          "name": "Moody",
+          "description": "\tRaises a stat and \tlowers another.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 75,
+        "attack": 105,
+        "defense": 75,
+        "speed": 45,
+        "specialAttack": 105,
+        "specialDefense": 75,
+        "total": 480
+      },
+      "faithfulBaseStats": {
+        "hp": 75,
+        "attack": 105,
+        "defense": 75,
+        "speed": 45,
+        "specialAttack": 105,
+        "specialDefense": 75,
+        "total": 480
       }
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Octazooka",
-      "level": 1,
-      "info": {
-        "description": "An attack that may lower accuracy.",
-        "type": "Water",
-        "pp": 10,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Rock Blast",
-      "level": 1,
-      "info": {
-        "description": "Hurls boulders to hit 2-5 times.",
-        "type": "Rock",
-        "pp": 25,
-        "power": 25,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Power Whip",
-      "level": 1,
-      "info": {
-        "description": "A violent lash attack.",
-        "type": "Grass",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Water Gun",
-      "level": 1,
-      "info": {
-        "description": "Squirts water to attack.",
-        "type": "Water",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Foresight",
-      "level": 6,
-      "info": {
-        "description": "Negates foe's eva- sion and immunity.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Psybeam",
-      "level": 10,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aurora Beam",
-      "level": 14,
-      "info": {
-        "description": "An attack that may lower Attack.",
-        "type": "Ice",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Bubble Beam",
-      "level": 18,
-      "info": {
-        "description": "An attack that may lower Speed.",
-        "type": "Water",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Focus Energy",
-      "level": 22,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Wrap",
-      "level": 26,
-      "info": {
-        "description": "Traps the foe for 2-5 turns.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 15,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Water Pulse",
-      "level": 28,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Water",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Flamethrower",
-      "level": 34,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Ice Beam",
-      "level": 40,
-      "info": {
-        "description": "An attack that may freeze the foe.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Seed Bomb",
-      "level": 46,
-      "info": {
-        "description": "Slams a barrage of seeds at the foe.",
-        "type": "Grass",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Gunk Shot",
-      "level": 52,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 80,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hydro Pump",
-      "level": 58,
-      "info": {
-        "description": "A powerful Water- type attack.",
-        "type": "Water",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 80,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aura Sphere",
-      "level": 64,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 80,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Hyper Beam",
-      "level": 70,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 150,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Octazooka",
-      "level": 1,
-      "info": {
-        "description": "An attack that may lower accuracy.",
-        "type": "Water",
-        "pp": 10,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Rock Blast",
-      "level": 1,
-      "info": {
-        "description": "Hurls boulders to hit 2-5 times.",
-        "type": "Rock",
-        "pp": 25,
-        "power": 25,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Power Whip",
-      "level": 1,
-      "info": {
-        "description": "A violent lash attack.",
-        "type": "Grass",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Water Gun",
-      "level": 1,
-      "info": {
-        "description": "Squirts water to attack.",
-        "type": "Water",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Foresight",
-      "level": 6,
-      "info": {
-        "description": "Negates foe's eva- sion and immunity.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Psybeam",
-      "level": 10,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aurora Beam",
-      "level": 14,
-      "info": {
-        "description": "An attack that may lower Attack.",
-        "type": "Ice",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Bubble Beam",
-      "level": 18,
-      "info": {
-        "description": "An attack that may lower Speed.",
-        "type": "Water",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Focus Energy",
-      "level": 22,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Wrap",
-      "level": 26,
-      "info": {
-        "description": "Traps the foe for 2-5 turns.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 15,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Water Pulse",
-      "level": 28,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Water",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Flamethrower",
-      "level": 34,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Ice Beam",
-      "level": 40,
-      "info": {
-        "description": "An attack that may freeze the foe.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Seed Bomb",
-      "level": 46,
-      "info": {
-        "description": "Slams a barrage of seeds at the foe.",
-        "type": "Grass",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Gunk Shot",
-      "level": 52,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 80,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hydro Pump",
-      "level": 58,
-      "info": {
-        "description": "A powerful Water- type attack.",
-        "type": "Water",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 80,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Fire Blast",
-      "level": 58,
-      "info": {
-        "description": "An attack that may inflict a burn.",
-        "type": "Fire",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 85,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aura Sphere",
-      "level": 64,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 80,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Hyper Beam",
-      "level": 70,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 150,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Ice Beam",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Blizzard",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Hyper Beam",
-      "description": "",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Psychic",
-      "description": "",
-      "type": "None",
-      "pp": 0,
-      "power": 0,
-      "category": "Unknown",
-      "accuracy": 0
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Flash Cannon",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Steel",
-      "pp": 10,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Flamethrower",
-      "description": "",
-      "type": "Fire",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sludge Bomb",
-      "description": "\tAn attack that may \tpoison the foe.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Fire Blast",
-      "description": "\tAn attack that may \tinflict a burn.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 85
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Energy Ball",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Grass",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Scald",
-      "description": "\tAn attack that may \tinflict a burn.",
-      "type": "Water",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Water Pulse",
-      "description": "\tAn attack that may \tconfuse the foe.",
-      "type": "Water",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Giga Impact",
-      "description": "\t1st turn: Attack \t2nd turn: Rest",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Thunder Wave",
-      "description": "\tparalyzes the foe.@",
-      "type": "Electric",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Surf",
-      "description": "\tA strong Water- \ttype attack.",
-      "type": "Water",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Whirlpool",
-      "description": "",
-      "type": "Water",
-      "pp": 15,
-      "power": 40,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
-      "name": "Waterfall",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Water",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Defense Curl",
-      "description": "\tRaises the user's \tDefense.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Icy Wind",
-      "description": "\tAn icy attack that \tlowers Speed.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 55,
-      "category": "Special",
-      "accuracy": 95
-    },
-    {
-      "name": "Seed Bomb",
-      "description": "\tSlams a barrage of \tseeds at the foe.",
-      "type": "Grass",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Seismic Toss",
-      "description": "\tDamage equals the \tuser's level.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    }
-  ],
-  "eggMoves": [
-    "Splash",
-    "Haze",
-    "Octazooka",
-    "Rock Blast",
-    "Screech",
-    "Supersonic",
-    "Aurora Beam",
-    "Gunk Shot",
-    "Water Pulse"
-  ],
+  },
   "locations": [
     {
       "area": "whirl_island_sw",
@@ -1145,12 +1418,5 @@
       "chance": 10,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Jet",
-      "description": "Its instinct is to bury itself in holes. It often steals the nesting holes of others to sleep in them."
-    }
-  },
-  "forms": {}
+  ]
 }

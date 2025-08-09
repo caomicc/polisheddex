@@ -1,11 +1,88 @@
 {
-  "name": "nidoran-m",
+  "name": "Nidoran-M",
   "nationalDex": 32,
   "johtoDex": 103,
-  "types": "Poison",
-  "frontSpriteUrl": "/sprites/pokemon/nidoran_m/front_cropped.png",
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Nidoran-M",
+      "Nidorino",
+      "Nidoking"
+    ],
+    "chainWithMethods": {
+      "Nidoran-M": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorino"
+        }
+      ],
+      "Nidorino": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoking"
+        }
+      ],
+      "Nidoking": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Nidoran-M": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorino"
+        }
+      ],
+      "Nidorino": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoking"
+        }
+      ],
+      "Nidoking": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Nidoran-M": [
+        {
+          "method": "EVOLVE_LEVEL",
+          "parameter": 16,
+          "target": "Nidorino"
+        }
+      ],
+      "Nidorino": [
+        {
+          "method": "EVOLVE_ITEM",
+          "parameter": "MOON_STONE",
+          "target": "Nidoking"
+        }
+      ],
+      "Nidoking": []
+    }
+  },
   "detailedStats": {
     "baseStats": {
+      "hp": 46,
+      "attack": 57,
+      "defense": 40,
+      "speed": 50,
+      "specialAttack": 40,
+      "specialDefense": 40,
+      "total": 273
+    },
+    "faithfulBaseStats": {
+      "hp": 46,
+      "attack": 57,
+      "defense": 40,
+      "speed": 50,
+      "specialAttack": 40,
+      "specialDefense": 40,
+      "total": 273
+    },
+    "polishedBaseStats": {
       "hp": 46,
       "attack": 57,
       "defense": 40,
@@ -25,22 +102,50 @@
     "abilities": [
       {
         "id": "poison-point",
+        "name": "Poison Point",
+        "description": "\tContact may poison \tthe foe.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "rivalry",
+        "name": "Rivalry",
+        "description": "\tBoosts damage to \tsame-gender foes.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "poison-point",
+        "name": "Poison Point",
+        "description": "\tContact may poison \tthe foe.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "rivalry",
+        "name": "Rivalry",
+        "description": "\tBoosts damage to \tsame-gender foes.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Medium Slow",
     "eggGroups": [
       "Monster",
@@ -48,831 +153,1044 @@
     ],
     "evYield": "1 Atk",
     "types": "Poison",
-    "updatedTypes": "Poison",
-    "height": 5,
-    "weight": 90,
-    "bodyShape": "Quadruped",
-    "bodyColor": "Purple"
+    "updatedTypes": "Poison"
   },
-  "evolution": null,
-  "levelMoves": [
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Peck",
-      "level": 1,
-      "info": {
-        "description": "Jabs the foe with a beak, etc.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 35,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Focus Energy",
-      "level": 7,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Double Kick",
-      "level": 9,
-      "info": {
-        "description": "A double kicking attack.",
-        "type": "Fighting",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Poison Sting",
-      "level": 13,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 35,
-        "power": 15,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 19,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Horn Attack",
-      "level": 21,
-      "info": {
-        "description": "An attack using a horn to jab.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sweet Kiss",
-      "level": 25,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 75,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Toxic Spikes",
-      "level": 31,
-      "info": {
-        "description": "Poisons foes when they switch in.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Healinglight",
-      "level": 33,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Poison Jab",
-      "level": 37,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 43,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Megahorn",
-      "level": 45,
-      "info": {
-        "description": "A powerful charge attack.",
-        "type": "Bug",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 85,
-        "category": "Physical"
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Poison",
+      "faithfulTypes": "Poison",
+      "updatedTypes": "Poison",
+      "moves": [
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "Jabs the foe with a beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 7,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 9,
+          "info": {
+            "description": "A double kicking attack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Sting",
+          "level": 13,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 19,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Horn Attack",
+          "level": 21,
+          "info": {
+            "description": "An attack using a horn to jab.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sweet Kiss",
+          "level": 25,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Fairy",
+            "pp": 10,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Toxic Spikes",
+          "level": 31,
+          "info": {
+            "description": "Poisons foes when they switch in.",
+            "type": "Poison",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 33,
+          "info": {
+            "description": "Restores HP based on weather.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 37,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 43,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Megahorn",
+          "level": 45,
+          "info": {
+            "description": "A powerful charge attack.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "Jabs the foe with a beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 7,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 9,
+          "info": {
+            "description": "A double kicking attack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Sting",
+          "level": 13,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 19,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Horn Attack",
+          "level": 21,
+          "info": {
+            "description": "An attack using a horn to jab.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sweet Kiss",
+          "level": 25,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Fairy",
+            "pp": 10,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Toxic Spikes",
+          "level": 31,
+          "info": {
+            "description": "Poisons foes when they switch in.",
+            "type": "Poison",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 33,
+          "info": {
+            "description": "Restores HP based on weather.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 37,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 43,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Megahorn",
+          "level": 45,
+          "info": {
+            "description": "A powerful charge attack.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "Jabs the foe with a beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 7,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 9,
+          "info": {
+            "description": "A double kicking attack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Sting",
+          "level": 13,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 19,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Horn Attack",
+          "level": 21,
+          "info": {
+            "description": "An attack using a horn to jab.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sweet Kiss",
+          "level": 25,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Fairy",
+            "pp": 10,
+            "accuracy": 75,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Toxic Spikes",
+          "level": 31,
+          "info": {
+            "description": "Poisons foes when they switch in.",
+            "type": "Poison",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 33,
+          "info": {
+            "description": "Restores HP based on weather.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 37,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 43,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Megahorn",
+          "level": 45,
+          "info": {
+            "description": "A powerful charge attack.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Amnesia",
+        "Confusion",
+        "Disable",
+        "Supersonic",
+        "Take Down",
+        "Calm Mind",
+        "Counter"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "description": "Damage doubles if foe is poisoned.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 65,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM09",
+          "location": {
+            "area": "Route 11"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "description": "Raises the user's Atk and accuracy.",
+          "type": "Dark",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM12",
+          "location": {
+            "area": "Route 35"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sludge Bomb",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM36",
+          "location": {
+            "area": "Route 43"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "description": "An attack that may confuse the foe.",
+          "type": "Water",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM63",
+          "location": {
+            "area": "Misty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Shadow Claw",
+          "description": "Has a high critical hit ratio.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM65",
+          "location": {
+            "area": "Lavender Soul House"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 20,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM66",
+          "location": {
+            "area": "Janine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "description": "Attacks before the foe does.",
+          "type": "Dark",
+          "pp": 5,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT25",
+          "location": {
+            "area": "Scary Cave"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rivalry",
+          "name": "Rivalry",
+          "description": "\tBoosts damage to \tsame-gender foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "poison-point",
+          "name": "Poison Point",
+          "description": "\tContact may poison \tthe foe.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rivalry",
+          "name": "Rivalry",
+          "description": "\tBoosts damage to \tsame-gender foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 46,
+        "attack": 57,
+        "defense": 40,
+        "speed": 50,
+        "specialAttack": 40,
+        "specialDefense": 40,
+        "total": 273
+      },
+      "faithfulBaseStats": {
+        "hp": 46,
+        "attack": 57,
+        "defense": 40,
+        "speed": 50,
+        "specialAttack": 40,
+        "specialDefense": 40,
+        "total": 273
       }
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Peck",
-      "level": 1,
-      "info": {
-        "description": "Jabs the foe with a beak, etc.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 35,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Focus Energy",
-      "level": 7,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Double Kick",
-      "level": 9,
-      "info": {
-        "description": "A double kicking attack.",
-        "type": "Fighting",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Poison Sting",
-      "level": 13,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 35,
-        "power": 15,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 19,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Horn Attack",
-      "level": 21,
-      "info": {
-        "description": "An attack using a horn to jab.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sweet Kiss",
-      "level": 25,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 75,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Toxic Spikes",
-      "level": 31,
-      "info": {
-        "description": "Poisons foes when they switch in.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Healinglight",
-      "level": 33,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Poison Jab",
-      "level": 37,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 43,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Megahorn",
-      "level": 45,
-      "info": {
-        "description": "A powerful charge attack.",
-        "type": "Bug",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Peck",
-      "level": 1,
-      "info": {
-        "description": "Jabs the foe with a beak, etc.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 35,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Focus Energy",
-      "level": 7,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Double Kick",
-      "level": 9,
-      "info": {
-        "description": "A double kicking attack.",
-        "type": "Fighting",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Poison Sting",
-      "level": 13,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 35,
-        "power": 15,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 19,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Horn Attack",
-      "level": 21,
-      "info": {
-        "description": "An attack using a horn to jab.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sweet Kiss",
-      "level": 25,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 75,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Toxic Spikes",
-      "level": 31,
-      "info": {
-        "description": "Poisons foes when they switch in.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Healinglight",
-      "level": 33,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Poison Jab",
-      "level": 37,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 43,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Megahorn",
-      "level": 45,
-      "info": {
-        "description": "A powerful charge attack.",
-        "type": "Bug",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Venoshock",
-      "description": "\tDamage doubles if \tfoe is poisoned.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 65,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Hone Claws",
-      "description": "\tRaises the user's \tAtk and accuracy.",
-      "type": "Dark",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Ice Beam",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Blizzard",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Thunderbolt",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 10,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dig",
-      "description": "\t1st turn: Burrow \t2nd turn: Attack",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Sludge Bomb",
-      "description": "\tAn attack that may \tpoison the foe.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Water Pulse",
-      "description": "\tAn attack that may \tconfuse the foe.",
-      "type": "Water",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Shadow Claw",
-      "description": "",
-      "type": "Ghost",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Poison Jab",
-      "description": "\tAn attack that may \tpoison the foe.",
-      "type": "Poison",
-      "pp": 20,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Cut",
-      "description": "\tCuts using claws, \tscythes, etc.",
-      "type": "Steel",
-      "pp": 30,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Strength",
-      "description": "\tA powerful physi- \tcal attack.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Counter",
-      "description": "\tReturns a physical \tattack double.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Defense Curl",
-      "description": "\tRaises the user's \tDefense.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Sucker Punch",
-      "description": "\tAttacks before the \tfoe does.",
-      "type": "Dark",
-      "pp": 5,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    }
-  ],
-  "eggMoves": [
-    "Amnesia",
-    "Confusion",
-    "Disable",
-    "Supersonic",
-    "Take Down",
-    "Calm Mind",
-    "Counter"
-  ],
+  },
   "locations": [
     {
       "area": "national_park",
@@ -954,12 +1272,5 @@
       "chance": 100,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Poison Pin",
-      "description": "It constantly moves its large ears in many directions in order to detect danger right away."
-    }
-  },
-  "forms": {}
+  ]
 }

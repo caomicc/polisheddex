@@ -1,59 +1,7 @@
 {
-  "name": "caterpie",
+  "name": "Caterpie",
   "nationalDex": 10,
   "johtoDex": 24,
-  "types": "Bug",
-  "frontSpriteUrl": "/sprites/pokemon/caterpie/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 45,
-      "attack": 30,
-      "defense": 35,
-      "speed": 45,
-      "specialAttack": 20,
-      "specialDefense": 20,
-      "total": 195
-    },
-    "catchRate": 255,
-    "baseExp": 53,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "shield-dust",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "shield-dust",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "run-away",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Bug",
-      "Bug"
-    ],
-    "evYield": "1 HP",
-    "types": "Bug",
-    "updatedTypes": "Bug",
-    "height": 3,
-    "weight": 29,
-    "bodyShape": "Insectoid",
-    "bodyColor": "Green"
-  },
   "evolution": {
     "methods": [
       {
@@ -133,122 +81,284 @@
       "Butterfree": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 45,
+      "attack": 30,
+      "defense": 35,
+      "speed": 45,
+      "specialAttack": 20,
+      "specialDefense": 20,
+      "total": 195
     },
-    {
-      "name": "String Shot",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Speed.",
-        "type": "Bug",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 95,
-        "category": "Status"
-      }
+    "faithfulBaseStats": {
+      "hp": 45,
+      "attack": 30,
+      "defense": 35,
+      "speed": 45,
+      "specialAttack": 20,
+      "specialDefense": 20,
+      "total": 195
     },
-    {
-      "name": "Bug Bite",
-      "level": 9,
-      "info": {
-        "description": "Bites the foe and eats a held Berry.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
+    "polishedBaseStats": {
+      "hp": 45,
+      "attack": 30,
+      "defense": 35,
+      "speed": 45,
+      "specialAttack": 20,
+      "specialDefense": 20,
+      "total": 195
+    },
+    "catchRate": 255,
+    "baseExp": 53,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shield-dust",
+        "name": "Shield Dust",
+        "description": "\tBlocks additional \tattack effects.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Bug",
+      "Bug"
+    ],
+    "evYield": "1 HP",
+    "types": "Bug",
+    "updatedTypes": "Bug"
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Bug",
+      "faithfulTypes": "Bug",
+      "updatedTypes": "Bug",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 9,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 9,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 9,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "shield-dust",
+          "name": "Shield Dust",
+          "description": "\tBlocks additional \tattack effects.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shield-dust",
+          "name": "Shield Dust",
+          "description": "\tBlocks additional \tattack effects.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "shield-dust",
+          "name": "Shield Dust",
+          "description": "\tBlocks additional \tattack effects.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shield-dust",
+          "name": "Shield Dust",
+          "description": "\tBlocks additional \tattack effects.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 45,
+        "attack": 30,
+        "defense": 35,
+        "speed": 45,
+        "specialAttack": 20,
+        "specialDefense": 20,
+        "total": 195
+      },
+      "faithfulBaseStats": {
+        "hp": 45,
+        "attack": 30,
+        "defense": 35,
+        "speed": 45,
+        "specialAttack": 20,
+        "specialDefense": 20,
+        "total": 195
       }
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "String Shot",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Speed.",
-        "type": "Bug",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 95,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Bug Bite",
-      "level": 9,
-      "info": {
-        "description": "Bites the foe and eats a held Berry.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "String Shot",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Speed.",
-        "type": "Bug",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 95,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Bug Bite",
-      "level": 9,
-      "info": {
-        "description": "Bites the foe and eats a held Berry.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [],
-  "eggMoves": [],
+  },
   "locations": [
     {
       "area": "national_park",
@@ -354,12 +464,5 @@
       "chance": 15,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Worm",
-      "description": "It crawls into foliage where it camouflages itself among leaves that are the same color as its body."
-    }
-  },
-  "forms": {}
+  ]
 }

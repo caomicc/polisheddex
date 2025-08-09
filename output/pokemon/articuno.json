@@ -1,18 +1,44 @@
 {
-  "name": "articuno",
+  "name": "Articuno",
   "nationalDex": 144,
   "johtoDex": 273,
-  "types": [
-    "Ice",
-    "Flying"
-  ],
-  "updatedTypes": [
-    "Ice",
-    "Flying"
-  ],
-  "frontSpriteUrl": "/sprites/pokemon/articuno/front_cropped.png",
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Articuno"
+    ],
+    "chainWithMethods": {
+      "Articuno": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Articuno": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Articuno": []
+    }
+  },
   "detailedStats": {
     "baseStats": {
+      "hp": 90,
+      "attack": 85,
+      "defense": 100,
+      "speed": 85,
+      "specialAttack": 95,
+      "specialDefense": 125,
+      "total": 580
+    },
+    "faithfulBaseStats": {
+      "hp": 90,
+      "attack": 85,
+      "defense": 100,
+      "speed": 85,
+      "specialAttack": 95,
+      "specialDefense": 125,
+      "total": 580
+    },
+    "polishedBaseStats": {
       "hp": 90,
       "attack": 85,
       "defense": 100,
@@ -34,34 +60,68 @@
     "abilities": [
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "snow-cloak",
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "snow-cloak",
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
     "updatedAbilities": [
       {
         "id": "pressure",
+        "name": "Pressure",
+        "description": "\tRaises the foe's \tPP usage.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "snow-warning",
+        "name": "Snow Warning",
+        "description": "\tSummons hailstorm \twhen switched in.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "snow-cloak",
+        "name": "Snow Cloak",
+        "description": "\tBoosts evasion in \thailstorms.",
         "isHidden": true,
         "abilityType": "hidden"
       }
@@ -79,1667 +139,23 @@
     "updatedTypes": [
       "Ice",
       "Flying"
-    ],
-    "height": 17,
-    "weight": 509,
-    "bodyShape": "Wings",
-    "bodyColor": "Purple"
-  },
-  "evolution": {
-    "methods": [],
-    "chain": [
-      "Articuno"
-    ],
-    "chainWithMethods": {
-      "Articuno": []
-    },
-    "faithfulMethods": [],
-    "faithfulChainWithMethods": {
-      "Articuno": []
-    },
-    "updatedMethods": [],
-    "updatedChainWithMethods": {
-      "Articuno": []
-    }
-  },
-  "levelMoves": [
-    {
-      "name": "Gust",
-      "level": 1,
-      "info": {
-        "description": "Whips up a strong gust of wind.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Icy Wind",
-      "level": 1,
-      "info": {
-        "description": "An icy attack that lowers Speed.",
-        "type": "Ice",
-        "pp": 15,
-        "power": 55,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Ice Shard",
-      "level": 8,
-      "info": {
-        "description": "Hurls icy shards. Always goes first.",
-        "type": "Ice",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Safeguard",
-      "level": 15,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Extrasensory",
-      "level": 22,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Ancientpower",
-      "level": 29,
-      "info": {
-        "description": "An attack that may raise all stats.",
-        "type": "Rock",
-        "pp": 5,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 36,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Ice Beam",
-      "level": 43,
-      "info": {
-        "description": "An attack that may freeze the foe.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Air Slash",
-      "level": 50,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Hail",
-      "level": 57,
-      "info": {
-        "description": "Inflicts damage every turn.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Reflect",
-      "level": 64,
-      "info": {
-        "description": "Raises Defense with a barrier.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Blizzard",
-      "level": 71,
-      "info": {
-        "description": "An attack that may freeze the foe.",
-        "type": "Ice",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Brave Bird",
-      "level": 78,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Roost",
-      "level": 85,
-      "info": {
-        "description": "Lands to restore 1/2 the max HP.",
-        "type": "Flying",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hurricane",
-      "level": 92,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Flying",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aeroblast",
-      "level": 99,
-      "info": {
-        "description": "",
-        "type": "Flying",
-        "pp": 5,
-        "power": 100,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Gust",
-      "level": 1,
-      "info": {
-        "description": "Whips up a strong gust of wind.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Icy Wind",
-      "level": 1,
-      "info": {
-        "description": "An icy attack that lowers Speed.",
-        "type": "Ice",
-        "pp": 15,
-        "power": 55,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Ice Shard",
-      "level": 8,
-      "info": {
-        "description": "Hurls icy shards. Always goes first.",
-        "type": "Ice",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Safeguard",
-      "level": 15,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Extrasensory",
-      "level": 22,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Ancientpower",
-      "level": 29,
-      "info": {
-        "description": "An attack that may raise all stats.",
-        "type": "Rock",
-        "pp": 5,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 36,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Ice Beam",
-      "level": 43,
-      "info": {
-        "description": "An attack that may freeze the foe.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Air Slash",
-      "level": 50,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Hail",
-      "level": 57,
-      "info": {
-        "description": "Inflicts damage every turn.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Reflect",
-      "level": 64,
-      "info": {
-        "description": "Raises Defense with a barrier.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Blizzard",
-      "level": 71,
-      "info": {
-        "description": "An attack that may freeze the foe.",
-        "type": "Ice",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Brave Bird",
-      "level": 78,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Roost",
-      "level": 85,
-      "info": {
-        "description": "Lands to restore 1/2 the max HP.",
-        "type": "Flying",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hurricane",
-      "level": 92,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Flying",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aeroblast",
-      "level": 99,
-      "info": {
-        "description": "",
-        "type": "Flying",
-        "pp": 5,
-        "power": 100,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Gust",
-      "level": 1,
-      "info": {
-        "description": "Whips up a strong gust of wind.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Icy Wind",
-      "level": 1,
-      "info": {
-        "description": "An icy attack that lowers Speed.",
-        "type": "Ice",
-        "pp": 15,
-        "power": 55,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Ice Shard",
-      "level": 8,
-      "info": {
-        "description": "Hurls icy shards. Always goes first.",
-        "type": "Ice",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Safeguard",
-      "level": 15,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Extrasensory",
-      "level": 22,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Ancientpower",
-      "level": 29,
-      "info": {
-        "description": "An attack that may raise all stats.",
-        "type": "Rock",
-        "pp": 5,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 36,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Ice Beam",
-      "level": 43,
-      "info": {
-        "description": "An attack that may freeze the foe.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Air Slash",
-      "level": 50,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Hail",
-      "level": 57,
-      "info": {
-        "description": "Inflicts damage every turn.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Reflect",
-      "level": 64,
-      "info": {
-        "description": "Raises Defense with a barrier.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Blizzard",
-      "level": 71,
-      "info": {
-        "description": "An attack that may freeze the foe.",
-        "type": "Ice",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Brave Bird",
-      "level": 78,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Roost",
-      "level": 85,
-      "info": {
-        "description": "Lands to restore 1/2 the max HP.",
-        "type": "Flying",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hurricane",
-      "level": 92,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Flying",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aeroblast",
-      "level": 99,
-      "info": {
-        "description": "",
-        "type": "Flying",
-        "pp": 5,
-        "power": 100,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Roar",
-      "description": "\tScares wild foes \tto end battle.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hail",
-      "description": "\tInflicts damage \tevery turn.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Ice Beam",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Blizzard",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Hyper Beam",
-      "description": "",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Reflect",
-      "description": "\tRaises Defense \twith a barrier.",
-      "type": "Psychic",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Sandstorm",
-      "description": "",
-      "type": "Rock",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Aerial Ace",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Flying",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Steel Wing",
-      "description": "\tAn attack that may \tup user's Defense.",
-      "type": "Steel",
-      "pp": 25,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Roost",
-      "description": "\tLands to restore \t1/2 the max HP.",
-      "type": "Flying",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Water Pulse",
-      "description": "\tAn attack that may \tconfuse the foe.",
-      "type": "Water",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Avalanche",
-      "description": "\tDamage doubles if \tuser is hit first.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Giga Impact",
-      "description": "\t1st turn: Attack \t2nd turn: Rest",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "U Turn",
-      "description": "",
-      "type": "Bug",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Fly",
-      "description": "\t1st turn: Fly \t2nd turn: Attack",
-      "type": "Flying",
-      "pp": 15,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Agility",
-      "description": "\tSharply raises the \tuser's Speed.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Icy Wind",
-      "description": "\tAn icy attack that \tlowers Speed.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 55,
-      "category": "Special",
-      "accuracy": 95
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    }
-  ],
-  "eggMoves": [],
-  "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Freeze",
-      "description": "Legendary bird #mon. As it flies through the sky, it cools the air, causing snow to fall."
-    },
-    "Galarian": {
-      "species": "Cruel",
-      "description": "Known as Articuno, this #mon fires beams that can immobilize opponents as if they had been frozen solid."
-    }
+    ]
   },
   "forms": {
-    "galarian": {
-      "name": "articuno galarian",
-      "formName": "galarian",
-      "nationalDex": 144,
-      "johtoDex": 273,
+    "plain": {
+      "name": "plain",
       "types": [
-        "Psychic",
+        "Ice",
+        "Flying"
+      ],
+      "faithfulTypes": [
+        "Ice",
         "Flying"
       ],
       "updatedTypes": [
-        "Psychic",
+        "Ice",
         "Flying"
       ],
-      "frontSpriteUrl": "/sprites/pokemon/articuno_galarian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Gust",
-          "level": 1,
-          "info": {
-            "description": "Whips up a strong gust of wind.",
-            "type": "Flying",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Confusion",
-          "level": 1,
-          "info": {
-            "description": "An attack that may confuse the foe.",
-            "type": "Psychic",
-            "pp": 25,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 8,
-          "info": {
-            "description": "Prevents all status problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Hypnosis",
-          "level": 15,
-          "info": {
-            "description": "May cause the foe to fall asleep.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 60,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Extrasensory",
-          "level": 22,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Ancientpower",
-          "level": 29,
-          "info": {
-            "description": "An attack that may raise all stats.",
-            "type": "Rock",
-            "pp": 5,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 36,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Psychic M",
-          "level": 43
-        },
-        {
-          "name": "Air Slash",
-          "level": 50,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 75,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Dream Eater",
-          "level": 57,
-          "info": {
-            "description": "Steals HP from a sleeping victim.",
-            "type": "Psychic",
-            "pp": 15,
-            "power": 100,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Reflect",
-          "level": 64,
-          "info": {
-            "description": "Raises Defense with a barrier.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Future Sight",
-          "level": 71,
-          "info": {
-            "description": "An attack that hits on 3rd turn.",
-            "type": "Psychic",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Brave Bird",
-          "level": 78,
-          "info": {
-            "description": "A charge that also hurts the user.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Recover",
-          "level": 85,
-          "info": {
-            "description": "Restores HP by 1/2 the max HP.",
-            "type": "Normal",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Hurricane",
-          "level": 92,
-          "info": {
-            "description": "An attack that may confuse the foe.",
-            "type": "Flying",
-            "pp": 10,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Aeroblast",
-          "level": 99,
-          "info": {
-            "description": "",
-            "type": "Flying",
-            "pp": 5,
-            "power": 100,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        }
-      ],
-      "faithfulLevelMoves": [
-        {
-          "name": "Gust",
-          "level": 1,
-          "info": {
-            "description": "Whips up a strong gust of wind.",
-            "type": "Flying",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Confusion",
-          "level": 1,
-          "info": {
-            "description": "An attack that may confuse the foe.",
-            "type": "Psychic",
-            "pp": 25,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 8,
-          "info": {
-            "description": "Prevents all status problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Hypnosis",
-          "level": 15,
-          "info": {
-            "description": "May cause the foe to fall asleep.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 60,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Extrasensory",
-          "level": 22,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Ancientpower",
-          "level": 29,
-          "info": {
-            "description": "An attack that may raise all stats.",
-            "type": "Rock",
-            "pp": 5,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 36,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Psychic M",
-          "level": 43
-        },
-        {
-          "name": "Air Slash",
-          "level": 50,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 75,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Dream Eater",
-          "level": 57,
-          "info": {
-            "description": "Steals HP from a sleeping victim.",
-            "type": "Psychic",
-            "pp": 15,
-            "power": 100,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Reflect",
-          "level": 64,
-          "info": {
-            "description": "Raises Defense with a barrier.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Future Sight",
-          "level": 71,
-          "info": {
-            "description": "An attack that hits on 3rd turn.",
-            "type": "Psychic",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Brave Bird",
-          "level": 78,
-          "info": {
-            "description": "A charge that also hurts the user.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Recover",
-          "level": 85,
-          "info": {
-            "description": "Restores HP by 1/2 the max HP.",
-            "type": "Normal",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Hurricane",
-          "level": 92,
-          "info": {
-            "description": "An attack that may confuse the foe.",
-            "type": "Flying",
-            "pp": 10,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Aeroblast",
-          "level": 99,
-          "info": {
-            "description": "",
-            "type": "Flying",
-            "pp": 5,
-            "power": 100,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        }
-      ],
-      "updatedLevelMoves": [
-        {
-          "name": "Gust",
-          "level": 1,
-          "info": {
-            "description": "Whips up a strong gust of wind.",
-            "type": "Flying",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Confusion",
-          "level": 1,
-          "info": {
-            "description": "An attack that may confuse the foe.",
-            "type": "Psychic",
-            "pp": 25,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 8,
-          "info": {
-            "description": "Prevents all status problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Hypnosis",
-          "level": 15,
-          "info": {
-            "description": "May cause the foe to fall asleep.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 60,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Extrasensory",
-          "level": 22,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Ancientpower",
-          "level": 29,
-          "info": {
-            "description": "An attack that may raise all stats.",
-            "type": "Rock",
-            "pp": 5,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 36,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Psychic M",
-          "level": 43
-        },
-        {
-          "name": "Air Slash",
-          "level": 50,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 75,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Dream Eater",
-          "level": 57,
-          "info": {
-            "description": "Steals HP from a sleeping victim.",
-            "type": "Psychic",
-            "pp": 15,
-            "power": 100,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Reflect",
-          "level": 64,
-          "info": {
-            "description": "Raises Defense with a barrier.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Future Sight",
-          "level": 71,
-          "info": {
-            "description": "An attack that hits on 3rd turn.",
-            "type": "Psychic",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Brave Bird",
-          "level": 78,
-          "info": {
-            "description": "A charge that also hurts the user.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Recover",
-          "level": 85,
-          "info": {
-            "description": "Restores HP by 1/2 the max HP.",
-            "type": "Normal",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Hurricane",
-          "level": 92,
-          "info": {
-            "description": "An attack that may confuse the foe.",
-            "type": "Flying",
-            "pp": 10,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Aeroblast",
-          "level": 99,
-          "info": {
-            "description": "",
-            "type": "Flying",
-            "pp": 5,
-            "power": 100,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        }
-      ],
-      "detailedStats": {
-        "baseStats": {
-          "hp": 90,
-          "attack": 85,
-          "defense": 85,
-          "speed": 95,
-          "specialAttack": 125,
-          "specialDefense": 100,
-          "total": 580
-        },
-        "catchRate": 3,
-        "baseExp": 215,
-        "heldItems": [
-          "ALWAYS_ITEM_"
-        ],
-        "genderRatio": {
-          "male": 0,
-          "female": 0
-        },
-        "hatchRate": "Unknown",
-        "abilities": [
-          {
-            "name": "Competitive",
-            "description": "\tBoosts Sp.Atk on \tstat reduction.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Competitive",
-            "description": "\tBoosts Sp.Atk on \tstat reduction.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Competitive",
-            "description": "\tBoosts Sp.Atk on \tstat reduction.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "faithfulAbilities": [
-          {
-            "name": "Competitive",
-            "description": "\tBoosts Sp.Atk on \tstat reduction.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Competitive",
-            "description": "\tBoosts Sp.Atk on \tstat reduction.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Competitive",
-            "description": "\tBoosts Sp.Atk on \tstat reduction.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "updatedAbilities": [],
-        "growthRate": "Slow",
-        "eggGroups": [
-          "Undiscovered",
-          "Undiscovered"
-        ],
-        "evYield": "3 SAt",
-        "types": [
-          "Psychic",
-          "Flying"
-        ],
-        "updatedTypes": [
-          "Psychic",
-          "Flying"
-        ],
-        "locations": [],
-        "height": 17,
-        "weight": 509,
-        "bodyColor": "Purple",
-        "bodyShape": "Wings"
-      },
-      "locations": []
-    },
-    "plain": {
-      "name": "articuno plain",
-      "formName": "plain",
-      "nationalDex": 144,
-      "johtoDex": 273,
-      "types": [],
-      "updatedTypes": [],
-      "frontSpriteUrl": "/sprites/pokemon/articuno_plain/front_cropped.png",
       "moves": [
         {
           "name": "Gust",
@@ -1772,7 +188,6 @@
             "description": "A move that lowers the foe's Defense.",
             "type": "Normal",
             "pp": 30,
-            "power": 0,
             "accuracy": 100,
             "category": "Status"
           }
@@ -1796,7 +211,6 @@
             "description": "Prevents all status problems.",
             "type": "Normal",
             "pp": 25,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -1832,7 +246,6 @@
             "description": "Sharply raises the user's Speed.",
             "type": "Psychic",
             "pp": 30,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -1868,7 +281,6 @@
             "description": "Inflicts damage every turn.",
             "type": "Ice",
             "pp": 10,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -1880,7 +292,6 @@
             "description": "Raises Defense with a barrier.",
             "type": "Psychic",
             "pp": 20,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -1916,7 +327,6 @@
             "description": "Lands to restore 1/2 the max HP.",
             "type": "Flying",
             "pp": 5,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -1937,7 +347,7 @@
           "name": "Aeroblast",
           "level": 99,
           "info": {
-            "description": "",
+            "description": "Has a high critical hit ratio.",
             "type": "Flying",
             "pp": 5,
             "power": 100,
@@ -1946,27 +356,2147 @@
           }
         }
       ],
-      "detailedStats": {
-        "catchRate": 255,
-        "baseExp": 0,
-        "heldItems": [],
-        "abilities": [],
-        "faithfulAbilities": [],
-        "updatedAbilities": [],
-        "growthRate": "Medium Fast",
-        "eggGroups": [],
-        "genderRatio": {
-          "male": 0,
-          "female": 0
+      "faithfulMoves": [
+        {
+          "name": "Gust",
+          "level": 1,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
         },
-        "hatchRate": "Unknown",
-        "evYield": "None",
-        "locations": [],
-        "height": 17,
-        "weight": 509,
-        "bodyColor": "Purple",
-        "bodyShape": "Wings"
-      }
+        {
+          "name": "Icy Wind",
+          "level": 1,
+          "info": {
+            "description": "An icy attack that lowers Speed.",
+            "type": "Ice",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ice Shard",
+          "level": 8,
+          "info": {
+            "description": "Hurls icy shards. Always goes first.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 15,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Extrasensory",
+          "level": 22,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 29,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 36,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "level": 43,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 50,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hail",
+          "level": 57,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Ice",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 64,
+          "info": {
+            "description": "Raises Defense with a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "level": 71,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 78,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roost",
+          "level": 85,
+          "info": {
+            "description": "Lands to restore 1/2 the max HP.",
+            "type": "Flying",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 92,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aeroblast",
+          "level": 99,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Flying",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Gust",
+          "level": 1,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "level": 1,
+          "info": {
+            "description": "An icy attack that lowers Speed.",
+            "type": "Ice",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ice Shard",
+          "level": 8,
+          "info": {
+            "description": "Hurls icy shards. Always goes first.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 15,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Extrasensory",
+          "level": 22,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 29,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 36,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "level": 43,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 50,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Hail",
+          "level": 57,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Ice",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 64,
+          "info": {
+            "description": "Raises Defense with a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "level": 71,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 78,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roost",
+          "level": 85,
+          "info": {
+            "description": "Lands to restore 1/2 the max HP.",
+            "type": "Flying",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 92,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aeroblast",
+          "level": 99,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Flying",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Roar",
+          "description": "Scares wild foes to end battle.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM05",
+          "location": {
+            "area": "Route 32"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hail",
+          "description": "Inflicts damage every turn.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM07",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Reflect",
+          "description": "Raises Defense with a barrier.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM33",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "description": "An attack that may up user's Defense.",
+          "type": "Steel",
+          "pp": 25,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM47",
+          "location": {
+            "area": "Route 28"
+          }
+        },
+        {
+          "name": "Roost",
+          "description": "Lands to restore 1/2 the max HP.",
+          "type": "Flying",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM51",
+          "location": {
+            "area": "Falkner's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "description": "An attack that may confuse the foe.",
+          "type": "Water",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM63",
+          "location": {
+            "area": "Misty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Avalanche",
+          "description": "Damage doubles if user is hit first.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM67",
+          "location": {
+            "area": "Pryce's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "U Turn",
+          "description": "Switches out after making its attack.",
+          "type": "Bug",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM69",
+          "location": {
+            "area": "Bugsy's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Fly",
+          "description": "1st turn: Fly 2nd turn: Attack",
+          "type": "Flying",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM02",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "pressure",
+          "name": "Pressure",
+          "description": "\tRaises the foe's \tPP usage.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "snow-warning",
+          "name": "Snow Warning",
+          "description": "\tSummons hailstorm \twhen switched in.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 90,
+        "attack": 85,
+        "defense": 100,
+        "speed": 85,
+        "specialAttack": 95,
+        "specialDefense": 125,
+        "total": 580
+      },
+      "faithfulBaseStats": {
+        "hp": 90,
+        "attack": 85,
+        "defense": 100,
+        "speed": 85,
+        "specialAttack": 95,
+        "specialDefense": 125,
+        "total": 580
+      },
+      "polishedBaseStats": {
+        "hp": 90,
+        "attack": 85,
+        "defense": 100,
+        "speed": 85,
+        "specialAttack": 95,
+        "specialDefense": 125,
+        "total": 580
+      },
+      "catchRate": 3,
+      "baseExp": 215,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "3 SDf"
+    },
+    "galarian": {
+      "name": "galarian",
+      "types": [
+        "Psychic",
+        "Flying"
+      ],
+      "faithfulTypes": [
+        "Psychic",
+        "Flying"
+      ],
+      "updatedTypes": [
+        "Psychic",
+        "Flying"
+      ],
+      "moves": [
+        {
+          "name": "Gust",
+          "level": 1,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 1,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 8,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hypnosis",
+          "level": 15,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Extrasensory",
+          "level": 22,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 29,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 36,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psychic",
+          "level": 43,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 50,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "level": 57,
+          "info": {
+            "description": "Steals HP from a sleeping victim.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 64,
+          "info": {
+            "description": "Raises Defense with a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Future Sight",
+          "level": 71,
+          "info": {
+            "description": "An attack that hits on 3rd turn.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 78,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 85,
+          "info": {
+            "description": "Restores HP by 1/2 the max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 92,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aeroblast",
+          "level": 99,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Flying",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Gust",
+          "level": 1,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 1,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 8,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hypnosis",
+          "level": 15,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Extrasensory",
+          "level": 22,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 29,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 36,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psychic",
+          "level": 43,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 50,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "level": 57,
+          "info": {
+            "description": "Steals HP from a sleeping victim.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 64,
+          "info": {
+            "description": "Raises Defense with a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Future Sight",
+          "level": 71,
+          "info": {
+            "description": "An attack that hits on 3rd turn.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 78,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 85,
+          "info": {
+            "description": "Restores HP by 1/2 the max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 92,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aeroblast",
+          "level": 99,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Flying",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Gust",
+          "level": 1,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confusion",
+          "level": 1,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 8,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hypnosis",
+          "level": 15,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Extrasensory",
+          "level": 22,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 29,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 36,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psychic",
+          "level": 43,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 50,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "level": 57,
+          "info": {
+            "description": "Steals HP from a sleeping victim.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 64,
+          "info": {
+            "description": "Raises Defense with a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Future Sight",
+          "level": 71,
+          "info": {
+            "description": "An attack that hits on 3rd turn.",
+            "type": "Psychic",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 78,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 85,
+          "info": {
+            "description": "Restores HP by 1/2 the max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 92,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aeroblast",
+          "level": 99,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Flying",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Roar",
+          "description": "Scares wild foes to end battle.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM05",
+          "location": {
+            "area": "Route 32"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hail",
+          "description": "Inflicts damage every turn.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM07",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Reflect",
+          "description": "Raises Defense with a barrier.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM33",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "description": "An attack that may up user's Defense.",
+          "type": "Steel",
+          "pp": 25,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM47",
+          "location": {
+            "area": "Route 28"
+          }
+        },
+        {
+          "name": "Roost",
+          "description": "Lands to restore 1/2 the max HP.",
+          "type": "Flying",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM51",
+          "location": {
+            "area": "Falkner's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "description": "An attack that may confuse the foe.",
+          "type": "Water",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM63",
+          "location": {
+            "area": "Misty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Avalanche",
+          "description": "Damage doubles if user is hit first.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM67",
+          "location": {
+            "area": "Pryce's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "U Turn",
+          "description": "Switches out after making its attack.",
+          "type": "Bug",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM69",
+          "location": {
+            "area": "Bugsy's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Fly",
+          "description": "1st turn: Fly 2nd turn: Attack",
+          "type": "Flying",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM02",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "competitive",
+          "name": "Competitive",
+          "description": "\tBoosts Sp.Atk on \tstat reduction.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 90,
+        "attack": 85,
+        "defense": 85,
+        "speed": 95,
+        "specialAttack": 125,
+        "specialDefense": 100,
+        "total": 580
+      },
+      "faithfulBaseStats": {
+        "hp": 90,
+        "attack": 85,
+        "defense": 85,
+        "speed": 95,
+        "specialAttack": 125,
+        "specialDefense": 100,
+        "total": 580
+      },
+      "polishedBaseStats": {
+        "hp": 90,
+        "attack": 85,
+        "defense": 85,
+        "speed": 95,
+        "specialAttack": 125,
+        "specialDefense": 100,
+        "total": 580
+      },
+      "catchRate": 3,
+      "baseExp": 215,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Unknown",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered",
+        "Undiscovered"
+      ],
+      "evYield": "3 SAt"
     }
   }
 }

@@ -1,74 +1,7 @@
 {
-  "name": "gastly",
+  "name": "Gastly",
   "nationalDex": 92,
   "johtoDex": 61,
-  "types": [
-    "Ghost",
-    "Poison"
-  ],
-  "updatedTypes": [
-    "Ghost",
-    "Poison"
-  ],
-  "frontSpriteUrl": "/sprites/pokemon/gastly/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 30,
-      "attack": 35,
-      "defense": 30,
-      "speed": 80,
-      "specialAttack": 100,
-      "specialDefense": 35,
-      "total": 310
-    },
-    "catchRate": 190,
-    "baseExp": 95,
-    "heldItems": [
-      "SPELL_TAG"
-    ],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "levitate",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "levitate",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "levitate",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Slow",
-    "eggGroups": [
-      "Amorphous",
-      "Amorphous"
-    ],
-    "evYield": "1 SAt",
-    "types": [
-      "Ghost",
-      "Poison"
-    ],
-    "updatedTypes": [
-      "Ghost",
-      "Poison"
-    ],
-    "height": 13,
-    "weight": 1,
-    "bodyShape": "Head",
-    "bodyColor": "Purple"
-  },
   "evolution": {
     "methods": [
       {
@@ -148,923 +81,1254 @@
       "Gengar": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Hypnosis",
-      "level": 1,
-      "info": {
-        "description": "May cause the foe to fall asleep.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 60,
-        "category": "Status"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 30,
+      "attack": 35,
+      "defense": 30,
+      "speed": 80,
+      "specialAttack": 100,
+      "specialDefense": 35,
+      "total": 310
     },
-    {
-      "name": "Lick",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Ghost",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "faithfulBaseStats": {
+      "hp": 30,
+      "attack": 35,
+      "defense": 30,
+      "speed": 80,
+      "specialAttack": 100,
+      "specialDefense": 35,
+      "total": 310
     },
-    {
-      "name": "Disable",
-      "level": 5,
-      "info": {
-        "description": "Disables the foe's most recent move.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
+    "polishedBaseStats": {
+      "hp": 30,
+      "attack": 35,
+      "defense": 30,
+      "speed": 80,
+      "specialAttack": 100,
+      "specialDefense": 35,
+      "total": 310
     },
-    {
-      "name": "Mean Look",
-      "level": 8,
-      "info": {
-        "description": "Prevents fleeing or switching.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
+    "catchRate": 190,
+    "baseExp": 95,
+    "heldItems": [
+      "SPELL_TAG"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
     },
-    {
-      "name": "Curse",
-      "level": 12,
-      "info": {
-        "description": "Works differently for Ghost-types.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Night Shade",
-      "level": 15,
-      "info": {
-        "description": "Damage equals the user's level.",
-        "type": "Ghost",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Special"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "levitate",
+        "name": "Levitate",
+        "description": "\tGives immunity to \tGround-type moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Confuse Ray",
-      "level": 19,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sucker Punch",
-      "level": 22,
-      "info": {
-        "description": "Attacks before the foe does.",
-        "type": "Dark",
-        "pp": 5,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pain Split",
-      "level": 26,
-      "info": {
-        "description": "Adds user & foe's HPs. Shares total.",
-        "type": "Ghost",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Shadow Ball",
-      "level": 29,
-      "info": {
-        "description": "An attack that may lower Sp.Def.",
-        "type": "Ghost",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dream Eater",
-      "level": 33,
-      "info": {
-        "description": "Steals HP from a sleeping victim.",
-        "type": "Psychic",
-        "pp": 15,
-        "power": 100,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dark Pulse",
-      "level": 36,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Destiny Bond",
-      "level": 40,
-      "info": {
-        "description": "The foe faints if the user does.",
-        "type": "Ghost",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hex",
-      "level": 43,
-      "info": {
-        "description": "Damage doubles if foe has status.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Perish Song",
-      "level": 47,
-      "info": {
-        "description": "Both user and foe faint in 3 turns.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Amorphous",
+      "Amorphous"
+    ],
+    "evYield": "1 SAt",
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "updatedTypes": [
+      "Ghost",
+      "Poison"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "faithfulTypes": [
+        "Ghost",
+        "Poison"
+      ],
+      "updatedTypes": [
+        "Ghost",
+        "Poison"
+      ],
+      "moves": [
+        {
+          "name": "Hypnosis",
+          "level": 1,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Lick",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Ghost",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Disable",
+          "level": 5,
+          "info": {
+            "description": "Disables the foe's most recent move.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mean Look",
+          "level": 8,
+          "info": {
+            "description": "Prevents fleeing or switching.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Curse",
+          "level": 12,
+          "info": {
+            "description": "Works differently for Ghost-types.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Night Shade",
+          "level": 15,
+          "info": {
+            "description": "Damage equals the user's level.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 19,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 22,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pain Split",
+          "level": 26,
+          "info": {
+            "description": "Adds user & foe's HPs. Shares total.",
+            "type": "Ghost",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "level": 29,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "level": 33,
+          "info": {
+            "description": "Steals HP from a sleeping victim.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "level": 36,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Destiny Bond",
+          "level": 40,
+          "info": {
+            "description": "The foe faints if the user does.",
+            "type": "Ghost",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hex",
+          "level": 43,
+          "info": {
+            "description": "Damage doubles if foe has status.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Perish Song",
+          "level": 47,
+          "info": {
+            "description": "Both user and foe faint in 3 turns.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Hypnosis",
+          "level": 1,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Lick",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Ghost",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Disable",
+          "level": 5,
+          "info": {
+            "description": "Disables the foe's most recent move.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mean Look",
+          "level": 8,
+          "info": {
+            "description": "Prevents fleeing or switching.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Curse",
+          "level": 12,
+          "info": {
+            "description": "Works differently for Ghost-types.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Night Shade",
+          "level": 15,
+          "info": {
+            "description": "Damage equals the user's level.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 19,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 22,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pain Split",
+          "level": 26,
+          "info": {
+            "description": "Adds user & foe's HPs. Shares total.",
+            "type": "Ghost",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "level": 29,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "level": 33,
+          "info": {
+            "description": "Steals HP from a sleeping victim.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "level": 36,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Destiny Bond",
+          "level": 40,
+          "info": {
+            "description": "The foe faints if the user does.",
+            "type": "Ghost",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hex",
+          "level": 43,
+          "info": {
+            "description": "Damage doubles if foe has status.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Perish Song",
+          "level": 47,
+          "info": {
+            "description": "Both user and foe faint in 3 turns.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Hypnosis",
+          "level": 1,
+          "info": {
+            "description": "May cause the foe to fall asleep.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": 60,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Lick",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Ghost",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Disable",
+          "level": 5,
+          "info": {
+            "description": "Disables the foe's most recent move.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mean Look",
+          "level": 8,
+          "info": {
+            "description": "Prevents fleeing or switching.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Curse",
+          "level": 12,
+          "info": {
+            "description": "Works differently for Ghost-types.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Night Shade",
+          "level": 15,
+          "info": {
+            "description": "Damage equals the user's level.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 19,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 22,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pain Split",
+          "level": 26,
+          "info": {
+            "description": "Adds user & foe's HPs. Shares total.",
+            "type": "Ghost",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "level": 29,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Ghost",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "level": 33,
+          "info": {
+            "description": "Steals HP from a sleeping victim.",
+            "type": "Psychic",
+            "pp": 15,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "level": 36,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Destiny Bond",
+          "level": 40,
+          "info": {
+            "description": "The foe faints if the user does.",
+            "type": "Ghost",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hex",
+          "level": 43,
+          "info": {
+            "description": "Damage doubles if foe has status.",
+            "type": "Ghost",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Perish Song",
+          "level": 47,
+          "info": {
+            "description": "Both user and foe faint in 3 turns.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Astonish",
+        "Disable",
+        "Haze",
+        "Perish Song",
+        "Scary Face",
+        "Nasty Plot",
+        "Feint Attack"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "description": "Damage doubles if foe is poisoned.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 65,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM09",
+          "location": {
+            "area": "Route 11"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Giga Drain",
+          "description": "Steals 1/2 of the damage inflicted.",
+          "type": "Grass",
+          "pp": 10,
+          "power": 75,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM19",
+          "location": {
+            "area": "Erika's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Psychic",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Psychic",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM29",
+          "location": {
+            "area": "Sabrina's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM30",
+          "location": {
+            "area": "Morty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sludge Bomb",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM36",
+          "location": {
+            "area": "Route 43"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Dazzlingleam",
+          "description": "Dazzles with a powerful flash.",
+          "type": "Fairy",
+          "pp": 10,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM49",
+          "location": {
+            "area": "Bellchime Trail"
+          }
+        },
+        {
+          "name": "Leech Life",
+          "description": "Steals 1/2 of the damage inflicted.",
+          "type": "Bug",
+          "pp": 10,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM50",
+          "location": {
+            "area": "Yellow Forest"
+          }
+        },
+        {
+          "name": "Energy Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Grass",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM53",
+          "location": {
+            "area": "Olivine Lighthouse"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "description": "An attack that may cause flinching.",
+          "type": "Dark",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM58",
+          "location": {
+            "area": "Dark Cave"
+          }
+        },
+        {
+          "name": "Will O Wisp",
+          "description": "A move that may burn the foe.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "TM61",
+          "location": {
+            "area": "Blaine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Explosion",
+          "description": "Very powerful but makes user faint.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 250,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM64",
+          "location": {
+            "area": "Underground"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "description": "Steals HP from a sleeping victim.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 100,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT09",
+          "location": {
+            "area": "Viridian City"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Fire Punch",
+          "description": "A fiery punch. May cause a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT12",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Ice Punch",
+          "description": "An icy punch. May cause freezing.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT15",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "description": "Slaps down the foe's held item.",
+          "type": "Dark",
+          "pp": 20,
+          "power": 65,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT18",
+          "location": {
+            "area": "Route 40"
+          }
+        },
+        {
+          "name": "Skill Swap",
+          "description": "Swaps abilities with the foe.",
+          "type": "Psychic",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT23",
+          "location": {
+            "area": "Route 27"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "description": "Attacks before the foe does.",
+          "type": "Dark",
+          "pp": 5,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT25",
+          "location": {
+            "area": "Scary Cave"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Thunderpunch",
+          "description": "An electric punch. It may paralyze.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT27",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Trick",
+          "description": "Swaps held items with the foe.",
+          "type": "Psychic",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT28",
+          "location": {
+            "area": "Battle Tower"
+          }
+        },
+        {
+          "name": "Trick Room",
+          "description": "Slow Pokemon move first for 5 turns.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT29",
+          "location": {
+            "area": "Route 16 South Gate"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "description": "An attack that always paralyzes.",
+          "type": "Electric",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 50,
+          "tmNumber": "MT30",
+          "location": {
+            "area": "Power Plant"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "levitate",
+          "name": "Levitate",
+          "description": "\tGives immunity to \tGround-type moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 30,
+        "attack": 35,
+        "defense": 30,
+        "speed": 80,
+        "specialAttack": 100,
+        "specialDefense": 35,
+        "total": 310
+      },
+      "faithfulBaseStats": {
+        "hp": 30,
+        "attack": 35,
+        "defense": 30,
+        "speed": 80,
+        "specialAttack": 100,
+        "specialDefense": 35,
+        "total": 310
       }
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Hypnosis",
-      "level": 1,
-      "info": {
-        "description": "May cause the foe to fall asleep.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 60,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Lick",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Ghost",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Disable",
-      "level": 5,
-      "info": {
-        "description": "Disables the foe's most recent move.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Mean Look",
-      "level": 8,
-      "info": {
-        "description": "Prevents fleeing or switching.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Curse",
-      "level": 12,
-      "info": {
-        "description": "Works differently for Ghost-types.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Night Shade",
-      "level": 15,
-      "info": {
-        "description": "Damage equals the user's level.",
-        "type": "Ghost",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Confuse Ray",
-      "level": 19,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sucker Punch",
-      "level": 22,
-      "info": {
-        "description": "Attacks before the foe does.",
-        "type": "Dark",
-        "pp": 5,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pain Split",
-      "level": 26,
-      "info": {
-        "description": "Adds user & foe's HPs. Shares total.",
-        "type": "Ghost",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Shadow Ball",
-      "level": 29,
-      "info": {
-        "description": "An attack that may lower Sp.Def.",
-        "type": "Ghost",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dream Eater",
-      "level": 33,
-      "info": {
-        "description": "Steals HP from a sleeping victim.",
-        "type": "Psychic",
-        "pp": 15,
-        "power": 100,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dark Pulse",
-      "level": 36,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Destiny Bond",
-      "level": 40,
-      "info": {
-        "description": "The foe faints if the user does.",
-        "type": "Ghost",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hex",
-      "level": 43,
-      "info": {
-        "description": "Damage doubles if foe has status.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Perish Song",
-      "level": 47,
-      "info": {
-        "description": "Both user and foe faint in 3 turns.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Hypnosis",
-      "level": 1,
-      "info": {
-        "description": "May cause the foe to fall asleep.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 60,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Lick",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Ghost",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Disable",
-      "level": 5,
-      "info": {
-        "description": "Disables the foe's most recent move.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Mean Look",
-      "level": 8,
-      "info": {
-        "description": "Prevents fleeing or switching.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Curse",
-      "level": 12,
-      "info": {
-        "description": "Works differently for Ghost-types.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Night Shade",
-      "level": 15,
-      "info": {
-        "description": "Damage equals the user's level.",
-        "type": "Ghost",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Confuse Ray",
-      "level": 19,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sucker Punch",
-      "level": 22,
-      "info": {
-        "description": "Attacks before the foe does.",
-        "type": "Dark",
-        "pp": 5,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pain Split",
-      "level": 26,
-      "info": {
-        "description": "Adds user & foe's HPs. Shares total.",
-        "type": "Ghost",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Shadow Ball",
-      "level": 29,
-      "info": {
-        "description": "An attack that may lower Sp.Def.",
-        "type": "Ghost",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dream Eater",
-      "level": 33,
-      "info": {
-        "description": "Steals HP from a sleeping victim.",
-        "type": "Psychic",
-        "pp": 15,
-        "power": 100,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dark Pulse",
-      "level": 36,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Destiny Bond",
-      "level": 40,
-      "info": {
-        "description": "The foe faints if the user does.",
-        "type": "Ghost",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hex",
-      "level": 43,
-      "info": {
-        "description": "Damage doubles if foe has status.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Perish Song",
-      "level": 47,
-      "info": {
-        "description": "Both user and foe faint in 3 turns.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Venoshock",
-      "description": "\tDamage doubles if \tfoe is poisoned.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 65,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Giga Drain",
-      "description": "",
-      "type": "Grass",
-      "pp": 10,
-      "power": 75,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunderbolt",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 10,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Psychic",
-      "description": "",
-      "type": "None",
-      "pp": 0,
-      "power": 0,
-      "category": "Unknown",
-      "accuracy": 0
-    },
-    {
-      "name": "Shadow Ball",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Ghost",
-      "pp": 15,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Sludge Bomb",
-      "description": "\tAn attack that may \tpoison the foe.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dazzlingleam",
-      "description": "\tDazzles with a \tpowerful flash.",
-      "type": "Fairy",
-      "pp": 10,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Leech Life",
-      "description": "",
-      "type": "Bug",
-      "pp": 10,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Energy Ball",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Grass",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Dark Pulse",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Dark",
-      "pp": 15,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Will O Wisp",
-      "description": "",
-      "type": "Fire",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Explosion",
-      "description": "\tVery powerful but \tmakes user faint.",
-      "type": "Normal",
-      "pp": 5,
-      "power": 250,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dream Eater",
-      "description": "\tSteals HP from a \tsleeping victim.",
-      "type": "Psychic",
-      "pp": 15,
-      "power": 100,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Fire Punch",
-      "description": "\tA fiery punch. May \tcause a burn.",
-      "type": "Fire",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Ice Punch",
-      "description": "\tAn icy punch. May \tcause freezing.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Icy Wind",
-      "description": "\tAn icy attack that \tlowers Speed.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 55,
-      "category": "Special",
-      "accuracy": 95
-    },
-    {
-      "name": "Knock Off",
-      "description": "\tSlaps down the \tfoe's held item.",
-      "type": "Dark",
-      "pp": 20,
-      "power": 65,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Skill Swap",
-      "description": "\tSwaps abilities \twith the foe.",
-      "type": "Psychic",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Sucker Punch",
-      "description": "\tAttacks before the \tfoe does.",
-      "type": "Dark",
-      "pp": 5,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Thunderpunch",
-      "description": "\tAn electric punch. \tIt may paralyze.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Trick",
-      "description": "\tSwaps held items \twith the foe.",
-      "type": "Psychic",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Trick Room",
-      "description": "\tSlow #mon move \tfirst for 5 turns.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Zap Cannon",
-      "description": "\tAn attack that \talways paralyzes.",
-      "type": "Electric",
-      "pp": 5,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 50
-    }
-  ],
-  "eggMoves": [
-    "Astonish",
-    "Disable",
-    "Haze",
-    "Perish Song",
-    "Scary Face",
-    "Nasty Plot",
-    "Feint Attack"
-  ],
+  },
   "locations": [
     {
       "area": "sprout_tower_2f",
@@ -1538,12 +1802,5 @@
       "chance": 30,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Gas",
-      "description": "It wraps its opponent in its gaslike body, slowly weakening its prey by poisoning it through the skin."
-    }
-  },
-  "forms": {}
+  ]
 }

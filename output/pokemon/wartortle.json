@@ -1,59 +1,7 @@
 {
-  "name": "wartortle",
+  "name": "Wartortle",
   "nationalDex": 8,
   "johtoDex": 271,
-  "types": "Water",
-  "frontSpriteUrl": "/sprites/pokemon/wartortle/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 59,
-      "attack": 63,
-      "defense": 80,
-      "speed": 58,
-      "specialAttack": 65,
-      "specialDefense": 80,
-      "total": 405
-    },
-    "catchRate": 45,
-    "baseExp": 143,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 87.5,
-      "female": 12.5
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "torrent",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "rain-dish",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "shell-armor",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Slow",
-    "eggGroups": [
-      "Monster",
-      "Undiscovered"
-    ],
-    "evYield": "1 Def",
-    "types": "Water",
-    "updatedTypes": "Water",
-    "height": 10,
-    "weight": 225,
-    "bodyShape": "Bipedal Tail",
-    "bodyColor": "Blue"
-  },
   "evolution": {
     "methods": [
       {
@@ -133,928 +81,1244 @@
       ]
     }
   },
-  "levelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
+  "detailedStats": {
+    "baseStats": {
+      "hp": 59,
+      "attack": 63,
+      "defense": 80,
+      "speed": 58,
+      "specialAttack": 65,
+      "specialDefense": 80,
+      "total": 405
+    },
+    "faithfulBaseStats": {
+      "hp": 59,
+      "attack": 63,
+      "defense": 80,
+      "speed": 58,
+      "specialAttack": 65,
+      "specialDefense": 80,
+      "total": 405
+    },
+    "polishedBaseStats": {
+      "hp": 59,
+      "attack": 63,
+      "defense": 80,
+      "speed": 58,
+      "specialAttack": 65,
+      "specialDefense": 80,
+      "total": 405
+    },
+    "catchRate": 45,
+    "baseExp": 143,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 87.5,
+      "female": 12.5
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "torrent",
+        "name": "Torrent",
+        "description": "\tBoosts Water moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "rain-dish",
+        "name": "Rain Dish",
+        "description": "\tGradually regains \tHP in rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Leer",
-      "level": 4,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "torrent",
+        "name": "Torrent",
+        "description": "\tBoosts Water moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "rain-dish",
+        "name": "Rain Dish",
+        "description": "\tGradually regains \tHP in rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "shell-armor",
+        "name": "Shell Armor",
+        "description": "\tProtects from \tcritical hits.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Water Gun",
-      "level": 7,
-      "info": {
-        "description": "Squirts water to attack.",
-        "type": "Water",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Defense Curl",
-      "level": 10,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Aqua Jet",
-      "level": 13,
-      "info": {
-        "description": "A speedy lunge. Always goes first.",
-        "type": "Water",
-        "pp": 20,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 16,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rapid Spin",
-      "level": 20,
-      "info": {
-        "description": "A high-speed spinning attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Protect",
-      "level": 24,
-      "info": {
-        "description": "Foils attack that turn. It may fail.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Water Pulse",
-      "level": 28,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Water",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aqua Tail",
-      "level": 32,
-      "info": {
-        "description": "Swings tail like a wave in a storm.",
-        "type": "Water",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Close Combat",
-      "level": 36,
-      "info": {
-        "description": "Lowers the user's Def and Sp.Def.",
-        "type": "Fighting",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 40,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Rain Dance",
-      "level": 44,
-      "info": {
-        "description": "Boosts Water-type moves for 5 turns.",
-        "type": "Water",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hydro Pump",
-      "level": 48,
-      "info": {
-        "description": "A powerful Water- type attack.",
-        "type": "Water",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 80,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Shell Smash",
-      "level": 52,
-      "info": {
-        "description": "Lowers defenses, raises offenses.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 4,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Water Gun",
-      "level": 7,
-      "info": {
-        "description": "Squirts water to attack.",
-        "type": "Water",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Defense Curl",
-      "level": 10,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Aqua Jet",
-      "level": 13,
-      "info": {
-        "description": "A speedy lunge. Always goes first.",
-        "type": "Water",
-        "pp": 20,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 16,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rapid Spin",
-      "level": 20,
-      "info": {
-        "description": "A high-speed spinning attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Protect",
-      "level": 24,
-      "info": {
-        "description": "Foils attack that turn. It may fail.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Water Pulse",
-      "level": 28,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Water",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aqua Tail",
-      "level": 32,
-      "info": {
-        "description": "Swings tail like a wave in a storm.",
-        "type": "Water",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Close Combat",
-      "level": 36,
-      "info": {
-        "description": "Lowers the user's Def and Sp.Def.",
-        "type": "Fighting",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 40,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Rain Dance",
-      "level": 44,
-      "info": {
-        "description": "Boosts Water-type moves for 5 turns.",
-        "type": "Water",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hydro Pump",
-      "level": 48,
-      "info": {
-        "description": "A powerful Water- type attack.",
-        "type": "Water",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 80,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Shell Smash",
-      "level": 52,
-      "info": {
-        "description": "Lowers defenses, raises offenses.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 4,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Water Gun",
-      "level": 7,
-      "info": {
-        "description": "Squirts water to attack.",
-        "type": "Water",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Defense Curl",
-      "level": 10,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Aqua Jet",
-      "level": 13,
-      "info": {
-        "description": "A speedy lunge. Always goes first.",
-        "type": "Water",
-        "pp": 20,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 16,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rapid Spin",
-      "level": 20,
-      "info": {
-        "description": "A high-speed spinning attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Protect",
-      "level": 24,
-      "info": {
-        "description": "Foils attack that turn. It may fail.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Water Pulse",
-      "level": 28,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Water",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aqua Tail",
-      "level": 32,
-      "info": {
-        "description": "Swings tail like a wave in a storm.",
-        "type": "Water",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Close Combat",
-      "level": 36,
-      "info": {
-        "description": "Lowers the user's Def and Sp.Def.",
-        "type": "Fighting",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 40,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Rain Dance",
-      "level": 44,
-      "info": {
-        "description": "Boosts Water-type moves for 5 turns.",
-        "type": "Water",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hydro Pump",
-      "level": 48,
-      "info": {
-        "description": "A powerful Water- type attack.",
-        "type": "Water",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 80,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Shell Smash",
-      "level": 52,
-      "info": {
-        "description": "Lowers defenses, raises offenses.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Dynamicpunch",
-      "description": "\tAn attack that \tconfuses the foe.",
-      "type": "Fighting",
-      "pp": 5,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 50
-    },
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hail",
-      "description": "\tInflicts damage \tevery turn.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Ice Beam",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Blizzard",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dig",
-      "description": "\t1st turn: Burrow \t2nd turn: Attack",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Scald",
-      "description": "\tAn attack that may \tinflict a burn.",
-      "type": "Water",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Dragon Pulse",
-      "description": "\tAttacks foe with \ta shock wave.",
-      "type": "Dragon",
-      "pp": 10,
-      "power": 85,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Water Pulse",
-      "description": "\tAn attack that may \tconfuse the foe.",
-      "type": "Water",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Gyro Ball",
-      "description": "\tDoes more damage \tat lower speed.",
-      "type": "Steel",
-      "pp": 5,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Surf",
-      "description": "\tA strong Water- \ttype attack.",
-      "type": "Water",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Strength",
-      "description": "\tA powerful physi- \tcal attack.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Whirlpool",
-      "description": "",
-      "type": "Water",
-      "pp": 15,
-      "power": 40,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
-      "name": "Waterfall",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Water",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Aqua Tail",
-      "description": "\tSwings tail like a \twave in a storm.",
-      "type": "Water",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Counter",
-      "description": "\tReturns a physical \tattack double.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Defense Curl",
-      "description": "\tRaises the user's \tDefense.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Ice Punch",
-      "description": "\tAn icy punch. May \tcause freezing.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Icy Wind",
-      "description": "\tAn icy attack that \tlowers Speed.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 55,
-      "category": "Special",
-      "accuracy": 95
-    },
-    {
-      "name": "Rollout",
-      "description": "\tAttacks 5 turns \twith rising power.",
-      "type": "Rock",
-      "pp": 20,
-      "power": 30,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Seismic Toss",
-      "description": "\tDamage equals the \tuser's level.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Zen Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Psychic",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 90
-    }
-  ],
-  "eggMoves": [
-    "Confusion",
-    "Crunch",
-    "Foresight",
-    "Haze",
-    "Mirror Coat",
-    "Aqua Jet"
-  ],
-  "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Turtle",
-      "description": "Its long, furry tail is a symbol of longevity, making it quite popular among older people."
-    }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Monster",
+      "Undiscovered"
+    ],
+    "evYield": "1 Def",
+    "types": "Water",
+    "updatedTypes": "Water"
   },
-  "forms": {}
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 4,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Water Gun",
+          "level": 7,
+          "info": {
+            "description": "Squirts water to attack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 10,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Aqua Jet",
+          "level": 13,
+          "info": {
+            "description": "A speedy lunge. Always goes first.",
+            "type": "Water",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 20,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 24,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "level": 28,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Water",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 32,
+          "info": {
+            "description": "Swings tail like a wave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 36,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 40,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 44,
+          "info": {
+            "description": "Boosts Water-type moves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 48,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Shell Smash",
+          "level": 52,
+          "info": {
+            "description": "Lowers defenses, raises offenses.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 4,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Water Gun",
+          "level": 7,
+          "info": {
+            "description": "Squirts water to attack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 10,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Aqua Jet",
+          "level": 13,
+          "info": {
+            "description": "A speedy lunge. Always goes first.",
+            "type": "Water",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 20,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 24,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "level": 28,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Water",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 32,
+          "info": {
+            "description": "Swings tail like a wave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 36,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 40,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 44,
+          "info": {
+            "description": "Boosts Water-type moves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 48,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Shell Smash",
+          "level": 52,
+          "info": {
+            "description": "Lowers defenses, raises offenses.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 4,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Water Gun",
+          "level": 7,
+          "info": {
+            "description": "Squirts water to attack.",
+            "type": "Water",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 10,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Aqua Jet",
+          "level": 13,
+          "info": {
+            "description": "A speedy lunge. Always goes first.",
+            "type": "Water",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 20,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 24,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "level": 28,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Water",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 32,
+          "info": {
+            "description": "Swings tail like a wave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 36,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 40,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 44,
+          "info": {
+            "description": "Boosts Water-type moves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 48,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Shell Smash",
+          "level": 52,
+          "info": {
+            "description": "Lowers defenses, raises offenses.",
+            "type": "Normal",
+            "pp": 15,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Confusion",
+        "Crunch",
+        "Foresight",
+        "Haze",
+        "Mirror Coat",
+        "Aqua Jet"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Dynamicpunch",
+          "description": "An attack that confuses the foe.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 50,
+          "tmNumber": "TM01",
+          "location": {
+            "area": "Chuck's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hail",
+          "description": "Inflicts damage every turn.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM07",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Scald",
+          "description": "An attack that may inflict a burn.",
+          "type": "Water",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM55",
+          "location": {
+            "area": "Route 19"
+          }
+        },
+        {
+          "name": "Dragon Pulse",
+          "description": "Attacks foe with a shock wave.",
+          "type": "Dragon",
+          "pp": 10,
+          "power": 85,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM59",
+          "location": {
+            "area": "Clair's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "description": "An attack that may confuse the foe.",
+          "type": "Water",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM63",
+          "location": {
+            "area": "Misty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "description": "Does more damage at lower speed.",
+          "type": "Steel",
+          "pp": 5,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM74",
+          "location": {
+            "area": "Magnet Tunnel"
+          }
+        },
+        {
+          "name": "Surf",
+          "description": "A strong Watertype attack.",
+          "type": "Water",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "HM03",
+          "location": {
+            "area": "Ecruteak City"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Whirlpool",
+          "description": "Traps the foe for 2-5 turns.",
+          "type": "Water",
+          "pp": 15,
+          "power": 40,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "HM05",
+          "location": {
+            "area": "Route 42"
+          }
+        },
+        {
+          "name": "Waterfall",
+          "description": "An attack that may cause flinching.",
+          "type": "Water",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM06",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "description": "Swings tail like a wave in a storm.",
+          "type": "Water",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT02",
+          "location": {
+            "area": "Route 4"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Ice Punch",
+          "description": "An icy punch. May cause freezing.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT15",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "description": "Damage equals the user's level.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT22",
+          "location": {
+            "area": "Pewter City"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT31",
+          "location": {
+            "area": "Saffron City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "torrent",
+          "name": "Torrent",
+          "description": "\tBoosts Water moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rain-dish",
+          "name": "Rain Dish",
+          "description": "\tGradually regains \tHP in rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "torrent",
+          "name": "Torrent",
+          "description": "\tBoosts Water moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rain-dish",
+          "name": "Rain Dish",
+          "description": "\tGradually regains \tHP in rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shell-armor",
+          "name": "Shell Armor",
+          "description": "\tProtects from \tcritical hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 59,
+        "attack": 63,
+        "defense": 80,
+        "speed": 58,
+        "specialAttack": 65,
+        "specialDefense": 80,
+        "total": 405
+      },
+      "faithfulBaseStats": {
+        "hp": 59,
+        "attack": 63,
+        "defense": 80,
+        "speed": 58,
+        "specialAttack": 65,
+        "specialDefense": 80,
+        "total": 405
+      }
+    }
+  }
 }

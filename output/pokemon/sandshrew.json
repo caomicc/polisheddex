@@ -1,61 +1,7 @@
 {
-  "name": "sandshrew",
+  "name": "Sandshrew",
   "nationalDex": 27,
   "johtoDex": 49,
-  "types": "Ground",
-  "frontSpriteUrl": "/sprites/pokemon/sandshrew/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 50,
-      "attack": 75,
-      "defense": 85,
-      "speed": 40,
-      "specialAttack": 20,
-      "specialDefense": 30,
-      "total": 300
-    },
-    "catchRate": 255,
-    "baseExp": 93,
-    "heldItems": [
-      "QUICK_CLAW"
-    ],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "sand-veil",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sand-veil",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "sand-rush",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Field",
-      "Field"
-    ],
-    "evYield": "1 Def",
-    "types": "Ground",
-    "updatedTypes": "Ground",
-    "height": 7,
-    "weight": 400,
-    "bodyShape": "Bipedal Tail",
-    "bodyColor": "White"
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -116,1832 +62,106 @@
       "Sandslash": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Scratch",
-      "level": 1,
-      "info": {
-        "description": "Scratches with sharp claws.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
+  "detailedStats": {
+    "baseStats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 85,
+      "speed": 40,
+      "specialAttack": 20,
+      "specialDefense": 30,
+      "total": 300
+    },
+    "faithfulBaseStats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 85,
+      "speed": 40,
+      "specialAttack": 20,
+      "specialDefense": 30,
+      "total": 300
+    },
+    "polishedBaseStats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 85,
+      "speed": 40,
+      "specialAttack": 20,
+      "specialDefense": 30,
+      "total": 300
+    },
+    "catchRate": 255,
+    "baseExp": 93,
+    "heldItems": [
+      "QUICK_CLAW"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sand-rush",
+        "name": "Sand Rush",
+        "description": "\tBoosts Speed in \ta sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Defense Curl",
-      "level": 1,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sand-veil",
+        "name": "Sand Veil",
+        "description": "\tBoosts evasion in \ta sandstorm.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "sand-rush",
+        "name": "Sand Rush",
+        "description": "\tBoosts Speed in \ta sandstorm.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 3,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Poison Sting",
-      "level": 5,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 35,
-        "power": 15,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rollout",
-      "level": 7,
-      "info": {
-        "description": "Attacks 5 turns with rising power.",
-        "type": "Rock",
-        "pp": 20,
-        "power": 30,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rapid Spin",
-      "level": 9,
-      "info": {
-        "description": "A high-speed spinning attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pin Missile",
-      "level": 11,
-      "info": {
-        "description": "Fires pins that strike 2-5 times.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 25,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Magnitude",
-      "level": 14,
-      "info": {
-        "description": "A Ground attack with random power.",
-        "type": "Ground",
-        "pp": 30,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swift",
-      "level": 17,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 20,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Metal Claw",
-      "level": 23,
-      "info": {
-        "description": "An attack that may up user's Attack.",
-        "type": "Steel",
-        "pp": 35,
-        "power": 50,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 26,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Dig",
-      "level": 30,
-      "info": {
-        "description": "1st turn: Burrow 2nd turn: Attack",
-        "type": "Ground",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Gyro Ball",
-      "level": 34,
-      "info": {
-        "description": "Does more damage at lower speed.",
-        "type": "Steel",
-        "pp": 5,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swords Dance",
-      "level": 38,
-      "info": {
-        "description": "Sharply raises the user's Attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sandstorm",
-      "level": 42,
-      "info": {
-        "description": "",
-        "type": "Rock",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Earthquake",
-      "level": 46,
-      "info": {
-        "description": "Tough but useless vs. flying foes.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 100,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Scratch",
-      "level": 1,
-      "info": {
-        "description": "Scratches with sharp claws.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Defense Curl",
-      "level": 1,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 3,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Poison Sting",
-      "level": 5,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 35,
-        "power": 15,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rollout",
-      "level": 7,
-      "info": {
-        "description": "Attacks 5 turns with rising power.",
-        "type": "Rock",
-        "pp": 20,
-        "power": 30,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rapid Spin",
-      "level": 9,
-      "info": {
-        "description": "A high-speed spinning attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pin Missile",
-      "level": 11,
-      "info": {
-        "description": "Fires pins that strike 2-5 times.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 25,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Magnitude",
-      "level": 14,
-      "info": {
-        "description": "A Ground attack with random power.",
-        "type": "Ground",
-        "pp": 30,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swift",
-      "level": 17,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 20,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Metal Claw",
-      "level": 23,
-      "info": {
-        "description": "An attack that may up user's Attack.",
-        "type": "Steel",
-        "pp": 35,
-        "power": 50,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 26,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Dig",
-      "level": 30,
-      "info": {
-        "description": "1st turn: Burrow 2nd turn: Attack",
-        "type": "Ground",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Gyro Ball",
-      "level": 34,
-      "info": {
-        "description": "Does more damage at lower speed.",
-        "type": "Steel",
-        "pp": 5,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swords Dance",
-      "level": 38,
-      "info": {
-        "description": "Sharply raises the user's Attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sandstorm",
-      "level": 42,
-      "info": {
-        "description": "",
-        "type": "Rock",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Earthquake",
-      "level": 46,
-      "info": {
-        "description": "Tough but useless vs. flying foes.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 100,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Scratch",
-      "level": 1,
-      "info": {
-        "description": "Scratches with sharp claws.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Defense Curl",
-      "level": 1,
-      "info": {
-        "description": "Raises the user's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 3,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Poison Sting",
-      "level": 5,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 35,
-        "power": 15,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rollout",
-      "level": 7,
-      "info": {
-        "description": "Attacks 5 turns with rising power.",
-        "type": "Rock",
-        "pp": 20,
-        "power": 30,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rapid Spin",
-      "level": 9,
-      "info": {
-        "description": "A high-speed spinning attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pin Missile",
-      "level": 11,
-      "info": {
-        "description": "Fires pins that strike 2-5 times.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 25,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Magnitude",
-      "level": 14,
-      "info": {
-        "description": "A Ground attack with random power.",
-        "type": "Ground",
-        "pp": 30,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swift",
-      "level": 17,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 20,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Metal Claw",
-      "level": 23,
-      "info": {
-        "description": "An attack that may up user's Attack.",
-        "type": "Steel",
-        "pp": 35,
-        "power": 50,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 26,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Dig",
-      "level": 30,
-      "info": {
-        "description": "1st turn: Burrow 2nd turn: Attack",
-        "type": "Ground",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Gyro Ball",
-      "level": 34,
-      "info": {
-        "description": "Does more damage at lower speed.",
-        "type": "Steel",
-        "pp": 5,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swords Dance",
-      "level": 38,
-      "info": {
-        "description": "Sharply raises the user's Attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Sandstorm",
-      "level": 42,
-      "info": {
-        "description": "",
-        "type": "Rock",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Earthquake",
-      "level": 46,
-      "info": {
-        "description": "Tough but useless vs. flying foes.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 100,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Dynamicpunch",
-      "description": "\tAn attack that \tconfuses the foe.",
-      "type": "Fighting",
-      "pp": 5,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 50
-    },
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Hone Claws",
-      "description": "\tRaises the user's \tAtk and accuracy.",
-      "type": "Dark",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Safeguard",
-      "description": "\tPrevents all \tstatus problems.",
-      "type": "Normal",
-      "pp": 25,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Bulldoze",
-      "description": "\tA Ground attack \tthat lowers Speed.",
-      "type": "Ground",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Earthquake",
-      "description": "\tTough but useless \tvs. flying foes.",
-      "type": "Ground",
-      "pp": 10,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dig",
-      "description": "\t1st turn: Burrow \t2nd turn: Attack",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Sandstorm",
-      "description": "",
-      "type": "Rock",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Aerial Ace",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Flying",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Slide",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Rock",
-      "pp": 10,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "X Scissor",
-      "description": "",
-      "type": "Bug",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Shadow Claw",
-      "description": "",
-      "type": "Ghost",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Poison Jab",
-      "description": "\tAn attack that may \tpoison the foe.",
-      "type": "Poison",
-      "pp": 20,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Gyro Ball",
-      "description": "\tDoes more damage \tat lower speed.",
-      "type": "Steel",
-      "pp": 5,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Swords Dance",
-      "description": "\tSharply raises the \tuser's Attack.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Cut",
-      "description": "\tCuts using claws, \tscythes, etc.",
-      "type": "Steel",
-      "pp": 30,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Strength",
-      "description": "\tA powerful physi- \tcal attack.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Agility",
-      "description": "\tSharply raises the \tuser's Speed.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Counter",
-      "description": "\tReturns a physical \tattack double.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Defense Curl",
-      "description": "\tRaises the user's \tDefense.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Earth Power",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Knock Off",
-      "description": "\tSlaps down the \tfoe's held item.",
-      "type": "Dark",
-      "pp": 20,
-      "power": 65,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rollout",
-      "description": "\tAttacks 5 turns \twith rising power.",
-      "type": "Rock",
-      "pp": 20,
-      "power": 30,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Seismic Toss",
-      "description": "\tDamage equals the \tuser's level.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    }
-  ],
-  "eggMoves": [
-    "Amnesia",
-    "Rapid Spin",
-    "Safeguard",
-    "Reversal",
-    "Icicle Crash",
-    "Icicle Spear",
-    "Night Slash"
-  ],
-  "locations": [
-    {
-      "area": "union_cave_1f",
-      "method": "grass",
-      "time": "morn",
-      "level": "8",
-      "chance": 30,
-      "formName": null
-    },
-    {
-      "area": "union_cave_1f",
-      "method": "grass",
-      "time": "day",
-      "level": "8",
-      "chance": 30,
-      "formName": null
-    }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Mouse",
-      "description": "It prefers dry, sandy places because it uses the sand to protect itself when threatened."
-    },
-    "Alolan": {
-      "species": "Mouse",
-      "description": "It lives on snowy mountains. Its steel shell is so hard, it can't roll its body up into a ball."
-    }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "1 Def",
+    "types": "Ground",
+    "updatedTypes": "Ground"
   },
   "forms": {
-    "alolan": {
-      "name": "sandshrew alolan",
-      "formName": "alolan",
-      "nationalDex": 27,
-      "johtoDex": 49,
-      "types": [
-        "Ice",
-        "Steel"
-      ],
-      "updatedTypes": [
-        "Ice",
-        "Steel"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/sandshrew_alolan/front_cropped.png",
-      "moves": [
-        {
-          "name": "Scratch",
-          "level": 1,
-          "info": {
-            "description": "Scratches with sharp claws.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Defense Curl",
-          "level": 1,
-          "info": {
-            "description": "Raises the user's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Focus Energy",
-          "level": 3,
-          "info": {
-            "description": "Raises the criti- cal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Icy Wind",
-          "level": 5,
-          "info": {
-            "description": "An icy attack that lowers Speed.",
-            "type": "Ice",
-            "pp": 15,
-            "power": 55,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Defense Curl",
-          "level": 7,
-          "info": {
-            "description": "Raises the user's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Rapid Spin",
-          "level": 9,
-          "info": {
-            "description": "A high-speed spinning attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Pin Missile",
-          "level": 11,
-          "info": {
-            "description": "Fires pins that strike 2-5 times.",
-            "type": "Bug",
-            "pp": 20,
-            "power": 25,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Metal Claw",
-          "level": 14,
-          "info": {
-            "description": "An attack that may up user's Attack.",
-            "type": "Steel",
-            "pp": 35,
-            "power": 50,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swift",
-          "level": 17,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Fury Strikes",
-          "level": 20,
-          "info": {
-            "description": "Scratches or jabs 2-5 times.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 20,
-            "accuracy": 85,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rollout",
-          "level": 23,
-          "info": {
-            "description": "Attacks 5 turns with rising power.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 30,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Slash",
-          "level": 26,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Iron Head",
-          "level": 30,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Steel",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Gyro Ball",
-          "level": 34,
-          "info": {
-            "description": "Does more damage at lower speed.",
-            "type": "Steel",
-            "pp": 5,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swords Dance",
-          "level": 38,
-          "info": {
-            "description": "Sharply raises the user's Attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Hail",
-          "level": 42,
-          "info": {
-            "description": "Inflicts damage every turn.",
-            "type": "Ice",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Blizzard",
-          "level": 46,
-          "info": {
-            "description": "An attack that may freeze the foe.",
-            "type": "Ice",
-            "pp": 5,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        }
-      ],
-      "faithfulLevelMoves": [
-        {
-          "name": "Scratch",
-          "level": 1,
-          "info": {
-            "description": "Scratches with sharp claws.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Defense Curl",
-          "level": 1,
-          "info": {
-            "description": "Raises the user's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Focus Energy",
-          "level": 3,
-          "info": {
-            "description": "Raises the criti- cal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Icy Wind",
-          "level": 5,
-          "info": {
-            "description": "An icy attack that lowers Speed.",
-            "type": "Ice",
-            "pp": 15,
-            "power": 55,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Defense Curl",
-          "level": 7,
-          "info": {
-            "description": "Raises the user's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Rapid Spin",
-          "level": 9,
-          "info": {
-            "description": "A high-speed spinning attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Pin Missile",
-          "level": 11,
-          "info": {
-            "description": "Fires pins that strike 2-5 times.",
-            "type": "Bug",
-            "pp": 20,
-            "power": 25,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Metal Claw",
-          "level": 14,
-          "info": {
-            "description": "An attack that may up user's Attack.",
-            "type": "Steel",
-            "pp": 35,
-            "power": 50,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swift",
-          "level": 17,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Fury Strikes",
-          "level": 20,
-          "info": {
-            "description": "Scratches or jabs 2-5 times.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 20,
-            "accuracy": 85,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rollout",
-          "level": 23,
-          "info": {
-            "description": "Attacks 5 turns with rising power.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 30,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Slash",
-          "level": 26,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Iron Head",
-          "level": 30,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Steel",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Gyro Ball",
-          "level": 34,
-          "info": {
-            "description": "Does more damage at lower speed.",
-            "type": "Steel",
-            "pp": 5,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swords Dance",
-          "level": 38,
-          "info": {
-            "description": "Sharply raises the user's Attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Hail",
-          "level": 42,
-          "info": {
-            "description": "Inflicts damage every turn.",
-            "type": "Ice",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Blizzard",
-          "level": 46,
-          "info": {
-            "description": "An attack that may freeze the foe.",
-            "type": "Ice",
-            "pp": 5,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        }
-      ],
-      "updatedLevelMoves": [
-        {
-          "name": "Scratch",
-          "level": 1,
-          "info": {
-            "description": "Scratches with sharp claws.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Defense Curl",
-          "level": 1,
-          "info": {
-            "description": "Raises the user's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Focus Energy",
-          "level": 3,
-          "info": {
-            "description": "Raises the criti- cal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Icy Wind",
-          "level": 5,
-          "info": {
-            "description": "An icy attack that lowers Speed.",
-            "type": "Ice",
-            "pp": 15,
-            "power": 55,
-            "accuracy": 95,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Defense Curl",
-          "level": 7,
-          "info": {
-            "description": "Raises the user's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Rapid Spin",
-          "level": 9,
-          "info": {
-            "description": "A high-speed spinning attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Pin Missile",
-          "level": 11,
-          "info": {
-            "description": "Fires pins that strike 2-5 times.",
-            "type": "Bug",
-            "pp": 20,
-            "power": 25,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Metal Claw",
-          "level": 14,
-          "info": {
-            "description": "An attack that may up user's Attack.",
-            "type": "Steel",
-            "pp": 35,
-            "power": 50,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swift",
-          "level": 17,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Fury Strikes",
-          "level": 20,
-          "info": {
-            "description": "Scratches or jabs 2-5 times.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 20,
-            "accuracy": 85,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rollout",
-          "level": 23,
-          "info": {
-            "description": "Attacks 5 turns with rising power.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 30,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Slash",
-          "level": 26,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Iron Head",
-          "level": 30,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Steel",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Gyro Ball",
-          "level": 34,
-          "info": {
-            "description": "Does more damage at lower speed.",
-            "type": "Steel",
-            "pp": 5,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swords Dance",
-          "level": 38,
-          "info": {
-            "description": "Sharply raises the user's Attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Hail",
-          "level": 42,
-          "info": {
-            "description": "Inflicts damage every turn.",
-            "type": "Ice",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Blizzard",
-          "level": 46,
-          "info": {
-            "description": "An attack that may freeze the foe.",
-            "type": "Ice",
-            "pp": 5,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        }
-      ],
-      "detailedStats": {
-        "baseStats": {
-          "hp": 50,
-          "attack": 75,
-          "defense": 90,
-          "speed": 40,
-          "specialAttack": 10,
-          "specialDefense": 35,
-          "total": 300
-        },
-        "catchRate": 255,
-        "baseExp": 93,
-        "heldItems": [
-          "GRIP_CLAW"
-        ],
-        "genderRatio": {
-          "male": 50,
-          "female": 50
-        },
-        "hatchRate": "Medium-Fast (5,120 steps)",
-        "abilities": [
-          {
-            "name": "Snow Cloak",
-            "description": "\tBoosts evasion in \thailstorms.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Snow Cloak",
-            "description": "\tBoosts evasion in \thailstorms.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Slush Rush",
-            "description": "\tBoosts Speed in \ta hailstorm.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "faithfulAbilities": [
-          {
-            "name": "Snow Cloak",
-            "description": "\tBoosts evasion in \thailstorms.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Snow Cloak",
-            "description": "\tBoosts evasion in \thailstorms.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Slush Rush",
-            "description": "\tBoosts Speed in \ta hailstorm.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "updatedAbilities": [],
-        "growthRate": "Medium Fast",
-        "eggGroups": [
-          "Field",
-          "Field"
-        ],
-        "evYield": "1 Def",
-        "types": [
-          "Ice",
-          "Steel"
-        ],
-        "updatedTypes": [
-          "Ice",
-          "Steel"
-        ],
-        "locations": [],
-        "height": 7,
-        "weight": 400,
-        "bodyColor": "White",
-        "bodyShape": "Bipedal Tail"
-      },
-      "locations": [
-        {
-          "area": "seafoam_islands_1f",
-          "method": "grass",
-          "time": "morn",
-          "level": "58",
-          "chance": 10,
-          "formName": "alolan"
-        },
-        {
-          "area": "seafoam_islands_1f",
-          "method": "grass",
-          "time": "day",
-          "level": "58",
-          "chance": 10,
-          "formName": "alolan"
-        },
-        {
-          "area": "seafoam_islands_1f",
-          "method": "grass",
-          "time": "nite",
-          "level": "58",
-          "chance": 10,
-          "formName": "alolan"
-        },
-        {
-          "area": "seafoam_islands_b_1f",
-          "method": "grass",
-          "time": "morn",
-          "level": "58",
-          "chance": 20,
-          "formName": "alolan"
-        },
-        {
-          "area": "seafoam_islands_b_1f",
-          "method": "grass",
-          "time": "day",
-          "level": "58",
-          "chance": 20,
-          "formName": "alolan"
-        },
-        {
-          "area": "seafoam_islands_b_1f",
-          "method": "grass",
-          "time": "nite",
-          "level": "58",
-          "chance": 20,
-          "formName": "alolan"
-        }
-      ]
-    },
     "plain": {
-      "name": "sandshrew plain",
-      "formName": "plain",
-      "nationalDex": 27,
-      "johtoDex": 49,
-      "types": [],
-      "updatedTypes": [],
-      "frontSpriteUrl": "/sprites/pokemon/sandshrew_plain/front_cropped.png",
+      "name": "plain",
+      "types": "Ground",
+      "faithfulTypes": "Ground",
+      "updatedTypes": "Ground",
       "moves": [
         {
           "name": "Scratch",
@@ -1962,7 +182,6 @@
             "description": "Raises the user's Defense.",
             "type": "Normal",
             "pp": 40,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -2079,7 +298,7 @@
           "name": "Slash",
           "level": 26,
           "info": {
-            "description": "",
+            "description": "Has a high critical hit ratio.",
             "type": "Normal",
             "pp": 20,
             "power": 70,
@@ -2118,7 +337,6 @@
             "description": "Sharply raises the user's Attack.",
             "type": "Normal",
             "pp": 20,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -2127,10 +345,9 @@
           "name": "Sandstorm",
           "level": 42,
           "info": {
-            "description": "",
+            "description": "Inflicts damage every turn.",
             "type": "Rock",
             "pp": 10,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -2148,27 +365,2422 @@
           }
         }
       ],
-      "detailedStats": {
-        "catchRate": 255,
-        "baseExp": 0,
-        "heldItems": [],
-        "abilities": [],
-        "faithfulAbilities": [],
-        "updatedAbilities": [],
-        "growthRate": "Medium Fast",
-        "eggGroups": [],
-        "genderRatio": {
-          "male": 0,
-          "female": 0
+      "faithfulMoves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
         },
-        "hatchRate": "Unknown",
-        "evYield": "None",
-        "locations": [],
-        "height": 7,
-        "weight": 400,
-        "bodyColor": "White",
-        "bodyShape": "Bipedal Tail"
-      }
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 3,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Poison Sting",
+          "level": 5,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 7,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 9,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 11,
+          "info": {
+            "description": "Fires pins that strike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Magnitude",
+          "level": 14,
+          "info": {
+            "description": "A Ground attack with random power.",
+            "type": "Ground",
+            "pp": 30,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 17,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 20,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 23,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 26,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 30,
+          "info": {
+            "description": "1st turn: Burrow 2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 34,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 38,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 42,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 46,
+          "info": {
+            "description": "Tough but useless vs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 3,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Poison Sting",
+          "level": 5,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 7,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 9,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 11,
+          "info": {
+            "description": "Fires pins that strike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Magnitude",
+          "level": 14,
+          "info": {
+            "description": "A Ground attack with random power.",
+            "type": "Ground",
+            "pp": 30,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 17,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 20,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 23,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 26,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dig",
+          "level": 30,
+          "info": {
+            "description": "1st turn: Burrow 2nd turn: Attack",
+            "type": "Ground",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 34,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 38,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "level": 42,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Rock",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "level": 46,
+          "info": {
+            "description": "Tough but useless vs. flying foes.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 100,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Amnesia",
+        "Rapid Spin",
+        "Safeguard",
+        "Reversal",
+        "Icicle Crash",
+        "Icicle Spear",
+        "Night Slash"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Dynamicpunch",
+          "description": "An attack that confuses the foe.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 50,
+          "tmNumber": "TM01",
+          "location": {
+            "area": "Chuck's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "description": "Raises the user's Atk and accuracy.",
+          "type": "Dark",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM12",
+          "location": {
+            "area": "Route 35"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "description": "Prevents all status problems.",
+          "type": "Normal",
+          "pp": 25,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM20",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "description": "Slashes foe with scythes or claws.",
+          "type": "Bug",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM56",
+          "location": {
+            "area": "Underground Warehouse"
+          }
+        },
+        {
+          "name": "Shadow Claw",
+          "description": "Has a high critical hit ratio.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM65",
+          "location": {
+            "area": "Lavender Soul House"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 20,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM66",
+          "location": {
+            "area": "Janine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "description": "Does more damage at lower speed.",
+          "type": "Steel",
+          "pp": 5,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM74",
+          "location": {
+            "area": "Magnet Tunnel"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "description": "Sharply raises the user's Attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM75",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT10",
+          "location": {
+            "area": "Cherrygrove Bay"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "description": "Slaps down the foe's held item.",
+          "type": "Dark",
+          "pp": 20,
+          "power": 65,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT18",
+          "location": {
+            "area": "Route 40"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "description": "Damage equals the user's level.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT22",
+          "location": {
+            "area": "Pewter City"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-rush",
+          "name": "Sand Rush",
+          "description": "\tBoosts Speed in \ta sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sand-veil",
+          "name": "Sand Veil",
+          "description": "\tBoosts evasion in \ta sandstorm.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "sand-rush",
+          "name": "Sand Rush",
+          "description": "\tBoosts Speed in \ta sandstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 50,
+        "attack": 75,
+        "defense": 85,
+        "speed": 40,
+        "specialAttack": 20,
+        "specialDefense": 30,
+        "total": 300
+      },
+      "faithfulBaseStats": {
+        "hp": 50,
+        "attack": 75,
+        "defense": 85,
+        "speed": 40,
+        "specialAttack": 20,
+        "specialDefense": 30,
+        "total": 300
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 75,
+        "defense": 85,
+        "speed": 40,
+        "specialAttack": 20,
+        "specialDefense": 30,
+        "total": 300
+      },
+      "catchRate": 255,
+      "baseExp": 93,
+      "heldItems": [
+        "QUICK_CLAW"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Def"
+    },
+    "alolan": {
+      "name": "alolan",
+      "types": [
+        "Ice",
+        "Steel"
+      ],
+      "faithfulTypes": [
+        "Ice",
+        "Steel"
+      ],
+      "updatedTypes": [
+        "Ice",
+        "Steel"
+      ],
+      "moves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 3,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "level": 5,
+          "info": {
+            "description": "An icy attack that lowers Speed.",
+            "type": "Ice",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 7,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 9,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 11,
+          "info": {
+            "description": "Fires pins that strike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 14,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 17,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 20,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 23,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 26,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "level": 30,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 34,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 38,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hail",
+          "level": 42,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Ice",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "level": 46,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 3,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "level": 5,
+          "info": {
+            "description": "An icy attack that lowers Speed.",
+            "type": "Ice",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 7,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 9,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 11,
+          "info": {
+            "description": "Fires pins that strike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 14,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 17,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 20,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 23,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 26,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "level": 30,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 34,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 38,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hail",
+          "level": 42,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Ice",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "level": 46,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 1,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 3,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "level": 5,
+          "info": {
+            "description": "An icy attack that lowers Speed.",
+            "type": "Ice",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "level": 7,
+          "info": {
+            "description": "Raises the user's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rapid Spin",
+          "level": 9,
+          "info": {
+            "description": "A high-speed spinning attack.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 11,
+          "info": {
+            "description": "Fires pins that strike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 14,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 17,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 20,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 23,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 26,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "level": 30,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 34,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 38,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hail",
+          "level": 42,
+          "info": {
+            "description": "Inflicts damage every turn.",
+            "type": "Ice",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "level": 46,
+          "info": {
+            "description": "An attack that may freeze the foe.",
+            "type": "Ice",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Amnesia",
+        "Rapid Spin",
+        "Safeguard",
+        "Reversal",
+        "Icicle Crash",
+        "Icicle Spear",
+        "Night Slash"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Dynamicpunch",
+          "description": "An attack that confuses the foe.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 50,
+          "tmNumber": "TM01",
+          "location": {
+            "area": "Chuck's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "description": "Raises the user's Atk and accuracy.",
+          "type": "Dark",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM12",
+          "location": {
+            "area": "Route 35"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "description": "Prevents all status problems.",
+          "type": "Normal",
+          "pp": 25,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM20",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "description": "Slashes foe with scythes or claws.",
+          "type": "Bug",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM56",
+          "location": {
+            "area": "Underground Warehouse"
+          }
+        },
+        {
+          "name": "Shadow Claw",
+          "description": "Has a high critical hit ratio.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM65",
+          "location": {
+            "area": "Lavender Soul House"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 20,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM66",
+          "location": {
+            "area": "Janine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "description": "Does more damage at lower speed.",
+          "type": "Steel",
+          "pp": 5,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM74",
+          "location": {
+            "area": "Magnet Tunnel"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "description": "Sharply raises the user's Attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM75",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT10",
+          "location": {
+            "area": "Cherrygrove Bay"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "description": "Slaps down the foe's held item.",
+          "type": "Dark",
+          "pp": 20,
+          "power": 65,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT18",
+          "location": {
+            "area": "Route 40"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "description": "Damage equals the user's level.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT22",
+          "location": {
+            "area": "Pewter City"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "slush-rush",
+          "name": "Slush Rush",
+          "description": "\tBoosts Speed in \ta hailstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "snow-cloak",
+          "name": "Snow Cloak",
+          "description": "\tBoosts evasion in \thailstorms.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "slush-rush",
+          "name": "Slush Rush",
+          "description": "\tBoosts Speed in \ta hailstorm.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 50,
+        "attack": 75,
+        "defense": 90,
+        "speed": 40,
+        "specialAttack": 10,
+        "specialDefense": 35,
+        "total": 300
+      },
+      "faithfulBaseStats": {
+        "hp": 50,
+        "attack": 75,
+        "defense": 90,
+        "speed": 40,
+        "specialAttack": 10,
+        "specialDefense": 35,
+        "total": 300
+      },
+      "polishedBaseStats": {
+        "hp": 50,
+        "attack": 75,
+        "defense": 90,
+        "speed": 40,
+        "specialAttack": 10,
+        "specialDefense": 35,
+        "total": 300
+      },
+      "catchRate": 255,
+      "baseExp": 93,
+      "heldItems": [
+        "GRIP_CLAW"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Def"
     }
-  }
+  },
+  "locations": [
+    {
+      "area": "union_cave_1f",
+      "method": "grass",
+      "time": "morn",
+      "level": "8",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "union_cave_1f",
+      "method": "grass",
+      "time": "day",
+      "level": "8",
+      "chance": 30,
+      "formName": null
+    }
+  ]
 }

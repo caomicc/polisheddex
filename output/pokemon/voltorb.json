@@ -1,59 +1,7 @@
 {
-  "name": "voltorb",
+  "name": "Voltorb",
   "nationalDex": 100,
   "johtoDex": 128,
-  "types": "Electric",
-  "frontSpriteUrl": "/sprites/pokemon/voltorb/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 40,
-      "attack": 30,
-      "defense": 50,
-      "speed": 100,
-      "specialAttack": 55,
-      "specialDefense": 55,
-      "total": 330
-    },
-    "catchRate": 190,
-    "baseExp": 103,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 0,
-      "female": 0
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "soundproof",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "static",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "aftermath",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Mineral",
-      "Mineral"
-    ],
-    "evYield": "1 Spe",
-    "types": "Electric",
-    "updatedTypes": "Electric",
-    "height": 5,
-    "weight": 130,
-    "bodyShape": "Head",
-    "bodyColor": "Brown"
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -111,1723 +59,104 @@
       "Electrode": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
+  "detailedStats": {
+    "baseStats": {
+      "hp": 40,
+      "attack": 30,
+      "defense": 50,
+      "speed": 100,
+      "specialAttack": 55,
+      "specialDefense": 55,
+      "total": 330
+    },
+    "faithfulBaseStats": {
+      "hp": 40,
+      "attack": 30,
+      "defense": 50,
+      "speed": 100,
+      "specialAttack": 55,
+      "specialDefense": 55,
+      "total": 330
+    },
+    "polishedBaseStats": {
+      "hp": 40,
+      "attack": 30,
+      "defense": 50,
+      "speed": 100,
+      "specialAttack": 55,
+      "specialDefense": 55,
+      "total": 330
+    },
+    "catchRate": 190,
+    "baseExp": 103,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 0,
+      "female": 0
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "soundproof",
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "aftermath",
+        "name": "Aftermath",
+        "description": "\tDamages the foe on \tfainting.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Thundershock",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "soundproof",
+        "name": "Soundproof",
+        "description": "\tGives immunity to \tsound-based moves.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "aftermath",
+        "name": "Aftermath",
+        "description": "\tDamages the foe on \tfainting.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Sonic Boom",
-      "level": 4,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 20,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 6,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Spark",
-      "level": 9,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rollout",
-      "level": 11,
-      "info": {
-        "description": "Attacks 5 turns with rising power.",
-        "type": "Rock",
-        "pp": 20,
-        "power": 30,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Screech",
-      "level": 13,
-      "info": {
-        "description": "Sharply lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 85,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thunder Wave",
-      "level": 16,
-      "info": {
-        "description": "paralyzes the foe.@",
-        "type": "Electric",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 90,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Swift",
-      "level": 20,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Thunderbolt",
-      "level": 22,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Reflect",
-      "level": 26,
-      "info": {
-        "description": "Raises Defense with a barrier.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Light Screen",
-      "level": 29,
-      "info": {
-        "description": "Raises Sp.Def with a wall of light.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Explosion",
-      "level": 34,
-      "info": {
-        "description": "Very powerful but makes user faint.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 250,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Thunder",
-      "level": 37,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Bug Buzz",
-      "level": 41,
-      "info": {
-        "description": "An attack that may lower Sp.Def.",
-        "type": "Bug",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Gyro Ball",
-      "level": 46,
-      "info": {
-        "description": "Does more damage at lower speed.",
-        "type": "Steel",
-        "pp": 5,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 48,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Thundershock",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Sonic Boom",
-      "level": 4,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 20,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 6,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Spark",
-      "level": 9,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rollout",
-      "level": 11,
-      "info": {
-        "description": "Attacks 5 turns with rising power.",
-        "type": "Rock",
-        "pp": 20,
-        "power": 30,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Screech",
-      "level": 13,
-      "info": {
-        "description": "Sharply lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 85,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thunder Wave",
-      "level": 16,
-      "info": {
-        "description": "paralyzes the foe.@",
-        "type": "Electric",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 90,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Swift",
-      "level": 20,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Thunderbolt",
-      "level": 22,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Reflect",
-      "level": 26,
-      "info": {
-        "description": "Raises Defense with a barrier.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Light Screen",
-      "level": 29,
-      "info": {
-        "description": "Raises Sp.Def with a wall of light.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Explosion",
-      "level": 34,
-      "info": {
-        "description": "Very powerful but makes user faint.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 250,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Thunder",
-      "level": 37,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Bug Buzz",
-      "level": 41,
-      "info": {
-        "description": "An attack that may lower Sp.Def.",
-        "type": "Bug",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Gyro Ball",
-      "level": 46,
-      "info": {
-        "description": "Does more damage at lower speed.",
-        "type": "Steel",
-        "pp": 5,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 48,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Thundershock",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Sonic Boom",
-      "level": 4,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 20,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 6,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Spark",
-      "level": 9,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rollout",
-      "level": 11,
-      "info": {
-        "description": "Attacks 5 turns with rising power.",
-        "type": "Rock",
-        "pp": 20,
-        "power": 30,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Screech",
-      "level": 13,
-      "info": {
-        "description": "Sharply lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 85,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thunder Wave",
-      "level": 16,
-      "info": {
-        "description": "paralyzes the foe.@",
-        "type": "Electric",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 90,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Swift",
-      "level": 20,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Thunderbolt",
-      "level": 22,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Reflect",
-      "level": 26,
-      "info": {
-        "description": "Raises Defense with a barrier.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Light Screen",
-      "level": 29,
-      "info": {
-        "description": "Raises Sp.Def with a wall of light.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Explosion",
-      "level": 34,
-      "info": {
-        "description": "Very powerful but makes user faint.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 250,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Thunder",
-      "level": 37,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Bug Buzz",
-      "level": 41,
-      "info": {
-        "description": "An attack that may lower Sp.Def.",
-        "type": "Bug",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Gyro Ball",
-      "level": 46,
-      "info": {
-        "description": "Does more damage at lower speed.",
-        "type": "Steel",
-        "pp": 5,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 48,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Light Screen",
-      "description": "\tRaises Sp.Def with \ta wall of light.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Thunderbolt",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 10,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Reflect",
-      "description": "\tRaises Defense \twith a barrier.",
-      "type": "Psychic",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Wild Charge",
-      "description": "\tA charge that also \thurts the user.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Explosion",
-      "description": "\tVery powerful but \tmakes user faint.",
-      "type": "Normal",
-      "pp": 5,
-      "power": 250,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Flash",
-      "description": "\tA move that lowers \tthe foe's accuracy.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Volt Switch",
-      "description": "\tSwitches out after \tmaking its attack.",
-      "type": "Electric",
-      "pp": 20,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder Wave",
-      "description": "\tparalyzes the foe.@",
-      "type": "Electric",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Gyro Ball",
-      "description": "\tDoes more damage \tat lower speed.",
-      "type": "Steel",
-      "pp": 5,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Agility",
-      "description": "\tSharply raises the \tuser's Speed.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rollout",
-      "description": "\tAttacks 5 turns \twith rising power.",
-      "type": "Rock",
-      "pp": 20,
-      "power": 30,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Sucker Punch",
-      "description": "\tAttacks before the \tfoe does.",
-      "type": "Dark",
-      "pp": 5,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Zap Cannon",
-      "description": "\tAn attack that \talways paralyzes.",
-      "type": "Electric",
-      "pp": 5,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 50
-    }
-  ],
-  "eggMoves": [],
-  "locations": [
-    {
-      "area": "magnet_tunnel_inside",
-      "method": "grass",
-      "time": "morn",
-      "level": "Badge Level - 2",
-      "chance": 30,
-      "formName": null
-    },
-    {
-      "area": "magnet_tunnel_inside",
-      "method": "grass",
-      "time": "day",
-      "level": "Badge Level - 2",
-      "chance": 30,
-      "formName": null
-    },
-    {
-      "area": "magnet_tunnel_inside",
-      "method": "grass",
-      "time": "nite",
-      "level": "Badge Level - 2",
-      "chance": 20,
-      "formName": null
-    },
-    {
-      "area": "lightning_island",
-      "method": "grass",
-      "time": "morn",
-      "level": "Badge Level - 2",
-      "chance": 30,
-      "formName": null
-    },
-    {
-      "area": "lightning_island",
-      "method": "grass",
-      "time": "morn",
-      "level": "Badge Level - 1",
-      "chance": 30,
-      "formName": null
-    },
-    {
-      "area": "lightning_island",
-      "method": "grass",
-      "time": "day",
-      "level": "Badge Level - 2",
-      "chance": 30,
-      "formName": null
-    },
-    {
-      "area": "lightning_island",
-      "method": "grass",
-      "time": "day",
-      "level": "Badge Level - 1",
-      "chance": 30,
-      "formName": null
-    }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Ball",
-      "description": "During the study of this #mon, it was discovered that its components are not found in nature."
-    },
-    "Hisuian": {
-      "species": "Sphere",
-      "description": "When excited, it discharges the electric current stored in its belly, then lets out a laugh."
-    }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Mineral",
+      "Mineral"
+    ],
+    "evYield": "1 Spe",
+    "types": "Electric",
+    "updatedTypes": "Electric"
   },
   "forms": {
-    "hisuian": {
-      "name": "voltorb hisuian",
-      "formName": "hisuian",
-      "nationalDex": 100,
-      "johtoDex": 128,
-      "types": [
-        "Electric",
-        "Grass"
-      ],
-      "updatedTypes": [
-        "Electric",
-        "Grass"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/voltorb_hisuian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "A full-body charge attack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Thundershock",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Absorb",
-          "level": 1,
-          "info": {
-            "description": "",
-            "type": "Grass",
-            "pp": 25,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Sonic Boom",
-          "level": 4,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 20,
-            "accuracy": 90,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 6,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Spark",
-          "level": 9,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 20,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rollout",
-          "level": 11,
-          "info": {
-            "description": "Attacks 5 turns with rising power.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 30,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Screech",
-          "level": 13,
-          "info": {
-            "description": "Sharply lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thunder Wave",
-          "level": 16,
-          "info": {
-            "description": "paralyzes the foe.@",
-            "type": "Electric",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 90,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Swift",
-          "level": 20,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Thunderbolt",
-          "level": 22,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Energy Ball",
-          "level": 26,
-          "info": {
-            "description": "An attack that may lower Sp.Def.",
-            "type": "Grass",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Light Screen",
-          "level": 29,
-          "info": {
-            "description": "Raises Sp.Def with a wall of light.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Explosion",
-          "level": 34,
-          "info": {
-            "description": "Very powerful but makes user faint.",
-            "type": "Normal",
-            "pp": 5,
-            "power": 250,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Thunder",
-          "level": 37,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 10,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Solar Beam",
-          "level": 41,
-          "info": {
-            "description": "1st turn: Prepare 2nd turn: Attack",
-            "type": "Grass",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Gyro Ball",
-          "level": 46,
-          "info": {
-            "description": "Does more damage at lower speed.",
-            "type": "Steel",
-            "pp": 5,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Mirror Coat",
-          "level": 48,
-          "info": {
-            "description": "Returns a special attack double.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 1,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        }
-      ],
-      "faithfulLevelMoves": [
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "A full-body charge attack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Thundershock",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Absorb",
-          "level": 1,
-          "info": {
-            "description": "",
-            "type": "Grass",
-            "pp": 25,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Sonic Boom",
-          "level": 4,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 20,
-            "accuracy": 90,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 6,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Spark",
-          "level": 9,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 20,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rollout",
-          "level": 11,
-          "info": {
-            "description": "Attacks 5 turns with rising power.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 30,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Screech",
-          "level": 13,
-          "info": {
-            "description": "Sharply lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thunder Wave",
-          "level": 16,
-          "info": {
-            "description": "paralyzes the foe.@",
-            "type": "Electric",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 90,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Swift",
-          "level": 20,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Thunderbolt",
-          "level": 22,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Energy Ball",
-          "level": 26,
-          "info": {
-            "description": "An attack that may lower Sp.Def.",
-            "type": "Grass",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Light Screen",
-          "level": 29,
-          "info": {
-            "description": "Raises Sp.Def with a wall of light.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Explosion",
-          "level": 34,
-          "info": {
-            "description": "Very powerful but makes user faint.",
-            "type": "Normal",
-            "pp": 5,
-            "power": 250,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Thunder",
-          "level": 37,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 10,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Solar Beam",
-          "level": 41,
-          "info": {
-            "description": "1st turn: Prepare 2nd turn: Attack",
-            "type": "Grass",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Gyro Ball",
-          "level": 46,
-          "info": {
-            "description": "Does more damage at lower speed.",
-            "type": "Steel",
-            "pp": 5,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Mirror Coat",
-          "level": 48,
-          "info": {
-            "description": "Returns a special attack double.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 1,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        }
-      ],
-      "updatedLevelMoves": [
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "A full-body charge attack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Thundershock",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Absorb",
-          "level": 1,
-          "info": {
-            "description": "",
-            "type": "Grass",
-            "pp": 25,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Sonic Boom",
-          "level": 4,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 20,
-            "accuracy": 90,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 6,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Spark",
-          "level": 9,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 20,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rollout",
-          "level": 11,
-          "info": {
-            "description": "Attacks 5 turns with rising power.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 30,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Screech",
-          "level": 13,
-          "info": {
-            "description": "Sharply lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thunder Wave",
-          "level": 16,
-          "info": {
-            "description": "paralyzes the foe.@",
-            "type": "Electric",
-            "pp": 20,
-            "power": 0,
-            "accuracy": 90,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Swift",
-          "level": 20,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Thunderbolt",
-          "level": 22,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Energy Ball",
-          "level": 26,
-          "info": {
-            "description": "An attack that may lower Sp.Def.",
-            "type": "Grass",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Light Screen",
-          "level": 29,
-          "info": {
-            "description": "Raises Sp.Def with a wall of light.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Explosion",
-          "level": 34,
-          "info": {
-            "description": "Very powerful but makes user faint.",
-            "type": "Normal",
-            "pp": 5,
-            "power": 250,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Thunder",
-          "level": 37,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Electric",
-            "pp": 10,
-            "power": 110,
-            "accuracy": 70,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Solar Beam",
-          "level": 41,
-          "info": {
-            "description": "1st turn: Prepare 2nd turn: Attack",
-            "type": "Grass",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Gyro Ball",
-          "level": 46,
-          "info": {
-            "description": "Does more damage at lower speed.",
-            "type": "Steel",
-            "pp": 5,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Mirror Coat",
-          "level": 48,
-          "info": {
-            "description": "Returns a special attack double.",
-            "type": "Psychic",
-            "pp": 20,
-            "power": 1,
-            "accuracy": "--",
-            "category": "Special"
-          }
-        }
-      ],
-      "detailedStats": {
-        "baseStats": {
-          "hp": 40,
-          "attack": 30,
-          "defense": 50,
-          "speed": 100,
-          "specialAttack": 55,
-          "specialDefense": 55,
-          "total": 330
-        },
-        "catchRate": 190,
-        "baseExp": 103,
-        "heldItems": [],
-        "genderRatio": {
-          "male": 0,
-          "female": 0
-        },
-        "hatchRate": "Medium-Fast (5,120 steps)",
-        "abilities": [
-          {
-            "name": "Soundproof",
-            "description": "\tGives immunity to \tsound-based moves.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Static",
-            "description": "\tContact may cause \tparalysis.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Aftermath",
-            "description": "\tDamages the foe on \tfainting.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "faithfulAbilities": [
-          {
-            "name": "Soundproof",
-            "description": "\tGives immunity to \tsound-based moves.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Static",
-            "description": "\tContact may cause \tparalysis.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Aftermath",
-            "description": "\tDamages the foe on \tfainting.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "updatedAbilities": [],
-        "growthRate": "Medium Fast",
-        "eggGroups": [
-          "Mineral",
-          "Mineral"
-        ],
-        "evYield": "1 Spe",
-        "types": [
-          "Electric",
-          "Grass"
-        ],
-        "updatedTypes": [
-          "Electric",
-          "Grass"
-        ],
-        "locations": [],
-        "height": 5,
-        "weight": 130,
-        "bodyColor": "Brown",
-        "bodyShape": "Head"
-      },
-      "locations": []
-    },
     "plain": {
-      "name": "voltorb plain",
-      "formName": "plain",
-      "nationalDex": 100,
-      "johtoDex": 128,
-      "types": [],
-      "updatedTypes": [],
-      "frontSpriteUrl": "/sprites/pokemon/voltorb_plain/front_cropped.png",
+      "name": "plain",
+      "types": "Electric",
+      "faithfulTypes": "Electric",
+      "updatedTypes": "Electric",
       "moves": [
         {
           "name": "Tackle",
@@ -1857,7 +186,7 @@
           "name": "Sonic Boom",
           "level": 4,
           "info": {
-            "description": "",
+            "description": "Always inflicts 20HP damage.",
             "type": "Normal",
             "pp": 20,
             "power": 20,
@@ -1872,7 +201,6 @@
             "description": "Sharply raises the user's Speed.",
             "type": "Psychic",
             "pp": 30,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -1908,7 +236,6 @@
             "description": "Sharply lowers the foe's Defense.",
             "type": "Normal",
             "pp": 40,
-            "power": 0,
             "accuracy": 85,
             "category": "Status"
           }
@@ -1920,7 +247,6 @@
             "description": "paralyzes the foe.@",
             "type": "Electric",
             "pp": 20,
-            "power": 0,
             "accuracy": 90,
             "category": "Status"
           }
@@ -1956,7 +282,6 @@
             "description": "Raises Defense with a barrier.",
             "type": "Psychic",
             "pp": 20,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -1968,7 +293,6 @@
             "description": "Raises Sp.Def with a wall of light.",
             "type": "Psychic",
             "pp": 30,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -2034,27 +358,2105 @@
           }
         }
       ],
-      "detailedStats": {
-        "catchRate": 255,
-        "baseExp": 0,
-        "heldItems": [],
-        "abilities": [],
-        "faithfulAbilities": [],
-        "updatedAbilities": [],
-        "growthRate": "Medium Fast",
-        "eggGroups": [],
-        "genderRatio": {
-          "male": 0,
-          "female": 0
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
         },
-        "hatchRate": "Unknown",
-        "evYield": "None",
-        "locations": [],
-        "height": 5,
-        "weight": 130,
-        "bodyColor": "Brown",
-        "bodyShape": "Head"
-      }
+        {
+          "name": "Thundershock",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Sonic Boom",
+          "level": 4,
+          "info": {
+            "description": "Always inflicts 20HP damage.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 6,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 9,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 11,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 13,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 16,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 20,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 22,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 26,
+          "info": {
+            "description": "Raises Defense with a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 29,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 34,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 37,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bug Buzz",
+          "level": 41,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 46,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 48,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Sonic Boom",
+          "level": 4,
+          "info": {
+            "description": "Always inflicts 20HP damage.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 6,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 9,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 11,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 13,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 16,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 20,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 22,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reflect",
+          "level": 26,
+          "info": {
+            "description": "Raises Defense with a barrier.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 29,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 34,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 37,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Bug Buzz",
+          "level": 41,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 46,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 48,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "description": "Raises Sp.Def with a wall of light.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM16",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Reflect",
+          "description": "Raises Defense with a barrier.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM33",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "description": "A charge that also hurts the user.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM57",
+          "location": {
+            "area": "Lt. Surge's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Explosion",
+          "description": "Very powerful but makes user faint.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 250,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM64",
+          "location": {
+            "area": "Underground"
+          }
+        },
+        {
+          "name": "Flash",
+          "description": "A move that lowers the foe's accuracy.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM70",
+          "location": {
+            "area": "Sprout Tower"
+          }
+        },
+        {
+          "name": "Volt Switch",
+          "description": "Switches out after making its attack.",
+          "type": "Electric",
+          "pp": 20,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM72",
+          "location": {
+            "area": "Route 10"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "description": "Does more damage at lower speed.",
+          "type": "Steel",
+          "pp": 5,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM74",
+          "location": {
+            "area": "Magnet Tunnel"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "description": "Attacks before the foe does.",
+          "type": "Dark",
+          "pp": 5,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT25",
+          "location": {
+            "area": "Scary Cave"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "description": "An attack that always paralyzes.",
+          "type": "Electric",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 50,
+          "tmNumber": "MT30",
+          "location": {
+            "area": "Power Plant"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "aftermath",
+          "name": "Aftermath",
+          "description": "\tDamages the foe on \tfainting.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "aftermath",
+          "name": "Aftermath",
+          "description": "\tDamages the foe on \tfainting.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 40,
+        "attack": 30,
+        "defense": 50,
+        "speed": 100,
+        "specialAttack": 55,
+        "specialDefense": 55,
+        "total": 330
+      },
+      "faithfulBaseStats": {
+        "hp": 40,
+        "attack": 30,
+        "defense": 50,
+        "speed": 100,
+        "specialAttack": 55,
+        "specialDefense": 55,
+        "total": 330
+      },
+      "polishedBaseStats": {
+        "hp": 40,
+        "attack": 30,
+        "defense": 50,
+        "speed": 100,
+        "specialAttack": 55,
+        "specialDefense": 55,
+        "total": 330
+      },
+      "catchRate": 190,
+      "baseExp": 103,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Mineral",
+        "Mineral"
+      ],
+      "evYield": "1 Spe"
+    },
+    "hisuian": {
+      "name": "hisuian",
+      "types": [
+        "Electric",
+        "Grass"
+      ],
+      "faithfulTypes": [
+        "Electric",
+        "Grass"
+      ],
+      "updatedTypes": [
+        "Electric",
+        "Grass"
+      ],
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Absorb",
+          "level": 1,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 25,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Sonic Boom",
+          "level": 4,
+          "info": {
+            "description": "Always inflicts 20HP damage.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 6,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 9,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 11,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 13,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 16,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 20,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 22,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Energy Ball",
+          "level": 26,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Grass",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 29,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 34,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 37,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Solar Beam",
+          "level": 41,
+          "info": {
+            "description": "1st turn: Prepare 2nd turn: Attack",
+            "type": "Grass",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 46,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 48,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Absorb",
+          "level": 1,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 25,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Sonic Boom",
+          "level": 4,
+          "info": {
+            "description": "Always inflicts 20HP damage.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 6,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 9,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 11,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 13,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 16,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 20,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 22,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Energy Ball",
+          "level": 26,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Grass",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 29,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 34,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 37,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Solar Beam",
+          "level": 41,
+          "info": {
+            "description": "1st turn: Prepare 2nd turn: Attack",
+            "type": "Grass",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 46,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 48,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Absorb",
+          "level": 1,
+          "info": {
+            "description": "Steals 1/2 of the damage inflicted.",
+            "type": "Grass",
+            "pp": 25,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Sonic Boom",
+          "level": 4,
+          "info": {
+            "description": "Always inflicts 20HP damage.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 6,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 9,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rollout",
+          "level": 11,
+          "info": {
+            "description": "Attacks 5 turns with rising power.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 30,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 13,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 16,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swift",
+          "level": 20,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 22,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Energy Ball",
+          "level": 26,
+          "info": {
+            "description": "An attack that may lower Sp.Def.",
+            "type": "Grass",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 29,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Explosion",
+          "level": 34,
+          "info": {
+            "description": "Very powerful but makes user faint.",
+            "type": "Normal",
+            "pp": 5,
+            "power": 250,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 37,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Solar Beam",
+          "level": 41,
+          "info": {
+            "description": "1st turn: Prepare 2nd turn: Attack",
+            "type": "Grass",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "level": 46,
+          "info": {
+            "description": "Does more damage at lower speed.",
+            "type": "Steel",
+            "pp": 5,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 48,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "description": "Raises Sp.Def with a wall of light.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM16",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Reflect",
+          "description": "Raises Defense with a barrier.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM33",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "description": "A charge that also hurts the user.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM57",
+          "location": {
+            "area": "Lt. Surge's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Explosion",
+          "description": "Very powerful but makes user faint.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 250,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM64",
+          "location": {
+            "area": "Underground"
+          }
+        },
+        {
+          "name": "Flash",
+          "description": "A move that lowers the foe's accuracy.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM70",
+          "location": {
+            "area": "Sprout Tower"
+          }
+        },
+        {
+          "name": "Volt Switch",
+          "description": "Switches out after making its attack.",
+          "type": "Electric",
+          "pp": 20,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM72",
+          "location": {
+            "area": "Route 10"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Gyro Ball",
+          "description": "Does more damage at lower speed.",
+          "type": "Steel",
+          "pp": 5,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM74",
+          "location": {
+            "area": "Magnet Tunnel"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "description": "Attacks before the foe does.",
+          "type": "Dark",
+          "pp": 5,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT25",
+          "location": {
+            "area": "Scary Cave"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "description": "An attack that always paralyzes.",
+          "type": "Electric",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 50,
+          "tmNumber": "MT30",
+          "location": {
+            "area": "Power Plant"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "aftermath",
+          "name": "Aftermath",
+          "description": "\tDamages the foe on \tfainting.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "soundproof",
+          "name": "Soundproof",
+          "description": "\tGives immunity to \tsound-based moves.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "aftermath",
+          "name": "Aftermath",
+          "description": "\tDamages the foe on \tfainting.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 40,
+        "attack": 30,
+        "defense": 50,
+        "speed": 100,
+        "specialAttack": 55,
+        "specialDefense": 55,
+        "total": 330
+      },
+      "faithfulBaseStats": {
+        "hp": 40,
+        "attack": 30,
+        "defense": 50,
+        "speed": 100,
+        "specialAttack": 55,
+        "specialDefense": 55,
+        "total": 330
+      },
+      "polishedBaseStats": {
+        "hp": 40,
+        "attack": 30,
+        "defense": 50,
+        "speed": 100,
+        "specialAttack": 55,
+        "specialDefense": 55,
+        "total": 330
+      },
+      "catchRate": 190,
+      "baseExp": 103,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 0,
+        "female": 0
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Mineral",
+        "Mineral"
+      ],
+      "evYield": "1 Spe"
     }
-  }
+  },
+  "locations": [
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "magnet_tunnel_inside",
+      "method": "grass",
+      "time": "nite",
+      "level": "Badge Level - 2",
+      "chance": 20,
+      "formName": null
+    },
+    {
+      "area": "lightning_island",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "lightning_island",
+      "method": "grass",
+      "time": "morn",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "lightning_island",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 2",
+      "chance": 30,
+      "formName": null
+    },
+    {
+      "area": "lightning_island",
+      "method": "grass",
+      "time": "day",
+      "level": "Badge Level - 1",
+      "chance": 30,
+      "formName": null
+    }
+  ]
 }

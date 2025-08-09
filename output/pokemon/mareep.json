@@ -1,75 +1,7 @@
 {
-  "name": "mareep",
+  "name": "Mareep",
   "nationalDex": 179,
   "johtoDex": 55,
-  "types": "Electric",
-  "frontSpriteUrl": "/sprites/pokemon/mareep/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 55,
-      "attack": 40,
-      "defense": 40,
-      "speed": 35,
-      "specialAttack": 65,
-      "specialDefense": 45,
-      "total": 280
-    },
-    "catchRate": 235,
-    "baseExp": 59,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "static",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "static",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "static",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": [
-      {
-        "id": "static",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "static",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "motor-drive",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "growthRate": "Medium Slow",
-    "eggGroups": [
-      "Monster",
-      "Field"
-    ],
-    "evYield": "1 SAt",
-    "types": "Electric",
-    "updatedTypes": "Electric",
-    "height": 6,
-    "weight": 78,
-    "bodyShape": "Quadruped",
-    "bodyColor": "White"
-  },
   "evolution": {
     "methods": [
       {
@@ -149,825 +81,1144 @@
       "Ampharos": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 55,
+      "attack": 40,
+      "defense": 40,
+      "speed": 35,
+      "specialAttack": 65,
+      "specialDefense": 45,
+      "total": 280
     },
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 40,
+      "defense": 40,
+      "speed": 35,
+      "specialAttack": 65,
+      "specialDefense": 45,
+      "total": 280
     },
-    {
-      "name": "Thunder Wave",
-      "level": 4,
-      "info": {
-        "description": "paralyzes the foe.@",
-        "type": "Electric",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 90,
-        "category": "Status"
-      }
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 40,
+      "defense": 40,
+      "speed": 35,
+      "specialAttack": 65,
+      "specialDefense": 45,
+      "total": 280
     },
-    {
-      "name": "Thundershock",
-      "level": 8,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
+    "catchRate": 235,
+    "baseExp": 59,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
     },
-    {
-      "name": "Mud Slap",
-      "level": 11,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Spark",
-      "level": 15,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Heal Bell",
-      "level": 18,
-      "info": {
-        "description": "Eliminates all status problems.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+    ],
+    "updatedAbilities": [
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "static",
+        "name": "Static",
+        "description": "\tContact may cause \tparalysis.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "motor-drive",
+        "name": "Motor Drive",
+        "description": "\tElectric moves \tboost Speed.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Take Down",
-      "level": 22,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Confuse Ray",
-      "level": 25,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Power Gem",
-      "level": 29,
-      "info": {
-        "description": "Attacks with a ray of gem-like light.",
-        "type": "Rock",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Thunderbolt",
-      "level": 32,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Safeguard",
-      "level": 36,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Dazzlingleam",
-      "level": 39,
-      "info": {
-        "description": "Dazzles with a powerful flash.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Light Screen",
-      "level": 43,
-      "info": {
-        "description": "Raises Sp.Def with a wall of light.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thunder",
-      "level": 46,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
+    ],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Monster",
+      "Field"
+    ],
+    "evYield": "1 SAt",
+    "types": "Electric",
+    "updatedTypes": "Electric"
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Electric",
+      "faithfulTypes": "Electric",
+      "updatedTypes": "Electric",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 4,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 8,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 11,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 15,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Heal Bell",
+          "level": 18,
+          "info": {
+            "description": "Eliminates all status problems.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 22,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 25,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Power Gem",
+          "level": 29,
+          "info": {
+            "description": "Attacks with a ray of gem-like light.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 32,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 36,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Dazzlingleam",
+          "level": 39,
+          "info": {
+            "description": "Dazzles with a powerful flash.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 43,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 46,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 4,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 8,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 11,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 15,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Heal Bell",
+          "level": 18,
+          "info": {
+            "description": "Eliminates all status problems.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 22,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 25,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Power Gem",
+          "level": 29,
+          "info": {
+            "description": "Attacks with a ray of gem-like light.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 32,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 36,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Dazzlingleam",
+          "level": 39,
+          "info": {
+            "description": "Dazzles with a powerful flash.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 43,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 46,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 4,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thundershock",
+          "level": 8,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 11,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Spark",
+          "level": 15,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Heal Bell",
+          "level": 18,
+          "info": {
+            "description": "Eliminates all status problems.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 22,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Confuse Ray",
+          "level": 25,
+          "info": {
+            "description": "A move that may confuse the foe.",
+            "type": "Ghost",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Power Gem",
+          "level": 29,
+          "info": {
+            "description": "Attacks with a ray of gem-like light.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 32,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 36,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Dazzlingleam",
+          "level": 39,
+          "info": {
+            "description": "Dazzles with a powerful flash.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "level": 43,
+          "info": {
+            "description": "Raises Sp.Def with a wall of light.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunder",
+          "level": 46,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Agility",
+        "Reflect",
+        "Mud Slap",
+        "Screech",
+        "Thunderbolt",
+        "Take Down",
+        "Body Slam",
+        "Safeguard"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Light Screen",
+          "description": "Raises Sp.Def with a wall of light.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM16",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "description": "Prevents all status problems.",
+          "type": "Normal",
+          "pp": 25,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM20",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "description": "A charge that also hurts the user.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM57",
+          "location": {
+            "area": "Lt. Surge's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Flash",
+          "description": "A move that lowers the foe's accuracy.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM70",
+          "location": {
+            "area": "Sprout Tower"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "description": "An attack that always paralyzes.",
+          "type": "Electric",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 50,
+          "tmNumber": "MT30",
+          "location": {
+            "area": "Power Plant"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "static",
+          "name": "Static",
+          "description": "\tContact may cause \tparalysis.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "motor-drive",
+          "name": "Motor Drive",
+          "description": "\tElectric moves \tboost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "baseStats": {
+        "hp": 55,
+        "attack": 40,
+        "defense": 40,
+        "speed": 35,
+        "specialAttack": 65,
+        "specialDefense": 45,
+        "total": 280
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 40,
+        "defense": 40,
+        "speed": 35,
+        "specialAttack": 65,
+        "specialDefense": 45,
+        "total": 280
       }
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thunder Wave",
-      "level": 4,
-      "info": {
-        "description": "paralyzes the foe.@",
-        "type": "Electric",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 90,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thundershock",
-      "level": 8,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 11,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Spark",
-      "level": 15,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Heal Bell",
-      "level": 18,
-      "info": {
-        "description": "Eliminates all status problems.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 22,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Confuse Ray",
-      "level": 25,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Power Gem",
-      "level": 29,
-      "info": {
-        "description": "Attacks with a ray of gem-like light.",
-        "type": "Rock",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Thunderbolt",
-      "level": 32,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Safeguard",
-      "level": 36,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Dazzlingleam",
-      "level": 39,
-      "info": {
-        "description": "Dazzles with a powerful flash.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Light Screen",
-      "level": 43,
-      "info": {
-        "description": "Raises Sp.Def with a wall of light.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thunder",
-      "level": 46,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thunder Wave",
-      "level": 4,
-      "info": {
-        "description": "paralyzes the foe.@",
-        "type": "Electric",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 90,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thundershock",
-      "level": 8,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 11,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Spark",
-      "level": 15,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Heal Bell",
-      "level": 18,
-      "info": {
-        "description": "Eliminates all status problems.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 22,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Confuse Ray",
-      "level": 25,
-      "info": {
-        "description": "A move that may confuse the foe.",
-        "type": "Ghost",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Power Gem",
-      "level": 29,
-      "info": {
-        "description": "Attacks with a ray of gem-like light.",
-        "type": "Rock",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Thunderbolt",
-      "level": 32,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Safeguard",
-      "level": 36,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Dazzlingleam",
-      "level": 39,
-      "info": {
-        "description": "Dazzles with a powerful flash.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Light Screen",
-      "level": 43,
-      "info": {
-        "description": "Raises Sp.Def with a wall of light.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thunder",
-      "level": 46,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Light Screen",
-      "description": "\tRaises Sp.Def with \ta wall of light.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Safeguard",
-      "description": "\tPrevents all \tstatus problems.",
-      "type": "Normal",
-      "pp": 25,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Thunderbolt",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 10,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Wild Charge",
-      "description": "\tA charge that also \thurts the user.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Flash",
-      "description": "\tA move that lowers \tthe foe's accuracy.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder Wave",
-      "description": "\tparalyzes the foe.@",
-      "type": "Electric",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Agility",
-      "description": "\tSharply raises the \tuser's Speed.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Defense Curl",
-      "description": "\tRaises the user's \tDefense.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Zap Cannon",
-      "description": "\tAn attack that \talways paralyzes.",
-      "type": "Electric",
-      "pp": 5,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 50
-    }
-  ],
-  "eggMoves": [
-    "Agility",
-    "Reflect",
-    "Mud Slap",
-    "Screech",
-    "Thunderbolt",
-    "Take Down",
-    "Body Slam",
-    "Safeguard"
-  ],
+  },
   "locations": [
     {
       "area": "route_32",
@@ -1097,12 +1348,5 @@
       "chance": 10,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Wool",
-      "description": "It stores lots of air in its soft fur, allowing it to stay cool in summer and warm in winter."
-    }
-  },
-  "forms": {}
+  ]
 }

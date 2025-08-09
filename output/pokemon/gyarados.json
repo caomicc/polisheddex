@@ -1,71 +1,7 @@
 {
-  "name": "gyarados",
+  "name": "Gyarados",
   "nationalDex": 130,
   "johtoDex": 82,
-  "types": [
-    "Water",
-    "Flying"
-  ],
-  "updatedTypes": [
-    "Water",
-    "Flying"
-  ],
-  "frontSpriteUrl": "/sprites/pokemon/gyarados/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 95,
-      "attack": 125,
-      "defense": 79,
-      "speed": 81,
-      "specialAttack": 60,
-      "specialDefense": 100,
-      "total": 540
-    },
-    "catchRate": 45,
-    "baseExp": 214,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Very Fast (1,280 steps)",
-    "abilities": [
-      {
-        "id": "intimidate",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "moxie",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "mold-breaker",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Slow",
-    "eggGroups": [
-      "Undiscovered"
-    ],
-    "evYield": "2 Atk",
-    "types": [
-      "Water",
-      "Flying"
-    ],
-    "updatedTypes": [
-      "Water",
-      "Flying"
-    ],
-    "height": 65,
-    "weight": 2350,
-    "bodyShape": "Serpentine",
-    "bodyColor": "Red"
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -108,1095 +44,2889 @@
       ]
     }
   },
-  "levelMoves": [
-    {
-      "name": "Waterfall",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Water",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 95,
+      "attack": 125,
+      "defense": 79,
+      "speed": 81,
+      "specialAttack": 60,
+      "specialDefense": 100,
+      "total": 540
     },
-    {
-      "name": "Bite",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "faithfulBaseStats": {
+      "hp": 95,
+      "attack": 125,
+      "defense": 79,
+      "speed": 81,
+      "specialAttack": 60,
+      "specialDefense": 100,
+      "total": 540
     },
-    {
-      "name": "Thrash",
-      "level": 1,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "polishedBaseStats": {
+      "hp": 95,
+      "attack": 125,
+      "defense": 79,
+      "speed": 81,
+      "specialAttack": 60,
+      "specialDefense": 100,
+      "total": 540
     },
-    {
-      "name": "Dragon Rage",
-      "level": 1,
-      "info": {
-        "description": "Always inflicts 40HP damage.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
+    "catchRate": 45,
+    "baseExp": 214,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
     },
-    {
-      "name": "Wrap",
-      "level": 1,
-      "info": {
-        "description": "Traps the foe for 2-5 turns.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 15,
-        "accuracy": 90,
-        "category": "Physical"
+    "hatchRate": "Very Fast (1,280 steps)",
+    "abilities": [
+      {
+        "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "moxie",
+        "name": "Moxie",
+        "description": "\tBoosts Attack when \tknocking out foes.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "mold-breaker",
+        "name": "Mold Breaker",
+        "description": "\tMoves disregard \tthe foe's ability.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "moxie",
+        "name": "Moxie",
+        "description": "\tBoosts Attack when \tknocking out foes.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "mold-breaker",
+        "name": "Mold Breaker",
+        "description": "\tMoves disregard \tthe foe's ability.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Slow",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "2 Atk",
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Water",
+      "Flying"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Water",
+        "Flying"
+      ],
+      "faithfulTypes": [
+        "Water",
+        "Flying"
+      ],
+      "updatedTypes": [
+        "Water",
+        "Flying"
+      ],
+      "moves": [
+        {
+          "name": "Waterfall",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Water",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 1,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 1,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 1,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 21,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 24,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 27,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 30,
+          "info": {
+            "description": "Swings tail like a wave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 33,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Dragonbreath",
+          "level": 36,
+          "info": {
+            "description": "A strong breath attack.",
+            "type": "Dragon",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 42,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Dance",
+          "level": 45,
+          "info": {
+            "description": "Raises the user's Attack and Speed.",
+            "type": "Dragon",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 48,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 51,
+          "info": {
+            "description": "Boosts Water-type moves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 54,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 57,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Waterfall",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Water",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 1,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 1,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 1,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 21,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 24,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 27,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 30,
+          "info": {
+            "description": "Swings tail like a wave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 33,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Dragonbreath",
+          "level": 36,
+          "info": {
+            "description": "A strong breath attack.",
+            "type": "Dragon",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 42,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Dance",
+          "level": 45,
+          "info": {
+            "description": "Raises the user's Attack and Speed.",
+            "type": "Dragon",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 48,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 51,
+          "info": {
+            "description": "Boosts Water-type moves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 54,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 57,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Waterfall",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Water",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 1,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 1,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 1,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 21,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 24,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 27,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 30,
+          "info": {
+            "description": "Swings tail like a wave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 33,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Dragonbreath",
+          "level": 36,
+          "info": {
+            "description": "A strong breath attack.",
+            "type": "Dragon",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 42,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Dance",
+          "level": 45,
+          "info": {
+            "description": "Raises the user's Attack and Speed.",
+            "type": "Dragon",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 48,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 51,
+          "info": {
+            "description": "Boosts Water-type moves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 54,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 57,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Roar",
+          "description": "Scares wild foes to end battle.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM05",
+          "location": {
+            "area": "Route 32"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hail",
+          "description": "Inflicts damage every turn.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM07",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM35",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 85,
+          "tmNumber": "TM38",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Scald",
+          "description": "An attack that may inflict a burn.",
+          "type": "Water",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM55",
+          "location": {
+            "area": "Route 19"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "description": "An attack that may cause flinching.",
+          "type": "Dark",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM58",
+          "location": {
+            "area": "Dark Cave"
+          }
+        },
+        {
+          "name": "Dragon Pulse",
+          "description": "Attacks foe with a shock wave.",
+          "type": "Dragon",
+          "pp": 10,
+          "power": 85,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM59",
+          "location": {
+            "area": "Clair's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "description": "An attack that may confuse the foe.",
+          "type": "Water",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM63",
+          "location": {
+            "area": "Misty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Avalanche",
+          "description": "Damage doubles if user is hit first.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM67",
+          "location": {
+            "area": "Pryce's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "description": "Has a high critical hit ratio.",
+          "type": "Rock",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 80,
+          "tmNumber": "TM71",
+          "location": {
+            "area": "Blue's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Fly",
+          "description": "1st turn: Fly 2nd turn: Attack",
+          "type": "Flying",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM02",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Surf",
+          "description": "A strong Watertype attack.",
+          "type": "Water",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "HM03",
+          "location": {
+            "area": "Ecruteak City"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Whirlpool",
+          "description": "Traps the foe for 2-5 turns.",
+          "type": "Water",
+          "pp": 15,
+          "power": 40,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "HM05",
+          "location": {
+            "area": "Route 42"
+          }
+        },
+        {
+          "name": "Waterfall",
+          "description": "An attack that may cause flinching.",
+          "type": "Water",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM06",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "description": "Swings tail like a wave in a storm.",
+          "type": "Water",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT02",
+          "location": {
+            "area": "Route 4"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "description": "An attack that may cause flinching.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT17",
+          "location": {
+            "area": "Route 4"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "description": "An attack that always paralyzes.",
+          "type": "Electric",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 50,
+          "tmNumber": "MT30",
+          "location": {
+            "area": "Power Plant"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "moxie",
+          "name": "Moxie",
+          "description": "\tBoosts Attack when \tknocking out foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "mold-breaker",
+          "name": "Mold Breaker",
+          "description": "\tMoves disregard \tthe foe's ability.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "moxie",
+          "name": "Moxie",
+          "description": "\tBoosts Attack when \tknocking out foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "mold-breaker",
+          "name": "Mold Breaker",
+          "description": "\tMoves disregard \tthe foe's ability.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 95,
+        "attack": 125,
+        "defense": 79,
+        "speed": 81,
+        "specialAttack": 60,
+        "specialDefense": 100,
+        "total": 540
+      },
+      "faithfulBaseStats": {
+        "hp": 95,
+        "attack": 125,
+        "defense": 79,
+        "speed": 81,
+        "specialAttack": 60,
+        "specialDefense": 100,
+        "total": 540
+      },
+      "polishedBaseStats": {
+        "hp": 95,
+        "attack": 125,
+        "defense": 79,
+        "speed": 81,
+        "specialAttack": 60,
+        "specialDefense": 100,
+        "total": 540
+      },
+      "catchRate": 45,
+      "baseExp": 214,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 Atk"
     },
-    {
-      "name": "Leer",
-      "level": 21,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Gust",
-      "level": 24,
-      "info": {
-        "description": "Whips up a strong gust of wind.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dragon Rage",
-      "level": 27,
-      "info": {
-        "description": "Always inflicts 40HP damage.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aqua Tail",
-      "level": 30,
-      "info": {
-        "description": "Swings tail like a wave in a storm.",
-        "type": "Water",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Scary Face",
-      "level": 33,
-      "info": {
-        "description": "Sharply lowers the foe's Speed.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Dragonbreath",
-      "level": 36,
-      "info": {
-        "description": "A strong breath attack.",
-        "type": "Dragon",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 39,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hydro Pump",
-      "level": 42,
-      "info": {
-        "description": "A powerful Water- type attack.",
-        "type": "Water",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 80,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dragon Dance",
-      "level": 45,
-      "info": {
-        "description": "Raises the user's Attack and Speed.",
-        "type": "Dragon",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hurricane",
-      "level": 48,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Flying",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Rain Dance",
-      "level": 51,
-      "info": {
-        "description": "Boosts Water-type moves for 5 turns.",
-        "type": "Water",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hyper Beam",
-      "level": 54,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 150,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Outrage",
-      "level": 57,
-      "info": {
-        "description": "Works 2-3 turns and confuses user.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "red": {
+      "name": "red",
+      "types": [
+        "Water",
+        "Flying"
+      ],
+      "faithfulTypes": [
+        "Water",
+        "Flying"
+      ],
+      "updatedTypes": [
+        "Water",
+        "Flying"
+      ],
+      "moves": [
+        {
+          "name": "Waterfall",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Water",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 1,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 1,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 1,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 21,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 24,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 27,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 30,
+          "info": {
+            "description": "Swings tail like a wave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 33,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Dragonbreath",
+          "level": 36,
+          "info": {
+            "description": "A strong breath attack.",
+            "type": "Dragon",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 42,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Dance",
+          "level": 45,
+          "info": {
+            "description": "Raises the user's Attack and Speed.",
+            "type": "Dragon",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 48,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 51,
+          "info": {
+            "description": "Boosts Water-type moves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 54,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 57,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Waterfall",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Water",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 1,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 1,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 1,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 21,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 24,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 27,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 30,
+          "info": {
+            "description": "Swings tail like a wave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 33,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Dragonbreath",
+          "level": 36,
+          "info": {
+            "description": "A strong breath attack.",
+            "type": "Dragon",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 42,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Dance",
+          "level": 45,
+          "info": {
+            "description": "Raises the user's Attack and Speed.",
+            "type": "Dragon",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 48,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 51,
+          "info": {
+            "description": "Boosts Water-type moves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 54,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 57,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Waterfall",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Water",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 1,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 1,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Wrap",
+          "level": 1,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 15,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 21,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Gust",
+          "level": 24,
+          "info": {
+            "description": "Whips up a strong gust of wind.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 27,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "level": 30,
+          "info": {
+            "description": "Swings tail like a wave in a storm.",
+            "type": "Water",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 33,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Dragonbreath",
+          "level": 36,
+          "info": {
+            "description": "A strong breath attack.",
+            "type": "Dragon",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hydro Pump",
+          "level": 42,
+          "info": {
+            "description": "A powerful Watertype attack.",
+            "type": "Water",
+            "pp": 5,
+            "power": 110,
+            "accuracy": 80,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Dragon Dance",
+          "level": 45,
+          "info": {
+            "description": "Raises the user's Attack and Speed.",
+            "type": "Dragon",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hurricane",
+          "level": 48,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Flying",
+            "pp": 10,
+            "power": 110,
+            "accuracy": 70,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "level": 51,
+          "info": {
+            "description": "Boosts Water-type moves for 5 turns.",
+            "type": "Water",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "level": 54,
+          "info": {
+            "description": "1st turn: Attack 2nd turn: Rest",
+            "type": "Normal",
+            "pp": 5,
+            "power": 150,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 57,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Roar",
+          "description": "Scares wild foes to end battle.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM05",
+          "location": {
+            "area": "Route 32"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hail",
+          "description": "Inflicts damage every turn.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM07",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM35",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 85,
+          "tmNumber": "TM38",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Scald",
+          "description": "An attack that may inflict a burn.",
+          "type": "Water",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM55",
+          "location": {
+            "area": "Route 19"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "description": "An attack that may cause flinching.",
+          "type": "Dark",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM58",
+          "location": {
+            "area": "Dark Cave"
+          }
+        },
+        {
+          "name": "Dragon Pulse",
+          "description": "Attacks foe with a shock wave.",
+          "type": "Dragon",
+          "pp": 10,
+          "power": 85,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM59",
+          "location": {
+            "area": "Clair's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Water Pulse",
+          "description": "An attack that may confuse the foe.",
+          "type": "Water",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM63",
+          "location": {
+            "area": "Misty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Avalanche",
+          "description": "Damage doubles if user is hit first.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM67",
+          "location": {
+            "area": "Pryce's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "description": "Has a high critical hit ratio.",
+          "type": "Rock",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 80,
+          "tmNumber": "TM71",
+          "location": {
+            "area": "Blue's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Fly",
+          "description": "1st turn: Fly 2nd turn: Attack",
+          "type": "Flying",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM02",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Surf",
+          "description": "A strong Watertype attack.",
+          "type": "Water",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "HM03",
+          "location": {
+            "area": "Ecruteak City"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Whirlpool",
+          "description": "Traps the foe for 2-5 turns.",
+          "type": "Water",
+          "pp": 15,
+          "power": 40,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "HM05",
+          "location": {
+            "area": "Route 42"
+          }
+        },
+        {
+          "name": "Waterfall",
+          "description": "An attack that may cause flinching.",
+          "type": "Water",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM06",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Aqua Tail",
+          "description": "Swings tail like a wave in a storm.",
+          "type": "Water",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT02",
+          "location": {
+            "area": "Route 4"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "description": "An attack that may cause flinching.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT17",
+          "location": {
+            "area": "Route 4"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "description": "An attack that always paralyzes.",
+          "type": "Electric",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 50,
+          "tmNumber": "MT30",
+          "location": {
+            "area": "Power Plant"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "moxie",
+          "name": "Moxie",
+          "description": "\tBoosts Attack when \tknocking out foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "mold-breaker",
+          "name": "Mold Breaker",
+          "description": "\tMoves disregard \tthe foe's ability.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "moxie",
+          "name": "Moxie",
+          "description": "\tBoosts Attack when \tknocking out foes.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "mold-breaker",
+          "name": "Mold Breaker",
+          "description": "\tMoves disregard \tthe foe's ability.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 95,
+        "attack": 125,
+        "defense": 79,
+        "speed": 81,
+        "specialAttack": 60,
+        "specialDefense": 100,
+        "total": 540
+      },
+      "faithfulBaseStats": {
+        "hp": 95,
+        "attack": 125,
+        "defense": 79,
+        "speed": 81,
+        "specialAttack": 60,
+        "specialDefense": 100,
+        "total": 540
+      },
+      "polishedBaseStats": {
+        "hp": 95,
+        "attack": 125,
+        "defense": 79,
+        "speed": 81,
+        "specialAttack": 60,
+        "specialDefense": 100,
+        "total": 540
+      },
+      "catchRate": 45,
+      "baseExp": 214,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "2 Atk"
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Waterfall",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Water",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Thrash",
-      "level": 1,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Dragon Rage",
-      "level": 1,
-      "info": {
-        "description": "Always inflicts 40HP damage.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Wrap",
-      "level": 1,
-      "info": {
-        "description": "Traps the foe for 2-5 turns.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 15,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 21,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Gust",
-      "level": 24,
-      "info": {
-        "description": "Whips up a strong gust of wind.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dragon Rage",
-      "level": 27,
-      "info": {
-        "description": "Always inflicts 40HP damage.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aqua Tail",
-      "level": 30,
-      "info": {
-        "description": "Swings tail like a wave in a storm.",
-        "type": "Water",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Scary Face",
-      "level": 33,
-      "info": {
-        "description": "Sharply lowers the foe's Speed.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Dragonbreath",
-      "level": 36,
-      "info": {
-        "description": "A strong breath attack.",
-        "type": "Dragon",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 39,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hydro Pump",
-      "level": 42,
-      "info": {
-        "description": "A powerful Water- type attack.",
-        "type": "Water",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 80,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dragon Dance",
-      "level": 45,
-      "info": {
-        "description": "Raises the user's Attack and Speed.",
-        "type": "Dragon",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hurricane",
-      "level": 48,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Flying",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Rain Dance",
-      "level": 51,
-      "info": {
-        "description": "Boosts Water-type moves for 5 turns.",
-        "type": "Water",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hyper Beam",
-      "level": 54,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 150,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Outrage",
-      "level": 57,
-      "info": {
-        "description": "Works 2-3 turns and confuses user.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Waterfall",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Water",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Thrash",
-      "level": 1,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Dragon Rage",
-      "level": 1,
-      "info": {
-        "description": "Always inflicts 40HP damage.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Wrap",
-      "level": 1,
-      "info": {
-        "description": "Traps the foe for 2-5 turns.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 15,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 21,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Gust",
-      "level": 24,
-      "info": {
-        "description": "Whips up a strong gust of wind.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dragon Rage",
-      "level": 27,
-      "info": {
-        "description": "Always inflicts 40HP damage.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Aqua Tail",
-      "level": 30,
-      "info": {
-        "description": "Swings tail like a wave in a storm.",
-        "type": "Water",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Scary Face",
-      "level": 33,
-      "info": {
-        "description": "Sharply lowers the foe's Speed.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Dragonbreath",
-      "level": 36,
-      "info": {
-        "description": "A strong breath attack.",
-        "type": "Dragon",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 39,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hydro Pump",
-      "level": 42,
-      "info": {
-        "description": "A powerful Water- type attack.",
-        "type": "Water",
-        "pp": 5,
-        "power": 110,
-        "accuracy": 80,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Dragon Dance",
-      "level": 45,
-      "info": {
-        "description": "Raises the user's Attack and Speed.",
-        "type": "Dragon",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hurricane",
-      "level": 48,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Flying",
-        "pp": 10,
-        "power": 110,
-        "accuracy": 70,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Rain Dance",
-      "level": 51,
-      "info": {
-        "description": "Boosts Water-type moves for 5 turns.",
-        "type": "Water",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Hyper Beam",
-      "level": 54,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 150,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Outrage",
-      "level": 57,
-      "info": {
-        "description": "Works 2-3 turns and confuses user.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Roar",
-      "description": "\tScares wild foes \tto end battle.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hail",
-      "description": "\tInflicts damage \tevery turn.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Ice Beam",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Blizzard",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Hyper Beam",
-      "description": "",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Bulldoze",
-      "description": "\tA Ground attack \tthat lowers Speed.",
-      "type": "Ground",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Thunderbolt",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 10,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Earthquake",
-      "description": "\tTough but useless \tvs. flying foes.",
-      "type": "Ground",
-      "pp": 10,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Flamethrower",
-      "description": "",
-      "type": "Fire",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sandstorm",
-      "description": "",
-      "type": "Rock",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Fire Blast",
-      "description": "\tAn attack that may \tinflict a burn.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 85
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Scald",
-      "description": "\tAn attack that may \tinflict a burn.",
-      "type": "Water",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Dark Pulse",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Dark",
-      "pp": 15,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Dragon Pulse",
-      "description": "\tAttacks foe with \ta shock wave.",
-      "type": "Dragon",
-      "pp": 10,
-      "power": 85,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Water Pulse",
-      "description": "\tAn attack that may \tconfuse the foe.",
-      "type": "Water",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Avalanche",
-      "description": "\tDamage doubles if \tuser is hit first.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Giga Impact",
-      "description": "\t1st turn: Attack \t2nd turn: Rest",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Stone Edge",
-      "description": "\tHas a high criti- \tcal hit ratio.",
-      "type": "Rock",
-      "pp": 5,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 80
-    },
-    {
-      "name": "Thunder Wave",
-      "description": "\tparalyzes the foe.@",
-      "type": "Electric",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Fly",
-      "description": "\t1st turn: Fly \t2nd turn: Attack",
-      "type": "Flying",
-      "pp": 15,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Surf",
-      "description": "\tA strong Water- \ttype attack.",
-      "type": "Water",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Strength",
-      "description": "\tA powerful physi- \tcal attack.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Whirlpool",
-      "description": "",
-      "type": "Water",
-      "pp": 15,
-      "power": 40,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
-      "name": "Waterfall",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Water",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Aqua Tail",
-      "description": "\tSwings tail like a \twave in a storm.",
-      "type": "Water",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Icy Wind",
-      "description": "\tAn icy attack that \tlowers Speed.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 55,
-      "category": "Special",
-      "accuracy": 95
-    },
-    {
-      "name": "Iron Head",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Zap Cannon",
-      "description": "\tAn attack that \talways paralyzes.",
-      "type": "Electric",
-      "pp": 5,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 50
-    }
-  ],
-  "eggMoves": [],
+  },
   "locations": [
     {
       "area": "lake_of_rage",
@@ -1294,16 +3024,5 @@
       "chance": 30,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Atrocious",
-      "description": "It appears whenever there is world conflict, burning down any place it travels through."
-    },
-    "Red": {
-      "species": "Atrocious",
-      "description": "Due to how rapidly it was forced to undergo evolution, this Gyarados retained its red Magikarp scales."
-    }
-  },
-  "forms": {}
+  ]
 }

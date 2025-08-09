@@ -1,61 +1,7 @@
 {
-  "name": "porygon",
+  "name": "Porygon",
   "nationalDex": 137,
   "johtoDex": 250,
-  "types": "Normal",
-  "frontSpriteUrl": "/sprites/pokemon/porygon/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 65,
-      "attack": 60,
-      "defense": 70,
-      "speed": 40,
-      "specialAttack": 85,
-      "specialDefense": 75,
-      "total": 395
-    },
-    "catchRate": 45,
-    "baseExp": 130,
-    "heldItems": [
-      "UPGRADE"
-    ],
-    "genderRatio": {
-      "male": 0,
-      "female": 0
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "trace",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "download",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "analytic",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Mineral",
-      "Mineral"
-    ],
-    "evYield": "1 SAt",
-    "types": "Normal",
-    "updatedTypes": "Normal",
-    "height": 8,
-    "weight": 365,
-    "bodyShape": "Head Legs",
-    "bodyColor": "Pink"
-  },
   "evolution": {
     "methods": [
       {
@@ -135,858 +81,1160 @@
       "porygon-z": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
+  "detailedStats": {
+    "baseStats": {
+      "hp": 65,
+      "attack": 60,
+      "defense": 70,
+      "speed": 40,
+      "specialAttack": 85,
+      "specialDefense": 75,
+      "total": 395
+    },
+    "faithfulBaseStats": {
+      "hp": 65,
+      "attack": 60,
+      "defense": 70,
+      "speed": 40,
+      "specialAttack": 85,
+      "specialDefense": 75,
+      "total": 395
+    },
+    "polishedBaseStats": {
+      "hp": 65,
+      "attack": 60,
+      "defense": 70,
+      "speed": 40,
+      "specialAttack": 85,
+      "specialDefense": 75,
+      "total": 395
+    },
+    "catchRate": 45,
+    "baseExp": 130,
+    "heldItems": [
+      "UPGRADE"
+    ],
+    "genderRatio": {
+      "male": 0,
+      "female": 0
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "trace",
+        "name": "Trace",
+        "description": "\tCopies the foe's \tAbility.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "download",
+        "name": "Download",
+        "description": "\tAdjusts stats based \ton foe's defenses.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Conversion",
-      "level": 1,
-      "info": {
-        "description": "Change user's type to a move's type.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "trace",
+        "name": "Trace",
+        "description": "\tCopies the foe's \tAbility.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "download",
+        "name": "Download",
+        "description": "\tAdjusts stats based \ton foe's defenses.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "analytic",
+        "name": "Analytic",
+        "description": "\tBoosts move power \twhen moving last.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Teleport",
-      "level": 1,
-      "info": {
-        "description": "A move for fleeing from battle.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Psybeam",
-      "level": 7,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 12,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Recover",
-      "level": 18,
-      "info": {
-        "description": "Restores HP by 1/2 the max HP.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Growth",
-      "level": 23,
-      "info": {
-        "description": "Raises the user's Atk and Sp.Atk.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Aurora Beam",
-      "level": 29,
-      "info": {
-        "description": "An attack that may lower Attack.",
-        "type": "Ice",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Thunder Wave",
-      "level": 34,
-      "info": {
-        "description": "paralyzes the foe.@",
-        "type": "Electric",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 90,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Barrier",
-      "level": 40,
-      "info": {
-        "description": "Sharply raises the user's Defense.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thunderbolt",
-      "level": 45,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Tri Attack",
-      "level": 50,
-      "info": {
-        "description": "Fires three kinds of beams at once.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 56,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Zap Cannon",
-      "level": 62,
-      "info": {
-        "description": "An attack that always paralyzes.",
-        "type": "Electric",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 50,
-        "category": "Special"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Conversion",
-      "level": 1,
-      "info": {
-        "description": "Change user's type to a move's type.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Teleport",
-      "level": 1,
-      "info": {
-        "description": "A move for fleeing from battle.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Psybeam",
-      "level": 7,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 12,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Recover",
-      "level": 18,
-      "info": {
-        "description": "Restores HP by 1/2 the max HP.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Growth",
-      "level": 23,
-      "info": {
-        "description": "Raises the user's Atk and Sp.Atk.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Aurora Beam",
-      "level": 29,
-      "info": {
-        "description": "An attack that may lower Attack.",
-        "type": "Ice",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Thunder Wave",
-      "level": 34,
-      "info": {
-        "description": "paralyzes the foe.@",
-        "type": "Electric",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 90,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Barrier",
-      "level": 40,
-      "info": {
-        "description": "Sharply raises the user's Defense.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thunderbolt",
-      "level": 45,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Tri Attack",
-      "level": 50,
-      "info": {
-        "description": "Fires three kinds of beams at once.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 56,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Zap Cannon",
-      "level": 62,
-      "info": {
-        "description": "An attack that always paralyzes.",
-        "type": "Electric",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 50,
-        "category": "Special"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Conversion",
-      "level": 1,
-      "info": {
-        "description": "Change user's type to a move's type.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Teleport",
-      "level": 1,
-      "info": {
-        "description": "A move for fleeing from battle.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Psybeam",
-      "level": 7,
-      "info": {
-        "description": "An attack that may confuse the foe.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 12,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Recover",
-      "level": 18,
-      "info": {
-        "description": "Restores HP by 1/2 the max HP.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Growth",
-      "level": 23,
-      "info": {
-        "description": "Raises the user's Atk and Sp.Atk.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Aurora Beam",
-      "level": 29,
-      "info": {
-        "description": "An attack that may lower Attack.",
-        "type": "Ice",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Thunder Wave",
-      "level": 34,
-      "info": {
-        "description": "paralyzes the foe.@",
-        "type": "Electric",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 90,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Barrier",
-      "level": 40,
-      "info": {
-        "description": "Sharply raises the user's Defense.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thunderbolt",
-      "level": 45,
-      "info": {
-        "description": "An attack that may cause paralysis.",
-        "type": "Electric",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Tri Attack",
-      "level": 50,
-      "info": {
-        "description": "Fires three kinds of beams at once.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 56,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Zap Cannon",
-      "level": 62,
-      "info": {
-        "description": "An attack that always paralyzes.",
-        "type": "Electric",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 50,
-        "category": "Special"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Ice Beam",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Blizzard",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Hyper Beam",
-      "description": "",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Solar Beam",
-      "description": "\t1st turn: Prepare \t2nd turn: Attack",
-      "type": "Grass",
-      "pp": 10,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Thunderbolt",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 10,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Psychic",
-      "description": "",
-      "type": "None",
-      "pp": 0,
-      "power": 0,
-      "category": "Unknown",
-      "accuracy": 0
-    },
-    {
-      "name": "Shadow Ball",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Ghost",
-      "pp": 15,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Aerial Ace",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Flying",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Giga Impact",
-      "description": "\t1st turn: Attack \t2nd turn: Rest",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Flash",
-      "description": "\tA move that lowers \tthe foe's accuracy.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder Wave",
-      "description": "\tparalyzes the foe.@",
-      "type": "Electric",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Agility",
-      "description": "\tSharply raises the \tuser's Speed.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dream Eater",
-      "description": "\tSteals HP from a \tsleeping victim.",
-      "type": "Psychic",
-      "pp": 15,
-      "power": 100,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Icy Wind",
-      "description": "\tAn icy attack that \tlowers Speed.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 55,
-      "category": "Special",
-      "accuracy": 95
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Trick",
-      "description": "\tSwaps held items \twith the foe.",
-      "type": "Psychic",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Trick Room",
-      "description": "\tSlow #mon move \tfirst for 5 turns.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Zap Cannon",
-      "description": "\tAn attack that \talways paralyzes.",
-      "type": "Electric",
-      "pp": 5,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 50
-    },
-    {
-      "name": "Zen Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Psychic",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 90
-    }
-  ],
-  "eggMoves": [],
-  "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Virtual",
-      "description": "An artificial #mon created due to extensive research, it can perform only what is in its program."
-    }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Mineral",
+      "Mineral"
+    ],
+    "evYield": "1 SAt",
+    "types": "Normal",
+    "updatedTypes": "Normal"
   },
-  "forms": {}
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Normal",
+      "faithfulTypes": "Normal",
+      "updatedTypes": "Normal",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Conversion",
+          "level": 1,
+          "info": {
+            "description": "Change user's type to a move's type.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Teleport",
+          "level": 1,
+          "info": {
+            "description": "A move for fleeing from battle.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 7,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 12,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 18,
+          "info": {
+            "description": "Restores HP by 1/2 the max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Growth",
+          "level": 23,
+          "info": {
+            "description": "Raises the user's Atk and Sp.Atk.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 29,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 34,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Barrier",
+          "level": 40,
+          "info": {
+            "description": "Sharply raises the user's Defense.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 45,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Tri Attack",
+          "level": 50,
+          "info": {
+            "description": "Fires three kinds of beams at once.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 56,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "level": 62,
+          "info": {
+            "description": "An attack that always paralyzes.",
+            "type": "Electric",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 50,
+            "category": "Special"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Conversion",
+          "level": 1,
+          "info": {
+            "description": "Change user's type to a move's type.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Teleport",
+          "level": 1,
+          "info": {
+            "description": "A move for fleeing from battle.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 7,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 12,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 18,
+          "info": {
+            "description": "Restores HP by 1/2 the max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Growth",
+          "level": 23,
+          "info": {
+            "description": "Raises the user's Atk and Sp.Atk.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 29,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 34,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Barrier",
+          "level": 40,
+          "info": {
+            "description": "Sharply raises the user's Defense.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 45,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Tri Attack",
+          "level": 50,
+          "info": {
+            "description": "Fires three kinds of beams at once.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 56,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "level": 62,
+          "info": {
+            "description": "An attack that always paralyzes.",
+            "type": "Electric",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 50,
+            "category": "Special"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Conversion",
+          "level": 1,
+          "info": {
+            "description": "Change user's type to a move's type.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Teleport",
+          "level": 1,
+          "info": {
+            "description": "A move for fleeing from battle.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Psybeam",
+          "level": 7,
+          "info": {
+            "description": "An attack that may confuse the foe.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 12,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Recover",
+          "level": 18,
+          "info": {
+            "description": "Restores HP by 1/2 the max HP.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Growth",
+          "level": 23,
+          "info": {
+            "description": "Raises the user's Atk and Sp.Atk.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Aurora Beam",
+          "level": 29,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Ice",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "level": 34,
+          "info": {
+            "description": "paralyzes the foe.@",
+            "type": "Electric",
+            "pp": 20,
+            "accuracy": 90,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Barrier",
+          "level": 40,
+          "info": {
+            "description": "Sharply raises the user's Defense.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "level": 45,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Electric",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Tri Attack",
+          "level": 50,
+          "info": {
+            "description": "Fires three kinds of beams at once.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 56,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "level": 62,
+          "info": {
+            "description": "An attack that always paralyzes.",
+            "type": "Electric",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 50,
+            "category": "Special"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Solar Beam",
+          "description": "1st turn: Prepare 2nd turn: Attack",
+          "type": "Grass",
+          "pp": 10,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM22",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Psychic",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Psychic",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM29",
+          "location": {
+            "area": "Sabrina's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM30",
+          "location": {
+            "area": "Morty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flash",
+          "description": "A move that lowers the foe's accuracy.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM70",
+          "location": {
+            "area": "Sprout Tower"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "description": "Steals HP from a sleeping victim.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 100,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT09",
+          "location": {
+            "area": "Viridian City"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Trick",
+          "description": "Swaps held items with the foe.",
+          "type": "Psychic",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT28",
+          "location": {
+            "area": "Battle Tower"
+          }
+        },
+        {
+          "name": "Trick Room",
+          "description": "Slow Pokemon move first for 5 turns.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT29",
+          "location": {
+            "area": "Route 16 South Gate"
+          }
+        },
+        {
+          "name": "Zap Cannon",
+          "description": "An attack that always paralyzes.",
+          "type": "Electric",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 50,
+          "tmNumber": "MT30",
+          "location": {
+            "area": "Power Plant"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT31",
+          "location": {
+            "area": "Saffron City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "trace",
+          "name": "Trace",
+          "description": "\tCopies the foe's \tAbility.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "download",
+          "name": "Download",
+          "description": "\tAdjusts stats based \ton foe's defenses.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "trace",
+          "name": "Trace",
+          "description": "\tCopies the foe's \tAbility.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "download",
+          "name": "Download",
+          "description": "\tAdjusts stats based \ton foe's defenses.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "analytic",
+          "name": "Analytic",
+          "description": "\tBoosts move power \twhen moving last.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 65,
+        "attack": 60,
+        "defense": 70,
+        "speed": 40,
+        "specialAttack": 85,
+        "specialDefense": 75,
+        "total": 395
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 60,
+        "defense": 70,
+        "speed": 40,
+        "specialAttack": 85,
+        "specialDefense": 75,
+        "total": 395
+      }
+    }
+  }
 }

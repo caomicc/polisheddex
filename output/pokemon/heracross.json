@@ -1,18 +1,44 @@
 {
-  "name": "heracross",
+  "name": "Heracross",
   "nationalDex": 214,
   "johtoDex": 120,
-  "types": [
-    "Bug",
-    "Fighting"
-  ],
-  "updatedTypes": [
-    "Bug",
-    "Fighting"
-  ],
-  "frontSpriteUrl": "/sprites/pokemon/heracross/front_cropped.png",
+  "evolution": {
+    "methods": [],
+    "chain": [
+      "Heracross"
+    ],
+    "chainWithMethods": {
+      "Heracross": []
+    },
+    "faithfulMethods": [],
+    "faithfulChainWithMethods": {
+      "Heracross": []
+    },
+    "updatedMethods": [],
+    "updatedChainWithMethods": {
+      "Heracross": []
+    }
+  },
   "detailedStats": {
     "baseStats": {
+      "hp": 80,
+      "attack": 125,
+      "defense": 75,
+      "speed": 85,
+      "specialAttack": 40,
+      "specialDefense": 95,
+      "total": 500
+    },
+    "faithfulBaseStats": {
+      "hp": 80,
+      "attack": 125,
+      "defense": 75,
+      "speed": 85,
+      "specialAttack": 40,
+      "specialDefense": 95,
+      "total": 500
+    },
+    "polishedBaseStats": {
       "hp": 80,
       "attack": 125,
       "defense": 75,
@@ -32,22 +58,50 @@
     "abilities": [
       {
         "id": "moxie",
+        "name": "Moxie",
+        "description": "\tBoosts Attack when \tknocking out foes.",
         "isHidden": false,
         "abilityType": "primary"
       },
       {
         "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
         "isHidden": false,
         "abilityType": "secondary"
       },
       {
         "id": "skill-link",
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
         "isHidden": true,
         "abilityType": "hidden"
       }
     ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
+    "faithfulAbilities": [
+      {
+        "id": "moxie",
+        "name": "Moxie",
+        "description": "\tBoosts Attack when \tknocking out foes.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "skill-link",
+        "name": "Skill Link",
+        "description": "\tIncreases multi- \tstrike move hits.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
     "growthRate": "Slow",
     "eggGroups": [
       "Bug",
@@ -61,969 +115,1194 @@
     "updatedTypes": [
       "Bug",
       "Fighting"
-    ],
-    "height": 15,
-    "weight": 540,
-    "bodyShape": "Bipedal",
-    "bodyColor": "Blue"
+    ]
   },
-  "evolution": {
-    "methods": [],
-    "chain": [
-      "Heracross"
-    ],
-    "chainWithMethods": {
-      "Heracross": []
-    },
-    "faithfulMethods": [],
-    "faithfulChainWithMethods": {
-      "Heracross": []
-    },
-    "updatedMethods": [],
-    "updatedChainWithMethods": {
-      "Heracross": []
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Bug",
+        "Fighting"
+      ],
+      "faithfulTypes": [
+        "Bug",
+        "Fighting"
+      ],
+      "updatedTypes": [
+        "Bug",
+        "Fighting"
+      ],
+      "moves": [
+        {
+          "name": "Night Slash",
+          "level": 1,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Horn Attack",
+          "level": 1,
+          "info": {
+            "description": "An attack using a horn to jab.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Endure",
+          "level": 1,
+          "info": {
+            "description": "Endures any hit with at least 1HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 7,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 10,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 16,
+          "info": {
+            "description": "Deals more damage to heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 19,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "level": 25,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "level": 28,
+          "info": {
+            "description": "Damage equals the user's level.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 31,
+          "info": {
+            "description": "Fires pins that strike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 34,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Megahorn",
+          "level": 37,
+          "info": {
+            "description": "A powerful charge attack.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 43,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 46,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Night Slash",
+          "level": 1,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Horn Attack",
+          "level": 1,
+          "info": {
+            "description": "An attack using a horn to jab.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Endure",
+          "level": 1,
+          "info": {
+            "description": "Endures any hit with at least 1HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 7,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 10,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 16,
+          "info": {
+            "description": "Deals more damage to heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 19,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "level": 25,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "level": 28,
+          "info": {
+            "description": "Damage equals the user's level.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 31,
+          "info": {
+            "description": "Fires pins that strike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 34,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Megahorn",
+          "level": 37,
+          "info": {
+            "description": "A powerful charge attack.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 43,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 46,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Night Slash",
+          "level": 1,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Horn Attack",
+          "level": 1,
+          "info": {
+            "description": "An attack using a horn to jab.",
+            "type": "Normal",
+            "pp": 25,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Endure",
+          "level": 1,
+          "info": {
+            "description": "Endures any hit with at least 1HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bug Bite",
+          "level": 7,
+          "info": {
+            "description": "Bites the foe and eats a held Berry.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 10,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 16,
+          "info": {
+            "description": "Deals more damage to heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 19,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "level": 25,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "level": 28,
+          "info": {
+            "description": "Damage equals the user's level.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 31,
+          "info": {
+            "description": "Fires pins that strike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 34,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Megahorn",
+          "level": 37,
+          "info": {
+            "description": "A powerful charge attack.",
+            "type": "Bug",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 43,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 46,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Rock Blast",
+        "Defense Curl",
+        "Pursuit"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Bulk Up",
+          "description": "Raises the user's Atk and Def.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM08",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "description": "Damage doubles if foe is poisoned.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 65,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM09",
+          "location": {
+            "area": "Route 11"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Focus Blast",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM52",
+          "location": {
+            "area": "Quiet Cave"
+          }
+        },
+        {
+          "name": "False Swipe",
+          "description": "Leaves the foe with at least 1HP.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 40,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM54",
+          "location": {
+            "area": "Ilex Forest Gate"
+          }
+        },
+        {
+          "name": "Shadow Claw",
+          "description": "Has a high critical hit ratio.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM65",
+          "location": {
+            "area": "Lavender Soul House"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "description": "Has a high critical hit ratio.",
+          "type": "Rock",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 80,
+          "tmNumber": "TM71",
+          "location": {
+            "area": "Blue's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "description": "Sharply raises the user's Attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM75",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "description": "Slaps down the foe's held item.",
+          "type": "Dark",
+          "pp": 20,
+          "power": 65,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT18",
+          "location": {
+            "area": "Route 40"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "description": "Damage equals the user's level.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT22",
+          "location": {
+            "area": "Pewter City"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "moxie",
+          "name": "Moxie",
+          "description": "\tBoosts Attack when \tknocking out foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "guts",
+          "name": "Guts",
+          "description": "\tBoosts Attack on \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "moxie",
+          "name": "Moxie",
+          "description": "\tBoosts Attack when \tknocking out foes.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "guts",
+          "name": "Guts",
+          "description": "\tBoosts Attack on \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "skill-link",
+          "name": "Skill Link",
+          "description": "\tIncreases multi- \tstrike move hits.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 80,
+        "attack": 125,
+        "defense": 75,
+        "speed": 85,
+        "specialAttack": 40,
+        "specialDefense": 95,
+        "total": 500
+      },
+      "faithfulBaseStats": {
+        "hp": 80,
+        "attack": 125,
+        "defense": 75,
+        "speed": 85,
+        "specialAttack": 40,
+        "specialDefense": 95,
+        "total": 500
+      }
     }
   },
-  "levelMoves": [
-    {
-      "name": "Night Slash",
-      "level": 1,
-      "info": {
-        "description": "",
-        "type": "Dark",
-        "pp": 15,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Horn Attack",
-      "level": 1,
-      "info": {
-        "description": "An attack using a horn to jab.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Endure",
-      "level": 1,
-      "info": {
-        "description": "Endures any hit with at least 1HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Bug Bite",
-      "level": 7,
-      "info": {
-        "description": "Bites the foe and eats a held Berry.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 10,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Low Kick",
-      "level": 16,
-      "info": {
-        "description": "Deals more damage to heavier foes.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Counter",
-      "level": 19,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Aerial Ace",
-      "level": 25,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Flying",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Seismic Toss",
-      "level": 28,
-      "info": {
-        "description": "Damage equals the user's level.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pin Missile",
-      "level": 31,
-      "info": {
-        "description": "Fires pins that strike 2-5 times.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 25,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 34,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Megahorn",
-      "level": 37,
-      "info": {
-        "description": "A powerful charge attack.",
-        "type": "Bug",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Close Combat",
-      "level": 43,
-      "info": {
-        "description": "Lowers the user's Def and Sp.Def.",
-        "type": "Fighting",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 46,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Night Slash",
-      "level": 1,
-      "info": {
-        "description": "",
-        "type": "Dark",
-        "pp": 15,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Horn Attack",
-      "level": 1,
-      "info": {
-        "description": "An attack using a horn to jab.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Endure",
-      "level": 1,
-      "info": {
-        "description": "Endures any hit with at least 1HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Bug Bite",
-      "level": 7,
-      "info": {
-        "description": "Bites the foe and eats a held Berry.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 10,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Low Kick",
-      "level": 16,
-      "info": {
-        "description": "Deals more damage to heavier foes.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Counter",
-      "level": 19,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Aerial Ace",
-      "level": 25,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Flying",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Seismic Toss",
-      "level": 28,
-      "info": {
-        "description": "Damage equals the user's level.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pin Missile",
-      "level": 31,
-      "info": {
-        "description": "Fires pins that strike 2-5 times.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 25,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 34,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Megahorn",
-      "level": 37,
-      "info": {
-        "description": "A powerful charge attack.",
-        "type": "Bug",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Close Combat",
-      "level": 43,
-      "info": {
-        "description": "Lowers the user's Def and Sp.Def.",
-        "type": "Fighting",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 46,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Night Slash",
-      "level": 1,
-      "info": {
-        "description": "",
-        "type": "Dark",
-        "pp": 15,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Horn Attack",
-      "level": 1,
-      "info": {
-        "description": "An attack using a horn to jab.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Endure",
-      "level": 1,
-      "info": {
-        "description": "Endures any hit with at least 1HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Bug Bite",
-      "level": 7,
-      "info": {
-        "description": "Bites the foe and eats a held Berry.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 10,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Low Kick",
-      "level": 16,
-      "info": {
-        "description": "Deals more damage to heavier foes.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Counter",
-      "level": 19,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Aerial Ace",
-      "level": 25,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Flying",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Seismic Toss",
-      "level": 28,
-      "info": {
-        "description": "Damage equals the user's level.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pin Missile",
-      "level": 31,
-      "info": {
-        "description": "Fires pins that strike 2-5 times.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 25,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 34,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Megahorn",
-      "level": 37,
-      "info": {
-        "description": "A powerful charge attack.",
-        "type": "Bug",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Close Combat",
-      "level": 43,
-      "info": {
-        "description": "Lowers the user's Def and Sp.Def.",
-        "type": "Fighting",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 46,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Bulk Up",
-      "description": "\tRaises the user's \tAtk and Def.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Venoshock",
-      "description": "\tDamage doubles if \tfoe is poisoned.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 65,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Hyper Beam",
-      "description": "",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Bulldoze",
-      "description": "\tA Ground attack \tthat lowers Speed.",
-      "type": "Ground",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Earthquake",
-      "description": "\tTough but useless \tvs. flying foes.",
-      "type": "Ground",
-      "pp": 10,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dig",
-      "description": "\t1st turn: Burrow \t2nd turn: Attack",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Aerial Ace",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Flying",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Slide",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Rock",
-      "pp": 10,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Focus Blast",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Fighting",
-      "pp": 5,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "False Swipe",
-      "description": "\tLeaves the foe \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Shadow Claw",
-      "description": "",
-      "type": "Ghost",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Giga Impact",
-      "description": "\t1st turn: Attack \t2nd turn: Rest",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Stone Edge",
-      "description": "\tHas a high criti- \tcal hit ratio.",
-      "type": "Rock",
-      "pp": 5,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 80
-    },
-    {
-      "name": "Swords Dance",
-      "description": "\tSharply raises the \tuser's Attack.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Cut",
-      "description": "\tCuts using claws, \tscythes, etc.",
-      "type": "Steel",
-      "pp": 30,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Strength",
-      "description": "\tA powerful physi- \tcal attack.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Counter",
-      "description": "\tReturns a physical \tattack double.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Knock Off",
-      "description": "\tSlaps down the \tfoe's held item.",
-      "type": "Dark",
-      "pp": 20,
-      "power": 65,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Seismic Toss",
-      "description": "\tDamage equals the \tuser's level.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    }
-  ],
-  "eggMoves": [
-    "Rock Blast",
-    "Defense Curl",
-    "Pursuit"
-  ],
   "locations": [
     {
       "area": "route_28",
@@ -1113,12 +1392,5 @@
       "chance": 30,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Single Horn",
-      "description": "With its Herculean powers, it can easily throw around an object that is 100 times its own weight."
-    }
-  },
-  "forms": {}
+  ]
 }

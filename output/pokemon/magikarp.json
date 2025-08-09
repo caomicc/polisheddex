@@ -1,58 +1,7 @@
 {
-  "name": "magikarp",
+  "name": "Magikarp",
   "nationalDex": 129,
   "johtoDex": 81,
-  "types": "Water",
-  "frontSpriteUrl": "/sprites/pokemon/magikarp/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 20,
-      "attack": 10,
-      "defense": 55,
-      "speed": 80,
-      "specialAttack": 15,
-      "specialDefense": 20,
-      "total": 200
-    },
-    "catchRate": 255,
-    "baseExp": 20,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Very Fast (1,280 steps)",
-    "abilities": [
-      {
-        "id": "swift-swim",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "swift-swim",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "rattled",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Slow",
-    "eggGroups": [
-      "Undiscovered"
-    ],
-    "evYield": "1 Spe",
-    "types": "Water",
-    "updatedTypes": "Water",
-    "height": 9,
-    "weight": 100,
-    "bodyShape": "Fins",
-    "bodyColor": "Red"
-  },
   "evolution": {
     "methods": [
       {
@@ -116,122 +65,4219 @@
       "Gyarados": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Splash",
-      "level": 1,
-      "info": {
-        "description": "Has no effect whatsoever.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 20,
+      "attack": 10,
+      "defense": 55,
+      "speed": 80,
+      "specialAttack": 15,
+      "specialDefense": 20,
+      "total": 200
     },
-    {
-      "name": "Tackle",
-      "level": 15,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "faithfulBaseStats": {
+      "hp": 20,
+      "attack": 10,
+      "defense": 55,
+      "speed": 80,
+      "specialAttack": 15,
+      "specialDefense": 20,
+      "total": 200
     },
-    {
-      "name": "Reversal",
-      "level": 30,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
+    "polishedBaseStats": {
+      "hp": 20,
+      "attack": 10,
+      "defense": 55,
+      "speed": 80,
+      "specialAttack": 15,
+      "specialDefense": 20,
+      "total": 200
+    },
+    "catchRate": 255,
+    "baseExp": 20,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Very Fast (1,280 steps)",
+    "abilities": [
+      {
+        "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "swift-swim",
+        "name": "Swift Swim",
+        "description": "\tBoosts its Speed \tin rain.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Slow",
+    "eggGroups": [
+      "Undiscovered"
+    ],
+    "evYield": "1 Spe",
+    "types": "Water",
+    "updatedTypes": "Water"
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "skelly": {
+      "name": "skelly",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "calico1": {
+      "name": "calico1",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "calico2": {
+      "name": "calico2",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "calico3": {
+      "name": "calico3",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "two-tone": {
+      "name": "two-tone",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "orca": {
+      "name": "orca",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "dapples": {
+      "name": "dapples",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "tiger": {
+      "name": "tiger",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "zebra": {
+      "name": "zebra",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "stripe": {
+      "name": "stripe",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "bubbles": {
+      "name": "bubbles",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "diamonds": {
+      "name": "diamonds",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "patches": {
+      "name": "patches",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "forehead1": {
+      "name": "forehead1",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "mask1": {
+      "name": "mask1",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "forehead2": {
+      "name": "forehead2",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "mask2": {
+      "name": "mask2",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "saucy": {
+      "name": "saucy",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
+    },
+    "raindrop": {
+      "name": "raindrop",
+      "types": "Water",
+      "faithfulTypes": "Water",
+      "updatedTypes": "Water",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Tackle",
+          "level": 15,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 30,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [],
+      "abilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "swift-swim",
+          "name": "Swift Swim",
+          "description": "\tBoosts its Speed \tin rain.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "faithfulBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "polishedBaseStats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "speed": 80,
+        "specialAttack": 15,
+        "specialDefense": 20,
+        "total": 200
+      },
+      "catchRate": 255,
+      "baseExp": 20,
+      "heldItems": [],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Very Fast (1,280 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Undiscovered"
+      ],
+      "evYield": "1 Spe"
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Splash",
-      "level": 1,
-      "info": {
-        "description": "Has no effect whatsoever.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Tackle",
-      "level": 15,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 30,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Splash",
-      "level": 1,
-      "info": {
-        "description": "Has no effect whatsoever.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Tackle",
-      "level": 15,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 30,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [],
-  "eggMoves": [],
+  },
   "locations": [
     {
       "area": "dark_cave_violet_entrance",
@@ -3489,12 +7535,5 @@
       "chance": 35,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Fish",
-      "description": "This weak and pathetic #mon gets easily pushed along rivers when there are strong currents."
-    }
-  },
-  "forms": {}
+  ]
 }

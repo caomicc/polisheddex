@@ -1,59 +1,7 @@
 {
-  "name": "wynaut",
+  "name": "Wynaut",
   "nationalDex": 253,
   "johtoDex": 65,
-  "types": "Psychic",
-  "frontSpriteUrl": "/sprites/pokemon/wynaut/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 95,
-      "attack": 23,
-      "defense": 48,
-      "speed": 23,
-      "specialAttack": 23,
-      "specialDefense": 48,
-      "total": 260
-    },
-    "catchRate": 125,
-    "baseExp": 44,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "shadow-tag",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "shadow-tag",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "shadow-tag",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Undiscovered",
-      "Undiscovered"
-    ],
-    "evYield": "1 HP",
-    "types": "Psychic",
-    "updatedTypes": "Psychic",
-    "height": 6,
-    "weight": 140,
-    "bodyShape": "Bipedal Tail",
-    "bodyColor": "Blue"
-  },
   "evolution": {
     "methods": [
       {
@@ -111,339 +59,492 @@
       "Wobbuffet": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Splash",
-      "level": 1,
-      "info": {
-        "description": "Has no effect whatsoever.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 95,
+      "attack": 23,
+      "defense": 48,
+      "speed": 23,
+      "specialAttack": 23,
+      "specialDefense": 48,
+      "total": 260
     },
-    {
-      "name": "Charm",
-      "level": 1,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
+    "faithfulBaseStats": {
+      "hp": 95,
+      "attack": 23,
+      "defense": 48,
+      "speed": 23,
+      "specialAttack": 23,
+      "specialDefense": 48,
+      "total": 260
     },
-    {
-      "name": "Encore",
-      "level": 1,
-      "info": {
-        "description": "Makes the foe re- peat 2-6 times.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
+    "polishedBaseStats": {
+      "hp": 95,
+      "attack": 23,
+      "defense": 48,
+      "speed": 23,
+      "specialAttack": 23,
+      "specialDefense": 48,
+      "total": 260
     },
-    {
-      "name": "Amnesia",
-      "level": 1,
-      "info": {
-        "description": "Sharply raises the user's Sp.Def.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
+    "catchRate": 125,
+    "baseExp": 44,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
     },
-    {
-      "name": "Counter",
-      "level": 1,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "shadow-tag",
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shadow-tag",
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "shadow-tag",
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 1,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "shadow-tag",
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "shadow-tag",
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "shadow-tag",
+        "name": "Shadow Tag",
+        "description": "\tPrevents the foe \tfrom escaping.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Safeguard",
-      "level": 1,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Destiny Bond",
-      "level": 1,
-      "info": {
-        "description": "The foe faints if the user does.",
-        "type": "Ghost",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Splash",
-      "level": 1,
-      "info": {
-        "description": "Has no effect whatsoever.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 1,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Encore",
-      "level": 1,
-      "info": {
-        "description": "Makes the foe re- peat 2-6 times.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Amnesia",
-      "level": 1,
-      "info": {
-        "description": "Sharply raises the user's Sp.Def.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Counter",
-      "level": 1,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 1,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Safeguard",
-      "level": 1,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Destiny Bond",
-      "level": 1,
-      "info": {
-        "description": "The foe faints if the user does.",
-        "type": "Ghost",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Splash",
-      "level": 1,
-      "info": {
-        "description": "Has no effect whatsoever.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Charm",
-      "level": 1,
-      "info": {
-        "description": "Sharply lowers the foe's Attack.",
-        "type": "Fairy",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Encore",
-      "level": 1,
-      "info": {
-        "description": "Makes the foe re- peat 2-6 times.",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Amnesia",
-      "level": 1,
-      "info": {
-        "description": "Sharply raises the user's Sp.Def.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Counter",
-      "level": 1,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Mirror Coat",
-      "level": 1,
-      "info": {
-        "description": "Returns a special attack double.",
-        "type": "Psychic",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Safeguard",
-      "level": 1,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Destiny Bond",
-      "level": 1,
-      "info": {
-        "description": "The foe faints if the user does.",
-        "type": "Ghost",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Safeguard",
-      "description": "\tPrevents all \tstatus problems.",
-      "type": "Normal",
-      "pp": 25,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Charm",
-      "description": "\tSharply lowers the \tfoe's Attack.",
-      "type": "Fairy",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Counter",
-      "description": "\tReturns a physical \tattack double.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": "--"
-    }
-  ],
-  "eggMoves": [
-    "Charm",
-    "Encore"
-  ],
-  "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Bright",
-      "description": "It tends to move in a pack. Individuals squash against one another to toughen their spirits."
-    }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Undiscovered",
+      "Undiscovered"
+    ],
+    "evYield": "1 HP",
+    "types": "Psychic",
+    "updatedTypes": "Psychic"
   },
-  "forms": {}
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Psychic",
+      "faithfulTypes": "Psychic",
+      "updatedTypes": "Psychic",
+      "moves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 1,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Encore",
+          "level": 1,
+          "info": {
+            "description": "Makes the foe repeat 2-6 times.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Amnesia",
+          "level": 1,
+          "info": {
+            "description": "Sharply raises the user's Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 1,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 1,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 1,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Destiny Bond",
+          "level": 1,
+          "info": {
+            "description": "The foe faints if the user does.",
+            "type": "Ghost",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 1,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Encore",
+          "level": 1,
+          "info": {
+            "description": "Makes the foe repeat 2-6 times.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Amnesia",
+          "level": 1,
+          "info": {
+            "description": "Sharply raises the user's Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 1,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 1,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 1,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Destiny Bond",
+          "level": 1,
+          "info": {
+            "description": "The foe faints if the user does.",
+            "type": "Ghost",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Splash",
+          "level": 1,
+          "info": {
+            "description": "Has no effect whatsoever.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Charm",
+          "level": 1,
+          "info": {
+            "description": "Sharply lowers the foe's Attack.",
+            "type": "Fairy",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Encore",
+          "level": 1,
+          "info": {
+            "description": "Makes the foe repeat 2-6 times.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Amnesia",
+          "level": 1,
+          "info": {
+            "description": "Sharply raises the user's Sp.Def.",
+            "type": "Psychic",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 1,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mirror Coat",
+          "level": 1,
+          "info": {
+            "description": "Returns a special attack double.",
+            "type": "Psychic",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 1,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Destiny Bond",
+          "level": 1,
+          "info": {
+            "description": "The foe faints if the user does.",
+            "type": "Ghost",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Charm",
+        "Encore"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Safeguard",
+          "description": "Prevents all status problems.",
+          "type": "Normal",
+          "pp": 25,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM20",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Charm",
+          "description": "Sharply lowers the foe's Attack.",
+          "type": "Fairy",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT05",
+          "location": {
+            "area": "Route 35-Natioal Park Gate"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "shadow-tag",
+          "name": "Shadow Tag",
+          "description": "\tPrevents the foe \tfrom escaping.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shadow-tag",
+          "name": "Shadow Tag",
+          "description": "\tPrevents the foe \tfrom escaping.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shadow-tag",
+          "name": "Shadow Tag",
+          "description": "\tPrevents the foe \tfrom escaping.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "shadow-tag",
+          "name": "Shadow Tag",
+          "description": "\tPrevents the foe \tfrom escaping.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "shadow-tag",
+          "name": "Shadow Tag",
+          "description": "\tPrevents the foe \tfrom escaping.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "shadow-tag",
+          "name": "Shadow Tag",
+          "description": "\tPrevents the foe \tfrom escaping.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 95,
+        "attack": 23,
+        "defense": 48,
+        "speed": 23,
+        "specialAttack": 23,
+        "specialDefense": 48,
+        "total": 260
+      },
+      "faithfulBaseStats": {
+        "hp": 95,
+        "attack": 23,
+        "defense": 48,
+        "speed": 23,
+        "specialAttack": 23,
+        "specialDefense": 48,
+        "total": 260
+      }
+    }
+  }
 }

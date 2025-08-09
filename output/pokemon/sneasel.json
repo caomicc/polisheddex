@@ -1,75 +1,7 @@
 {
-  "name": "sneasel",
+  "name": "Sneasel",
   "nationalDex": 215,
   "johtoDex": 245,
-  "types": [
-    "Dark",
-    "Ice"
-  ],
-  "updatedTypes": [
-    "Dark",
-    "Ice"
-  ],
-  "frontSpriteUrl": "/sprites/pokemon/sneasel/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 55,
-      "attack": 95,
-      "defense": 55,
-      "speed": 115,
-      "specialAttack": 35,
-      "specialDefense": 75,
-      "total": 430
-    },
-    "catchRate": 60,
-    "baseExp": 132,
-    "heldItems": [
-      "GRIP_CLAW",
-      "RAZOR_CLAW"
-    ],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "inner-focus",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "keen-eye",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "pickpocket",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Slow",
-    "eggGroups": [
-      "Field",
-      "Field"
-    ],
-    "evYield": "1 Spe",
-    "types": [
-      "Dark",
-      "Ice"
-    ],
-    "updatedTypes": [
-      "Dark",
-      "Ice"
-    ],
-    "height": 9,
-    "weight": 270,
-    "bodyShape": "Bipedal Tail",
-    "bodyColor": "Gray"
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -128,1032 +60,2809 @@
       "Sneasler": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Scratch",
-      "level": 1,
-      "info": {
-        "description": "Scratches with sharp claws.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 55,
+      "attack": 95,
+      "defense": 55,
+      "speed": 115,
+      "specialAttack": 35,
+      "specialDefense": 75,
+      "total": 430
     },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 95,
+      "defense": 55,
+      "speed": 115,
+      "specialAttack": 35,
+      "specialDefense": 75,
+      "total": 430
     },
-    {
-      "name": "Bite",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 95,
+      "defense": 55,
+      "speed": 115,
+      "specialAttack": 35,
+      "specialDefense": 75,
+      "total": 430
     },
-    {
-      "name": "Quick Attack",
-      "level": 8,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "catchRate": 60,
+    "baseExp": 132,
+    "heldItems": [
+      "GRIP_CLAW",
+      "RAZOR_CLAW"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
     },
-    {
-      "name": "Feint Attack",
-      "level": 10,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "pickpocket",
+        "name": "Pickpocket",
+        "description": "\tSteals foe's item \twhen contacted.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "pickpocket",
+        "name": "Pickpocket",
+        "description": "\tSteals foe's item \twhen contacted.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "1 Spe",
+    "types": [
+      "Dark",
+      "Ice"
+    ],
+    "updatedTypes": [
+      "Dark",
+      "Ice"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Dark",
+        "Ice"
+      ],
+      "faithfulTypes": [
+        "Dark",
+        "Ice"
+      ],
+      "updatedTypes": [
+        "Dark",
+        "Ice"
+      ],
+      "moves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 8,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 10,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ice Shard",
+          "level": 14,
+          "info": {
+            "description": "Hurls icy shards. Always goes first.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 16,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 20,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 22,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "level": 25,
+          "info": {
+            "description": "Raises the user's Atk and accuracy.",
+            "type": "Dark",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icicle Crash",
+          "level": 28,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 85,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 32,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 35,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 40,
+          "info": {
+            "description": "Restores HP based on weather.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 44,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 47,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 8,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 10,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ice Shard",
+          "level": 14,
+          "info": {
+            "description": "Hurls icy shards. Always goes first.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 16,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 20,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 22,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "level": 25,
+          "info": {
+            "description": "Raises the user's Atk and accuracy.",
+            "type": "Dark",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icicle Crash",
+          "level": 28,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 85,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 32,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 35,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 40,
+          "info": {
+            "description": "Restores HP based on weather.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 44,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 47,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 8,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 10,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ice Shard",
+          "level": 14,
+          "info": {
+            "description": "Hurls icy shards. Always goes first.",
+            "type": "Ice",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 16,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 20,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 22,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "level": 25,
+          "info": {
+            "description": "Raises the user's Atk and accuracy.",
+            "type": "Dark",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Icicle Crash",
+          "level": 28,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Ice",
+            "pp": 10,
+            "power": 85,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 32,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 35,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Healinglight",
+          "level": 40,
+          "info": {
+            "description": "Restores HP based on weather.",
+            "type": "Normal",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 44,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 47,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Dynamicpunch",
+          "description": "An attack that confuses the foe.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 50,
+          "tmNumber": "TM01",
+          "location": {
+            "area": "Chuck's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Calm Mind",
+          "description": "Raises the user's Sp.Atk and Sp.Def.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM04",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hail",
+          "description": "Inflicts damage every turn.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM07",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "description": "Raises the user's Atk and accuracy.",
+          "type": "Dark",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM12",
+          "location": {
+            "area": "Route 35"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM30",
+          "location": {
+            "area": "Morty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Reflect",
+          "description": "Raises Defense with a barrier.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM33",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "False Swipe",
+          "description": "Leaves the foe with at least 1HP.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 40,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM54",
+          "location": {
+            "area": "Ilex Forest Gate"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "description": "Slashes foe with scythes or claws.",
+          "type": "Bug",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM56",
+          "location": {
+            "area": "Underground Warehouse"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "description": "An attack that may cause flinching.",
+          "type": "Dark",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM58",
+          "location": {
+            "area": "Dark Cave"
+          }
+        },
+        {
+          "name": "Shadow Claw",
+          "description": "Has a high critical hit ratio.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM65",
+          "location": {
+            "area": "Lavender Soul House"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 20,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM66",
+          "location": {
+            "area": "Janine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Avalanche",
+          "description": "Damage doubles if user is hit first.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM67",
+          "location": {
+            "area": "Pryce's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "description": "Sharply raises the user's Attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM75",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Surf",
+          "description": "A strong Watertype attack.",
+          "type": "Water",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "HM03",
+          "location": {
+            "area": "Ecruteak City"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Whirlpool",
+          "description": "Traps the foe for 2-5 turns.",
+          "type": "Water",
+          "pp": 15,
+          "power": 40,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "HM05",
+          "location": {
+            "area": "Route 42"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "description": "Steals HP from a sleeping victim.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 100,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT09",
+          "location": {
+            "area": "Viridian City"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Ice Punch",
+          "description": "An icy punch. May cause freezing.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT15",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "description": "Slaps down the foe's held item.",
+          "type": "Dark",
+          "pp": 20,
+          "power": 65,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT18",
+          "location": {
+            "area": "Route 40"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "pickpocket",
+          "name": "Pickpocket",
+          "description": "\tSteals foe's item \twhen contacted.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "pickpocket",
+          "name": "Pickpocket",
+          "description": "\tSteals foe's item \twhen contacted.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 55,
+        "speed": 115,
+        "specialAttack": 35,
+        "specialDefense": 75,
+        "total": 430
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 55,
+        "speed": 115,
+        "specialAttack": 35,
+        "specialDefense": 75,
+        "total": 430
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 55,
+        "speed": 115,
+        "specialAttack": 35,
+        "specialDefense": 75,
+        "total": 430
+      },
+      "catchRate": 60,
+      "baseExp": 132,
+      "heldItems": [
+        "GRIP_CLAW",
+        "RAZOR_CLAW"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Spe"
     },
-    {
-      "name": "Ice Shard",
-      "level": 14,
-      "info": {
-        "description": "Hurls icy shards. Always goes first.",
-        "type": "Ice",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 16,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 20,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Metal Claw",
-      "level": 22,
-      "info": {
-        "description": "An attack that may up user's Attack.",
-        "type": "Steel",
-        "pp": 35,
-        "power": 50,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hone Claws",
-      "level": 25,
-      "info": {
-        "description": "Raises the user's Atk and accuracy.",
-        "type": "Dark",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Icicle Crash",
-      "level": 28,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 85,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Screech",
-      "level": 32,
-      "info": {
-        "description": "Sharply lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 85,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 35,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Healinglight",
-      "level": 40,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "X Scissor",
-      "level": 44,
-      "info": {
-        "description": "",
-        "type": "Bug",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 47,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "hisuian": {
+      "name": "hisuian",
+      "types": [
+        "Poison",
+        "Fighting"
+      ],
+      "faithfulTypes": [
+        "Poison",
+        "Fighting"
+      ],
+      "updatedTypes": [
+        "Poison",
+        "Fighting"
+      ],
+      "moves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 8,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 10,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 14,
+          "info": {
+            "description": "Deals more damage to heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 16,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 20,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 22,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "level": 25,
+          "info": {
+            "description": "Raises the user's Atk and accuracy.",
+            "type": "Dark",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 28,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 32,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 35,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 40,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 44,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 47,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gunk Shot",
+          "level": 50,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 8,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 10,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 14,
+          "info": {
+            "description": "Deals more damage to heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 16,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 20,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 22,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "level": 25,
+          "info": {
+            "description": "Raises the user's Atk and accuracy.",
+            "type": "Dark",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 28,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 32,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 35,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 40,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 44,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 47,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gunk Shot",
+          "level": 50,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 8,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 10,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 14,
+          "info": {
+            "description": "Deals more damage to heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 16,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 20,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 22,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "level": 25,
+          "info": {
+            "description": "Raises the user's Atk and accuracy.",
+            "type": "Dark",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 28,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Screech",
+          "level": 32,
+          "info": {
+            "description": "Sharply lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 85,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 35,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 40,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "level": 44,
+          "info": {
+            "description": "Slashes foe with scythes or claws.",
+            "type": "Bug",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 47,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Gunk Shot",
+          "level": 50,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Dynamicpunch",
+          "description": "An attack that confuses the foe.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 50,
+          "tmNumber": "TM01",
+          "location": {
+            "area": "Chuck's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Calm Mind",
+          "description": "Raises the user's Sp.Atk and Sp.Def.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM04",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hail",
+          "description": "Inflicts damage every turn.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM07",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "description": "Raises the user's Atk and accuracy.",
+          "type": "Dark",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM12",
+          "location": {
+            "area": "Route 35"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM30",
+          "location": {
+            "area": "Morty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Reflect",
+          "description": "Raises Defense with a barrier.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM33",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "False Swipe",
+          "description": "Leaves the foe with at least 1HP.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 40,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM54",
+          "location": {
+            "area": "Ilex Forest Gate"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "description": "Slashes foe with scythes or claws.",
+          "type": "Bug",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM56",
+          "location": {
+            "area": "Underground Warehouse"
+          }
+        },
+        {
+          "name": "Dark Pulse",
+          "description": "An attack that may cause flinching.",
+          "type": "Dark",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM58",
+          "location": {
+            "area": "Dark Cave"
+          }
+        },
+        {
+          "name": "Shadow Claw",
+          "description": "Has a high critical hit ratio.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM65",
+          "location": {
+            "area": "Lavender Soul House"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 20,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM66",
+          "location": {
+            "area": "Janine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Avalanche",
+          "description": "Damage doubles if user is hit first.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM67",
+          "location": {
+            "area": "Pryce's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "description": "Sharply raises the user's Attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM75",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Surf",
+          "description": "A strong Watertype attack.",
+          "type": "Water",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "HM03",
+          "location": {
+            "area": "Ecruteak City"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Whirlpool",
+          "description": "Traps the foe for 2-5 turns.",
+          "type": "Water",
+          "pp": 15,
+          "power": 40,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "HM05",
+          "location": {
+            "area": "Route 42"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Dream Eater",
+          "description": "Steals HP from a sleeping victim.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 100,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT09",
+          "location": {
+            "area": "Viridian City"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Ice Punch",
+          "description": "An icy punch. May cause freezing.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT15",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "description": "Slaps down the foe's held item.",
+          "type": "Dark",
+          "pp": 20,
+          "power": 65,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT18",
+          "location": {
+            "area": "Route 40"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "pickpocket",
+          "name": "Pickpocket",
+          "description": "\tSteals foe's item \twhen contacted.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "pickpocket",
+          "name": "Pickpocket",
+          "description": "\tSteals foe's item \twhen contacted.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 55,
+        "speed": 115,
+        "specialAttack": 35,
+        "specialDefense": 75,
+        "total": 430
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 55,
+        "speed": 115,
+        "specialAttack": 35,
+        "specialDefense": 75,
+        "total": 430
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 55,
+        "speed": 115,
+        "specialAttack": 35,
+        "specialDefense": 75,
+        "total": 430
+      },
+      "catchRate": 60,
+      "baseExp": 132,
+      "heldItems": [
+        "GRIP_CLAW",
+        "QUICK_CLAW"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Spe"
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Scratch",
-      "level": 1,
-      "info": {
-        "description": "Scratches with sharp claws.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Quick Attack",
-      "level": 8,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Feint Attack",
-      "level": 10,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Ice Shard",
-      "level": 14,
-      "info": {
-        "description": "Hurls icy shards. Always goes first.",
-        "type": "Ice",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 16,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 20,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Metal Claw",
-      "level": 22,
-      "info": {
-        "description": "An attack that may up user's Attack.",
-        "type": "Steel",
-        "pp": 35,
-        "power": 50,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hone Claws",
-      "level": 25,
-      "info": {
-        "description": "Raises the user's Atk and accuracy.",
-        "type": "Dark",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Icicle Crash",
-      "level": 28,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 85,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Screech",
-      "level": 32,
-      "info": {
-        "description": "Sharply lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 85,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 35,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Healinglight",
-      "level": 40,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "X Scissor",
-      "level": 44,
-      "info": {
-        "description": "",
-        "type": "Bug",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 47,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Scratch",
-      "level": 1,
-      "info": {
-        "description": "Scratches with sharp claws.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Quick Attack",
-      "level": 8,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Feint Attack",
-      "level": 10,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Ice Shard",
-      "level": 14,
-      "info": {
-        "description": "Hurls icy shards. Always goes first.",
-        "type": "Ice",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 16,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 20,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Metal Claw",
-      "level": 22,
-      "info": {
-        "description": "An attack that may up user's Attack.",
-        "type": "Steel",
-        "pp": 35,
-        "power": 50,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hone Claws",
-      "level": 25,
-      "info": {
-        "description": "Raises the user's Atk and accuracy.",
-        "type": "Dark",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Icicle Crash",
-      "level": 28,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Ice",
-        "pp": 10,
-        "power": 85,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Screech",
-      "level": 32,
-      "info": {
-        "description": "Sharply lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 85,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 35,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Healinglight",
-      "level": 40,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "X Scissor",
-      "level": 44,
-      "info": {
-        "description": "",
-        "type": "Bug",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 47,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Dynamicpunch",
-      "description": "\tAn attack that \tconfuses the foe.",
-      "type": "Fighting",
-      "pp": 5,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 50
-    },
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Calm Mind",
-      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
-      "type": "Psychic",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hail",
-      "description": "\tInflicts damage \tevery turn.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Hone Claws",
-      "description": "\tRaises the user's \tAtk and accuracy.",
-      "type": "Dark",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Ice Beam",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Blizzard",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dig",
-      "description": "\t1st turn: Burrow \t2nd turn: Attack",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Shadow Ball",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Ghost",
-      "pp": 15,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Reflect",
-      "description": "\tRaises Defense \twith a barrier.",
-      "type": "Psychic",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Aerial Ace",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Flying",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "False Swipe",
-      "description": "\tLeaves the foe \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "X Scissor",
-      "description": "",
-      "type": "Bug",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dark Pulse",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Dark",
-      "pp": 15,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Shadow Claw",
-      "description": "",
-      "type": "Ghost",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Poison Jab",
-      "description": "\tAn attack that may \tpoison the foe.",
-      "type": "Poison",
-      "pp": 20,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Avalanche",
-      "description": "\tDamage doubles if \tuser is hit first.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Swords Dance",
-      "description": "\tSharply raises the \tuser's Attack.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Cut",
-      "description": "\tCuts using claws, \tscythes, etc.",
-      "type": "Steel",
-      "pp": 30,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Surf",
-      "description": "\tA strong Water- \ttype attack.",
-      "type": "Water",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Strength",
-      "description": "\tA powerful physi- \tcal attack.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Whirlpool",
-      "description": "",
-      "type": "Water",
-      "pp": 15,
-      "power": 40,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
-      "name": "Agility",
-      "description": "\tSharply raises the \tuser's Speed.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Counter",
-      "description": "\tReturns a physical \tattack double.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Defense Curl",
-      "description": "\tRaises the user's \tDefense.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dream Eater",
-      "description": "\tSteals HP from a \tsleeping victim.",
-      "type": "Psychic",
-      "pp": 15,
-      "power": 100,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Ice Punch",
-      "description": "\tAn icy punch. May \tcause freezing.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Icy Wind",
-      "description": "\tAn icy attack that \tlowers Speed.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 55,
-      "category": "Special",
-      "accuracy": 95
-    },
-    {
-      "name": "Knock Off",
-      "description": "\tSlaps down the \tfoe's held item.",
-      "type": "Dark",
-      "pp": 20,
-      "power": 65,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    }
-  ],
-  "eggMoves": [],
+  },
   "locations": [
     {
       "area": "ice_path_b_1f",
@@ -1251,1047 +2960,5 @@
       "chance": 30,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Sharp Claw",
-      "description": "This cunning #mon hides under the cover of darkness, waiting to attack its prey."
-    },
-    "Hisuian": {
-      "species": "Sharp Claw",
-      "description": "Its sturdy claws are ideal for traversing cliffs. These claws drip venom that infiltrates its prey."
-    }
-  },
-  "forms": {
-    "hisuian": {
-      "name": "sneasel hisuian",
-      "formName": "hisuian",
-      "nationalDex": 215,
-      "johtoDex": 245,
-      "types": [
-        "Poison",
-        "Fighting"
-      ],
-      "updatedTypes": [
-        "Poison",
-        "Fighting"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/sneasel_hisuian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Scratch",
-          "level": 1,
-          "info": {
-            "description": "Scratches with sharp claws.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 8,
-          "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 10,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Low Kick",
-          "level": 14,
-          "info": {
-            "description": "Deals more damage to heavier foes.",
-            "type": "Fighting",
-            "pp": 20,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Fury Strikes",
-          "level": 16,
-          "info": {
-            "description": "Scratches or jabs 2-5 times.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 20,
-            "accuracy": 85,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 20,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Metal Claw",
-          "level": 22,
-          "info": {
-            "description": "An attack that may up user's Attack.",
-            "type": "Steel",
-            "pp": 35,
-            "power": 50,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Hone Claws",
-          "level": 25,
-          "info": {
-            "description": "Raises the user's Atk and accuracy.",
-            "type": "Dark",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Poison Jab",
-          "level": 28,
-          "info": {
-            "description": "An attack that may poison the foe.",
-            "type": "Poison",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Screech",
-          "level": 32,
-          "info": {
-            "description": "Sharply lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Slash",
-          "level": 35,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swords Dance",
-          "level": 40,
-          "info": {
-            "description": "Sharply raises the user's Attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "X Scissor",
-          "level": 44,
-          "info": {
-            "description": "",
-            "type": "Bug",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Close Combat",
-          "level": 47,
-          "info": {
-            "description": "Lowers the user's Def and Sp.Def.",
-            "type": "Fighting",
-            "pp": 5,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Gunk Shot",
-          "level": 50,
-          "info": {
-            "description": "An attack that may poison the foe.",
-            "type": "Poison",
-            "pp": 5,
-            "power": 120,
-            "accuracy": 80,
-            "category": "Physical"
-          }
-        }
-      ],
-      "faithfulLevelMoves": [
-        {
-          "name": "Scratch",
-          "level": 1,
-          "info": {
-            "description": "Scratches with sharp claws.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 8,
-          "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 10,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Low Kick",
-          "level": 14,
-          "info": {
-            "description": "Deals more damage to heavier foes.",
-            "type": "Fighting",
-            "pp": 20,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Fury Strikes",
-          "level": 16,
-          "info": {
-            "description": "Scratches or jabs 2-5 times.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 20,
-            "accuracy": 85,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 20,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Metal Claw",
-          "level": 22,
-          "info": {
-            "description": "An attack that may up user's Attack.",
-            "type": "Steel",
-            "pp": 35,
-            "power": 50,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Hone Claws",
-          "level": 25,
-          "info": {
-            "description": "Raises the user's Atk and accuracy.",
-            "type": "Dark",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Poison Jab",
-          "level": 28,
-          "info": {
-            "description": "An attack that may poison the foe.",
-            "type": "Poison",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Screech",
-          "level": 32,
-          "info": {
-            "description": "Sharply lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Slash",
-          "level": 35,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swords Dance",
-          "level": 40,
-          "info": {
-            "description": "Sharply raises the user's Attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "X Scissor",
-          "level": 44,
-          "info": {
-            "description": "",
-            "type": "Bug",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Close Combat",
-          "level": 47,
-          "info": {
-            "description": "Lowers the user's Def and Sp.Def.",
-            "type": "Fighting",
-            "pp": 5,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Gunk Shot",
-          "level": 50,
-          "info": {
-            "description": "An attack that may poison the foe.",
-            "type": "Poison",
-            "pp": 5,
-            "power": 120,
-            "accuracy": 80,
-            "category": "Physical"
-          }
-        }
-      ],
-      "updatedLevelMoves": [
-        {
-          "name": "Scratch",
-          "level": 1,
-          "info": {
-            "description": "Scratches with sharp claws.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 8,
-          "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 10,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Low Kick",
-          "level": 14,
-          "info": {
-            "description": "Deals more damage to heavier foes.",
-            "type": "Fighting",
-            "pp": 20,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Fury Strikes",
-          "level": 16,
-          "info": {
-            "description": "Scratches or jabs 2-5 times.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 20,
-            "accuracy": 85,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 20,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Metal Claw",
-          "level": 22,
-          "info": {
-            "description": "An attack that may up user's Attack.",
-            "type": "Steel",
-            "pp": 35,
-            "power": 50,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Hone Claws",
-          "level": 25,
-          "info": {
-            "description": "Raises the user's Atk and accuracy.",
-            "type": "Dark",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Poison Jab",
-          "level": 28,
-          "info": {
-            "description": "An attack that may poison the foe.",
-            "type": "Poison",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Screech",
-          "level": 32,
-          "info": {
-            "description": "Sharply lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Slash",
-          "level": 35,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swords Dance",
-          "level": 40,
-          "info": {
-            "description": "Sharply raises the user's Attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "X Scissor",
-          "level": 44,
-          "info": {
-            "description": "",
-            "type": "Bug",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Close Combat",
-          "level": 47,
-          "info": {
-            "description": "Lowers the user's Def and Sp.Def.",
-            "type": "Fighting",
-            "pp": 5,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Gunk Shot",
-          "level": 50,
-          "info": {
-            "description": "An attack that may poison the foe.",
-            "type": "Poison",
-            "pp": 5,
-            "power": 120,
-            "accuracy": 80,
-            "category": "Physical"
-          }
-        }
-      ],
-      "detailedStats": {
-        "baseStats": {
-          "hp": 55,
-          "attack": 95,
-          "defense": 55,
-          "speed": 115,
-          "specialAttack": 35,
-          "specialDefense": 75,
-          "total": 430
-        },
-        "catchRate": 60,
-        "baseExp": 132,
-        "heldItems": [
-          "GRIP_CLAW",
-          "QUICK_CLAW"
-        ],
-        "genderRatio": {
-          "male": 50,
-          "female": 50
-        },
-        "hatchRate": "Medium-Fast (5,120 steps)",
-        "abilities": [
-          {
-            "name": "Inner Focus",
-            "description": "\tProtects it from \tflinching.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Keen Eye",
-            "description": "\tPrevents foes from \tlowering accuracy.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Pickpocket",
-            "description": "\tSteals foe's item \twhen contacted.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "faithfulAbilities": [
-          {
-            "name": "Inner Focus",
-            "description": "\tProtects it from \tflinching.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Keen Eye",
-            "description": "\tPrevents foes from \tlowering accuracy.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Pickpocket",
-            "description": "\tSteals foe's item \twhen contacted.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "updatedAbilities": [],
-        "growthRate": "Medium Slow",
-        "eggGroups": [
-          "Field",
-          "Field"
-        ],
-        "evYield": "1 Spe",
-        "types": [
-          "Poison",
-          "Fighting"
-        ],
-        "updatedTypes": [
-          "Poison",
-          "Fighting"
-        ],
-        "locations": [],
-        "height": 9,
-        "weight": 270,
-        "bodyColor": "Gray",
-        "bodyShape": "Bipedal Tail"
-      },
-      "locations": [
-        {
-          "area": "snowtop_mountain_inside",
-          "method": "grass",
-          "time": "morn",
-          "level": "Badge Level + 1",
-          "chance": 3,
-          "formName": "hisuian"
-        },
-        {
-          "area": "snowtop_mountain_inside",
-          "method": "grass",
-          "time": "morn",
-          "level": "Badge Level + 3",
-          "chance": 2,
-          "formName": "hisuian"
-        },
-        {
-          "area": "snowtop_mountain_inside",
-          "method": "grass",
-          "time": "day",
-          "level": "Badge Level + 1",
-          "chance": 3,
-          "formName": "hisuian"
-        },
-        {
-          "area": "snowtop_mountain_inside",
-          "method": "grass",
-          "time": "day",
-          "level": "Badge Level + 3",
-          "chance": 2,
-          "formName": "hisuian"
-        },
-        {
-          "area": "snowtop_mountain_inside",
-          "method": "grass",
-          "time": "nite",
-          "level": "Badge Level + 1",
-          "chance": 3,
-          "formName": "hisuian"
-        },
-        {
-          "area": "snowtop_mountain_inside",
-          "method": "grass",
-          "time": "nite",
-          "level": "Badge Level + 3",
-          "chance": 2,
-          "formName": "hisuian"
-        },
-        {
-          "area": "dim_cave_4f",
-          "method": "grass",
-          "time": "nite",
-          "level": "51",
-          "chance": 30,
-          "formName": "hisuian"
-        },
-        {
-          "area": "dim_cave_5f",
-          "method": "grass",
-          "time": "morn",
-          "level": "50",
-          "chance": 30,
-          "formName": "hisuian"
-        },
-        {
-          "area": "dim_cave_5f",
-          "method": "grass",
-          "time": "day",
-          "level": "50",
-          "chance": 30,
-          "formName": "hisuian"
-        },
-        {
-          "area": "dim_cave_5f",
-          "method": "grass",
-          "time": "nite",
-          "level": "50",
-          "chance": 30,
-          "formName": "hisuian"
-        },
-        {
-          "area": "Sinjoh Ruins",
-          "method": "hidden_grotto",
-          "time": "rare",
-          "level": "Badge Level + 5",
-          "chance": 5,
-          "rareItem": "Ice Stone",
-          "formName": "hisuian"
-        }
-      ]
-    },
-    "plain": {
-      "name": "sneasel plain",
-      "formName": "plain",
-      "nationalDex": 215,
-      "johtoDex": 245,
-      "types": [],
-      "updatedTypes": [],
-      "frontSpriteUrl": "/sprites/pokemon/sneasel_plain/front_cropped.png",
-      "moves": [
-        {
-          "name": "Scratch",
-          "level": 1,
-          "info": {
-            "description": "Scratches with sharp claws.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 8,
-          "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 10,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Ice Shard",
-          "level": 14,
-          "info": {
-            "description": "Hurls icy shards. Always goes first.",
-            "type": "Ice",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Fury Strikes",
-          "level": 16,
-          "info": {
-            "description": "Scratches or jabs 2-5 times.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 20,
-            "accuracy": 85,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 20,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Metal Claw",
-          "level": 22,
-          "info": {
-            "description": "An attack that may up user's Attack.",
-            "type": "Steel",
-            "pp": 35,
-            "power": 50,
-            "accuracy": 95,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Hone Claws",
-          "level": 25,
-          "info": {
-            "description": "Raises the user's Atk and accuracy.",
-            "type": "Dark",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Icicle Crash",
-          "level": 28,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Ice",
-            "pp": 10,
-            "power": 85,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Screech",
-          "level": 32,
-          "info": {
-            "description": "Sharply lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 85,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Slash",
-          "level": 35,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 20,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Healinglight",
-          "level": 40,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "X Scissor",
-          "level": 44,
-          "info": {
-            "description": "",
-            "type": "Bug",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Crunch",
-          "level": 47,
-          "info": {
-            "description": "An attack that may lower Defense.",
-            "type": "Dark",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ],
-      "detailedStats": {
-        "catchRate": 255,
-        "baseExp": 0,
-        "heldItems": [],
-        "abilities": [],
-        "faithfulAbilities": [],
-        "updatedAbilities": [],
-        "growthRate": "Medium Fast",
-        "eggGroups": [],
-        "genderRatio": {
-          "male": 0,
-          "female": 0
-        },
-        "hatchRate": "Unknown",
-        "evYield": "None",
-        "locations": [],
-        "height": 9,
-        "weight": 270,
-        "bodyColor": "Gray",
-        "bodyShape": "Bipedal Tail"
-      }
-    }
-  }
+  ]
 }

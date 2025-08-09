@@ -1,68 +1,7 @@
 {
-  "name": "sudowoodo",
+  "name": "Sudowoodo",
   "nationalDex": 185,
   "johtoDex": 113,
-  "types": "Rock",
-  "frontSpriteUrl": "/sprites/pokemon/sudowoodo/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 70,
-      "attack": 100,
-      "defense": 115,
-      "speed": 30,
-      "specialAttack": 30,
-      "specialDefense": 65,
-      "total": 410
-    },
-    "catchRate": 65,
-    "baseExp": 135,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "sturdy",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "rock-head",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "rattled",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Mineral",
-      "Mineral"
-    ],
-    "evYield": "2 Def",
-    "types": "Rock",
-    "updatedTypes": "Rock",
-    "height": 12,
-    "weight": 380,
-    "bodyShape": "Bipedal",
-    "bodyColor": "Brown",
-    "polishedBaseStats": {
-      "hp": 75,
-      "attack": 115,
-      "defense": 130,
-      "speed": 30,
-      "specialAttack": 30,
-      "specialDefense": 80,
-      "total": 460
-    }
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -102,915 +41,1231 @@
       ]
     }
   },
-  "levelMoves": [
-    {
-      "name": "Substitute",
-      "level": 1,
-      "info": {
-        "description": "Makes a decoy with 1/4 user's max HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+  "detailedStats": {
+    "baseStats": {
+      "hp": 70,
+      "attack": 100,
+      "defense": 115,
+      "speed": 30,
+      "specialAttack": 30,
+      "specialDefense": 65,
+      "total": 410
+    },
+    "faithfulBaseStats": {
+      "hp": 70,
+      "attack": 100,
+      "defense": 115,
+      "speed": 30,
+      "specialAttack": 30,
+      "specialDefense": 65,
+      "total": 410
+    },
+    "polishedBaseStats": {
+      "hp": 75,
+      "attack": 115,
+      "defense": 130,
+      "speed": 30,
+      "specialAttack": 30,
+      "specialDefense": 80,
+      "total": 460
+    },
+    "catchRate": 65,
+    "baseExp": 135,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Reversal",
-      "level": 5,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "sturdy",
+        "name": "Sturdy",
+        "description": "\tCannot be knocked \tout with one hit.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "rock-head",
+        "name": "Rock Head",
+        "description": "\tProtects it from \trecoil damage.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "rattled",
+        "name": "Rattled",
+        "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Low Kick",
-      "level": 8,
-      "info": {
-        "description": "Deals more damage to heavier foes.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 12,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Rock Throw",
-      "level": 15,
-      "info": {
-        "description": "Drops rocks on the enemy.",
-        "type": "Rock",
-        "pp": 15,
-        "power": 50,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Feint Attack",
-      "level": 19,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Ancientpower",
-      "level": 22,
-      "info": {
-        "description": "An attack that may raise all stats.",
-        "type": "Rock",
-        "pp": 5,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Spikes",
-      "level": 26,
-      "info": {
-        "description": "Hurts foes when they switch in.",
-        "type": "Ground",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Rock Slide",
-      "level": 29,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Rock",
-        "pp": 10,
-        "power": 75,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Counter",
-      "level": 33,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sucker Punch",
-      "level": 36,
-      "info": {
-        "description": "Attacks before the foe does.",
-        "type": "Dark",
-        "pp": 5,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 40,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Stone Edge",
-      "level": 43,
-      "info": {
-        "description": "Has a high criti- cal hit ratio.",
-        "type": "Rock",
-        "pp": 5,
-        "power": 100,
-        "accuracy": 80,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Close Combat",
-      "level": 47,
-      "info": {
-        "description": "Lowers the user's Def and Sp.Def.",
-        "type": "Fighting",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Iron Head",
-      "level": 50,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Steel",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Substitute",
-      "level": 1,
-      "info": {
-        "description": "Makes a decoy with 1/4 user's max HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 5,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Low Kick",
-      "level": 8,
-      "info": {
-        "description": "Deals more damage to heavier foes.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 12,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Rock Throw",
-      "level": 15,
-      "info": {
-        "description": "Drops rocks on the enemy.",
-        "type": "Rock",
-        "pp": 15,
-        "power": 50,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Feint Attack",
-      "level": 19,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Ancientpower",
-      "level": 22,
-      "info": {
-        "description": "An attack that may raise all stats.",
-        "type": "Rock",
-        "pp": 5,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Spikes",
-      "level": 26,
-      "info": {
-        "description": "Hurts foes when they switch in.",
-        "type": "Ground",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Rock Slide",
-      "level": 29,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Rock",
-        "pp": 10,
-        "power": 75,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Counter",
-      "level": 33,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sucker Punch",
-      "level": 36,
-      "info": {
-        "description": "Attacks before the foe does.",
-        "type": "Dark",
-        "pp": 5,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 40,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Stone Edge",
-      "level": 43,
-      "info": {
-        "description": "Has a high criti- cal hit ratio.",
-        "type": "Rock",
-        "pp": 5,
-        "power": 100,
-        "accuracy": 80,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Close Combat",
-      "level": 47,
-      "info": {
-        "description": "Lowers the user's Def and Sp.Def.",
-        "type": "Fighting",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Iron Head",
-      "level": 50,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Steel",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Substitute",
-      "level": 1,
-      "info": {
-        "description": "Makes a decoy with 1/4 user's max HP.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 5,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Low Kick",
-      "level": 8,
-      "info": {
-        "description": "Deals more damage to heavier foes.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 12,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Rock Throw",
-      "level": 15,
-      "info": {
-        "description": "Drops rocks on the enemy.",
-        "type": "Rock",
-        "pp": 15,
-        "power": 50,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Feint Attack",
-      "level": 19,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Ancientpower",
-      "level": 22,
-      "info": {
-        "description": "An attack that may raise all stats.",
-        "type": "Rock",
-        "pp": 5,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Spikes",
-      "level": 26,
-      "info": {
-        "description": "Hurts foes when they switch in.",
-        "type": "Ground",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Rock Slide",
-      "level": 29,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Rock",
-        "pp": 10,
-        "power": 75,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Counter",
-      "level": 33,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sucker Punch",
-      "level": 36,
-      "info": {
-        "description": "Attacks before the foe does.",
-        "type": "Dark",
-        "pp": 5,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 40,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Stone Edge",
-      "level": 43,
-      "info": {
-        "description": "Has a high criti- cal hit ratio.",
-        "type": "Rock",
-        "pp": 5,
-        "power": 100,
-        "accuracy": 80,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Close Combat",
-      "level": 47,
-      "info": {
-        "description": "Lowers the user's Def and Sp.Def.",
-        "type": "Fighting",
-        "pp": 5,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Iron Head",
-      "level": 50,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Steel",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Dynamicpunch",
-      "description": "\tAn attack that \tconfuses the foe.",
-      "type": "Fighting",
-      "pp": 5,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 50
-    },
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Calm Mind",
-      "description": "\tRaises the user's \tSp.Atk and Sp.Def.",
-      "type": "Psychic",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Bulldoze",
-      "description": "\tA Ground attack \tthat lowers Speed.",
-      "type": "Ground",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Earthquake",
-      "description": "\tTough but useless \tvs. flying foes.",
-      "type": "Ground",
-      "pp": 10,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dig",
-      "description": "\t1st turn: Burrow \t2nd turn: Attack",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Sandstorm",
-      "description": "",
-      "type": "Rock",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Slide",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Rock",
-      "pp": 10,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Explosion",
-      "description": "\tVery powerful but \tmakes user faint.",
-      "type": "Normal",
-      "pp": 5,
-      "power": 250,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Stone Edge",
-      "description": "\tHas a high criti- \tcal hit ratio.",
-      "type": "Rock",
-      "pp": 5,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 80
-    },
-    {
-      "name": "Strength",
-      "description": "\tA powerful physi- \tcal attack.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Counter",
-      "description": "\tReturns a physical \tattack double.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Defense Curl",
-      "description": "\tRaises the user's \tDefense.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Earth Power",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Fire Punch",
-      "description": "\tA fiery punch. May \tcause a burn.",
-      "type": "Fire",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Ice Punch",
-      "description": "\tAn icy punch. May \tcause freezing.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Iron Head",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rollout",
-      "description": "\tAttacks 5 turns \twith rising power.",
-      "type": "Rock",
-      "pp": 20,
-      "power": 30,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Seismic Toss",
-      "description": "\tDamage equals the \tuser's level.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Sucker Punch",
-      "description": "\tAttacks before the \tfoe does.",
-      "type": "Dark",
-      "pp": 5,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Thunderpunch",
-      "description": "\tAn electric punch. \tIt may paralyze.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    }
-  ],
-  "eggMoves": [
-    "Defense Curl",
-    "Explosion"
-  ],
-  "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Imitation",
-      "description": "If a tree branch shakes when there is no wind, it's a Sudowoodo, not a tree. It hides from the rain."
-    }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Mineral",
+      "Mineral"
+    ],
+    "evYield": "2 Def",
+    "types": "Rock",
+    "updatedTypes": "Rock"
   },
-  "forms": {}
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Rock",
+      "faithfulTypes": "Rock",
+      "updatedTypes": "Rock",
+      "moves": [
+        {
+          "name": "Substitute",
+          "level": 1,
+          "info": {
+            "description": "Makes a decoy with 1/4 user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 5,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 8,
+          "info": {
+            "description": "Deals more damage to heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 12,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 15,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 19,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 22,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Spikes",
+          "level": 26,
+          "info": {
+            "description": "Hurts foes when they switch in.",
+            "type": "Ground",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 29,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 33,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 36,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 40,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 43,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 47,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "level": 50,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Substitute",
+          "level": 1,
+          "info": {
+            "description": "Makes a decoy with 1/4 user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 5,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 8,
+          "info": {
+            "description": "Deals more damage to heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 12,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 15,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 19,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 22,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Spikes",
+          "level": 26,
+          "info": {
+            "description": "Hurts foes when they switch in.",
+            "type": "Ground",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 29,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 33,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 36,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 40,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 43,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 47,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "level": 50,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Substitute",
+          "level": 1,
+          "info": {
+            "description": "Makes a decoy with 1/4 user's max HP.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 5,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Low Kick",
+          "level": 8,
+          "info": {
+            "description": "Deals more damage to heavier foes.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 12,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Throw",
+          "level": 15,
+          "info": {
+            "description": "Drops rocks on the enemy.",
+            "type": "Rock",
+            "pp": 15,
+            "power": 50,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 19,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Ancientpower",
+          "level": 22,
+          "info": {
+            "description": "An attack that may raise all stats.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Spikes",
+          "level": 26,
+          "info": {
+            "description": "Hurts foes when they switch in.",
+            "type": "Ground",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 29,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 33,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 36,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 40,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "level": 43,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Rock",
+            "pp": 5,
+            "power": 100,
+            "accuracy": 80,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 47,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "level": 50,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Steel",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Defense Curl",
+        "Explosion"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Dynamicpunch",
+          "description": "An attack that confuses the foe.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 50,
+          "tmNumber": "TM01",
+          "location": {
+            "area": "Chuck's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Calm Mind",
+          "description": "Raises the user's Sp.Atk and Sp.Def.",
+          "type": "Psychic",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM04",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Bulldoze",
+          "description": "A Ground attack that lowers Speed.",
+          "type": "Ground",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM21",
+          "location": {
+            "area": "Route 39"
+          }
+        },
+        {
+          "name": "Earthquake",
+          "description": "Tough but useless vs. flying foes.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM26",
+          "location": {
+            "area": "Victory Road"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sandstorm",
+          "description": "Inflicts damage every turn.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM37",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Explosion",
+          "description": "Very powerful but makes user faint.",
+          "type": "Normal",
+          "pp": 5,
+          "power": 250,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM64",
+          "location": {
+            "area": "Underground"
+          }
+        },
+        {
+          "name": "Stone Edge",
+          "description": "Has a high critical hit ratio.",
+          "type": "Rock",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 80,
+          "tmNumber": "TM71",
+          "location": {
+            "area": "Blue's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Earth Power",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "MT10",
+          "location": {
+            "area": "Cherrygrove Bay"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Fire Punch",
+          "description": "A fiery punch. May cause a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT12",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Ice Punch",
+          "description": "An icy punch. May cause freezing.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT15",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Iron Head",
+          "description": "An attack that may cause flinching.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT17",
+          "location": {
+            "area": "Route 4"
+          }
+        },
+        {
+          "name": "Rollout",
+          "description": "Attacks 5 turns with rising power.",
+          "type": "Rock",
+          "pp": 20,
+          "power": 30,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT20",
+          "location": {
+            "area": "Route 46"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "description": "Damage equals the user's level.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT22",
+          "location": {
+            "area": "Pewter City"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "description": "Attacks before the foe does.",
+          "type": "Dark",
+          "pp": 5,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT25",
+          "location": {
+            "area": "Scary Cave"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Thunderpunch",
+          "description": "An electric punch. It may paralyze.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT27",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "sturdy",
+          "name": "Sturdy",
+          "description": "\tCannot be knocked \tout with one hit.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rattled",
+          "name": "Rattled",
+          "description": "\tDark, Ghost or Bug \tmoves boost Speed.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 70,
+        "attack": 100,
+        "defense": 115,
+        "speed": 30,
+        "specialAttack": 30,
+        "specialDefense": 65,
+        "total": 410
+      },
+      "faithfulBaseStats": {
+        "hp": 70,
+        "attack": 100,
+        "defense": 115,
+        "speed": 30,
+        "specialAttack": 30,
+        "specialDefense": 65,
+        "total": 410
+      }
+    }
+  }
 }

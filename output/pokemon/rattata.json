@@ -1,61 +1,7 @@
 {
-  "name": "rattata",
+  "name": "Rattata",
   "nationalDex": 19,
   "johtoDex": 17,
-  "types": "Normal",
-  "frontSpriteUrl": "/sprites/pokemon/rattata/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 30,
-      "attack": 56,
-      "defense": 35,
-      "speed": 72,
-      "specialAttack": 25,
-      "specialDefense": 35,
-      "total": 253
-    },
-    "catchRate": 255,
-    "baseExp": 57,
-    "heldItems": [
-      "LANSAT_BERRY"
-    ],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "run-away",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "guts",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "hustle",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Field",
-      "Field"
-    ],
-    "evYield": "1 Spe",
-    "types": "Normal",
-    "updatedTypes": "Normal",
-    "height": 3,
-    "weight": 38,
-    "bodyShape": "Quadruped",
-    "bodyColor": "Black"
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -113,822 +59,2251 @@
       "Raticate": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 30,
+      "attack": 56,
+      "defense": 35,
+      "speed": 72,
+      "specialAttack": 25,
+      "specialDefense": 35,
+      "total": 253
     },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
+    "faithfulBaseStats": {
+      "hp": 30,
+      "attack": 56,
+      "defense": 35,
+      "speed": 72,
+      "specialAttack": 25,
+      "specialDefense": 35,
+      "total": 253
     },
-    {
-      "name": "Quick Attack",
-      "level": 4,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "polishedBaseStats": {
+      "hp": 30,
+      "attack": 56,
+      "defense": 35,
+      "speed": 72,
+      "specialAttack": 25,
+      "specialDefense": 35,
+      "total": 253
     },
-    {
-      "name": "Focus Energy",
-      "level": 7,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
+    "catchRate": 255,
+    "baseExp": 57,
+    "heldItems": [
+      "LANSAT_BERRY"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
     },
-    {
-      "name": "Bite",
-      "level": 10,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "run-away",
+        "name": "Run Away",
+        "description": "\tSure getaway from \twild #mon.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "guts",
+        "name": "Guts",
+        "description": "\tBoosts Attack on \tstatus problems.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "hustle",
+        "name": "Hustle",
+        "description": "\tBoosts Attack, but \tlowers accuracy.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "1 Spe",
+    "types": "Normal",
+    "updatedTypes": "Normal"
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Normal",
+      "faithfulTypes": "Normal",
+      "updatedTypes": "Normal",
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 4,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 7,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 10,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 13,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hyper Fang",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 19,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 22,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 25,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Super Fang",
+          "level": 28,
+          "info": {
+            "description": "Cuts the foe's HP by 1/2.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 1,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 31,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 34,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 4,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 7,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 10,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 13,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hyper Fang",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 19,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 22,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 25,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Super Fang",
+          "level": 28,
+          "info": {
+            "description": "Cuts the foe's HP by 1/2.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 1,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 31,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 34,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 4,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 7,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 10,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 13,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hyper Fang",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 19,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 22,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 25,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Super Fang",
+          "level": 28,
+          "info": {
+            "description": "Cuts the foe's HP by 1/2.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 1,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 31,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 34,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Fury Strikes",
+        "Reversal",
+        "Screech",
+        "Bite",
+        "Counter"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM30",
+          "location": {
+            "area": "Morty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "description": "A charge that also hurts the user.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM57",
+          "location": {
+            "area": "Lt. Surge's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "U Turn",
+          "description": "Switches out after making its attack.",
+          "type": "Bug",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM69",
+          "location": {
+            "area": "Bugsy's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "description": "Attacks before the foe does.",
+          "type": "Dark",
+          "pp": 5,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT25",
+          "location": {
+            "area": "Scary Cave"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT31",
+          "location": {
+            "area": "Saffron City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "guts",
+          "name": "Guts",
+          "description": "\tBoosts Attack on \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "run-away",
+          "name": "Run Away",
+          "description": "\tSure getaway from \twild #mon.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "guts",
+          "name": "Guts",
+          "description": "\tBoosts Attack on \tstatus problems.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 30,
+        "attack": 56,
+        "defense": 35,
+        "speed": 72,
+        "specialAttack": 25,
+        "specialDefense": 35,
+        "total": 253
+      },
+      "faithfulBaseStats": {
+        "hp": 30,
+        "attack": 56,
+        "defense": 35,
+        "speed": 72,
+        "specialAttack": 25,
+        "specialDefense": 35,
+        "total": 253
+      },
+      "polishedBaseStats": {
+        "hp": 30,
+        "attack": 56,
+        "defense": 35,
+        "speed": 72,
+        "specialAttack": 25,
+        "specialDefense": 35,
+        "total": 253
+      },
+      "catchRate": 255,
+      "baseExp": 57,
+      "heldItems": [
+        "LANSAT_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Spe"
     },
-    {
-      "name": "Pursuit",
-      "level": 13,
-      "info": {
-        "description": "Heavily strikes switching Pokemon.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hyper Fang",
-      "level": 16,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sucker Punch",
-      "level": 19,
-      "info": {
-        "description": "Attacks before the foe does.",
-        "type": "Dark",
-        "pp": 5,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 22,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Feint Attack",
-      "level": 25,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Super Fang",
-      "level": 28,
-      "info": {
-        "description": "Cuts the foe's HP by 1/2.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 1,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 31,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Counter",
-      "level": 34,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
-      }
+    "alolan": {
+      "name": "alolan",
+      "types": [
+        "Dark",
+        "Normal"
+      ],
+      "faithfulTypes": [
+        "Dark",
+        "Normal"
+      ],
+      "updatedTypes": [
+        "Dark",
+        "Normal"
+      ],
+      "moves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 4,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 7,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 10,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 13,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hyper Fang",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 19,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 22,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 25,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Super Fang",
+          "level": 28,
+          "info": {
+            "description": "Cuts the foe's HP by 1/2.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 1,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 31,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 34,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 4,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 7,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 10,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 13,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hyper Fang",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 19,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 22,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 25,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Super Fang",
+          "level": 28,
+          "info": {
+            "description": "Cuts the foe's HP by 1/2.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 1,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 31,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 34,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Tackle",
+          "level": 1,
+          "info": {
+            "description": "A full-body charge attack.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 4,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 7,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 10,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 13,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hyper Fang",
+          "level": 16,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "level": 19,
+          "info": {
+            "description": "Attacks before the foe does.",
+            "type": "Dark",
+            "pp": 5,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 22,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 25,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Super Fang",
+          "level": 28,
+          "info": {
+            "description": "Cuts the foe's HP by 1/2.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 1,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "level": 31,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Counter",
+          "level": 34,
+          "info": {
+            "description": "Returns a physical attack double.",
+            "type": "Fighting",
+            "pp": 20,
+            "power": 1,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Fury Strikes",
+        "Reversal",
+        "Screech",
+        "Bite",
+        "Counter"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Ice Beam",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM13",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Blizzard",
+          "description": "An attack that may freeze the foe.",
+          "type": "Ice",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM14",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rain Dance",
+          "description": "Boosts Water-type moves for 5 turns.",
+          "type": "Water",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM18",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunderbolt",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM24",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Thunder",
+          "description": "An attack that may cause paralysis.",
+          "type": "Electric",
+          "pp": 10,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 70,
+          "tmNumber": "TM25",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Shadow Ball",
+          "description": "An attack that may lower Sp.Def.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 80,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM30",
+          "location": {
+            "area": "Morty's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "description": "A charge that also hurts the user.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM57",
+          "location": {
+            "area": "Lt. Surge's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "U Turn",
+          "description": "Switches out after making its attack.",
+          "type": "Bug",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM69",
+          "location": {
+            "area": "Bugsy's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thunder Wave",
+          "description": "paralyzes the foe.@",
+          "type": "Electric",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM73",
+          "location": {
+            "area": "Rock Tunnel"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Icy Wind",
+          "description": "An icy attack that lowers Speed.",
+          "type": "Ice",
+          "pp": 15,
+          "power": 55,
+          "category": "Special",
+          "accuracy": 95,
+          "tmNumber": "MT16",
+          "location": {
+            "area": "Ice Path"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Sucker Punch",
+          "description": "Attacks before the foe does.",
+          "type": "Dark",
+          "pp": 5,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT25",
+          "location": {
+            "area": "Scary Cave"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Zen Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Psychic",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "MT31",
+          "location": {
+            "area": "Saffron City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "gluttony",
+          "name": "Gluttony",
+          "description": "\tEncourages early \tBerry use.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "hustle",
+          "name": "Hustle",
+          "description": "\tBoosts Attack, but \tlowers accuracy.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "thick-fat",
+          "name": "Thick Fat",
+          "description": "\tUps resistance to \tFire and Ice.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 30,
+        "attack": 56,
+        "defense": 35,
+        "speed": 72,
+        "specialAttack": 25,
+        "specialDefense": 35,
+        "total": 253
+      },
+      "faithfulBaseStats": {
+        "hp": 30,
+        "attack": 56,
+        "defense": 35,
+        "speed": 72,
+        "specialAttack": 25,
+        "specialDefense": 35,
+        "total": 253
+      },
+      "polishedBaseStats": {
+        "hp": 30,
+        "attack": 56,
+        "defense": 35,
+        "speed": 72,
+        "specialAttack": 25,
+        "specialDefense": 35,
+        "total": 253
+      },
+      "catchRate": 255,
+      "baseExp": 57,
+      "heldItems": [
+        "PECHA_BERRY"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Spe"
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Quick Attack",
-      "level": 4,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Focus Energy",
-      "level": 7,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 10,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pursuit",
-      "level": 13,
-      "info": {
-        "description": "Heavily strikes switching Pokemon.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hyper Fang",
-      "level": 16,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sucker Punch",
-      "level": 19,
-      "info": {
-        "description": "Attacks before the foe does.",
-        "type": "Dark",
-        "pp": 5,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 22,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Feint Attack",
-      "level": 25,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Super Fang",
-      "level": 28,
-      "info": {
-        "description": "Cuts the foe's HP by 1/2.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 1,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 31,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Counter",
-      "level": 34,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Tackle",
-      "level": 1,
-      "info": {
-        "description": "A full-body charge attack.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Quick Attack",
-      "level": 4,
-      "info": {
-        "description": "Lets the user get in the first hit.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Focus Energy",
-      "level": 7,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 10,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pursuit",
-      "level": 13,
-      "info": {
-        "description": "Heavily strikes switching Pokemon.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hyper Fang",
-      "level": 16,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sucker Punch",
-      "level": 19,
-      "info": {
-        "description": "Attacks before the foe does.",
-        "type": "Dark",
-        "pp": 5,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 22,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Feint Attack",
-      "level": 25,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Super Fang",
-      "level": 28,
-      "info": {
-        "description": "Cuts the foe's HP by 1/2.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 1,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Double Edge",
-      "level": 31,
-      "info": {
-        "description": "A tackle that also hurts the user.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Counter",
-      "level": 34,
-      "info": {
-        "description": "Returns a physical attack double.",
-        "type": "Fighting",
-        "pp": 20,
-        "power": 1,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Ice Beam",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Blizzard",
-      "description": "\tAn attack that may \tfreeze the foe.",
-      "type": "Ice",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Rain Dance",
-      "description": "\tBoosts Water-type \tmoves for 5 turns.",
-      "type": "Water",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Thunderbolt",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Electric",
-      "pp": 10,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 70
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dig",
-      "description": "\t1st turn: Burrow \t2nd turn: Attack",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Shadow Ball",
-      "description": "\tAn attack that may \tlower Sp.Def.",
-      "type": "Ghost",
-      "pp": 15,
-      "power": 80,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Wild Charge",
-      "description": "\tA charge that also \thurts the user.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "U Turn",
-      "description": "",
-      "type": "Bug",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Thunder Wave",
-      "description": "\tparalyzes the foe.@",
-      "type": "Electric",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Cut",
-      "description": "\tCuts using claws, \tscythes, etc.",
-      "type": "Steel",
-      "pp": 30,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Counter",
-      "description": "\tReturns a physical \tattack double.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Defense Curl",
-      "description": "\tRaises the user's \tDefense.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Icy Wind",
-      "description": "\tAn icy attack that \tlowers Speed.",
-      "type": "Ice",
-      "pp": 15,
-      "power": 55,
-      "category": "Special",
-      "accuracy": 95
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Sucker Punch",
-      "description": "\tAttacks before the \tfoe does.",
-      "type": "Dark",
-      "pp": 5,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Zen Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Psychic",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 90
-    }
-  ],
-  "eggMoves": [
-    "Fury Strikes",
-    "Reversal",
-    "Screech",
-    "Bite",
-    "Counter"
-  ],
+  },
   "locations": [
     {
       "area": "sprout_tower_2f",
@@ -1866,810 +3241,5 @@
       "chance": 5,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Rat",
-      "description": "This #mon's impressive vitality allows it to live anywhere. It also multiplies very quickly."
-    },
-    "Alolan": {
-      "species": "Mouse",
-      "description": "It has no interest in anything that's not fresh. If you take it shopping with you, it'll help pick ingredients."
-    }
-  },
-  "forms": {
-    "alolan": {
-      "name": "rattata alolan",
-      "formName": "alolan",
-      "nationalDex": 19,
-      "johtoDex": 17,
-      "types": [
-        "Dark",
-        "Normal"
-      ],
-      "updatedTypes": [
-        "Dark",
-        "Normal"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/rattata_alolan/front_cropped.png",
-      "moves": [
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "A full-body charge attack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 4,
-          "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Focus Energy",
-          "level": 7,
-          "info": {
-            "description": "Raises the criti- cal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 10,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Pursuit",
-          "level": 13,
-          "info": {
-            "description": "Heavily strikes switching Pokemon.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Hyper Fang",
-          "level": 16,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Sucker Punch",
-          "level": 19,
-          "info": {
-            "description": "Attacks before the foe does.",
-            "type": "Dark",
-            "pp": 5,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Crunch",
-          "level": 22,
-          "info": {
-            "description": "An attack that may lower Defense.",
-            "type": "Dark",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 25,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Super Fang",
-          "level": 28,
-          "info": {
-            "description": "Cuts the foe's HP by 1/2.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 1,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Double Edge",
-          "level": 31,
-          "info": {
-            "description": "A tackle that also hurts the user.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Counter",
-          "level": 34,
-          "info": {
-            "description": "Returns a physical attack double.",
-            "type": "Fighting",
-            "pp": 20,
-            "power": 1,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        }
-      ],
-      "faithfulLevelMoves": [
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "A full-body charge attack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 4,
-          "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Focus Energy",
-          "level": 7,
-          "info": {
-            "description": "Raises the criti- cal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 10,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Pursuit",
-          "level": 13,
-          "info": {
-            "description": "Heavily strikes switching Pokemon.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Hyper Fang",
-          "level": 16,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Sucker Punch",
-          "level": 19,
-          "info": {
-            "description": "Attacks before the foe does.",
-            "type": "Dark",
-            "pp": 5,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Crunch",
-          "level": 22,
-          "info": {
-            "description": "An attack that may lower Defense.",
-            "type": "Dark",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 25,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Super Fang",
-          "level": 28,
-          "info": {
-            "description": "Cuts the foe's HP by 1/2.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 1,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Double Edge",
-          "level": 31,
-          "info": {
-            "description": "A tackle that also hurts the user.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Counter",
-          "level": 34,
-          "info": {
-            "description": "Returns a physical attack double.",
-            "type": "Fighting",
-            "pp": 20,
-            "power": 1,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        }
-      ],
-      "updatedLevelMoves": [
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "A full-body charge attack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 4,
-          "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Focus Energy",
-          "level": 7,
-          "info": {
-            "description": "Raises the criti- cal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 10,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Pursuit",
-          "level": 13,
-          "info": {
-            "description": "Heavily strikes switching Pokemon.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Hyper Fang",
-          "level": 16,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Sucker Punch",
-          "level": 19,
-          "info": {
-            "description": "Attacks before the foe does.",
-            "type": "Dark",
-            "pp": 5,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Crunch",
-          "level": 22,
-          "info": {
-            "description": "An attack that may lower Defense.",
-            "type": "Dark",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 25,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Super Fang",
-          "level": 28,
-          "info": {
-            "description": "Cuts the foe's HP by 1/2.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 1,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Double Edge",
-          "level": 31,
-          "info": {
-            "description": "A tackle that also hurts the user.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Counter",
-          "level": 34,
-          "info": {
-            "description": "Returns a physical attack double.",
-            "type": "Fighting",
-            "pp": 20,
-            "power": 1,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        }
-      ],
-      "detailedStats": {
-        "baseStats": {
-          "hp": 30,
-          "attack": 56,
-          "defense": 35,
-          "speed": 72,
-          "specialAttack": 25,
-          "specialDefense": 35,
-          "total": 253
-        },
-        "catchRate": 255,
-        "baseExp": 57,
-        "heldItems": [
-          "PECHA_BERRY"
-        ],
-        "genderRatio": {
-          "male": 50,
-          "female": 50
-        },
-        "hatchRate": "Medium-Fast (5,120 steps)",
-        "abilities": [
-          {
-            "name": "Gluttony",
-            "description": "\tEncourages early \tBerry use.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Hustle",
-            "description": "\tBoosts Attack, but \tlowers accuracy.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Thick Fat",
-            "description": "\tUps resistance to \tFire and Ice.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "faithfulAbilities": [
-          {
-            "name": "Gluttony",
-            "description": "\tEncourages early \tBerry use.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Hustle",
-            "description": "\tBoosts Attack, but \tlowers accuracy.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Thick Fat",
-            "description": "\tUps resistance to \tFire and Ice.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "updatedAbilities": [],
-        "growthRate": "Medium Fast",
-        "eggGroups": [
-          "Field",
-          "Field"
-        ],
-        "evYield": "1 Spe",
-        "types": [
-          "Dark",
-          "Normal"
-        ],
-        "updatedTypes": [
-          "Dark",
-          "Normal"
-        ],
-        "locations": [],
-        "height": 3,
-        "weight": 38,
-        "bodyColor": "Black",
-        "bodyShape": "Quadruped"
-      },
-      "locations": [
-        {
-          "area": "route_34",
-          "method": "grass",
-          "time": "morn",
-          "level": "12",
-          "chance": 30,
-          "formName": "alolan"
-        },
-        {
-          "area": "route_34",
-          "method": "grass",
-          "time": "day",
-          "level": "12",
-          "chance": 30,
-          "formName": "alolan"
-        },
-        {
-          "area": "route_34",
-          "method": "grass",
-          "time": "nite",
-          "level": "12",
-          "chance": 30,
-          "formName": "alolan"
-        },
-        {
-          "area": "Violet Outskirts",
-          "method": "hidden_grotto",
-          "time": "common",
-          "level": "Badge Level - 0",
-          "chance": 40,
-          "rareItem": "Dusk Stone",
-          "formName": "alolan"
-        }
-      ]
-    },
-    "plain": {
-      "name": "rattata plain",
-      "formName": "plain",
-      "nationalDex": 19,
-      "johtoDex": 17,
-      "types": [],
-      "updatedTypes": [],
-      "frontSpriteUrl": "/sprites/pokemon/rattata_plain/front_cropped.png",
-      "moves": [
-        {
-          "name": "Tackle",
-          "level": 1,
-          "info": {
-            "description": "A full-body charge attack.",
-            "type": "Normal",
-            "pp": 35,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 4,
-          "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Focus Energy",
-          "level": 7,
-          "info": {
-            "description": "Raises the criti- cal hit ratio.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 10,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Pursuit",
-          "level": 13,
-          "info": {
-            "description": "Heavily strikes switching Pokemon.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Hyper Fang",
-          "level": 16,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Sucker Punch",
-          "level": 19,
-          "info": {
-            "description": "Attacks before the foe does.",
-            "type": "Dark",
-            "pp": 5,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Crunch",
-          "level": 22,
-          "info": {
-            "description": "An attack that may lower Defense.",
-            "type": "Dark",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 25,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Super Fang",
-          "level": 28,
-          "info": {
-            "description": "Cuts the foe's HP by 1/2.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 1,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Double Edge",
-          "level": 31,
-          "info": {
-            "description": "A tackle that also hurts the user.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Counter",
-          "level": 34,
-          "info": {
-            "description": "Returns a physical attack double.",
-            "type": "Fighting",
-            "pp": 20,
-            "power": 1,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        }
-      ],
-      "detailedStats": {
-        "catchRate": 255,
-        "baseExp": 0,
-        "heldItems": [],
-        "abilities": [],
-        "faithfulAbilities": [],
-        "updatedAbilities": [],
-        "growthRate": "Medium Fast",
-        "eggGroups": [],
-        "genderRatio": {
-          "male": 0,
-          "female": 0
-        },
-        "hatchRate": "Unknown",
-        "evYield": "None",
-        "locations": [],
-        "height": 3,
-        "weight": 38,
-        "bodyColor": "Black",
-        "bodyShape": "Quadruped"
-      }
-    }
-  }
+  ]
 }

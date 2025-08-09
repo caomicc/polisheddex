@@ -1,74 +1,7 @@
 {
-  "name": "farfetch-d",
+  "name": "Farfetch-d",
   "nationalDex": 83,
   "johtoDex": 176,
-  "types": [
-    "Normal",
-    "Flying"
-  ],
-  "updatedTypes": [
-    "Normal",
-    "Flying"
-  ],
-  "frontSpriteUrl": "/sprites/pokemon/farfetch_d/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 52,
-      "attack": 90,
-      "defense": 55,
-      "speed": 60,
-      "specialAttack": 58,
-      "specialDefense": 62,
-      "total": 377
-    },
-    "catchRate": 45,
-    "baseExp": 94,
-    "heldItems": [
-      "LEEK"
-    ],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "keen-eye",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "inner-focus",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "defiant",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Flying",
-      "Field"
-    ],
-    "evYield": "1 Atk",
-    "types": [
-      "Normal",
-      "Flying"
-    ],
-    "updatedTypes": [
-      "Normal",
-      "Flying"
-    ],
-    "height": 8,
-    "weight": 420,
-    "bodyShape": "Wings",
-    "bodyColor": "Brown"
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -111,1804 +44,121 @@
       "Sirfetch-d": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Poison Jab",
-      "level": 1,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
+  "detailedStats": {
+    "baseStats": {
+      "hp": 52,
+      "attack": 90,
+      "defense": 55,
+      "speed": 60,
+      "specialAttack": 58,
+      "specialDefense": 62,
+      "total": 377
+    },
+    "faithfulBaseStats": {
+      "hp": 52,
+      "attack": 90,
+      "defense": 55,
+      "speed": 60,
+      "specialAttack": 58,
+      "specialDefense": 62,
+      "total": 377
+    },
+    "polishedBaseStats": {
+      "hp": 52,
+      "attack": 90,
+      "defense": 55,
+      "speed": 60,
+      "specialAttack": 58,
+      "specialDefense": 62,
+      "total": 377
+    },
+    "catchRate": 45,
+    "baseExp": 94,
+    "heldItems": [
+      "LEEK"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "defiant",
+        "name": "Defiant",
+        "description": "\tBoosts Attack when \tstats are lowered.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Baton Pass",
-      "level": 1,
-      "info": {
-        "description": "Switches while keeping effects.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "keen-eye",
+        "name": "Keen Eye",
+        "description": "\tPrevents foes from \tlowering accuracy.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "inner-focus",
+        "name": "Inner Focus",
+        "description": "\tProtects it from \tflinching.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "defiant",
+        "name": "Defiant",
+        "description": "\tBoosts Attack when \tstats are lowered.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Peck",
-      "level": 1,
-      "info": {
-        "description": "Jabs the foe with a beak, etc.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 35,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 1,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 7,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Aerial Ace",
-      "level": 9,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Flying",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Knock Off",
-      "level": 13,
-      "info": {
-        "description": "Slaps down the foe's held item.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Razor Leaf",
-      "level": 15,
-      "info": {
-        "description": "",
-        "type": "Grass",
-        "pp": 25,
-        "power": 55,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 19,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Karate Chop",
-      "level": 21,
-      "info": {
-        "description": "",
-        "type": "Fighting",
-        "pp": 25,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swords Dance",
-      "level": 25,
-      "info": {
-        "description": "Sharply raises the user's Attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 31,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Night Slash",
-      "level": 33,
-      "info": {
-        "description": "",
-        "type": "Dark",
-        "pp": 15,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Acrobatics",
-      "level": 37,
-      "info": {
-        "description": "Damage doubles if user has no item.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 55,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hi Jump Kick",
-      "level": 43,
-      "info": {
-        "description": "May miss and hurt the user.",
-        "type": "Fighting",
-        "pp": 10,
-        "power": 130,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "False Swipe",
-      "level": 45,
-      "info": {
-        "description": "Leaves the foe with at least 1HP.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Air Slash",
-      "level": 49,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Brave Bird",
-      "level": 55,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Poison Jab",
-      "level": 1,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Baton Pass",
-      "level": 1,
-      "info": {
-        "description": "Switches while keeping effects.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Peck",
-      "level": 1,
-      "info": {
-        "description": "Jabs the foe with a beak, etc.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 35,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 1,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 7,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Aerial Ace",
-      "level": 9,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Flying",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Knock Off",
-      "level": 13,
-      "info": {
-        "description": "Slaps down the foe's held item.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Razor Leaf",
-      "level": 15,
-      "info": {
-        "description": "",
-        "type": "Grass",
-        "pp": 25,
-        "power": 55,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 19,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Karate Chop",
-      "level": 21,
-      "info": {
-        "description": "",
-        "type": "Fighting",
-        "pp": 25,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swords Dance",
-      "level": 25,
-      "info": {
-        "description": "Sharply raises the user's Attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 31,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Night Slash",
-      "level": 33,
-      "info": {
-        "description": "",
-        "type": "Dark",
-        "pp": 15,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Acrobatics",
-      "level": 37,
-      "info": {
-        "description": "Damage doubles if user has no item.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 55,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hi Jump Kick",
-      "level": 43,
-      "info": {
-        "description": "May miss and hurt the user.",
-        "type": "Fighting",
-        "pp": 10,
-        "power": 130,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "False Swipe",
-      "level": 45,
-      "info": {
-        "description": "Leaves the foe with at least 1HP.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Air Slash",
-      "level": 49,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Brave Bird",
-      "level": 55,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Poison Jab",
-      "level": 1,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Baton Pass",
-      "level": 1,
-      "info": {
-        "description": "Switches while keeping effects.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Peck",
-      "level": 1,
-      "info": {
-        "description": "Jabs the foe with a beak, etc.",
-        "type": "Flying",
-        "pp": 35,
-        "power": 35,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Mud Slap",
-      "level": 1,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Ground",
-        "pp": 10,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 7,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Aerial Ace",
-      "level": 9,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Flying",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Knock Off",
-      "level": 13,
-      "info": {
-        "description": "Slaps down the foe's held item.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Razor Leaf",
-      "level": 15,
-      "info": {
-        "description": "",
-        "type": "Grass",
-        "pp": 25,
-        "power": 55,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 19,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Karate Chop",
-      "level": 21,
-      "info": {
-        "description": "",
-        "type": "Fighting",
-        "pp": 25,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Swords Dance",
-      "level": 25,
-      "info": {
-        "description": "Sharply raises the user's Attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 31,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Night Slash",
-      "level": 33,
-      "info": {
-        "description": "",
-        "type": "Dark",
-        "pp": 15,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Acrobatics",
-      "level": 37,
-      "info": {
-        "description": "Damage doubles if user has no item.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 55,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Hi Jump Kick",
-      "level": 43,
-      "info": {
-        "description": "May miss and hurt the user.",
-        "type": "Fighting",
-        "pp": 10,
-        "power": 130,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "False Swipe",
-      "level": 45,
-      "info": {
-        "description": "Leaves the foe with at least 1HP.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Air Slash",
-      "level": 49,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 75,
-        "accuracy": 95,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Brave Bird",
-      "level": 55,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Flying",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Aerial Ace",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Flying",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Steel Wing",
-      "description": "\tAn attack that may \tup user's Defense.",
-      "type": "Steel",
-      "pp": 25,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Roost",
-      "description": "\tLands to restore \t1/2 the max HP.",
-      "type": "Flying",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "False Swipe",
-      "description": "\tLeaves the foe \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Acrobatics",
-      "description": "\tDamage doubles if \tuser has no item.",
-      "type": "Flying",
-      "pp": 15,
-      "power": 55,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Poison Jab",
-      "description": "\tAn attack that may \tpoison the foe.",
-      "type": "Poison",
-      "pp": 20,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "U Turn",
-      "description": "",
-      "type": "Bug",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Swords Dance",
-      "description": "\tSharply raises the \tuser's Attack.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Cut",
-      "description": "\tCuts using claws, \tscythes, etc.",
-      "type": "Steel",
-      "pp": 30,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Fly",
-      "description": "\t1st turn: Fly \t2nd turn: Attack",
-      "type": "Flying",
-      "pp": 15,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Surf",
-      "description": "\tA strong Water- \ttype attack.",
-      "type": "Water",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Strength",
-      "description": "\tA powerful physi- \tcal attack.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Agility",
-      "description": "\tSharply raises the \tuser's Speed.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Baton Pass",
-      "description": "\tSwitches while \tkeeping effects.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Knock Off",
-      "description": "\tSlaps down the \tfoe's held item.",
-      "type": "Dark",
-      "pp": 20,
-      "power": 65,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    }
-  ],
-  "eggMoves": [
-    "Foresight",
-    "Gust",
-    "Quick Attack",
-    "Steel Wing",
-    "Night Slash",
-    "Roost"
-  ],
-  "locations": [
-    {
-      "area": "route_43",
-      "method": "grass",
-      "time": "morn",
-      "level": "24",
-      "chance": 10,
-      "formName": null
-    },
-    {
-      "area": "route_43",
-      "method": "grass",
-      "time": "day",
-      "level": "24",
-      "chance": 10,
-      "formName": null
-    },
-    {
-      "area": "route_12_south",
-      "method": "grass",
-      "time": "morn",
-      "level": "52",
-      "chance": 3,
-      "formName": null
-    },
-    {
-      "area": "route_12_south",
-      "method": "grass",
-      "time": "morn",
-      "level": "54",
-      "chance": 2,
-      "formName": null
-    },
-    {
-      "area": "route_12_south",
-      "method": "grass",
-      "time": "day",
-      "level": "52",
-      "chance": 3,
-      "formName": null
-    },
-    {
-      "area": "route_12_south",
-      "method": "grass",
-      "time": "day",
-      "level": "54",
-      "chance": 2,
-      "formName": null
-    }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Wild Duck",
-      "description": "In order to prevent their extinction, more people have made an effort to breed these #mon."
-    },
-    "Galarian": {
-      "species": "Wild Duck",
-      "description": "These unique Farfetch'd are brave warriors, and they wield thick, tough leeks in battle."
-    },
-    "D": {
-      "species": "Wild Duck",
-      "description": "In order to prevent their extinction, more people have made an effort to breed these #mon."
-    }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Flying",
+      "Field"
+    ],
+    "evYield": "1 Atk",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "updatedTypes": [
+      "Normal",
+      "Flying"
+    ]
   },
   "forms": {
-    "galarian": {
-      "name": "farfetch-d galarian",
-      "formName": "galarian",
-      "nationalDex": 83,
-      "johtoDex": 176,
+    "plain": {
+      "name": "plain",
       "types": [
-        "Fighting"
+        "Normal",
+        "Flying"
+      ],
+      "faithfulTypes": [
+        "Normal",
+        "Flying"
       ],
       "updatedTypes": [
-        "Fighting"
+        "Normal",
+        "Flying"
       ],
-      "frontSpriteUrl": "/sprites/pokemon/farfetch-d_galarian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Peck",
-          "level": 1,
-          "info": {
-            "description": "Jabs the foe with a beak, etc.",
-            "type": "Flying",
-            "pp": 35,
-            "power": 35,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Mud Slap",
-          "level": 1,
-          "info": {
-            "description": "An attack that lowers accuracy.",
-            "type": "Ground",
-            "pp": 10,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 5,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 10,
-          "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 20,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Protect",
-          "level": 25,
-          "info": {
-            "description": "Foils attack that turn. It may fail.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Knock Off",
-          "level": 30,
-          "info": {
-            "description": "Slaps down the foe's held item.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Steel Wing",
-          "level": 35,
-          "info": {
-            "description": "An attack that may up user's Defense.",
-            "type": "Steel",
-            "pp": 25,
-            "power": 70,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swords Dance",
-          "level": 45,
-          "info": {
-            "description": "Sharply raises the user's Attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Body Slam",
-          "level": 50,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 85,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Poison Jab",
-          "level": 55,
-          "info": {
-            "description": "An attack that may poison the foe.",
-            "type": "Poison",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Close Combat",
-          "level": 60,
-          "info": {
-            "description": "Lowers the user's Def and Sp.Def.",
-            "type": "Fighting",
-            "pp": 5,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Brave Bird",
-          "level": 65,
-          "info": {
-            "description": "A charge that also hurts the user.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ],
-      "faithfulLevelMoves": [
-        {
-          "name": "Peck",
-          "level": 1,
-          "info": {
-            "description": "Jabs the foe with a beak, etc.",
-            "type": "Flying",
-            "pp": 35,
-            "power": 35,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Mud Slap",
-          "level": 1,
-          "info": {
-            "description": "An attack that lowers accuracy.",
-            "type": "Ground",
-            "pp": 10,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 5,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 10,
-          "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rock Smash",
-          "level": 15,
-          "info": {
-            "description": "Removes Reflect and Light Screen.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 20,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Protect",
-          "level": 25,
-          "info": {
-            "description": "Foils attack that turn. It may fail.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Knock Off",
-          "level": 30,
-          "info": {
-            "description": "Slaps down the foe's held item.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Steel Wing",
-          "level": 35,
-          "info": {
-            "description": "An attack that may up user's Defense.",
-            "type": "Steel",
-            "pp": 25,
-            "power": 70,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Night Slash",
-          "level": 40,
-          "info": {
-            "description": "",
-            "type": "Dark",
-            "pp": 15,
-            "power": 70,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swords Dance",
-          "level": 45,
-          "info": {
-            "description": "Sharply raises the user's Attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Body Slam",
-          "level": 50,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 85,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Poison Jab",
-          "level": 55,
-          "info": {
-            "description": "An attack that may poison the foe.",
-            "type": "Poison",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Close Combat",
-          "level": 60,
-          "info": {
-            "description": "Lowers the user's Def and Sp.Def.",
-            "type": "Fighting",
-            "pp": 5,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Brave Bird",
-          "level": 65,
-          "info": {
-            "description": "A charge that also hurts the user.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ],
-      "updatedLevelMoves": [
-        {
-          "name": "Peck",
-          "level": 1,
-          "info": {
-            "description": "Jabs the foe with a beak, etc.",
-            "type": "Flying",
-            "pp": 35,
-            "power": 35,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Mud Slap",
-          "level": 1,
-          "info": {
-            "description": "An attack that lowers accuracy.",
-            "type": "Ground",
-            "pp": 10,
-            "power": 20,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 5,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Quick Attack",
-          "level": 10,
-          "info": {
-            "description": "Lets the user get in the first hit.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Reversal",
-          "level": 15,
-          "info": {
-            "description": "Stronger if the user's HP is low.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Feint Attack",
-          "level": 20,
-          "info": {
-            "description": "An attack that never misses.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 60,
-            "accuracy": "--",
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Protect",
-          "level": 25,
-          "info": {
-            "description": "Foils attack that turn. It may fail.",
-            "type": "Normal",
-            "pp": 10,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Knock Off",
-          "level": 30,
-          "info": {
-            "description": "Slaps down the foe's held item.",
-            "type": "Dark",
-            "pp": 20,
-            "power": 65,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Steel Wing",
-          "level": 35,
-          "info": {
-            "description": "An attack that may up user's Defense.",
-            "type": "Steel",
-            "pp": 25,
-            "power": 70,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rock Smash",
-          "level": 40,
-          "info": {
-            "description": "Removes Reflect and Light Screen.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Swords Dance",
-          "level": 45,
-          "info": {
-            "description": "Sharply raises the user's Attack.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Body Slam",
-          "level": 50,
-          "info": {
-            "description": "An attack that may cause paralysis.",
-            "type": "Normal",
-            "pp": 15,
-            "power": 85,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Poison Jab",
-          "level": 55,
-          "info": {
-            "description": "An attack that may poison the foe.",
-            "type": "Poison",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Close Combat",
-          "level": 60,
-          "info": {
-            "description": "Lowers the user's Def and Sp.Def.",
-            "type": "Fighting",
-            "pp": 5,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Brave Bird",
-          "level": 65,
-          "info": {
-            "description": "A charge that also hurts the user.",
-            "type": "Flying",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ],
-      "detailedStats": {
-        "baseStats": {
-          "hp": 52,
-          "attack": 95,
-          "defense": 55,
-          "speed": 55,
-          "specialAttack": 58,
-          "specialDefense": 62,
-          "total": 377
-        },
-        "catchRate": 45,
-        "baseExp": 94,
-        "heldItems": [
-          "LEEK"
-        ],
-        "genderRatio": {
-          "male": 50,
-          "female": 50
-        },
-        "hatchRate": "Medium-Fast (5,120 steps)",
-        "abilities": [
-          {
-            "name": "Steadfast",
-            "description": "\tBoosts Speed when \tit flinches.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Steadfast",
-            "description": "\tBoosts Speed when \tit flinches.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Scrappy",
-            "description": "\tEnables moves to \thit Ghost-types.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "faithfulAbilities": [
-          {
-            "name": "Steadfast",
-            "description": "\tBoosts Speed when \tit flinches.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Steadfast",
-            "description": "\tBoosts Speed when \tit flinches.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Scrappy",
-            "description": "\tEnables moves to \thit Ghost-types.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "updatedAbilities": [],
-        "growthRate": "Medium Fast",
-        "eggGroups": [
-          "Flying",
-          "Field"
-        ],
-        "evYield": "1 Atk",
-        "types": "Fighting",
-        "updatedTypes": "Fighting",
-        "locations": [],
-        "height": 8,
-        "weight": 420,
-        "bodyColor": "Brown",
-        "bodyShape": "Wings"
-      },
-      "locations": [
-        {
-          "area": "route_47",
-          "method": "grass",
-          "time": "morn",
-          "level": "Badge Level + 1",
-          "chance": 30,
-          "formName": "galarian"
-        },
-        {
-          "area": "route_47",
-          "method": "grass",
-          "time": "morn",
-          "level": "Badge Level - 4",
-          "chance": 3,
-          "formName": "galarian"
-        },
-        {
-          "area": "route_47",
-          "method": "grass",
-          "time": "morn",
-          "level": "Badge Level - 1",
-          "chance": 2,
-          "formName": "galarian"
-        },
-        {
-          "area": "route_47",
-          "method": "grass",
-          "time": "day",
-          "level": "Badge Level + 1",
-          "chance": 30,
-          "formName": "galarian"
-        },
-        {
-          "area": "route_47",
-          "method": "grass",
-          "time": "day",
-          "level": "Badge Level - 4",
-          "chance": 3,
-          "formName": "galarian"
-        },
-        {
-          "area": "route_47",
-          "method": "grass",
-          "time": "day",
-          "level": "Badge Level - 1",
-          "chance": 2,
-          "formName": "galarian"
-        },
-        {
-          "area": "route_48",
-          "method": "grass",
-          "time": "morn",
-          "level": "Badge Level + 1",
-          "chance": 30,
-          "formName": "galarian"
-        },
-        {
-          "area": "route_48",
-          "method": "grass",
-          "time": "morn",
-          "level": "Badge Level - 3",
-          "chance": 5,
-          "formName": "galarian"
-        },
-        {
-          "area": "route_48",
-          "method": "grass",
-          "time": "day",
-          "level": "Badge Level + 1",
-          "chance": 30,
-          "formName": "galarian"
-        },
-        {
-          "area": "route_48",
-          "method": "grass",
-          "time": "day",
-          "level": "Badge Level - 3",
-          "chance": 5,
-          "formName": "galarian"
-        },
-        {
-          "area": "ROUTE ",
-          "method": "hidden_grotto",
-          "time": "common",
-          "level": "Badge Level + 0",
-          "chance": 40,
-          "rareItem": "Shiny Stone",
-          "formName": "galarian"
-        }
-      ]
-    },
-    "plain": {
-      "name": "farfetch-d plain",
-      "formName": "plain",
-      "nationalDex": 83,
-      "johtoDex": 176,
-      "types": [],
-      "updatedTypes": [],
-      "frontSpriteUrl": "/sprites/pokemon/farfetch-d_plain/front_cropped.png",
       "moves": [
         {
           "name": "Poison Jab",
@@ -1929,7 +179,6 @@
             "description": "Switches while keeping effects.",
             "type": "Normal",
             "pp": 40,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -1965,7 +214,6 @@
             "description": "A move that lowers the foe's Defense.",
             "type": "Normal",
             "pp": 30,
-            "power": 0,
             "accuracy": 100,
             "category": "Status"
           }
@@ -2010,7 +258,7 @@
           "name": "Razor Leaf",
           "level": 15,
           "info": {
-            "description": "",
+            "description": "Has a high critical hit ratio.",
             "type": "Grass",
             "pp": 25,
             "power": 55,
@@ -2022,7 +270,7 @@
           "name": "Slash",
           "level": 19,
           "info": {
-            "description": "",
+            "description": "Has a high critical hit ratio.",
             "type": "Normal",
             "pp": 20,
             "power": 70,
@@ -2034,7 +282,7 @@
           "name": "Karate Chop",
           "level": 21,
           "info": {
-            "description": "",
+            "description": "Has a high critical hit ratio.",
             "type": "Fighting",
             "pp": 25,
             "power": 50,
@@ -2049,7 +297,6 @@
             "description": "Sharply raises the user's Attack.",
             "type": "Normal",
             "pp": 20,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -2061,7 +308,6 @@
             "description": "Sharply raises the user's Speed.",
             "type": "Psychic",
             "pp": 30,
-            "power": 0,
             "accuracy": "--",
             "category": "Status"
           }
@@ -2070,7 +316,7 @@
           "name": "Night Slash",
           "level": 33,
           "info": {
-            "description": "",
+            "description": "Has a high critical hit ratio.",
             "type": "Dark",
             "pp": 15,
             "power": 70,
@@ -2139,27 +385,2194 @@
           }
         }
       ],
-      "detailedStats": {
-        "catchRate": 255,
-        "baseExp": 0,
-        "heldItems": [],
-        "abilities": [],
-        "faithfulAbilities": [],
-        "updatedAbilities": [],
-        "growthRate": "Medium Fast",
-        "eggGroups": [],
-        "genderRatio": {
-          "male": 0,
-          "female": 0
+      "faithfulMoves": [
+        {
+          "name": "Poison Jab",
+          "level": 1,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
         },
-        "hatchRate": "Unknown",
-        "evYield": "None",
-        "locations": [],
-        "height": 8,
-        "weight": 420,
-        "bodyColor": "Brown",
-        "bodyShape": "Wings"
-      }
+        {
+          "name": "Baton Pass",
+          "level": 1,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "Jabs the foe with a beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 1,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 7,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "level": 9,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "level": 13,
+          "info": {
+            "description": "Slaps down the foe's held item.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Razor Leaf",
+          "level": 15,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Grass",
+            "pp": 25,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 19,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Karate Chop",
+          "level": 21,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Fighting",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 25,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 31,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Night Slash",
+          "level": 33,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Acrobatics",
+          "level": 37,
+          "info": {
+            "description": "Damage doubles if user has no item.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hi Jump Kick",
+          "level": 43,
+          "info": {
+            "description": "May miss and hurt the user.",
+            "type": "Fighting",
+            "pp": 10,
+            "power": 130,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "False Swipe",
+          "level": 45,
+          "info": {
+            "description": "Leaves the foe with at least 1HP.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 49,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 55,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Poison Jab",
+          "level": 1,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 1,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "Jabs the foe with a beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 1,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 7,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "level": 9,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Flying",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "level": 13,
+          "info": {
+            "description": "Slaps down the foe's held item.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Razor Leaf",
+          "level": 15,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Grass",
+            "pp": 25,
+            "power": 55,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 19,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Karate Chop",
+          "level": 21,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Fighting",
+            "pp": 25,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 25,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 31,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Night Slash",
+          "level": 33,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Acrobatics",
+          "level": 37,
+          "info": {
+            "description": "Damage doubles if user has no item.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 55,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Hi Jump Kick",
+          "level": 43,
+          "info": {
+            "description": "May miss and hurt the user.",
+            "type": "Fighting",
+            "pp": 10,
+            "power": 130,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "False Swipe",
+          "level": 45,
+          "info": {
+            "description": "Leaves the foe with at least 1HP.",
+            "type": "Normal",
+            "pp": 40,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Air Slash",
+          "level": 49,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 75,
+            "accuracy": 95,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 55,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Foresight",
+        "Gust",
+        "Quick Attack",
+        "Steel Wing",
+        "Night Slash",
+        "Roost"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "description": "An attack that may up user's Defense.",
+          "type": "Steel",
+          "pp": 25,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM47",
+          "location": {
+            "area": "Route 28"
+          }
+        },
+        {
+          "name": "Roost",
+          "description": "Lands to restore 1/2 the max HP.",
+          "type": "Flying",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM51",
+          "location": {
+            "area": "Falkner's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "False Swipe",
+          "description": "Leaves the foe with at least 1HP.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 40,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM54",
+          "location": {
+            "area": "Ilex Forest Gate"
+          }
+        },
+        {
+          "name": "Acrobatics",
+          "description": "Damage doubles if user has no item.",
+          "type": "Flying",
+          "pp": 15,
+          "power": 55,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM62",
+          "location": {
+            "area": "Route 39 Farmhouse"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 20,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM66",
+          "location": {
+            "area": "Janine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "U Turn",
+          "description": "Switches out after making its attack.",
+          "type": "Bug",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM69",
+          "location": {
+            "area": "Bugsy's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "description": "Sharply raises the user's Attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM75",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Fly",
+          "description": "1st turn: Fly 2nd turn: Attack",
+          "type": "Flying",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM02",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Surf",
+          "description": "A strong Watertype attack.",
+          "type": "Water",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "HM03",
+          "location": {
+            "area": "Ecruteak City"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "description": "Switches while keeping effects.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT03",
+          "location": {
+            "area": "Goldenrod Museum"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "description": "Slaps down the foe's held item.",
+          "type": "Dark",
+          "pp": 20,
+          "power": 65,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT18",
+          "location": {
+            "area": "Route 40"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "defiant",
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "keen-eye",
+          "name": "Keen Eye",
+          "description": "\tPrevents foes from \tlowering accuracy.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "inner-focus",
+          "name": "Inner Focus",
+          "description": "\tProtects it from \tflinching.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "defiant",
+          "name": "Defiant",
+          "description": "\tBoosts Attack when \tstats are lowered.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 52,
+        "attack": 90,
+        "defense": 55,
+        "speed": 60,
+        "specialAttack": 58,
+        "specialDefense": 62,
+        "total": 377
+      },
+      "faithfulBaseStats": {
+        "hp": 52,
+        "attack": 90,
+        "defense": 55,
+        "speed": 60,
+        "specialAttack": 58,
+        "specialDefense": 62,
+        "total": 377
+      },
+      "polishedBaseStats": {
+        "hp": 52,
+        "attack": 90,
+        "defense": 55,
+        "speed": 60,
+        "specialAttack": 58,
+        "specialDefense": 62,
+        "total": 377
+      },
+      "catchRate": 45,
+      "baseExp": 94,
+      "heldItems": [
+        "LEEK"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Flying",
+        "Field"
+      ],
+      "evYield": "1 Atk"
+    },
+    "galarian": {
+      "name": "galarian",
+      "types": [
+        "Fighting",
+        "Fighting"
+      ],
+      "faithfulTypes": [
+        "Fighting",
+        "Fighting"
+      ],
+      "updatedTypes": [
+        "Fighting",
+        "Fighting"
+      ],
+      "moves": [
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "Jabs the foe with a beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 1,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 5,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 10,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 20,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 25,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "level": 30,
+          "info": {
+            "description": "Slaps down the foe's held item.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "level": 35,
+          "info": {
+            "description": "An attack that may up user's Defense.",
+            "type": "Steel",
+            "pp": 25,
+            "power": 70,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 45,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 50,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 55,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 60,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 65,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "Jabs the foe with a beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 1,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 5,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 10,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "level": 15,
+          "info": {
+            "description": "Removes Reflect and Light Screen.",
+            "type": "None",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Unknown"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 20,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 25,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "level": 30,
+          "info": {
+            "description": "Slaps down the foe's held item.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "level": 35,
+          "info": {
+            "description": "An attack that may up user's Defense.",
+            "type": "Steel",
+            "pp": 25,
+            "power": 70,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Night Slash",
+          "level": 40,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 45,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 50,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 55,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 60,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 65,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Peck",
+          "level": 1,
+          "info": {
+            "description": "Jabs the foe with a beak, etc.",
+            "type": "Flying",
+            "pp": 35,
+            "power": 35,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Mud Slap",
+          "level": 1,
+          "info": {
+            "description": "An attack that lowers accuracy.",
+            "type": "Ground",
+            "pp": 10,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 5,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Quick Attack",
+          "level": 10,
+          "info": {
+            "description": "Lets the user get in the first hit.",
+            "type": "Normal",
+            "pp": 30,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 15,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 20,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Protect",
+          "level": 25,
+          "info": {
+            "description": "Foils attack that turn. It may fail.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "level": 30,
+          "info": {
+            "description": "Slaps down the foe's held item.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "level": 35,
+          "info": {
+            "description": "An attack that may up user's Defense.",
+            "type": "Steel",
+            "pp": 25,
+            "power": 70,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "level": 40,
+          "info": {
+            "description": "Removes Reflect and Light Screen.",
+            "type": "None",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Unknown"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 45,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "level": 50,
+          "info": {
+            "description": "An attack that may cause paralysis.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 85,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 55,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Close Combat",
+          "level": 60,
+          "info": {
+            "description": "Lowers the user's Def and Sp.Def.",
+            "type": "Fighting",
+            "pp": 5,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Brave Bird",
+          "level": 65,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Flying",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Foresight",
+        "Gust",
+        "Quick Attack",
+        "Steel Wing",
+        "Night Slash",
+        "Roost"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Steel Wing",
+          "description": "An attack that may up user's Defense.",
+          "type": "Steel",
+          "pp": 25,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM47",
+          "location": {
+            "area": "Route 28"
+          }
+        },
+        {
+          "name": "Roost",
+          "description": "Lands to restore 1/2 the max HP.",
+          "type": "Flying",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM51",
+          "location": {
+            "area": "Falkner's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "False Swipe",
+          "description": "Leaves the foe with at least 1HP.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 40,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM54",
+          "location": {
+            "area": "Ilex Forest Gate"
+          }
+        },
+        {
+          "name": "Acrobatics",
+          "description": "Damage doubles if user has no item.",
+          "type": "Flying",
+          "pp": 15,
+          "power": 55,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM62",
+          "location": {
+            "area": "Route 39 Farmhouse"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 20,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM66",
+          "location": {
+            "area": "Janine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "U Turn",
+          "description": "Switches out after making its attack.",
+          "type": "Bug",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM69",
+          "location": {
+            "area": "Bugsy's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "description": "Sharply raises the user's Attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM75",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Fly",
+          "description": "1st turn: Fly 2nd turn: Attack",
+          "type": "Flying",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM02",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Surf",
+          "description": "A strong Watertype attack.",
+          "type": "Water",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "HM03",
+          "location": {
+            "area": "Ecruteak City"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "description": "Switches while keeping effects.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT03",
+          "location": {
+            "area": "Goldenrod Museum"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "description": "Slaps down the foe's held item.",
+          "type": "Dark",
+          "pp": 20,
+          "power": 65,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT18",
+          "location": {
+            "area": "Route 40"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "scrappy",
+          "name": "Scrappy",
+          "description": "\tEnables moves to \thit Ghost-types.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "steadfast",
+          "name": "Steadfast",
+          "description": "\tBoosts Speed when \tit flinches.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "scrappy",
+          "name": "Scrappy",
+          "description": "\tEnables moves to \thit Ghost-types.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 52,
+        "attack": 95,
+        "defense": 55,
+        "speed": 55,
+        "specialAttack": 58,
+        "specialDefense": 62,
+        "total": 377
+      },
+      "faithfulBaseStats": {
+        "hp": 52,
+        "attack": 95,
+        "defense": 55,
+        "speed": 55,
+        "specialAttack": 58,
+        "specialDefense": 62,
+        "total": 377
+      },
+      "polishedBaseStats": {
+        "hp": 52,
+        "attack": 95,
+        "defense": 55,
+        "speed": 55,
+        "specialAttack": 58,
+        "specialDefense": 62,
+        "total": 377
+      },
+      "catchRate": 45,
+      "baseExp": 94,
+      "heldItems": [
+        "LEEK"
+      ],
+      "genderRatio": {
+        "male": 50,
+        "female": 50
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Medium Fast",
+      "eggGroups": [
+        "Flying",
+        "Field"
+      ],
+      "evYield": "1 Atk"
     }
-  }
+  },
+  "locations": [
+    {
+      "area": "route_43",
+      "method": "grass",
+      "time": "morn",
+      "level": "24",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_43",
+      "method": "grass",
+      "time": "day",
+      "level": "24",
+      "chance": 10,
+      "formName": null
+    },
+    {
+      "area": "route_12_south",
+      "method": "grass",
+      "time": "morn",
+      "level": "52",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "route_12_south",
+      "method": "grass",
+      "time": "morn",
+      "level": "54",
+      "chance": 2,
+      "formName": null
+    },
+    {
+      "area": "route_12_south",
+      "method": "grass",
+      "time": "day",
+      "level": "52",
+      "chance": 3,
+      "formName": null
+    },
+    {
+      "area": "route_12_south",
+      "method": "grass",
+      "time": "day",
+      "level": "54",
+      "chance": 2,
+      "formName": null
+    }
+  ]
 }

@@ -1,61 +1,7 @@
 {
-  "name": "growlithe",
+  "name": "Growlithe",
   "nationalDex": 58,
   "johtoDex": 136,
-  "types": "Fire",
-  "frontSpriteUrl": "/sprites/pokemon/growlithe/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 55,
-      "attack": 70,
-      "defense": 45,
-      "speed": 60,
-      "specialAttack": 70,
-      "specialDefense": 50,
-      "total": 350
-    },
-    "catchRate": 190,
-    "baseExp": 91,
-    "heldItems": [
-      "ALWAYS_ITEM_"
-    ],
-    "genderRatio": {
-      "male": 75,
-      "female": 25
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "intimidate",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "flash-fire",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "justified",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Slow",
-    "eggGroups": [
-      "Field",
-      "Field"
-    ],
-    "evYield": "1 Atk",
-    "types": "Fire",
-    "updatedTypes": "Fire",
-    "height": 8,
-    "weight": 227,
-    "bodyShape": "Quadruped",
-    "bodyColor": "Red"
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -113,1042 +59,2624 @@
       "Arcanine": []
     }
   },
-  "levelMoves": [
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 45,
+      "speed": 60,
+      "specialAttack": 70,
+      "specialDefense": 50,
+      "total": 350
     },
-    {
-      "name": "Bite",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "faithfulBaseStats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 45,
+      "speed": 60,
+      "specialAttack": 70,
+      "specialDefense": 50,
+      "total": 350
     },
-    {
-      "name": "Roar",
-      "level": 1,
-      "info": {
-        "description": "Scares wild foes to end battle.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
+    "polishedBaseStats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 45,
+      "speed": 60,
+      "specialAttack": 70,
+      "specialDefense": 50,
+      "total": 350
     },
-    {
-      "name": "Ember",
-      "level": 6,
-      "info": {
-        "description": "An attack that may inflict a burn.",
-        "type": "Fire",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
+    "catchRate": 190,
+    "baseExp": 91,
+    "heldItems": [
+      "ALWAYS_ITEM_"
+    ],
+    "genderRatio": {
+      "male": 75,
+      "female": 25
     },
-    {
-      "name": "Leer",
-      "level": 8,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "justified",
+        "name": "Justified",
+        "description": "\tBoosts Attack when \thit by Dark moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "intimidate",
+        "name": "Intimidate",
+        "description": "\tLowers the foe's \tAttack stat.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "flash-fire",
+        "name": "Flash Fire",
+        "description": "\tBoosts Fire moves \tif hit by one.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "justified",
+        "name": "Justified",
+        "description": "\tBoosts Attack when \thit by Dark moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
+      }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Slow",
+    "eggGroups": [
+      "Field",
+      "Field"
+    ],
+    "evYield": "1 Atk",
+    "types": "Fire",
+    "updatedTypes": "Fire"
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Fire",
+      "faithfulTypes": "Fire",
+      "updatedTypes": "Fire",
+      "moves": [
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roar",
+          "level": 1,
+          "info": {
+            "description": "Scares wild foes to end battle.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 6,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 8,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 10,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 12,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 17,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 19,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 21,
+          "info": {
+            "description": "A double kicking attack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 23,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 28,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 30,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 32,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 34,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "level": 41,
+          "info": {
+            "description": "Boosts Fire-type moves for 5 turns.",
+            "type": "Fire",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 43,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Play Rough",
+          "level": 45,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 49,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roar",
+          "level": 1,
+          "info": {
+            "description": "Scares wild foes to end battle.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 6,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 8,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 10,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 12,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 17,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 19,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 21,
+          "info": {
+            "description": "A double kicking attack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 23,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 28,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 30,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 32,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 34,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "level": 41,
+          "info": {
+            "description": "Boosts Fire-type moves for 5 turns.",
+            "type": "Fire",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 43,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Play Rough",
+          "level": 45,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 49,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roar",
+          "level": 1,
+          "info": {
+            "description": "Scares wild foes to end battle.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 6,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 8,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 10,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 12,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 17,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 19,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Double Kick",
+          "level": 21,
+          "info": {
+            "description": "A double kicking attack.",
+            "type": "Fighting",
+            "pp": 30,
+            "power": 30,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 23,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 28,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 30,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Thrash",
+          "level": 32,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Normal",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 34,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "level": 41,
+          "info": {
+            "description": "Boosts Fire-type moves for 5 turns.",
+            "type": "Fire",
+            "pp": 5,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 43,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Play Rough",
+          "level": 45,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 49,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Double Kick",
+        "Fire Spin",
+        "Healinglight",
+        "Thrash",
+        "Crunch",
+        "Flare Blitz",
+        "Body Slam",
+        "Safeguard",
+        "Close Combat"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Roar",
+          "description": "Scares wild foes to end battle.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM05",
+          "location": {
+            "area": "Route 32"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "description": "Prevents all status problems.",
+          "type": "Normal",
+          "pp": 25,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM20",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM35",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 85,
+          "tmNumber": "TM38",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "description": "An attack that may up user's Speed.",
+          "type": "Fire",
+          "pp": 20,
+          "power": 50,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM43",
+          "location": {
+            "area": "Burned Tower"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "description": "A charge that also hurts the user.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM57",
+          "location": {
+            "area": "Lt. Surge's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Will O Wisp",
+          "description": "A move that may burn the foe.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "TM61",
+          "location": {
+            "area": "Blaine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Charm",
+          "description": "Sharply lowers the foe's Attack.",
+          "type": "Fairy",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT05",
+          "location": {
+            "area": "Route 35-Natioal Park Gate"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "justified",
+          "name": "Justified",
+          "description": "\tBoosts Attack when \thit by Dark moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "justified",
+          "name": "Justified",
+          "description": "\tBoosts Attack when \thit by Dark moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 55,
+        "attack": 70,
+        "defense": 45,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 50,
+        "total": 350
+      },
+      "faithfulBaseStats": {
+        "hp": 55,
+        "attack": 70,
+        "defense": 45,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 50,
+        "total": 350
+      },
+      "polishedBaseStats": {
+        "hp": 55,
+        "attack": 70,
+        "defense": 45,
+        "speed": 60,
+        "specialAttack": 70,
+        "specialDefense": 50,
+        "total": 350
+      },
+      "catchRate": 190,
+      "baseExp": 91,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 75,
+        "female": 25
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Atk"
     },
-    {
-      "name": "Safeguard",
-      "level": 10,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Baton Pass",
-      "level": 12,
-      "info": {
-        "description": "Switches while keeping effects.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Fire Spin",
-      "level": 17,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 40,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 19,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Double Kick",
-      "level": 21,
-      "info": {
-        "description": "A double kicking attack.",
-        "type": "Fighting",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 23,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flame Charge",
-      "level": 28,
-      "info": {
-        "description": "An attack that may up user's Speed.",
-        "type": "Fire",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 30,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thrash",
-      "level": 32,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flamethrower",
-      "level": 34,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 39,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sunny Day",
-      "level": 41,
-      "info": {
-        "description": "Boosts Fire-type moves for 5 turns.",
-        "type": "Fire",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Outrage",
-      "level": 43,
-      "info": {
-        "description": "Works 2-3 turns and confuses user.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Play Rough",
-      "level": 45,
-      "info": {
-        "description": "An attack that may lower Attack.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flare Blitz",
-      "level": 49,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Fire",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "hisuian": {
+      "name": "hisuian",
+      "types": [
+        "Fire",
+        "Rock"
+      ],
+      "faithfulTypes": [
+        "Fire",
+        "Rock"
+      ],
+      "updatedTypes": [
+        "Fire",
+        "Rock"
+      ],
+      "moves": [
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roar",
+          "level": 1,
+          "info": {
+            "description": "Scares wild foes to end battle.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 6,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 8,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 10,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 12,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 17,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 19,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 21,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 23,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 28,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 30,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 32,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 34,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Power Gem",
+          "level": 41,
+          "info": {
+            "description": "Attacks with a ray of gem-like light.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 43,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Play Rough",
+          "level": 45,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 49,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roar",
+          "level": 1,
+          "info": {
+            "description": "Scares wild foes to end battle.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 6,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 8,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 10,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 12,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 17,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 19,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 21,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 23,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 28,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 30,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 32,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 34,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Power Gem",
+          "level": 41,
+          "info": {
+            "description": "Attacks with a ray of gem-like light.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 43,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Play Rough",
+          "level": 45,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 49,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Bite",
+          "level": 1,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Dark",
+            "pp": 25,
+            "power": 60,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Roar",
+          "level": 1,
+          "info": {
+            "description": "Scares wild foes to end battle.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 6,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Leer",
+          "level": 8,
+          "info": {
+            "description": "A move that lowers the foe's Defense.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "level": 10,
+          "info": {
+            "description": "Prevents all status problems.",
+            "type": "Normal",
+            "pp": 25,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "level": 12,
+          "info": {
+            "description": "Switches while keeping effects.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 17,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Reversal",
+          "level": 19,
+          "info": {
+            "description": "Stronger if the user's HP is low.",
+            "type": "Fighting",
+            "pp": 15,
+            "power": 1,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rock Blast",
+          "level": 21,
+          "info": {
+            "description": "Hurls boulders to hit 2-5 times.",
+            "type": "Rock",
+            "pp": 25,
+            "power": 25,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Take Down",
+          "level": 23,
+          "info": {
+            "description": "A tackle that also hurts the user.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 28,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 30,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "level": 32,
+          "info": {
+            "description": "An attack that may cause flinching.",
+            "type": "Rock",
+            "pp": 10,
+            "power": 75,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 34,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 39,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Power Gem",
+          "level": 41,
+          "info": {
+            "description": "Attacks with a ray of gem-like light.",
+            "type": "Rock",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 43,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Play Rough",
+          "level": 45,
+          "info": {
+            "description": "An attack that may lower Attack.",
+            "type": "Fairy",
+            "pp": 10,
+            "power": 90,
+            "accuracy": 90,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 49,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Double Kick",
+        "Fire Spin",
+        "Healinglight",
+        "Thrash",
+        "Crunch",
+        "Flare Blitz",
+        "Body Slam",
+        "Safeguard",
+        "Close Combat"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Roar",
+          "description": "Scares wild foes to end battle.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM05",
+          "location": {
+            "area": "Route 32"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Safeguard",
+          "description": "Prevents all status problems.",
+          "type": "Normal",
+          "pp": 25,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM20",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM35",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 85,
+          "tmNumber": "TM38",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "description": "An attack that may up user's Speed.",
+          "type": "Fire",
+          "pp": 20,
+          "power": 50,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM43",
+          "location": {
+            "area": "Burned Tower"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Wild Charge",
+          "description": "A charge that also hurts the user.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM57",
+          "location": {
+            "area": "Lt. Surge's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Will O Wisp",
+          "description": "A move that may burn the foe.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "TM61",
+          "location": {
+            "area": "Blaine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Charm",
+          "description": "Sharply lowers the foe's Attack.",
+          "type": "Fairy",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT05",
+          "location": {
+            "area": "Route 35-Natioal Park Gate"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "intimidate",
+          "name": "Intimidate",
+          "description": "\tLowers the foe's \tAttack stat.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "flash-fire",
+          "name": "Flash Fire",
+          "description": "\tBoosts Fire moves \tif hit by one.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "rock-head",
+          "name": "Rock Head",
+          "description": "\tProtects it from \trecoil damage.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 60,
+        "attack": 75,
+        "defense": 45,
+        "speed": 55,
+        "specialAttack": 65,
+        "specialDefense": 50,
+        "total": 350
+      },
+      "faithfulBaseStats": {
+        "hp": 60,
+        "attack": 75,
+        "defense": 45,
+        "speed": 55,
+        "specialAttack": 65,
+        "specialDefense": 50,
+        "total": 350
+      },
+      "polishedBaseStats": {
+        "hp": 60,
+        "attack": 75,
+        "defense": 45,
+        "speed": 55,
+        "specialAttack": 65,
+        "specialDefense": 50,
+        "total": 350
+      },
+      "catchRate": 190,
+      "baseExp": 91,
+      "heldItems": [
+        "ALWAYS_ITEM_"
+      ],
+      "genderRatio": {
+        "male": 75,
+        "female": 25
+      },
+      "hatchRate": "Medium-Fast (5,120 steps)",
+      "growthRate": "Slow",
+      "eggGroups": [
+        "Field",
+        "Field"
+      ],
+      "evYield": "1 Atk"
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Roar",
-      "level": 1,
-      "info": {
-        "description": "Scares wild foes to end battle.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Ember",
-      "level": 6,
-      "info": {
-        "description": "An attack that may inflict a burn.",
-        "type": "Fire",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 8,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Safeguard",
-      "level": 10,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Baton Pass",
-      "level": 12,
-      "info": {
-        "description": "Switches while keeping effects.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Fire Spin",
-      "level": 17,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 40,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 19,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Double Kick",
-      "level": 21,
-      "info": {
-        "description": "A double kicking attack.",
-        "type": "Fighting",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 23,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flame Charge",
-      "level": 28,
-      "info": {
-        "description": "An attack that may up user's Speed.",
-        "type": "Fire",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 30,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thrash",
-      "level": 32,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flamethrower",
-      "level": 34,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 39,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sunny Day",
-      "level": 41,
-      "info": {
-        "description": "Boosts Fire-type moves for 5 turns.",
-        "type": "Fire",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Outrage",
-      "level": 43,
-      "info": {
-        "description": "Works 2-3 turns and confuses user.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Play Rough",
-      "level": 45,
-      "info": {
-        "description": "An attack that may lower Attack.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flare Blitz",
-      "level": 49,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Fire",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Bite",
-      "level": 1,
-      "info": {
-        "description": "An attack that may cause flinching.",
-        "type": "Dark",
-        "pp": 25,
-        "power": 60,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Roar",
-      "level": 1,
-      "info": {
-        "description": "Scares wild foes to end battle.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Ember",
-      "level": 6,
-      "info": {
-        "description": "An attack that may inflict a burn.",
-        "type": "Fire",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Leer",
-      "level": 8,
-      "info": {
-        "description": "A move that lowers the foe's Defense.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Safeguard",
-      "level": 10,
-      "info": {
-        "description": "Prevents all status problems.",
-        "type": "Normal",
-        "pp": 25,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Baton Pass",
-      "level": 12,
-      "info": {
-        "description": "Switches while keeping effects.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Fire Spin",
-      "level": 17,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 40,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Reversal",
-      "level": 19,
-      "info": {
-        "description": "Stronger if the user's HP is low.",
-        "type": "Fighting",
-        "pp": 15,
-        "power": 1,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Double Kick",
-      "level": 21,
-      "info": {
-        "description": "A double kicking attack.",
-        "type": "Fighting",
-        "pp": 30,
-        "power": 30,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Take Down",
-      "level": 23,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flame Charge",
-      "level": 28,
-      "info": {
-        "description": "An attack that may up user's Speed.",
-        "type": "Fire",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 30,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Thrash",
-      "level": 32,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flamethrower",
-      "level": 34,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 39,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Sunny Day",
-      "level": 41,
-      "info": {
-        "description": "Boosts Fire-type moves for 5 turns.",
-        "type": "Fire",
-        "pp": 5,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Outrage",
-      "level": 43,
-      "info": {
-        "description": "Works 2-3 turns and confuses user.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Play Rough",
-      "level": 45,
-      "info": {
-        "description": "An attack that may lower Attack.",
-        "type": "Fairy",
-        "pp": 10,
-        "power": 90,
-        "accuracy": 90,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flare Blitz",
-      "level": 49,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Fire",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Roar",
-      "description": "\tScares wild foes \tto end battle.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Safeguard",
-      "description": "\tPrevents all \tstatus problems.",
-      "type": "Normal",
-      "pp": 25,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dig",
-      "description": "\t1st turn: Burrow \t2nd turn: Attack",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Flamethrower",
-      "description": "",
-      "type": "Fire",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Fire Blast",
-      "description": "\tAn attack that may \tinflict a burn.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 85
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Aerial Ace",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Flying",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Flame Charge",
-      "description": "\tAn attack that may \tup user's Speed.",
-      "type": "Fire",
-      "pp": 20,
-      "power": 50,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Wild Charge",
-      "description": "\tA charge that also \thurts the user.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Will O Wisp",
-      "description": "",
-      "type": "Fire",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Strength",
-      "description": "\tA powerful physi- \tcal attack.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Agility",
-      "description": "\tSharply raises the \tuser's Speed.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Charm",
-      "description": "\tSharply lowers the \tfoe's Attack.",
-      "type": "Fairy",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    }
-  ],
-  "eggMoves": [
-    "Double Kick",
-    "Fire Spin",
-    "Healinglight",
-    "Thrash",
-    "Crunch",
-    "Flare Blitz",
-    "Body Slam",
-    "Safeguard",
-    "Close Combat"
-  ],
+  },
   "locations": [
     {
       "area": "route_36",
@@ -1230,1179 +2758,5 @@
       "chance": 10,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Puppy",
-      "description": "It controls a big territory. If it detects an unknown smell, it roars loudly to force out the intruder."
-    },
-    "Hisuian": {
-      "species": "Scout",
-      "description": "They patrol their territory in pairs. Their fur has igneous rock components from volcanic activity."
-    }
-  },
-  "forms": {
-    "hisuian": {
-      "name": "growlithe hisuian",
-      "formName": "hisuian",
-      "nationalDex": 58,
-      "johtoDex": 136,
-      "types": [
-        "Fire",
-        "Rock"
-      ],
-      "updatedTypes": [
-        "Fire",
-        "Rock"
-      ],
-      "frontSpriteUrl": "/sprites/pokemon/growlithe_hisuian/front_cropped.png",
-      "moves": [
-        {
-          "name": "Growl",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Attack.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Roar",
-          "level": 1,
-          "info": {
-            "description": "Scares wild foes to end battle.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Ember",
-          "level": 6,
-          "info": {
-            "description": "An attack that may inflict a burn.",
-            "type": "Fire",
-            "pp": 25,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 8,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 10,
-          "info": {
-            "description": "Prevents all status problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Baton Pass",
-          "level": 12,
-          "info": {
-            "description": "Switches while keeping effects.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Fire Spin",
-          "level": 17,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 40,
-            "accuracy": 90,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Reversal",
-          "level": 19,
-          "info": {
-            "description": "Stronger if the user's HP is low.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rock Blast",
-          "level": 21,
-          "info": {
-            "description": "Hurls boulders to hit 2-5 times.",
-            "type": "Rock",
-            "pp": 25,
-            "power": 25,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Take Down",
-          "level": 23,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flame Charge",
-          "level": 28,
-          "info": {
-            "description": "An attack that may up user's Speed.",
-            "type": "Fire",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 30,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Rock Slide",
-          "level": 32,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Rock",
-            "pp": 10,
-            "power": 75,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flamethrower",
-          "level": 34,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Crunch",
-          "level": 39,
-          "info": {
-            "description": "An attack that may lower Defense.",
-            "type": "Dark",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Power Gem",
-          "level": 41,
-          "info": {
-            "description": "Attacks with a ray of gem-like light.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Outrage",
-          "level": 43,
-          "info": {
-            "description": "Works 2-3 turns and confuses user.",
-            "type": "Dragon",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Play Rough",
-          "level": 45,
-          "info": {
-            "description": "An attack that may lower Attack.",
-            "type": "Fairy",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flare Blitz",
-          "level": 49,
-          "info": {
-            "description": "A charge that also hurts the user.",
-            "type": "Fire",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ],
-      "faithfulLevelMoves": [
-        {
-          "name": "Growl",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Attack.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Roar",
-          "level": 1,
-          "info": {
-            "description": "Scares wild foes to end battle.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Ember",
-          "level": 6,
-          "info": {
-            "description": "An attack that may inflict a burn.",
-            "type": "Fire",
-            "pp": 25,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 8,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 10,
-          "info": {
-            "description": "Prevents all status problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Baton Pass",
-          "level": 12,
-          "info": {
-            "description": "Switches while keeping effects.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Fire Spin",
-          "level": 17,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 40,
-            "accuracy": 90,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Reversal",
-          "level": 19,
-          "info": {
-            "description": "Stronger if the user's HP is low.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rock Blast",
-          "level": 21,
-          "info": {
-            "description": "Hurls boulders to hit 2-5 times.",
-            "type": "Rock",
-            "pp": 25,
-            "power": 25,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Take Down",
-          "level": 23,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flame Charge",
-          "level": 28,
-          "info": {
-            "description": "An attack that may up user's Speed.",
-            "type": "Fire",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 30,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Rock Slide",
-          "level": 32,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Rock",
-            "pp": 10,
-            "power": 75,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flamethrower",
-          "level": 34,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Crunch",
-          "level": 39,
-          "info": {
-            "description": "An attack that may lower Defense.",
-            "type": "Dark",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Power Gem",
-          "level": 41,
-          "info": {
-            "description": "Attacks with a ray of gem-like light.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Outrage",
-          "level": 43,
-          "info": {
-            "description": "Works 2-3 turns and confuses user.",
-            "type": "Dragon",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Play Rough",
-          "level": 45,
-          "info": {
-            "description": "An attack that may lower Attack.",
-            "type": "Fairy",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flare Blitz",
-          "level": 49,
-          "info": {
-            "description": "A charge that also hurts the user.",
-            "type": "Fire",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ],
-      "updatedLevelMoves": [
-        {
-          "name": "Growl",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Attack.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Roar",
-          "level": 1,
-          "info": {
-            "description": "Scares wild foes to end battle.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Ember",
-          "level": 6,
-          "info": {
-            "description": "An attack that may inflict a burn.",
-            "type": "Fire",
-            "pp": 25,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 8,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 10,
-          "info": {
-            "description": "Prevents all status problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Baton Pass",
-          "level": 12,
-          "info": {
-            "description": "Switches while keeping effects.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Fire Spin",
-          "level": 17,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 40,
-            "accuracy": 90,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Reversal",
-          "level": 19,
-          "info": {
-            "description": "Stronger if the user's HP is low.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Rock Blast",
-          "level": 21,
-          "info": {
-            "description": "Hurls boulders to hit 2-5 times.",
-            "type": "Rock",
-            "pp": 25,
-            "power": 25,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Take Down",
-          "level": 23,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flame Charge",
-          "level": 28,
-          "info": {
-            "description": "An attack that may up user's Speed.",
-            "type": "Fire",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 30,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Rock Slide",
-          "level": 32,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Rock",
-            "pp": 10,
-            "power": 75,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flamethrower",
-          "level": 34,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Crunch",
-          "level": 39,
-          "info": {
-            "description": "An attack that may lower Defense.",
-            "type": "Dark",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Power Gem",
-          "level": 41,
-          "info": {
-            "description": "Attacks with a ray of gem-like light.",
-            "type": "Rock",
-            "pp": 20,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Outrage",
-          "level": 43,
-          "info": {
-            "description": "Works 2-3 turns and confuses user.",
-            "type": "Dragon",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Play Rough",
-          "level": 45,
-          "info": {
-            "description": "An attack that may lower Attack.",
-            "type": "Fairy",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flare Blitz",
-          "level": 49,
-          "info": {
-            "description": "A charge that also hurts the user.",
-            "type": "Fire",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ],
-      "detailedStats": {
-        "baseStats": {
-          "hp": 60,
-          "attack": 75,
-          "defense": 45,
-          "speed": 55,
-          "specialAttack": 65,
-          "specialDefense": 50,
-          "total": 350
-        },
-        "catchRate": 190,
-        "baseExp": 91,
-        "heldItems": [
-          "ALWAYS_ITEM_"
-        ],
-        "genderRatio": {
-          "male": 75,
-          "female": 25
-        },
-        "hatchRate": "Medium-Fast (5,120 steps)",
-        "abilities": [
-          {
-            "name": "Intimidate",
-            "description": "\tLowers the foe's \tAttack stat.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Flash Fire",
-            "description": "\tBoosts Fire moves \tif hit by one.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Rock Head",
-            "description": "\tProtects it from \trecoil damage.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "faithfulAbilities": [
-          {
-            "name": "Intimidate",
-            "description": "\tLowers the foe's \tAttack stat.",
-            "isHidden": false,
-            "abilityType": "primary"
-          },
-          {
-            "name": "Flash Fire",
-            "description": "\tBoosts Fire moves \tif hit by one.",
-            "isHidden": false,
-            "abilityType": "secondary"
-          },
-          {
-            "name": "Rock Head",
-            "description": "\tProtects it from \trecoil damage.",
-            "isHidden": true,
-            "abilityType": "hidden"
-          }
-        ],
-        "updatedAbilities": [],
-        "growthRate": "Slow",
-        "eggGroups": [
-          "Field",
-          "Field"
-        ],
-        "evYield": "1 Atk",
-        "types": [
-          "Fire",
-          "Rock"
-        ],
-        "updatedTypes": [
-          "Fire",
-          "Rock"
-        ],
-        "locations": [],
-        "height": 8,
-        "weight": 227,
-        "bodyColor": "Red",
-        "bodyShape": "Quadruped"
-      },
-      "locations": [
-        {
-          "area": "rugged_road_south",
-          "method": "grass",
-          "time": "morn",
-          "level": "Badge Level - 2",
-          "chance": 30,
-          "formName": "hisuian"
-        },
-        {
-          "area": "rugged_road_south",
-          "method": "grass",
-          "time": "morn",
-          "level": "Badge Level + 1",
-          "chance": 3,
-          "formName": "hisuian"
-        },
-        {
-          "area": "rugged_road_south",
-          "method": "grass",
-          "time": "morn",
-          "level": "Badge Level - 1",
-          "chance": 2,
-          "formName": "hisuian"
-        },
-        {
-          "area": "rugged_road_south",
-          "method": "grass",
-          "time": "day",
-          "level": "Badge Level - 2",
-          "chance": 30,
-          "formName": "hisuian"
-        },
-        {
-          "area": "rugged_road_south",
-          "method": "grass",
-          "time": "day",
-          "level": "Badge Level + 1",
-          "chance": 3,
-          "formName": "hisuian"
-        },
-        {
-          "area": "rugged_road_south",
-          "method": "grass",
-          "time": "day",
-          "level": "Badge Level - 1",
-          "chance": 2,
-          "formName": "hisuian"
-        },
-        {
-          "area": "Rugged Road North",
-          "method": "hidden_grotto",
-          "time": "common",
-          "level": "Badge Level + 1",
-          "chance": 40,
-          "rareItem": "Fire Stone",
-          "formName": "hisuian"
-        },
-        {
-          "area": "Sinjoh Ruins",
-          "method": "hidden_grotto",
-          "time": "uncommon",
-          "level": "Badge Level + 5",
-          "chance": 15,
-          "rareItem": "Ice Stone",
-          "formName": "hisuian"
-        }
-      ]
-    },
-    "plain": {
-      "name": "growlithe plain",
-      "formName": "plain",
-      "nationalDex": 58,
-      "johtoDex": 136,
-      "types": [],
-      "updatedTypes": [],
-      "frontSpriteUrl": "/sprites/pokemon/growlithe_plain/front_cropped.png",
-      "moves": [
-        {
-          "name": "Growl",
-          "level": 1,
-          "info": {
-            "description": "A move that lowers the foe's Attack.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Bite",
-          "level": 1,
-          "info": {
-            "description": "An attack that may cause flinching.",
-            "type": "Dark",
-            "pp": 25,
-            "power": 60,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Roar",
-          "level": 1,
-          "info": {
-            "description": "Scares wild foes to end battle.",
-            "type": "Normal",
-            "pp": 20,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Ember",
-          "level": 6,
-          "info": {
-            "description": "An attack that may inflict a burn.",
-            "type": "Fire",
-            "pp": 25,
-            "power": 40,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Leer",
-          "level": 8,
-          "info": {
-            "description": "A move that lowers the foe's Defense.",
-            "type": "Normal",
-            "pp": 30,
-            "power": 0,
-            "accuracy": 100,
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Safeguard",
-          "level": 10,
-          "info": {
-            "description": "Prevents all status problems.",
-            "type": "Normal",
-            "pp": 25,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Baton Pass",
-          "level": 12,
-          "info": {
-            "description": "Switches while keeping effects.",
-            "type": "Normal",
-            "pp": 40,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Fire Spin",
-          "level": 17,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 40,
-            "accuracy": 90,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Reversal",
-          "level": 19,
-          "info": {
-            "description": "Stronger if the user's HP is low.",
-            "type": "Fighting",
-            "pp": 15,
-            "power": 1,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Double Kick",
-          "level": 21,
-          "info": {
-            "description": "A double kicking attack.",
-            "type": "Fighting",
-            "pp": 30,
-            "power": 30,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Take Down",
-          "level": 23,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flame Charge",
-          "level": 28,
-          "info": {
-            "description": "An attack that may up user's Speed.",
-            "type": "Fire",
-            "pp": 20,
-            "power": 50,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Agility",
-          "level": 30,
-          "info": {
-            "description": "Sharply raises the user's Speed.",
-            "type": "Psychic",
-            "pp": 30,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Thrash",
-          "level": 32,
-          "info": {
-            "description": "",
-            "type": "Normal",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flamethrower",
-          "level": 34,
-          "info": {
-            "description": "",
-            "type": "Fire",
-            "pp": 15,
-            "power": 90,
-            "accuracy": 100,
-            "category": "Special"
-          }
-        },
-        {
-          "name": "Crunch",
-          "level": 39,
-          "info": {
-            "description": "An attack that may lower Defense.",
-            "type": "Dark",
-            "pp": 15,
-            "power": 80,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Sunny Day",
-          "level": 41,
-          "info": {
-            "description": "Boosts Fire-type moves for 5 turns.",
-            "type": "Fire",
-            "pp": 5,
-            "power": 0,
-            "accuracy": "--",
-            "category": "Status"
-          }
-        },
-        {
-          "name": "Outrage",
-          "level": 43,
-          "info": {
-            "description": "Works 2-3 turns and confuses user.",
-            "type": "Dragon",
-            "pp": 10,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Play Rough",
-          "level": 45,
-          "info": {
-            "description": "An attack that may lower Attack.",
-            "type": "Fairy",
-            "pp": 10,
-            "power": 90,
-            "accuracy": 90,
-            "category": "Physical"
-          }
-        },
-        {
-          "name": "Flare Blitz",
-          "level": 49,
-          "info": {
-            "description": "A charge that also hurts the user.",
-            "type": "Fire",
-            "pp": 15,
-            "power": 120,
-            "accuracy": 100,
-            "category": "Physical"
-          }
-        }
-      ],
-      "detailedStats": {
-        "catchRate": 255,
-        "baseExp": 0,
-        "heldItems": [],
-        "abilities": [],
-        "faithfulAbilities": [],
-        "updatedAbilities": [],
-        "growthRate": "Medium Fast",
-        "eggGroups": [],
-        "genderRatio": {
-          "male": 0,
-          "female": 0
-        },
-        "hatchRate": "Unknown",
-        "evYield": "None",
-        "locations": [],
-        "height": 8,
-        "weight": 227,
-        "bodyColor": "Red",
-        "bodyShape": "Quadruped"
-      }
-    }
-  }
+  ]
 }

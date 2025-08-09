@@ -1,59 +1,7 @@
 {
-  "name": "charmeleon",
+  "name": "Charmeleon",
   "nationalDex": 5,
   "johtoDex": 268,
-  "types": "Fire",
-  "frontSpriteUrl": "/sprites/pokemon/charmeleon/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 58,
-      "attack": 64,
-      "defense": 58,
-      "speed": 80,
-      "specialAttack": 80,
-      "specialDefense": 65,
-      "total": 405
-    },
-    "catchRate": 45,
-    "baseExp": 142,
-    "heldItems": [],
-    "genderRatio": {
-      "male": 87.5,
-      "female": 12.5
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "blaze",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "solar-power",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "flame-body",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Slow",
-    "eggGroups": [
-      "Monster",
-      "Dragon"
-    ],
-    "evYield": "1 Spe",
-    "types": "Fire",
-    "updatedTypes": "Fire",
-    "height": 11,
-    "weight": 190,
-    "bodyShape": "Bipedal Tail",
-    "bodyColor": "Red"
-  },
   "evolution": {
     "methods": [
       {
@@ -133,858 +81,1181 @@
       ]
     }
   },
-  "levelMoves": [
-    {
-      "name": "Scratch",
-      "level": 1,
-      "info": {
-        "description": "Scratches with sharp claws.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
+  "detailedStats": {
+    "baseStats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "speed": 80,
+      "specialAttack": 80,
+      "specialDefense": 65,
+      "total": 405
+    },
+    "faithfulBaseStats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "speed": 80,
+      "specialAttack": 80,
+      "specialDefense": 65,
+      "total": 405
+    },
+    "polishedBaseStats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "speed": 80,
+      "specialAttack": 80,
+      "specialDefense": 65,
+      "total": 405
+    },
+    "catchRate": 45,
+    "baseExp": 142,
+    "heldItems": [],
+    "genderRatio": {
+      "male": 87.5,
+      "female": 12.5
+    },
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "solar-power",
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "blaze",
+        "name": "Blaze",
+        "description": "\tBoosts Fire moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "solar-power",
+        "name": "Solar Power",
+        "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "flame-body",
+        "name": "Flame Body",
+        "description": "\tContact may burn \tthe foe.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Ember",
-      "level": 7,
-      "info": {
-        "description": "An attack that may inflict a burn.",
-        "type": "Fire",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Smokescreen",
-      "level": 10,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Metal Claw",
-      "level": 17,
-      "info": {
-        "description": "An attack that may up user's Attack.",
-        "type": "Steel",
-        "pp": 35,
-        "power": 50,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Dragon Rage",
-      "level": 21,
-      "info": {
-        "description": "Always inflicts 40HP damage.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Scary Face",
-      "level": 28,
-      "info": {
-        "description": "Sharply lowers the foe's Speed.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Flame Charge",
-      "level": 32,
-      "info": {
-        "description": "An attack that may up user's Speed.",
-        "type": "Fire",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 39,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flamethrower",
-      "level": 43,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Fire Spin",
-      "level": 50,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 40,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 54,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flare Blitz",
-      "level": 61,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Fire",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Scratch",
-      "level": 1,
-      "info": {
-        "description": "Scratches with sharp claws.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Ember",
-      "level": 7,
-      "info": {
-        "description": "An attack that may inflict a burn.",
-        "type": "Fire",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Smokescreen",
-      "level": 10,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Metal Claw",
-      "level": 17,
-      "info": {
-        "description": "An attack that may up user's Attack.",
-        "type": "Steel",
-        "pp": 35,
-        "power": 50,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Dragon Rage",
-      "level": 21,
-      "info": {
-        "description": "Always inflicts 40HP damage.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Scary Face",
-      "level": 28,
-      "info": {
-        "description": "Sharply lowers the foe's Speed.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Flame Charge",
-      "level": 32,
-      "info": {
-        "description": "An attack that may up user's Speed.",
-        "type": "Fire",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 39,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flamethrower",
-      "level": 43,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Fire Spin",
-      "level": 50,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 40,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 54,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flare Blitz",
-      "level": 61,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Fire",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Scratch",
-      "level": 1,
-      "info": {
-        "description": "Scratches with sharp claws.",
-        "type": "Normal",
-        "pp": 35,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Growl",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Attack.",
-        "type": "Normal",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Ember",
-      "level": 7,
-      "info": {
-        "description": "An attack that may inflict a burn.",
-        "type": "Fire",
-        "pp": 25,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Smokescreen",
-      "level": 10,
-      "info": {
-        "description": "An attack that lowers accuracy.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Metal Claw",
-      "level": 17,
-      "info": {
-        "description": "An attack that may up user's Attack.",
-        "type": "Steel",
-        "pp": 35,
-        "power": 50,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Dragon Rage",
-      "level": 21,
-      "info": {
-        "description": "Always inflicts 40HP damage.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Scary Face",
-      "level": 28,
-      "info": {
-        "description": "Sharply lowers the foe's Speed.",
-        "type": "Normal",
-        "pp": 10,
-        "power": 0,
-        "accuracy": 100,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Flame Charge",
-      "level": 32,
-      "info": {
-        "description": "An attack that may up user's Speed.",
-        "type": "Fire",
-        "pp": 20,
-        "power": 50,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Slash",
-      "level": 39,
-      "info": {
-        "description": "",
-        "type": "Normal",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flamethrower",
-      "level": 43,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 90,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Fire Spin",
-      "level": 50,
-      "info": {
-        "description": "",
-        "type": "Fire",
-        "pp": 15,
-        "power": 40,
-        "accuracy": 90,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Crunch",
-      "level": 54,
-      "info": {
-        "description": "An attack that may lower Defense.",
-        "type": "Dark",
-        "pp": 15,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Flare Blitz",
-      "level": 61,
-      "info": {
-        "description": "A charge that also hurts the user.",
-        "type": "Fire",
-        "pp": 15,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Dynamicpunch",
-      "description": "\tAn attack that \tconfuses the foe.",
-      "type": "Fighting",
-      "pp": 5,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 50
-    },
-    {
-      "name": "Dragon Claw",
-      "description": "\tSlashes the foe \twith sharp claws.",
-      "type": "Dragon",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Hone Claws",
-      "description": "\tRaises the user's \tAtk and accuracy.",
-      "type": "Dark",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Iron Tail",
-      "description": "\tAn attack that may \tlower Defense.",
-      "type": "Steel",
-      "pp": 15,
-      "power": 100,
-      "category": "Physical",
-      "accuracy": 75
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Dig",
-      "description": "\t1st turn: Burrow \t2nd turn: Attack",
-      "type": "Ground",
-      "pp": 10,
-      "power": 90,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Flamethrower",
-      "description": "",
-      "type": "Fire",
-      "pp": 15,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Fire Blast",
-      "description": "\tAn attack that may \tinflict a burn.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 110,
-      "category": "Special",
-      "accuracy": 85
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Aerial Ace",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Flying",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Flame Charge",
-      "description": "\tAn attack that may \tup user's Speed.",
-      "type": "Fire",
-      "pp": 20,
-      "power": 50,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Slide",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Rock",
-      "pp": 10,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "Dragon Pulse",
-      "description": "\tAttacks foe with \ta shock wave.",
-      "type": "Dragon",
-      "pp": 10,
-      "power": 85,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Will O Wisp",
-      "description": "",
-      "type": "Fire",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Shadow Claw",
-      "description": "",
-      "type": "Ghost",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Swords Dance",
-      "description": "\tSharply raises the \tuser's Attack.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Cut",
-      "description": "\tCuts using claws, \tscythes, etc.",
-      "type": "Steel",
-      "pp": 30,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Strength",
-      "description": "\tA powerful physi- \tcal attack.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Body Slam",
-      "description": "\tAn attack that may \tcause paralysis.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 85,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Counter",
-      "description": "\tReturns a physical \tattack double.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Defense Curl",
-      "description": "\tRaises the user's \tDefense.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Fire Punch",
-      "description": "\tA fiery punch. May \tcause a burn.",
-      "type": "Fire",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Headbutt",
-      "description": "\tAn attack that may \tcause flinching.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Seismic Toss",
-      "description": "\tDamage equals the \tuser's level.",
-      "type": "Fighting",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    },
-    {
-      "name": "Thunderpunch",
-      "description": "\tAn electric punch. \tIt may paralyze.",
-      "type": "Electric",
-      "pp": 15,
-      "power": 75,
-      "category": "Physical",
-      "accuracy": 100
-    }
-  ],
-  "eggMoves": [
-    "Ancientpower",
-    "Belly Drum",
-    "Bite",
-    "Crunch",
-    "Dragon Dance",
-    "Dragonbreath",
-    "Flare Blitz",
-    "Outrage"
-  ],
-  "locations": [],
-  "pokedexEntries": {
-    "default": {
-      "species": "Flame",
-      "description": "If it becomes agitated during battle, it spouts intense flames, incinerating its surroundings."
-    }
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Slow",
+    "eggGroups": [
+      "Monster",
+      "Dragon"
+    ],
+    "evYield": "1 Spe",
+    "types": "Fire",
+    "updatedTypes": "Fire"
   },
-  "forms": {}
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": "Fire",
+      "faithfulTypes": "Fire",
+      "updatedTypes": "Fire",
+      "moves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 7,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Smokescreen",
+          "level": 10,
+          "info": {
+            "description": "A move that lowers the foe's accuracy.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 17,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 21,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 28,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 32,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 39,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 43,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 50,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 54,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 61,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 7,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Smokescreen",
+          "level": 10,
+          "info": {
+            "description": "A move that lowers the foe's accuracy.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 17,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 21,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 28,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 32,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 39,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 43,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 50,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 54,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 61,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Scratch",
+          "level": 1,
+          "info": {
+            "description": "Scratches with sharp claws.",
+            "type": "Normal",
+            "pp": 35,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Growl",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Attack.",
+            "type": "Normal",
+            "pp": 40,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Ember",
+          "level": 7,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 25,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Smokescreen",
+          "level": 10,
+          "info": {
+            "description": "A move that lowers the foe's accuracy.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Metal Claw",
+          "level": 17,
+          "info": {
+            "description": "An attack that may up user's Attack.",
+            "type": "Steel",
+            "pp": 35,
+            "power": 50,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Dragon Rage",
+          "level": 21,
+          "info": {
+            "description": "Always inflicts 40HP damage.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Scary Face",
+          "level": 28,
+          "info": {
+            "description": "Sharply lowers the foe's Speed.",
+            "type": "Normal",
+            "pp": 10,
+            "accuracy": 100,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "level": 32,
+          "info": {
+            "description": "An attack that may up user's Speed.",
+            "type": "Fire",
+            "pp": 20,
+            "power": 50,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Slash",
+          "level": 39,
+          "info": {
+            "description": "Has a high critical hit ratio.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "level": 43,
+          "info": {
+            "description": "An attack that may inflict a burn.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 90,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Fire Spin",
+          "level": 50,
+          "info": {
+            "description": "Traps the foe for 2-5 turns.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 40,
+            "accuracy": 90,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Crunch",
+          "level": 54,
+          "info": {
+            "description": "An attack that may lower Defense.",
+            "type": "Dark",
+            "pp": 15,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Flare Blitz",
+          "level": 61,
+          "info": {
+            "description": "A charge that also hurts the user.",
+            "type": "Fire",
+            "pp": 15,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [
+        "Ancientpower",
+        "Belly Drum",
+        "Bite",
+        "Crunch",
+        "Dragon Dance",
+        "Dragonbreath",
+        "Flare Blitz",
+        "Outrage"
+      ],
+      "tmHmMoves": [
+        {
+          "name": "Dynamicpunch",
+          "description": "An attack that confuses the foe.",
+          "type": "Fighting",
+          "pp": 5,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 50,
+          "tmNumber": "TM01",
+          "location": {
+            "area": "Chuck's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Dragon Claw",
+          "description": "Slashes the foe with sharp claws.",
+          "type": "Dragon",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM02",
+          "location": {
+            "area": "Route 27"
+          }
+        },
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hone Claws",
+          "description": "Raises the user's Atk and accuracy.",
+          "type": "Dark",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM12",
+          "location": {
+            "area": "Route 35"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Iron Tail",
+          "description": "An attack that may lower Defense.",
+          "type": "Steel",
+          "pp": 15,
+          "power": 100,
+          "category": "Physical",
+          "accuracy": 75,
+          "tmNumber": "TM23",
+          "location": {
+            "area": "Jasmine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Dig",
+          "description": "1st turn: Burrow 2nd turn: Attack",
+          "type": "Ground",
+          "pp": 10,
+          "power": 90,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM28",
+          "location": {
+            "area": "National Park"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Flamethrower",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM35",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Fire Blast",
+          "description": "An attack that may inflict a burn.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 110,
+          "category": "Special",
+          "accuracy": 85,
+          "tmNumber": "TM38",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Flame Charge",
+          "description": "An attack that may up user's Speed.",
+          "type": "Fire",
+          "pp": 20,
+          "power": 50,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM43",
+          "location": {
+            "area": "Burned Tower"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Rock Slide",
+          "description": "An attack that may cause flinching.",
+          "type": "Rock",
+          "pp": 10,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM48",
+          "location": {
+            "area": "Brock's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Dragon Pulse",
+          "description": "Attacks foe with a shock wave.",
+          "type": "Dragon",
+          "pp": 10,
+          "power": 85,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM59",
+          "location": {
+            "area": "Clair's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Will O Wisp",
+          "description": "A move that may burn the foe.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "TM61",
+          "location": {
+            "area": "Blaine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Shadow Claw",
+          "description": "Has a high critical hit ratio.",
+          "type": "Ghost",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM65",
+          "location": {
+            "area": "Lavender Soul House"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "description": "Sharply raises the user's Attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM75",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Strength",
+          "description": "A powerful physical attack.",
+          "type": "Fighting",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM04",
+          "location": {
+            "area": "Cianwood City"
+          }
+        },
+        {
+          "name": "Body Slam",
+          "description": "An attack that may cause paralysis.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 85,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT04",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Counter",
+          "description": "Returns a physical attack double.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "MT06",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Defense Curl",
+          "description": "Raises the user's Defense.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT07",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Fire Punch",
+          "description": "A fiery punch. May cause a burn.",
+          "type": "Fire",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT12",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        },
+        {
+          "name": "Headbutt",
+          "description": "An attack that may cause flinching.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT13",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Seismic Toss",
+          "description": "Damage equals the user's level.",
+          "type": "Fighting",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT22",
+          "location": {
+            "area": "Pewter City"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        },
+        {
+          "name": "Thunderpunch",
+          "description": "An electric punch. It may paralyze.",
+          "type": "Electric",
+          "pp": 15,
+          "power": 75,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT27",
+          "location": {
+            "area": "Goldenrod City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar Power",
+          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "blaze",
+          "name": "Blaze",
+          "description": "\tBoosts Fire moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "solar-power",
+          "name": "Solar Power",
+          "description": "\tBoosts Sp.Atk but \tlowers HP in sun.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "flame-body",
+          "name": "Flame Body",
+          "description": "\tContact may burn \tthe foe.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 58,
+        "attack": 64,
+        "defense": 58,
+        "speed": 80,
+        "specialAttack": 80,
+        "specialDefense": 65,
+        "total": 405
+      },
+      "faithfulBaseStats": {
+        "hp": 58,
+        "attack": 64,
+        "defense": 58,
+        "speed": 80,
+        "specialAttack": 80,
+        "specialDefense": 65,
+        "total": 405
+      }
+    }
+  }
 }

@@ -1,84 +1,7 @@
 {
-  "name": "beedrill",
+  "name": "Beedrill",
   "nationalDex": 15,
   "johtoDex": 29,
-  "types": [
-    "Bug",
-    "Poison"
-  ],
-  "updatedTypes": [
-    "Bug",
-    "Poison"
-  ],
-  "frontSpriteUrl": "/sprites/pokemon/beedrill/front_cropped.png",
-  "detailedStats": {
-    "baseStats": {
-      "hp": 65,
-      "attack": 90,
-      "defense": 40,
-      "speed": 75,
-      "specialAttack": 45,
-      "specialDefense": 80,
-      "total": 395
-    },
-    "catchRate": 45,
-    "baseExp": 159,
-    "heldItems": [
-      "SHED_SHELL",
-      "POISON_BARB"
-    ],
-    "genderRatio": {
-      "male": 50,
-      "female": 50
-    },
-    "hatchRate": "Medium-Fast (5,120 steps)",
-    "abilities": [
-      {
-        "id": "swarm",
-        "isHidden": false,
-        "abilityType": "primary"
-      },
-      {
-        "id": "sniper",
-        "isHidden": false,
-        "abilityType": "secondary"
-      },
-      {
-        "id": "adaptability",
-        "isHidden": true,
-        "abilityType": "hidden"
-      }
-    ],
-    "faithfulAbilities": null,
-    "updatedAbilities": null,
-    "growthRate": "Medium Fast",
-    "eggGroups": [
-      "Bug",
-      "Bug"
-    ],
-    "evYield": "2 Atk",
-    "types": [
-      "Bug",
-      "Poison"
-    ],
-    "updatedTypes": [
-      "Bug",
-      "Poison"
-    ],
-    "height": 10,
-    "weight": 295,
-    "bodyShape": "Multiwings",
-    "bodyColor": "Yellow",
-    "polishedBaseStats": {
-      "hp": 65,
-      "attack": 100,
-      "defense": 40,
-      "speed": 115,
-      "specialAttack": 45,
-      "specialDefense": 90,
-      "total": 455
-    }
-  },
   "evolution": {
     "methods": [],
     "chain": [
@@ -140,897 +63,1231 @@
       ]
     }
   },
-  "levelMoves": [
-    {
-      "name": "Poison Sting",
-      "level": 1,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 35,
-        "power": 15,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+  "detailedStats": {
+    "baseStats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 40,
+      "speed": 75,
+      "specialAttack": 45,
+      "specialDefense": 80,
+      "total": 395
     },
-    {
-      "name": "String Shot",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Speed.",
-        "type": "Bug",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 95,
-        "category": "Status"
-      }
+    "faithfulBaseStats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 40,
+      "speed": 75,
+      "specialAttack": 45,
+      "specialDefense": 80,
+      "total": 395
     },
-    {
-      "name": "Fury Strikes",
-      "level": 1,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
+    "polishedBaseStats": {
+      "hp": 65,
+      "attack": 100,
+      "defense": 40,
+      "speed": 115,
+      "specialAttack": 45,
+      "specialDefense": 90,
+      "total": 455
     },
-    {
-      "name": "U Turn",
-      "level": 1,
-      "info": {
-        "description": "",
-        "type": "Bug",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
+    "catchRate": 45,
+    "baseExp": 159,
+    "heldItems": [
+      "SHED_SHELL",
+      "POISON_BARB"
+    ],
+    "genderRatio": {
+      "male": 50,
+      "female": 50
     },
-    {
-      "name": "Rage",
-      "level": 14,
-      "info": {
-        "description": "Raises Attack if the user is hit.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Physical"
+    "hatchRate": "Medium-Fast (5,120 steps)",
+    "abilities": [
+      {
+        "id": "swarm",
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "adaptability",
+        "name": "Adaptability",
+        "description": "\tPowers up same- \ttype moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Pursuit",
-      "level": 17,
-      "info": {
-        "description": "Heavily strikes switching Pokemon.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
+    ],
+    "faithfulAbilities": [
+      {
+        "id": "swarm",
+        "name": "Swarm",
+        "description": "\tBoosts Bug moves \tin a pinch.",
+        "isHidden": false,
+        "abilityType": "primary"
+      },
+      {
+        "id": "sniper",
+        "name": "Sniper",
+        "description": "\tPowers up critical \thits.",
+        "isHidden": false,
+        "abilityType": "secondary"
+      },
+      {
+        "id": "adaptability",
+        "name": "Adaptability",
+        "description": "\tPowers up same- \ttype moves.",
+        "isHidden": true,
+        "abilityType": "hidden"
       }
-    },
-    {
-      "name": "Focus Energy",
-      "level": 20,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Venoshock",
-      "level": 23,
-      "info": {
-        "description": "Damage doubles if foe is poisoned.",
-        "type": "Poison",
-        "pp": 10,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Feint Attack",
-      "level": 26,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Toxic Spikes",
-      "level": 29,
-      "info": {
-        "description": "Poisons foes when they switch in.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Pin Missile",
-      "level": 32,
-      "info": {
-        "description": "Fires pins that strike 2-5 times.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 25,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Poison Jab",
-      "level": 35,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 38,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Swords Dance",
-      "level": 41,
-      "info": {
-        "description": "Sharply raises the user's Attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Outrage",
-      "level": 44,
-      "info": {
-        "description": "Works 2-3 turns and confuses user.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
+    ],
+    "updatedAbilities": [],
+    "growthRate": "Medium Fast",
+    "eggGroups": [
+      "Bug",
+      "Bug"
+    ],
+    "evYield": "2 Atk",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "updatedTypes": [
+      "Bug",
+      "Poison"
+    ]
+  },
+  "forms": {
+    "plain": {
+      "name": "plain",
+      "types": [
+        "Bug",
+        "Poison"
+      ],
+      "faithfulTypes": [
+        "Bug",
+        "Poison"
+      ],
+      "updatedTypes": [
+        "Bug",
+        "Poison"
+      ],
+      "moves": [
+        {
+          "name": "Poison Sting",
+          "level": 1,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 1,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "U Turn",
+          "level": 1,
+          "info": {
+            "description": "Switches out after making its attack.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 14,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 17,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 20,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "level": 23,
+          "info": {
+            "description": "Damage doubles if foe is poisoned.",
+            "type": "Poison",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 26,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Toxic Spikes",
+          "level": 29,
+          "info": {
+            "description": "Poisons foes when they switch in.",
+            "type": "Poison",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 32,
+          "info": {
+            "description": "Fires pins that strike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 35,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 38,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 41,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 44,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "faithfulMoves": [
+        {
+          "name": "Poison Sting",
+          "level": 1,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 1,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "U Turn",
+          "level": 1,
+          "info": {
+            "description": "Switches out after making its attack.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 14,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 17,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 20,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "level": 23,
+          "info": {
+            "description": "Damage doubles if foe is poisoned.",
+            "type": "Poison",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 26,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Toxic Spikes",
+          "level": 29,
+          "info": {
+            "description": "Poisons foes when they switch in.",
+            "type": "Poison",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 32,
+          "info": {
+            "description": "Fires pins that strike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 35,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 38,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 41,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 44,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "updatedMoves": [
+        {
+          "name": "Poison Sting",
+          "level": 1,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 35,
+            "power": 15,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "String Shot",
+          "level": 1,
+          "info": {
+            "description": "A move that lowers the foe's Speed.",
+            "type": "Bug",
+            "pp": 40,
+            "accuracy": 95,
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Fury Strikes",
+          "level": 1,
+          "info": {
+            "description": "Scratches or jabs 2-5 times.",
+            "type": "Normal",
+            "pp": 15,
+            "power": 20,
+            "accuracy": 85,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "U Turn",
+          "level": 1,
+          "info": {
+            "description": "Switches out after making its attack.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 70,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Rage",
+          "level": 14,
+          "info": {
+            "description": "Raises Attack if the user is hit.",
+            "type": "Normal",
+            "pp": 20,
+            "power": 20,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Pursuit",
+          "level": 17,
+          "info": {
+            "description": "Heavily strikes switching Pokemon.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 40,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Focus Energy",
+          "level": 20,
+          "info": {
+            "description": "Raises the critical hit ratio.",
+            "type": "Normal",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "level": 23,
+          "info": {
+            "description": "Damage doubles if foe is poisoned.",
+            "type": "Poison",
+            "pp": 10,
+            "power": 65,
+            "accuracy": 100,
+            "category": "Special"
+          }
+        },
+        {
+          "name": "Feint Attack",
+          "level": 26,
+          "info": {
+            "description": "An attack that never misses.",
+            "type": "Dark",
+            "pp": 20,
+            "power": 60,
+            "accuracy": "--",
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Toxic Spikes",
+          "level": 29,
+          "info": {
+            "description": "Poisons foes when they switch in.",
+            "type": "Poison",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Pin Missile",
+          "level": 32,
+          "info": {
+            "description": "Fires pins that strike 2-5 times.",
+            "type": "Bug",
+            "pp": 20,
+            "power": 25,
+            "accuracy": 95,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "level": 35,
+          "info": {
+            "description": "An attack that may poison the foe.",
+            "type": "Poison",
+            "pp": 20,
+            "power": 80,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        },
+        {
+          "name": "Agility",
+          "level": 38,
+          "info": {
+            "description": "Sharply raises the user's Speed.",
+            "type": "Psychic",
+            "pp": 30,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "level": 41,
+          "info": {
+            "description": "Sharply raises the user's Attack.",
+            "type": "Normal",
+            "pp": 20,
+            "accuracy": "--",
+            "category": "Status"
+          }
+        },
+        {
+          "name": "Outrage",
+          "level": 44,
+          "info": {
+            "description": "Works 2-3 turns and confuses user.",
+            "type": "Dragon",
+            "pp": 10,
+            "power": 120,
+            "accuracy": 100,
+            "category": "Physical"
+          }
+        }
+      ],
+      "eggMoves": [],
+      "tmHmMoves": [
+        {
+          "name": "Curse",
+          "description": "Works differently for Ghost-types.",
+          "type": "Ghost",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM03",
+          "location": {
+            "area": "Celadon Mansion"
+          }
+        },
+        {
+          "name": "Toxic",
+          "description": "A Poison move with increasing damage.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 90,
+          "tmNumber": "TM06",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Venoshock",
+          "description": "Damage doubles if foe is poisoned.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 65,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM09",
+          "location": {
+            "area": "Route 11"
+          }
+        },
+        {
+          "name": "Hidden Power",
+          "description": "The type varies with the Pokemon.",
+          "type": "Unknown",
+          "pp": 15,
+          "power": 70,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM10",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Sunny Day",
+          "description": "Boosts Fire-type moves for 5 turns.",
+          "type": "Fire",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM11",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Hyper Beam",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Special",
+          "accuracy": 90,
+          "tmNumber": "TM15",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Protect",
+          "description": "Foils attack that turn. It may fail.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM17",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Giga Drain",
+          "description": "Steals 1/2 of the damage inflicted.",
+          "type": "Grass",
+          "pp": 10,
+          "power": 75,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM19",
+          "location": {
+            "area": "Erika's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Solar Beam",
+          "description": "1st turn: Prepare 2nd turn: Attack",
+          "type": "Grass",
+          "pp": 10,
+          "power": 120,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM22",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Return",
+          "description": "An attack that is based on loyalty.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 1,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM27",
+          "location": {
+            "area": "Goldenrod",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Rock Smash",
+          "description": "Removes Reflect and Light Screen.",
+          "type": "None",
+          "pp": 15,
+          "power": 40,
+          "category": "Unknown",
+          "accuracy": 100,
+          "tmNumber": "TM31",
+          "location": {
+            "area": "Route 36"
+          }
+        },
+        {
+          "name": "Double Team",
+          "description": "Raises the user's evasiveness.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM32",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "Sludge Bomb",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 10,
+          "power": 90,
+          "category": "Special",
+          "accuracy": 100,
+          "tmNumber": "TM36",
+          "location": {
+            "area": "Route 43"
+          }
+        },
+        {
+          "name": "Swift",
+          "description": "An attack that never misses.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 60,
+          "category": "Special",
+          "accuracy": "--",
+          "tmNumber": "TM39",
+          "location": {
+            "area": "Union Cave"
+          }
+        },
+        {
+          "name": "Aerial Ace",
+          "description": "An attack that never misses.",
+          "type": "Flying",
+          "pp": 20,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": "--",
+          "tmNumber": "TM40",
+          "location": {
+            "area": "Mount Mortar"
+          }
+        },
+        {
+          "name": "Substitute",
+          "description": "Makes a decoy with 1/4 user's max HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM41",
+          "location": {
+            "area": "Lake of Rage"
+          }
+        },
+        {
+          "name": "Facade",
+          "description": "Double damage with Psn, Brn, or Prz.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM42",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Rest",
+          "description": "Sleep for 2 turns to fully recover.",
+          "type": "Psychic",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM44",
+          "location": {
+            "area": "Dim Cave"
+          }
+        },
+        {
+          "name": "Attract",
+          "description": "Makes the opposite gender infatuated.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM45",
+          "location": {
+            "area": "Whitney's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Thief",
+          "description": "An attack that may steal a held item.",
+          "type": "Dark",
+          "pp": 25,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM46",
+          "location": {
+            "area": "Team Rocket Base"
+          }
+        },
+        {
+          "name": "Leech Life",
+          "description": "Steals 1/2 of the damage inflicted.",
+          "type": "Bug",
+          "pp": 10,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM50",
+          "location": {
+            "area": "Yellow Forest"
+          }
+        },
+        {
+          "name": "Roost",
+          "description": "Lands to restore 1/2 the max HP.",
+          "type": "Flying",
+          "pp": 5,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM51",
+          "location": {
+            "area": "Falkner's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "False Swipe",
+          "description": "Leaves the foe with at least 1HP.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 40,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM54",
+          "location": {
+            "area": "Ilex Forest Gate"
+          }
+        },
+        {
+          "name": "X Scissor",
+          "description": "Slashes foe with scythes or claws.",
+          "type": "Bug",
+          "pp": 15,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM56",
+          "location": {
+            "area": "Underground Warehouse"
+          }
+        },
+        {
+          "name": "Acrobatics",
+          "description": "Damage doubles if user has no item.",
+          "type": "Flying",
+          "pp": 15,
+          "power": 55,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM62",
+          "location": {
+            "area": "Route 39 Farmhouse"
+          }
+        },
+        {
+          "name": "Poison Jab",
+          "description": "An attack that may poison the foe.",
+          "type": "Poison",
+          "pp": 20,
+          "power": 80,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM66",
+          "location": {
+            "area": "Janine's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Giga Impact",
+          "description": "1st turn: Attack 2nd turn: Rest",
+          "type": "Normal",
+          "pp": 5,
+          "power": 150,
+          "category": "Physical",
+          "accuracy": 90,
+          "tmNumber": "TM68",
+          "location": {
+            "area": "Celadon",
+            "details": "Game Corner"
+          }
+        },
+        {
+          "name": "U Turn",
+          "description": "Switches out after making its attack.",
+          "type": "Bug",
+          "pp": 20,
+          "power": 70,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "TM69",
+          "location": {
+            "area": "Bugsy's Gym",
+            "details": "Gym Leader"
+          }
+        },
+        {
+          "name": "Flash",
+          "description": "A move that lowers the foe's accuracy.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "TM70",
+          "location": {
+            "area": "Sprout Tower"
+          }
+        },
+        {
+          "name": "Swords Dance",
+          "description": "Sharply raises the user's Attack.",
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "TM75",
+          "location": {
+            "area": "Celadon",
+            "details": "Department Store"
+          }
+        },
+        {
+          "name": "Cut",
+          "description": "Cuts using claws, scythes, etc.",
+          "type": "Steel",
+          "pp": 30,
+          "power": 60,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "HM01",
+          "location": {
+            "area": "Ilex Forest"
+          }
+        },
+        {
+          "name": "Agility",
+          "description": "Sharply raises the user's Speed.",
+          "type": "Psychic",
+          "pp": 30,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT01",
+          "location": {
+            "area": "Mahogany Mart"
+          }
+        },
+        {
+          "name": "Baton Pass",
+          "description": "Switches while keeping effects.",
+          "type": "Normal",
+          "pp": 40,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT03",
+          "location": {
+            "area": "Goldenrod Museum"
+          }
+        },
+        {
+          "name": "Double Edge",
+          "description": "A tackle that also hurts the user.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 120,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT08",
+          "location": {
+            "area": "Safari Zone"
+          }
+        },
+        {
+          "name": "Endure",
+          "description": "Endures any hit with at least 1HP.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": "--",
+          "tmNumber": "MT11",
+          "location": {
+            "area": "Warm Beach"
+          }
+        },
+        {
+          "name": "Knock Off",
+          "description": "Slaps down the foe's held item.",
+          "type": "Dark",
+          "pp": 20,
+          "power": 65,
+          "category": "Physical",
+          "accuracy": 100,
+          "tmNumber": "MT18",
+          "location": {
+            "area": "Route 40"
+          }
+        },
+        {
+          "name": "Sleep Talk",
+          "description": "Randomly attacks while asleep.",
+          "type": "Normal",
+          "pp": 10,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 100,
+          "tmNumber": "MT24",
+          "location": {
+            "area": "Route 31"
+          }
+        },
+        {
+          "name": "Swagger",
+          "description": "Causes confusion but raises Attack.",
+          "type": "Normal",
+          "pp": 15,
+          "power": 0,
+          "category": "Status",
+          "accuracy": 85,
+          "tmNumber": "MT26",
+          "location": {
+            "area": "Celadon City"
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "id": "swarm",
+          "name": "Swarm",
+          "description": "\tBoosts Bug moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "adaptability",
+          "name": "Adaptability",
+          "description": "\tPowers up same- \ttype moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "faithfulAbilities": [
+        {
+          "id": "swarm",
+          "name": "Swarm",
+          "description": "\tBoosts Bug moves \tin a pinch.",
+          "isHidden": false,
+          "abilityType": "primary"
+        },
+        {
+          "id": "sniper",
+          "name": "Sniper",
+          "description": "\tPowers up critical \thits.",
+          "isHidden": false,
+          "abilityType": "secondary"
+        },
+        {
+          "id": "adaptability",
+          "name": "Adaptability",
+          "description": "\tPowers up same- \ttype moves.",
+          "isHidden": true,
+          "abilityType": "hidden"
+        }
+      ],
+      "updatedAbilities": [],
+      "baseStats": {
+        "hp": 65,
+        "attack": 90,
+        "defense": 40,
+        "speed": 75,
+        "specialAttack": 45,
+        "specialDefense": 80,
+        "total": 395
+      },
+      "faithfulBaseStats": {
+        "hp": 65,
+        "attack": 90,
+        "defense": 40,
+        "speed": 75,
+        "specialAttack": 45,
+        "specialDefense": 80,
+        "total": 395
       }
     }
-  ],
-  "faithfulLevelMoves": [
-    {
-      "name": "Poison Sting",
-      "level": 1,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 35,
-        "power": 15,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "String Shot",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Speed.",
-        "type": "Bug",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 95,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 1,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "U Turn",
-      "level": 1,
-      "info": {
-        "description": "",
-        "type": "Bug",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rage",
-      "level": 14,
-      "info": {
-        "description": "Raises Attack if the user is hit.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pursuit",
-      "level": 17,
-      "info": {
-        "description": "Heavily strikes switching Pokemon.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Focus Energy",
-      "level": 20,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Venoshock",
-      "level": 23,
-      "info": {
-        "description": "Damage doubles if foe is poisoned.",
-        "type": "Poison",
-        "pp": 10,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Feint Attack",
-      "level": 26,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Toxic Spikes",
-      "level": 29,
-      "info": {
-        "description": "Poisons foes when they switch in.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Pin Missile",
-      "level": 32,
-      "info": {
-        "description": "Fires pins that strike 2-5 times.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 25,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Poison Jab",
-      "level": 35,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 38,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Swords Dance",
-      "level": 41,
-      "info": {
-        "description": "Sharply raises the user's Attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Outrage",
-      "level": 44,
-      "info": {
-        "description": "Works 2-3 turns and confuses user.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "updatedLevelMoves": [
-    {
-      "name": "Poison Sting",
-      "level": 1,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 35,
-        "power": 15,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "String Shot",
-      "level": 1,
-      "info": {
-        "description": "A move that lowers the foe's Speed.",
-        "type": "Bug",
-        "pp": 40,
-        "power": 0,
-        "accuracy": 95,
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Fury Strikes",
-      "level": 1,
-      "info": {
-        "description": "Scratches or jabs 2-5 times.",
-        "type": "Normal",
-        "pp": 15,
-        "power": 20,
-        "accuracy": 85,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "U Turn",
-      "level": 1,
-      "info": {
-        "description": "",
-        "type": "Bug",
-        "pp": 20,
-        "power": 70,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Rage",
-      "level": 14,
-      "info": {
-        "description": "Raises Attack if the user is hit.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 20,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Pursuit",
-      "level": 17,
-      "info": {
-        "description": "Heavily strikes switching Pokemon.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 40,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Focus Energy",
-      "level": 20,
-      "info": {
-        "description": "Raises the criti- cal hit ratio.",
-        "type": "Normal",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Venoshock",
-      "level": 23,
-      "info": {
-        "description": "Damage doubles if foe is poisoned.",
-        "type": "Poison",
-        "pp": 10,
-        "power": 65,
-        "accuracy": 100,
-        "category": "Special"
-      }
-    },
-    {
-      "name": "Feint Attack",
-      "level": 26,
-      "info": {
-        "description": "An attack that never misses.",
-        "type": "Dark",
-        "pp": 20,
-        "power": 60,
-        "accuracy": "--",
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Toxic Spikes",
-      "level": 29,
-      "info": {
-        "description": "Poisons foes when they switch in.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Pin Missile",
-      "level": 32,
-      "info": {
-        "description": "Fires pins that strike 2-5 times.",
-        "type": "Bug",
-        "pp": 20,
-        "power": 25,
-        "accuracy": 95,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Poison Jab",
-      "level": 35,
-      "info": {
-        "description": "An attack that may poison the foe.",
-        "type": "Poison",
-        "pp": 20,
-        "power": 80,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    },
-    {
-      "name": "Agility",
-      "level": 38,
-      "info": {
-        "description": "Sharply raises the user's Speed.",
-        "type": "Psychic",
-        "pp": 30,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Swords Dance",
-      "level": 41,
-      "info": {
-        "description": "Sharply raises the user's Attack.",
-        "type": "Normal",
-        "pp": 20,
-        "power": 0,
-        "accuracy": "--",
-        "category": "Status"
-      }
-    },
-    {
-      "name": "Outrage",
-      "level": 44,
-      "info": {
-        "description": "Works 2-3 turns and confuses user.",
-        "type": "Dragon",
-        "pp": 10,
-        "power": 120,
-        "accuracy": 100,
-        "category": "Physical"
-      }
-    }
-  ],
-  "tmHmMoves": [
-    {
-      "name": "Curse",
-      "description": "\tWorks differently \tfor Ghost-types.",
-      "type": "Ghost",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Toxic",
-      "description": "\tA Poison move with \tincreasing damage.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 90
-    },
-    {
-      "name": "Venoshock",
-      "description": "\tDamage doubles if \tfoe is poisoned.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 65,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Hidden Power",
-      "description": "\tThe type varies \twith the #mon.",
-      "type": "Unknown",
-      "pp": 15,
-      "power": 70,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Sunny Day",
-      "description": "\tBoosts Fire-type \tmoves for 5 turns.",
-      "type": "Fire",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Hyper Beam",
-      "description": "",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Special",
-      "accuracy": 90
-    },
-    {
-      "name": "Protect",
-      "description": "\tFoils attack that \tturn. It may fail.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Giga Drain",
-      "description": "",
-      "type": "Grass",
-      "pp": 10,
-      "power": 75,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Solar Beam",
-      "description": "\t1st turn: Prepare \t2nd turn: Attack",
-      "type": "Grass",
-      "pp": 10,
-      "power": 120,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Return",
-      "description": "\tAn attack that is \tbased on loyalty.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 1,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rock Smash",
-      "description": "\tRemoves Reflect \tand Light Screen.",
-      "type": "Fighting",
-      "pp": 15,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Double Team",
-      "description": "\tRaises the user's \tevasiveness.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Sludge Bomb",
-      "description": "\tAn attack that may \tpoison the foe.",
-      "type": "Poison",
-      "pp": 10,
-      "power": 90,
-      "category": "Special",
-      "accuracy": 100
-    },
-    {
-      "name": "Swift",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 60,
-      "category": "Special",
-      "accuracy": "--"
-    },
-    {
-      "name": "Aerial Ace",
-      "description": "\tAn attack that \tnever misses.",
-      "type": "Flying",
-      "pp": 20,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": "--"
-    },
-    {
-      "name": "Substitute",
-      "description": "\tMakes a decoy with \t1/4 user's max HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Facade",
-      "description": "\tDouble damage with \tPsn, Brn, or Prz.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Rest",
-      "description": "\tSleep for 2 turns \tto fully recover.",
-      "type": "Psychic",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Attract",
-      "description": "\tMakes the opposite \tgender infatuated.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Thief",
-      "description": "\tAn attack that may \tsteal a held item.",
-      "type": "Dark",
-      "pp": 25,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Leech Life",
-      "description": "",
-      "type": "Bug",
-      "pp": 10,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Roost",
-      "description": "\tLands to restore \t1/2 the max HP.",
-      "type": "Flying",
-      "pp": 5,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "False Swipe",
-      "description": "\tLeaves the foe \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 40,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "X Scissor",
-      "description": "",
-      "type": "Bug",
-      "pp": 15,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Acrobatics",
-      "description": "\tDamage doubles if \tuser has no item.",
-      "type": "Flying",
-      "pp": 15,
-      "power": 55,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Poison Jab",
-      "description": "\tAn attack that may \tpoison the foe.",
-      "type": "Poison",
-      "pp": 20,
-      "power": 80,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Giga Impact",
-      "description": "\t1st turn: Attack \t2nd turn: Rest",
-      "type": "Normal",
-      "pp": 5,
-      "power": 150,
-      "category": "Physical",
-      "accuracy": 90
-    },
-    {
-      "name": "U Turn",
-      "description": "",
-      "type": "Bug",
-      "pp": 20,
-      "power": 70,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Flash",
-      "description": "\tA move that lowers \tthe foe's accuracy.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swords Dance",
-      "description": "\tSharply raises the \tuser's Attack.",
-      "type": "Normal",
-      "pp": 20,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Cut",
-      "description": "\tCuts using claws, \tscythes, etc.",
-      "type": "Steel",
-      "pp": 30,
-      "power": 60,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Agility",
-      "description": "\tSharply raises the \tuser's Speed.",
-      "type": "Psychic",
-      "pp": 30,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Baton Pass",
-      "description": "\tSwitches while \tkeeping effects.",
-      "type": "Normal",
-      "pp": 40,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Double Edge",
-      "description": "\tA tackle that also \thurts the user.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 120,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Endure",
-      "description": "\tEndures any hit \twith at least 1HP.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": "--"
-    },
-    {
-      "name": "Knock Off",
-      "description": "\tSlaps down the \tfoe's held item.",
-      "type": "Dark",
-      "pp": 20,
-      "power": 65,
-      "category": "Physical",
-      "accuracy": 100
-    },
-    {
-      "name": "Sleep Talk",
-      "description": "\tRandomly attacks \twhile asleep.",
-      "type": "Normal",
-      "pp": 10,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 100
-    },
-    {
-      "name": "Swagger",
-      "description": "\tCauses confusion \tbut raises Attack.",
-      "type": "Normal",
-      "pp": 15,
-      "power": 0,
-      "category": "Status",
-      "accuracy": 85
-    }
-  ],
-  "eggMoves": [],
+  },
   "locations": [
     {
       "area": "viridian_forest",
@@ -1136,12 +1393,5 @@
       "chance": 5,
       "formName": null
     }
-  ],
-  "pokedexEntries": {
-    "default": {
-      "species": "Poison Bee",
-      "description": "It uses sharp, poisonous stings to defeat prey, then takes the victim back to its nest for food."
-    }
-  },
-  "forms": {}
+  ]
 }
