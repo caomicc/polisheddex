@@ -17,6 +17,8 @@ export interface PokemonCardProps {
 const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex' }) => {
   const { showFaithful } = useFaithfulPreference();
 
+  console.log('PokemonCard', pokemon);
+
   // Get the appropriate types based on preference
   const displayTypes = showFaithful
     ? pokemon.faithfulTypes || pokemon.types
@@ -131,8 +133,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, sortType = 'johtodex
           {displayName}
         </h2>
         <div className="flex md:justify-center gap-1 md:gap-2 flex-col md:flex-row">
-          {(Array.isArray(displayTypes) ? displayTypes : [displayTypes]).map((type) => (
-            <Badge key={type} variant={type.toLowerCase() as PokemonType['name']}>
+          {(Array.isArray(displayTypes) ? displayTypes : [displayTypes]).map((type, idx) => (
+            <Badge key={type + idx} variant={type.toLowerCase() as PokemonType['name']}>
               {type}
             </Badge>
           ))}

@@ -119,7 +119,7 @@ export function formatPokemonDisplayWithForm(pokemonName: string): string {
  */
 export function formatPokemonUrlWithForm(pokemonName: string, formString: string): string {
   const { baseName, formName } = extractPokemonForm(pokemonName);
-  console.log('formatPokemonUrlWithForm', { baseName, formName });
+  // console.log('formatPokemonUrlWithForm', { baseName, formName });
   const base = `/pokemon/${encodeURIComponent(formatPokemonBaseName(baseName).toLowerCase())}`;
   if (formName || formString) {
     // Remove _form suffix if present
@@ -201,6 +201,8 @@ function formatFormName(formName: string): string {
     [KNOWN_FORMS.GALAR]: 'Galar',
     [KNOWN_FORMS.HISUI]: 'Hisui',
     [KNOWN_FORMS.RED]: 'Red',
+    [KNOWN_FORMS.PIKACHU_FLY_FORM]: 'Flying',
+    [KNOWN_FORMS.PIKACHU_SURF_FORM]: 'Surfing',
     [KNOWN_FORMS.PLAIN]: 'Plain',
     [KNOWN_FORMS.JOHTO_FORM]: 'Johto',
     [KNOWN_FORMS.KANTO_FORM]: 'Kanto',
@@ -239,6 +241,8 @@ export function getFormTypeClass(formName: string | null): string {
     [KNOWN_FORMS.PALDEAN_WATER]: 'form-paldean-water',
     [KNOWN_FORMS.ARMORED]: 'form-armored',
     [KNOWN_FORMS.BLOODMOON]: 'form-bloodmoon',
+    [KNOWN_FORMS.PIKACHU_FLY_FORM]: 'form-flying',
+    [KNOWN_FORMS.PIKACHU_SURF_FORM]: 'form-surfing',
   };
 
   return formClasses[formName] || '';

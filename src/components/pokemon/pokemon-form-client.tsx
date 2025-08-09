@@ -554,36 +554,22 @@ export default function PokemonFormClient({
                     if (showFaithful) {
                       // Show faithful moves if available, otherwise fall back to regular moves
                       const faithfulMoves =
-                        formData.faithfulLevelMoves && formData.faithfulLevelMoves.length > 0
-                          ? formData.faithfulLevelMoves
-                          : formData.faithfulMoves && formData.faithfulMoves.length > 0
-                            ? formData.faithfulMoves
-                            : formData.moves || [];
+                        formData.faithfulMoves && formData.faithfulMoves.length > 0
+                          ? formData.faithfulMoves
+                          : formData.moves || [];
 
                       // Deduplicate moves (same name + level)
                       movesToShow = deduplicateMoves(faithfulMoves);
                     } else {
                       console.log('Showing updated moves', formData);
-                      // Show updated moves combined with regular moves
-                      const regularMoves = formData.moves || [];
-                      const updatedMoves =
-                        formData.updatedLevelMoves || formData.updatedMoves || [];
-
-                      // Combine regular and updated moves, with updated moves taking precedence
-                      const combinedMoves = [...regularMoves];
-                      for (const updatedMove of updatedMoves) {
-                        const existingIndex = combinedMoves.findIndex(
-                          (m) => m.level === updatedMove.level && m.name === updatedMove.name,
-                        );
-                        if (existingIndex >= 0) {
-                          combinedMoves[existingIndex] = updatedMove;
-                        } else {
-                          combinedMoves.push(updatedMove);
-                        }
-                      }
+                      // Show updated moves if available, otherwise regular moves
+                      const movesToUse =
+                        formData.updatedMoves && formData.updatedMoves.length > 0
+                          ? formData.updatedMoves
+                          : formData.moves || [];
 
                       // Deduplicate and sort by level
-                      movesToShow = deduplicateMoves(combinedMoves).sort(
+                      movesToShow = deduplicateMoves(movesToUse).sort(
                         (a: Move, b: Move) => Number(a.level) - Number(b.level),
                       );
                     }

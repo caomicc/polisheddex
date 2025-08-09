@@ -51,7 +51,7 @@ export default async function PokemonTableList() {
                   isForm: true,
                   forms: undefined, // Remove forms array from form entry
                   // Ensure form types are properly set
-                  types: formData.types || pokemon.types,
+                  // types: formData.types || pokemon.types,
                   updatedTypes: formData.updatedTypes || pokemon.updatedTypes,
                   faithfulTypes: formData.faithfulTypes || pokemon.faithfulTypes,
                 };

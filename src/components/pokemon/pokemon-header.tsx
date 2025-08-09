@@ -138,7 +138,7 @@ const PokedexHeader = ({
       headline={pokemonName}
     >
       <div className="flex flex-col flex-wrap items-start gap-2 ">
-        {uniqueForms.length > 0 && (
+        {uniqueForms.length > 1 && (
           <PokemonFormSelect
             selectedForm={selectedForm}
             setSelectedForm={setSelectedForm}

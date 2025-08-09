@@ -57,7 +57,7 @@ export function PokemonAbilities({
   // Convert abilities to resolved format for display
   const resolvedAbilities: ResolvedAbility[] = abilitiesToShow.map((ability) => ({
     id: ability.id,
-    name: ability.id?.replace(/-/g, ' ') || 'Unknown',
+    name: ability.name || ability.id?.replace(/-/g, ' ') || 'Unknown',
     description: ability.description || 'No description available',
     isHidden: ability.isHidden ?? false,
     abilityType: ability.abilityType ?? 'primary',

@@ -48,7 +48,7 @@ export function extractTypeChart() {
     }
   }
   fs.writeFileSync(outputPath, JSON.stringify(chart, null, 2));
-  console.log('Type chart extracted to', outputPath);
+  // console.log('Type chart extracted to', outputPath);
 }
 
 // Helper function to extract form and base name information from a file name
@@ -72,7 +72,7 @@ export function extractFormInfo(fileName: string): {
     // farfetch_d_galarian -> baseName: farfetch-d, form: galarian
     const baseMatch = fileName
       .toLowerCase()
-      .match(/^(farfetch_d|sirfetch_d|porygon_z)(?:_([a-z_]+))?$/);
+      .match(/^(farfetch_d|sirfetch_d|porygon_z|pikachu|arbok|unown)(?:_([a-z_]+))?$/);
 
     if (baseMatch) {
       const baseName = baseMatch[1].replace('_', '-'); // Convert to hyphenated format
@@ -117,6 +117,26 @@ export function extractFormInfo(fileName: string): {
         formName = KNOWN_FORMS.ARMORED;
       } else if (formPart === 'bloodmoon') {
         formName = KNOWN_FORMS.BLOODMOON;
+      } else if (formPart === 'flying') {
+        formName = KNOWN_FORMS.PIKACHU_FLY_FORM;
+      } else if (formPart === 'surfing') {
+        formName = KNOWN_FORMS.PIKACHU_SURF_FORM;
+      } else if (formPart === 'red') {
+        formName = KNOWN_FORMS.PIKACHU_RED_FORM;
+      } else if (formPart === 'yellow') {
+        formName = KNOWN_FORMS.PIKACHU_YELLOW_FORM;
+      } else if (formPart === 'spark') {
+        formName = KNOWN_FORMS.PIKACHU_SPARK_FORM;
+      } else if (formPart === 'johto') {
+        formName = KNOWN_FORMS.ARBOK_JOHTO_FORM;
+      } else if (formPart === 'kanto') {
+        formName = KNOWN_FORMS.ARBOK_KANTO_FORM;
+      } else if (formPart === 'koga') {
+        formName = KNOWN_FORMS.ARBOK_KOGA_FORM;
+      } else if (formPart === 'agatha') {
+        formName = KNOWN_FORMS.ARBOK_AGATHA_FORM;
+      } else if (formPart === 'ariana') {
+        formName = KNOWN_FORMS.ARBOK_ARIANA_FORM;
       } else if (formPart) {
         formName = formPart;
       }
@@ -228,6 +248,11 @@ export function extractFormInfo(fileName: string): {
     { pattern: /_paldean$/, formName: KNOWN_FORMS.PALDEAN },
     { pattern: /_armored$/, formName: KNOWN_FORMS.ARMORED },
     { pattern: /_bloodmoon$/, formName: KNOWN_FORMS.BLOODMOON },
+    { pattern: /_flying$/, formName: KNOWN_FORMS.PIKACHU_FLY_FORM },
+    { pattern: /_surfing$/, formName: KNOWN_FORMS.PIKACHU_SURF_FORM },
+    { pattern: /_red$/, formName: KNOWN_FORMS.PIKACHU_RED_FORM },
+    { pattern: /_yellow$/, formName: KNOWN_FORMS.PIKACHU_YELLOW_FORM },
+    { pattern: /_spark$/, formName: KNOWN_FORMS.PIKACHU_SPARK_FORM },
     { pattern: /_plain$/, formName: null }, // Place _plain last as it's a special case
     // Place special forms before plain to ensure correct matching
     // Support both underscore and hyphen format in file names
@@ -239,6 +264,11 @@ export function extractFormInfo(fileName: string): {
     { pattern: /_paldean$|[-]paldean$/, formName: KNOWN_FORMS.PALDEAN },
     { pattern: /_armored$|[-]armored$/, formName: KNOWN_FORMS.ARMORED },
     { pattern: /_bloodmoon$|[-]bloodmoon$/, formName: KNOWN_FORMS.BLOODMOON },
+    { pattern: /_flying$|[-]flying$/, formName: KNOWN_FORMS.PIKACHU_FLY_FORM },
+    { pattern: /_surfing$|[-]surfing$/, formName: KNOWN_FORMS.PIKACHU_SURF_FORM },
+    { pattern: /_red$|[-]red$/, formName: KNOWN_FORMS.PIKACHU_RED_FORM },
+    { pattern: /_yellow$|[-]yellow$/, formName: KNOWN_FORMS.PIKACHU_YELLOW_FORM },
+    { pattern: /_spark$|[-]spark$/, formName: KNOWN_FORMS.PIKACHU_SPARK_FORM },
     { pattern: /_plain$|[-]plain$/, formName: KNOWN_FORMS.PLAIN }, // Use the constant instead of null
   ];
 
@@ -270,3 +300,78 @@ export function extractFormInfo(fileName: string): {
     formName: formName ? formName.trimEnd() : null,
   };
 }
+
+// /**
+//  * Creates individual Pikachu form data based on the ROM constants
+//  * Pikachu forms: FLY_FORM, SURF_FORM, RED_FORM, YELLOW_FORM, SPARK_FORM
+//  */
+// export function createPikachuFormVariants(basePikachuData: any): any[] {
+//   if (!basePikachuData || basePikachuData.name !== 'pikachu') {
+//     return [basePikachuData];
+//   }
+
+//   const variants = [];
+
+//   // Base Pikachu (default form)
+//   variants.push({
+//     ...basePikachuData,
+//     formName: null,
+//     displayName: 'Pikachu',
+//   });
+
+//   // Flying Pikachu (PIKACHU_FLY_FORM)
+//   const flyingPikachu = {
+//     ...basePikachuData,
+//     formName: KNOWN_FORMS.PIKACHU_FLY_FORM,
+//     displayName: 'Pikachu (Flying)',
+//     specialMoves: ['Fly'],
+//     frontSpriteUrl: `/sprites/pokemon/pikachu/pikachu_fly_form_front_cropped.png`,
+//   };
+//   variants.push(flyingPikachu);
+
+//   // Surfing Pikachu (PIKACHU_SURF_FORM)
+//   const surfingPikachu = {
+//     ...basePikachuData,
+//     formName: KNOWN_FORMS.PIKACHU_SURF_FORM,
+//     displayName: 'Pikachu (Surfing)',
+//     specialMoves: ['Surf'],
+//     frontSpriteUrl: `/sprites/pokemon/pikachu/pikachu_surf_form_front_cropped.png`,
+//   };
+//   variants.push(surfingPikachu);
+
+//   // Red Pikachu (PIKACHU_RED_FORM)
+//   const redPikachu = {
+//     ...basePikachuData,
+//     formName: KNOWN_FORMS.PIKACHU_RED_FORM,
+//     displayName: 'Pikachu (Red)',
+//     frontSpriteUrl: `/sprites/pokemon/pikachu/pikachu_red_form_front_cropped.png`,
+//   };
+//   variants.push(redPikachu);
+
+//   // Yellow Pikachu (PIKACHU_YELLOW_FORM)
+//   const yellowPikachu = {
+//     ...basePikachuData,
+//     formName: KNOWN_FORMS.PIKACHU_YELLOW_FORM,
+//     displayName: 'Pikachu (Yellow)',
+//     frontSpriteUrl: `/sprites/pokemon/pikachu/pikachu_yellow_form_front_cropped.png`,
+//   };
+//   variants.push(yellowPikachu);
+
+//   // Spark Pikachu (PIKACHU_SPARK_FORM)
+//   const sparkPikachu = {
+//     ...basePikachuData,
+//     formName: KNOWN_FORMS.PIKACHU_SPARK_FORM,
+//     displayName: 'Pikachu (Spark)',
+//     frontSpriteUrl: `/sprites/pokemon/pikachu/pikachu_spark_form_front_cropped.png`,
+//   };
+//   variants.push(sparkPikachu);
+
+//   return variants;
+// }
+
+// /**
+//  * Checks if a Pokemon should have form variants created
+//  */
+// export function shouldCreateFormVariants(pokemonName: string): boolean {
+//   return pokemonName === 'Pikachu';
+// }

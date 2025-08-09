@@ -23,8 +23,19 @@ const ABILITY_DESCRIPTIONS_OUTPUT = path.join(
   '../../../output/pokemon_ability_descriptions.json',
 );
 
+// Helper function to populate ability description
+function getAbilityDescription(
+  abilityId: string,
+  abilityDescriptions?: Record<string, { description: string }>
+): string {
+  if (!abilityDescriptions) return '';
+  return abilityDescriptions[abilityId]?.description || '';
+}
+
 // --- Detailed Stats Extraction ---
-export function extractDetailedStats(): Record<string, DetailedStats> {
+export function extractDetailedStats(
+  abilityDescriptions?: Record<string, { description: string }>
+): Record<string, DetailedStats> {
   const detailedStatsDir = path.join(__dirname, '../../../polishedcrystal/data/pokemon/base_stats');
   const detailedStatsFiles = fs.readdirSync(detailedStatsDir).filter((f) => f.endsWith('.asm'));
 
@@ -397,7 +408,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
             const faithfulAbilityData: Ability = {
               id: normalizeId(faithfulPrimaryName),
               name: faithfulPrimaryName,
-              description: '', // Will be filled in later
+              description: getAbilityDescription(normalizeId(faithfulPrimaryName), abilityDescriptions),
               isHidden: false,
               abilityType: 'primary',
             };
@@ -411,7 +422,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
             const faithfulAbilityData: Ability = {
               id: normalizeId(faithfulSecondaryName),
               name: faithfulSecondaryName,
-              description: '', // Will be filled in later
+              description: getAbilityDescription(normalizeId(faithfulSecondaryName), abilityDescriptions),
               isHidden: false,
               abilityType: 'secondary',
             };
@@ -425,7 +436,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
             const faithfulAbilityData: Ability = {
               id: normalizeId(faithfulHiddenName),
               name: faithfulHiddenName,
-              description: '', // Will be filled in later
+              description: getAbilityDescription(normalizeId(faithfulHiddenName), abilityDescriptions),
               isHidden: true,
               abilityType: 'hidden',
             };
@@ -441,7 +452,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
               const updatedAbilityData: Ability = {
                 id: normalizeId(nonFaithfulPrimaryName),
                 name: nonFaithfulPrimaryName,
-                description: '', // Will be filled in later
+                description: getAbilityDescription(normalizeId(nonFaithfulPrimaryName), abilityDescriptions),
                 isHidden: false,
                 abilityType: 'primary',
               };
@@ -453,7 +464,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
               const updatedAbilityData: Ability = {
                 id: normalizeId(nonFaithfulSecondaryName),
                 name: nonFaithfulSecondaryName,
-                description: '', // Will be filled in later
+                description: getAbilityDescription(normalizeId(nonFaithfulSecondaryName), abilityDescriptions),
                 isHidden: false,
                 abilityType: 'secondary',
               };
@@ -465,7 +476,7 @@ export function extractDetailedStats(): Record<string, DetailedStats> {
               const updatedAbilityData: Ability = {
                 id: normalizeId(nonFaithfulHiddenName),
                 name: nonFaithfulHiddenName,
-                description: '', // Will be filled in later
+                description: getAbilityDescription(normalizeId(nonFaithfulHiddenName), abilityDescriptions),
                 isHidden: true,
                 abilityType: 'hidden',
               };

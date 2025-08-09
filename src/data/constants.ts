@@ -16,6 +16,11 @@ export const KNOWN_FORMS = {
   PALDEAN_WATER: 'paldean_water',
   TAUROS_PALDEAN_FIRE_FORM: 'paldean_fire',
   TAUROS_PALDEAN_WATER_FORM: 'paldean_water',
+  PIKACHU_FLY_FORM: 'flying',
+  PIKACHU_SURF_FORM: 'surfing',
+  PIKACHU_RED_FORM: 'red',
+  PIKACHU_YELLOW_FORM: 'yellow',
+  PIKACHU_SPARK_FORM: 'spark',
   JOHTO_FORM: 'johto',
   KANTO_FORM: 'kanto',
   KOGA_FORM: 'koga',
@@ -51,6 +56,9 @@ export const DEBUG_POKEMON = [
   'Dudunsparce',
   'Feraligatr',
   'Shellder',
+  'Pikachu',
+  'Arbok',
+  'Unown',
 ];
 
 export interface TypeData {

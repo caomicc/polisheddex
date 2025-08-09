@@ -92,6 +92,10 @@ export function extractBasePokemonName(fullName: string): string {
     'PaldeanFire',
     'paldeanwater',
     'PaldeanWater',
+    'Yellow',
+    'Surfing',
+    'Red',
+    'Flying',
   ];
 
   // Check for regional form suffixes with proper word boundaries

@@ -3,6 +3,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { evoMap, formTypeMap, preEvoMap, typeMap } from './src/data/constants.ts';
 import {
+  getVariants,
+  hasVariants,
+  normalizePokemonNameForConstants,
+} from './src/data/pokemonVariants.ts';
+import {
   extractTypeChart,
   mapEncounterRatesToPokemon,
   extractEggMoves,
@@ -517,98 +522,179 @@ function parseMovesetWithFaithfulSupport(lines: string[]): Record<
 // Use the new parsing function
 const movesetData = parseMovesetWithFaithfulSupport(lines);
 
+// Add special Pikachu forms programmatically
+// if (movesetData.pikachu) {
+//   if (!movesetData.pikachu.forms) {
+//     movesetData.pikachu.forms = {};
+//   }
+
+//   // Create flying Pikachu form - same moves as regular Pikachu but can also learn Fly
+//   movesetData.pikachu.forms.flying = {
+//     moves: [...movesetData.pikachu.moves, { name: 'Fly' }],
+//     ...(movesetData.pikachu.faithfulMoves
+//       ? {
+//           faithfulMoves: [...movesetData.pikachu.faithfulMoves, { name: 'Fly' }],
+//         }
+//       : {}),
+//     ...(movesetData.pikachu.updatedMoves
+//       ? {
+//           updatedMoves: [...movesetData.pikachu.updatedMoves, { name: 'Fly' }],
+//         }
+//       : {}),
+//   };
+
+//   // Create surfing Pikachu form - same moves as regular Pikachu but can also learn Surf
+//   movesetData.pikachu.forms.surfing = {
+//     moves: [...movesetData.pikachu.moves, { name: 'Surf' }],
+//     ...(movesetData.pikachu.faithfulMoves
+//       ? {
+//           faithfulMoves: [...movesetData.pikachu.faithfulMoves, { name: 'Surf' }],
+//         }
+//       : {}),
+//     ...(movesetData.pikachu.updatedMoves
+//       ? {
+//           updatedMoves: [...movesetData.pikachu.updatedMoves, { name: 'Surf' }],
+//         }
+//       : {}),
+//   };
+
+//   // Create red Pikachu form - same moves as regular Pikachu
+//   movesetData.pikachu.forms.red = {
+//     moves: [...movesetData.pikachu.moves],
+//     ...(movesetData.pikachu.faithfulMoves
+//       ? {
+//           faithfulMoves: [...movesetData.pikachu.faithfulMoves],
+//         }
+//       : {}),
+//     ...(movesetData.pikachu.updatedMoves
+//       ? {
+//           updatedMoves: [...movesetData.pikachu.updatedMoves],
+//         }
+//       : {}),
+//   };
+//   // Create yellow Pikachu form - same moves as regular Pikachu
+//   movesetData.pikachu.forms.yellow = {
+//     moves: [...movesetData.pikachu.moves],
+//     ...(movesetData.pikachu.faithfulMoves
+//       ? {
+//           faithfulMoves: [...movesetData.pikachu.faithfulMoves],
+//         }
+//       : {}),
+//     ...(movesetData.pikachu.updatedMoves
+//       ? {
+//           updatedMoves: [...movesetData.pikachu.updatedMoves],
+//         }
+//       : {}),
+//   };
+//   // Create spark Pikachu form - same moves as regular Pikachu
+//   movesetData.pikachu.forms.spark = {
+//     moves: [...movesetData.pikachu.moves],
+//     ...(movesetData.pikachu.faithfulMoves
+//       ? {
+//           faithfulMoves: [...movesetData.pikachu.faithfulMoves],
+//         }
+//       : {}),
+//     ...(movesetData.pikachu.updatedMoves
+//       ? {
+//           updatedMoves: [...movesetData.pikachu.updatedMoves],
+//         }
+//       : {}),
+//   };
+//   console.log('✅ Added all Pikachu forms: flying, surfing, red, yellow, spark');
+// }
+
 // Non-recursive function to build the complete evolution chain with methods using custom evolution map
-function buildCompleteEvolutionChainWithMap(
-  startMon: string,
-  customEvoMap: Record<string, EvoRaw[]>,
-): {
-  chain: string[];
-  methodsByPokemon: Record<string, EvolutionMethod[]>;
-} {
-  // This map will keep track of which Pokémon we've already processed
-  const processedMons = new Set<string>();
-  // This map will store evolution methods for each Pokémon in the chain
-  const methodsByPokemon: Record<string, EvolutionMethod[]> = {};
-  // Starting with the requested Pokémon
-  const standardizedStartMon = standardizePokemonKey(startMon);
-  const queue: string[] = [standardizedStartMon];
-  const chain: string[] = [];
+// function buildCompleteEvolutionChainWithMap(
+//   startMon: string,
+//   customEvoMap: Record<string, EvoRaw[]>,
+// ): {
+//   chain: string[];
+//   methodsByPokemon: Record<string, EvolutionMethod[]>;
+// } {
+//   // This map will keep track of which Pokémon we've already processed
+//   const processedMons = new Set<string>();
+//   // This map will store evolution methods for each Pokémon in the chain
+//   const methodsByPokemon: Record<string, EvolutionMethod[]> = {};
+//   // Starting with the requested Pokémon
+//   const standardizedStartMon = standardizePokemonKey(startMon);
+//   const queue: string[] = [standardizedStartMon];
+//   const chain: string[] = [];
 
-  // Also check for form variations of the starting Pokémon
-  // This helps with Pokémon like "GrowlithePlain" vs "Growlithe"
-  for (const key of Object.keys(customEvoMap)) {
-    const standardKey = standardizePokemonKey(key);
-    if (standardKey === standardizedStartMon && key !== startMon) {
-      queue.push(key);
-    }
-  }
+//   // Also check for form variations of the starting Pokémon
+//   // This helps with Pokémon like "GrowlithePlain" vs "Growlithe"
+//   for (const key of Object.keys(customEvoMap)) {
+//     const standardKey = standardizePokemonKey(key);
+//     if (standardKey === standardizedStartMon && key !== startMon) {
+//       queue.push(key);
+//     }
+//   }
 
-  while (queue.length > 0) {
-    const currentMon = queue.shift()!;
-    const standardCurrentMon = standardizePokemonKey(currentMon);
+//   while (queue.length > 0) {
+//     const currentMon = queue.shift()!;
+//     const standardCurrentMon = standardizePokemonKey(currentMon);
 
-    if (processedMons.has(currentMon)) continue;
+//     if (processedMons.has(currentMon)) continue;
 
-    processedMons.add(currentMon);
-    // Add to chain
-    const normalizedCurrentName = normalizePokemonDisplayName(standardCurrentMon);
-    if (!chain.includes(normalizedCurrentName)) {
-      chain.push(normalizedCurrentName);
-    }
+//     processedMons.add(currentMon);
+//     // Add to chain
+//     const normalizedCurrentName = normalizePokemonDisplayName(standardCurrentMon);
+//     if (!chain.includes(normalizedCurrentName)) {
+//       chain.push(normalizedCurrentName);
+//     }
 
-    // Look for evolution data for this Pokémon (check various key formats)
-    for (const [evoKey, evos] of Object.entries(customEvoMap)) {
-      const standardEvoKey = standardizePokemonKey(evoKey);
+//     // Look for evolution data for this Pokémon (check various key formats)
+//     for (const [evoKey, evos] of Object.entries(customEvoMap)) {
+//       const standardEvoKey = standardizePokemonKey(evoKey);
 
-      if (evoKey === currentMon || standardEvoKey === standardCurrentMon) {
-        // Found evolution data for this Pokémon
-        const sourceKey = normalizedCurrentName;
-        if (!methodsByPokemon[sourceKey]) {
-          methodsByPokemon[sourceKey] = [];
-        }
+//       if (evoKey === currentMon || standardEvoKey === standardCurrentMon) {
+//         // Found evolution data for this Pokémon
+//         const sourceKey = normalizedCurrentName;
+//         if (!methodsByPokemon[sourceKey]) {
+//           methodsByPokemon[sourceKey] = [];
+//         }
 
-        // Add all its evolutions to the queue and collect their methods
-        for (const evo of evos) {
-          const targetMon = standardizePokemonKey(evo.target);
-          const normalizedTargetName = normalizePokemonDisplayName(targetMon);
+//         // Add all its evolutions to the queue and collect their methods
+//         for (const evo of evos) {
+//           const targetMon = standardizePokemonKey(evo.target);
+//           const normalizedTargetName = normalizePokemonDisplayName(targetMon);
 
-          // Store evolution method information
-          methodsByPokemon[sourceKey].push({
-            method: evo.method,
-            parameter: evo.parameter,
-            target: normalizedTargetName,
-            ...(evo.form ? { form: evo.form } : {}),
-          });
+//           // Store evolution method information
+//           methodsByPokemon[sourceKey].push({
+//             method: evo.method,
+//             parameter: evo.parameter,
+//             target: normalizedTargetName,
+//             ...(evo.form ? { form: evo.form } : {}),
+//           });
 
-          if (!processedMons.has(normalizedTargetName)) {
-            queue.push(evo.target);
-          }
-        }
-      }
-    }
-  }
+//           if (!processedMons.has(normalizedTargetName)) {
+//             queue.push(evo.target);
+//           }
+//         }
+//       }
+//     }
+//   }
 
-  // Sort the chain to put earliest evolutions first
-  const sortedChain = sortEvolutionChain(chain);
+//   // Sort the chain to put earliest evolutions first
+//   const sortedChain = sortEvolutionChain(chain);
 
-  // Create a new methodsByPokemon object with the sorted Pokémon names
-  const sortedMethodsByPokemon: Record<string, EvolutionMethod[]> = {};
-  for (const pokemon of sortedChain) {
-    sortedMethodsByPokemon[pokemon] = methodsByPokemon[pokemon] || [];
+//   // Create a new methodsByPokemon object with the sorted Pokémon names
+//   const sortedMethodsByPokemon: Record<string, EvolutionMethod[]> = {};
+//   for (const pokemon of sortedChain) {
+//     sortedMethodsByPokemon[pokemon] = methodsByPokemon[pokemon] || [];
 
-    // Also include any form-specific methods for this pokemon
-    for (const [key, methods] of Object.entries(methodsByPokemon)) {
-      if (key.startsWith(pokemon + ' (') && !sortedMethodsByPokemon[key]) {
-        sortedMethodsByPokemon[key] = methods;
-      }
-    }
-  }
+//     // Also include any form-specific methods for this pokemon
+//     for (const [key, methods] of Object.entries(methodsByPokemon)) {
+//       if (key.startsWith(pokemon + ' (') && !sortedMethodsByPokemon[key]) {
+//         sortedMethodsByPokemon[key] = methods;
+//       }
+//     }
+//   }
 
-  return {
-    chain: sortedChain,
-    methodsByPokemon: sortedMethodsByPokemon,
-  };
-}
+//   return {
+//     chain: sortedChain,
+//     methodsByPokemon: sortedMethodsByPokemon,
+//   };
+// }
 
 // Non-recursive function to build the complete evolution chain with methods
 function buildCompleteEvolutionChain(startMon: string): {
@@ -1118,39 +1204,59 @@ for (const mon of Object.keys(movesetData)) {
   // );
 
   // Determine if this is a form and extract the base name and form name
-  let basePokemonName = baseMonName;
-
-  let formName: string | null = null;
+  const formInfo = parseFormFromName(baseMonName);
+  let basePokemonName = formInfo.baseName;
+  let formName = formInfo.formName;
 
   // Get types based on whether this is a base form or a special form
   let faithfulTypes: string[] = ['None'];
   let updatedTypes: string[] = ['None'];
 
-  // This is a base form or plain form - look up directly in typeMap
-  // Convert the URL key to the format used in typeMap (which uses toTitleCase/normalizeString)
+  // Check if this is a form with specific types
+  if (
+    formName &&
+    formTypeMap[toTitleCase(basePokemonName)] &&
+    formTypeMap[toTitleCase(basePokemonName)][formName]
+  ) {
+    // This is a form with specific types - use form-specific types
+    const formTypes = formTypeMap[toTitleCase(basePokemonName)][formName];
+    faithfulTypes = formTypes.types || ['None'];
+    updatedTypes = formTypes.updatedTypes || ['None'];
 
-  // ToDo: review title case conversion
-
-  const typeMapKey = toTitleCase(baseMonName);
-
-  if (isDebug) {
-    console.log(
-      `DEBUG: Else if no forms - use title case ${basePokemonName} (${formName}):`,
-      typeMap[typeMapKey],
-    );
-  }
-
-  if (isDebug) {
-    console.log(`DEBUG: typeMapKey for base form ${baseMonName} (${formName}):`, typeMapKey);
-  }
-  if (typeMap[typeMapKey]) {
-    faithfulTypes = typeMap[typeMapKey].types || ['None'];
-    updatedTypes = typeMap[typeMapKey].updatedTypes || ['None']; // Don't fall back to faithfulTypes
     if (isDebug) {
       console.log(
-        `DEBUG: New types for ${baseMonName} (${formName}):`,
-        `${typeMap[typeMapKey].types} and ${typeMap[typeMapKey].updatedTypes}`,
+        `DEBUG: Using form-specific types for ${basePokemonName} (${formName}):`,
+        `faithful: ${faithfulTypes.join(', ')}, updated: ${updatedTypes.join(', ')}`,
       );
+    }
+  } else {
+    // This is a base form or plain form - look up directly in typeMap
+    // Convert the URL key to the format used in typeMap (which uses toTitleCase/normalizeString)
+
+    // This is a base form or plain form - look up directly in typeMap
+    // Convert the URL key to the format used in typeMap (which uses toTitleCase/normalizeString)
+
+    const typeMapKey = toTitleCase(basePokemonName);
+
+    if (isDebug) {
+      console.log(
+        `DEBUG: Else if no forms - use title case ${basePokemonName} (${formName}):`,
+        typeMap[typeMapKey],
+      );
+    }
+
+    if (isDebug) {
+      console.log(`DEBUG: typeMapKey for base form ${basePokemonName} (${formName}):`, typeMapKey);
+    }
+    if (typeMap[typeMapKey]) {
+      faithfulTypes = typeMap[typeMapKey].types || ['None'];
+      updatedTypes = typeMap[typeMapKey].updatedTypes || ['None']; // Don't fall back to faithfulTypes
+      if (isDebug) {
+        console.log(
+          `DEBUG: New types for ${basePokemonName} (${formName}):`,
+          `${typeMap[typeMapKey].types} and ${typeMap[typeMapKey].updatedTypes}`,
+        );
+      }
     }
   }
 
@@ -1243,8 +1349,9 @@ for (const mon of Object.keys(movesetData)) {
       ? { updatedTypes: fixTypeField(updatedTypesFormatted as string | string[]) }
       : {}),
   };
-  finalResult[mon] = fixedFinalResult;
 
+  // this does not include form data
+  finalResult[mon] = fixedFinalResult;
   console.log(`DEBUG: Final Pokémon data for ${mon}:`, finalResult[mon]);
 }
 
@@ -1314,6 +1421,16 @@ for (const [pokemonName, detailedStats] of Object.entries(detailedStatsData)) {
   } else {
     console.warn(`⚠️ Could not find matching Pokemon for detailed stats: ${pokemonName}`);
   }
+}
+
+// Add forms data to finalResult for Pokemon that have forms
+for (const [pokemonKey, pokemonData] of Object.entries(finalResult)) {
+  const normalizedConstantName = normalizePokemonNameForConstants(pokemonKey);
+  let formsArray: string[] = [];
+
+  formsArray = [...getVariants(normalizedConstantName)];
+
+  (finalResult[pokemonKey] as any).forms = formsArray;
 }
 
 // --- Wild Pokémon Location Extraction ---
@@ -1628,16 +1745,24 @@ const levelMovesOutput: Record<
 > = {};
 
 for (const [pokemonKey, pokemonData] of Object.entries(finalResult)) {
-  // Check if this Pokemon has forms in the moveset data
-  const movesetFormsData = movesetData[pokemonKey]?.forms;
+  // Use constants to determine forms instead of relying on moveset data
+  const normalizedConstantName = normalizePokemonNameForConstants(pokemonKey);
   let formsArray: string[] = [];
 
-  if (movesetFormsData) {
-    formsArray = Object.keys(movesetFormsData);
-    if (formsArray.length > 0 && !formsArray.includes('plain')) {
-      formsArray.push('plain');
-    }
-  }
+  // if (hasVariants(normalizedConstantName)) {
+  formsArray = [...getVariants(normalizedConstantName)];
+  // } else {
+  //   // Fallback: check if this Pokemon has forms in the moveset data
+  //   const movesetFormsData = movesetData[pokemonKey]?.forms;
+  //   if (movesetFormsData && Object.keys(movesetFormsData).length > 0) {
+  //     formsArray = Object.keys(movesetFormsData);
+  //     if (!formsArray.includes('plain')) {
+  //       formsArray.push('plain');
+  //     }
+  //   }
+  // }
+
+  console.log(`Forms for ${pokemonKey} (${normalizedConstantName}):`, formsArray);
 
   // Base data (stats, types, dex numbers)
   baseDataOutput[pokemonKey] = {
@@ -1653,7 +1778,8 @@ for (const [pokemonKey, pokemonData] of Object.entries(finalResult)) {
   // Evolution data
   evolutionDataOutput[pokemonKey] = pokemonData.evolution;
 
-  // Level moves data
+  // Level moves data - get moveset forms data for level moves output
+  const movesetFormsData = movesetData[pokemonKey]?.forms;
   levelMovesOutput[pokemonKey] = {
     moves: pokemonData.moves,
     ...(pokemonData.faithfulMoves ? { faithfulMoves: pokemonData.faithfulMoves } : {}),
@@ -1693,7 +1819,6 @@ function buildCompleteEvolutionFamily(
   methodsByPokemon: Record<string, EvolutionMethod[]>;
 } {
   const standardizedTargetMon = standardizePokemonKey(targetMon);
-  const normalizedTargetName = normalizePokemonDisplayName(standardizedTargetMon);
 
   // Find all Pokemon in the evolution family
   const familyMembers = new Set<string>();

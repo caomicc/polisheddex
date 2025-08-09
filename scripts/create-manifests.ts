@@ -278,9 +278,15 @@ async function createPokemonManifest(): Promise<void> {
     const jsonFiles = files.filter((file) => file.endsWith('.json') && file !== '_index.json');
 
     // Read sprite manifest for dimensions and URLs
-    const spriteManifestPath = path.join(process.cwd(), 'public', 'sprites', 'pokemon', 'manifest.json');
+    const spriteManifestPath = path.join(
+      process.cwd(),
+      'public',
+      'sprites',
+      'pokemon',
+      'manifest.json',
+    );
     let spriteManifest: Record<string, { normal: string | null; shiny: string | null }> = {};
-    
+
     try {
       spriteManifest = JSON.parse(await fs.readFile(spriteManifestPath, 'utf8'));
     } catch (error) {
@@ -290,6 +296,7 @@ async function createPokemonManifest(): Promise<void> {
     for (const file of jsonFiles) {
       try {
         const filePath = path.join(pokemonDir, file);
+        console.log(`Processing file: ${filePath}`);
         const pokemonData = JSON.parse(await fs.readFile(filePath, 'utf8'));
 
         if (!pokemonData.name || !pokemonData.nationalDex) continue;
@@ -298,8 +305,9 @@ async function createPokemonManifest(): Promise<void> {
 
         if (!seenPokemon.has(pokemonId)) {
           // Get sprite URL - prefer from manifest, fallback to frontSpriteUrl
-          let spriteUrl = pokemonData.frontSpriteUrl || `/sprites/pokemon/${pokemonId}/front_cropped.png`;
-          
+          let spriteUrl =
+            pokemonData.frontSpriteUrl || `/sprites/pokemon/${pokemonId}/front_cropped.png`;
+
           // Check if sprite exists in manifest
           if (spriteManifest[pokemonId]?.normal) {
             spriteUrl = `/${spriteManifest[pokemonId].normal}`;
@@ -310,22 +318,22 @@ async function createPokemonManifest(): Promise<void> {
           let polishedTypes: string[] = [];
 
           if (pokemonData.detailedStats?.types) {
-            faithfulTypes = Array.isArray(pokemonData.detailedStats.types) 
-              ? pokemonData.detailedStats.types 
+            faithfulTypes = Array.isArray(pokemonData.detailedStats.types)
+              ? pokemonData.detailedStats.types
               : [pokemonData.detailedStats.types];
           } else if (pokemonData.types) {
-            faithfulTypes = Array.isArray(pokemonData.types) 
-              ? pokemonData.types 
+            faithfulTypes = Array.isArray(pokemonData.types)
+              ? pokemonData.types
               : [pokemonData.types];
           }
 
           if (pokemonData.detailedStats?.updatedTypes) {
-            polishedTypes = Array.isArray(pokemonData.detailedStats.updatedTypes) 
-              ? pokemonData.detailedStats.updatedTypes 
+            polishedTypes = Array.isArray(pokemonData.detailedStats.updatedTypes)
+              ? pokemonData.detailedStats.updatedTypes
               : [pokemonData.detailedStats.updatedTypes];
           } else if (pokemonData.updatedTypes) {
-            polishedTypes = Array.isArray(pokemonData.updatedTypes) 
-              ? pokemonData.updatedTypes 
+            polishedTypes = Array.isArray(pokemonData.updatedTypes)
+              ? pokemonData.updatedTypes
               : [pokemonData.updatedTypes];
           } else {
             // If no updated types, use the same as faithful
@@ -334,15 +342,20 @@ async function createPokemonManifest(): Promise<void> {
 
           // Determine forms - check if this pokemon has form variations
           const forms: string[] = [];
-          
+
+          console.log(
+            `Checking forms for ${pokemonData.name} (${pokemonId})...`,
+            pokemonData.forms,
+          );
+
           // Check for forms in evolution data or other indicators
           if (pokemonData.forms) {
             forms.push(...Object.keys(pokemonData.forms));
           }
-          
+
           // Check sprite manifest for form variations
           const baseNamePattern = new RegExp(`^${pokemonId}(_.*)?$`);
-          Object.keys(spriteManifest).forEach(key => {
+          Object.keys(spriteManifest).forEach((key) => {
             if (baseNamePattern.test(key) && key !== pokemonId) {
               const formName = key.replace(`${pokemonId}_`, '');
               if (!forms.includes(formName)) {
@@ -353,7 +366,7 @@ async function createPokemonManifest(): Promise<void> {
 
           // If no forms found, add 'normal' as default
           if (forms.length === 0) {
-            forms.push('normal');
+            forms.push('plain');
           }
 
           pokemon[pokemonId] = {
@@ -380,14 +393,9 @@ async function createPokemonManifest(): Promise<void> {
     await fs.mkdir(manifestsDir, { recursive: true });
 
     // Write pokemon manifest
-    await fs.writeFile(
-      path.join(manifestsDir, 'pokemon.json'),
-      JSON.stringify(pokemon, null, 2),
-    );
+    await fs.writeFile(path.join(manifestsDir, 'pokemon.json'), JSON.stringify(pokemon, null, 2));
 
-    console.log(
-      `Created pokemon manifest with ${Object.keys(pokemon).length} unique pokemon`,
-    );
+    console.log(`Created pokemon manifest with ${Object.keys(pokemon).length} unique pokemon`);
   } catch (error) {
     console.error('Error creating pokemon manifest:', error);
   }

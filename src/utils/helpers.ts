@@ -365,7 +365,7 @@ export function validatePokemonKeys<T>(jsonData: Record<string, T>): Record<stri
     validatedData[trimmedKey] = value;
   }
 
-  console.log('Validated Pokemon keys to remove trailing spaces');
+  // console.log('Validated Pokemon keys to remove trailing spaces');
   return validatedData;
 }
 
@@ -435,6 +435,10 @@ export function parseFormName(pokemonName: string): { baseName: string; formName
     { suffix: 'paldean_water', form: 'paldean_water' },
     { suffix: 'paldean-fire', form: 'paldean_fire' },
     { suffix: 'paldean-water', form: 'paldean_water' },
+    { suffix: 'flying', form: 'flying' },
+    { suffix: 'surfing', form: 'surfing' },
+    { suffix: 'Flying', form: 'flying' },
+    { suffix: 'Surfing', form: 'surfing' },
   ];
 
   // Handle special hyphenated Pokémon first

@@ -35,13 +35,18 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
   const forms = pokemonData.forms ? Object.keys(pokemonData.forms) : [];
   const allFormData: Record<string, FormData> = {};
 
-  // Default form
+  // Default form - check if forms exist and use the first one, otherwise use root data
+  const defaultFormData =
+    pokemonData.forms && Object.keys(pokemonData.forms).length > 0
+      ? pokemonData.forms[Object.keys(pokemonData.forms)[0]]
+      : pokemonData;
+
   allFormData['default'] = {
     ...pokemonData,
     ...(pokemonData.detailedStats || {}),
-    moves: pokemonData.levelMoves || [],
-    faithfulMoves: pokemonData.faithfulLevelMoves || [],
-    updatedMoves: pokemonData.updatedLevelMoves || [],
+    moves: defaultFormData.moves || [],
+    faithfulMoves: defaultFormData.faithfulMoves || [],
+    updatedMoves: defaultFormData.updatedMoves || [],
     tmHmLearnset: pokemonData.tmHmMoves || [],
     locations: pokemonData.locations || [],
     eggMoves: pokemonData.eggMoves || [],
@@ -83,13 +88,13 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
           {
             ...formValue,
             ...(formValue.detailedStats || {}),
-            moves: formValue.levelMoves || [],
-            faithfulMoves: formValue.faithfulLevelMoves || pokemonData.faithfulLevelMoves || [],
-            updatedMoves: formValue.updatedLevelMoves || pokemonData.updatedLevelMoves || [],
-            levelMoves: formValue.levelMoves || [],
-            tmHmLearnset: formValue.tmHmMoves || pokemonData.tmHmMoves || [],
-            locations: formLocationData || formValue.locations || pokemonData.locations || [],
-            eggMoves: formValue.eggMoves || pokemonData.eggMoves || [],
+            moves: formValue.moves || [],
+            faithfulMoves: formValue.faithfulMoves || [],
+            updatedMoves: formValue.updatedMoves || [],
+            levelMoves: formValue.moves || [],
+            tmHmLearnset: formValue.tmHmMoves || [],
+            locations: formLocationData || formValue.locations || [],
+            eggMoves: formValue.eggMoves || [],
             evolution: formValue.evolution || pokemonData.evolution || null,
             nationalDex: formValue.nationalDex || pokemonData.nationalDex || null,
             frontSpriteUrl: formValue.frontSpriteUrl,
@@ -135,19 +140,25 @@ export default async function PokemonDetail({ params }: { params: Promise<{ name
             evYield:
               formValue.detailedStats?.evYield ?? pokemonData.detailedStats?.evYield ?? 'None',
             abilities:
-              formValue.detailedStats?.abilities && formValue.detailedStats.abilities.length > 0
-                ? formValue.detailedStats.abilities
-                : (pokemonData.detailedStats?.abilities ?? []),
+              formValue.abilities && formValue.abilities.length > 0
+                ? formValue.abilities
+                : formValue.detailedStats?.abilities && formValue.detailedStats.abilities.length > 0
+                  ? formValue.detailedStats.abilities
+                  : (pokemonData.detailedStats?.abilities ?? []),
             faithfulAbilities:
-              formValue.detailedStats?.faithfulAbilities &&
-              formValue.detailedStats.faithfulAbilities.length > 0
-                ? formValue.detailedStats.faithfulAbilities
-                : (pokemonData.detailedStats?.faithfulAbilities ?? []),
+              formValue.faithfulAbilities && formValue.faithfulAbilities.length > 0
+                ? formValue.faithfulAbilities
+                : formValue.detailedStats?.faithfulAbilities &&
+                    formValue.detailedStats.faithfulAbilities.length > 0
+                  ? formValue.detailedStats.faithfulAbilities
+                  : (pokemonData.detailedStats?.faithfulAbilities ?? []),
             updatedAbilities:
-              formValue.detailedStats?.updatedAbilities &&
-              formValue.detailedStats.updatedAbilities.length > 0
-                ? formValue.detailedStats.updatedAbilities
-                : (pokemonData.detailedStats?.updatedAbilities ?? []),
+              formValue.updatedAbilities && formValue.updatedAbilities.length > 0
+                ? formValue.updatedAbilities
+                : formValue.detailedStats?.updatedAbilities &&
+                    formValue.detailedStats.updatedAbilities.length > 0
+                  ? formValue.detailedStats.updatedAbilities
+                  : (pokemonData.detailedStats?.updatedAbilities ?? []),
           },
         ];
       }),
