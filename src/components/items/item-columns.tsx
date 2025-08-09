@@ -35,7 +35,7 @@ export const itemColumns: ColumnDef<AnyItemData>[] = [
         <div className="flex items-center space-x-2 min-w-0">
           <Link
             href={`/items/${encodeURIComponent(item.id)}`}
-            className="hover:text-blue-600 hover:underline truncate"
+            className="hover:text-blue-600 hover:underline truncate flex items-center gap-1"
           >
             {item.name}
             <ExternalLink className="h-3 w-3 text-gray-400 flex-shrink-0" />
